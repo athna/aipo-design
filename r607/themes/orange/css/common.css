@@ -581,6 +581,7 @@ table.roundBlockWrapperTop td.endcap {
 }
 .tabContainer li a.menuList {
 	white-space:nowrap;
+	text-decoration:none;
 }
 .tabContainer li.selectedMenu a.menuList {
 	white-space:nowrap;
@@ -3865,6 +3866,9 @@ table.auiCalendar td:hover {
 }
 
 /* auiSubmenu ********************/
+.auiSubmenu {
+	padding-right:5px;
+}
 .auiSubmenu li {
 	padding:0;
 	background:none;
@@ -3881,8 +3885,6 @@ table.auiCalendar td:hover {
 	padding:0.3em 0 0.3em 18px;
 	text-decoration:none;
 	background:url("../images/common/li_icon.gif") no-repeat scroll 5px 1em;
-	white-space:nowrap;
-	overflow:hidden;
 }
 .auiSubmenu li a:hover {
 	color:#000;
@@ -3903,6 +3905,106 @@ table.auiCalendar td:hover {
 }
 
 
+/* auiIcon ********************/
+/*
+auiIconは「class="auiIcon auiIconSetting"」と
+ベースクラスとサブクラスを同時に付与させること。
+
+基本形（リンク版）：<a href="#" class="auiIcon auiIconSetting"><span>設定</span></a>
+基本形（span版）：<span class="auiIcon auiIconSetting"><span>設定</span></span>
+
+auiIconでアイコンの形状全てを一元管理し
+サブクラスはあくまで背景位置の変更のみを行う。
+
+IE6は透過PNGが利用できないため透過GIFへ置き換えている。
+そのためバリを表示させないためhoverアクションを封じる。
+*/
+.auiIcon {
+	display:block;
+	display:inline-block;
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	border-radius:2px;
+	vertical-align:text-bottom;
+	background:url(../images/icon/auiIconSprites.png) no-repeat;
+}
+*html .auiIcon {background:url(../images/icon/auiIconSprites.gif) no-repeat;}
+.auiIcon span {display:none;}
+
+a.auiIcon:hover {background-color:#999;}
+*html a.auiIcon:hover {background-color:transparent;}/*IE6*/
+
+.auiIconSetting {background-position:0px 0px;}
+a.auiIconSetting:hover {background-position:0px -16px;}
+*html .auiIconSetting {background-position:0px 0px;}/*IE6*/
+*html a.auiIconSetting:hover {background-position:0px 0px;}/*IE6*/
+
+.auiIconFile {background-position:0px -32px;}
+a.auiIconFile:hover {background-position:0px -48px;}
+*html .auiIconFile {background-position:0px -32px;}/*IE6*/
+*html a.auiIconFile:hover {background-position:0px -32px;}/*IE6*/
+
+.auiIconUser {background-position:0px -64px;}
+a.auiIconUser:hover {background-position:0px -80px;}
+*html .auiIconUser {background-position:0px -64px;}/*IE6*/
+*html a.auiIconUser:hover {background-position:0px -64px;}/*IE6*/
+
+.auiIconCreate {background-position:0px -96px;}
+a.auiIconCreate:hover {background-position:0px -112px;}
+*html .auiIconCreate {background-position:0px -96px;}/*IE6*/
+*html a.auiIconCreate:hover {background-position:0px -96px;}/*IE6*/
+
+.auiIconClock {background-position:0px -128px;}
+a.auiIconClock:hover {background-position:0px -144px;}
+*html .auiIconClock {background-position:0px -128px;}/*IE6*/
+*html a.auiIconClock:hover {background-position:0px -128px;}/*IE6*/
+
+.auiIconCalendar {background-position:0px -160px;}
+a.auiIconCalendar:hover {background-position:0px -176px;}
+*html .auiIconCalendar {background-position:0px -160px;}/*IE6*/
+*html a.auiIconCalendar:hover {background-position:0px -160px;}/*IE6*/
+
+.auiIconLock {background-position:0px -192px;}
+a.auiIconLock:hover {background-position:0px -208px;}
+*html .auiIconLock {background-position:0px -192px;}/*IE6*/
+*html a.auiIconLock:hover {background-position:0px -192px;}/*IE6*/
+
+.auiIconDelete {background-position:0px -272px;}
+a.auiIconDelete:hover {background-position:0px -288px;}
+*html .auiIconDelete {background-position:0px -272px;}/*IE6*/
+*html a.auiIconDelete:hover {background-position:0px -272px;}/*IE6*/
+
+.auiIconArwLeft {background-position:0px -368px;}
+a.auiIconArwLeft:hover {background-position:0px -384px;}
+*html .auiIconArwLeft {background-position:0px -368px;}/*IE6*/
+*html a.auiIconArwLeft:hover {background-position:0px -368px;}/*IE6*/
+
+.auiIconArwRight {background-position:0px -400px;}
+a.auiIconArwRight:hover {background-position:0px -416px;}
+*html .auiIconArwRight {background-position:0px -400px;}/*IE6*/
+*html a.auiIconArwRight:hover {background-position:0px -400px;}/*IE6*/
+
+.auiIconArwBottom {background-position:0px -432px;}
+a.auiIconArwBottom:hover {background-position:0px -448px;}
+*html .auiIconArwBottom {background-position:0px -432px;}/*IE6*/
+*html a.auiIconArwBottom:hover {background-position:0px -432px;}/*IE6*/
+
+.auiIconArwTop {background-position:0px -464px;}
+a.auiIconArwTop:hover {background-position:0px -480px;}
+*html .auiIconArwTop {background-position:0px -464px;}/*IE6*/
+*html a.auiIconArwTop:hover {background-position:0px -464px;}/*IE6*/
+
+.auiIconImage {background-position:0px -496px;}
+a.auiIconImage:hover {background-position:0px -512px;}
+*html .auiIconImage {background-position:0px -496px;}/*IE6*/
+*html a.auiIconImage:hover {background-position:0px -496px;}/*IE6*/
+
+.auiIconUsers {background-position:0px -528px;}
+a.auiIconUsers:hover {background-position:0px -544px;}
+*html .auiIconUsers {background-position:0px -528px;}/*IE6*/
+*html a.auiIconUsers:hover {background-position:0px -528px;}/*IE6*/
+
 /* auiAbsLayer ********************/
 .auiAbsLayer {
 	position:absolute;
@@ -3913,4 +4015,9 @@ table.auiCalendar td:hover {
 }
 .auiAbsLayer:hover {
 	border:solid 1px #999;
+}
+
+/* auiNoData ********************/
+.auiNoData {
+	text-align:center;
 }

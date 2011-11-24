@@ -3023,6 +3023,7 @@ float:left;
 --------------------------------------------------*/
 /* auiSelectButton ********************/
 .auiSelectButton {
+	padding-right:1px;
 	background:#FFF;
 }
 .auiSelectButton ul {
@@ -3030,7 +3031,7 @@ float:left;
 	padding:0;
 }
 .auiSelectButton li,
-.auiSelectButton>div {
+.auiSelectButton div {
 	height:24px;
 	overflow:hidden;
 	float:left;
@@ -3268,8 +3269,8 @@ float:left;
 	background: -moz-linear-gradient(top, #fff, #f0f0f0);/*Fx*/
 }
 .auiButton {
-	line-height:2em;
-	height:2em;
+	line-height:1.85em;
+	height:1.85em;
 	padding:0 0.7em;
 }
 .auiButtonSmall {
@@ -3288,9 +3289,12 @@ input[type='reset'].auiButtonSmall {
 	padding:0 0.7em;
 	>padding:0 0.22em;/*IE*/
 }
-button.auiButton,
-button.auiButtonSmall {
+button.auiButton {
 	line-height:1.8em;
+	padding:0 0.55em;
+	>padding:0 0.15em;/*IE*/
+}
+button.auiButtonSmall {
 	padding:0 0.55em;
 	>padding:0 0.15em;/*IE*/
 }
@@ -3316,20 +3320,22 @@ input.auiButton {
 }
 .auiButton span {
 	display:table-cell;
-	*display:block;/*IE*/
-	height:2em;
-	line-height:2em;
+	>display:block;
+	height:1.85em;
+	line-height:1.85em;
 	text-align:center;
 	vertical-align:middle;
 }
 .auiButtonSmall span {
 	display:table-cell;
-	*display:block;/*IE*/
+	>display:block;
 	text-align:center;
 	vertical-align:middle;
 }
 .auiButton img,
 .auiButtonSmall img {
+	>padding:2px 0;
+	display:inline;
 	vertical-align:middle;
 }
 
@@ -3507,6 +3513,7 @@ button.auiButtonSearch {
 .auiSearchResult {
 	clear:both;
 	font-weight:bold;
+	line-height:2em;
 }
 
 /* auiSummaryMeta ********************/
@@ -3689,9 +3696,6 @@ table.auiCalendar th {
 table.auiCalendar th div {
 	line-height:24px;
 }
-table.auiCalendar .thisweek td {
-	background:#f0f0f0;
-}
 table.auiCalendar td {
 	text-align:center;
 }
@@ -3714,9 +3718,11 @@ table.auiCalendar .out a {
 	color:#999;
 }
 table.auiCalendar .today a {
+	background:#e0ffe0;
+}
+table.auiCalendar .selected a {
 	padding:0;
 	border:solid 1px #000;
-	background:#e0ffe0;
 }
 table.auiCalendar td:hover {
 	background:#ffffe0;

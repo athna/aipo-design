@@ -3029,7 +3029,8 @@ float:left;
 	margin:0;
 	padding:0;
 }
-.auiSelectButton li {
+.auiSelectButton li,
+.auiSelectButton>div {
 	height:24px;
 	overflow:hidden;
 	float:left;
@@ -3157,7 +3158,7 @@ float:left;
 	background:url(../images/common/bg_auiselectbutton.gif) right -168px no-repeat !important;
 }
 .auiSelectButton .arrow {
-	width:30px;
+	width:25px;
 }
 
 /* Widgets Area ********************/
@@ -3253,9 +3254,6 @@ float:left;
 .auiButton,
 .auiButtonSmall {
 	display:inline-block;
-	line-height:2em;
-	height:2em;
-	padding:0 0.7em;
 	color:#000;
 	text-decoration:none;
 	text-align:center;
@@ -3268,6 +3266,16 @@ float:left;
 	>background:#f0f0f0 url(../images/common/auibutton_back.gif) left top repeat-x;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f0f0f0));/*Ch*/
 	background: -moz-linear-gradient(top, #fff, #f0f0f0);/*Fx*/
+}
+.auiButton {
+	line-height:2em;
+	height:2em;
+	padding:0 0.7em;
+}
+.auiButtonSmall {
+	padding:0 5px;
+	font-size:8pt;
+	white-space:nowrap;
 }
 input[type='submit'].auiButton,
 input[type='submit'].auiButtonSmall,
@@ -3306,21 +3314,19 @@ button.auiButtonSmall {
 input.auiButton {
 	padding:0 0.4em;
 }
-.auiButtonSmall {
-	padding:0 0.5em;
-	font-size:8pt;
-	white-space:nowrap;
-}
-.auiButton span,
-.auiButtonSmall span {
+.auiButton span {
 	display:table-cell;
 	*display:block;/*IE*/
-	width:18px;
 	height:2em;
 	line-height:2em;
 	text-align:center;
 	vertical-align:middle;
-	layout-grid-line:2em;/*IE*/
+}
+.auiButtonSmall span {
+	display:table-cell;
+	*display:block;/*IE*/
+	text-align:center;
+	vertical-align:middle;
 }
 .auiButton img,
 .auiButtonSmall img {
@@ -3568,6 +3574,7 @@ table.auiRowTable div {
 	width:100%;
 	height:1.6em;
 	line-height:1.6em;
+	min-height:18px;
 	overflow:hidden;
 }
 table.auiRowTable tr.even {
@@ -3672,13 +3679,18 @@ table.auiRowTable tr:hover td {
 
 /* auiCalendar ********************/
 table.auiCalendar {
+	width:100%;
+	border-collapse:collapse;
 }
 table.auiCalendar th {
 	font-weight:normal;
-	text-align:center;
+	padding-bottom:2px;
 }
 table.auiCalendar th div {
 	line-height:24px;
+}
+table.auiCalendar .thisweek td {
+	background:#f0f0f0;
 }
 table.auiCalendar td {
 	text-align:center;
@@ -3693,6 +3705,7 @@ table.auiCalendar .saturday {
 	background:#f0ffff;
 }
 table.auiCalendar td a {
+	padding:1px;
 	display:block;
 	color:#000;
 	text-decoration:none;
@@ -3700,13 +3713,14 @@ table.auiCalendar td a {
 table.auiCalendar .out a {
 	color:#999;
 }
-table.auiCalendar .today {
+table.auiCalendar .today a {
+	padding:0;
+	border:solid 1px #000;
 	background:#e0ffe0;
 }
 table.auiCalendar td:hover {
 	background:#ffffe0;
 }
-
 
 /* auiAvatarBlock ********************/
 .auiAvatarBlock {

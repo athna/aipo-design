@@ -10,7 +10,6 @@
     <meta http-equiv="Content-Style-Type" content="text/css"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1"/>
     <meta name="robots" content="noindex,follow"/>
     <link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico"/>
     <link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico"/>
@@ -113,7 +112,6 @@
 
 <!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
 
-
 <table class="tableWrapper">
   <tbody>
     <tr>
@@ -173,7 +171,18 @@
 <div id="auiWideArea"><div id="auiWideAreaInner">
 
 <div class="auiSummaryMeta clearfix">
+	<div class="floatLeft">
 	<a href="#" class="auiButtonAction">ユーザーを追加する</a>
+	<a href="#" class="auiButtonAction">ユーザーを招待する</a>
+	</div>
+	<div class="floatRight auiDropDown clearfix">
+		<a href="#" class="auiButtonBold" onClick="if(document.getElementById('dd_account_mng').style.display=='block'){document.getElementById('dd_account_mng').style.display='none'}else{document.getElementById('dd_account_mng').style.display='block'};"><span class="auiIcon auiIconSetting"></span> 設定</a>
+		<ul style="width:16em;right:0;display:none;" id="dd_account_mng">
+			<li><a href="#">ユーザーの順番を変更する</a></li>
+			<li><a href="#">ユーザーをCSVでインポートする</a></li>
+			<li><a href="#">ユーザーを招待する</a></li>
+		</ul>
+	</div>
 </div>
 
 <div class="auiSummaryMeta clearfix">
@@ -195,16 +204,15 @@
 		<a href="#" class="auiButton">削除する</a>
 		<a href="#" class="auiButton">有効にする</a>
 		<a href="#" class="auiButton">無効にする</a>
-		<a href="#" class="auiButton">ユーザーの順番を変更する</a>
 	</div>
 	<div class="floatRight">
 		<div class="count">1 ～ 20 件 / 計 72 件</div>
 		<div class="auiSelectButton floatLeft">
 		<ul class="floatLeft">
-		<li title="前へ">
-		<a href="#" title="前へ" class="first arrow" style="width:30px"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
+		<li>
+		<a href="#" title="前へ" class="first arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
 		</li>
-		<li title="次へ" style="margin-right:5px;">
+		<li>
 		<a href="#" title="次へ" class="last arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_r.gif" alt="次の20件"></span></a>
 		</li>
 		</ul>
@@ -219,13 +227,15 @@
 
 <table class="auiRowTable wide">
 
-<colgroup style="width:20px;" />
-<colgroup style="width:3em;" />
-<colgroup style="width:4.5em;" />
-<colgroup style="" />
-<colgroup style="width:8em;" />
-<colgroup style="width:10em;" />
-<colgroup style="width:10em;" />
+<colgroup>
+	<col class="wCheckbox" />
+	<col style="width:3em;" />
+	<col style="width:4.5em;" />
+	<col class="w40" />
+	<col class="w40" />
+	<col class="wPosition" />
+	<col class="wPosition" />
+</colgroup>
 
 <tbody>
 <tr>
@@ -446,16 +456,15 @@
 		<a href="#" class="auiButton">削除する</a>
 		<a href="#" class="auiButton">有効にする</a>
 		<a href="#" class="auiButton">無効にする</a>
-		<a href="#" class="auiButton">ユーザーの順番を変更する</a>
 	</div>
 	<div class="floatRight">
 		<div class="count">1 ～ 20 件 / 計 72 件</div>
 		<div class="auiSelectButton floatLeft">
 		<ul class="floatLeft">
-		<li title="前へ">
-		<a href="#" title="前へ" class="first arrow" style="width:30px"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
+		<li>
+		<a href="#" title="前へ" class="first arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
 		</li>
-		<li title="次へ" style="margin-right:5px;">
+		<li>
 		<a href="#" title="次へ" class="last arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_r.gif" alt="次の20件"></span></a>
 		</li>
 		</ul>

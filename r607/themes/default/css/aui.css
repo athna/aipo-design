@@ -1,3 +1,26 @@
+* {
+	font-family:'ƒƒCƒŠƒI', Meiryo, Verdana, sans-serif;
+}
+html, body {
+	margin:0;
+	padding:0;
+	font-size:100%;
+}
+body {
+	width:100%;
+	padding:0;
+	margin:0;
+	font-size:.75em;
+	background:#eee url(../images/body.png) left top repeat-x;
+	line-height:1.4;
+}
+* html body {
+	font-size:.8em;
+}
+*+html body {
+	font-size:.75em;
+}
+
 /***************************************************
 	auiHeader
 --------------------------------------------------*/
@@ -5,7 +28,6 @@
 	padding-top:5px;
 	height:35px;
 	/*background:url(../images/head_bg.png) repeat-x left bottom; **reserved**/
-	background:#fff;
 	overflow:hidden;
 }
 #header .inner {
@@ -31,10 +53,6 @@
 	background:#ddd;
 }
 .hdLogo {
-	padding-left:0;
-}
-.hdLogo a {
-	display:block;
 	padding:3px 0 0 0;
 }
 .hdLogo a:hover img {
@@ -118,7 +136,7 @@ form.searchbox input.submit:active {
 	margin-top:5px;
 }
 .activitychecker-right {
-	float:right;
+	float:left;
 	display:block;
 	height:12px;
 	background:url(../images/icon/activitychecker.png) bottom right no-repeat;
@@ -228,6 +246,23 @@ table.activityTable tr.unread td {
 	margin:0;
 	font-size:10px;
 }
+
+/***************************************************
+	footer
+--------------------------------------------------*/
+#footer {
+	padding:20px 0 0;
+	margin:0;
+	border-top:solid 1px #ccc;
+	text-shadow:0 1px 0 rgba(255,255,255,1);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,0.1);
+}
+.copyright {
+	text-align:center;
+	padding:0;
+	margin:0;
+}
+
 /***************************************************
 	auiTabs
 --------------------------------------------------*/
@@ -353,8 +388,8 @@ table.activityTable tr.unread td {
 }
 
 /***************************************************
-	MainTab
---------------------------------------------------*/
+	MainTab - NO USE - Delete Reserved
+--------------------------------------------------
 #mainTab {
 	white-space:nowrap;
 	height:25px;
@@ -372,8 +407,6 @@ table.activityTable tr.unread td {
 	white-space:nowrap;
 }
 .tabContainer li {
-	/*position:absolute;
-	margin-right:-20px;*/
 	display:block;
 	float:left;
 	height:25px;
@@ -382,7 +415,6 @@ table.activityTable tr.unread td {
 	background:url(../images/tab.png) right -75px no-repeat;
 }
 .tabContainer .menuTitle {
-	/*width:80px;*/
 	height:25px;
 	line-height:25px;
 	background:url(../images/tab.png) left -50px no-repeat;
@@ -440,10 +472,78 @@ table.activityTable tr.unread td {
 	padding:3px 0 8px;
 	font-size:10px;
 	text-align:center;
-}
+}*/
 
 /***************************************************
-	AUI Generic Class
+	auiLogin
+--------------------------------------------------*/
+#auiLogin #footer {
+	border-top:none;
+	box-shadow:none;
+}
+#auiLoginBox {
+	width:480px;
+	margin:85px auto 0 auto;
+	padding-bottom:35px;
+	background:url(../images/login_foot.png) left bottom no-repeat;
+}
+#auiLoginInner {
+	padding:15px 50px;
+	background:url(../images/lobin_body.png) no-repeat;
+}
+#auiLoginBox .logo {
+	text-align:center;
+	margin-bottom:50px;
+}
+#auiLoginBox .field {
+	position:relative;
+	margin-bottom:15px;
+}
+#auiLoginBox .guide {
+	position:absolute;
+	line-height:1em;
+	margin:1em 0;
+	top:0;
+	left:5px;
+	color:#999;
+}
+#auiLoginBox input.text {
+	width:100%;
+	height:3em;
+	line-height:3em;
+	ime-mode:disable;
+}
+#auiLoginBox select {
+	height:3em;
+	line-height:3em;
+	margin:0;
+}
+#auiLoginBox select.select1 {
+	float:left;
+	width:40%;
+}
+#auiLoginBox select.select2 {
+	float:right;
+	width:58%;
+}
+#auiLoginBox input.button {
+	width:150px;
+	height:43px;
+	color:#fff;
+	font-size:1.2em;
+	text-shadow:0 1px 0 rgba(0,0,0,0.2);
+	border:none;
+	background:url(../images/login_btn_back.png) 0px 0px no-repeat;
+}
+#auiLoginBox input.button:hover {
+	box-shadow:none;
+	background:url(../images/login_btn_back.png) 0px -50px no-repeat;
+}
+#auiLoginBox input.button:active {
+	background:url(../images/login_btn_back.png) 0px -100px no-repeat;
+}
+/***************************************************
+	AUI Generic Class - Undermost
 --------------------------------------------------*/
 /* auiSelectButton ********************/
 .auiSelectButton {
@@ -1015,10 +1115,10 @@ table.auiGridTable tr.even {
 
 table.auiGridTable tr.sunday td,
 table.auiGridTable tr.holiday td {
-	background:#fff0f0;
+	background:#ffefe5;
 }
 table.auiGridTable tr.saturday td {
-	background:#f0ffff;
+	background:#ebf0f6;
 }
 table.auiGridTable tr.today td {
 	background:#e0ffe0;
@@ -1053,10 +1153,10 @@ table.auiRowTable tr.even {
 }
 table.auiRowTable tr.sunday td,
 table.auiRowTable tr.holiday td {
-	background:#fff0f0;
+	background:#ffefe5;
 }
 table.auiRowTable tr.saturday td {
-	background:#f0ffff;
+	background:#ebf0f6;
 }
 table.auiRowTable tr.today td {
 	background:#e0ffe0;
@@ -1350,7 +1450,10 @@ form textarea[disabled] {
 .auiForm textarea[disabled]:hover,
 form input[disabled]:hover,
 form textarea[disabled]:hover {
+	color:#999;
+	background:#eee;
 	border-color:#c9c9c9;
+	cursor:default;
 }
 .auiForm input[type=checkbox],
 .auiForm input[type=radio],
@@ -1400,17 +1503,17 @@ form input[type=radio] {
 
 /* auiIcon ********************/
 /*
-auiIconã¯ã€Œclass="auiIcon auiIconSetting"ã€ã¨
-ãƒ™ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹ã¨ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã‚’åŒæ™‚ã«ä»˜ä¸ã•ã›ã‚‹ã“ã¨ã€‚
+auiIcon‚Íuclass="auiIcon auiIconSetting"v‚Æ
+ƒx[ƒXƒNƒ‰ƒX‚ÆƒTƒuƒNƒ‰ƒX‚ğ“¯‚É•t—^‚³‚¹‚é‚±‚ÆB
 
-åŸºæœ¬å½¢ï¼ˆãƒªãƒ³ã‚¯ç‰ˆï¼‰ï¼š<a href="#" class="auiIcon auiIconSetting"><span>è¨­å®š</span></a>
-åŸºæœ¬å½¢ï¼ˆspanç‰ˆï¼‰ï¼š<span class="auiIcon auiIconSetting"><span>è¨­å®š</span></span>
+Šî–{Œ`iƒŠƒ“ƒN”ÅjF<a href="#" class="auiIcon auiIconSetting"><span>İ’è</span></a>
+Šî–{Œ`ispan”ÅjF<span class="auiIcon auiIconSetting"><span>İ’è</span></span>
 
-auiIconã§ã‚¢ã‚¤ã‚³ãƒ³ã®å½¢çŠ¶å…¨ã¦ã‚’ä¸€å…ƒç®¡ç†ã—
-ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã¯ã‚ãã¾ã§èƒŒæ™¯ä½ç½®ã®å¤‰æ›´ã®ã¿ã‚’è¡Œã†ã€‚
+auiIcon‚ÅƒAƒCƒRƒ“‚ÌŒ`ó‘S‚Ä‚ğˆêŒ³ŠÇ—‚µ
+ƒTƒuƒNƒ‰ƒX‚Í‚ ‚­‚Ü‚Å”wŒiˆÊ’u‚Ì•ÏX‚Ì‚İ‚ğs‚¤B
 
-IE6ã¯é€éPNGãŒåˆ©ç”¨ã§ããªã„ãŸã‚é€éGIFã¸ç½®ãæ›ãˆã¦ã„ã‚‹ã€‚
-ãã®ãŸã‚ãƒãƒªã‚’è¡¨ç¤ºã•ã›ãªã„ãŸã‚hoverã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’å°ã˜ã‚‹ã€‚
+IE6‚Í“§‰ßPNG‚ª—˜—p‚Å‚«‚È‚¢‚½‚ß“§‰ßGIF‚Ö’u‚«Š·‚¦‚Ä‚¢‚éB
+‚»‚Ì‚½‚ßƒoƒŠ‚ğ•\¦‚³‚¹‚È‚¢‚½‚ßhoverƒAƒNƒVƒ‡ƒ“‚ğ••‚¶‚éB
 */
 .auiIcon {
 	display:block;
@@ -1519,4 +1622,3 @@ a.auiIconUsers:hover {background-position:0px -544px;}
 .auiNoData {
 	text-align:center;
 }
-

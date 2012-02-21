@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="ja"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+    <meta name="robots" content="noindex,follow"/>
+    <link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico"/>
+    <link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+</head>
+<body>
+<script type="text/javascript">
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+
+<!-- WRAPPER -->
+<div id="wrapper" style="margin-bottom:170px;">
+
+<!-- HEADER -->
+<div id="header" class="clearfix"><div class="inner">
+
+	<div class="hdSign">
+		<div class="hdLogo"><img src="../themes/default/images/logo_aipoplus.png" alt="Aipo+" /></div>
+   </div>
+
+    <div class="hdNavi">
+		<!--
+		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
+		-->
+		<div class="hdActivity" title="あなた宛のお知らせ">
+        	<div class="activityField" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='activityField'}else{this.className='activityField active'};">
+                <div class="dijitRight">
+                    <div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="#" widgetid="activitycheckerContainer">
+                        <div class="dijitRight">
+                            <span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><span class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" popupactive="true"><img src="../themes/default/images/icon/icon_message.png" alt="あなた宛のお知らせ"></span>
+                            <div style="display: block; " id="activitychecker"><span class="activitychecker-right"><span id="activitychecker-counter" class="activitychecker-left" style="display: block; ">99</span></span></div>
+                            <select name="" id="" size="10" multiple="multiple" style="display:none" dojoattachpoint="selectNode"></select><input type="hidden" id="" name="" value="" dojoattachpoint="valueNode"><span name="" id="" dojoattachpoint="inputNode"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div class="hdUserName"><img class="avatar" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/48984_100001686639942_112332_q.jpg" alt="" />株式会社エイムラック  後藤 和良 さま</div>
+		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
+	</div>
+
+</div></div>
+<!-- /HEADER -->
+
+<div id="roundWrapper">
+
+
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+    	<li class="first">
+        	<div class="tab">
+                <div class="title"><a href="#">マイページ</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab">
+                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab">
+                <div class="title"><a href="#">個人設定</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab active">
+                <div class="title"><a href="#">システム管理</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    </ul>
+    <div class="floatRight">
+    	<ul>
+    	<li class="first store">
+        	<div class="tab">
+                <div class="title"><a href="http://store.aipo.com" target="_blank">Aipo Store</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+        </ul>
+    </div>
+</div>
+<!-- /MAIN TAB -->
+
+<!-- MAIN OUTER -->
+<table class="tableWrapper">
+	<tbody>
+		<tr>
+			<td class="wide top">
+				<div class="roundTopMain clearfix">
+					<div class="roundRightMain">
+						<div class="roundBottomMain">
+							<div class="roundLeftMain">
+								<div class="roundTopLeftMain">
+									<div class="roundTopRightMain">
+										<div class="roundBottomRightMain">
+											<div class="roundBottomLeftMain">
+												<div class="roundMainWrapper">
+													<!-- LAYOUT -->
+
+
+<!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
+
+<table class="tableWrapper">
+<tbody>
+<tr>
+<td class="top" width="200">
+<!-- SUBMENU -->
+<div class="submenu">
+<ul>
+<li><a href="#">ユーザー管理</a></li>
+<li><a href="#">会社情報管理</a></li>
+<li><a href="#">施設管理</a></li>
+<li><a href="#">ワークフロー管理</a></li>
+<li><a href="#">メール通知管理</a></li>
+<li><a href="#">タイムカード管理</a></li>
+<li><a href="#">インポート</a></li>
+<li class="selected"><a href="#">アクセス権限管理</a></li>
+<li><a href="#">イベントログ管理</a></li>
+<li><a href="#">アプリケーション管理</a></li>
+<li><a href="#">アプリ初期配置管理</a></li>
+<li><a href="#">システム情報</a></li>
+</ul>
+<div class="endcap"></div>
+</div>
+<img src="https://app.aipo.com/images/common/dot.gif" width="200" height="1" alt="" /></td>
+<td class="wide top">
+<!-- /PORTLET OUTER -->
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock" >
+<div class="roundBottomLeftBlock">
+
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle">アクセス権限管理</td>
+</tr>
+</tbody>
+</table>
+
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div dojoType="aimluck.widget.Contentpane" widgetId="portlet_P-11751a6033c-10027" id="portlet_P-11751a6033c-10027">
+
+<!-- Start Contents Area -->
+<div id="auiWideArea"><div id="auiWideAreaInner">
+
+<div class="auiSummaryMeta clearfix">
+	<form class="auiForm floatLeft" style="margin-right:1em;">
+	<select>
+		<option>全てのグループ</option>
+		<option>管理本部</option>
+		<option>営業本部</option>
+		<option>開発本部</option>
+		<option>企画本部</option>
+		<option>長いグループ名長いグループ名長いグループ名</option>
+	</select>
+	</form>
+</div>
+
+<div class="auiSummaryMeta clearfix">
+	<div class="floatRight">
+		<div class="count">1 ～ 20 件 / 計 72 件</div>
+		<div class="auiSelectButton floatLeft">
+		<ul class="floatLeft">
+		<li>
+		<a href="#" title="前へ" class="first arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
+		</li>
+		<li>
+		<a href="#" title="次へ" class="last arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_r.gif" alt="次の20件"></span></a>
+		</li>
+		</ul>
+		</div>
+	</div>
+</div>
+
+<form name="formP-11751a6033c-10027" id="formP-11751a6033c-10027" action="#" method="post" onsubmit="return false;">
+
+<table class="auiRowTable wide">
+  <tbody>
+<tr>
+<th class="w50"> <a class="headDown" href="#">名前</a>
+</th>
+<th><a href="#">アクセス制限</a>
+</th>
+<th class="thin"> </th>
+</tr>
+
+	<tr>
+	<td>[管理本部]</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>[営業本部]</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>[開発本部]</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>[企画本部]</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>[設備グループ1]</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>[設備グループ2]</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>永井 哲</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>河原 望</td>
+	<td>制限あり</td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>古森 貞</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>金子 治雄</td>
+	<td>制限あり</td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>岩崎 義輝</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>高瀬 祐介</td>
+	<td>制限あり</td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>後藤 和良</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>佐藤 如美</td>
+	<td>制限あり</td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>会議室1</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>会議室2</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>デジカメ</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+	<tr>
+	<td>ノートPC</td>
+	<td></td>
+	<td nowrap="nowrap"><a class="button" href="#" title="編集"><img src="https://app.aipo.com/images/icon/icon_edit.gif" style="vertical-align:middle;margin-right:2px;padding:0px 0px 1px;">編集</a></td>
+	</tr>
+
+</tbody>
+</table>
+
+<div class="auiSummaryMeta clearfix">
+	<div class="floatRight">
+		<div class="count">1 ～ 20 件 / 計 72 件</div>
+		<div class="auiSelectButton floatLeft">
+		<ul class="floatLeft">
+		<li>
+		<a href="#" title="前へ" class="first arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
+		</li>
+		<li>
+		<a href="#" title="次へ" class="last arrow"><span><img src="https://app.aipo.com/themes/orange/images/icon/icon_arrow_r.gif" alt="次の20件"></span></a>
+		</li>
+		</ul>
+		</div>
+	</div>
+</div>
+
+</form>
+</div></div>
+<!-- END Contents Area -->
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PORTLET OUTER -->
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /LAYOUT -->
+</div></div></div></div></div></div></div></div></div></td></tr></tbody></table>
+<!-- /MAIN OUTER  -->
+
+<!-- FOOTER -->
+<div id="footer" class="clearfix">
+
+	<!-- START GUIDE -->
+	<div id="startGuide" style="display:block;">
+		<div class="close"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='40px';document.getElementById('guide_on').style.display='inline'"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"> 閉じる</a></div>
+		<div class="clearfix">
+			<div class="guideContents">
+				<p>ユーザーを追加しよう</p>
+				<p><a href="#" class="auiButtonAction">ユーザー追加方法を見る</a></p>
+			</div>
+			<div class="guideContents">
+				<p>画面レイアウトを変更しよう</p>
+				<p><a href="#" class="auiButtonAction">レイアウト変更方法を見る</a></p>
+			</div>
+		</div>
+	</div>
+	<!-- /START GUIDE -->
+
+	<div id="footText">
+	<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
+	<div id="guide_on" style="display:none;"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='170px';document.getElementById('guide_on').style.display='none'">スタートガイド</a></div>
+	</div>
+</div>
+<!-- /FOOTER -->
+
+</div>
+<!-- /roundWrapper -->
+
+</div>
+<!-- /WRAPPER -->
+
+</body>
+</html>

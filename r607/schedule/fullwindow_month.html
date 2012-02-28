@@ -1,0 +1,1806 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="ja"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+    <meta name="robots" content="noindex,follow"/>
+    <link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico"/>
+    <link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+</head>
+<body>
+<script type="text/javascript">
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+
+<!-- WRAPPER -->
+<div id="wrapper" style="margin-bottom:170px;">
+
+<!-- HEADER -->
+<div id="header" class="clearfix"><div class="inner">
+
+	<div class="hdSign">
+		<div class="hdLogo"><img src="../themes/default/images/logo_aipoplus.png" alt="Aipo+" /></div>
+   </div>
+
+    <div class="hdNavi">
+		<!--
+		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
+		-->
+		<div class="hdActivity" title="あなた宛のお知らせ">
+        	<div class="activityField" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='activityField'}else{this.className='activityField active'};">
+                <div class="dijitRight">
+                    <div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="#" widgetid="activitycheckerContainer">
+                        <div class="dijitRight">
+                            <span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><span class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" popupactive="true"><img src="../themes/default/images/icon/icon_message.png" alt="あなた宛のお知らせ"></span>
+                            <div style="display: block; " id="activitychecker"><span class="activitychecker-right"><span id="activitychecker-counter" class="activitychecker-left" style="display: block; ">99</span></span></div>
+                            <select name="" id="" size="10" multiple="multiple" style="display:none" dojoattachpoint="selectNode"></select><input type="hidden" id="" name="" value="" dojoattachpoint="valueNode"><span name="" id="" dojoattachpoint="inputNode"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div class="hdUserName"><img class="avatar" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/48984_100001686639942_112332_q.jpg" alt="" />株式会社エイムラック  後藤 和良 さま</div>
+		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
+	</div>
+
+</div></div>
+<!-- /HEADER -->
+
+
+<!-- roundWrapper -->
+<div id="roundWrapper">
+
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+    	<li class="first">
+        	<div class="tab active">
+                <div class="title"><a href="#">マイページ</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab activeNext">
+                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab">
+                <div class="title"><a href="#">個人設定</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab">
+                <div class="title"><a href="#">システム管理</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    </ul>
+    <div class="floatRight">
+    	<ul>
+    	<li class="first store">
+        	<div class="tab">
+                <div class="title"><a href="http://store.aipo.com" target="_blank">Aipo Store</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+        </ul>
+    </div>
+</div>
+<!-- /MAIN TAB -->
+
+<!-- MAIN OUTER -->
+<table class="tableWrapper">
+	<tbody>
+		<tr>
+			<td class="wide top">
+				<div class="roundTopMain clearfix">
+					<div class="roundRightMain">
+						<div class="roundBottomMain">
+							<div class="roundLeftMain">
+								<div class="roundTopLeftMain">
+									<div class="roundTopRightMain">
+										<div class="roundBottomRightMain">
+											<div class="roundBottomLeftMain">
+												<div class="roundMainWrapper">
+													<!-- LAYOUT -->
+
+
+<!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
+
+<table class="tableWrapper">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
+
+
+                                                              <!-- PORTLET OUTER -->
+                                                              <div class="dojoDndItem P-135968e668d-1000c" id="dojoUnique1">
+                                                              <div class="roundTopBlock clearfix">
+                                                                <div class="roundRightBlock">
+                                                                  <div class="roundBottomBlock">
+                                                                    <div class="roundLeftBlock">
+                                                                      <div class="roundTopLeftBlock">
+                                                                        <div class="roundTopRightBlock">
+                                                                          <div class="roundBottomRightBlock">
+                                                                            <div class="roundBottomLeftBlock">
+                                                                              <table class="roundBlockWrapperTop">
+                                                                                <tbody>
+                                                                                  <tr>
+                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668d-1000c?action=controls.Maximize">タイムカード</a></td>
+<td class="roundBlockIcon last">
+    
+    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135968e668d-1000c');" title="カスタマイズ"></a>
+		
+            <div class="menubar" id="menubar_P-135968e668d-1000c" style="position: absolute; display: none; ">
+        <ul>
+                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668d-1000c?action=controls.Customize">設定</a></li>
+            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668d-1000c?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135968e668d-1000c', function(){ dojo.query('.dojoDndItem.P-135968e668d-1000c').orphan(); window.location.reload(); } );">削除</a></li>
+					</ul>
+    </div>
+    </td>
+
+                                                                                </tr>
+                                                                                </tbody>
+                                                                              </table>
+                                                                              <div class="roundBlockWrapperBottom clearfix">
+                                                                                <div class="roundBlockContent">
+                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135968e668d-1000c" id="portlet_P-135968e668d-1000c">
+
+
+
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/exttimecard/form.js"></script>
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135968e668d-1000c'] = { group:"exttimecard", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668d-1000c?template=ExtTimecardScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+
+
+ <div class="indicator" id="indicator-list-P-135968e668d-1000c" style="display:none;">データを送信しています...</div>
+<div id="exttimecardmessageDiv"></div>
+<form name="formP-135968e668d-1000c" id="formP-135968e668d-1000c" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668d-1000c?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, 'indicator-list-','P-135968e668d-1000c',aipo.exttimecard.onListReceiveMessage);return false;">
+<input type="hidden" name="_name" value="exttimecardForm">
+<input type="hidden" name="secid" value="e74cb8d60c336d26c09dd462016a1daa">
+<table class="wide">
+  <tbody>
+<tr>
+    <td nowrap="nowrap" class="w25 center">
+
+<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'mode', 'punchin');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'punchin', '出勤');dojo.byId('formP-135968e668d-1000c').onsubmit();">出勤</a>
+
+    </td>
+
+    <td nowrap="nowrap" class="w25 center">
+<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'mode', 'punchout');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'punchout', '退勤');dojo.byId('formP-135968e668d-1000c').onsubmit();">退勤</a>
+    </td>
+
+    <td nowrap="nowrap" class="w25 center">
+<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'mode', 'outgoing');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'outgoing', '外出');dojo.byId('formP-135968e668d-1000c').onsubmit();">外出</a>
+    </td>
+
+    <td nowrap="nowrap" class="w25 center">
+<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'mode', 'comeback');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135968e668d-1000c'), 'outgoing', '復帰');dojo.byId('formP-135968e668d-1000c').onsubmit();">復帰</a>
+    </td>
+
+</tr>
+  </tbody>
+</table>
+</form>
+
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              </div>
+                                                              <!-- /PORTLET OUTER -->
+
+
+
+
+                                                              <!-- PORTLET OUTER -->
+                                                              <div class="dojoDndItem P-135968e668e-1000d" id="dojoUnique2">
+                                                              <div class="roundTopBlock clearfix">
+                                                                <div class="roundRightBlock">
+                                                                  <div class="roundBottomBlock">
+                                                                    <div class="roundLeftBlock">
+                                                                      <div class="roundTopLeftBlock">
+                                                                        <div class="roundTopRightBlock">
+                                                                          <div class="roundBottomRightBlock">
+                                                                            <div class="roundBottomLeftBlock">
+                                                                              <table class="roundBlockWrapperTop">
+                                                                                <tbody>
+                                                                                  <tr>
+                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000d?action=controls.Maximize">更新情報</a></td>
+<td class="roundBlockIcon last">
+    
+    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135968e668e-1000d');" title="カスタマイズ"></a>
+		
+            <div class="menubar" id="menubar_P-135968e668e-1000d" style="position: absolute; display: none; ">
+        <ul>
+                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000d?action=controls.Customize">設定</a></li>
+            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000d?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135968e668e-1000d', function(){ dojo.query('.dojoDndItem.P-135968e668e-1000d').orphan(); window.location.reload(); } );">削除</a></li>
+					</ul>
+    </div>
+    </td>
+
+                                                                                </tr>
+                                                                                </tbody>
+                                                                              </table>
+                                                                              <div class="roundBlockWrapperBottom clearfix">
+                                                                                <div class="roundBlockContent">
+                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135968e668e-1000d" id="portlet_P-135968e668e-1000d">
+
+
+
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135968e668e-1000d'] = { group:"activity", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000d?template=ActivityAllScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+
+
+<div class="message">更新情報はありません。</div>
+
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              </div>
+                                                              <!-- /PORTLET OUTER -->
+
+
+
+
+                                                              <!-- PORTLET OUTER -->
+                                                              <div class="dojoDndItem P-135968e668e-1000e" id="dojoUnique3">
+                                                              <div class="roundTopBlock clearfix">
+                                                                <div class="roundRightBlock">
+                                                                  <div class="roundBottomBlock">
+                                                                    <div class="roundLeftBlock">
+                                                                      <div class="roundTopLeftBlock">
+                                                                        <div class="roundTopRightBlock">
+                                                                          <div class="roundBottomRightBlock">
+                                                                            <div class="roundBottomLeftBlock">
+                                                                              <table class="roundBlockWrapperTop">
+                                                                                <tbody>
+                                                                                  <tr>
+                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e?action=controls.Maximize">伝言メモ</a></td>
+                                                                                    <td class="roundBlockIcon"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e?template=NoteFormScreen&amp;entityid=new','P-135968e668e-1000e',aipo.note.afterFunction);">伝言メモ追加</a></td>
+<td class="roundBlockIcon last">
+    
+    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135968e668e-1000e');" title="カスタマイズ"></a>
+		
+            <div class="menubar" id="menubar_P-135968e668e-1000e" style="position: absolute; display: none; ">
+        <ul>
+                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e?action=controls.Customize">設定</a></li>
+            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135968e668e-1000e', function(){ dojo.query('.dojoDndItem.P-135968e668e-1000e').orphan(); window.location.reload(); } );">削除</a></li>
+					</ul>
+    </div>
+    </td>
+
+                                                                                </tr>
+                                                                                </tbody>
+                                                                              </table>
+                                                                              <div class="roundBlockWrapperBottom clearfix">
+                                                                                <div class="roundBlockContent">
+                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135968e668e-1000e" id="portlet_P-135968e668e-1000e">
+
+
+
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/note/form.js"></script>
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135968e668e-1000e'] = { group:"note", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e?template=NoteScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+
+
+<form name="formP-135968e668e-1000e" id="formP-135968e668e-1000e" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
+<input type="hidden" name="_name" value="noteForm">
+<input type="hidden" name="secid" value="e74cb8d60c336d26c09dd462016a1daa">
+<div class="auiSummaryMeta clearfix">
+
+<div class="floatRight">
+	<div class="count">1 ～ 2 件 / 計 2 件</div>
+</div>
+</div><table class="activityTable">
+<tbody>
+
+<tr>
+<td>
+<span class="date">2月17日 &nbsp; 山田 太郎</span>
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e?template=NoteDetailScreen&amp;entityid=2', 'P-135968e668e-1000e', aipo.note.onLoadDetail);">
+ 平野 様より伝言 「電話がありま<wbr>した」 がありました。
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="date">2月13日 &nbsp; 田村 涼子</span>
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000e?template=NoteDetailScreen&amp;entityid=1', 'P-135968e668e-1000e', aipo.note.onLoadDetail);">
+ 中村 様より伝言 「電話をしてく<wbr>ださい」 がありました。
+</a>
+</td>
+</tr>
+</tbody></table>
+</form>
+
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              </div>
+                                                              <!-- /PORTLET OUTER -->
+
+
+
+
+                                                              <!-- PORTLET OUTER -->
+                                                              <div class="dojoDndItem P-135968e668e-1000f" id="dojoUnique4">
+                                                              <div class="roundTopBlock clearfix">
+                                                                <div class="roundRightBlock">
+                                                                  <div class="roundBottomBlock">
+                                                                    <div class="roundLeftBlock">
+                                                                      <div class="roundTopLeftBlock">
+                                                                        <div class="roundTopRightBlock">
+                                                                          <div class="roundBottomRightBlock">
+                                                                            <div class="roundBottomLeftBlock">
+                                                                              <table class="roundBlockWrapperTop">
+                                                                                <tbody>
+                                                                                  <tr>
+                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f?action=controls.Maximize">ワークフロー</a></td>
+                                                                                    <td class="roundBlockIcon"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f?template=WorkflowFormScreen&amp;entityid=new','P-135968e668e-1000f',aipo.workflow.onLoadWorkflowDialog);">依頼追加</a></td>
+<td class="roundBlockIcon last">
+    
+    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135968e668e-1000f');" title="カスタマイズ"></a>
+		
+            <div class="menubar" id="menubar_P-135968e668e-1000f" style="position: absolute; display: none; ">
+        <ul>
+                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f?action=controls.Customize">設定</a></li>
+            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135968e668e-1000f', function(){ dojo.query('.dojoDndItem.P-135968e668e-1000f').orphan(); window.location.reload(); } );">削除</a></li>
+					</ul>
+    </div>
+    </td>
+
+                                                                                </tr>
+                                                                                </tbody>
+                                                                              </table>
+                                                                              <div class="roundBlockWrapperBottom clearfix">
+                                                                                <div class="roundBlockContent">
+                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135968e668e-1000f" id="portlet_P-135968e668e-1000f">
+
+
+
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/workflow/form.js"></script>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js"></script>
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135968e668e-1000f'] = { group:"workflow", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f?template=WorkflowScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+
+
+<form name="formP-135968e668e-1000f" id="formP-135968e668e-1000f" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
+<input type="hidden" name="_name" value="Workflow">
+<input type="hidden" name="secid" value="e74cb8d60c336d26c09dd462016a1daa">
+<div class="auiSummaryMeta clearfix">
+
+<div class="floatRight">
+	<div class="count">1 ～ 2 件 / 計 2 件</div>
+</div>
+</div><table class="activityTable">
+<tbody>
+
+<tr>
+<td>
+<span class="date">1:00 &nbsp; 山田 太郎</span>
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f?template=WorkflowDetailScreen&amp;mode=detail&amp;entityid=2&amp;prvid=2', 'P-135968e668e-1000f', aipo.workflow.onLoadWorkflowDetail);">
+申請 「有給休暇届」 の確認依頼を出しました。
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="date">1:00 &nbsp; 田村 涼子</span>
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e668e-1000f?template=WorkflowDetailScreen&amp;mode=detail&amp;entityid=1&amp;prvid=1', 'P-135968e668e-1000f', aipo.workflow.onLoadWorkflowDetail);">
+申請 「有給休暇届」 の確認依頼を出しました。
+</a>
+</td>
+</tr>
+</tbody></table>
+</form>
+
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              </div>
+                                                              <!-- /PORTLET OUTER -->
+
+
+                                                            </td>
+                                                            <td width="75%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
+
+
+                                                              <!-- PORTLET OUTER -->
+                                                              <div class="dojoDndItem P-135968e6692-10013" id="dojoUnique5">
+                                                              <div class="roundTopBlock clearfix">
+                                                                <div class="roundRightBlock">
+                                                                  <div class="roundBottomBlock">
+                                                                    <div class="roundLeftBlock">
+                                                                      <div class="roundTopLeftBlock">
+                                                                        <div class="roundTopRightBlock">
+                                                                          <div class="roundBottomRightBlock">
+                                                                            <div class="roundBottomLeftBlock">
+                                                                              <table class="roundBlockWrapperTop">
+                                                                                <tbody>
+                                                                                  <tr>
+                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?action=controls.Maximize">スケジュール</a></td>
+                                                                                    <td class="roundBlockIcon"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new','P-135968e6692-10013',aipo.schedule.onLoadScheduleDialog);">予定追加</a></td>
+<td class="roundBlockIcon last">
+    
+    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135968e6692-10013');" title="カスタマイズ"></a>
+		
+            <div class="menubar" id="menubar_P-135968e6692-10013" style="position: absolute; display: none; ">
+        <ul>
+                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?action=controls.Customize">設定</a></li>
+            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135968e6692-10013', function(){ dojo.query('.dojoDndItem.P-135968e6692-10013').orphan(); window.location.reload(); } );">削除</a></li>
+					</ul>
+    </div>
+    </td>
+
+                                                                                </tr>
+                                                                                </tbody>
+                                                                              </table>
+                                                                              <div class="roundBlockWrapperBottom clearfix">
+                                                                                <div class="roundBlockContent">
+                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135968e6692-10013" id="portlet_P-135968e6692-10013" class="dijitContentPane" title="">
+<span id="schedule_val_tooltip1" style="display:none;">読み込み中...</span>
+<span id="schedule_val_tooltip2" style="display:none;">場所</span>
+<span id="schedule_val_tooltip3" style="display:none;">参加者</span>
+<span id="schedule_val_tooltip4" style="display:none;">設備</span>
+
+<div class="spaceBoth">
+
+
+
+
+
+
+
+<div class="relativeBlock" style="margin-bottom:10px;">
+<div class="absoluteRight">
+<div class="auiSelectButton">
+<ul>
+<li><a class="first" style="width:6em;" href="javascript:void(0);" onclick="aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=calendar', 'P-135968e6692-10013');"><span>ブロック</span></a></li>
+<li><a style="width:3em;" href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group', 'P-135968e6692-10013');"><span>日</span></a></li>
+<li><a style="width:3em;" href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=weekly-group', 'P-135968e6692-10013');"><span>週</span></a></li>
+<li class="active"><a style="width:3em;" href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=monthly', 'P-135968e6692-10013');"><span>月</span></a></li>
+<li><a class="last" style="width:4em;" href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=list', 'P-135968e6692-10013');"><span>一覧</span></a></li>
+</ul>
+</div>
+</div>
+
+<div class="clearfix">
+<div class="auiSelectButton">
+<ul>
+<li style="width:4em;margin-right:10px;" title="今月へ">
+<a href="javascript:void(0);" class="btn" onclick="aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;view_month=2012-02', 'P-135968e6692-10013');"><span>今月</span></a>
+</li>
+<li style="margin-right:5px;" title="前年へ">
+<a href="javascript:void(0);" class="btn arrow" onclick="aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;view_month=2011-02', 'P-135968e6692-10013');"><span><img src="themes/default/images/icon/icon_arrow_l_w.gif" alt="前年へ"></span></a>
+</li>
+<li title="前月へ">
+<a href="javascript:void(0);" class="first arrow" onclick="aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;view_month=2012-01', 'P-135968e6692-10013');"><span><img src="themes/default/images/icon/icon_arrow_l.gif" alt="前月へ"></span></a>
+</li>
+<li style="margin-right:5px;" title="翌月へ">
+<a href="javascript:void(0);" class="last arrow" onclick="aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;view_month=2012-03', 'P-135968e6692-10013');"><span><img src="themes/default/images/icon/icon_arrow_r.gif" alt="翌月へ"></span></a>
+</li>
+<li style="margin-right:10px;" title="翌年へ">
+<a href="javascript:void(0);" class="btn arrow" onclick="aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;view_month=2013-02', 'P-135968e6692-10013');"><span><img src="themes/default/images/icon/icon_arrow_r_w.gif" alt="翌年へ"></span></a>
+</li>
+</ul>
+</div>
+<div style="height:24px; line-height:24px; overflow:hidden;"><strong>2012年2月</strong></div>
+</div>
+
+</div>
+<div class="indicator" id="indicator-P-135968e6692-10013" style="display: none; ">読み込み中...</div>
+<div id="content-P-135968e6692-10013" style="visibility: visible; ">
+
+<div class="floatRight">
+<a href="javascript:void(0);" onclick="javascript:window.open('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreenPrint&amp;entityid=new');void(0);" title="印刷画面を開く" class="auiButton pl5 pr5">
+<span>
+<img src="themes/default/images/icon/icon_print.gif" width="17" height="18" alt="印刷">
+</span>
+</a>
+</div>
+
+<div class="auiForm">
+    <select onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135968e6692-10013')" style="margin:0 0 5px; vertical-align:middle;">
+        <option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=all&amp;target_user_id=none">すべてのグループ</option>
+        		    		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=1204104365437_4&amp;target_user_id=none">全員</option>
+		            		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=all&amp;target_user_id=none">----------</option>
+		            		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=1204101769781_1&amp;target_user_id=none">商品開発部</option>
+            		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=1204101786437_1&amp;target_user_id=none">営業部</option>
+        			<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=all&amp;target_user_id=none">----------</option>
+    		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=Facility">設備一覧</option>
+            </select>
+    <select name="target_user_id" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135968e6692-10013')" style="margin:0 0 5px; vertical-align:middle;">
+                    		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=null&amp;target_user_id=4" selected="selected">木村 一郎</option>
+            		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=null&amp;target_user_id=5">田村 涼子</option>
+            		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=null&amp;target_user_id=6">山田 太郎</option>
+            		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=null&amp;target_user_id=7">HTML Validator</option>
+                    		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=all&amp;target_user_id=none">----------</option>
+                    		<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;target_group_name=null&amp;target_user_id=f1">会議室</option>
+            </select>
+</div>
+<table class="calendar" width="100%">
+  <tbody>
+<tr>
+<th class="sunday" style="width:14.3%" nowrap="nowrap">日</th>
+<th style="width:14.3%" nowrap="nowrap">月</th>
+<th style="width:14.3%" nowrap="nowrap">火</th>
+<th style="width:14.3%" nowrap="nowrap">水</th>
+<th style="width:14.3%" nowrap="nowrap">木</th>
+<th style="width:14.3%" nowrap="nowrap">金</th>
+<th class="saturday" style="width:14.3%" nowrap="nowrap">土</th>
+</tr>
+ <tr>
+
+<td class="day sunday2 off2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-01-29&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+29
+</a>
+</span>
+</div>
+</td>
+
+<td class="day off2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-01-30&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+30
+</a>
+</span>
+</div>
+</td>
+
+<td class="day off2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-01-31&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+31
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-01&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+1
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-02&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+2
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-03&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+3
+</a>
+</span>
+</div>
+</td>
+
+<td class="day saturday2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-04&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+4
+</a>
+</span>
+</div>
+</td>
+</tr>
+<tr>
+
+<td colspan="7" class="term sunday off">
+<div id="P-135968e6692-10013-5" class="calerndarTermScheduleDiv small schedule-P-135968e6692-10013-5" widget_id="aipo_widget_ToolTip_3">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=5&amp;userid=4&amp;view_date=2012-01-29-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail);" class="small">市場調査
+<img class="dot_schedule" src="images/common/dot.gif" alt=""></a>
+</div>
+</td>
+<td class="term off" style="display:none"></td>
+<td class="term off" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term saturday" style="display:none"></td>
+</tr>
+<tr>
+
+<td class="topNone sunday off">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-01-29-00-00&amp;form_end=2012-01-29-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone off">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-01-30-00-00&amp;form_end=2012-01-30-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">10:00-10:30</div>
+<div class="small schedule-P-135968e6692-10013-1" widget_id="aipo_widget_ToolTip_4"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=1&amp;userid=4&amp;view_date=2012-01-30-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">全体朝礼</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-01-30-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">16:00-17:00</div>
+<div class="small schedule-P-135968e6692-10013-4" widget_id="aipo_widget_ToolTip_6"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=4&amp;userid=4&amp;view_date=2012-01-30-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone off">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-01-31-00-00&amp;form_end=2012-01-31-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-01-31-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-01-00-00&amp;form_end=2012-02-01-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-15:00</div>
+<div class="small schedule-P-135968e6692-10013-8" widget_id="aipo_widget_ToolTip_7"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=8&amp;userid=4&amp;view_date=2012-02-01-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">定例会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-02-00-00&amp;form_end=2012-02-02-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">17:00-18:00</div>
+<div class="small schedule-P-135968e6692-10013-3" widget_id="aipo_widget_ToolTip_8"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=3&amp;userid=4&amp;view_date=2012-02-02-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">社内清掃</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-03-00-00&amp;form_end=2012-02-03-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-14:00</div>
+<div class="small schedule-P-135968e6692-10013-2" widget_id="aipo_widget_ToolTip_9"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=2&amp;userid=4&amp;view_date=2012-02-03-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業報告</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone saturday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-04-00-00&amp;form_end=2012-02-04-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+</tr>
+
+<tr>
+      <td colspan="2"></td>
+    <td colspan="5" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=3');">
+歓迎会準備
+</a>
+</div>
+</td>
+</tr>
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=1');">
+提案書作成
+</a>
+</div>
+</td>
+</tr>
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=2');">
+交通費精算
+</a>
+</div>
+</td>
+</tr>
+
+ <tr>
+
+<td class="day sunday2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-05&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+5
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-06&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+6
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-07&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+7
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-08&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+8
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-09&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+9
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-10&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+10
+</a>
+</span>
+</div>
+</td>
+
+<td class="day saturday2 holiday2">
+<div class="calendarDay clearfix"><span class="alignleft small">建国記念の日</span><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-11&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+11
+</a>
+</span>
+</div>
+</td>
+</tr>
+<tr>
+
+<td colspan="7" class="term sunday">
+<div id="P-135968e6692-10013-5" class="calerndarTermScheduleDiv small schedule-P-135968e6692-10013-5" widget_id="aipo_widget_ToolTip_3">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=5&amp;userid=4&amp;view_date=2012-02-05-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail);" class="small">市場調査
+<img class="dot_schedule" src="images/common/dot.gif" alt=""></a>
+</div>
+</td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term saturday holiday" style="display:none"></td>
+</tr>
+<tr>
+
+<td class="topNone sunday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-05-00-00&amp;form_end=2012-02-05-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div>
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-06-00-00&amp;form_end=2012-02-06-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div class="calendarScheduleDiv">
+<div class="small">10:00-10:30</div>
+<div class="small schedule-P-135968e6692-10013-1" widget_id="aipo_widget_ToolTip_4"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=1&amp;userid=4&amp;view_date=2012-02-06-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">全体朝礼</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-06-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">16:00-17:00</div>
+<div class="small schedule-P-135968e6692-10013-4" widget_id="aipo_widget_ToolTip_6"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=4&amp;userid=4&amp;view_date=2012-02-06-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-07-00-00&amp;form_end=2012-02-07-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-07-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-08-00-00&amp;form_end=2012-02-08-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-15:00</div>
+<div class="small schedule-P-135968e6692-10013-8" widget_id="aipo_widget_ToolTip_7"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=8&amp;userid=4&amp;view_date=2012-02-08-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">定例会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-09-00-00&amp;form_end=2012-02-09-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">17:00-18:00</div>
+<div class="small schedule-P-135968e6692-10013-3" widget_id="aipo_widget_ToolTip_8"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=3&amp;userid=4&amp;view_date=2012-02-09-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">社内清掃</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-10-00-00&amp;form_end=2012-02-10-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-14:00</div>
+<div class="small schedule-P-135968e6692-10013-2" widget_id="aipo_widget_ToolTip_9"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=2&amp;userid=4&amp;view_date=2012-02-10-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業報告</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone saturday holiday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-11-00-00&amp;form_end=2012-02-11-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+</tr>
+
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=3');">
+歓迎会準備
+</a>
+</div>
+</td>
+</tr>
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=1');">
+提案書作成
+</a>
+</div>
+</td>
+</tr>
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=2');">
+交通費精算
+</a>
+</div>
+</td>
+</tr>
+
+ <tr>
+
+<td class="day sunday2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-12&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+12
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-13&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+13
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-14&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+14
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-15&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+15
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-16&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+16
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-17&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+17
+</a>
+</span>
+</div>
+</td>
+
+<td class="day saturday2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-18&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+18
+</a>
+</span>
+</div>
+</td>
+</tr>
+<tr>
+
+<td colspan="7" class="term sunday">
+<div id="P-135968e6692-10013-5" class="calerndarTermScheduleDiv small schedule-P-135968e6692-10013-5" widget_id="aipo_widget_ToolTip_3">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=5&amp;userid=4&amp;view_date=2012-02-12-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail);" class="small">市場調査
+<img class="dot_schedule" src="images/common/dot.gif" alt=""></a>
+</div>
+</td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term saturday" style="display:none"></td>
+</tr>
+<tr>
+
+<td class="topNone sunday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-12-00-00&amp;form_end=2012-02-12-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-13-00-00&amp;form_end=2012-02-13-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">10:00-10:30</div>
+<div class="small schedule-P-135968e6692-10013-1" widget_id="aipo_widget_ToolTip_4"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=1&amp;userid=4&amp;view_date=2012-02-13-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">全体朝礼</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-13-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">16:00-17:00</div>
+<div class="small schedule-P-135968e6692-10013-4" widget_id="aipo_widget_ToolTip_6"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=4&amp;userid=4&amp;view_date=2012-02-13-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-14-00-00&amp;form_end=2012-02-14-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-14-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-15-00-00&amp;form_end=2012-02-15-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-15:00</div>
+<div class="small schedule-P-135968e6692-10013-8" widget_id="aipo_widget_ToolTip_7"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=8&amp;userid=4&amp;view_date=2012-02-15-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">定例会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-16-00-00&amp;form_end=2012-02-16-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">17:00-18:00</div>
+<div class="small schedule-P-135968e6692-10013-3" widget_id="aipo_widget_ToolTip_8"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=3&amp;userid=4&amp;view_date=2012-02-16-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">社内清掃</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-17-00-00&amp;form_end=2012-02-17-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-14:00</div>
+<div class="small schedule-P-135968e6692-10013-2" widget_id="aipo_widget_ToolTip_9"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=2&amp;userid=4&amp;view_date=2012-02-17-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業報告</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone saturday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-18-00-00&amp;form_end=2012-02-18-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+</tr>
+
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=3');">
+歓迎会準備
+</a>
+</div>
+</td>
+</tr>
+<tr>
+    <td colspan="2" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=1');">
+提案書作成
+</a>
+</div>
+</td>
+      <td colspan="5"></td>
+</tr>
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=2');">
+交通費精算
+</a>
+</div>
+</td>
+</tr>
+
+ <tr>
+
+<td class="day sunday2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-19&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+19
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-20&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+20
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-21&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+21
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-22&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+22
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-23&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+23
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-24&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+24
+</a>
+</span>
+</div>
+</td>
+
+<td class="day saturday2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-25&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+25
+</a>
+</span>
+</div>
+</td>
+</tr>
+<tr>
+
+<td colspan="7" class="term sunday">
+<div id="P-135968e6692-10013-5" class="calerndarTermScheduleDiv small schedule-P-135968e6692-10013-5" widget_id="aipo_widget_ToolTip_3">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=5&amp;userid=4&amp;view_date=2012-02-19-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail);" class="small">市場調査
+<img class="dot_schedule" src="images/common/dot.gif" alt=""></a>
+</div>
+</td>
+<td class="term today" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term saturday" style="display:none"></td>
+</tr>
+<tr>
+
+<td class="topNone sunday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-19-00-00&amp;form_end=2012-02-19-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone today">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-20-00-00&amp;form_end=2012-02-20-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">10:00-10:30</div>
+<div class="small schedule-P-135968e6692-10013-1" widget_id="aipo_widget_ToolTip_4"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=1&amp;userid=4&amp;view_date=2012-02-20-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">全体朝礼</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-20-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_duplicate.gif" alt="重複スケジュール" title="重複スケジュール">
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-15:55</div>
+<div class="small schedule-P-135968e6692-10013-9" widget_id="aipo_widget_ToolTip_10"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=9&amp;userid=4&amp;view_date=2012-02-20-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">定例会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_duplicate.gif" alt="重複スケジュール" title="重複スケジュール">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">16:00-17:00</div>
+<div class="small schedule-P-135968e6692-10013-4" widget_id="aipo_widget_ToolTip_6"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=4&amp;userid=4&amp;view_date=2012-02-20-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-21-00-00&amp;form_end=2012-02-21-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-21-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-22-00-00&amp;form_end=2012-02-22-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-15:00</div>
+<div class="small schedule-P-135968e6692-10013-8" widget_id="aipo_widget_ToolTip_7"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=8&amp;userid=4&amp;view_date=2012-02-22-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">定例会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-23-00-00&amp;form_end=2012-02-23-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">17:00-18:00</div>
+<div class="small schedule-P-135968e6692-10013-3" widget_id="aipo_widget_ToolTip_8"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=3&amp;userid=4&amp;view_date=2012-02-23-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">社内清掃</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-24-00-00&amp;form_end=2012-02-24-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-14:00</div>
+<div class="small schedule-P-135968e6692-10013-2" widget_id="aipo_widget_ToolTip_9"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=2&amp;userid=4&amp;view_date=2012-02-24-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業報告</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone saturday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-25-00-00&amp;form_end=2012-02-25-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+</tr>
+
+<tr>
+    <td colspan="7" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=3');">
+歓迎会準備
+</a>
+</div>
+</td>
+</tr>
+<tr>
+    <td colspan="2" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=2');">
+交通費精算
+</a>
+</div>
+</td>
+      <td colspan="5"></td>
+</tr>
+
+ <tr>
+
+<td class="day sunday2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-26&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+26
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-27&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+27
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-28&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+28
+</a>
+</span>
+</div>
+</td>
+
+<td class="day">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-02-29&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+29
+</a>
+</span>
+</div>
+</td>
+
+<td class="day off2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-03-01&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+1
+</a>
+</span>
+</div>
+</td>
+
+<td class="day off2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-03-02&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+2
+</a>
+</span>
+</div>
+</td>
+
+<td class="day saturday2 off2">
+<div class="calendarDay clearfix"><span class="alignright small">
+<a href="javascript:void(0);" onclick="aipo.schedule.setIndicator('P-135968e6692-10013');aipo.viewPage('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleScreen&amp;tab=oneday-group&amp;view_date=2012-03-03&amp;filter=null&amp;filtertype=group', 'P-135968e6692-10013');">
+3
+</a>
+</span>
+</div>
+</td>
+</tr>
+<tr>
+
+<td colspan="7" class="term sunday">
+<div id="P-135968e6692-10013-5" class="calerndarTermScheduleDiv small schedule-P-135968e6692-10013-5" widget_id="aipo_widget_ToolTip_3">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=5&amp;userid=4&amp;view_date=2012-02-26-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail);" class="small">市場調査
+<img class="dot_schedule" src="images/common/dot.gif" alt=""></a>
+</div>
+</td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term" style="display:none"></td>
+<td class="term off" style="display:none"></td>
+<td class="term off" style="display:none"></td>
+<td class="term saturday off" style="display:none"></td>
+</tr>
+<tr>
+
+<td class="topNone sunday">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-26-00-00&amp;form_end=2012-02-26-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-27-00-00&amp;form_end=2012-02-27-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">10:00-10:30</div>
+<div class="small schedule-P-135968e6692-10013-1" widget_id="aipo_widget_ToolTip_4"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=1&amp;userid=4&amp;view_date=2012-02-27-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">全体朝礼</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-27-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">16:00-17:00</div>
+<div class="small schedule-P-135968e6692-10013-4" widget_id="aipo_widget_ToolTip_6"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=4&amp;userid=4&amp;view_date=2012-02-27-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-28-00-00&amp;form_end=2012-02-28-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">11:00-16:00</div>
+<div class="small schedule-P-135968e6692-10013-10" widget_id="aipo_widget_ToolTip_5"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-28-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">リクルート活<wbr>動</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-02-29-00-00&amp;form_end=2012-02-29-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-15:00</div>
+<div class="small schedule-P-135968e6692-10013-8" widget_id="aipo_widget_ToolTip_7"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=8&amp;userid=4&amp;view_date=2012-02-29-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">定例会議</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone off">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-03-01-00-00&amp;form_end=2012-03-01-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">17:00-18:00</div>
+<div class="small schedule-P-135968e6692-10013-3" widget_id="aipo_widget_ToolTip_8"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=3&amp;userid=4&amp;view_date=2012-03-01-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">社内清掃</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone off">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-03-02-00-00&amp;form_end=2012-03-02-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+<div>
+<div class="calendarScheduleDiv">
+<div class="small">13:00-14:00</div>
+<div class="small schedule-P-135968e6692-10013-2" widget_id="aipo_widget_ToolTip_9"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=2&amp;userid=4&amp;view_date=2012-03-02-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)" class="small">営業報告</a></div>
+</div>
+<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+</div>
+<div class="calendarFooter"></div>
+</td>
+
+<td class="topNone saturday off">
+<div class="calendarBody">
+<div class="calendarScheduleDiv">
+<a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleFormScreen&amp;entityid=new&amp;form_start=2012-03-03-00-00&amp;form_end=2012-03-03-00-00', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDialog)" class="small addSchedule" title="予定追加">予定追加</a>
+</div>
+</div>
+<div class="calendarFooter"></div>
+</td>
+</tr>
+
+<tr>
+    <td colspan="5" align="center">
+<div class="calerndarTodoDiv small">
+<a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ToDoDetailScreen&amp;entityid=3');">
+歓迎会準備
+</a>
+</div>
+</td>
+      <td colspan="2"></td>
+</tr>
+
+  </tbody>
+</table>
+</div>
+
+  <img src="images/common/dot.gif" width="1" height="1" onload="aipo.schedule.setupTooltip('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailJSONScreen&amp;view_date=2012-03-03-00-00', '5,1,10,4,10,8,3,2,5,1,10,4,10,8,3,2,5,1,10,4,10,8,3,2,5,1,10,9,4,10,8,3,2,5,1,10,4,10,8,3,2,', 'P-135968e6692-10013');ptConfig['P-135968e6692-10013'].reloadFunction = aipo.reloadPage;">
+</div>
+
+</div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              </div>
+                                                              <!-- /PORTLET OUTER -->
+
+
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+<!-- ###### ▲開発向け：ここまで改修コンテンツ（当コメントは反映しないで下さい） #####-->
+
+
+<!-- /PORTLET OUTER -->
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- /LAYOUT -->
+</div></div></div></div></div></div></div></div></div></td></tr></tbody></table>
+<!-- /MAIN OUTER  -->
+
+<!-- FOOTER -->
+<div id="footer" class="clearfix">
+
+	<!-- START GUIDE -->
+	<div id="startGuide" style="display:none;">
+		<div class="close"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='40px';document.getElementById('guide_on').style.display='inline'"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"> 閉じる</a></div>
+		<div class="clearfix">
+			<div class="guideContents">
+				<p>ユーザーを追加しよう</p>
+				<p><a href="#" class="auiButtonAction">ユーザー追加方法を見る</a></p>
+			</div>
+			<div class="guideContents">
+				<p>画面レイアウトを変更しよう</p>
+				<p><a href="#" class="auiButtonAction">レイアウト変更方法を見る</a></p>
+			</div>
+		</div>
+	</div>
+	<!-- /START GUIDE -->
+
+	<div id="footText">
+	<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
+	<div id="guide_on" style="display:inline;"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='170px';document.getElementById('guide_on').style.display='none'">スタートガイド</a></div>
+	</div>
+</div>
+<!-- /FOOTER -->
+
+</div>
+<!-- /roundWrapper -->
+
+</div>
+
+
+<div class="dijitPopup" style="z-index: 1000; left:1090px; visibility: visible; top: 32px; ">
+    <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
+    <div class="activityPopup">
+    <div class="clearfix">
+    <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
+    
+    
+    <h2>あなた宛のお知らせ</h2>
+    <div style="background:#ffffff;padding:2px;">
+    <ul class="activityList">
+    <li class="unread">
+    <div class="meta">12月26日 &nbsp; 金子 治雄</div>
+    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3088&amp;view_date=2012-01-10-00-00&amp;activityId=3563&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3563)">予定「PMI<wbr>様訪問」を編<wbr>集しました。<wbr></a>
+    </li>
+    <li>
+    <div class="meta">12月26日 &nbsp; 高瀬 裕介</div>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle">
+    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=GadgetsPopupScreen&amp;view=popup&amp;aid=61&amp;activityId=3518&amp;eid=804&amp;mid=487&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3518)">あなたの投稿<wbr>にコメントし<wbr>ました。</a>
+    </li>
+    <li>
+    <div class="meta">12月22日 &nbsp; 原田 由香里</div>
+    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=NoteDetailScreen&amp;entityid=356&amp;activityId=3505&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3505)">かねこさん様<wbr>より伝言「伝<wbr>言をお願いし<wbr>ます。」があ<wbr>りました。</a>
+    </li>
+    <li>
+    <div class="meta">12月21日 &nbsp; 金子 治雄</div>
+    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3037&amp;view_date=2011-12-22-00-00&amp;activityId=3467&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3467)">予定「ハイソ<wbr>ル様修正連絡<wbr>」を追加しま<wbr>した。</a>
+    </li>
+    <li>
+    <div class="meta">12月21日 &nbsp; 岩崎 善光</div>
+    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ReportDetailScreen&amp;entityid=4&amp;activityId=3441&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3441)">報告書「fo<wbr>rm.aip<wbr>o.comの<wbr>ボタン画像に<wbr>テキストが表<wbr>示されます」<wbr>の確認依頼を<wbr>出しました。<wbr></a>
+    </li>
+    </ul>
+    
+    <div class="clearfix">
+      <div class="alignleft small">
+    
+        <div class="pagination">
+          <ul>
+            <li class="prev disabled"><a href="javascript:void(0);" class="small">前へ</a></li>
+            <li class="next"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">次へ</a></li>
+            <li class="selected"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=1');" class="small">1</a></li>
+            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">2</a></li>
+            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=3');" class="small">3</a></li>
+            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=4');" class="small">4</a></li>
+            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=5');" class="small">5</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <p class="rightBtn">
+    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
+    </p>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

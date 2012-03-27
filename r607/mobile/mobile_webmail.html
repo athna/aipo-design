@@ -438,22 +438,30 @@ UA判別などでPC版では表示させないでください。
 <script language="javascript">
 function appsNaviSwitch() {
 	var navi = document.getElementById('appsNavigation');
+	var lists = navi.getElementsByTagName("ul");
 	var bk = document.getElementById('appsNavigationBack');
 	var wrapper = document.getElementById('wrapper');
 	var nLeft = '-260px';
-	var h = document.documentElement.clientHeight;
-	var nh = document.getElementById('anInner').clientHeight
-	if(nh > h) h = nh;
 	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "block";
+		}
 		navi.style.left = '0px';
+		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
+		navi.style.borderRight = 'solid 1px #909090';
 		bk.style.display = 'block';
 		wrapper.style.overflow = 'hidden';
-		wrapper.style.height = h + 'px';
+		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 	}else{
 		navi.style.left = nLeft;
+		navi.style.boxShadow = 'none';
+		navi.style.borderRight = 'none';
 		bk.style.display = 'none';
 		wrapper.style.overflow = 'visible';
 		wrapper.style.height = 'auto'
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "none";
+		}
 	}
 }
 </script>

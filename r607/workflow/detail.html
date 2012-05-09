@@ -1699,7 +1699,7 @@ dojo.addOnLoad(function () {
 <form onsubmit="return(aimluck.io.disableForm(this, true));" method="post" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-1360d009809-10014" id="formP-1360d009809-10014" name="formP-1360d009809-10014">
 <input type="hidden" value="Msgboard" name="_name">
 <input type="hidden" value="3f3bd19aa124a501b7d3cacb82917017" name="secid">
-<table class="listTable wide">
+<table class="auiRowTable wide">
 <colgroup>
 </colgroup>
 <colgroup style="width:20%;">
@@ -1792,7 +1792,7 @@ dojo.addOnLoad(function () {
 <form onsubmit="return(aimluck.io.disableForm(this, true));" method="post" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-1360d009809-10015" id="formP-1360d009809-10015" name="formP-1360d009809-10015">
 <input type="hidden" value="Cabinet" name="_name">
 <input type="hidden" value="3f3bd19aa124a501b7d3cacb82917017" name="secid">
-<table class="listTable wide">
+<table class="auiRowTable wide">
 <colgroup>
 </colgroup>
 <colgroup style="width:20%;">
@@ -2029,85 +2029,93 @@ dojo.addOnLoad(function() {
 <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','P-1360d009805-1000f',aipo.workflow.onReceiveMessage);return false;" method="post" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-1360d009805-1000f?template=WorkflowFormJSONScreen&amp;entityid=2" id="workflowFormP-1360d009805-1000f" name="workflowFormP-1360d009805-1000f">
 <input type="hidden" value="none" name="mode">
 <input type="hidden" value="3f3bd19aa124a501b7d3cacb82917017" name="secid">
+
+
+
+<div align="right">
+	<a class="auiButton pl5 pr5" title="印刷画面を開く" onclick="javascript:window.open('http://192.168.3.27/aipo_ui/workflow/print_detail.html');void(0);" href="javascript:void(0);">
+	<span>
+	<img width="17" height="18" alt="印刷" src="../themes/default/images/icon/icon_print.gif">	</span>	</a></div>
+
+
+
 <table class="listTable wide mb20">
+<caption>決裁内容</caption>
+<colgroup style="width:25%;"></colgroup>
+<colgroup style="width:75%;"></colgroup>
 <tbody>
-<tr>
-<td class="caption">決裁状況</td>
-<td>決裁待ち</td>
-</tr>
-<tr>
-<td class="caption">タイトル</td>
-<td>有給休暇届</td>
-</tr>
-<tr>
-<td class="caption">申請日</td>
-<td>2012年3月14日1時0分</td>
-</tr>
-<tr>
-<td class="caption">重要度</td>
-<td>やや低い</td>
-</tr>
-<tr>
-<td class="caption">申請内容</td>
-<td>5月7日にお休みをいただけないでしょうか？</td>
-</tr>
+	<tr>
+		<td class="caption">決裁状況</td>
+		<td><span class="caution"> 決裁待ち </span> </td>
+	</tr>
+	<tr>
+		<td class="caption">タイトル</td>
+		<td> 有給休暇届 </td>
+	</tr>
+	<tr>
+		<td class="caption">申請日</td>
+		<td>2012年3月14日1時0分</td>
+	</tr>
+	<tr>
+		<td class="caption">重要度</td>
+		<td>やや低い</td>
+	</tr>
+	<tr>
+		<td class="caption">申請内容</td>
+		<td>5月7日にお休みをいただけないでしょうか？</td>
+	</tr>
 </tbody>
 </table>
 
 
-<h2>決裁履歴</h2>
 <table class="listTable wide mb10">
+<caption>決裁履歴</caption>
+<colgroup style="width:25%;"></colgroup>
+<colgroup style="width:75%;"></colgroup>
 <tbody>
-<tr>
-<td class="caption">申請</td>
-<td><span class="floatLeft w60">山田 太郎</span><span class="floatLeft right w40">2012年3月14日1時0分</span></td>
-</tr>
-<tr>
-<td class="caption"><span class="caution">確認中</span></td>
-<td><span class="floatLeft w60">木村 一郎</span><span class="floatLeft right w40"></span>
-
-<p class="clearfix">
-<textarea cols="40" rows="4" name="comment" class="text wide mt10"></textarea>
-<input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.workflow.onAccept('P-1360d009805-1000f');" value="承認する" class="auiButtonAction mt5 mb20 floatRight" name="eventSubmit_doWorkflow_accept" />
-</p>
-<p class="clearfix">
-<span id="order_field">
-<select onchange="" style="width:70%;" id="passback_order" name="passback_order">
-<option value="0">申請者</option>
-</select>
-</span>に
-<input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.workflow.onDenial('P-1360d009805-1000f');" value="差し戻す" class="auiButtonAction floatRight" name="eventSubmit_doWorkflow_denial">
-</p>
-
-</td>
-</tr>
-
-<!--<tr>
-<td nowrap="nowrap"> 申請 </td>
-<td>山田 太郎</td>
-<td nowrap="nowrap"> 2012年3月14日1時0分 </td>
-<td></td>
-</tr>
-<tr>
-<td nowrap="nowrap"><span class="caution">確認中</span> </td>
-<td>木村 一郎</td>
-<td nowrap="nowrap"></td>
-<td><textarea cols="40" rows="10" name="comment" class="text wide"></textarea>
-<div class="alignleft">
-<div class="alignleft">
-<input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.workflow.onAccept('P-1360d009805-1000f');" value="承認する" class="auiButtonAction" name="eventSubmit_doWorkflow_accept">
-</div>
-<div class="alignleft"> <span id="order_field">
-<select onchange="" style="width:90%;" id="passback_order" name="passback_order">
-<option value="0">申請者</option>
-</select>
-</span>に
-<input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.workflow.onDenial('P-1360d009805-1000f');" value="差し戻す" class="auiButtonAction" name="eventSubmit_doWorkflow_denial">
-</div>
-</div></td>
-</tr>-->
+	<tr>
+		<td>申請</td>
+		<td>
+			<div class="clearfix">
+				<span class="floatLeft w60">山田 太郎</span>
+				<span class="floatLeft right w40">2012年3月14日1時0分</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>承認</td>
+		<td>
+			<div class="clearfix">
+				<span class="floatLeft w60">鈴木 花子</span>
+				<span class="floatLeft right w40">2012年3月14日1時0分</span>
+			</div>
+			<p>ワークフローコメント。ワークフローコメント。ワークフローコメント。ワークフローコメント。ワークフローコメント。ワークフローコメント。</p>
+		</td>
+	</tr>
+	<tr>
+		<td><span class="caution">確認中</span></td>
+		<td>
+			<span class="floatLeft w60">木村 一郎</span>
+			<span class="floatLeft right w40"></span>
+			<p class="clearfix">
+			<textarea cols="40" rows="4" name="comment" class="text wide mt10"></textarea>
+			<input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.workflow.onAccept('P-1360d009805-1000f');" value="承認する" class="auiButtonAction mt5 mb20 floatRight" name="eventSubmit_doWorkflow_accept" />
+			</p>
+			<p class="clearfix">
+			<span id="order_field">
+			<select onchange="" style="width:70%;" id="passback_order" name="passback_order">
+			<option value="0">申請者</option>
+			</select>
+			</span>に
+			<input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.workflow.onDenial('P-1360d009805-1000f');" value="差し戻す" class="auiButtonAction floatRight" name="eventSubmit_doWorkflow_denial">
+			</p>
+		</td>
+	</tr>
 </tbody>
 </table>
+
+
+
 <div align="center">
 <input type="button" onclick="aipo.common.hideDialog();" value="&#12288;閉じる&#12288;" class="button" name="ajaxbuttonClose">
 </div>

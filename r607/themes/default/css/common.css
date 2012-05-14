@@ -988,6 +988,9 @@ table.simpleTable td.caption {
 /*	margin:3px 0;*/
 	vertical-align:middle;
 }
+ .modalDialog#imageDialog {
+	z-index:999;
+}
 .fileuploadDialog {
 	border:5px solid #ddd;
 	background-color:#fff;
@@ -1063,6 +1066,25 @@ table.simpleTable td.caption {
 	display:inline;
 }
 /* END addressbookDialog */
+
+/* fileuploadViewDialog */
+.fileuploadViewDialog {
+	z-index:999;
+	width:600px;
+	position:absolute;
+}
+.fileuploadViewDialogUnderlayWrapper {
+	left:0;
+	top:0;
+	z-index:998;
+	display:none;
+	background:transparent;
+}
+.fileuploadViewDialogUnderlay {
+	background:#eee;
+	opacity:.5;
+}
+/* END fileuploadViewDialog */
 
 .popupMenu {
 	position:absolute;
@@ -2313,6 +2335,10 @@ background:url(../images/icon/account_user_add.gif) no-repeat;
 	overflow:hidden;
 	box-shadow:0 2px 4px rgba(0,0,0,0.2);
 	zoom:1;
+	overflow:visible;
+}
+*:first-child+html .menubar {
+    margin:16px 0 0 -16px;
 }
 .menubar ul {
 	width:100%;

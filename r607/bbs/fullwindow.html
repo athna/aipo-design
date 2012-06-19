@@ -10,7 +10,6 @@
     <meta http-equiv="Content-Style-Type" content="text/css"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1"/>
     <meta name="robots" content="noindex,follow"/>
     <link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico"/>
     <link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico"/>
@@ -55,11 +54,67 @@
 <!-- Start Contents Area -->
 <div id="auiContentsArea"><div id="auiContentsAreaInner">
 
-<div class="auiSummaryMeta clearfix">
-<form class="auiSearch floatLeft" style="margin-right:1em;">
-<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
-<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
-</form>
+<div class="auiSummaryMeta auiFilter clearfix">
+	<form class="auiSearch floatLeft" style="margin-right:1em;">
+		<div class="filterInputField">
+			<!--
+			***************************************************
+			●開発担当者へコメント
+			
+			ポートレット用の「auiFilter/filters」とは並びが異なるため注意してください。
+			
+			***************************************************
+			-->
+			<div class="filters">
+				<span class="filterTip"><span>すべての部署</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span>
+				<span class="filterTip"><span>カテゴリ名</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span>
+				<span class="filterTip"><span>長いカテゴリ名長いカテゴリ名長いカテゴリ名</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span>
+			</div>
+			<a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_2').style.display!='none'){document.getElementById('menubar_auiFilter_2').style.display='none'}else{document.getElementById('menubar_auiFilter_2').style.display='block'}" title="フィルタ" class="filterDropDrawer">
+				<span>
+					<i class="auiIcon auiIconArwBottom"></i>
+				</span>
+			</a>
+			<div class="menubar multi" id="menubar_auiFilter_2" style="width:390px;display:none">
+				<div>
+					<p class="caption">部署</p>
+					<ul>
+						<li><a href="#" class="selected">すべての部署</a></li>
+						<li><a href="#">営業本部</a></li>
+						<li><a href="#">開発本部本部</a></li>
+						<li><a href="#">企画本部</a></li>
+					</ul>
+				</div>
+				<div>
+					<p class="caption">カテゴリ</p>
+					<ul>
+						<li><a href="#">カテゴリ名</a></li>
+						<li><a href="#">カテゴリ名</a></li>
+						<li><a href="#" class="selected">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+					</ul>
+				</div>
+				<div>
+					<p class="caption">長いタイトル長いタイトル長いタイトル長いタイトル</p>
+					<ul>
+						<li><a href="#">カテゴリ名</a></li>
+						<li><a href="#">カテゴリ名</a></li>
+						<li><a href="#">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+					</ul>
+				</div>
+			</div>
+		
+			<!--
+			***************************************************
+			●開発担当者へコメント
+			
+			直下のinputフィールドのstyleへ、上記「filters」の横幅分のpadding-leftを入れてください。
+			
+			***************************************************
+			-->
+			<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;padding-left:422px;">
+		</div>
+	<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+	</form>
 </div>
 
 <div class="auiSummaryMeta clearfix">
@@ -109,184 +164,185 @@
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>19:12</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>19:12</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>19:12</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>19:12</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
 
 <tr>
-<td><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
-<td><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
-<td><div>カテゴリ名カテゴリ名</div></td>
-<td><div>木村 一郎</div></td>
-<td><div>木村 一郎</div></td>
-<td class="right"><div>9月15日</div></td>
+<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+<td class="wIcon"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
+<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
+<td class="wCreater"><div>木村 一郎</div></td>
+<td class="wUpdater"><div>木村 一郎</div></td>
+<td class="wDate right"><div>19:12</div></td>
 </tr>
+
 
 </tbody>
 </table>
@@ -314,11 +370,11 @@
 <!-- Start Widgets Area -->
 <div id="auiWidgetsArea">
 
-<div class="auiWidget clearfix">
+<div class="auiWidget">
 	<p><a href="#" class="auiButtonAction">トピックを追加する</a></p>
 </div>
 
-<div class="auiWidget clearfix">
+<div class="auiWidget">
 	<ul>
 	<li><a href="#">すべてのカテゴリ</a></li>
 	<li class="active"><a href="#">選択中のカテゴリ</a></li>

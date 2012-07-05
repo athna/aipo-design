@@ -146,11 +146,42 @@
 <!-- Start Contents Area -->
 <div id="auiContentsArea"><div id="auiContentsAreaInner">
 
-<div class="auiSummaryMeta clearfix">
+<!--div class="auiSummaryMeta clearfix">
 <form class="auiSearch floatLeft" style="margin-right:1em;">
 <input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
 <a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
 </form>
+</div-->
+
+<div class="auiSummaryMeta auiFilter clearfix">
+	<form class="auiSearch floatLeft" style="margin-right:1em;">
+		<div class="filterInputField">
+			<!--
+			***************************************************
+			●開発担当者へコメント
+			
+			ポートレット用の「auiFilter/filters」とは並びが異なるため注意してください。
+			「filterTip」同士はソース内改行が発生しないようにしてください。
+			
+			***************************************************
+			-->
+			<div class="filters"><span class="filterTip"><span>すべての部署</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span><span class="filterTip"><span>カテゴリ名</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span><span class="filterTip"><span>長いカテゴリ名長いカテゴリ名長いカテゴリ名</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span></div>
+			<a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}" title="フィルタ" class="filterDropDrawer"><span><i class="auiIcon auiIconArwBottom"></i></span></a>
+		
+			<!--
+			***************************************************
+			●開発担当者へコメント
+			
+			直下のinputフィールドのstyleへ、すぐ上の「filters」の横幅分のpadding-leftを入れてください。
+			【厳重注意】PC版と異なり、最大値を260pxと制限してください。
+			
+			【IE7のみ】
+			※PC版と異なりIEではないのでwidthを加える処理はありません。
+			
+			***************************************************
+			-->
+			<input class="text" type="text" name="q" id="q" style="padding-left:260px;"></div><a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+	</form>
 </div>
 
 <div class="auiSummaryMeta clearfix">
@@ -495,13 +526,38 @@ function appsNaviSwitch() {
 <!-- /mobileNavigation -->
 
 
-<!-- ******************************
 
-■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+<!-- menubar_auiFilter_1 -->
+<div class="menubar multi" id="menubar_auiFilter_1" style="width:390px;display:none;top:81px;left:5px;">
+	<div>
+		<p class="caption">部署</p>
+		<ul>
+			<li><a href="#" class="selected">すべての部署</a></li>
+			<li><a href="#">営業本部</a></li>
+			<li><a href="#">開発本部本部</a></li>
+			<li><a href="#">企画本部</a></li>
+		</ul>
+	</div>
+	<div>
+		<p class="caption">カテゴリ</p>
+		<ul>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#" class="selected">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+		</ul>
+	</div>
+	<div>
+		<p class="caption">長いタイトル長いタイトル長いタイトル長いタイトル</p>
+		<ul>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /menubar_auiFilter_1 -->
 
-スマホ専用要素ここまで
 
-****************************** -->
 
 
 </body>

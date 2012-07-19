@@ -1,0 +1,833 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Aipo+</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<meta name="robots" content="noindex,follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico?1339728598000" />
+<link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico?1339728598000" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css?1339728598000" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css?1339728598000" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css?1339728598000" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css?1339728598000" media="screen,tv,print"/>
+<link rel="stylesheet" type="text/css" href="/themes/default/css/print.css?1339728598000" media="print" />
+<link rel="apple-touch-icon-precomposed" href="../themes/iphone/img/apple-touch-icon-precomposed.png" />
+<script type="text/javascript">
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-11008420-14']);
+ _gaq.push(['_setDomainName', '.aipo.com']);
+ _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body onload="aipo.container.renderGadgets()">
+<script type="text/javascript">
+  djConfig = {
+    cacheBust: '1339728598000'
+  };
+</script>
+<script language="JavaScript" type="text/javascript" src="/javascript/dojo/dojo.js?1339728598000"></script>
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo.js?1339728598000"></script>
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/platform.js?1339728598000"></script>
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/container.js?1339728598000"></script>
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/saas.js?1339728598000"></script>
+<!-- WRAPPER -->
+<div id="wrapper">
+	<!-- HEADER -->
+	<div id="header" class="clearfix">
+		<div class="inner">
+			<div class="hdSign">
+				<div class="hdLogo"><img src="/themes/default/images/logo_aipoplus.png" alt="Aipo+"></div>
+			</div>
+			<div class="hdNavi">
+				<div class="hdActivity" title="あなた宛のお知らせ">
+					<div class="activityField">
+						<div class="dijitRight"> <span id="activitycheckerContainer"></span></div>
+					</div>
+				</div>
+				<div class="hdUserName"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b7a?template=SaaSAccountPersonFormScreen');"> <img src="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/template/FileuploadFacePhotoScreen?uid=4&amp;t=1337907151000" class="avatar" alt="顔写真" /> <span class="useraccount"> 株式会社エイムラック  &#24460;&#34276; &#21644;&#33391; </span> </a> </div>
+				<div class="hdLogout">
+					<input type="submit" value="ログアウト" onclick="location.href='https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml?action=SaaSJLogoutUser'">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /HEADER -->
+	<script language="JavaScript" type="text/javascript">
+
+//<![CDATA[
+
+
+
+dojo.require("aipo.widget.DropdownActivityChecker");
+
+
+
+dojo.addOnLoad(function () {
+
+    var acHtml = document.getElementById("activitycheckerContainer");
+
+    if(acHtml){
+
+       var params = {
+
+            widgetId: "activitychecker",
+
+
+
+            iconURL: "themes/default/images/mobile/an_activity.png",
+
+            iconWidth: "24",
+
+            iconHeight: "24",
+
+            iconAlt: "あなた宛のお知らせ"
+
+       };
+
+       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
+
+   }
+
+});
+
+
+
+//]]>
+
+</script>
+	<!-- appsNavigation -->
+	<script language="javascript">
+
+// ウィジェットメニュー用
+
+aipo.onloadSmartPhone = function(){
+
+	var widgets_area = dojo.byId('auiWidgetsArea');
+
+	if(widgets_area != null){
+
+		// classの追加
+
+		var is_menu = false;
+
+		for(var i=0;i<widgets_area.childNodes.length;i++){
+
+			if(widgets_area.childNodes[i].className != null
+
+			&& widgets_area.childNodes[i].className.indexOf('auiWidget',0) >= 0){
+
+				if(widgets_area.childNodes[i].innerHTML.indexOf('auiButtonAction',0) >= 0){
+
+					widgets_area.childNodes[i].className += ' widgetButton';
+
+				}else if(widgets_area.childNodes[i].id == 'subNavigation'){
+
+					is_menu = true;
+
+				}else if(widgets_area.childNodes[i].innerHTML.indexOf('<ul>',0) >= 0){
+
+					widgets_area.childNodes[i].id = 'subNavigation';
+
+					is_menu = true;
+
+				}else{
+
+					widgets_area.childNodes[i].className += ' mb_hide';
+
+				}
+
+			}
+
+		}
+
+		// snDrawerの追加
+
+		if(is_menu){
+
+			var elem = document.createElement('div');
+
+			elem.className = 'snDrawer';
+
+			elem.innerHTML = '<a href="javascript:void(0)" class="auiButtonBold" onClick="widgetMenuSwitch()"><img src="themes/default/images/mobile/sn_list.png"></a>';
+
+			widgets_area.appendChild(elem);
+
+		}
+
+	}
+
+}
+
+dojo.addOnLoad(function(){
+
+	aipo.onloadSmartPhone();
+
+});
+
+function widgetMenuSwitch() {
+
+        var subNavi = document.getElementById('subNavigation');
+
+        if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
+
+                subNavi.style.display = 'block';
+
+        }else{
+
+                subNavi.style.display = 'none';
+
+        }
+
+}
+
+// ナビゲーションメニュー用
+
+function appsNaviSwitch() {
+
+	var navi = document.getElementById('appsNavigation');
+
+	var lists = navi.getElementsByTagName("ul");
+
+	var bk = document.getElementById('appsNavigationBack');
+
+	var wrapper = document.getElementById('wrapper');
+
+	var nLeft = '-260px';
+
+	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
+
+		//show
+
+		for (var i=0; i<lists.length; i++){
+
+			lists[i].style.display = "block";
+
+		}
+
+		navi.style.left = '0px';
+
+		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
+
+		navi.style.borderRight = 'solid 1px #909090';
+
+		bk.style.display = 'block';
+
+		wrapper.style.overflow = 'hidden';
+
+		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
+
+		 if (aipo.userAgent.isAndroid()){
+
+		 	var content=dojo.query(".roundBlockContent")[0];
+
+		 	if(content){
+
+		 		content.style.display="none";
+
+		 	}
+
+		 }
+
+	}else{
+
+		//hide
+
+		navi.style.left = nLeft;
+
+		navi.style.boxShadow = 'none';
+
+		navi.style.borderRight = 'none';
+
+		bk.style.display = 'none';
+
+		wrapper.style.overflow = 'visible';
+
+		wrapper.style.height = 'auto';
+
+		for (var i=0; i<lists.length; i++){
+
+			lists[i].style.display = "none";
+
+		}
+
+		 if (aipo.userAgent.isAndroid()){
+
+		 	var content=dojo.query(".roundBlockContent")[0];
+
+		 	if(content){
+
+		 		content.style.display="";
+
+		 	}
+
+		 }
+
+	}
+
+}
+
+</script>
+	<div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">
+		<!--test-->
+		</a></div>
+	<div id="appsNavigation">
+		<div id="anInner">
+			<div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="themes/default/images/mobile/an_list.png"></a></div>
+			<div class="anUser">
+				<div class="avatar"><img src="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/template/FileuploadFacePhotoScreen?uid=4&amp;t=1337907151000" alt="顔写真" width="20" height="20" /> </div>
+				<div class="name">&#24460;&#34276; &#21644;&#33391;</div>
+			</div>
+			<div class="anApps">
+				<h2>アプリ</h2>
+				<ul>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b76?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_timeline.png"></span>タイムライン</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135ea887364-10654?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_schedule.png"></span>スケジュール</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b77?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_timecard.png"></span>タイムカード</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-136c84761a7-106dd?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_blog.png"></span>ブログ</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b73?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_bbs.png"></span>お知らせ</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b6f?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_todo.png"></span>共有ToDo</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135f01020f6-100b9?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_folder.png"></span>共有フォルダ</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b71?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_workflow.png"></span>ワークフロー</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b75?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_note.png"></span>伝言メモ</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b74?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_report.png"></span>報告書</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-136520165ee-1015f/js_peid/P-13652023f79-10161?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_mail.png"></span>Webメール</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b78?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_address.png"></span>アドレス帳</a></li>
+					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b72?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_users.png"></span>ユーザー名簿</a></li>
+				</ul>
+			</div>
+			<div class="anSetting">
+				<h2>設定</h2>
+				<ul>
+					<!--<li><a href="javascript:void(0)"><span class="icon"><img src="themes/default/images/mobile/an_setting.png" /></span>個人設定</a></li>
+
+                        <li><a href="javascript:void(0)"><span class="icon"><img src="themes/default/images/mobile/an_pc.png" /></span>PC版表示へ変更</a></li>-->
+					<li><a href="javascript:void(0)" onclick="location.href='https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml?action=SaaSJLogoutUser'"><span class="icon"><img src="themes/default/images/mobile/an_logout.png" /></span>ログアウト</a></li>
+				</ul>
+			</div>
+			<div class="anFooter">
+				<div class="copyright">&copy; 2012 Aimluck</div>
+			</div>
+		</div>
+	</div>
+	<!-- /mobileNavigation -->
+	<!-- MAIN OUTER -->
+	<!-- roundWrapper -->
+	<div id="roundWrapper">
+		<!-- MAIN OUTER -->
+		<div class="roundMainWrapper">
+			<script language="JavaScript" type="text/javascript" src="/javascript/aipo/exttimecardsystem/form.js?1339728598000"></script>
+			<script language="JavaScript" type="text/javascript">
+
+//<![CDATA[
+
+
+
+    ptConfig['P-135e7e25490-10b77'] = { group:"exttimecard", initUrl:'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen', reloadFunction:aipo.reloadPage };
+
+
+
+//]]>
+
+</script>
+			<!-- PORTLET OUTER -->
+			<div class="roundTopBlock clearfix">
+				<div class="roundRightBlock">
+					<div class="roundBottomBlock">
+						<div class="roundLeftBlock">
+							<div class="roundTopLeftBlock">
+								<div class="roundTopRightBlock">
+									<div class="roundBottomRightBlock" >
+										<div class="roundBottomLeftBlock">
+											<table class="roundBlockWrapperTop">
+												<tbody>
+													<tr>
+														<td class="roundBlockTitle wide">&#12479;&#12452;&#12512;&#12459;&#12540;&#12489;</td>
+														<td class="roundBlockMenu  hide"><span id="portletMenu"></span></td>
+														<td class="endcap"></td>
+													</tr>
+												</tbody>
+											</table>
+											<div class="roundBlockWrapperBottom clearfix">
+												<div class="roundBlockContent">
+													<div dojoType="aimluck:Contentpane" widgetId="widget_P-135e7e25490-10b77" id="portlet_P-135e7e25490-10b77">
+													
+
+<!-- auiContentsArea -->
+<div id="auiContentsArea"  style="margin-bottom:45px" ><div id="auiContentsAreaInner">
+
+
+	<div class="auiSummaryMeta clearfix">
+		<div class="auiSelectButton floatLeft">
+		<ul class="floatLeft">
+		<li style="margin-right:10px;"> <a style="width:4em;" class="btn" title="今月へ" onclick="aipo.viewPage('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000323/page/default.psml/js_peid/P-1382666a063-10263?template=ExtTimecardSummaryListScreen&amp;view_month=2012-07', 'P-1382666a063-10263');" href="javascript:void(0);"><span>今月</span></a> </li>
+		<li> <a class="first arrow" title="先月へ" onclick="aipo.viewPage('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000323/page/default.psml/js_peid/P-1382666a063-10263?template=ExtTimecardSummaryListScreen&amp;view_month=2012-06', 'P-1382666a063-10263');" href="javascript:void(0);"><span><img alt="先月" src="../themes/default/images/icon/icon_arrow_l.gif"></span></a> </li>
+		<li> <a class="last arrow" title="来月へ" onclick="aipo.viewPage('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000323/page/default.psml/js_peid/P-1382666a063-10263?template=ExtTimecardSummaryListScreen&amp;view_month=2012-08', 'P-1382666a063-10263');" href="javascript:void(0);"><span><img alt="来月" src="../themes/default/images/icon/icon_arrow_r.gif"></span></a> </li>
+		</ul>
+		</div>
+		<div style="line-height:24px;margin-left:10px;" class="floatLeft"><strong>2012 年 7 月</strong></div>
+		<div class="floatRight"> <a class="auiButton" href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000323/page/default.psml/template/ExtTimecardSummaryXlsExportScreen/target_user_id/4/target_group_name/all/view_month/2012-07/f/timecard.xls" title="表示中の一覧をダウンロード">表示中の一覧をダウンロード</a>
+		</div>
+	</div>
+
+	<div>
+	<table class="auiMultiTable wide">
+	<tbody>
+	  <tr class="caption pc_hide">
+		<th>名前</th>
+		<th>勤務形態</th>
+		<th class="doubleHeight">就業</th>
+		<th class="doubleHeight">残業</th>
+		<th class="doubleHeight">休出</th>
+		<th>遅刻</th>
+		<th>早退</th>
+		<th>欠勤</th>
+		<th>有休</th>
+		<th>代休</th>
+		<th>その他</th>
+		<th>未入力</th>
+	  </tr>
+	  <tr>
+		<td nowrap="nowrap">木村 一郎</td>
+		<td nowrap="nowrap" class="wType">通常</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">22日<br>
+		  （200.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">15日<br>
+		  （100.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">20日<br>
+		  （120.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">29</td>
+	  </tr>
+	</tbody>
+	</table>
+	<table class="auiMultiTable wide">
+	<tbody>
+	  <tr class="caption">
+		<th>名前</th>
+		<th>勤務形態</th>
+		<th class="doubleHeight">就業</th>
+		<th class="doubleHeight">残業</th>
+		<th class="doubleHeight">休出</th>
+		<th>遅刻</th>
+		<th>早退</th>
+		<th>欠勤</th>
+		<th>有休</th>
+		<th>代休</th>
+		<th>その他</th>
+		<th>未入力</th>
+	  </tr>
+	  <tr>
+		<td nowrap="nowrap">木村 一郎</td>
+		<td nowrap="nowrap" class="wType">通常</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">22日<br>
+		  （20.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">15日<br>
+		  （10.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">20日<br>
+		  （12.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wDays">0日</td>
+		<td nowrap="nowrap" align="center" class="wDays">0日</td>
+		<td nowrap="nowrap" align="center" class="wDays">0日</td>
+		<td nowrap="nowrap" align="center" class="wDays">0日</td>
+		<td nowrap="nowrap" align="center" class="wDays">0日</td>
+		<td nowrap="nowrap" align="center" class="wDays">0日</td>
+		<td nowrap="nowrap" align="center" class="wDays">9</td>
+	  </tr>
+	</tbody>
+	</table>
+	<table class="auiMultiTable wide">
+	<tbody>
+	  <tr class="caption">
+
+		<th>名前</th>
+		<th>勤務形態</th>
+		<th class="doubleHeight">就業</th>
+		<th class="doubleHeight">残業</th>
+		<th class="doubleHeight">休出</th>
+		<th>遅刻</th>
+		<th>早退</th>
+		<th>欠勤</th>
+		<th>有休</th>
+		<th>代休</th>
+		<th>その他</th>
+		<th>未入力</th>
+	  </tr>
+	  <tr>
+		<td nowrap="nowrap">木村 一郎</td>
+		<td nowrap="nowrap" class="wType">通常</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">22日<br>
+		  （200.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">15日<br>
+		  （100.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wTime doubleHeight">20日<br>
+		  （120.0時間）</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">20日</td>
+		<td nowrap="nowrap" align="center" class="wDays">29</td>
+	  </tr>
+	</tbody>
+	</table>
+	</div>
+
+
+</div></div>
+<!-- /auiContentsArea -->
+														<div id="auiWidgetsArea"  style="position:fixed" >
+															<div class="auiWidget clearfix">
+																<ul>
+																	<li class="active"> <a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?mode=list">タイムカード記録</a> </li>
+																	<li> <a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?mode=summary">タイムカード集計</a> </li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /PORTLET OUTER -->
+			<!-- /MAIN OUTER  -->
+		</div>
+	</div>
+	<!-- FOOTER -->
+	<div id="footer" class="clearfix">
+		<!-- START GUIDE -->
+		<div id="startGuide"   style="display:none;"  >
+			<div class="close"><a href="javascript:void(0);" onclick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='26px';document.getElementById('guide_on').style.display='inline';document.getElementById('guide_off').style.display='none';aipo.setCookie('start_guide_popup',false,'/')"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"></a></div>
+			<div class="clearfix">
+				<div class="guideContents">
+					<p>みんなを招待しましょう</p>
+					<p><a title="ユーザーを追加する" href="javascript:aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/121?template=StartGuideFormScreen&amp;entityid=new');" class="auiButtonAction">ユーザーを追加する</a> </p>
+				</div>
+				<div class="guideContents">
+					<p>新しいアプリを使ってみましょう</p>
+					<p><a title="アプリを追加する" href="javascript:aipo.common.customizeDialog()" class="auiButtonAction">アプリを追加する</a> </p>
+				</div>
+				<div class="guideContents">
+					<p>みんなの画面を同じにしましょう</p>
+					<p><a title="画面を統一する" href="javascript:aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/121?template=SaaSGadgetsPsmlFormScreen');" class="auiButtonAction">画面を統一する</a> </p>
+				</div>
+				<div class="guideContents "   style="display:none;"   id="start_guide_agreement_div">
+					<p>本格的に導入しましょう</p>
+					<p><a title="プラン変更を申し込む" href="javascript:aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/121?template=SystemAgreementFormScreen');" class="auiButtonAction">プラン変更を申し込む</a> </p>
+				</div>
+			</div>
+		</div>
+		<!-- /START GUIDE -->
+		<div id="footText">
+			<div class="copyright">&copy; 2012 Aimluck</div>
+			<div id="guide_on"   style="display:inline;"  ><a href="javascript:void(0);" onclick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='156px';document.getElementById('guide_on').style.display='none';document.getElementById('guide_off').style.display='inline';aipo.setCookie('start_guide_popup',true,'/');">スタートガイド - 全体の 15 % （1024 MB 中 160 MB）を使用しています</a></div>
+			<div id="guide_off"   style="display:none;"  ><a href="javascript:void(0);" onclick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='26px';document.getElementById('guide_on').style.display='inline';document.getElementById('guide_off').style.display='none';aipo.setCookie('start_guide_popup',false,'/')">スタートガイド - 全体の 15 % （1024 MB 中 160 MB）を使用しています</a></div>
+		</div>
+	</div>
+	<!-- /FOOTER -->
+</div>
+<!-- /WRAPPER -->
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+<iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/common.js?1339728598000"></script>
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/saas-common.js?1339728598000"></script>
+<script language="JavaScript" type="text/javascript">
+
+//<![CDATA[
+
+
+
+dojo.require("aimluck.widget.Dialog");
+
+
+
+dojo.addOnLoad(function() {
+
+    var params = {
+
+        widgetId:'modalDialog'
+
+    };
+
+    new aimluck.widget.Dialog(params, "modalDialog");
+
+    //dojo.disconnect(dojo, "loaded", "_dialog");
+
+    gadgets.rpc.setRelayUrl("sharedStateIframe", "https://aipo-state.appspot.com/gadgets/files/container/rpc_relay.html");
+
+    gadgets.rpc.setAuthToken("sharedStateIframe", "245820382228243");
+
+    dojo.byId('sharedStateIframe').src='https://aipo-state.appspot.com/?st=default:2LHAV4I7TMAdi1ecTFGTENocInTi56A5PIffDhdmAU7XXtgRJbp8_yXY1xQ9QRSmbQzf8Ml0DT-NuIr9FpDFRG-NncPrKeT_w-yv3YSrEt7kuNJC3RwTLErEevZFpT0X-IfPRBJoSM_95u34nj3C9urCB9k&parent=https%3A%2F%2Fapp.aipo.com%2Fportal%2Fmedia-type%2Fhtml%2Fuser%2F0000000007%2Fpage%2Fdefault.psml%2Fjs_pane%2FP-135e7e25490-10b6d%2Fjs_peid%2FP-135e7e25490-10b77&interval=300#rpctoken=245820382228243';
+
+    if(window.webkitNotifications) {
+
+      aipo.container.gadgetService.requestDesktopNotifyEnable();
+
+    }
+
+});
+
+
+
+scheduleTooltipEnable = true;
+
+
+
+dojo.require("dojo.dnd.Source");
+
+
+
+dojo.addOnLoad(function() {
+
+    dojo.query('.customizeMenuIcon').forEach(function(element) {
+
+        dojo.connect(element, 'onmouseenter', null, function(){
+
+            dojo.addClass(this, 'customizeMenuIconMouseenter');
+
+        });
+
+        dojo.connect(element, 'onmouseleave', null, function(){
+
+            dojo.removeClass(this, 'customizeMenuIconMouseenter');
+
+        });
+
+    });
+
+
+
+    var handle = dojo.connect(dojo.query('body')[0], 'onclick', null, function(){
+
+        if (dojo.query('.customizeMenuIconMouseenter').length == 0) {
+
+            aipo.customize.hideMenu();
+
+        }
+
+    });
+
+
+
+    var containers = dojo.query('.container');
+
+    var containerSources = [];
+
+    for(var c = 0; c < containers.length ; c++){
+
+        var container = new dojo.dnd.Source(containers[c], {
+
+            withHandles: true,
+
+            copyOnly: false
+
+        });
+
+        container.onSelectStart = function(e){
+
+		    if(this.isDragging){
+
+			    dojo.stopEvent(e);
+
+		    }
+
+        };
+
+        containerSources.push(container);
+
+    }
+
+
+
+
+
+    for(var c = 0; c < containers.length ; c++){
+
+        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
+
+            dojo.addClass(this, 'dojoDndContainerItemOver');
+
+            aipo.customize.hideMenu();
+
+        });
+
+
+
+        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
+
+            dojo.removeClass(this, 'dojoDndContainerItemOver');
+
+        });
+
+
+
+        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
+
+            if (this == target) {
+
+                if (copy) {
+
+                    nodes.orphan();
+
+                }
+
+                var params = '';
+
+                var cols = dojo.query('.container');
+
+                for(var c = 0; c < cols.length ; c++){
+
+                    var rows = dojo.query('.dojoDndItem .roundBlockContent > div', cols[c]);
+
+                    var reverse = false;
+
+                    if (rows.length >= 2) {
+
+                        var top = rows[0];
+
+                        var bottom = rows[rows.length - 1];
+
+
+
+                        var _top = dojo._abs(top);
+
+                        var _bottom = dojo._abs(bottom);
+
+
+
+                        while (_top && _bottom && _top.y == _bottom.y) {
+
+                            top = top.offsetParent;
+
+                            bottom = bottom.offsetParent;
+
+                            _top = dojo._abs(top);
+
+                            _bottom = dojo._abs(bottom);
+
+                        }
+
+
+
+                        if (_top.y > _bottom.y) {
+
+                            reverse = true;
+
+                        }
+
+
+
+                    }
+
+                    for (var r = 0 ; r < rows.length ; r++) {
+
+                        var pid = rows[r].id.split("portlet_")[1];
+
+                        if (reverse) {
+
+                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
+
+                        } else {
+
+                            params = params + '&' + pid + '_row=' + r;
+
+                        }
+
+                        params = params + '&' + pid + '_col=' + c;
+
+                    }
+
+                }
+
+
+
+                url = "https://app.aipo.com/portal/media-type/html/user/0000000007?template=CustomizeFormJSONScreen&mode=layout" + params;
+
+                aipo.customize.submit(url, '', function(){
+
+                });
+
+
+
+                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+
+                if(iframe && iframe.length == 1) {
+
+                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+
+                  var gadgets_ = aipo.container.gadgets_;
+
+                  for(var i in gadgets_) {
+
+                     var gadget = gadgets_[i];
+
+                     if(gadget.portletId == pid) {
+
+
+                       aipo.container.renderGadget(gadget);
+
+                       break;
+
+                     }
+
+                  }
+
+                }
+
+
+
+                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+
+            }
+
+        });
+
+    }
+
+
+
+    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='${id}_underlay'><div dojoAttachPoint='node'></div></div>" });
+
+    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
+
+        underlay.hide();
+
+    });
+
+    underlay.show();
+
+});
+
+
+
+//]]>
+
+</script>
+</body>
+</html>

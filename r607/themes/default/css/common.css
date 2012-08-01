@@ -144,6 +144,7 @@ div.outer {
 	margin-bottom:2px;
 	margin-top:2px;
 }
+/*
 .clearfix:after,
 .inner:after {
 	content:".";
@@ -156,19 +157,21 @@ div.outer {
 .inner {
 	display:inline-block;
 }
+*/
+.clearfix, .inner {zoom:1;}
+.clearfix:after, .inner:after{
+	content: ""; 
+	display: block; 
+	clear: both;
+}
 /* Hides from IE-mac \*/
-* html .clearfix,
-* html .inner {
-	height:1%;
-}
-.clearfix,
-.inner {
-	display:block;
-}
-/* End hides from IE-mac */ .clear,
-.inner {
-	clear:both;
-}
+* html .clearfix, * html .inner {height:1%;}
+.clearfix, .inner {display:block;}
+/* End hides from IE-mac */
+.clear {clear:both;}
+
+
+
 .alignleft {
 	float:left;
 }

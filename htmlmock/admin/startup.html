@@ -1,0 +1,1660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<!--<base href="https://redmine.aimluck.com:8443/aipo/" >
+</base>-->
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Aipo+</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<meta name="robots" content="noindex,follow" />
+<link type="image/x-icon" rel="shortcut icon" href="/aipo/images/favicon.ico" />
+<link type="image/x-icon" rel="icon" href="../images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css?20120330" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css?20120330" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css?20120330" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css?20120330" media="print" />
+<link rel="apple-touch-icon-precomposed" href="../themes/iphone/img/apple-touch-icon-precomposed.png" />
+</head>
+<body onload="aipo.container.renderGadgets()">
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+<script src="/aipo/javascript/dojo/dojo.js" type="text/javascript" language="JavaScript"></script>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo.js"></script>
+<script type="text/javascript" src="/aipo/javascript/aipo/platform.js"></script>
+<script type="text/javascript" src="/aipo/javascript/aipo/container.js"></script>
+<script type="text/javascript" src="/aipo/javascript/aipo/saas.js"></script>
+<script type="text/javascript" src="/aipo/javascript/aipo/system/saas.js"></script>
+<!-- WRAPPER -->
+<div style="margin-bottom : 156px" id="wrapper">
+<table class="tableWrapper">
+<tbody>
+<tr>
+<td class="wide top"><div id="roundTop" class="clearfix">
+<div id="roundRight">
+<div id="roundBottom">
+<div id="roundLeft">
+<div id="roundTopLeft">
+<div id="roundTopRight">
+<div id="roundBottomRight">
+<div id="roundBottomLeft">
+<!-- HEADER -->
+<div id="header" class="clearfix">
+<div class="inner">
+<div class="hdSign">
+<div class="hdLogo"><img src="../themes/default/images/logo_aipoplus.png" alt="Aipo+"></div>
+</div>
+<div class="hdNavi">
+<div class="hdActivity" title="あなた宛のお知らせ">
+<div class="activityField">
+<div class="dijitRight">
+<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="activitycheckerContainer">
+<div class="dijitRight"> <span waistate="haspopup-true,labelledby-activitycheckerContainer_label" wairole="button" dojoattachpoint="focusNode,titleNode" type="button" class="" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><span id="activitycheckerContainer_label" dojoattachpoint="containerNode,popupStateNode" class=""><img width="19" height="15" alt="あなた宛のお知らせ" src="../themes/default/images/common/icon_message.gif"> </span>
+<div id="activitychecker" style="display: none;"><span class="activitychecker-right"><span class="activitychecker-left" id="activitychecker-counter" style="display: none;"></span></span></div>
+<select dojoattachpoint="selectNode" style="display:none" multiple="multiple" size="10" id="" name="">
+</select>
+<input type="hidden" dojoattachpoint="valueNode" value="" name="" id="">
+<span dojoattachpoint="inputNode" id="" name=""></span> </span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hdUserName"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10089?template=SaaSAccountPersonFormScreen');"> <img alt="顔写真" class="avatar" src="/aipo/images/common/avatar_default3.png"> </a> えいむらっく  佐藤 涼子 </div>
+<div class="hdLogout">
+<input type="submit" value="ログアウト" onclick="location.href='https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml?action=SaaSJLogoutUser'">
+</div>
+</div>
+</div>
+</div>
+<!-- /HEADER -->
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+dojo.require("aipo.widget.DropdownActivityChecker");
+
+dojo.addOnLoad(function () {
+    var acHtml = document.getElementById("activitycheckerContainer");
+    if(acHtml){
+       var params = {
+            widgetId: "activitychecker",
+
+            iconURL: "themes/default/images/common/icon_message.gif",
+            iconWidth: "19",
+            iconHeight: "15",
+            iconAlt: "あなた宛のお知らせ"
+       };
+       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
+   }
+});
+
+//]]&gt;
+</script>
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+<ul>
+<li class="first">
+<div class="tab active">
+<div class="title"><a title="マイページ" href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_pane/P-136812d42d4-1007c?action=controls.Restore">マイページ</a></div>
+<div class="setting"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_pane/P-136812d42d4-1007c?action=controls.Restore&amp;template=CustomizeFormScreen')" class="auiIcon auiIconSetting" title="カスタマイズ"></a> </div>
+</div>
+</li>
+<li class="">
+<div class="tab activeNext">
+<div class="title"><a title="個人設定" href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_pane/P-136812d42d4-10088?action=controls.Restore">個人設定</a></div>
+<div class="setting"> </div>
+</div>
+</li>
+<li class="">
+<div class="tab">
+<div class="title"><a title="システム管理" href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_pane/101?action=controls.Restore">システム管理</a></div>
+<div class="setting"> </div>
+</div>
+</li>
+<li class="last store">
+<div class="tab">
+<div class="title"><a href="http://store.aipo.com/" target="_blank">Aipo Store</a></div>
+</div>
+<div class="tooltip_gray">Aipoアプリを追加して、もっと便利に</div>
+</li>
+</ul>
+</div>
+<input type="hidden" value="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_pane/P-136812d42d4-1007c?action=controls.Restore&amp;template=CustomizeFormScreen" id="data-activecustomizeurl">
+<!-- /MAIN TAB -->
+<!-- MAIN OUTER -->
+<table class="tableWrapper">
+<tbody>
+<tr>
+<td class="wide top"><div class="roundMainWrapper">
+<!-- LAYOUT -->
+<table class="tableWrapper">
+<tbody>
+<tr>
+<td width="25%" withhandles="true" dojotype="dojo.dnd.Source" class="top container dojoDndSource dojoDndTarget dojoDndContainer"><!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-1007d" id="dojoUnique1">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007d?action=controls.Maximize">タイムカード</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-1007d');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-1007d" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007d?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007d?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-1007d', function(){ dojo.query('.dojoDndItem.P-136812d42d4-1007d').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-1007d" widgetid="portlet_P-136812d42d4-1007d" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/exttimecard/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-1007d'] = { group:"exttimecard", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007d?template=ExtTimecardScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+<div class="indicator" id="indicator-list-P-136812d42d4-1007d" style="display:none;">データを送信しています...</div>
+<div id="exttimecardmessageDiv"></div>
+<form name="formP-136812d42d4-1007d" id="formP-136812d42d4-1007d" action="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007d?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, 'indicator-list-','P-136812d42d4-1007d',aipo.exttimecard.onListReceiveMessage);return false;">
+<input type="hidden" value="exttimecardForm" name="_name">
+<input type="hidden" value="07845d265ded9f824da87c88a13d4ec1" name="secid">
+<table class="wide">
+<tbody>
+<tr>
+<td nowrap="nowrap" class="w25 center"><input type="button" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-136812d42d4-1007d'), 'mode', 'punchin');aipo.exttimecard.addHiddenValue(dojo.byId('formP-136812d42d4-1007d'), 'punchin', '出勤');dojo.byId('formP-136812d42d4-1007d').onsubmit();" class="auiButtonAction" value="出勤">
+</td>
+<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled" disabled="disabled">退勤</span> </td>
+<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled" disabled="disabled">外出</span> </td>
+<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled" disabled="disabled">復帰</span> </td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-1007e" id="dojoUnique2">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007e?action=controls.Maximize">掲示板</a></td>
+<td class="roundBlockIcon"><a onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007e?template=MsgboardTopicFormScreen&amp;entityid=new','P-136812d42d4-1007e',aipo.msgboard.onLoadMsgboardDialog);" href="javascript:void(0);">トピック追加</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-1007e');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-1007e" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007e?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007e?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-1007e', function(){ dojo.query('.dojoDndItem.P-136812d42d4-1007e').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-1007e" widgetid="portlet_P-136812d42d4-1007e" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/fileupload/form.js" type="text/javascript" language="JavaScript"></script>
+<script src="/aipo/javascript/aipo/msgboard/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-1007e'] = { group:"msgboard", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007e?template=MsgboardTopicScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+<div class="auiSummaryMeta clearfix" style=";display:none">
+<div class="floatLeft w30">
+<form class="auiForm">
+<select name="topic" id="topic" style="width:100%;display:none;" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-136812d42d4-1007e')">
+<option value="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007e?template=MsgboardTopicScreen&amp;filter=0&amp;filtertype=category">すべてのカテゴリ</option>
+<option value="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007e?template=MsgboardTopicScreen&amp;filter=1&amp;filtertype=category">その他</option>
+</select>
+</form>
+</div>
+</div>
+<div class="message">指定された条件に該当するトピックはありません。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-1007f" id="dojoUnique3">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007f?action=controls.Maximize">伝言メモ</a></td>
+<td class="roundBlockIcon"><a onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007f?template=NoteFormScreen&amp;entityid=new','P-136812d42d4-1007f',aipo.note.afterFunction);" href="javascript:void(0);">伝言メモ追加</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-1007f');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-1007f" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007f?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007f?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-1007f', function(){ dojo.query('.dojoDndItem.P-136812d42d4-1007f').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-1007f" widgetid="portlet_P-136812d42d4-1007f" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/note/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-1007f'] = { group:"note", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-1007f?template=NoteScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+<div class="message">伝言メモはありません。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-10081" id="dojoUnique4">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10081?action=controls.Maximize">共有フォルダ</a></td>
+<td class="roundBlockIcon"><a onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10081?template=CabinetFileFormScreen&amp;entityid=new','P-136812d42d4-10081',aipo.cabinet.onLoadCabinetFileDialog);" href="javascript:void(0);">ファイル追加</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-10081');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-10081" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10081?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10081?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-10081', function(){ dojo.query('.dojoDndItem.P-136812d42d4-10081').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-10081" widgetid="portlet_P-136812d42d4-10081" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/fileupload/form.js" type="text/javascript" language="JavaScript"></script>
+<script src="/aipo/javascript/aipo/cabinet/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-10081'] = { group:"cabinet", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10081?template=CabinetScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+<div class="auiSummaryMeta clearfix" style=";display:none">
+<div class="floatLeft w30">
+<form class="auiForm">
+<select name="folder_id" id="folder_id" style="width:100%;display:none;" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-136812d42d4-10081')">
+<option value="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10081?template=CabinetScreen&amp;folder_id=0">すべてのフォルダ</option>
+<option value="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10081?template=CabinetScreen&amp;folder_id=1">ルートフォルダ</option>
+</select>
+</form>
+</div>
+</div>
+<div class="message">指定したフォルダにファイルはありません。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-10083" id="dojoUnique5">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10083?action=controls.Maximize">ワークフロー</a></td>
+<td class="roundBlockIcon"><a onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10083?template=WorkflowFormScreen&amp;entityid=new','P-136812d42d4-10083',aipo.workflow.onLoadWorkflowDialog);" href="javascript:void(0);">依頼追加</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-10083');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-10083" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10083?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10083?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-10083', function(){ dojo.query('.dojoDndItem.P-136812d42d4-10083').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-10083" widgetid="portlet_P-136812d42d4-10083" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/workflow/form.js" type="text/javascript" language="JavaScript"></script>
+<script src="/aipo/javascript/aipo/workflow/MemberNormalSelectList.js" type="text/javascript" language="JavaScript"></script>
+<script src="/aipo/javascript/aipo/fileupload/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-10083'] = { group:"workflow", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10083?template=WorkflowScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+<div class="message">依頼はありません。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+</td>
+<td width="50%" withhandles="true" dojotype="dojo.dnd.Source" class="top container dojoDndSource dojoDndTarget dojoDndContainer"><!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-10084" id="dojoUnique6">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?action=controls.Maximize">タイムライン</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-10084');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-10084" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-10084', function(){ dojo.query('.dojoDndItem.P-136812d42d4-10084').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-10084" widgetid="portlet_P-136812d42d4-10084" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/timeline/form.js" type="text/javascript" language="JavaScript"></script>
+<script src="https://aipochat.appspot.com/_ah/channel/jsapi" type="text/javascript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-10084'] = { group:"timeline", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?template=TimelineScreen&amp;amp;rows=20&amp;amp;scrolltop=0', reloadFunction:aipo.reloadPage };
+	aipo.timeline.token ="AHRlWrqFNc1QCgOfnAAWCc808rxi3H-xoHpfiAJ37ewqE6L7waM3LOeHqEOhemS1qJaZVaLi4sWuzq3ZCKdZ_x5bblishPQq2oFQGeZKpkccimi3ABvPdnZ9ckMVfzB_X5aSarTSdhn3VXAE4NPVxaCek5_A9CwQcQ";
+	aipo.timeline.stateScreenUrl = "https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?template=SaaSTimelineStateJSONScreen";
+//]]&gt;
+</script>
+<script src="/aipo/javascript/aipo/timeline/client.js" type="text/javascript" language="JavaScript"></script>
+<div id="timelineOuter">
+<input type="hidden" value="4" name="TimelineUserId" id="TimelineUserId">
+<input type="hidden" value="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?template=TimelineUrlScreen" name="TimelineUrl_P-136812d42d4-10084" id="TimelineUrl_P-136812d42d4-10084">
+<input type="hidden" value="none" name="flag_P-136812d42d4-10084" id="flag_P-136812d42d4-10084">
+<input type="hidden" value="0" name="flag_P-136812d42d4-10084" id="height_P-136812d42d4-10084">
+<div id="inputField">
+<div id="messageDiv_P-136812d42d4-10084"></div>
+<form name="formP-136812d42d4-10084" id="formP-136812d42d4-10084" action="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?template=TimelineJSONScreen" method="post" onsubmit="aimluck.io.createSelectFromFileList(this, 'P-136812d42d4-10084');aipo.timeline.submit(this,'indicator-list-','P-136812d42d4-10084',aipo.timeline.onReceiveMessage);return false;">
+<input type="hidden" value="timelineForm" name="_name">
+<input type="hidden" value="07845d265ded9f824da87c88a13d4ec1" name="secid">
+<div class="tlInputMention" style="position:relative">
+<textarea class="elastic" id="note_P-136812d42d4-10084" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;" onkeyup="aipo.timeline.onKeyUp('P-136812d42d4-10084', null, event);" onfocus="aipo.timeline.onFocus('P-136812d42d4-10084')" onblur="aipo.timeline.onBlur('P-136812d42d4-10084')"></textarea>
+<span class="guide" id="guide_P-136812d42d4-10084" onclick="this.style.display='none';document.getElementById('note_P-136812d42d4-10084').focus();" style="display: block; position:absolute; color: #999999; top:5px; left:5px">近況を共有しましょう</span> </div>
+<div class="clearfix tlInputClip" id="tlInputClip_P-136812d42d4-10084"> </div>
+<div class="tlInputControls clearfix">
+<div class="floatRight"> <span id="getTimelinePortletId" style="display:none;">P-136812d42d4-10084</span>
+<input type="submit" value="投稿する" onclick="aipo.timeline.addText(dojo.byId('formP-136812d42d4-10084'), 'P-136812d42d4-10084');aipo.timeline.addHiddenValue(dojo.byId('formP-136812d42d4-10084'), 'mode', 'insert');aimluck.io.setHiddenValue(this);" class="auiButtonAction" href="javascript:void(0)">
+</div>
+<div class="floatLeft mr10"> <a name="add_attachment" onclick="aipo.fileupload.openAttachment('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10084?template=FileuploadFormScreen&amp;mode=form', 'P-136812d42d4-10084');" class="auiButtonBold" href="javascript:void(0)">ファイルの選択</a> </div>
+<ul id="attachments_P-136812d42d4-10084" class="attachments">
+</ul>
+<div style="clear:both"></div>
+<input type="hidden" id="folderName_P-136812d42d4-10084" name="folderName" value="">
+</div>
+</form>
+</div>
+<div id="newMessage" style="display:none; clear:both"> <a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a> </div>
+<div id="message_P-136812d42d4-10084" class="message" style="clear:both; min-height:750px">投稿はありません。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+</td>
+<td width="25%" withhandles="true" dojotype="dojo.dnd.Source" class="top container dojoDndSource dojoDndTarget dojoDndContainer"><!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-10085" id="dojoUnique7">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?action=controls.Maximize">スケジュール</a></td>
+<td class="roundBlockIcon"><a onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=ScheduleFormScreen&amp;entityid=new','P-136812d42d4-10085',aipo.schedule.onLoadScheduleDialog);" href="javascript:void(0);">予定追加</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-10085');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-10085" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-10085', function(){ dojo.query('.dojoDndItem.P-136812d42d4-10085').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-10085" widgetid="portlet_P-136812d42d4-10085" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/schedule/form.js" type="text/javascript" language="JavaScript"></script>
+<script src="/aipo/javascript/aipo/todo/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    dojo.require("aipo.calendar.weekly");
+    dojo.require("aipo.widget.DropdownMemberFacilitypicker");
+
+    ptConfig['P-136812d42d4-10085'] = { group:"schedule", thisUrl:"https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085", jsonUrl:"https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=ScheduleWeeklyJSONScreen", formUrl: 'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=ScheduleFormScreen', detailUrl: 'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=ScheduleDetailScreen', rowHeight:18, scheduleDivDaySum:7, tmpIndex:-1, distance:3, timeStart:9, timeEnd:22, timeInterval:30, contentHeight: (22 - 9)*(60/30)*18, contentScrollTop: 9*(60/30)*18, initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=ScheduleScreen', reloadFunction:aipo.reloadPage };
+	aipo.schedule.login_id = "4";
+	aipo.schedule.login_name = "0000000158";
+    aipo.schedule.login_aliasname = "佐藤 涼子";
+//]]&gt;
+</script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    var portletId = 'P-136812d42d4-10085';
+    var initCalendar = initCalendar || {};
+    initCalendar['P-136812d42d4-10085'] = function(isAjax) {
+
+    ptConfig['P-136812d42d4-10085'].isScroll = false;
+
+    aipo.schedule.login_id = "4";
+    aipo.schedule.login_name = "0000000158";
+    aipo.schedule.login_aliasname = "佐藤 涼子";
+    var portletId = 'P-136812d42d4-10085';
+    dojo.style("termScheduleDivAdd_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd00_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd01_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd02_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd03_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd04_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd05_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd06_"+portletId,'opacity', 0);
+    dojo.style(dojo.byId('weeklyScrollPane_P-136812d42d4-10085'), 'height', (22 - 9)*(60/30)*18 + 'px');
+
+	
+	var mpHTML = document.getElementById("memberpicker-P-136812d42d4-10085");
+    if(mpHTML){
+       var params = {
+            widgetId: "member_to-P-136812d42d4-10085",
+            iconURL: "themes/default/images/icon/icon_member.gif",
+            iconAlt: "参加者選択",
+            selectId: "member_to-P-136812d42d4-10085" ,
+            inputId: "member_to_input-P-136812d42d4-10085",
+            buttonAddId: "button_member_add-P-136812d42d4-10085",
+            buttonRemoveId: "button_member_remove-P-136812d42d4-10085",
+            memberFromId: "tmp_member_from-P-136812d42d4-10085" ,
+            memberToId: "tmp_member_to-P-136812d42d4-10085" ,
+            memberFromUrl: "https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=UserFacilityLiteJSONScreen&amp;mode=group&amp;groupname=LoginUser",
+            memberFromOptionKey: "name",
+            memberFromOptionValue: "aliasName",
+            groupSelectId: "tmp_group-P-136812d42d4-10085",
+            groupSelectOptionKey: "groupId",
+            groupSelectOptionValue: "name",
+            memberGroupUrl: "https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=UserGroupLiteJSONScreen",
+            changeGroupUrl: "https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10085?template=UserFacilityLiteJSONScreen&amp;mode=group" ,
+            tmpPortretId: "P-136812d42d4-10085"
+       };
+       var mp = new aipo.widget.DropdownMemberFacilitypicker(params , mpHTML);
+	}
+
+	var mpicker = dijit.byId("memberpicker-P-136812d42d4-10085");
+    if(mpicker){
+        var select = dojo.byId('init_memberlist-P-136812d42d4-10085');
+        var i;
+        var s_o = select.options;
+        for(i = 0 ; i &lt; s_o.length; i ++ ) {
+            mpicker.addOptionSync(s_o[i].value,s_o[i].text,true);
+        }
+    }
+    var i;
+    for(i =0; i &lt; ptConfig['P-136812d42d4-10085'].scheduleDivDaySum; i++) {
+      tmpDraggable = new aipo.calendar.WeeklyScheduleAddDraggable('scheduleDivAdd0'+i+'_P-136812d42d4-10085' , {idx: i});
+      tmpDraggable.portletId = 'P-136812d42d4-10085';
+      tmpDraggable.index = i;
+    };
+
+    tmpDraggable = new aipo.calendar.WeeklyTermScheduleAddDraggable('termScheduleDivAdd_P-136812d42d4-10085',  {idx: 0});
+    tmpDraggable.portletId = 'P-136812d42d4-10085';
+
+    aipo.calendar.populateWeeklySchedule('P-136812d42d4-10085');
+
+
+  };
+
+//]]&gt;
+</script>
+<span id="schedule_val_tooltip1" style="display:none;">読み込み中...</span> <span id="schedule_val_tooltip2" style="display:none;">場所</span> <span id="schedule_val_tooltip3" style="display:none;">参加者</span> <span id="schedule_val_tooltip4" style="display:none;">設備</span>
+<div class="spaceBoth">
+<input type="hidden" id="top_form" value="simple">
+<div class="relativeBlock" style="margin-bottom:10px;">
+<div class="absoluteRight">
+<div class="auiSelectButton"> </div>
+</div>
+<div class="clearfix">
+<div class="auiSelectButton">
+<ul>
+<li style="width:4em;margin-right:10px;" title="今日へ"> <a onclick="aipo.calendar.populateWeeklySchedule(&quot;P-136812d42d4-10085&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-136812d42d4-10085&quot;].jsonData[&quot;today&quot;]);" class="btn" href="javascript:void(0);"><span>今日</span></a> </li>
+<li style="margin-right:5px;" title="前の週へ"> <a onclick="aipo.calendar.populateWeeklySchedule(&quot;P-136812d42d4-10085&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-136812d42d4-10085&quot;].jsonData[&quot;prevWeek&quot;]);" class="btn arrow" href="javascript:void(0);"><span><img alt="前の週へ" src="../themes/default/images/icon/icon_arrow_l_w.gif"></span></a> </li>
+<li title="前の日へ"> <a onclick="aipo.calendar.populateWeeklySchedule(&quot;P-136812d42d4-10085&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-136812d42d4-10085&quot;].jsonData[&quot;prevDate&quot;]);" class="first arrow" href="javascript:void(0);"><span><img alt="前の日へ" src="../themes/default/images/icon/icon_arrow_l.gif"></span></a> </li>
+<li style="margin-right:5px;" title="次の日へ"> <a onclick="aipo.calendar.populateWeeklySchedule(&quot;P-136812d42d4-10085&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-136812d42d4-10085&quot;].jsonData[&quot;nextDate&quot;]);" class="last arrow" href="javascript:void(0);"><span><img alt="次の日へ" src="../themes/default/images/icon/icon_arrow_r.gif"></span></a> </li>
+<li style="margin-right:10px;" title="次の週へ"> <a onclick="aipo.calendar.populateWeeklySchedule(&quot;P-136812d42d4-10085&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-136812d42d4-10085&quot;].jsonData[&quot;nextWeek&quot;]);" class="btn arrow" href="javascript:void(0);"><span><img alt="次の週へ" src="../themes/default/images/icon/icon_arrow_r_w.gif"></span></a> </li>
+</ul>
+</div>
+</div>
+<div style="height:24px; line-height:24px; overflow:hidden;"><span id="viewWeekly-P-136812d42d4-10085" style="font-weight:bold">2012年4月5日（木）</span></div>
+</div>
+<div id="indicator-P-136812d42d4-10085" class="indicator" style="display: none;">読み込み中...</div>
+<!-- WRAPPER -->
+<table class="tableWrapper">
+<tbody>
+<tr>
+<td class="wide top"><div id="error-P-136812d42d4-10085" style="display:none"> </div>
+<div style="visibility: visible;" id="content-P-136812d42d4-10085">
+<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="memberpicker-P-136812d42d4-10085">
+<div class="dijitRight"> <span waistate="haspopup-true,labelledby-memberpicker-P-136812d42d4-10085_label" wairole="button" dojoattachpoint="focusNode,titleNode" type="button" class="" role="button" aria-haspopup="true" aria-labelledby="memberpicker" id="memberpicker-P-136812d42d4-10085" tabindex="0" aria-valuenow="" aria-disabled="false"><span id="memberpicker-P-136812d42d4-10085_label" dojoattachpoint="containerNode,popupStateNode" class=""></span>
+<select dojoattachpoint="selectNode" style="display:none" multiple="multiple" size="10" id="member_to-P-136812d42d4-10085" name="member_to-P-136812d42d4-10085">
+<option value="4">佐藤 涼子</option>
+</select>
+<input type="hidden" dojoattachpoint="valueNode" value="" name="" id="">
+<span dojoattachpoint="inputNode" id="member_to_input-P-136812d42d4-10085" name="member_to_input-P-136812d42d4-10085"><span class="dispUser color0">佐藤 涼子</span></span> <span class="small addUser">ユーザー追加</span></span></div>
+</div>
+<div style="display: none" widgetid="memberfacilitylistwidget-P-136812d42d4-10085" id="memberfacilitylistwidget-P-136812d42d4-10085">
+<table class="none">
+<tbody>
+<tr>
+<td><div id="memberPopupDiv">
+<div class="outer">
+<div style="width:300px" class="auiPopup">
+<div class="clearfix">
+<div class="memberlistToTop">閲覧ユーザー一覧</div>
+<div class="memberlistFromTop">
+<select dojoattachevent="onchange:changeGroup" id="tmp_group-P-136812d42d4-10085" name="tmp_group-P-136812d42d4-10085" style="width:100%" size="1">
+<option value="LoginUser">（全体）</option>
+</select>
+</div>
+</div>
+<div class="clearfix">
+<div class="memberlistToBody">
+<select id="tmp_member_to-P-136812d42d4-10085" name="tmp_member_to-P-136812d42d4-10085" style="width:100%" multiple="multiple" size="10">
+<option value="4">佐藤 涼子</option>
+</select>
+</div>
+<div class="memberlistFromBody">
+<select id="tmp_member_from-P-136812d42d4-10085" name="tmp_member_from-P-136812d42d4-10085" style="width:100%" multiple="multiple" size="10">
+<option value="4">佐藤 涼子</option>
+</select>
+</div>
+</div>
+<div class="clearfix">
+<div class="memberlistToBottom">
+<div class="alignright">
+<input type="button" dojoattachevent="onclick:onMemberRemoveClick" value="&#12288;削除&#12288;" class="button" name="button_member_remove-P-136812d42d4-10085" id="button_member_remove-P-136812d42d4-10085">
+</div>
+</div>
+<div class="memberlistFromBottom">
+<div class="alignright">
+<input type="button" dojoattachevent="onclick:onMemberAddClick" value="&#12288;＜ 追加&#12288;" class="button" name="button_member_add-P-136812d42d4-10085" id="button_member_add-P-136812d42d4-10085">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<select size="10" multiple="multiple" style="display:none;" name="init_memberlist-P-136812d42d4-10085" id="init_memberlist-P-136812d42d4-10085">
+<option value="4"> 佐藤 涼子 </option>
+</select>
+<table class="weeklyTableHead" cellspacing="0" cellpadding="0" border="0" width="100%">
+<tbody>
+<tr>
+<td width="50"><div class="weeklyHeadLeft">
+<div class="weeklyHeadLeftTop">&nbsp;</div>
+<div class="weeklyHeadLeftBottom">&nbsp;</div>
+</div></td>
+<td nowrap="nowrap" width="100%" valign="top"><div class="weeklyHeadRights">
+<div style="left: 0%;width: 100%;" class="weeklyHeadRightR">
+<div class="weeklyHeadRightTop" id="weeklyDay0-P-136812d42d4-10085">5（木）</div>
+<div class="weeklyHeadRightBottom" id="weeklyHoliday0-P-136812d42d4-10085"></div>
+</div>
+<div style="left: 14.2857%;width: 0%;display: none;display: none;" class="weeklyHeadRight">
+<div class="weeklyHeadRightTop" id="weeklyDay1-P-136812d42d4-10085">6（金）</div>
+<div class="weeklyHeadRightBottom" id="weeklyHoliday1-P-136812d42d4-10085"></div>
+</div>
+<div style="left: 28.5714%;width: 0%;display: none;" class="weeklyHeadRight">
+<div id="weeklyDay2-P-136812d42d4-10085" class="weeklyHeadRightTop saturday">7（土）</div>
+<div id="weeklyHoliday2-P-136812d42d4-10085" class="weeklyHeadRightBottom saturday"></div>
+</div>
+<div style="left: 42.8571%;width: 0%;display: none;" class="weeklyHeadRight">
+<div id="weeklyDay3-P-136812d42d4-10085" class="weeklyHeadRightTop sunday">8（日）</div>
+<div id="weeklyHoliday3-P-136812d42d4-10085" class="weeklyHeadRightBottom sunday"></div>
+</div>
+<div style="left: 57.1429%;width: 0%;display: none;" class="weeklyHeadRight">
+<div class="weeklyHeadRightTop" id="weeklyDay4-P-136812d42d4-10085">9（月）</div>
+<div class="weeklyHeadRightBottom" id="weeklyHoliday4-P-136812d42d4-10085"></div>
+</div>
+<div style="left: 71.4286%;width: 0%;display: none;" class="weeklyHeadRight">
+<div class="weeklyHeadRightTop" id="weeklyDay5-P-136812d42d4-10085">10（火）</div>
+<div class="weeklyHeadRightBottom" id="weeklyHoliday5-P-136812d42d4-10085"></div>
+</div>
+<div style="left: 85.7143%;width: 0%;display: none;" class="weeklyHeadRightR">
+<div class="weeklyHeadRightTop" id="weeklyDay6-P-136812d42d4-10085">11（水）</div>
+<div class="weeklyHeadRightBottom" id="weeklyHoliday6-P-136812d42d4-10085"></div>
+</div>
+</div></td>
+<td width="18"><div class="weeklySpan">&nbsp;</div>
+<div class="weeklySpan">&nbsp;</div></td>
+</tr>
+<tr>
+<td width="50"><div id="weeklyTermLeft" class="weeklyTermLeft">
+<div class="weeklyTermLeftTop">&nbsp;</div>
+</div></td>
+<td nowrap="nowrap" width="100%" valign="top"><div class="weeklyTermRights">
+<div style="left: 0%;width: 100%;" id="termDay0-P-136812d42d4-10085" class="weeklyTermRight weeklyTermRightL weeklyTermRightR">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 14.2857%;width: 0%;display: none;" id="termDay1-P-136812d42d4-10085" class="weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 28.5714%;width: 0%;display: none;" id="termDay2-P-136812d42d4-10085" class="weeklyTermRight saturday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 42.8571%;width: 0%;display: none;" id="termDay3-P-136812d42d4-10085" class="weeklyTermRight sunday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 57.1429%;width: 0%;display: none;" id="termDay4-P-136812d42d4-10085" class="weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 71.4286%;width: 0%;display: none;" id="termDay5-P-136812d42d4-10085" class="weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 85.7143%;width: 0%;display: none;" id="termDay6-P-136812d42d4-10085" class="weeklyTermRight weeklyTermRightR">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 0%; z-index: 1; opacity: 0; height: 18px;" class="termScheduleDivAdd" id="termScheduleDivAdd_P-136812d42d4-10085">&nbsp;</div>
+</div></td>
+<td width="18"><div class="weeklyTermTail">&nbsp;</div></td>
+</tr>
+<tr>
+<td colspan="9"><div id="termScheduleGarage-P-136812d42d4-10085" class="termScheduleGarage" style="z-index: -1;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+</tbody>
+</table>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="tableBorderM">&nbsp;</div>
+<div style="height: 468px;" id="weeklyScrollPane_P-136812d42d4-10085" class="weeklyScrollPane">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tbody>
+<tr valign="top">
+<td width="50"><div class="weeklyLeft">
+<div class="leftMinute">00:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">01:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">02:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">03:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">04:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">05:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">06:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">07:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">08:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">09:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">10:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">11:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">12:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">13:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">14:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">15:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">16:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">17:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">18:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">19:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">20:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">21:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">22:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">23:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+</div></td>
+<td width="100%"><div class="weeklyRights">
+<div class="weeklyRight" style="left: 0%;width: 100%;" id="weeklyRight0-P-136812d42d4-10085">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div class="weeklyRight" style="left: 14.2857%;width: 0%;display: none;" id="weeklyRight1-P-136812d42d4-10085">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight2-P-136812d42d4-10085" style="left: 28.5714%;width: 0%;display: none;" class="weeklyRight saturday">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight3-P-136812d42d4-10085" style="left: 42.8571%;width: 0%;display: none;" class="weeklyRight sunday">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div class="weeklyRight" style="left:57.1429%;width: 0%;display: none;" id="weeklyRight4-P-136812d42d4-10085">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div class="weeklyRight" style="left: 71.4286%;width: 0%;display: none;" id="weeklyRight5-P-136812d42d4-10085">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div class="weeklyRightR" style="left: 85.7143%;width: 0%;display: none;" id="weeklyRight6-P-136812d42d4-10085">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div style="left: 0%; width: 100%; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd00_P-136812d42d4-10085">&nbsp;</div>
+<div style="left: 14.2857%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd01_P-136812d42d4-10085">&nbsp;</div>
+<div style="left: 28.5714%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd02_P-136812d42d4-10085">&nbsp;</div>
+<div style="left: 42.8571%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd03_P-136812d42d4-10085">&nbsp;</div>
+<div style="left: 57.1429%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd04_P-136812d42d4-10085">&nbsp;</div>
+<div style="left: 71.4286%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd05_P-136812d42d4-10085">&nbsp;</div>
+<div style="left: 85.7143%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd06_P-136812d42d4-10085">&nbsp;</div>
+<div id="scheduleGarage-P-136812d42d4-10085" class="scheduleGarage">
+<div style=" position:absolute; width: 0px; height : 0px; left: 0px; top: -10000px; Filter: Alpha(Opacity=10);opacity:.10; background-color:#FFFFFF; " class="scheduleDivAdd dummy_div" id="dummy_div_P-136812d42d4-10085">&nbsp;</div>
+</div>
+</div></td>
+<td class="scrollRight"><div class="scroll_width"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+dojo.addOnLoad(function () {
+  initCalendar['P-136812d42d4-10085'](false);
+});
+
+//]]&gt;
+</script>
+<div id="modalDialog2" class="modalDialog" style="display:none"></div>
+<input type="hidden" value="07845d265ded9f824da87c88a13d4ec1" name="secid-P-136812d42d4-10085" id="secid-P-136812d42d4-10085">
+<input type="checkbox" value="f" id="showAll-P-136812d42d4-10085" style="display:none">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-10086" id="dojoUnique8">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10086?action=controls.Maximize">ユーザー名簿</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-10086');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-10086" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10086?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10086?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-10086', function(){ dojo.query('.dojoDndItem.P-136812d42d4-10086').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-10086" widgetid="portlet_P-136812d42d4-10086" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/userlist/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-10086'] = { group:"userlist", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10086?template=UserListScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+<div class="auiSummaryMeta clearfix">
+<form class="auiSearch auiForm" name="userlistP-136812d42d4-10086" id="userlistP-136812d42d4-10086" action="#" method="post" onsubmit="aipo.userlist.onSubmitSearchButton(this,'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10086?template=UserListScreen','P-136812d42d4-10086','', 'indicator-dlg-'); return false;">
+<input type="text" value="" style="width:60%; margin-right:5px;" id="sword" name="sword" class="text floatLeft">
+<a class="auiButtonSearch floatLeft" onclick="dojo.byId('userlistP-136812d42d4-10086').onsubmit();">検索</a>
+<input type="hidden" value="ajaxsearch" name="mode">
+<div class="floatLeft">
+<div class="indicator" id="indicator-dlg-P-136812d42d4-10086" style="display:none;">&nbsp;</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem P-136812d42d4-10087" id="dojoUnique9">
+<div class="roundTopBlock clearfix">
+<div class="roundRightBlock">
+<div class="roundBottomBlock">
+<div class="roundLeftBlock">
+<div class="roundTopLeftBlock">
+<div class="roundTopRightBlock">
+<div class="roundBottomRightBlock">
+<div class="roundBottomLeftBlock">
+<table class="roundBlockWrapperTop">
+<tbody>
+<tr>
+<td class="roundBlockTitle wide dojoDndHandle"><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10087?action=controls.Maximize">アドレス帳</a></td>
+<td class="roundBlockIcon"><a onclick="aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10087?template=AddressBookFormScreen&amp;entityid=new','P-136812d42d4-10087',aipo.addressbook.onLoadAddressbookDialog);" href="javascript:void(0);">アドレス追加</a></td>
+<td class="roundBlockIcon last"><a title="カスタマイズ" onclick="aipo.customize.showMenu('P-136812d42d4-10087');" class="customizeMenuIcon auiIcon auiIconSetting" href="javascript:void(0);"></a>
+<div class="menubar" id="menubar_P-136812d42d4-10087" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10087?action=controls.Customize">設定</a></li>
+<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10087?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-136812d42d4-10087', function(){ dojo.query('.dojoDndItem.P-136812d42d4-10087').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+<div class="roundBlockWrapperBottom clearfix">
+<div class="roundBlockContent">
+<div id="portlet_P-136812d42d4-10087" widgetid="portlet_P-136812d42d4-10087" dojotype="aimluck.widget.Contentpane">
+<script src="/aipo/javascript/aipo/addressbook/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-136812d42d4-10087'] = { group:"addressbook", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10087?template=AddressBookScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+<form class="auiSearch auiForm" name="addressbookP-136812d42d4-10087" id="addressbookP-136812d42d4-10087" action="#" method="post" onsubmit="aipo.addressbook.onSubmitSerchButton(this,'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/P-136812d42d4-10087?template=AddressBookScreen','P-136812d42d4-10087','','indicator-dlg-'); return false;">
+<div class="auiSummaryMeta clearfix">
+<input type="text" value="" style="width:60%; margin-right:5px;" id="sword" name="sword" class="text floatLeft">
+<a class="auiButtonSearch floatLeft" onclick="dojo.byId('addressbookP-136812d42d4-10087').onsubmit();">検索</a>
+<div class="floatLeft">
+<div class="indicator" id="indicator-dlg-P-136812d42d4-10087" style="display:none;">&nbsp;</div>
+</div>
+</div>
+<input type="hidden" value="ajaxsearch" name="mode">
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /LAYOUT -->
+</div></td>
+</tr>
+</tbody>
+</table>
+<!-- MAIN OUTER -->
+<!-- FOOTER -->
+<div id="footer" class="clearfix">
+<!-- START GUIDE -->
+<div style="display:block;" id="startGuide">
+<div class="close"><a href="javascript:void(0);" onclick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='26px';document.getElementById('guide_on').style.display='inline';document.getElementById('guide_off').style.display='none';aipo.setCookie('start_guide_popup',false,'/')"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"></a></div>
+<div class="clearfix">
+<div class="guideContents">
+<p>みんなを招待しましょう</p>
+<p><a title="ユーザーを追加する" class="auiButtonBold" href="javascript:aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/121?template=StartGuideFormScreen&amp;entityid=new');">ユーザーを追加する</a></p>
+</div>
+<div class="guideContents">
+<p>新しいアプリを使ってみましょう</p>
+<p><a title="アプリを追加する" class="auiButtonBold" href="javascript:aipo.common.customizeDialog()">アプリを追加する</a></p>
+</div>
+<div class="guideContents">
+<p>みんなの画面を同じにしましょう</p>
+<p><a title="画面を統一する" class="auiButtonBold" href="javascript:aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/121?template=GadgetsPsmlFormScreen');">画面を統一する</a></p>
+</div>
+<div id="start_guide_agreement_div" class="guideContents ">
+<p>本格的に導入しましょう</p>
+<p><a title="プラン変更を申し込む" href="javascript:aipo.common.showDialog('https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/121?template=SystemAgreementFormScreen');" class="auiButtonAction">プラン変更を申し込む</a> </p>
+</div>
+</div>
+</div>
+<!-- /START GUIDE -->
+<div id="footText">
+<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo+</a> Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
+<div style="display:none;" id="guide_on"><a href="javascript:void(0);" onclick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='156px';document.getElementById('guide_on').style.display='none';document.getElementById('guide_off').style.display='inline';aipo.setCookie('start_guide_popup',true,'/');">スタートガイド - 全体の 0 % （10 MB 中 0 MB）を使用しています</a></div>
+<div style="display:inline;" id="guide_off">全体の 0 % （10 MB 中 0 MB）を使用しています</div>
+</div>
+</div>
+<!-- /FOOTER -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- /WRAPPER -->
+<iframe width="0" scrolling="no" height="0" frameborder="no" src="https://aipochat.appspot.com/?st=default:dbnrH_KUDV5krioRyFrAyG_HEetySqDsCGzQ1uUfMApA_xsStgzLjaM57qxoit2GkqDARpOWFXe8sWlqPZ1ZH-Wu1ZxYiterxw9AUL53DXR2-frR-i5PrjH3hoHMLdEOte00QoY7g6j0Td5Y8Y4ZwwtDFXY&amp;parent=https%3A%2F%2Fredmine.aimluck.com%3A8443%2Faipo%2Fportal%2F&amp;interval=300#rpctoken=2568733231318944" name="sharedStateIframe" id="sharedStateIframe"></iframe>
+<script src="/aipo/javascript/aipo/common.js" type="text/javascript"></script>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+dojo.require("aimluck.widget.Dialog");
+
+dojo.addOnLoad(function() {
+    var params = {
+        widgetId:'modalDialog'
+    };
+    new aimluck.widget.Dialog(params, "modalDialog");
+    //dojo.disconnect(dojo, "loaded", "_dialog");
+    gadgets.rpc.setRelayUrl("sharedStateIframe", "https://aipochat.appspot.com/files/container/rpc_relay.html");
+    gadgets.rpc.setAuthToken("sharedStateIframe", "2568733231318944");
+    dojo.byId('sharedStateIframe').src='https://aipochat.appspot.com/?st=default:dbnrH_KUDV5krioRyFrAyG_HEetySqDsCGzQ1uUfMApA_xsStgzLjaM57qxoit2GkqDARpOWFXe8sWlqPZ1ZH-Wu1ZxYiterxw9AUL53DXR2-frR-i5PrjH3hoHMLdEOte00QoY7g6j0Td5Y8Y4ZwwtDFXY&amp;parent=https%3A%2F%2Fredmine.aimluck.com%3A8443%2Faipo%2Fportal%2F&amp;interval=300#rpctoken=2568733231318944';
+    if(window.webkitNotifications) {
+      aipo.container.gadgetService.requestDesktopNotifyEnable();
+    }
+});
+
+scheduleTooltipEnable = true;
+
+dojo.require("dojo.dnd.Source");
+
+dojo.addOnLoad(function() {
+    dojo.query('.customizeMenuIcon').forEach(function(element) {
+        dojo.connect(element, 'onmouseenter', null, function(){
+            dojo.addClass(this, 'customizeMenuIconMouseenter');
+        });
+        dojo.connect(element, 'onmouseleave', null, function(){
+            dojo.removeClass(this, 'customizeMenuIconMouseenter');
+        });
+    });
+
+    var handle = dojo.connect(dojo.query('body')[0], 'onclick', null, function(){
+        if (dojo.query('.customizeMenuIconMouseenter').length == 0) {
+            aipo.customize.hideMenu();
+        }
+    });
+
+    var containers = dojo.query('.container');
+    var containerSources = [];
+    for(var c = 0; c &lt; containers.length ; c++){
+        var container = new dojo.dnd.Source(containers[c], {
+            withHandles: true,
+            copyOnly: false
+        });
+        containerSources.push(container);
+    }
+
+
+    for(var c = 0; c &lt; containers.length ; c++){
+        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
+            dojo.addClass(this, 'dojoDndContainerItemOver');
+            aipo.customize.hideMenu();
+        });
+
+        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
+            dojo.removeClass(this, 'dojoDndContainerItemOver');
+        });
+
+        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
+            if (this == target) {
+                if (copy) {
+                    nodes.orphan();
+                }
+                var params = '';
+                var cols = dojo.query('.container');
+                for(var c = 0; c &lt; cols.length ; c++){
+                    var rows = dojo.query('.dojoDndItem .roundBlockContent &gt; div', cols[c]);
+                    var reverse = false;
+                    if (rows.length &gt;= 2) {
+                        var top = rows[0];
+                        var bottom = rows[rows.length - 1];
+
+                        var _top = dojo._abs(top);
+                        var _bottom = dojo._abs(bottom);
+
+                        while (_top &amp;&amp; _bottom &amp;&amp; _top.y == _bottom.y) {
+                            top = top.offsetParent;
+                            bottom = bottom.offsetParent;
+                            _top = dojo._abs(top);
+                            _bottom = dojo._abs(bottom);
+                        }
+
+                        if (_top.y &gt; _bottom.y) {
+                            reverse = true;
+                        }
+
+                    }
+                    for (var r = 0 ; r &lt; rows.length ; r++) {
+                        var pid = rows[r].id.split("portlet_")[1];
+                        if (reverse) {
+                            params = params + '&amp;' + pid + '_row=' + (rows.length - r - 1);
+                        } else {
+                            params = params + '&amp;' + pid + '_row=' + r;
+                        }
+                        params = params + '&amp;' + pid + '_col=' + c;
+                    }
+                }
+
+                url = "https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158?template=CustomizeFormJSONScreen&amp;mode=layout" + params;
+                aipo.customize.submit(url, '', function(){
+                });
+
+                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+                if(iframe &amp;&amp; iframe.length == 1) {
+                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+                  var gadgets_ = aipo.container.gadgets_;
+                  for(var i in gadgets_) {
+                     var gadget = gadgets_[i];
+                     if(gadget.portletId == pid) {
+                       aipo.container.renderGadget(gadget);
+                       break;
+                     }
+                  }
+                }
+
+                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+            }
+        });
+    }
+
+    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "&lt;div class=modalDialogUnderlayWrapper id='${id}_underlay'&gt;&lt;div dojoAttachPoint='node'&gt;&lt;/div&gt;&lt;/div&gt;" });
+    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
+        underlay.hide();
+    });
+    underlay.show();
+});
+
+//]]&gt;
+</script>
+<script src="/aipo/javascript/aipo/account_person/form.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript">
+
+dojo.addOnLoad(function() {
+
+aipo.common.showDialog('?template=SaaSAccountPersonFirstFormScreen&amp;mode=passwdform&amp;js_peid=P-136812d42d4-10089','P-136812d42d4-10089', aipo.account_person.onLoadPersonPasswdDialog);
+
+});
+
+</script>
+<script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-11008420-14']);
+ _gaq.push(['_setDomainName', '.aipo.com']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type =
+'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+<div id="a11yTestNode" style="border-width: 1px; border-style: solid; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-color: red green; position: absolute; height: 5px; top: -999px; background-image: url(&quot;/aipo/javascript/dijit/form/templates/blank.gif&quot;);"></div>
+<div style="display: none;"></div>
+<div dojoattachpoint="wrapper" class="modalDialog dijitContentPane" id="modalDialog" widgetid="modalDialog" title="" style="display: block; opacity: 1; left: 290px; top: 140px;"><span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabStartOuter"></span><span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabStart"></span>
+<div style="position: relative; z-index: 2;" dojoattachpoint="containerNode">
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['121'] = { group:"gadgets_admin", initUrl:'https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/121?template=GadgetsPsmlFormScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+
+
+<div class="roundTopBlock clearfix">
+	<div class="roundRightBlock">
+		<div class="roundBottomBlock">
+			<div class="roundLeftBlock">
+				<div class="roundTopLeftBlock">
+					<div class="roundTopRightBlock">
+						<div class="roundBottomRightBlock">
+							<div class="roundBottomLeftBlock">
+								<table class="roundBlockWrapperTop">
+								<tbody>
+								<tr>
+								<td class="roundBlockTitle wide">アプリ配置の設定</td>
+								<td class="roundBlockIcon last"><div style="float:right"><img width="19" height="20" border="0" align="top" title="閉じる" alt="閉じる" src="images/close.gif" id="dialogCloseButton" onclick="dijit.byId('modalDialog').hide()" style="cursor:pointer"></div></td>
+								</tr>
+								</tbody>
+								</table>
+								<div class="roundBlockWrapperBottom clearfix">
+									<div class="roundBlockContent">
+										<div style="display:none;" id="indicator-form-121" class="indicator">データを送信しています...</div>
+										<form onsubmit="aimluck.io.submit(this,'indicator-form-','121',aipo.gadgets_admin.onReceiveMessageUpdate);return false;" method="post" action="https://redmine.aimluck.com:8443/aipo/portal/media-type/html/user/0000000158/page/default.psml/js_peid/121?template=GadgetsPsmlFormJSONScreen" id="form121" name="form121">
+										<input type="hidden" value="psmlForm" name="_name">
+										<input type="hidden" value="07845d265ded9f824da87c88a13d4ec1" name="secid">
+										<div class="p">
+										<input type="hidden" value="" id="121-mode" name="mode">
+										</div>
+										<!--<div class="p spaceTop spaceBottom"> あなたの配置で、すべてユーザーの配置を変更できます。 </div>
+										-->
+										<p class="center">すべてのユーザーの配置を変更できます。</p>
+										<table class="wide center mt10">
+										<colgroup style="width:33%;"></colgroup>
+										<colgroup style="width:33%;"></colgroup>
+										<colgroup style="width:33%;"></colgroup>
+										<tbody>
+										<tr>
+										<td valign="top"><label for="layout01"><img src="../themes/default/images/function/btn_selectlayout_timeline.gif" alt="タイムラインメイン" width="130" height="130" class="mb5" /></label>
+										<br />
+										<input type="radio" name="layout" id="layout01" /><br /><label for="layout01"><strong>タイムラインメイン</strong><br /><span class="small">「タイムライン」を中心に配置</span></label></td>
+										<td valign="top"><label for="layout02"><img src="../themes/default/images/function/btn_selectlayout_schedule.gif" alt="スケジュールメイン" width="130" height="130" class="mb5" /></label>
+										<br /><input type="radio" name="layout" id="layout02" /><br /><label for="layout02"><strong>スケジュールメイン</strong><br /><span class="small">「スケジュール」を中心に配置</span></label></td>
+										<td valign="top"><label for="layout03"><img src="../themes/default/images/function/btn_selectlayout_mine.gif" alt="あなたの現在の配置" width="130" height="130" class="mb5" /></label>
+										<br /><input type="radio" name="layout" id="layout03" /><br /><label for="layout03"><strong>あなたの現在の配置</strong><br /><span class="small">あなたの現在の配置を適用</span></label></td>
+										</tr>
+										</tbody>
+										</table>
+										
+										<div class="p spaceBottom">
+										<div class="spaceTop caution"><span class="small em" id="caution_all_user"></span></div>
+										</div>
+										<div align="center">
+										<input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.gadgets_admin.beforeSubmit(this,'121', 'all_user')" value="配置を変更する" class="auiButtonAction" name="$event_submit">
+										<input type="button" onclick="aipo.common.hideDialog();" value="&#12288;変更しない&#12288;" class="button" name="ajaxbuttonClose">
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+<span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabEnd"></span><span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabEndOuter"></span></div>
+<div id="aimluck_widget_DialogUnderlay_0" class="modalDialogUnderlayWrapper" widgetid="aimluck_widget_DialogUnderlay_0" style="display: none;">
+<div dojoattachpoint="node"></div>
+</div>
+<div id="aimluck_widget_DialogUnderlay_1" class="modalDialogUnderlayWrapper" widgetid="aimluck_widget_DialogUnderlay_1" style="display: block; opacity: 1;">
+<div dojoattachpoint="node" class="modalDialogUnderlay"></div>
+</div>
+<iframe name="wcs-iframe" id="wcs-iframe" style="height: 100%; width: 100%;" src="https://257.talkgadget.google.com/talkgadget/d?token=AHRlWrqFNc1QCgOfnAAWCc808rxi3H-xoHpfiAJ37ewqE6L7waM3LOeHqEOhemS1qJaZVaLi4sWuzq3ZCKdZ_x5bblishPQq2oFQGeZKpkccimi3ABvPdnZ9ckMVfzB_X5aSarTSdhn3VXAE4NPVxaCek5_A9CwQcQ&amp;xpc=%7B%22cn%22%3A%222ckoGQwusF%22%2C%22tp%22%3Anull%2C%22ppu%22%3A%22https%3A%2F%2Fredmine.aimluck.com%3A8443%2F_ah%2Fchannel%2Fxpc_blank%22%2C%22lpu%22%3A%22https%3A%2F%2F257.talkgadget.google.com%2Ftalkgadget%2Fxpc_blank%22%7D"></iframe>
+</body>
+</html>

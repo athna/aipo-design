@@ -787,56 +787,68 @@
 		<div id="timelineOuter">
 		<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
 		
-		<!-- inputField -->
-		<div id="inputField">
-		<form name="" id="" action="" method="post" onsubmit="">
-		<input type="hidden" name="_name" value="timelineForm">
-		<input type="hidden" name="secid" value="">
-		<div class="tlInputMention">
-		<textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
-		</div>
-		<div class="tlInputAttachment">
-		<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
-		<div class="tlClipBoard clearfix">
-		<div class="tlClipImage">
-		<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a></div>
-		<div class="tlClipContents">
-		<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-		<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-		<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-		</div>
-		</div>	
-		</div>
+			<!-- inputField -->
+			<div id="inputField">
+				<form name="" id="" action="" method="post" onsubmit="">
+				<input type="hidden" name="_name" value="timelineForm">
+				<input type="hidden" name="secid" value="">
+				<div class="tlInputMention">
+					<textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+				</div>
+				<div class="tlInputAttachment">
+					<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
+					<div class="tlClipBoard clearfix">
+					<div class="tlClipImage">
+					<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a></div>
+						<div class="tlClipContents">
+						<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+						<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+						<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+						</div>
+					</div>	
+				</div>
+
+
+				<div class="tlInputAttachment">
+					<p class="tlInputAttachmentTitle">添付ファイル</p>
+					<ul id="attachments_P-135f01020f6-100b9" class="attachments">
+						<li data-fileid="" data-filename="ファイル名.jpg"><span>ファイル名.jpg</span><span class="deletebutton" onclick="">削除</span></li>
+						<li data-fileid="" data-filename="ファイル名.png"><span>ファイル名ファイル名ファイル名ファイル名ファイル名ファイル名ファイル名ファイル名ファイル名ファイル名.png</span><span class="deletebutton" onclick="">削除</span></li>
+						<li data-fileid="" data-filename="ファイル名.png"><span>ファイル名ファイル名ファイル名ファイル名ファイル名ファイル名.png</span><span class="deletebutton" onclick="">削除</span></li>
+						<li data-fileid="" data-filename="ファイル名.png"><span>ファイル名ファイル名ファイル名ファイル名ファイル名ファイル名.png</span><span class="deletebutton" onclick="">削除</span></li>
+					</ul>
+				</div>
+
+
+				<!-- tlInputControls -->
+				<div class="tlInputControls clearfix">
+				<div class="floatLeft">
+				<iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" style="height:30px; width:130px;" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a"></iframe>
+				</div>
 		
-		<!-- tlInputControls -->
-		<div class="tlInputControls clearfix">
-		<div class="floatLeft">
-		<iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" style="height:30px; width:130px;" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a"></iframe>
-		</div>
-		
-		<!-- ##################################################
-		●開発担当者へ
-		
-		下記にある「スケジュールに追加する」ボタンの「onClick」処理はベタ書きの仮のものです。適切な内容に修正をお願いします。
-		
-		「スケジュールに追加する」ボタンをクリックすることで、タイムラインからスケジュール登録が行えるショートコードを挿入してください。
-		開いたカレンダーの時間・日付が変更されたタイミングでもショートコードを差し替えてください。
-		※ボタン周りに日付埋め込みのスペースが無いことと、書式を覚えてしまえば手入力でもできることからショートコードを採用しています。
-		
-		################################################## -->
-		<div class="floatRight clearfix">
-		<ul>
-		<li><a href="javascript:void(0)" class="auiButton" title="スケジュールに追加する" onclick="if(document.getElementById('popup_3').style.display!='none'){document.getElementById('popup_3').style.display='none'}else{bounds=this.getBoundingClientRect();document.getElementById('popup_3').style.top=bounds.top+30+'px';document.getElementById('popup_3').style.right=document.body.clientWidth-bounds.right+'px';document.getElementById('popup_3').style.display='block'; document.getElementById('timelineTextarea').value='[[2012/07/17 09:00-09:30]]';}"><span><i class="auiIcon auiIconCalendar"></i></span></a></li>
-		<li><input type="submit" class="auiButtonAction" value="投稿する" /></li>
-		</ul>
-		</div>
-		
-		
-		</div>
-		<!-- /tlInputControls -->
-		</form>
-		</div>
-		<!-- /inputField -->
+				<!-- ##################################################
+				●開発担当者へ
+				
+				下記にある「スケジュールに追加する」ボタンの「onClick」処理はベタ書きの仮のものです。適切な内容に修正をお願いします。
+				
+				「スケジュールに追加する」ボタンをクリックすることで、タイムラインからスケジュール登録が行えるショートコードを挿入してください。
+				開いたカレンダーの時間・日付が変更されたタイミングでもショートコードを差し替えてください。
+				※ボタン周りに日付埋め込みのスペースが無いことと、書式を覚えてしまえば手入力でもできることからショートコードを採用しています。
+				
+				################################################## -->
+				<div class="floatRight clearfix">
+				<ul>
+				<li><a href="javascript:void(0)" class="auiButton" title="スケジュールに追加する" onclick="if(document.getElementById('popup_3').style.display!='none'){document.getElementById('popup_3').style.display='none'}else{bounds=this.getBoundingClientRect();document.getElementById('popup_3').style.top=bounds.top+30+'px';document.getElementById('popup_3').style.right=document.body.clientWidth-bounds.right+'px';document.getElementById('popup_3').style.display='block'; document.getElementById('timelineTextarea').value='[[2012/07/17 09:00-09:30]]';}"><span><i class="auiIcon auiIconCalendar"></i></span></a></li>
+				<li><input type="submit" class="auiButtonAction" value="投稿する" /></li>
+				</ul>
+				</div>
+				
+				
+				</div>
+				<!-- /tlInputControls -->
+				</form>
+			</div>
+			<!-- /inputField -->
 		
 		
 		<div class="newMessage">

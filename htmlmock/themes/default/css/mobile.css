@@ -13,7 +13,6 @@ body {position:absolute}
 	position:absolute;
 	right:0;
 	padding-top:0;
-	z-index:1;
 }
 .hdActivity {
 	position:absolute;
@@ -105,30 +104,6 @@ td.container {
 }
 
 
-
-/***************************************************
-	auiPortlet
---------------------------------------------------*/
-.auiPortlet, .auiPortletHead, .auiPortletHead .inner, .auiPortletTitle a, .auiPortletTool, .auiPortletBody, .auiPortletBody .inner, .auiPortletFoot, .auiPortletFoot .inner {
-	background-image:none;
-}
-.auiPortletHead .inner {
-	height:auto;
-}
-.auiPortletTitle {
-	float:none;
-}
-.auiPortletTool {
-	display:none;
-}
-.auiPortletBody .inner {
-	padding:0 5px;
-}
-.auiPortletFoot {
-	display:none;
-}
-
-
 /***************************************************
 	set PortletOuter
 --------------------------------------------------*/
@@ -138,8 +113,7 @@ td.container {
 #roundWrapper .roundTopBlock, #roundWrapper .roundRightBlock, #roundWrapper .roundBottomBlock, #roundWrapper .roundLeftBlock, #roundWrapper .roundTopLeftBlock, #roundWrapper .roundTopRightBlock, #roundWrapper .roundBottomRightBlock, #roundWrapper .roundBottomLeftBlock {
 	background-image:none;
 }
-#roundWrapper table.roundBlockWrapperTop,
-.auiPortletHead {
+#roundWrapper table.roundBlockWrapperTop {
 	background:#666666
 		-webkit-gradient(
 		linear, left top, left bottom,
@@ -152,10 +126,7 @@ td.container {
 	margin-bottom:5px;
 }
 #roundWrapper table.roundBlockWrapperTop td.roundBlockIcon {display:none}
-#roundWrapper table.roundBlockWrapperTop td.roundBlockTitle,
-.auiPortletTitle {
-	height:44px;
-	line-height:44px;
+#roundWrapper table.roundBlockWrapperTop td.roundBlockTitle {
 	padding:0;
 	background-image:none;
 	text-align:center;
@@ -166,16 +137,62 @@ td.container {
 	font-weight:bold;
 	text-shadow:0 1px 0 rgba(0,0,0,0.8);
 }
-#roundWrapper table.roundBlockWrapperTop td.roundBlockTitle a,
-.auiPortletTitle a {
+#roundWrapper table.roundBlockWrapperTop td.roundBlockTitle a {
 	color:#ffffff;
 	text-decoration:none;
-	padding:0;
 }
 #roundWrapper table.roundBlockWrapperTop td.roundBlockTitle a:hover {color:#ffffff}
 #roundWrapper .roundBlockWrapperBottom {padding:0;}
 #roundWrapper .roundBlockMenu, .endcap {display:none}
 
+
+/***************************************************
+	auiPortlet
+--------------------------------------------------*/
+.auiPortlet, .auiPortletHead, .auiPortletHead .inner, .auiPortletTitle, .auiPortletBody, .auiPortletBody .inner, .auiPortletFoot, .auiPortletFoot .inner {
+	background-image:none;
+}
+.auiPortletHead {
+	background:#666666
+		-webkit-gradient(
+		linear, left top, left bottom,
+		from(rgba(255,255,255,0.4)),
+		to(rgba(255,255,255,0))
+	);
+	border-top:solid 1px #c0c0c0;
+	border-bottom:solid 1px #999999;
+	box-shadow:0 2px 3px rgba(0,0,0,0.2);
+	margin-bottom:5px;
+}
+.auiPortletHead .inner {
+	margin:0 50px;
+}
+.auiPortletTitle {
+	width:100%;
+	line-height:46px;
+	padding:0;
+	text-align:center;
+	color:#ffffff;
+	font-size:16px;
+	font-weight:bold;
+	text-shadow:0 1px 0 rgba(0,0,0,0.8);
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.auiPortletTitle a {
+	color:#ffffff;
+	text-decoration:none;
+	padding:0;
+}
+.auiPortletTool {
+	display:none;
+}
+.auiPortletBody {
+}
+.auiPortletBody .inner {
+	padding:0 5px;
+}
 
 /***************************************************
 	appsNavigation

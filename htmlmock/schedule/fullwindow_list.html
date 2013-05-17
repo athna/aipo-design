@@ -81,11 +81,11 @@
 	<div class="floatRight">
 		<div class="auiSelectButton floatLeft mr5">
 			<ul>
-				<li class="active"><a class="first" style="width:6em;" href="#"><span>ブロック</span></a></li>
+				<li><a class="first" style="width:6em;" href="#"><span>ブロック</span></a></li>
 				<li><a style="width:3em;" href="#"><span>日</span></a></li>
 				<li><a style="width:3em;" href="#"><span>週</span></a></li>
 				<li><a style="width:3em;" href="#"><span>月</span></a></li>
-				<li><a class="last" style="width:4em;" href="#"><span>一覧</span></a></li>
+				<li class="active"><a class="last" style="width:4em;" href="#"><span>一覧</span></a></li>
 			</ul>
 		</div>
 		<a href="#" class="auiButton pl5 pr5" title="印刷" style="width:17px"><span><img src="../themes/default/images/icon/icon_print.gif" width="17" height="18" align="absmiddle" alt="印刷" /></span></a>
@@ -93,21 +93,24 @@
 </div>
 
 <div class="auiSummaryMeta clearfix">
-	<div class="floatLeft auiSearchResult">
-		検索結果：10月
-	</div>
-	<div class="floatRight">
-		<div class="count">1 ～ 20 件 / 計 72 件</div>
-		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li>
-		<a href="#" title="前へ" class="first arrow"><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
+	<div class="auiSelectButton">
+	<ul>
+		<li style="width:4em;margin-right:10px;" title="今日へ">
+		<a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a>
 		</li>
-		<li title="次へ">
-		<a href="#" title="次へ" class="last arrow"><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次の20件"></span></a>
+		<li style="margin-right:5px;" title="前の週へ">
+		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l_w.gif" alt="前の週へ"></span></a>
 		</li>
-		</ul>
-		</div>
+		<li title="前の日へ">
+		<a href="javascript:void(0);" class="first arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前の日へ"></span></a>
+		</li>
+		<li style="margin-right:5px;" title="次の日へ">
+		<a href="javascript:void(0);" class="last arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次の日へ"></span></a>
+		</li>
+		<li style="margin-right:10px;" title="次の週へ">
+		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r_w.gif" alt="次の週へ"></span></a>
+		</li>
+	</ul>
 	</div>
 </div>
 
@@ -119,138 +122,374 @@
 <table class="auiRowTable wide">
 <tbody>
 <tr>
-<th style="width:19em;"><a class="headUp" href="#">日時</a></th>
-<th style="width:20%;"><a href="#">予定</a></th>
-<th class=""><a href="#">内容</a></th>
-<th style="width:8em;"><a href="#">登録者</a></th>
+<th><a class="headUp" href="#">日</a></th>
+<th><a class="headUp" href="#">時間</a></th>
+<th><a href="#">予定</a></th>
+<th class="mb_hide"><a href="#">登録者</a></th>
 </tr>
 
-<tr class="saturday">
-<td nowrap="nowrap">2011年10月08日（日） 13:00～14:00</td>
+<tr class="dayStart saturday">
+<td class="day">2011年<br class="pc_hide" />10月08日(土)</td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
 <td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
-<td><div>日時は隠れない。登録者は最長8文字、内容は残りの幅全て</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
+</tr>
+
+<tr class="dayStart sunday">
+<td class="day">2011年<br class="pc_hide" />10月09日(日)</td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
+<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 <tr class="sunday">
-<td nowrap="nowrap">2011年10月09日（日） 13:00～14:00</td>
+<td class="day"></td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<tr class="dayStart today">
+<td class="day">2011年<br class="pc_hide" />10月10日(月)</td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 <tr class="today">
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<td class="day"></td>
+<td class="time">14:00～<br class="pc_hide" />15:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
-</tr>
-
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<tr class="today">
+<td class="day"></td>
+<td class="time">15:00～<br class="pc_hide" />16:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<tr class="today">
+<td class="day"></td>
+<td class="time">17:00～<br class="pc_hide" />18:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<tr class="today">
+<td class="day"></td>
+<td class="time">18:00～<br class="pc_hide" />19:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<tr class="dayStart">
+<td class="day">2011年<br class="pc_hide" />10月11日(火)</td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
 <tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<td class="day"></td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
+</tr>
+
+
+<tr class="dayStart">
+<td class="day">2011年<br class="pc_hide" />10月12日(水)</td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
+<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
+</tr>
+
+
+<tr class="dayStart">
+<td class="day">2011年<br class="pc_hide" />10月14日(金)</td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
+<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
 <tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<td class="day"></td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
 <tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
+<td class="day"></td>
+<td class="time">13:00～<br class="pc_hide" />14:00</td>
 <td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
-</tr>
-
-
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
-</tr>
-
-
-<tr>
-<td nowrap="nowrap">2011年10月10日（月） 13:00～14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td><div>スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。スケジュールの内容。</div></td>
-<td><div>木村 一郎</div></td>
+<td class="mb_hide"><div>木村 一郎</div></td>
 </tr>
 
 
 </tbody>
 </table>
 
-<div class="auiSummaryMeta clearfix">
-	<div class="floatRight">
-		<div class="count">1 ～ 20 件 / 計 72 件</div>
-		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li>
-		<a href="#" title="前へ" class="first arrow"><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前の20件"></span></a>
-		</li>
-		<li>
-		<a href="#" title="次へ" class="last arrow"><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次の20件"></span></a>
-		</li>
+
+<!-- div class="auiScheduleList">
+<ul>
+
+	<li class="today">
+		<div class="day">今日： 2011年10月08日(土)</div>
+		<ul>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">13:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">14:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
 		</ul>
-		</div>
+	</li>
+
+
+	<li class="">
+		<div class="day">2011年<br />10月9日(日)</div>
+		<ul>
+			<li>
+				<span class="auiSlHour"></span>
+				<span class="auiSlTitle">予定はありません。</span>
+			</li>
+		</ul>
+	</li>
+
+	<li class="">
+		<div class="day">2011年<br />10月10日(月)</div>
+		<ul>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">9:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">13:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">14:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">15:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">20:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+
+	<li class="">
+		<div class="day">2011年<br />10月11日(火)</div>
+		<ul>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">9:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">13:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">14:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">15:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">16:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+
+	<li class="">
+		<div class="day">2011年<br />10月12日(水)</div>
+		<ul>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">9:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">13:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">14:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">15:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">16:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+
+	<li class="">
+		<div class="day">2011年<br />10月13日（木）</div>
+		<ul>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">9:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">13:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">14:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">15:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">16:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+
+	<li class="">
+		<div class="day">2011年<br />10月14日(金)</div>
+		<ul>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">9:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">13:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">14:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">15:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="auiSlHour">16:00</span>
+				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+
+</ul>
+</div-->
+
+
+<div class="auiSummaryMeta clearfix">
+	<div class="auiSelectButton">
+	<ul>
+		<li style="width:4em;margin-right:10px;" title="今日へ">
+		<a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a>
+		</li>
+		<li style="margin-right:5px;" title="前の週へ">
+		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l_w.gif" alt="前の週へ"></span></a>
+		</li>
+		<li title="前の日へ">
+		<a href="javascript:void(0);" class="first arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前の日へ"></span></a>
+		</li>
+		<li style="margin-right:5px;" title="次の日へ">
+		<a href="javascript:void(0);" class="last arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次の日へ"></span></a>
+		</li>
+		<li style="margin-right:10px;" title="次の週へ">
+		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r_w.gif" alt="次の週へ"></span></a>
+		</li>
+	</ul>
 	</div>
 </div>
+
 </form>
 </div></div>
 <!-- END Contents Area -->

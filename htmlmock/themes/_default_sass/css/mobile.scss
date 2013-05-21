@@ -9,15 +9,14 @@
 --------------------------------------------------*/
 body {
 	position:absolute;
-	/*padding-top:45px;*/
 }
 .hdSign, .hdUserName, .hdLogout, #auiTabs, #footer {
 	display:none;
 }
 #header {
-/*	display:none;*/
-	padding:0;
-	height:auto
+	display:none;
+/*	padding:0;
+	height:auto*/
 }
 #header .inner {height:auto}
 .hdNavi {
@@ -157,7 +156,7 @@ button {
 .auiButtonBold,
 .auiButtonSearch {
 	height:32px;
-	line-height:32px;
+	line-height:30px;
 	padding:0 15px;
 }
 input[type=submit],
@@ -204,26 +203,24 @@ input[type=password] {
 #roundWrapper .roundTopBlock, #roundWrapper .roundRightBlock, #roundWrapper .roundBottomBlock, #roundWrapper .roundLeftBlock, #roundWrapper .roundTopLeftBlock, #roundWrapper .roundTopRightBlock, #roundWrapper .roundBottomRightBlock, #roundWrapper .roundBottomLeftBlock {
 	background-image:none;
 }
-/*.roundBlockWrapperTop {
-	display:none;
-}*/
 #roundWrapper .roundBlockWrapperTop {
-	background:#666666
+	/*background:#666666
 		-webkit-gradient(
 		linear, left top, left bottom,
 		from(rgba(255,255,255,0.4)),
 		to(rgba(255,255,255,0))
 	);
 	border-top:solid 1px #c0c0c0;
-	/*border-bottom:solid 1px #999999;*/
+	border-bottom:solid 1px #999999;
 	-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	box-shadow:0 2px 3px rgba(0,0,0,0.2);
-	margin-bottom:5px;
+	margin-bottom:5px;*/
+    @include mobile-header-style();
 }
 #roundWrapper .roundBlockWrapperTop .roundBlockIcon {display:none}
 #roundWrapper .roundBlockWrapperTop .roundBlockTitle {
-	padding:0;
+	/*padding:0;
 	background-image:none;
 	text-align:center;
 	vertical-align:middle;
@@ -231,11 +228,11 @@ input[type=password] {
 	color:#ffffff;
 	font-size:16px;
 	font-weight:bold;
-	text-shadow:0 1px 0 rgba(0,0,0,0.8);
+	text-shadow:0 1px 0 rgba(0,0,0,0.8);*/
 }
 #roundWrapper .roundBlockWrapperTop .roundBlockTitle a {
-	color:#ffffff;
-	text-decoration:none;
+	/*color:#ffffff;
+	text-decoration:none;*/
 }
 #roundWrapper .roundBlockWrapperTop .roundBlockTitle a:hover {color:#ffffff}
 #roundWrapper .roundBlockWrapperBottom {padding:0;}
@@ -249,19 +246,20 @@ input[type=password] {
 	background-image:none;
 }
 .auiPortletHead {
-	background:#666666
+	/*background:#666666
 		-webkit-gradient(
 		linear, left top, left bottom,
 		from(rgba(255,255,255,0.4)),
 		to(rgba(255,255,255,0))
 	);
 	border-top:solid 1px #c0c0c0;
-	/*border-bottom:solid 1px #999999;*/
+	border-bottom:solid 1px #999999;
 	-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);
-	box-shadow:0 2px 3px rgba(0,0,0,0.2);
+	box-shadow:0 2px 3px rgba(0,0,0,0.2);*/
 	margin-bottom:5px;
     height:44px;
+    @include mobile-header-style();
 }
 .auiPortletHead .inner {
 	margin:0 50px;
@@ -272,13 +270,12 @@ input[type=password] {
 	line-height:44px;
 	padding:0;
 	text-align:center;
-	color:#ffffff;
 	font-size:16px;
 	font-weight:bold;
-	text-shadow:0 1px 0 rgba(0,0,0,0.8);
 	white-space:nowrap;
 	overflow:hidden;
 	text-overflow:ellipsis;
+	@include portlet-title-text();
 }
 .auiPortletTitle a {
 	color:#ffffff;
@@ -400,17 +397,7 @@ input[type=password] {
 #mobileHeader {
 	position:fixed;
 	top:0;
-	width:100%;
-	background:#ffffff
-		-webkit-gradient(
-		linear, left top, left bottom,
-		from(rgba(0,0,0,0)),
-		color-stop(0.2, rgba(0,0,0,0)), 
-		to(rgba(0,0,0,0.1))
-	);
-	border-top:solid 1px #dcdcdc;
-	border-bottom:solid 1px #d0d0d0;
-	box-shadow:0 2px 5px rgba(0,0,0,0.1);
+	@include mobile-header-style();
 /*
 	background:#f9f9f6
 		-webkit-gradient(
@@ -437,9 +424,7 @@ input[type=password] {
 	text-overflow:ellipsis;
 	white-space:nowrap;
 	overflow:hidden;
-    color:#333;
-	font-size:16px;
-	text-shadow:0 1px 0 rgba(255,255,255,1);
+    @include portlet-title-text();
 }
 .mhLeft, .mhRight {
 	position:absolute;
@@ -509,6 +494,7 @@ input[type=password] {
 	appsNavigation
 --------------------------------------------------*/
 #appsNavigation {
+	display:none;
 	position:absolute;
 	top:0;
 	left:-260px;
@@ -517,6 +503,9 @@ input[type=password] {
 	font-size:13px;
 	background:#505050;
 	color:#ffffff;
+    -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.5);
+	box-shadow:0 5px 5px rgba(0,0,0,0.5);
+    border-right:solid 1px #909090;
 	z-index:10000;
 }
 #appsNavigationBack {

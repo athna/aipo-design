@@ -1710,7 +1710,7 @@ button[disabled]:hover {
 .auiSummaryMeta {
   width: 100%;
   line-height: 2em;
-  margin: 0.8em 0;
+  margin: 10px 0;
   vertical-align: middle;
 }
 
@@ -1777,6 +1777,9 @@ button[disabled]:hover {
 .auiRowTable {
   border-spacing: 0;
   border-collapse: collapse;
+}
+
+.auiRowTable.scheduleList {
   border-bottom: solid 1px #eee;
 }
 
@@ -1789,9 +1792,14 @@ button[disabled]:hover {
 
 .auiRowTable td {
   padding: 8px 5px;
+  border-bottom: solid 1px #eee;
 }
 
-.auiRowTable .dayStart {
+.auiRowTable.scheduleList td {
+  border-bottom: none;
+}
+
+.auiRowTable .dayStart td {
   border-top: solid 1px #eee;
 }
 
@@ -1820,10 +1828,25 @@ button[disabled]:hover {
 
 .auiRowTable div {
   width: 100%;
-  height: 20px;
-  line-height: 20px;
-  min-height: 18px;
+  /*height:20px;
+  line-height:20px;
+  min-height:18px;*/
+  margin: -8px 0;
+  height: 35px;
+  line-height: 35px;
   overflow: hidden;
+  /*    white-space:nowrap;
+      text-overflow:ellipsis;*/
+}
+
+.auiRowTable a {
+  display: block;
+  margin: -8px 0;
+  line-height: 35px;
+}
+
+.auiRowTable div a {
+  margin: 0;
 }
 
 /*.auiRowTable .sunday .day,
@@ -2198,6 +2221,7 @@ button[disabled]:hover {
 form {
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
 input,
@@ -2761,12 +2785,12 @@ ul.attachments span.deletebutton:hover {
   width: 14px;
   height: 14px;
   vertical-align: middle;
-  background: url(../images/icon/auiIconSprites20120820.png) no-repeat;
+  background: url(../images/icon/auiIconSprites20130528.png) no-repeat;
 }
 
 * html .iconLike,
 * html .iconComment {
-  background: url(../images/icon/auiIconSprites20120820.png) no-repeat;
+  background: url(../images/icon/auiIconSprites20130528.gif) no-repeat;
 }
 
 .iconLike {
@@ -3026,6 +3050,102 @@ ul.attachments span.deletebutton:hover {
 }
 
 /***************************************************
+	auiMailList
+--------------------------------------------------*/
+.auiMailList {
+  margin: 6px 0;
+  margin-right: -5px;
+  margin-left: -5px;
+  border-top: solid 1px #eee;
+}
+
+.auiMailList .row {
+  position: relative;
+  padding: 8px 5px 7px 0;
+  border-bottom: solid 1px #eee;
+  background: #f6f6f6;
+  overflow: hidden;
+}
+
+.auiMailList .noread {
+  background: none;
+}
+
+.auiMailList .checked {
+  background: #d9e7fd;
+}
+
+.auiMLName,
+.auiMLTitle,
+.auiMLBody {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 30px;
+}
+
+.auiMLDate {
+  float: right;
+  height: 24px;
+  line-height: 24px;
+  margin-left: 5px;
+  font-size: 11px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.auiMLName {
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+}
+
+.noread .auiMLName {
+  font-weight: bold;
+}
+
+.auiMLCheck {
+  float: left;
+}
+
+.auiMLCheck label {
+  display: block;
+  margin: -32px 0 -30px;
+  padding: 32px 0 30px;
+  width: 30px;
+  text-align: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.auiMLCheck input[type=checkbox] {
+  cursor: pointer;
+}
+
+.auiMLCheck input {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.auiMLTitle,
+.auiMLBody {
+  color: #999;
+  line-height: 18px;
+}
+
+.noread .auiMLTitle {
+  color: #000;
+}
+
+.auiMLCover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+/***************************************************
 	auiIcon
 --------------------------------------------------*/
 /*
@@ -3052,11 +3172,11 @@ IE6は透過PNGが利用できないため透過GIFへ置き換えている。
   -ms-border-radius: 2px;
   border-radius: 2px;
   vertical-align: middle;
-  background: url(../images/icon/auiIconSprites20120820.png) no-repeat;
+  background: url(../images/icon/auiIconSprites20130528.png) no-repeat;
 }
 
 * html .auiIcon {
-  background: url(../images/icon/auiIconSprites20120820.gif) no-repeat;
+  background: url(../images/icon/auiIconSprites20130528.gif) no-repeat;
 }
 
 .auiIcon span {
@@ -3562,6 +3682,28 @@ a.auiIconSecret:hover {
 }
 
 /*IE6*/
+.auiIconTrash {
+  background-position: 0px -752px;
+}
+
+.auiIconTrash_w {
+  background-position: 0px -768px;
+}
+
+a.auiIconTrash:hover {
+  background-position: 0px -768px;
+}
+
+* html .auiIconTrash {
+  background-position: 0px -752px;
+}
+
+/*IE6*/
+* html a.auiIconTrash:hover {
+  background-position: 0px -752px;
+}
+
+/*IE6*/
 /***************************************************
 	auiIcon
 --------------------------------------------------*/
@@ -3570,11 +3712,11 @@ a.auiIconSecret:hover {
   width: 15px;
   height: 18px;
   vertical-align: middle;
-  background: url(../images/icon/auiIconSprites20120820.png) no-repeat;
+  background: url(../images/icon/auiIconSprites20130528.png) no-repeat;
 }
 
 * html .auiIconArrow {
-  background: url(../images/icon/auiIconSprites20120820.gif) no-repeat;
+  background: url(../images/icon/auiIconSprites20130528.gif) no-repeat;
 }
 
 .auiIconArrowLeft {

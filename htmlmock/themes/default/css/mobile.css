@@ -130,7 +130,7 @@ td.container {
 --------------------------------------------------*/
 select {
   height: 32px;
-  max-width: 310px;
+  max-width: 100%;
 }
 
 /***************************************************
@@ -157,7 +157,7 @@ button {
 .auiButtonSearch {
   height: 32px;
   line-height: 30px;
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
 input[type=submit],
@@ -223,6 +223,7 @@ input[type=password] {
   background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.1)));
   border-top: solid 1px #dcdcdc;
   border-bottom: solid 1px #d0d0d0;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -284,6 +285,7 @@ input[type=password] {
   background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.1)));
   border-top: solid 1px #dcdcdc;
   border-bottom: solid 1px #d0d0d0;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -435,11 +437,14 @@ input[type=password] {
 #mobileHeader {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.1)));
   border-top: solid 1px #dcdcdc;
   border-bottom: solid 1px #d0d0d0;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
   /*
   	background:#f9f9f6
   		-webkit-gradient(
@@ -475,16 +480,16 @@ input[type=password] {
 
 .mhLeft, .mhRight {
   position: absolute;
-  top: 6px;
+  top: 3px;
   border-radius: 4px;
 }
 
 .mhLeft {
-  left: 7px;
+  left: 5px;
 }
 
 .mhRight {
-  right: 7px;
+  right: 5px;
 }
 
 #mobileHeader .auiMbBtn {
@@ -493,13 +498,14 @@ input[type=password] {
 
 .auiMbBtn {
   display: inline-block;
-  height: 30px;
+  height: 35px;
+  line-height: 35px;
   min-width: 35px;
-  line-height: 30px;
   padding: 0 5px;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 0 white, inset 0 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 0 white, inset 0 1px 2px rgba(0, 0, 0, 0.3);
   text-decoration: none;
   text-align: center;
@@ -563,8 +569,8 @@ input[type=password] {
   font-size: 13px;
   background: #505050;
   color: #ffffff;
-  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-right: solid 1px #909090;
   z-index: 10000;
 }
@@ -586,7 +592,6 @@ input[type=password] {
 #appsNavigationBack a {
   display: block;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -656,7 +661,7 @@ input[type=password] {
   font-size: 16px;
   font-weight: bold;
   text-shadow: 0 1px 0 black;
-  background: #333333 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.2)), color-stop(0.5, rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1)));
+  background: #333333 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1)));
   border-bottom: solid 1px rgba(0, 0, 0, 0.7);
 }
 
@@ -1011,6 +1016,15 @@ table.listTable td.caption, table.subTable td.caption {
   margin: 6px 0;
 }
 
+.auiSummaryMeta .count {
+  height: 32px;
+  line-height: 32px;
+}
+
+.auiSelectButton {
+  margin: 4px 0;
+}
+
 /***************************************************
 	auiMultiTable
 --------------------------------------------------*/
@@ -1306,6 +1320,38 @@ table tr.caption {
 
 .filterDropDrawer i {
   margin-top: 8px;
+}
+
+/***************************************************
+	schedule block
+--------------------------------------------------*/
+[id^=groupselect] {
+  width: 100%;
+}
+
+.weeklyScrollPane > table {
+  width: 100%;
+  overflow: hidden;
+}
+
+div.weeklyHeadRights div.weeklyHeadRightR {
+  position: static;
+  border-width: 0 0 0 1px;
+  box-sizing: border-box;
+}
+
+div.weeklyTermRights div.weeklyTermRight {
+  position: static;
+  box-sizing: border-box;
+}
+
+div.weeklyTermRights div.weeklyTermRightR {
+  border-width: 1px 0 0 1px !important;
+}
+
+[id^=weeklySpan],
+[class^=weeklyTermTailTd] {
+  display: none !important;
 }
 
 /***************************************************

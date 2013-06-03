@@ -2592,7 +2592,7 @@ $auiMLLeft:	30px;
 }
 .auiMailList .row {
 	position:relative;
-    padding:8px 5px 7px 0;
+    padding:8px 5px 7px $auiMLLeft;
     border-bottom:solid 1px #eee;
     background:$grayHightLight;
     overflow:hidden;
@@ -2603,13 +2603,14 @@ $auiMLLeft:	30px;
 .auiMailList .checked {
 	background:$blueLight;
 }
+
 .auiMLName,
 .auiMLTitle,
 .auiMLBody {
 	overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
-    margin-left:$auiMLLeft;
+    cursor:pointer;
 }
 .auiMLDate {
 	float:right;
@@ -2629,18 +2630,26 @@ $auiMLLeft:	30px;
 	font-weight:bold;
 }
 .auiMLCheck {
-	float:left;
+	position:absolute;
+    top:0;
+    left:0;
+    height:100%;
 }
 .auiMLCheck label {
 	display:block;
-	margin:-32px 0 -30px;
-    padding:32px 0 30px;
+	position:relative;
     width:$auiMLLeft;
+    height:100%;
     text-align:center;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .auiMLCheck input[type=checkbox] {
 	cursor:pointer;
+    position:absolute;
+    top:50%;
+    left:8px;
+    left:5px\9;
+    margin-top:-7px;
 }
 .auiMLCheck input {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -2648,13 +2657,13 @@ $auiMLLeft:	30px;
 .auiMLTitle,
 .auiMLBody {
 	color:#999;
-    line-height:18px;
 }
 .noread .auiMLTitle {
 	color:#000;
 }
 .auiMLCover {
 	position:absolute;
+    height:100%;
     top:0;
     bottom:0;
     left:0;
@@ -2662,7 +2671,17 @@ $auiMLLeft:	30px;
     margin-left:$auiMLLeft;
     cursor:pointer;
 }
-
+.auiMLCover a {
+	display:block;
+    height:100%;
+	background:#ffffff\9;/*IE8*/
+    -ms-filter:"alpha(opacity=0)";/*IE8*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*:first-child+html .auiMLCover a {/*IE7*/
+	background:#ffffff;
+    filter:alpha(opacity=0);
+}
 
 /***************************************************
 	auiIcon

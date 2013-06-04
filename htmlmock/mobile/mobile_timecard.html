@@ -1,817 +1,579 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="Content-Language" content="ja" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Aipo+</title>
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
-<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
-<meta name="robots" content="noindex,follow" />
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico?1339728598000" />
-<link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico?1339728598000" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css?1339728598000" media="screen,tv,print" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css?1339728598000" media="screen,tv,print" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css?1339728598000" media="screen,tv,print" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css?1339728598000" media="screen,tv,print"/>
-<link rel="stylesheet" type="text/css" href="/themes/default/css/print.css?1339728598000" media="print" />
-<link rel="apple-touch-icon-precomposed" href="../themes/iphone/img/apple-touch-icon-precomposed.png" />
-<script type="text/javascript">
- var _gaq = _gaq || [];
- _gaq.push(['_setAccount', 'UA-11008420-14']);
- _gaq.push(['_setDomainName', '.aipo.com']);
- _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+    <meta http-equiv="Content-Language" content="ja"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+    <meta name="robots" content="noindex,follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no">
+    <link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico"/>
+    <link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css" media="screen,tv,print"/>
+    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
 </head>
-<body onload="aipo.container.renderGadgets()">
+<body>
 <script type="text/javascript">
-  djConfig = {
-    cacheBust: '1339728598000'
-  };
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
 </script>
-<script language="JavaScript" type="text/javascript" src="/javascript/dojo/dojo.js?1339728598000"></script>
-<script language="JavaScript" type="text/javascript" src="/javascript/aipo.js?1339728598000"></script>
-<script language="JavaScript" type="text/javascript" src="/javascript/aipo/platform.js?1339728598000"></script>
-<script language="JavaScript" type="text/javascript" src="/javascript/aipo/container.js?1339728598000"></script>
-<script language="JavaScript" type="text/javascript" src="/javascript/aipo/saas.js?1339728598000"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+
 <!-- WRAPPER -->
 <div id="wrapper">
-	<!-- HEADER -->
-	<div id="header" class="clearfix">
-		<div class="inner">
-			<div class="hdSign">
-				<div class="hdLogo"><img src="/themes/default/images/logo_aipoplus.png" alt="Aipo+"></div>
-			</div>
-			<div class="hdNavi">
-				<div class="hdActivity" title="あなた宛のお知らせ">
-					<div class="activityField">
-						<div class="dijitRight"> <span id="activitycheckerContainer"></span></div>
-					</div>
-				</div>
-				<div class="hdUserName"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b7a?template=SaaSAccountPersonFormScreen');"> <img src="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/template/FileuploadFacePhotoScreen?uid=4&amp;t=1337907151000" class="avatar" alt="顔写真" /> <span class="useraccount"> 株式会社エイムラック  &#24460;&#34276; &#21644;&#33391; </span> </a> </div>
-				<div class="hdLogout">
-					<input type="submit" value="ログアウト" onclick="location.href='https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml?action=SaaSJLogoutUser'">
-				</div>
-			</div>
-		</div>
+<!-- HEADER -->
+<div id="header" class="clearfix"><div class="inner">
+
+	<div class="hdSign">
+		<div class="hdLogo"><img src="../themes/default/images/logo_aipoplus.png" alt="Aipo+" /></div>
+   </div>
+
+    <div class="hdNavi">
+		<!--
+		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
+		-->
+		<div class="hdActivity" title="お知らせ"><div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer"><div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label"><div id="activitychecker" class="zero counter">0</div><span class="mb_hide">お知らせ</span></div></div></div></div>
+		<div class="hdUserName"><img class="avatar" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/48984_100001686639942_112332_q.jpg" alt="" />株式会社エイムラック  木村 一郎 さま</div>
+		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
 	</div>
-	<!-- /HEADER -->
-	<script language="JavaScript" type="text/javascript">
 
-//<![CDATA[
-
-
-
-dojo.require("aipo.widget.DropdownActivityChecker");
-
-
-
-dojo.addOnLoad(function () {
-
-    var acHtml = document.getElementById("activitycheckerContainer");
-
-    if(acHtml){
-
-       var params = {
-
-            widgetId: "activitychecker",
-
-
-
-            iconURL: "themes/default/images/mobile/an_activity.png",
-
-            iconWidth: "24",
-
-            iconHeight: "24",
-
-            iconAlt: "あなた宛のお知らせ"
-
-       };
-
-       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
-
-   }
-
-});
-
-
-
-//]]>
-
-</script>
-	<!-- appsNavigation -->
-	<script language="javascript">
-
-// ウィジェットメニュー用
-
-aipo.onloadSmartPhone = function(){
-
-	var widgets_area = dojo.byId('auiWidgetsArea');
-
-	if(widgets_area != null){
-
-		// classの追加
-
-		var is_menu = false;
-
-		for(var i=0;i<widgets_area.childNodes.length;i++){
-
-			if(widgets_area.childNodes[i].className != null
-
-			&& widgets_area.childNodes[i].className.indexOf('auiWidget',0) >= 0){
-
-				if(widgets_area.childNodes[i].innerHTML.indexOf('auiButtonAction',0) >= 0){
-
-					widgets_area.childNodes[i].className += ' widgetButton';
-
-				}else if(widgets_area.childNodes[i].id == 'subNavigation'){
-
-					is_menu = true;
-
-				}else if(widgets_area.childNodes[i].innerHTML.indexOf('<ul>',0) >= 0){
-
-					widgets_area.childNodes[i].id = 'subNavigation';
-
-					is_menu = true;
-
-				}else{
-
-					widgets_area.childNodes[i].className += ' mb_hide';
-
-				}
-
-			}
-
-		}
-
-		// snDrawerの追加
-
-		if(is_menu){
-
-			var elem = document.createElement('div');
-
-			elem.className = 'snDrawer';
-
-			elem.innerHTML = '<a href="javascript:void(0)" class="auiButtonBold" onClick="widgetMenuSwitch()"><img src="themes/default/images/mobile/sn_list.png"></a>';
-
-			widgets_area.appendChild(elem);
-
-		}
-
-	}
-
-}
-
-dojo.addOnLoad(function(){
-
-	aipo.onloadSmartPhone();
-
-});
-
-function widgetMenuSwitch() {
-
-        var subNavi = document.getElementById('subNavigation');
-
-        if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
-
-                subNavi.style.display = 'block';
-
-        }else{
-
-                subNavi.style.display = 'none';
-
-        }
-
-}
-
-// ナビゲーションメニュー用
-
-function appsNaviSwitch() {
-
-	var navi = document.getElementById('appsNavigation');
-
-	var lists = navi.getElementsByTagName("ul");
-
-	var bk = document.getElementById('appsNavigationBack');
-
-	var wrapper = document.getElementById('wrapper');
-
-	var nLeft = '-260px';
-
-	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
-
-		//show
-
-		for (var i=0; i<lists.length; i++){
-
-			lists[i].style.display = "block";
-
-		}
-
-		navi.style.left = '0px';
-
-		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
-
-		navi.style.borderRight = 'solid 1px #909090';
-
-		bk.style.display = 'block';
-
-		wrapper.style.overflow = 'hidden';
-
-		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
-
-		 if (aipo.userAgent.isAndroid()){
-
-		 	var content=dojo.query(".roundBlockContent")[0];
-
-		 	if(content){
-
-		 		content.style.display="none";
-
-		 	}
-
-		 }
-
-	}else{
-
-		//hide
-
-		navi.style.left = nLeft;
-
-		navi.style.boxShadow = 'none';
-
-		navi.style.borderRight = 'none';
-
-		bk.style.display = 'none';
-
-		wrapper.style.overflow = 'visible';
-
-		wrapper.style.height = 'auto';
-
-		for (var i=0; i<lists.length; i++){
-
-			lists[i].style.display = "none";
-
-		}
-
-		 if (aipo.userAgent.isAndroid()){
-
-		 	var content=dojo.query(".roundBlockContent")[0];
-
-		 	if(content){
-
-		 		content.style.display="";
-
-		 	}
-
-		 }
-
-	}
-
-}
-
-</script>
-	<div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">
-		<!--test-->
-		</a></div>
-	<div id="appsNavigation">
-		<div id="anInner">
-			<div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="themes/default/images/mobile/an_list.png"></a></div>
-			<div class="anUser">
-				<div class="avatar"><img src="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/template/FileuploadFacePhotoScreen?uid=4&amp;t=1337907151000" alt="顔写真" width="20" height="20" /> </div>
-				<div class="name">&#24460;&#34276; &#21644;&#33391;</div>
-			</div>
-			<div class="anApps">
-				<h2>アプリ</h2>
-				<ul>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b76?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_timeline.png"></span>タイムライン</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135ea887364-10654?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_schedule.png"></span>スケジュール</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b77?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_timecard.png"></span>タイムカード</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-136c84761a7-106dd?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_blog.png"></span>ブログ</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b73?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_bbs.png"></span>お知らせ</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b6f?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_todo.png"></span>共有ToDo</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135f01020f6-100b9?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_folder.png"></span>共有フォルダ</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b71?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_workflow.png"></span>ワークフロー</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b75?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_note.png"></span>伝言メモ</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b74?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_report.png"></span>報告書</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-136520165ee-1015f/js_peid/P-13652023f79-10161?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_mail.png"></span>Webメール</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b78?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_address.png"></span>アドレス帳</a></li>
-					<li><a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_pane/P-135e7e25490-10b6d/js_peid/P-135e7e25490-10b72?action=controls.Maximize"><span class="icon"><img src="themes/default/images/mobile/an_users.png"></span>ユーザー名簿</a></li>
-				</ul>
-			</div>
-			<div class="anSetting">
-				<h2>設定</h2>
-				<ul>
-					<!--<li><a href="javascript:void(0)"><span class="icon"><img src="themes/default/images/mobile/an_setting.png" /></span>個人設定</a></li>
-
-                        <li><a href="javascript:void(0)"><span class="icon"><img src="themes/default/images/mobile/an_pc.png" /></span>PC版表示へ変更</a></li>-->
-					<li><a href="javascript:void(0)" onclick="location.href='https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml?action=SaaSJLogoutUser'"><span class="icon"><img src="themes/default/images/mobile/an_logout.png" /></span>ログアウト</a></li>
-				</ul>
-			</div>
-			<div class="anFooter">
-				<div class="copyright">&copy; 2012 Aimluck</div>
-			</div>
-		</div>
-	</div>
-	<!-- /mobileNavigation -->
+</div></div>
+<!-- /HEADER -->
+
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+    	<li class="first">
+        	<div class="tab active">
+                <div class="title"><a href="#">マイページ</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab activeNext">
+                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab">
+                <div class="title"><a href="#">個人設定</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab">
+                <div class="title"><a href="#">システム管理</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    </ul>
+    <div class="floatRight">
+    	<ul>
+    	<li class="first store">
+        	<div class="tab">
+                <div class="title"><a href="http://store.aipo.com" target="_blank">Aipo Store</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+        </ul>
+    </div>
+</div>
+<!-- /MAIN TAB -->
+
+
+<!-- MAIN OUTER -->
+<!-- roundWrapper -->
+<div id="roundWrapper">
 	<!-- MAIN OUTER -->
-	<!-- roundWrapper -->
-	<div id="roundWrapper">
-		<!-- MAIN OUTER -->
-		<div class="roundMainWrapper">
-			<script language="JavaScript" type="text/javascript" src="/javascript/aipo/exttimecardsystem/form.js?1339728598000"></script>
-			<script language="JavaScript" type="text/javascript">
+	<div class="roundMainWrapper">
 
-//<![CDATA[
+		<!-- PORTLET OUTER -->
+		<div class="dojoDndItem auiPortlet">
+			<div class="auiPortletHead"><div class="inner">
+				<div class="auiPortletTitle">タイムカード</div>
+				<div class="auiPortletTool">
+				</div>
+			</div></div>
 
-
-
-    ptConfig['P-135e7e25490-10b77'] = { group:"exttimecard", initUrl:'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen', reloadFunction:aipo.reloadPage };
-
-
-
-//]]>
-
-</script>
-			<!-- PORTLET OUTER -->
-			<div class="roundTopBlock clearfix">
-				<div class="roundRightBlock">
-					<div class="roundBottomBlock">
-						<div class="roundLeftBlock">
-							<div class="roundTopLeftBlock">
-								<div class="roundTopRightBlock">
-									<div class="roundBottomRightBlock" >
-										<div class="roundBottomLeftBlock">
-											<table class="roundBlockWrapperTop">
-												<tbody>
-													<tr>
-														<td class="roundBlockTitle wide">&#12479;&#12452;&#12512;&#12459;&#12540;&#12489;</td>
-														<td class="roundBlockMenu  hide"><span id="portletMenu"></span></td>
-														<td class="endcap"></td>
-													</tr>
-												</tbody>
-											</table>
-											<div class="roundBlockWrapperBottom clearfix">
-												<div class="roundBlockContent">
-													<div dojoType="aimluck:Contentpane" widgetId="widget_P-135e7e25490-10b77" id="portlet_P-135e7e25490-10b77">
-														<div id="auiContentsArea"  style="margin-bottom:45px" >
-															<div id="auiContentsAreaInner">
-																<form name="formP-135e7e25490-10b77" id="formP-135e7e25490-10b77" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, '${indicator_id}','P-135e7e25490-10b77',aipo.exttimecard.onListReceiveMessage);return false;">
-																	<input type="hidden" name="_name" value="exttimecardForm" />
-																	<input type="hidden" name="secid" value="5a2c2dbbb52bb996e6a93641f5c2f126" />
-																	<div class="auiSummaryMeta clearfix">
-																		<div class="auiSelectButton floatLeft">
-																			<ul class="floatLeft">
-																				<li style="margin-right:10px;"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;view_month=2012-06', 'P-135e7e25490-10b77');" title="今月へ" class="btn" style="width:4em;"><span>今月</span></a></li>
-																				<li><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;view_month=2012-05', 'P-135e7e25490-10b77');" title="先月へ" class="first arrow"><span><img src="themes/default/images/icon/icon_arrow_l.gif" alt="先月" /></span></a></li>
-																				<li><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;view_month=2012-07', 'P-135e7e25490-10b77');" title="来月へ" class="last arrow"><span><img src="themes/default/images/icon/icon_arrow_r.gif" alt="来月" /></span></a></li>
-																			</ul>
-																		</div>
-																		<div class="floatLeft" style="line-height:24px;margin-left:10px;"><strong>2012 年 6 月</strong></div>
-																		<div class="floatRight"> <a title="表示中の一覧をダウンロード" href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/template/ExtTimecardXlsExportScreen/target_user_id/4/view_month/2012-06/f/timecard.xls" class="auiButton">表示中の一覧をダウンロード</a> </div>
-																	</div>
-																	<div class="auiSummaryMeta">
-																		<div class="auiForm">
-																			<select name="target_group_name_list" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135e7e25490-10b77')" class="mw49">
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=none">すべてのグループ</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1331519412605_4&amp;target_user_id=none" >Pickles</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=none" >----------</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309354049146_21&amp;target_user_id=none" >アルバイト</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309256925795_4&amp;target_user_id=none" >企画本部</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309256875124_4&amp;target_user_id=none" >営業本部</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309256852208_4&amp;target_user_id=none" >管理本部</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309354067571_21&amp;target_user_id=none" >開発1部</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309354076422_21&amp;target_user_id=none" >開発2部</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309354083123_21&amp;target_user_id=none" >開発3部</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=1309256899203_4&amp;target_user_id=none" >開発本部</option>
-																			</select>
-																			<select name="target_user_id" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135e7e25490-10b77')" class="mw49">
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=16"   >山田 太郎</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=15"   >田中 一郎</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=19"   >山本 次郎</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=18"   >別所 優一</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=4"   selected="selected"  >木村 一郎</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=17"   >鈴木 花子</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=21"   >田村 三郎</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=22"   >高橋 四郎</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=23"   >越後 太一</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=24"   >佐藤 涼子</option>
-																				<option value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;target_group_name=all&amp;target_user_id=25"   >山中 愛子</option>
-																			</select>
-																		</div>
-																	</div>
-																	<table class="auiRowTable wide">
-																		<tbody>
-																			<tr>
-																				<th class="thin">日付</th>
-																				<th class='thin mb_hide'>勤務形態</th>
-																				<th class="thin">出勤</th>
-																				<th class="thin">退勤</th>
-																				<th class="thin">外出</th>
-																				<th class="thin">復帰</th>
-																				<th class='thin mb_hide'>就業</th>
-																				<th class='thin mb_hide'>残業</th>
-																				<th class='thin mb_hide'>休出</th>
-																				<th class='wide mb_hide'>修正理由、備考</th>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3461&amp;date=2012%2F6%2F1', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月1日（金）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時29分</td>
-																				<td nowrap='nowrap' align='center' >20時57分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>10.5h</td>
-																				<td class='mb_hide' align='center'>3.0h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="saturday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F2', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月2日（土）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F2', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F2', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='saturday mb_hide '></td>
-																			</tr>
-																			<tr class="sunday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F3', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月3日（日）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F3', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F3', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='sunday mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3474&amp;date=2012%2F6%2F4', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月4日（月）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時24分</td>
-																				<td nowrap='nowrap' align='center' >20時53分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>10.5h</td>
-																				<td class='mb_hide' align='center'>2.9h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3490&amp;date=2012%2F6%2F5', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月5日（火）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時24分</td>
-																				<td nowrap='nowrap' align='center' >20時35分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>10.2h</td>
-																				<td class='mb_hide' align='center'>2.6h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3506&amp;date=2012%2F6%2F6', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月6日（水）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時27分</td>
-																				<td nowrap='nowrap' align='center' >20時57分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>10.5h</td>
-																				<td class='mb_hide' align='center'>3.0h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3527&amp;date=2012%2F6%2F7', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月7日（木）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時23分</td>
-																				<td nowrap='nowrap' align='center' >21時36分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>11.2h</td>
-																				<td class='mb_hide' align='center'>3.6h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3542&amp;date=2012%2F6%2F8', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月8日（金）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時24分</td>
-																				<td nowrap='nowrap' align='center' >20時16分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>9.9h</td>
-																				<td class='mb_hide' align='center'>2.3h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="saturday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F9', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月9日（土）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F9', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F9', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='saturday mb_hide '></td>
-																			</tr>
-																			<tr class="sunday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F10', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月10日（日）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F10', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F10', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='sunday mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3564&amp;date=2012%2F6%2F11', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月11日（月）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時22分</td>
-																				<td nowrap='nowrap' align='center' >21時10分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>10.8h</td>
-																				<td class='mb_hide' align='center'>3.2h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3592&amp;date=2012%2F6%2F12', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月12日（火）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>11時13分</td>
-																				<td nowrap='nowrap' align='center' >20時30分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>8.5h</td>
-																				<td class='mb_hide' align='center'>2.5h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '> 修正理由：退勤を押し忘れました。 </td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3600&amp;date=2012%2F6%2F13', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月13日（水）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時17分</td>
-																				<td nowrap='nowrap' align='center' >20時47分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>10.5h</td>
-																				<td class='mb_hide' align='center'>2.8h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3625&amp;date=2012%2F6%2F14', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月14日（木）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時53分</td>
-																				<td nowrap='nowrap' align='center' >18時44分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>7.9h</td>
-																				<td class='mb_hide' align='center'>0.7h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3636&amp;date=2012%2F6%2F15', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月15日（金）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時17分</td>
-																				<td nowrap='nowrap' align='center' >21時23分</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'>11.1h</td>
-																				<td class='mb_hide' align='center'>3.4h</td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class=' mb_hide '></td>
-																			</tr>
-																			<tr class="saturday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F16', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月16日（土）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F16', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F16', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='saturday mb_hide '></td>
-																			</tr>
-																			<tr class="sunday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F17', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月17日（日）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F17', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F17', 'P-135e7e25490-10b77', aipo.exttimecard.onLoadExtTimecardDialog);" />
-																				</td>
-																				<td align='center' nowrap='nowrap'></td>
-																				<td align='center' nowrap='nowrap' ></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='sunday mb_hide '></td>
-																			</tr>
-																			<tr class="today">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=3661&amp;date=2012%2F6%2F18', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月18日（月）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td nowrap='nowrap' align='center'>9時16分</td>
-																				<td nowrap="nowrap" align="center"><input type="button" value="退勤" class="auiButtonBold" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'mode', 'punchout');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'punchout', '退勤');dojo.byId('formP-135e7e25490-10b77').onsubmit();" /></td>
-																				<td align='center' nowrap='nowrap'><input type="button" value="外出" class="auiButtonBold" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'mode', 'outgoing');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'outgoing', '外出');dojo.byId('formP-135e7e25490-10b77').onsubmit();"></td>
-																				<td align='center' nowrap='nowrap' ><input type="button" value="復帰" class="auiButtonBold" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'mode', 'comeback');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'outgoing', '復帰');dojo.byId('formP-135e7e25490-10b77').onsubmit();"></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='mb_hide' align='center'></td>
-																				<td class='today mb_hide '></td>
-																			</tr>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F19', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月19日（火）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F20', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月20日（水）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F21', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月21日（木）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F22', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月22日（金）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="saturday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F23', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月23日（土）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class='saturday mb_hide'></td>
-																			<tr class="sunday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F24', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月24日（日）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class='sunday mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F25', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月25日（月）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F26', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月26日（火）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F27', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月27日（水）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F28', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月28日（木）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F29', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月29日（金）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class=' mb_hide'></td>
-																			<tr class="saturday">
-																				<td ><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormScreen&amp;eventsubmit_doexttimecard_form=1&amp;entityid=new&amp;date=2012%2F6%2F30', 'P-135e7e25490-10b77', 'aipo.exttimecard.onLoadExtTimecardDialog')" >6月30日（土）</a> </td>
-																				<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardSystemDetailScreen&amp;entityid=1');">通常</a> </td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td ></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td  class='mb_hide'></td>
-																				<td class='saturday mb_hide'></td>
-																		</tbody>
-																	</table>
-																</form>
-															</div>
-														</div>
-														<div id="auiWidgetsArea"  style="position:fixed" >
-															<div class="auiWidget clearfix">
-																<ul>
-																	<li class="active"> <a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?mode=list">タイムカード記録</a> </li>
-																	<li> <a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?mode=summary">タイムカード集計</a> </li>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+			<!-- auiPortletBody -->
+			<div class="auiPortletBody"><div class="inner">
+				<div dojoType="aimluck:Contentpane" widgetId="widget_P-135e7e25490-10b77" id="portlet_P-135e7e25490-10b77">
+					<div id="auiContentsArea"  style="margin-bottom:45px" >
+						<div id="auiContentsAreaInner">
+							<form name="formP-135e7e25490-10b77" id="formP-135e7e25490-10b77" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, '${indicator_id}','P-135e7e25490-10b77',aipo.exttimecard.onListReceiveMessage);return false;">
+								<input type="hidden" name="_name" value="exttimecardForm" />
+								<input type="hidden" name="secid" value="5a2c2dbbb52bb996e6a93641f5c2f126" />
+								<div class="auiSummaryMeta clearfix">
+									<div class="auiSelectButton floatLeft">
+										<ul class="floatLeft">
+											<li style="margin-right:10px;"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;view_month=2012-06', 'P-135e7e25490-10b77');" title="今月へ" class="btn" style="width:4em;"><span>今月</span></a></li>
+											<li><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;view_month=2012-05', 'P-135e7e25490-10b77');" title="先月へ" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+											<li><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardListScreen&amp;view_month=2012-07', 'P-135e7e25490-10b77');" title="来月へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+										</ul>
+									</div>
+									<div class="floatLeft" style="line-height:32px;margin-left:10px;"><strong>2012 年 6 月</strong></div>
+									<div class="floatRight mb_hide"> <a title="表示中の一覧をダウンロード" href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/template/ExtTimecardXlsExportScreen/target_user_id/4/view_month/2012-06/f/timecard.xls" class="auiButton">表示中の一覧をダウンロード</a> </div>
+								</div>
+								<div class="auiSummaryMeta">
+									<div class="auiForm">
+										<select name="target_group_name_list" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135e7e25490-10b77')" class="mw49">
+											<option value="">すべてのグループ</option>
+											<option value="">Pickles</option>
+											<option value="">----------</option>
+											<option value="">アルバイト</option>
+											<option value="">企画本部</option>
+											<option value="">営業本部</option>
+											<option value="">管理本部</option>
+											<option value="">開発1部</option>
+											<option value="">開発2部</option>
+											<option value="">開発3部</option>
+											<option value="">開発本部</option>
+										</select>
+										<select name="target_user_id" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135e7e25490-10b77')" class="mw49">
+											<option value="">山田 太郎</option>
+											<option value="">田中 一郎</option>
+											<option value="">山本 次郎</option>
+											<option value="">別所 優一</option>
+											<option value="">木村 一郎</option>
+											<option value="">鈴木 花子</option>
+											<option value="">田村 三郎</option>
+											<option value="">高橋 四郎</option>
+											<option value="">越後 太一</option>
+											<option value="">佐藤 涼子</option>
+											<option value="">山中 愛子</option>
+										</select>
 									</div>
 								</div>
-							</div>
+								<table class="auiRowTable wide">
+									<tbody>
+										<tr>
+											<th class="thin">日付</th>
+											<th class='thin mb_hide'>勤務形態</th>
+											<th class="thin">出勤</th>
+											<th class="thin">退勤</th>
+											<th class="thin">外出</th>
+											<th class="thin">復帰</th>
+											<th class='thin mb_hide'>就業</th>
+											<th class='thin mb_hide'>残業</th>
+											<th class='thin mb_hide'>休出</th>
+											<th class='wide mb_hide'>修正理由、備考</th>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月1日 (金)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時29分</td>
+											<td nowrap='nowrap' align='center' >20時57分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>10.5h</td>
+											<td class='mb_hide' align='center'>3.0h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="saturday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月2日 (土)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='saturday mb_hide '></td>
+										</tr>
+										<tr class="sunday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月3日 (日)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='sunday mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月4日 (月)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時24分</td>
+											<td nowrap='nowrap' align='center' >20時53分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>10.5h</td>
+											<td class='mb_hide' align='center'>2.9h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月5日 (火)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時24分</td>
+											<td nowrap='nowrap' align='center' >20時35分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>10.2h</td>
+											<td class='mb_hide' align='center'>2.6h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月6日 (水)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時27分</td>
+											<td nowrap='nowrap' align='center' >20時57分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>10.5h</td>
+											<td class='mb_hide' align='center'>3.0h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月7日 (木)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時23分</td>
+											<td nowrap='nowrap' align='center' >21時36分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>11.2h</td>
+											<td class='mb_hide' align='center'>3.6h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月8日 (金)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時24分</td>
+											<td nowrap='nowrap' align='center' >20時16分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>9.9h</td>
+											<td class='mb_hide' align='center'>2.3h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="saturday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月9日 (土)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='saturday mb_hide '></td>
+										</tr>
+										<tr class="sunday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月10日 (日)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='sunday mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月11日 (月)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時22分</td>
+											<td nowrap='nowrap' align='center' >21時10分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>10.8h</td>
+											<td class='mb_hide' align='center'>3.2h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月12日 (火)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>11時13分</td>
+											<td nowrap='nowrap' align='center' >20時30分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>8.5h</td>
+											<td class='mb_hide' align='center'>2.5h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '> 修正理由：退勤を押し忘れました。 </td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月13日 (水)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時17分</td>
+											<td nowrap='nowrap' align='center' >20時47分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>10.5h</td>
+											<td class='mb_hide' align='center'>2.8h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月14日 (木)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時53分</td>
+											<td nowrap='nowrap' align='center' >18時44分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>7.9h</td>
+											<td class='mb_hide' align='center'>0.7h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月15日 (金)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時17分</td>
+											<td nowrap='nowrap' align='center' >21時23分</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'>11.1h</td>
+											<td class='mb_hide' align='center'>3.4h</td>
+											<td class='mb_hide' align='center'></td>
+											<td class=' mb_hide '></td>
+										</tr>
+										<tr class="saturday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月16日 (土)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='saturday mb_hide '></td>
+										</tr>
+										<tr class="sunday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月17日 (日)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td nowrap='nowrap'><input type="button" value="未入力" class="auiButtonBold" title="未入力" onclick="" />
+											</td>
+											<td align='center' nowrap='nowrap'></td>
+											<td align='center' nowrap='nowrap' ></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='sunday mb_hide '></td>
+										</tr>
+										<tr class="today">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月18日 (月)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td nowrap='nowrap' align='center'>9時16分</td>
+											<td nowrap="nowrap" align="center"><input type="button" value="退勤" class="auiButtonBold" onclick="" /></td>
+											<td align='center' nowrap='nowrap'><input type="button" value="外出" class="auiButtonBold" onclick=""></td>
+											<td align='center' nowrap='nowrap' ><input type="button" value="復帰" class="auiButtonBold" onclick=""></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='mb_hide' align='center'></td>
+											<td class='today mb_hide '></td>
+										</tr>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月19日 (火)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月20日 (水)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月21日 (木)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月22日 (金)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="saturday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月23日 (土)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class='saturday mb_hide'></td>
+										<tr class="sunday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月24日 (日)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class='sunday mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月25日 (月)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月26日 (火)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月27日 (水)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月28日 (木)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月29日 (金)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class=' mb_hide'></td>
+										<tr class="saturday">
+											<td nowrap='nowrap'><a href="javascript:void(0);" onclick="">6月30日 (土)</a></td>
+											<td align="center" class="mb_hide"><a href="javascript:void(0);" onclick="">通常</a></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td ></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td  class='mb_hide'></td>
+											<td class='saturday mb_hide'></td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
 						</div>
 					</div>
+
+
+					<script language="javascript">
+					function widgetMenuSwitch() {
+					var subNavi = document.getElementById('subNavigation');
+					if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
+						subNavi.style.display = 'block';
+					}else{
+						subNavi.style.display = 'none';
+					}
+					}
+					</script>
+
+					<div id="auiWidgetsArea">
+					<div class="snDrawer"><a href="javascript:void(0)" class="auiButtonBold" onClick="widgetMenuSwitch()"><img src="../themes/default/images/mobile/sn_list.png"></a></div>
+					
+					<div id="subNavigation">
+					<div class="auiWidget clearfix">
+						<ul>
+							<li class="active"><a href="#">タイムカード記録</a></li>
+							<li><a href="#">タイムカード集計</a></li>
+						</ul>
+					</div>
+					
+					</div>
+					</div>
+
 				</div>
-			</div>
-			<!-- /PORTLET OUTER -->
-			<!-- /MAIN OUTER  -->
+			</div></div>
+			<!-- /auiPortletBody -->
 		</div>
+		<!-- /PORTLET OUTER -->
+
 	</div>
+</div>
+<!-- roundWrapper -->
+<!-- /MAIN OUTER -->
+
 	<!-- FOOTER -->
 	<div id="footer" class="clearfix">
 		<!-- START GUIDE -->
@@ -849,279 +611,93 @@ function appsNaviSwitch() {
 <div id="modalDialog" class="modalDialog" style="display:none"></div>
 <div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
 <iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
-<script language="JavaScript" type="text/javascript" src="/javascript/aipo/common.js?1339728598000"></script>
-<script language="JavaScript" type="text/javascript" src="/javascript/aipo/saas-common.js?1339728598000"></script>
-<script language="JavaScript" type="text/javascript">
-
-//<![CDATA[
-
-
-
-dojo.require("aimluck.widget.Dialog");
-
-
-
-dojo.addOnLoad(function() {
-
-    var params = {
-
-        widgetId:'modalDialog'
-
-    };
-
-    new aimluck.widget.Dialog(params, "modalDialog");
-
-    //dojo.disconnect(dojo, "loaded", "_dialog");
-
-    gadgets.rpc.setRelayUrl("sharedStateIframe", "https://aipo-state.appspot.com/gadgets/files/container/rpc_relay.html");
-
-    gadgets.rpc.setAuthToken("sharedStateIframe", "245820382228243");
-
-    dojo.byId('sharedStateIframe').src='https://aipo-state.appspot.com/?st=default:2LHAV4I7TMAdi1ecTFGTENocInTi56A5PIffDhdmAU7XXtgRJbp8_yXY1xQ9QRSmbQzf8Ml0DT-NuIr9FpDFRG-NncPrKeT_w-yv3YSrEt7kuNJC3RwTLErEevZFpT0X-IfPRBJoSM_95u34nj3C9urCB9k&parent=https%3A%2F%2Fapp.aipo.com%2Fportal%2Fmedia-type%2Fhtml%2Fuser%2F0000000007%2Fpage%2Fdefault.psml%2Fjs_pane%2FP-135e7e25490-10b6d%2Fjs_peid%2FP-135e7e25490-10b77&interval=300#rpctoken=245820382228243';
-
-    if(window.webkitNotifications) {
-
-      aipo.container.gadgetService.requestDesktopNotifyEnable();
-
-    }
-
-});
-
-
-
-scheduleTooltipEnable = true;
-
-
-
-dojo.require("dojo.dnd.Source");
-
-
-
-dojo.addOnLoad(function() {
-
-    dojo.query('.customizeMenuIcon').forEach(function(element) {
-
-        dojo.connect(element, 'onmouseenter', null, function(){
-
-            dojo.addClass(this, 'customizeMenuIconMouseenter');
-
-        });
-
-        dojo.connect(element, 'onmouseleave', null, function(){
-
-            dojo.removeClass(this, 'customizeMenuIconMouseenter');
-
-        });
-
-    });
-
-
-
-    var handle = dojo.connect(dojo.query('body')[0], 'onclick', null, function(){
-
-        if (dojo.query('.customizeMenuIconMouseenter').length == 0) {
-
-            aipo.customize.hideMenu();
-
-        }
-
-    });
-
-
-
-    var containers = dojo.query('.container');
-
-    var containerSources = [];
-
-    for(var c = 0; c < containers.length ; c++){
-
-        var container = new dojo.dnd.Source(containers[c], {
-
-            withHandles: true,
-
-            copyOnly: false
-
-        });
-
-        container.onSelectStart = function(e){
-
-		    if(this.isDragging){
-
-			    dojo.stopEvent(e);
-
-		    }
-
-        };
-
-        containerSources.push(container);
-
-    }
-
-
-
-
-
-    for(var c = 0; c < containers.length ; c++){
-
-        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
-
-            dojo.addClass(this, 'dojoDndContainerItemOver');
-
-            aipo.customize.hideMenu();
-
-        });
-
-
-
-        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
-
-            dojo.removeClass(this, 'dojoDndContainerItemOver');
-
-        });
-
-
-
-        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
-
-            if (this == target) {
-
-                if (copy) {
-
-                    nodes.orphan();
-
-                }
-
-                var params = '';
-
-                var cols = dojo.query('.container');
-
-                for(var c = 0; c < cols.length ; c++){
-
-                    var rows = dojo.query('.dojoDndItem .roundBlockContent > div', cols[c]);
-
-                    var reverse = false;
-
-                    if (rows.length >= 2) {
-
-                        var top = rows[0];
-
-                        var bottom = rows[rows.length - 1];
-
-
-
-                        var _top = dojo._abs(top);
-
-                        var _bottom = dojo._abs(bottom);
-
-
-
-                        while (_top && _bottom && _top.y == _bottom.y) {
-
-                            top = top.offsetParent;
-
-                            bottom = bottom.offsetParent;
-
-                            _top = dojo._abs(top);
-
-                            _bottom = dojo._abs(bottom);
-
-                        }
-
-
-
-                        if (_top.y > _bottom.y) {
-
-                            reverse = true;
-
-                        }
-
-
-
-                    }
-
-                    for (var r = 0 ; r < rows.length ; r++) {
-
-                        var pid = rows[r].id.split("portlet_")[1];
-
-                        if (reverse) {
-
-                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
-
-                        } else {
-
-                            params = params + '&' + pid + '_row=' + r;
-
-                        }
-
-                        params = params + '&' + pid + '_col=' + c;
-
-                    }
-
-                }
-
-
-
-                url = "https://app.aipo.com/portal/media-type/html/user/0000000007?template=CustomizeFormJSONScreen&mode=layout" + params;
-
-                aipo.customize.submit(url, '', function(){
-
-                });
-
-
-
-                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
-
-                if(iframe && iframe.length == 1) {
-
-                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
-
-                  var gadgets_ = aipo.container.gadgets_;
-
-                  for(var i in gadgets_) {
-
-                     var gadget = gadgets_[i];
-
-                     if(gadget.portletId == pid) {
-
-
-                       aipo.container.renderGadget(gadget);
-
-                       break;
-
-                     }
-
-                  }
-
-                }
-
-
-
-                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
-
-            }
-
-        });
-
-    }
-
-
-
-    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='${id}_underlay'><div dojoAttachPoint='node'></div></div>" });
-
-    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
-
-        underlay.hide();
-
-    });
-
-    underlay.show();
-
-});
-
-
-
-//]]>
-
+<!-- mobileHeader -->
+<div id="mobileHeader" class="clearfix"><div class="inner">
+	<h1>タイムカード</h1>
+	<div class="mhLeft">
+		<a href="#" class="auiMbBtn auiMbBtnNavi" onClick="appsNaviSwitch()"><img src="../themes/default/images/mobile/an_list.png" width="24" height="24" /></a>
+	</div>
+	<div class="mhRight">
+		<a href="#" class="auiMbBtn auiMbBtnActivity" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='auiMbBtn auiMbBtnActivity'}else{this.className='auiMbBtn auiMbBtnActivity active'};">99+</a>
+	</div>
+</div>
+</div>
+<!-- /mobileHeader -->
+
+<!-- appsNavigation -->
+<script language="javascript">
+function appsNaviSwitch() {
+	var navi = document.getElementById('appsNavigation');
+	var lists = navi.getElementsByTagName("ul");
+	var bk = document.getElementById('appsNavigationBack');
+	var wrapper = document.getElementById('wrapper');
+	var nLeft = '-260px';
+	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "block";
+		}
+		navi.style.display = 'block';
+		navi.style.left = '0px';
+		/*navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';*/
+		/*navi.style.borderRight = 'solid 1px #909090';*/
+		bk.style.display = 'block';
+		wrapper.style.overflow = 'hidden';
+		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
+	}else{
+		navi.style.display = 'none';
+		navi.style.left = nLeft;
+		/*navi.style.boxShadow = 'none';
+		navi.style.borderRight = 'none';*/
+		bk.style.display = 'none';
+		wrapper.style.overflow = 'visible';
+		wrapper.style.height = 'auto'
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "none";
+		}
+	}
+}
 </script>
+<div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
+<div id="appsNavigation"><div id="anInner">
+	<!--div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="../themes/default/images/mobile/an_list.png"></a></div-->
+	<div class="anUser">
+		<div class="avatar"><img src="http://hudson.aipo.com:8080/aipo/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
+		<div class="name">木村 一郎</div>
+	</div>
+	<div class="anApps">
+		<h2>アプリ</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_timecard.png"></span>タイムカード</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_schedule.png" /></span>スケジュール</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_timeline.png" /></span>タイムライン</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_info.png"></span>更新情報</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_blog.png" /></span>ブログ</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_bbs.png"></span>掲示板</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_todo.png" /></span>共有ToDo</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_folder.png"></span>共有フォルダ</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_workflow.png" /></span>ワークフロー</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_note.png"></span>伝言メモ</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_report.png"></span>報告書</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_mail.png" /></span>Webメール</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_address.png"></span>アドレス帳</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_users.png"></span>ユーザー名簿</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_memo.png"></span>メモ帳</a></li>
+		</ul>
+	</div>
+	<div class="anSetting">
+		<h2>設定</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_setting.png" /></span>個人設定</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_pc.png" /></span>PC版表示へ変更</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_logout.png" /></span>ログアウト</a></li>
+		</ul>
+	</div>
+	<div class="anFooter">
+		<div class="copyright">Aipo &copy; Aimluck,Inc</div>
+	</div>
+</div></div>
+<!-- /mobileNavigation -->
+
+
 </body>
 </html>

@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Language" content="ja"/>
@@ -10,13 +9,15 @@
     <meta http-equiv="Content-Style-Type" content="text/css"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1"/>
     <meta name="robots" content="noindex,follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
     <link type="image/x-icon" rel="shortcut icon" href="https://app.aipo.com/images/favicon.ico"/>
     <link type="image/x-icon" rel="icon" href="https://app.aipo.com/images/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" media="screen,tv,print"/>
     <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" media="screen,tv,print"/>
     <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" media="screen,tv,print"/>
+    <!--link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css" media="screen,tv,print"/-->
     <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
 </head>
 <body>
@@ -27,616 +28,598 @@
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
-<table class="tableWrapper">
-    <tbody>
-    <tr>
-        <td width="100%" class="top container dojoDndSource dojoDndTarget dojoDndContainerOver">
 
-<div class="roundTopBlock clearfix">
-<div class="roundRightBlock">
-<div class="roundBottomBlock">
-<div class="roundLeftBlock">
-<div class="roundTopLeftBlock">
-<div class="roundTopRightBlock">
-<div class="roundBottomRightBlock">
-<div class="roundBottomLeftBlock">
-<table class="roundBlockWrapperTop">
-<tbody>
-<tr>
-<td class="roundBlockTitle">スケジュール</td>
-</tr>
-</tbody>
-</table>
-<div class="roundBlockWrapperBottom clearfix">
-<div class="roundBlockContent">
-<div dojotype="aimluck:Contentpane" widgetid="widget_P-132ce6ce6bf-10479" id="portlet_P-132ce6ce6bf-10479">
+<!-- WRAPPER -->
+<div id="wrapper">
 
+<!-- HEADER -->
+<div id="header" class="clearfix"><div class="inner">
 
-<!-- Start Contents Area -->
-<div id="auiContentsArea" class="clearfix"><div id="auiContentsAreaInner" class="clearfix">
+	<div class="hdSign">
+		<div class="hdLogo"><img src="../themes/default/images/logo_aipoplus.png" alt="Aipo+" /></div>
+   </div>
 
-<div class="auiSummaryMeta clearfix">
-
-<form class="auiSearch floatLeft wide" style="margin-right:1em;">
-<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;" value="">
-<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
-</form>
-</div>
-
-<div class="auiSummaryMeta clearfix">
-	<div class="floatLeft auiForm">
-    <select>
-			<option>すべてのグループ</option>
-			<option>全員</option>
-			<option>商品開発部</option>
-			<option>営業部</option>
-		</select>
-		<select>
-			<option>選択している名前</option>
-			<option selected="selected">木村 一郎</option>
-			<option>田村 涼子</option>
-			<option>山田 太郎</option>
-		</select>
+    <div class="hdNavi">
+		<!--
+		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
+		-->
+		<div class="hdActivity" title="お知らせ"><div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer"><div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label"><div id="activitychecker" class="zero counter">0</div><span class="mb_hide">お知らせ</span></div></div></div></div>
+		<div class="hdUserName"><img class="avatar" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/48984_100001686639942_112332_q.jpg" alt="" />株式会社エイムラック  木村 一郎 さま</div>
+		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
 	</div>
-	<div class="floatRight">
-		<div class="auiSelectButton floatLeft mr5">
-			<ul>
-				<li><a class="first" style="width:6em;" href="#"><span>ブロック</span></a></li>
-				<li><a style="width:3em;" href="#"><span>日</span></a></li>
-				<li><a style="width:3em;" href="#"><span>週</span></a></li>
-				<li><a style="width:3em;" href="#"><span>月</span></a></li>
-				<li class="active"><a class="last" style="width:4em;" href="#"><span>一覧</span></a></li>
-			</ul>
-		</div>
-		<a href="#" class="auiButton pl5 pr5" title="印刷" style="width:17px"><span><img src="../themes/default/images/icon/icon_print.gif" width="17" height="18" align="absmiddle" alt="印刷" /></span></a>
-	</div>
-</div>
 
-<div class="auiSummaryMeta clearfix">
-	<div class="auiSelectButton">
-	<ul>
-		<li style="width:4em;margin-right:10px;" title="今日へ">
-		<a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a>
-		</li>
-		<li style="margin-right:5px;" title="前の週へ">
-		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l_w.gif" alt="前の週へ"></span></a>
-		</li>
-		<li title="前の日へ">
-		<a href="javascript:void(0);" class="first arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前の日へ"></span></a>
-		</li>
-		<li style="margin-right:5px;" title="次の日へ">
-		<a href="javascript:void(0);" class="last arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次の日へ"></span></a>
-		</li>
-		<li style="margin-right:10px;" title="次の週へ">
-		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r_w.gif" alt="次の週へ"></span></a>
-		</li>
-	</ul>
-	</div>
-</div>
-
-<div class="indicator" id="indicator-list-P-132ce6ce6bf-10479" style="display:none;">データを送信しています...</div>
-<form name="formP-132ce6ce6bf-10479" id="formP-132ce6ce6bf-10479" action="javascript:void(0)" method="post" onsubmit="return aipo.msgboard.onChangeSearch('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-132ce6ce6bf-10479','P-132ce6ce6bf-10479');">
-<input type="hidden" name="_name" value="トピック">
-<input type="hidden" name="secid" value="30d53eaf7347c6cd5e8142a8e642511d">
-
-<table class="auiRowTable wide scheduleList">
-<tbody>
-<!--tr>
-<th><a class="headUp" href="#">日</a></th>
-<th><a class="headUp" href="#">時間</a></th>
-<th><a href="#">予定</a></th>
-<th class="mb_hide"><a href="#">登録者</a></th>
-</tr-->
-
-<tr class="dayStart saturday today">
-<td class="day"><a href="#">10月08日 (土)</a></td>
-<td class="time">期間</td>
-<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-<tr class="saturday today">
-<td class="day"></td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-<tr class="dayStart sunday">
-<td class="day">10月09日 (日)</td>
-<td class="time">期間</td>
-<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-<tr class="sunday">
-<td class="day"></td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-<tr class="sunday">
-<td class="day"></td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-<tr class="dayStart">
-<td class="day">10月10日 (月)</td>
-<td class="time">期間</td>
-<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-<tr class="">
-<td class="day"></td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-<tr class="">
-<td class="day"></td>
-<td class="time">14:00～<br class="pc_hide" />15:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr class="">
-<td class="day"></td>
-<td class="time">15:00～<br class="pc_hide" />16:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr class="">
-<td class="day"></td>
-<td class="time">17:00～<br class="pc_hide" />18:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr class="">
-<td class="day"></td>
-<td class="time">18:00～<br class="pc_hide" />19:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr class="dayStart">
-<td class="day">10月11日 (火)</td>
-<td class="time">期間</td>
-<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr>
-<td class="day"></td>
-<td class="time">終日</td>
-<td><div><a href="#">終日スケジュールは時間に「終日」表示。期間の次に表示</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr>
-<td class="day"></td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr class="dayStart">
-<td class="day">10月12日 (水)</td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr class="dayStart">
-<td class="day">10月14日 (金)</td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr>
-<td class="day"></td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-<tr>
-<td class="day"></td>
-<td class="time">13:00～<br class="pc_hide" />14:00</td>
-<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
-<td class="mb_hide"><div>木村 一郎</div></td>
-</tr>
-
-
-</tbody>
-</table>
-
-
-<!-- div class="auiScheduleList">
-<ul>
-
-	<li class="today">
-		<div class="day">今日： 2011年10月08日 (土)</div>
-		<ul>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">13:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">14:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-		</ul>
-	</li>
-
-
-	<li class="">
-		<div class="day">2011年<br />10月9日 (日)</div>
-		<ul>
-			<li>
-				<span class="auiSlHour"></span>
-				<span class="auiSlTitle">予定はありません。</span>
-			</li>
-		</ul>
-	</li>
-
-	<li class="">
-		<div class="day">2011年<br />10月10日 (月)</div>
-		<ul>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">9:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">13:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">14:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">15:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">20:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="">
-		<div class="day">2011年<br />10月11日 (火)</div>
-		<ul>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">9:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">13:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">14:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">15:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">16:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="">
-		<div class="day">2011年<br />10月12日 (水)</div>
-		<ul>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">9:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">13:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">14:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">15:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">16:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="">
-		<div class="day">2011年<br />10月13日（木）</div>
-		<ul>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">9:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">13:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">14:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">15:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">16:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-		</ul>
-	</li>
-
-	<li class="">
-		<div class="day">2011年<br />10月14日 (金)</div>
-		<ul>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">9:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">13:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">14:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">15:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				<span class="auiSlBody">- スケジュールの内容ある場合スケジュールの内容ある場合</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-				<span class="auiSlHour">16:00</span>
-				<span class="auiSlTitle">スケジュールのタイトルスケジュールのタイトル</span>
-				</a>
-			</li>
-		</ul>
-	</li>
-
-</ul>
-</div-->
-
-
-<div class="auiSummaryMeta clearfix">
-	<div class="auiSelectButton">
-	<ul>
-		<li style="width:4em;margin-right:10px;" title="今日へ">
-		<a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a>
-		</li>
-		<li style="margin-right:5px;" title="前の週へ">
-		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l_w.gif" alt="前の週へ"></span></a>
-		</li>
-		<li title="前の日へ">
-		<a href="javascript:void(0);" class="first arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前の日へ"></span></a>
-		</li>
-		<li style="margin-right:5px;" title="次の日へ">
-		<a href="javascript:void(0);" class="last arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次の日へ"></span></a>
-		</li>
-		<li style="margin-right:10px;" title="次の週へ">
-		<a href="javascript:void(0);" class="btn arrow" onclick=""><span><img src="../themes/default/images/icon/icon_arrow_r_w.gif" alt="次の週へ"></span></a>
-		</li>
-	</ul>
-	</div>
-</div>
-
-</form>
 </div></div>
-<!-- END Contents Area -->
+<!-- /HEADER -->
 
 
-<!-- Start Widgets Area -->
-<div id="auiWidgetsArea">
-
-<div class="auiWidget clearfix">
-	<a href="#" class="auiButtonAction">予定を追加する</a>
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+    	<li class="first">
+        	<div class="tab active">
+                <div class="title"><a href="#">マイページ</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab activeNext">
+                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab">
+                <div class="title"><a href="#">個人設定</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab">
+                <div class="title"><a href="#">システム管理</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+    </ul>
+    <div class="floatRight">
+    	<ul>
+    	<li class="first store">
+        	<div class="tab">
+                <div class="title"><a href="http://store.aipo.com" target="_blank">Aipo Store</a></div>
+                <div class="setting"></div>
+            </div>
+        </li>
+        </ul>
+    </div>
 </div>
+<!-- /MAIN TAB -->
 
-<div class="auiWidget clearfix">
-<table class="auiCalendar">
-	<tr>
-	<th colspan="7" style="line-height:1.7em;">
-		<div class="floatLeft">2011年10月</div>
-		<div class="floatRight">
-			<div class="auiSelectButton">
-				<div><a href="#" title="前月" class="first arrow"><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前月"></span></a></div>
-				<div><a href="#" title="次月" class="last arrow"><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次月"></span></a></div>
+<!-- roundWrapper -->
+<div id="roundWrapper">
+<!-- MAIN OUTER -->
+	<div class="roundMainWrapper">
+		<!-- LAYOUT -->
+	
+<!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
+	
+		<!-- PORTLET OUTER -->
+		<div class="dojoDndItem auiPortlet">
+			<div class="auiPortletHead"><div class="inner">
+				<div class="auiPortletTitle">スケジュール</div>
+				<div class="auiPortletTool">
+				</div>
+			</div></div>
+
+			<div class="auiPortletBody"><div class="inner">
+				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
+
+					<!-- Start Contents Area -->
+					<div id="auiContentsArea" class="clearfix"><div id="auiContentsAreaInner" class="clearfix">
+					
+					<div class="auiSummaryMeta clearfix">
+					
+					<form class="auiSearch floatLeft" style="margin-right:1em;">
+					<input class="text floatLeft long" type="text" name="q" id="q" style="margin-right:5px;" value="">
+					<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+					</form>
+					</div>
+					
+					<div class="auiSummaryMeta clearfix">
+						<div class="floatRight">
+							<div class="auiSelectButton floatLeft">
+								<ul>
+									<li><a class="first" style="width:6em;" href="#"><span>ブロック</span></a></li>
+									<li><a style="width:3em;" href="#"><span>日</span></a></li>
+									<li><a style="width:3em;" href="#"><span>週</span></a></li>
+									<li><a style="width:3em;" href="#"><span>月</span></a></li>
+									<li class="active"><a class="last" style="width:4em;" href="#"><span>一覧</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="auiSelectButton">
+							<ul>
+								<li style="width:4em;margin-right:10px;" title="今日へ">
+								<a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a>
+								</li>
+								<li style="margin-right:5px;" title="前の週へ">
+								<a href="javascript:void(0);" class="btn arrow" onclick=""><span><i class="auiIconArrow auiIconArrowLeftW"></i></span></a>
+								</li>
+								<li title="前の日へ">
+								<a href="javascript:void(0);" class="first arrow" onclick=""><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+								</li>
+								<li style="margin-right:5px;" title="次の日へ">
+								<a href="javascript:void(0);" class="last arrow" onclick=""><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+								</li>
+								<li style="margin-right:10px;" title="次の週へ">
+								<a href="javascript:void(0);" class="btn arrow" onclick=""><span><i class="auiIconArrow auiIconArrowRightW"></i></span></a>
+								</li>
+							</ul>
+						</div>
+						<div style="height:24px; line-height:24px; overflow:hidden;"><strong>2013年6月6日（木）</strong></div>
+					</div>
+					
+					<div class="auiSummaryMeta clearfix">
+						<div class="floatRight">
+							<a href="#" class="auiButton pl5 pr5" title="印刷" style="width:17px"><span><img src="../themes/default/images/icon/icon_print.gif" width="17" height="18" align="absmiddle" alt="印刷" /></span></a>
+						</div>
+							<select>
+								<option>すべてのグループ</option>
+								<option>全員</option>
+								<option>商品開発部</option>
+								<option>営業部</option>
+							</select>
+							<select>
+								<option>選択している名前</option>
+								<option selected="selected">木村 一郎</option>
+								<option>田村 涼子</option>
+								<option>山田 太郎</option>
+							</select>
+					</div>
+					
+					<div class="indicator" id="indicator-list-P-132ce6ce6bf-10479" style="display:none;">データを送信しています...</div>
+					<form name="formP-132ce6ce6bf-10479" id="formP-132ce6ce6bf-10479" action="javascript:void(0)" method="post" onsubmit="return aipo.msgboard.onChangeSearch('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-132ce6ce6bf-10479','P-132ce6ce6bf-10479');">
+					<input type="hidden" name="_name" value="トピック">
+					<input type="hidden" name="secid" value="30d53eaf7347c6cd5e8142a8e642511d">
+					
+									<table class="auiRowTable wide scheduleList">
+									<tbody>
+
+										<tr class="dayStart saturday today">
+										<td class="day">10月08日 (土)</td>
+										<td class="time">期間</td>
+										<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">09:00 - 10:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="saturday today">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">タイトルはテーブル幅20%で隠れるスタイル設定</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="dayStart sunday">
+										<td class="day">10月09日 (日)</td>
+										<td class="time">期間</td>
+										<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="sunday">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="sunday">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="dayStart">
+										<td class="day">10月10日 (月)</td>
+										<td class="time">期間</td>
+										<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="">
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										<tr class="">
+										<td class="day"></td>
+										<td class="time">14:00 - 15:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr class="">
+										<td class="day"></td>
+										<td class="time">15:00 - 16:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr class="">
+										<td class="day"></td>
+										<td class="time">17:00 - 18:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr class="">
+										<td class="day"></td>
+										<td class="time">18:00 - 19:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr class="dayStart">
+										<td class="day">10月11日 (火)</td>
+										<td class="time">期間</td>
+										<td><div><a href="#">期間スケジュールは時間に「期間」表示。その日の最初に表示</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr>
+										<td class="day"></td>
+										<td class="time">終日</td>
+										<td><div><a href="#">終日スケジュールは時間に「終日」表示。期間の次に表示</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr>
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr class="dayStart">
+										<td class="day">10月12日 (水)</td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr class="dayStart">
+										<td class="day">10月14日 (金)</td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr>
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+										<tr>
+										<td class="day"></td>
+										<td class="time">13:00 - 14:00</td>
+										<td><div><a href="#">スケジュールのタイトルスケジュールのタイトル</a></div></td>
+										<td class="mb_hide"><div>木村 一郎</div></td>
+										</tr>
+										
+										
+									</tbody>
+									</table>
+					
+					
+					
+					<div class="auiSummaryMeta clearfix">
+						<div class="auiSelectButton">
+						<ul>
+							<li style="width:4em;margin-right:10px;" title="今日へ">
+							<a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a>
+							</li>
+							<li style="margin-right:5px;" title="前の週へ">
+							<a href="javascript:void(0);" class="btn arrow" onclick=""><span><i class="auiIconArrow auiIconArrowLeftW"></i></span></a>
+							</li>
+							<li title="前の日へ">
+							<a href="javascript:void(0);" class="first arrow" onclick=""><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+							</li>
+							<li style="margin-right:5px;" title="次の日へ">
+							<a href="javascript:void(0);" class="last arrow" onclick=""><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+							</li>
+							<li style="margin-right:10px;" title="次の週へ">
+							<a href="javascript:void(0);" class="btn arrow" onclick=""><span><i class="auiIconArrow auiIconArrowRightW"></i></span></a>
+							</li>
+						</ul>
+						</div>
+					</div>
+					
+					</form>
+					</div></div>
+					<!-- END Contents Area -->
+
+
+					<!-- Start Widgets Area -->
+					<div id="auiWidgetsArea">
+					
+					<div class="auiWidget clearfix">
+						<a href="#" class="auiButtonAction">予定を追加する</a>
+					</div>
+					
+					<div class="auiWidget clearfix">
+					<table class="auiCalendar">
+						<tr>
+						<th colspan="7" style="line-height:1.7em;">
+							<div class="floatLeft">2011年10月</div>
+							<div class="floatRight">
+								<div class="auiSelectButton">
+									<div><a href="#" title="前月" class="first arrow"><span><img src="../themes/default/images/icon/icon_arrow_l.gif" alt="前月"></span></a></div>
+									<div><a href="#" title="次月" class="last arrow"><span><img src="../themes/default/images/icon/icon_arrow_r.gif" alt="次月"></span></a></div>
+								</div>
+							</div>
+						</th>
+						</tr>
+						<tr class="week">
+							<td class="sunday">日</td>
+							<td>月</td>
+							<td>火</td>
+							<td>水</td>
+							<td>木</td>
+							<td>金</td>
+							<td class="saturday">土</td>
+						</tr>
+						<tr>
+							<td class="sunday out"><a href="#">25</a></td>
+							<td class="out"><a href="#">26</a></td>
+							<td class="out"><a href="#">27</a></td>
+							<td class="out"><a href="#">28</a></td>
+							<td class="out"><a href="#">29</a></td>
+							<td class="out"><a href="#">30</a></td>
+							<td class="saturday"><a href="#">1</a></td>
+						</tr>
+						<tr>
+							<td class="sunday"><a href="#">2</a></td>
+							<td><a href="#">3</a></td>
+							<td><a href="#">4</a></td>
+							<td><a href="#">5</a></td>
+							<td><a href="#">6</a></td>
+							<td><a href="#">7</a></td>
+							<td class="saturday"><a href="#">8</a></td>
+						</tr>
+						<tr class="thisweek">
+							<td class="sunday"><a href="#">9</a></td>
+							<td class="today selected"><a href="#">10</a></td>
+							<td><a href="#">11</a></td>
+							<td><a href="#">12</a></td>
+							<td><a href="#">13</a></td>
+							<td><a href="#">14</a></td>
+							<td class="saturday"><a href="#">15</a></td>
+						</tr>
+						<tr>
+							<td class="sunday"><a href="#">16</a></td>
+							<td><a href="#">17</a></td>
+							<td><a href="#">18</a></td>
+							<td><a href="#">19</a></td>
+							<td><a href="#">20</a></td>
+							<td><a href="#">21</a></td>
+							<td class="saturday"><a href="#">22</a></td>
+						</tr>
+						<tr>
+							<td class="sunday"><a href="#">23</a></td>
+							<td><a href="#">24</a></td>
+							<td><a href="#">25</a></td>
+							<td><a href="#">26</a></td>
+							<td><a href="#">27</a></td>
+							<td><a href="#">28</a></td>
+							<td class="saturday"><a href="#">29</a></td>
+						</tr>
+						<tr>
+							<td class="sunday"><a href="#">30</a></td>
+							<td><a href="#">31</a></td>
+							<td class="out"><a href="#">1</a></td>
+							<td class="out"><a href="#">2</a></td>
+							<td class="out"><a href="#">3</a></td>
+							<td class="out"><a href="#">4</a></td>
+							<td class="saturday out"><a href="#">5</a></td>
+						</tr>
+						<tr>
+							<td class="sunday out"><a href="#">6</a></td>
+							<td class="out"><a href="#">7</a></td>
+							<td class="out"><a href="#">8</a></td>
+							<td class="out"><a href="#">9</a></td>
+							<td class="out"><a href="#">10</a></td>
+							<td class="out"><a href="#">11</a></td>
+							<td class="saturday out"><a href="#">12</a></td>
+						</tr>
+					</table>
+					</div>
+					
+					</div>
+					<!-- END Widgets Area -->
+
+				</div>
 			</div>
 		</div>
-	</th>
-	</tr>
-	<tr class="week">
-		<td class="sunday">日</td>
-		<td>月</td>
-		<td>火</td>
-		<td>水</td>
-		<td>木</td>
-		<td>金</td>
-		<td class="saturday">土</td>
-	</tr>
-	<tr>
-		<td class="sunday out"><a href="#">25</a></td>
-		<td class="out"><a href="#">26</a></td>
-		<td class="out"><a href="#">27</a></td>
-		<td class="out"><a href="#">28</a></td>
-		<td class="out"><a href="#">29</a></td>
-		<td class="out"><a href="#">30</a></td>
-		<td class="saturday"><a href="#">1</a></td>
-	</tr>
-	<tr>
-		<td class="sunday"><a href="#">2</a></td>
-		<td><a href="#">3</a></td>
-		<td><a href="#">4</a></td>
-		<td><a href="#">5</a></td>
-		<td><a href="#">6</a></td>
-		<td><a href="#">7</a></td>
-		<td class="saturday"><a href="#">8</a></td>
-	</tr>
-	<tr class="thisweek">
-		<td class="sunday"><a href="#">9</a></td>
-		<td class="today selected"><a href="#">10</a></td>
-		<td><a href="#">11</a></td>
-		<td><a href="#">12</a></td>
-		<td><a href="#">13</a></td>
-		<td><a href="#">14</a></td>
-		<td class="saturday"><a href="#">15</a></td>
-	</tr>
-	<tr>
-		<td class="sunday"><a href="#">16</a></td>
-		<td><a href="#">17</a></td>
-		<td><a href="#">18</a></td>
-		<td><a href="#">19</a></td>
-		<td><a href="#">20</a></td>
-		<td><a href="#">21</a></td>
-		<td class="saturday"><a href="#">22</a></td>
-	</tr>
-	<tr>
-		<td class="sunday"><a href="#">23</a></td>
-		<td><a href="#">24</a></td>
-		<td><a href="#">25</a></td>
-		<td><a href="#">26</a></td>
-		<td><a href="#">27</a></td>
-		<td><a href="#">28</a></td>
-		<td class="saturday"><a href="#">29</a></td>
-	</tr>
-	<tr>
-		<td class="sunday"><a href="#">30</a></td>
-		<td><a href="#">31</a></td>
-		<td class="out"><a href="#">1</a></td>
-		<td class="out"><a href="#">2</a></td>
-		<td class="out"><a href="#">3</a></td>
-		<td class="out"><a href="#">4</a></td>
-		<td class="saturday out"><a href="#">5</a></td>
-	</tr>
-	<tr>
-		<td class="sunday out"><a href="#">6</a></td>
-		<td class="out"><a href="#">7</a></td>
-		<td class="out"><a href="#">8</a></td>
-		<td class="out"><a href="#">9</a></td>
-		<td class="out"><a href="#">10</a></td>
-		<td class="out"><a href="#">11</a></td>
-		<td class="saturday out"><a href="#">12</a></td>
-	</tr>
-</table>
-</div>
+	<!-- /LAYOUT -->
+	</div>
+<!-- /MAIN OUTER  -->
 
+<!-- FOOTER -->
+<div id="footer" class="clearfix">
+
+	<!-- START GUIDE -->
+	<div id="startGuide" style="display:none;">
+		<div class="close"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='40px';document.getElementById('guide_on').style.display='inline'"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"> 閉じる</a></div>
+		<div class="clearfix">
+			<div class="guideContents">
+				<p>ユーザーを追加しよう</p>
+				<p><a href="#" class="auiButtonAction">ユーザー追加方法を見る</a></p>
+			</div>
+			<div class="guideContents">
+				<p>画面レイアウトを変更しよう</p>
+				<p><a href="#" class="auiButtonAction">レイアウト変更方法を見る</a></p>
+			</div>
+		</div>
+	</div>
+	<!-- /START GUIDE -->
+
+	<div id="footText">
+	<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
+	<div id="guide_on" style="display:inline;"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='170px';document.getElementById('guide_on').style.display='none'">スタートガイド</a></div>
+	</div>
 </div>
-<!-- END Widgets Area -->
+<!-- /FOOTER -->
+</div>
+<!-- /roundWrapper -->
 
 
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-			</td>
-    </tr>
-    </tbody>
-</table>
+<!-- /wrapper -->
 </body>
 </html>

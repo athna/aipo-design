@@ -202,8 +202,8 @@ input[type=password] {
 /***************************************************
 	set PortletOuter
 --------------------------------------------------*/
-#roundWrapper .roundMainWrapper {
-	padding:0;
+.roundMainWrapper {
+	padding:51px 0 0;
 }
 #roundWrapper .roundTopBlock, #roundWrapper .roundRightBlock, #roundWrapper .roundBottomBlock, #roundWrapper .roundLeftBlock, #roundWrapper .roundTopLeftBlock, #roundWrapper .roundTopRightBlock, #roundWrapper .roundBottomRightBlock, #roundWrapper .roundBottomLeftBlock {
 	background-image:none;
@@ -216,7 +216,7 @@ input[type=password] {
 		to(rgba(255,255,255,0))
 	);
 	border-top:solid 1px #c0c0c0;
-	border-bottom:solid 1px #999999;
+	border-bottom:solid 1px $gray;
 	-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	box-shadow:0 2px 3px rgba(0,0,0,0.2);
@@ -258,7 +258,7 @@ input[type=password] {
 		to(rgba(255,255,255,0))
 	);
 	border-top:solid 1px #c0c0c0;
-	border-bottom:solid 1px #999999;
+	border-bottom:solid 1px $gray;
 	-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	box-shadow:0 2px 3px rgba(0,0,0,0.2);*/
@@ -266,6 +266,7 @@ input[type=password] {
     height:44px;
     @include mobile-header-style();
     box-shadow:none;
+    display:none;
 }
 .auiPortletHead .inner {
 	margin:0 50px;
@@ -319,7 +320,7 @@ input[type=password] {
 		to(rgba(255,255,255,0))
 	);
 	border-top:solid 1px #c0c0c0;
-	border-bottom:solid 1px #999999;
+	border-bottom:solid 1px $gray;
 	-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	box-shadow:0 2px 3px rgba(0,0,0,0.2);
@@ -462,7 +463,7 @@ input[type=password] {
 	box-shadow:0 1px 0 #ffffff, inset 0 1px 2px rgba(0,0,0,0.3);
 	text-decoration:none;
 	text-align:center;
-	background:#f0f0f0
+	background:$grayLighter
 		-webkit-gradient(
 		linear, left top, left bottom,
 		from(rgba(0,0,0,0)),
@@ -732,7 +733,7 @@ input[type=password] {
 	max-width:300px;
 	/*padding:0 5px;*/
 	background:#ffffff;
-	border:solid 1px #999999;
+	border:solid 1px $gray;
 	border-right:none;
 	border-bottom:none;
 	-webkit-border-radius:4px 0 0 0;
@@ -962,7 +963,7 @@ table.listTable td.caption, table.subTable td.caption {
 --------------------------------------------------*/
 .auiMultiTable {
 	margin-bottom:20px;
-	border-top:1px solid #EEEEEE;
+	border-top:1px solid $grayLighter;
 }
 .wDays,.wType,.wTime {
 	width:auto;
@@ -989,7 +990,7 @@ table tr.caption {
 	padding:5px;
 	display:block;
 	/*width: 88%;*/
-	border-bottom:1px solid #EEEEEE;
+	border-bottom:1px solid $grayLighter;
 }
 .doubleHeight {
 	height:33px !important;
@@ -1001,7 +1002,7 @@ table tr.caption {
 .auiScheduleCalendar {
 	width:100%;
     border-collapse: collapse;
-	background:#f0f0f0;
+	background:$grayLighter;
     border:1px solid #cccccc;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
@@ -1047,7 +1048,7 @@ table tr.caption {
 }
 .auiScPrevMonth,
 .auiScNextMonth {
-    color:#999999;
+    color:$gray;
 	background:#e0e0e0;
     cursor:pointer;
 }
@@ -1077,7 +1078,7 @@ table tr.caption {
 	padding:0;
 	border:1px #ccc solid;
 	border-bottom:0;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#F0F0F0));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to($grayLighter));
 	display:block;
 }
 .auiGradList ul li:first-child{
@@ -1246,6 +1247,31 @@ div.weeklyTermRights div.weeklyTermRightR {
 }
 .radioBlock input[type="radio"] {
 	vertical-align: 0;
+}
+
+/***************************************************
+	auiInfo
+--------------------------------------------------*/
+.auiInfo {
+    min-width:0;
+    margin:5px 5px 10px;
+}
+.auiInfoClose {
+    width:auto;
+}
+.auiInfoClose a {
+    width:30px;
+    text-align:center;
+}
+.auiInfoTitle {
+	float:none;
+    width:100%;
+}
+.auiInfoBody {
+    border-top:solid 1px $grayLight;
+    border-left:none;
+    padding:10px 0 0;
+    margin:10px 0 0;
 }
 
 /***************************************************

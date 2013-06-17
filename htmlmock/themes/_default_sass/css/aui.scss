@@ -46,7 +46,7 @@ span[type="button"] {
 	padding-top:5px;
 	height:35px;
 	/*background:url(../images/head_bg.png) repeat-x left bottom; **reserved**/
-	overflow:hidden;
+	/*overflow:hidden;*/
 }
 #header .inner {
 	height:30px;
@@ -58,7 +58,8 @@ span[type="button"] {
 .hdActivity,
 .hdSearch,
 .hdUserName,
-.hdLogout {
+.hdLogout,
+.hdSetting {
 	float:left;
 	line-height:23px;
 	padding-right:8px;
@@ -159,6 +160,21 @@ img.avatar,
 	-moz-border-radius:3px;
 	-ms-border-radius:3px;
 	border-radius:3px;
+}
+
+.hdSetting {
+	position:relative;
+	padding:4px 0 0 8px;
+}
+.hdSetting .menubar {
+	right:0;
+}
+*:first-child+html .hdSetting .menubar {/* IE7 */
+	top:20px;
+}
+*:first-child+html .hdSetting .menubar ul li a {
+	min-width:5em;
+    overflow:visible;
 }
 
 /***************************************************
@@ -2749,11 +2765,8 @@ IE6は透過PNGが利用できないため透過GIFへ置き換えている。
 	width:16px;
 	height:16px;
 	overflow:hidden;
-	-webkit-border-radius:2px;
-	-moz-border-radius:2px;
-	-ms-border-radius:2px;
-	border-radius:2px;
 	vertical-align:middle;
+    @include border-radius(2px);
 	@include auiIconBackPNG();
 }
 * html .auiIcon {@include auiIconBackGIF();}

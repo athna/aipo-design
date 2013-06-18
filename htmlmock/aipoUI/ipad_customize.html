@@ -30,679 +30,526 @@
 <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo.js?1348111306000"></script>
 <!-- WRAPPER -->
 <div id="wrapper"  style="margin-bottom : 26px">
-  <!-- HEADER -->
-  <div id="header" class="clearfix">
-    <div class="inner">
-      <div class="hdSign">
-        <div class="hdLogo"><img src="/aipo/themes/default/images/logo_aipo.png" alt="Aipo" /></div>
-      </div>
-      <div class="hdNavi">
-        <div class="hdActivity" title="お知らせ">
-          <div id="activitycheckerContainer" class="dijitInline" >
-            <div id="activitychecker" class="zero counter"></div>
-            <span class="mb_hide">お知らせ</span></div>
-        </div>
-        <div class="hdUserName"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-139df78deda-10018?template=AccountPersonFormScreen');"> <img src="../images/common/avatar_default3.png" class="avatar" alt="顔写真"/> &#26408;&#26449; &#19968;&#37070; </a> </div>
-        <div class="hdLogout">
-          <input type="button" value="ログアウト" onclick="location.href='http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml?action=ALJLogoutUser'" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /HEADER -->
-  <script language="JavaScript" type="text/javascript">
-//<![CDATA[
 
-dojo.require("aipo.widget.DropdownActivityChecker");
+	<!-- HEADER -->
+	<div id="header" class="clearfix"><div class="inner">
+	
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_aipoplus_20120628.png" alt="Aipo+" /></div>
+	   </div>
+	
+		<div class="hdNavi">
+			<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+			<div class="hdActivity" title="お知らせ">
+				<div>
+					<div id="activitychecker" class="zero counter">0</div>
+					<span class="mb_hide">お知らせ</span>
+				</div>
+			</div>
+			
+			<!-- /hdActivity -->
+	
+			<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
+			<div class="hdSetting">
+				<a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_hdSetting').style.display!='block') {document.getElementById('menubar_hdSetting').style.display='block'}else{document.getElementById('menubar_hdSetting').style.display='none'}" title="カスタマイズ"></a>
+				<div class="menubar" id="menubar_hdSetting" style="position: absolute; display: none; ">
+				<ul>
+				<li><a href="#">個人設定</a></li>
+				<li class="last"><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	
+	</div></div>
+	<!-- /HEADER -->
 
-dojo.addOnLoad(function () {
-    var num;
-    if(dojo.byId("messagechecker") != undefined  && dojo.byId("activitychecker") != undefined) {
-    	num = parseInt(dojo.byId("activitychecker").innerHTML) + parseInt(dojo.byId("messagechecker").innerHTML);
-    } else if(dojo.byId("activitychecker") != undefined) {
-    	num = parseInt(dojo.byId("activitychecker"));
-    } else {
-    	num = 0;
-    }
-    if (!num){
-    	document.title = djConfig.siteTitle;
-    } else if (num > 99) {
-    	document.title = "(99+) " + djConfig.siteTitle;
-    } else {
-    	document.title = "(" + num + ") " + djConfig.siteTitle;
-    }
-    var acHtml = document.getElementById("activitycheckerContainer");
-    if(acHtml){
-       var params = {
-            widgetId: "activitychecker",
+	<script language="JavaScript" type="text/javascript">
+	//<![CDATA[
+	
+	dojo.require("aipo.widget.DropdownActivityChecker");
+	
+	dojo.addOnLoad(function () {
+		var num;
+		if(dojo.byId("messagechecker") != undefined  && dojo.byId("activitychecker") != undefined) {
+			num = parseInt(dojo.byId("activitychecker").innerHTML) + parseInt(dojo.byId("messagechecker").innerHTML);
+		} else if(dojo.byId("activitychecker") != undefined) {
+			num = parseInt(dojo.byId("activitychecker"));
+		} else {
+			num = 0;
+		}
+		if (!num){
+			document.title = djConfig.siteTitle;
+		} else if (num > 99) {
+			document.title = "(99+) " + djConfig.siteTitle;
+		} else {
+			document.title = "(" + num + ") " + djConfig.siteTitle;
+		}
+		var acHtml = document.getElementById("activitycheckerContainer");
+		if(acHtml){
+		   var params = {
+				widgetId: "activitychecker",
+	
+				iconURL: "themes/default/images/common/icon_message.gif",
+				iconWidth: "19",
+				iconHeight: "15",
+				iconAlt: "あなた宛のお知らせ"
+		   };
+		   var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
+	   }
+	});
+	
+	//]]>
+	</script>
+	<!-- Custmize -->
 
-            iconURL: "themes/default/images/common/icon_message.gif",
-            iconWidth: "19",
-            iconHeight: "15",
-            iconAlt: "あなた宛のお知らせ"
-       };
-       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
-   }
-});
+	<!-- MAIN TAB -->
+	<div id="auiTabs" class="clearfix">
+		<ul>
+			<li class="first">
+				<div class="tab active">
+					<div class="title"><a href="#">マイページ</a></div>
+					<div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+				</div>
+			</li>
+			<li class="">
+				<div class="tab activeNext">
+					<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+					<div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+				</div>
+			</li>
+			<li class="last">
+				<div class="tab">
+					<div class="title"><a href="#">システム管理</a></div>
+					<div class="setting"></div>
+				</div>
+			</li>
+			<li class="addTab">
+				<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
+			</li>
+		</ul>
+	</div>
+	<!-- /MAIN TAB -->
 
-//]]>
-</script>
-  <!-- Custmize -->
-  <!-- MAIN TAB -->
-  <div id="auiTabs" class="clearfix">
-    <ul>
-      <li class="first  ">
-        <div class="tab active">
-          <div class="title"><a title="マイページ" href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_pane/P-139df78ded5-1000b?action=controls.Restore">マイページ</a></div>
-          <div class="setting"> <a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-139df78ded5-1000b?action=controls.Customize" class="auiIcon auiIconSetting" title="カスタマイズ"></a> </div>
-        </div>
-      </li>
-      <li class=" last ">
-        <div class="tab activeNext">
-          <div class="title"><a title="個人設定" href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_pane/P-139df78deda-10017?action=controls.Restore">個人設定</a></div>
-          <div class="setting"> </div>
-        </div>
-      </li>
-      <li class="addTab"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-139df78deda-10018?template=PageFormScreen&amp;entityid=new','',aipo.page.onLoadPageDialog);" title="メニュータブを追加"><span>+</span></a> </li>
-    </ul>
-  </div>
-  <input id="data-activecustomizeurl" type="hidden" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_pane/?template=CustomizeFormErrorScreen" />
-  <!-- /MAIN TAB -->
-  <!-- MAIN OUTER -->
+
+  <!-- roundWrapper -->
   <div id="roundWrapper">
     <div class="roundMainWrapper">
-      <script language="JavaScript" type="text/javascript">
-//<![CDATA[
-dojo.provide("aipo.portletset");
-//]]>
-</script>
-      <!-- PORTLET OUTER -->
-      <div class="roundTopBlock clearfix">
-        <div class="roundRightBlock">
-          <div class="roundBottomBlock">
-            <div class="roundLeftBlock">
-              <div class="roundTopLeftBlock">
-                <div class="roundTopRightBlock">
-                  <div class="roundBottomRightBlock" >
-                    <div class="roundBottomLeftBlock">
-                      <table class="roundBlockWrapperTop">
-                        <tbody>
-                          <tr>
-                            <td class="roundBlockTitle">画面カスタマイズ</td>
-                            <td class="roundBlockMenu"></td>
-                            <td class="endcap"></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <div class="roundBlockWrapperBottom clearfix">
-                        <div class="roundBlockContent">
-                          <div dojoType="aimluck:Contentpane" widgetId="widget_" id="portlet_">
-                            <div class="spaceBoth">
-                            <h3>ページ名の変更</h3>
-                              <div class="auiSummaryMeta clearfix"><input class="auiButtonAction" type="submit" value="ページ名を変更する" /></div>
-                              <h3>配置の選択</h3>
-                              <table class="tableWrapper">
-                                <tbody>
-                                  <tr>
-                                    <td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=OneColumn"><img src="../images/layout/layout_100.gif" alt="レイアウト [ 100% ]" title="レイアウト [ 100% ]" width="72" height="72" border="0"  /></a></td>
-                                    <td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumns"><img src="../images/layout/layout_50-50.gif" alt="レイアウト [ 50% | 50% ]" title="レイアウト [ 50% | 50% ]" width="72" height="72" border="0" /></a></td>
-                                    <td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumnsRight"><img src="../images/layout/layout_25-75.gif" alt="レイアウト [ 25% | 75% ]" title="レイアウト [ 25% | 75% ]" width="72" height="72" border="0" /></a></td>
-                                    <td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumnsLeft"><img src="../images/layout/layout_75-25.gif" alt="レイアウト [ 75% | 25% ]" title="レイアウト [ 75% | 25% ]" width="72" height="72" border="0"  /></a></td>
-                                    <td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=ThreeColumnsSymetric"><img src="../images/layout/layout_33-33-33.gif" alt="レイアウト [ 33% | 33% | 33% ]" title="レイアウト [ 33% | 33% | 33% ]" width="72" height="72" border="0" /></a></td>
-                                    <td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=ThreeColumns"><img src="../images/layout/layout_25-50-25.gif" alt="レイアウト [ 25% | 50% | 25% ]" title="レイアウト [ 25% | 50% | 25% ]" width="72" height="72" border="0" /></a></td>
-                                    <td width="99%"></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <br />
-                              <h3>アプリの配置・追加</h3>
-                              <div class="auiSummaryMeta clearfix"><input class="auiButtonAction" type="submit" value="アプリを追加する" /></div>
-<style>
-.middle{vertical-align:middle;}
-/***************************************************
-	auiIconArrowBtn
---------------------------------------------------*/
-.auiIconArrowBtn {
-	display:inline-block;
-	width:15px;
-	height:18px;
-	margin-top:4px;
-	vertical-align:middle;
-	background: url(../themes/default/images/icon/auiIconSprites20120820.png) no-repeat;
-}
-*html .auiIconArrow {background:url(../themes/default/images/icon/auiIconSprites20120820.gif) no-repeat;}
-.auiIconArrowLeft {background-position:0 -367px;}
-.auiIconArrowLeftWhite {background-position:0 -383px;}
-.auiIconArrowRight {background-position:0 -399px;}
-.auiIconArrowRightWhite {background-position:0 -415px;}
-.auiIconArrowTop {background-position:0 -464px;}
-.auiIconArrowTopWhite {background-position:0 -480px;}
-.auiIconArrowBottom {background-position:0 -430px;}
-.auiIconArrowBottomWhite {background-position:0 -446px;}
-</style>
-                              <div class="message">アプリの位置をボタンで自由に変更できます。</div>
-                              <div class="message">また、不要なアプリを <img src="../images/close.gif" alt="削除" class="middle" /> ボタンで削除することができます。</div>
-                              <table class="tableWrapper mb20">
-                                <tbody>
-                                  <tr>
-                                    <td><table class="tableWrapper">
-                                        <tbody>
-                                          <tr>
-                                            <td class="top" width="25%"><table class="tableWrapper">
-                                                <tbody>
-                                                  <tr>
-                                                    <td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
-                                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
-                                                        <input type="hidden" name="id" value="P-139df78ded5-1000c"/>
-                                                        <input type="hidden" name="col" value="0"/>
-                                                        <input type="hidden" name="row" value="0"/>
-                                                        <input type="hidden" name="secid" value="$secid" />
-                                                        <div class="roundTopBlock clearfix">
-                                                          <div class="roundRightBlock">
-                                                            <div class="roundBottomBlock">
-                                                              <div class="roundLeftBlock">
-                                                                <div class="roundTopLeftBlock">
-                                                                  <div class="roundTopRightBlock">
-                                                                    <div class="roundBottomRightBlock" >
-                                                                      <div class="roundBottomLeftBlock">
-                                                                        <table class="roundBlockWrapperTop">
-                                                                          <tbody>
-                                                                            <tr>
-                                                                              <td class="roundBlockTitle wide">タイムカード</td>
-                                                                              <td class="last"><input type="image" src="../images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" /></td>
-                                                                            </tr>
-                                                                          </tbody>
-                                                                        </table>
-                                                                        <div class="roundBlockWrapperBottom clearfix">
-                                                                          <div class="roundBlockContent">
-                                                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowLeft"></i></span> </td>
-                                                                                        <td>&nbsp;</td>
-                                                                                                                         <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
-                                                     </tr>
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      
-                                                                                    </table>
-                                                                                  </td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <!-- /PORTLET OUTER -->
-                                                      </form></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
-                                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
-                                                        <input type="hidden" name="id" value="P-139df78ded6-1000d"/>
-                                                        <input type="hidden" name="col" value="0"/>
-                                                        <input type="hidden" name="row" value="1"/>
-                                                        <input type="hidden" name="secid" value="$secid" />
-                                                        <div class="roundTopBlock clearfix">
-                                                          <div class="roundRightBlock">
-                                                            <div class="roundBottomBlock">
-                                                              <div class="roundLeftBlock">
-                                                                <div class="roundTopLeftBlock">
-                                                                  <div class="roundTopRightBlock">
-                                                                    <div class="roundBottomRightBlock" >
-                                                                      <div class="roundBottomLeftBlock">
-                                                                        <table class="roundBlockWrapperTop">
-                                                                          <tbody>
-                                                                            <tr>
-                                                                              <td class="roundBlockTitle wide">掲示板</td>
-                                                                              <td class="last"><input type="image" src="../images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" /></td>
-                                                                            </tr>
-                                                                          </tbody>
-                                                                        </table>
-                                                                        <div class="roundBlockWrapperBottom clearfix">
-                                                                          <div class="roundBlockContent">
-                                                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowLeft"></i></span>
-</td>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                    </table></td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <!-- /PORTLET OUTER -->
-                                                      </form></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
-                                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
-                                                        <input type="hidden" name="id" value="P-139df78ded8-10012"/>
-                                                        <input type="hidden" name="col" value="0"/>
-                                                        <input type="hidden" name="row" value="6"/>
-                                                        <input type="hidden" name="secid" value="$secid" />
-                                                        <div class="roundTopBlock clearfix">
-                                                          <div class="roundRightBlock">
-                                                            <div class="roundBottomBlock">
-                                                              <div class="roundLeftBlock">
-                                                                <div class="roundTopLeftBlock">
-                                                                  <div class="roundTopRightBlock">
-                                                                    <div class="roundBottomRightBlock" >
-                                                                      <div class="roundBottomLeftBlock">
-                                                                        <table class="roundBlockWrapperTop">
-                                                                          <tbody>
-                                                                            <tr>
-                                                                              <td class="roundBlockTitle wide">ワークフロー</td>
-                                                                              <td class="last"><input type="image" src="../images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" /></td>
-                                                                            </tr>
-                                                                          </tbody>
-                                                                        </table>
-                                                                        <div class="roundBlockWrapperBottom clearfix">
-                                                                          <div class="roundBlockContent">
-                                                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowLeft"></i></span> </td>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowBottom"></i></span></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      
-                                                                                    </table></td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <!-- /PORTLET OUTER -->
-                                                      </form></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table></td>
-                                            <td class="top" width="2"></td>
-                                            <td class="top" width="50%"><table class="tableWrapper">
-                                                <tbody>
-                                                  <tr>
-                                                    <td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
-                                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
-                                                        <input type="hidden" name="id" value="P-139df78ded9-10013"/>
-                                                        <input type="hidden" name="col" value="1"/>
-                                                        <input type="hidden" name="row" value="0"/>
-                                                        <input type="hidden" name="secid" value="$secid" />
-                                                        <div class="roundTopBlock clearfix">
-                                                          <div class="roundRightBlock">
-                                                            <div class="roundBottomBlock">
-                                                              <div class="roundLeftBlock">
-                                                                <div class="roundTopLeftBlock">
-                                                                  <div class="roundTopRightBlock">
-                                                                    <div class="roundBottomRightBlock" >
-                                                                      <div class="roundBottomLeftBlock">
-                                                                        <table class="roundBlockWrapperTop">
-                                                                          <tbody>
-                                                                            <tr>
-                                                                              <td class="roundBlockTitle wide">タイムライン</td>
-                                                                              <td class="last"><img src="../images/common/dot.gif" width="19" alt=""/></td>
-                                                                            </tr>
-                                                                          </tbody>
-                                                                        </table>
-                                                                        <div class="roundBlockWrapperBottom clearfix">
-                                                                          <div class="roundBlockContent">
-                                                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowBottom"></i></span></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      
-                                                                                    </table></td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <!-- /PORTLET OUTER -->
-                                                      </form></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table></td>
-                                            <td class="top" width="2"></td>
-                                            <td class="top" width="25%"><table class="tableWrapper">
-                                                <tbody>
-                                                  <tr>
-                                                    <td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
-                                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
-                                                        <input type="hidden" name="id" value="P-139df78ded9-10014"/>
-                                                        <input type="hidden" name="col" value="2"/>
-                                                        <input type="hidden" name="row" value="0"/>
-                                                        <input type="hidden" name="secid" value="$secid" />
-                                                        <div class="roundTopBlock clearfix">
-                                                          <div class="roundRightBlock">
-                                                            <div class="roundBottomBlock">
-                                                              <div class="roundLeftBlock">
-                                                                <div class="roundTopLeftBlock">
-                                                                  <div class="roundTopRightBlock">
-                                                                    <div class="roundBottomRightBlock" >
-                                                                      <div class="roundBottomLeftBlock">
-                                                                        <table class="roundBlockWrapperTop">
-                                                                          <tbody>
-                                                                            <tr>
-                                                                              <td class="roundBlockTitle wide">スケジュール</td>
-                                                                              <td class="last"><input type="image" src="../images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" /></td>
-                                                                            </tr>
-                                                                          </tbody>
-                                                                        </table>
-                                                                        <div class="roundBlockWrapperBottom clearfix">
-                                                                          <div class="roundBlockContent">
-                                                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      
-                                                                                    </table>
-                                                                                  </td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <!-- /PORTLET OUTER -->
-                                                      </form></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
-                                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
-                                                        <input type="hidden" name="id" value="P-139df78deda-10015"/>
-                                                        <input type="hidden" name="col" value="2"/>
-                                                        <input type="hidden" name="row" value="1"/>
-                                                        <input type="hidden" name="secid" value="$secid" />
-                                                        <div class="roundTopBlock clearfix">
-                                                          <div class="roundRightBlock">
-                                                            <div class="roundBottomBlock">
-                                                              <div class="roundLeftBlock">
-                                                                <div class="roundTopLeftBlock">
-                                                                  <div class="roundTopRightBlock">
-                                                                    <div class="roundBottomRightBlock" >
-                                                                      <div class="roundBottomLeftBlock">
-                                                                        <table class="roundBlockWrapperTop">
-                                                                          <tbody>
-                                                                            <tr>
-                                                                              <td class="roundBlockTitle wide">ユーザー名簿</td>
-                                                                              <td class="last"><input type="image" src="../images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" /></td>
-                                                                            </tr>
-                                                                          </tbody>
-                                                                        </table>
-                                                                        <div class="roundBlockWrapperBottom clearfix">
-                                                                          <div class="roundBlockContent">
-                                                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      
-                                                                                    </table>
-                                                                                  </td>
-                                                                                </tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <!-- /PORTLET OUTER -->
-                                                      </form></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
-                                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
-                                                        <input type="hidden" name="id" value="P-139df78deda-10016"/>
-                                                        <input type="hidden" name="col" value="2"/>
-                                                        <input type="hidden" name="row" value="2"/>
-                                                        <input type="hidden" name="secid" value="$secid" />
-                                                        <div class="roundTopBlock clearfix">
-                                                          <div class="roundRightBlock">
-                                                            <div class="roundBottomBlock">
-                                                              <div class="roundLeftBlock">
-                                                                <div class="roundTopLeftBlock">
-                                                                  <div class="roundTopRightBlock">
-                                                                    <div class="roundBottomRightBlock" >
-                                                                      <div class="roundBottomLeftBlock">
-                                                                        <table class="roundBlockWrapperTop">
-                                                                          <tbody>
-                                                                            <tr>
-                                                                              <td class="roundBlockTitle wide">アドレス帳</td>
-                                                                              <td class="last"><input type="image" src="../images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" /></td>
-                                                                            </tr>
-                                                                          </tbody>
-                                                                        </table>
-                                                                        <div class="roundBlockWrapperBottom clearfix">
-                                                                          <div class="roundBlockContent">
-                                                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                                              <tbody>
-                                                                                <tr>
-                                                                                  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowBottom"></i></span></td>
-                                                                                        <td>&nbsp;</td>
-                                                                                      </tr>
-                                                                                      
-                                                                                    </table>
-                                                                                  </td>
-                                                                                </tr>
-                                                                                <tr></tr>
-                                                                              </tbody>
-                                                                            </table>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <!-- /PORTLET OUTER -->
-                                                      </form></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table></td>
-                                          </tr>
-                                        </tbody>
-                                      </table></td>
-                                  </tr>
-                                  <tr>
-                                    <td><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-                                        <input type="hidden" name="action" value="controllers.MultiColumnControllerAction"/>
-                                        <div align="center">
-                                          <input name="eventSubmit_doSave" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);" />
-                                        </div>
-                                      </form></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              
-                              <h3>ページの削除</h3>
-                              <div class="message">このページをメニュータブから削除します。</div>
-                              <div align="center"><input name="eventSubmit_doCancel" class="auiButtonAction" type="submit" value="ページを削除する" onclick="aimluck.io.setHiddenValue(this);" /></div>
-                            </div>
-                            <script language="JavaScript" type="text/javascript">
-//<![CDATA[
-    aipo.portletset.menuSelected = 0;
-//]]>
-</script>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /auiPortletBody -->
-    </div>
-    <!-- /PORTLET OUTER -->
-    <script language="JavaScript" type="text/javascript">
-//<![CDATA[
-dojo.require("aimluck.widget.Menu");
-dojo.addOnLoad(function () {
+		<script language="JavaScript" type="text/javascript">
+		//<![CDATA[
+		dojo.provide("aipo.portletset");
+		//]]>
+		</script>
 
-    var subMenu =
+		<!-- PORTLET OUTER -->
+		<div class="dojoDndItem auiPortlet">
+			<div class="auiPortletHead"><div class="inner">
+				<div class="auiPortletTitle">画面カスタマイズ</div>
+				<div class="auiPortletTool">
+				</div>
+			</div></div>
+
+			<div class="auiPortletBody"><div class="inner">
+				<div dojoType="aimluck:Contentpane" widgetId="widget_" id="portlet_">
+					<h3>ページ名の変更</h3>
+					  <div class="auiSummaryMeta clearfix"><input class="auiButtonAction" type="submit" value="ページ名を変更する" /></div>
+					  <h3>配置の選択</h3>
+					  <table class="tableWrapper">
+						<tbody>
+						  <tr>
+							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=OneColumn"><img src="https://app.aipo.com/images/layout/layout_100.gif" alt="レイアウト [ 100% ]" title="レイアウト [ 100% ]" width="72" height="72" border="0"  /></a></td>
+							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumns"><img src="https://app.aipo.com/images/layout/layout_50-50.gif" alt="レイアウト [ 50% | 50% ]" title="レイアウト [ 50% | 50% ]" width="72" height="72" border="0" /></a></td>
+							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumnsRight"><img src="https://app.aipo.com/images/layout/layout_25-75.gif" alt="レイアウト [ 25% | 75% ]" title="レイアウト [ 25% | 75% ]" width="72" height="72" border="0" /></a></td>
+							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumnsLeft"><img src="https://app.aipo.com/images/layout/layout_75-25.gif" alt="レイアウト [ 75% | 25% ]" title="レイアウト [ 75% | 25% ]" width="72" height="72" border="0"  /></a></td>
+							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=ThreeColumnsSymetric"><img src="https://app.aipo.com/images/layout/layout_33-33-33.gif" alt="レイアウト [ 33% | 33% | 33% ]" title="レイアウト [ 33% | 33% | 33% ]" width="72" height="72" border="0" /></a></td>
+							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=ThreeColumns"><img src="https://app.aipo.com/images/layout/layout_25-50-25.gif" alt="レイアウト [ 25% | 50% | 25% ]" title="レイアウト [ 25% | 50% | 25% ]" width="72" height="72" border="0" /></a></td>
+							<td width="99%"></td>
+						  </tr>
+						</tbody>
+					  </table>
+					  <br />
+					  <h3>アプリの配置・追加</h3>
+					  <div class="auiSummaryMeta clearfix"><input class="auiButtonAction" type="submit" value="アプリを追加する" /></div>
+					<style>
+					.middle{vertical-align:middle;}
+					/***************************************************
+					auiIconArrowBtn
+					--------------------------------------------------*/
+					.auiIconArrowBtn {
+					display:inline-block;
+					width:15px;
+					height:18px;
+					margin-top:4px;
+					vertical-align:middle;
+					background: url(../themes/default/images/icon/auiIconSprites20120820.png) no-repeat;
+					}
+					*html .auiIconArrow {background:url(../themes/default/images/icon/auiIconSprites20120820.gif) no-repeat;}
+					.auiIconArrowLeft {background-position:0 -367px;}
+					.auiIconArrowLeftWhite {background-position:0 -383px;}
+					.auiIconArrowRight {background-position:0 -399px;}
+					.auiIconArrowRightWhite {background-position:0 -415px;}
+					.auiIconArrowTop {background-position:0 -464px;}
+					.auiIconArrowTopWhite {background-position:0 -480px;}
+					.auiIconArrowBottom {background-position:0 -430px;}
+					.auiIconArrowBottomWhite {background-position:0 -446px;}
+					</style>
+					  <div class="message">アプリの位置をボタンで自由に変更できます。</div>
+					  <div class="message">また、不要なアプリを <img src="https://app.aipo.com/images/close.gif" alt="削除" class="middle" /> ボタンで削除することができます。</div>
+					  <table class="tableWrapper mb20">
+						<tbody>
+						  <tr>
+							<td><table class="tableWrapper">
+								<tbody>
+								  <tr>
+									<td class="top" width="25%"><table class="tableWrapper">
+										<tbody>
+										  <tr>
+											<td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
+												<input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
+												<input type="hidden" name="id" value="P-139df78ded5-1000c"/>
+												<input type="hidden" name="col" value="0"/>
+												<input type="hidden" name="row" value="0"/>
+												<input type="hidden" name="secid" value="$secid" />
+												<div class="dojoDndItem auiPortlet">
+													<div class="auiPortletHead"><div class="inner">
+														<div class="auiPortletTitle">タイムカード</div>
+														<div class="auiPortletTool">
+															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+														</div>
+													</div></div>
+													<div class="auiPortletBody"><div class="inner">
+														<table width="100%" cellspacing="0" cellpadding="0">
+														  <tbody>
+															<tr>
+															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  <tr>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowLeft"></i></span> </td>
+																	<td>&nbsp;</td>
+																									 <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
+													</tr>
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  
+																</table>
+															  </td>
+															</tr>
+														  </tbody>
+														</table>
+													</div>
+													</div>
+													<div class="auiPortletFoot"><div class="inner"></div></div>
+												</div>
+												<!-- /PORTLET OUTER -->
+											  </form></td>
+										  </tr>
+										  <tr>
+											<td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
+												<input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
+												<input type="hidden" name="id" value="P-139df78ded6-1000d"/>
+												<input type="hidden" name="col" value="0"/>
+												<input type="hidden" name="row" value="1"/>
+												<input type="hidden" name="secid" value="$secid" />
+												<div class="dojoDndItem auiPortlet">
+													<div class="auiPortletHead"><div class="inner">
+														<div class="auiPortletTitle">掲示板</div>
+														<div class="auiPortletTool">
+															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+														</div>
+													</div></div>
+													<div class="auiPortletBody"><div class="inner">
+														<table width="100%" cellspacing="0" cellpadding="0">
+														  <tbody>
+															<tr>
+															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  <tr>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowLeft"></i></span>
+		</td>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
+																  </tr>
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonDisabled"><i class="auiIconArrowBtn auiIconArrowBottom"></i></a></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																</table></td>
+															</tr>
+														  </tbody>
+														</table>
+													</div>
+													</div>
+													<div class="auiPortletFoot"><div class="inner"></div></div>
+												</div>
+												<!-- /PORTLET OUTER -->
+											  </form></td>
+										  </tr>
+										</tbody>
+									  </table></td>
+									<td class="top" width="2"></td>
+									<td class="top" width="50%"><table class="tableWrapper">
+										<tbody>
+										  <tr>
+											<td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
+												<input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
+												<input type="hidden" name="id" value="P-139df78ded9-10013"/>
+												<input type="hidden" name="col" value="1"/>
+												<input type="hidden" name="row" value="0"/>
+												<input type="hidden" name="secid" value="$secid" />
+												<div class="dojoDndItem auiPortlet">
+													<div class="auiPortletHead"><div class="inner">
+														<div class="auiPortletTitle">タイムライン</div>
+														<div class="auiPortletTool">
+															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+														</div>
+													</div></div>
+													<div class="auiPortletBody"><div class="inner">
+														<table width="100%" cellspacing="0" cellpadding="0">
+														  <tbody>
+															<tr>
+															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  <tr>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
+																  </tr>
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowBottom"></i></span></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  
+																</table></td>
+															</tr>
+														  </tbody>
+														</table>
+													</div>
+													</div>
+													<div class="auiPortletFoot"><div class="inner"></div></div>
+												</div>
+												<!-- /PORTLET OUTER -->
+											  </form></td>
+										  </tr>
+										</tbody>
+									  </table></td>
+									<td class="top" width="2"></td>
+									<td class="top" width="25%"><table class="tableWrapper">
+										<tbody>
+										  <tr>
+											<td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
+												<input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
+												<input type="hidden" name="id" value="P-139df78ded9-10014"/>
+												<input type="hidden" name="col" value="2"/>
+												<input type="hidden" name="row" value="0"/>
+												<input type="hidden" name="secid" value="$secid" />
+												<div class="dojoDndItem auiPortlet">
+													<div class="auiPortletHead"><div class="inner">
+														<div class="auiPortletTitle">スケジュール</div>
+														<div class="auiPortletTool">
+															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+														</div>
+													</div></div>
+													<div class="auiPortletBody"><div class="inner">
+														<table width="100%" cellspacing="0" cellpadding="0">
+														  <tbody>
+															<tr>
+															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  <tr>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
+																  </tr>
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  
+																</table>
+															  </td>
+															</tr>
+														  </tbody>
+														</table>
+													</div>
+													</div>
+													<div class="auiPortletFoot"><div class="inner"></div></div>
+												</div>
+												<!-- /PORTLET OUTER -->
+											  </form></td>
+										  </tr>
+										  <tr>
+											<td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
+												<input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
+												<input type="hidden" name="id" value="P-139df78deda-10015"/>
+												<input type="hidden" name="col" value="2"/>
+												<input type="hidden" name="row" value="1"/>
+												<input type="hidden" name="secid" value="$secid" />
+												<div class="dojoDndItem auiPortlet">
+													<div class="auiPortletHead"><div class="inner">
+														<div class="auiPortletTitle">ユーザー名簿</div>
+														<div class="auiPortletTool">
+															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+														</div>
+													</div></div>
+													<div class="auiPortletBody"><div class="inner">
+														<table width="100%" cellspacing="0" cellpadding="0">
+														  <tbody>
+															<tr>
+															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  <tr>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
+																  </tr>
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  
+																</table>
+															  </td>
+															</tr>
+														  </tbody>
+														</table>
+													</div>
+													</div>
+													<div class="auiPortletFoot"><div class="inner"></div></div>
+												</div>
+												<!-- /PORTLET OUTER -->
+											  </form></td>
+										  </tr>
+										  <tr>
+											<td class="wide"><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post">
+												<input type="hidden" name="action" value="controllers.MultiColumnControllerAction" />
+												<input type="hidden" name="id" value="P-139df78deda-10016"/>
+												<input type="hidden" name="col" value="2"/>
+												<input type="hidden" name="row" value="2"/>
+												<input type="hidden" name="secid" value="$secid" />
+												<div class="dojoDndItem auiPortlet">
+													<div class="auiPortletHead"><div class="inner">
+														<div class="auiPortletTitle">アドレス帳</div>
+														<div class="auiPortletTool">
+															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+														</div>
+													</div></div>
+													<div class="auiPortletBody"><div class="inner">
+														<table width="100%" cellspacing="0" cellpadding="0">
+														  <tbody>
+															<tr>
+															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  <tr>
+																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
+																  </tr>
+																  <tr>
+																	<td>&nbsp;</td>
+																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowBottom"></i></span></td>
+																	<td>&nbsp;</td>
+																  </tr>
+																  
+																</table>
+															  </td>
+															</tr>
+															<tr></tr>
+														  </tbody>
+														</table>
+													</div>
+													</div>
+													<div class="auiPortletFoot"><div class="inner"></div></div>
+												</div>
+												<!-- /PORTLET OUTER -->
+											  </form></td>
+										  </tr>
+										</tbody>
+									  </table></td>
+								  </tr>
+								</tbody>
+							  </table></td>
+						  </tr>
+						  <tr>
+							<td><form action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
+								<input type="hidden" name="action" value="controllers.MultiColumnControllerAction"/>
+								<div align="center">
+								  <input name="eventSubmit_doSave" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);" />
+								</div>
+							  </form></td>
+						  </tr>
+						</tbody>
+					  </table>
+					  
+					  <h3>ページの削除</h3>
+					  <div class="message">このページをメニュータブから削除します。</div>
+					  <div align="center"><input name="eventSubmit_doCancel" class="auiButtonAction" type="submit" value="ページを削除する" onclick="aimluck.io.setHiddenValue(this);" /></div>
+					</div>
+					<script language="JavaScript" type="text/javascript">
+					//<![CDATA[
+					aipo.portletset.menuSelected = 0;
+					//]]>
+					</script>
+			</div></div>
+			<!-- /auiPortletBody -->
+		<div class="auiPortletFoot"><div class="inner"></div></div>
+	</div>
+	<!-- /PORTLET OUTER -->
+	<script language="JavaScript" type="text/javascript">
+	//<![CDATA[
+	dojo.require("aimluck.widget.Menu");
+	dojo.addOnLoad(function () {
+	
+	var subMenu =
 		[
 			{   caption: "レイアウト設定", iconClass: "menuBarIconLayoutConf", url: "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize/js_peid/P-139df78ded5-1000b/mode/layout?mtype=html&action=controls.Customize" }
-            ,{   caption: "アプリ追加",  iconClass: "menuBarIconPortletAdd", url: "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize/js_peid/P-139df78ded5-1000b/mode/add?mtype=html&action=controls.Customize"  }
+			,{   caption: "アプリ追加",  iconClass: "menuBarIconPortletAdd", url: "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize/js_peid/P-139df78ded5-1000b/mode/add?mtype=html&action=controls.Customize"  }
 		];
-
-        if(aipo.portletset.menuSelected != "undefined"){
-            aipo.portletset.menuSelected = -1;
-        }
-
+	
+		if(aipo.portletset.menuSelected != "undefined"){
+			aipo.portletset.menuSelected = -1;
+		}
+	
 	var menubar = new aimluck.widget.Menubar({id: "mbar", items: subMenu, selectedIndex:aipo.portletset.menuSelected}, "portletMenu");
-
-});
-
-//]]>
-</script>
+	
+	});
+	
+	//]]>
+	</script>
+	</div>
   </div>
+  <!-- /roundWrapper -->
 </div>
-<!-- /MAIN OUTER  -->
 <!-- /Custmize -->
 <!-- FOOTER -->
 <div id="footer" class="clearfix">

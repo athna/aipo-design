@@ -24,6 +24,7 @@ body {
 	right:0;
 	padding-top:0;
 }
+/*
 .hdActivity {
 	position:absolute;
 	top:0;
@@ -49,7 +50,6 @@ body {
 	-ms-border-radius:6px 0 0 6px;
 	border-radius:6px 0 0 6px;
 }
-
 .activityField {
 	display:table-cell;
 	width:45px;
@@ -90,6 +90,7 @@ body {
 		to(rgba(0,0,0,0))
 	);
 }
+*/
 #aipo_widget_ActivityList_0 {
 	width:100% !important;
 }
@@ -98,6 +99,7 @@ body {
 	width:90%;
 	margin:0 auto;
 }
+/*
 #activitycheckerContainer {
 	margin-top:0;
 }
@@ -118,6 +120,7 @@ body {
     font-weight:bold;
     text-shadow:0 1px 0 rgba(0, 0, 0, 0.3);
 }
+*/
 
 td.container {
 	display:block;
@@ -149,17 +152,21 @@ input[type=submit],
 input[type=button],
 input[type=reset],
 button {
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
+	min-width:$inputHeight;
+	height:$inputHeight + 2;
+	line-height:$inputHeight + 2;
+	padding:0 5px;
+	@include box-sizing(border-box);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+/*
 .auiButton,
 .auiButtonAction,
 .auiButtonBold,
 .auiButtonSearch {
-	min-width:32;
-	height:32px;
-	line-height:30px;
+	min-width:$inputHeight;
+	height:$inputHeight;
+	line-height:$inputHeight;
 	padding:0 5px;
 }
 input[type=submit],
@@ -170,22 +177,19 @@ button {
 	height:32px;
 	line-height:32px;
 	padding:0 5px;
-}
+}*/
 
-.auiButton span {
+/*.auiButton span {
 	display:table-cell;
-    min-width:30px;
+    min-width:$inputHeight;
 	height:32px;
 	line-height:32px;
 	text-align:center;
 	vertical-align:middle;
-}
-*:first-child+html .auiButton span {
-	display:block;
-}
+}*/
 .auiButtonDisabled{
-	height:32px;
-	line-height:32px;
+/*	height:32px;
+	line-height:32px;*/
 	padding:0 10px;
 }
 
@@ -196,7 +200,7 @@ button {
 --------------------------------------------------*/
 input[type=text],
 input[type=password] {
-	height:32px;
+	height:$inputHeight + 2;
 }
 
 /***************************************************
@@ -455,12 +459,11 @@ input[type=password] {
 	height:35px;
 	line-height:35px;
     min-width:35px;
+    margin:0;
 	padding:0 5px;
-	border-radius:4px;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-	-webkit-box-shadow:0 1px 0 #ffffff, inset 0 1px 2px rgba(0,0,0,0.3);
-	box-shadow:0 1px 0 #ffffff, inset 0 1px 2px rgba(0,0,0,0.3);
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+    @include box-shadow(0 1px 0 #ffffff, inset 0 1px 2px rgba(0,0,0,0.3));
 	text-decoration:none;
 	text-align:center;
 	background:$grayLighter
@@ -482,11 +485,12 @@ input[type=password] {
 .auiMbBtnNavi:hover {
 	background-color:#000;
 }
-.auiMbBtnActivity, .auiMbBtnAction {
+
+.auiMbBtnActivity, .auiMbBtnAction  {
 	text-align:center;
 	font-weight:bold;
 	color:#fff;
-	text-shadow:0 -1px 0 rgba(0,0,0,0.3);
+	text-shadow:0 -1px 0 rgba(0,0,0,0.3);    
 }
 .auiMbBtnActivity:hover, .auiMbBtnActivityZero:hover, .auiMbBtnAction:hover {
 	color:#fff;
@@ -502,6 +506,12 @@ input[type=password] {
 .auiMbBtnActivity.active {
 	background-color:#c60;
 }
+
+#activitychecker {
+	background:none;
+    height:auto !important;
+}
+
 .mhRight div {
 	display:inline !important;
 	line-height:35px;
@@ -748,7 +758,9 @@ input[type=password] {
 	auiSearch
 --------------------------------------------------*/
 .auiSearch {
+	width:100%;
 	padding-right:65px;
+    @include box-sizing(border-box);
 }
 .auiSearch:after {
 	content: "";
@@ -918,7 +930,6 @@ table.listTable td.caption, table.subTable td.caption {
 }
 .auiPopup iframe {
 	max-width:100% !important;
-	height:auto !important;
 }
 /***************************************************
 	login
@@ -1190,10 +1201,10 @@ table tr.caption {
 --------------------------------------------------*/
 .filterInputField {
 	max-width:100%;
-    float:none;
 }
 .filterInputField input[type=text] {
 	max-width:100%;
+    float:left;
 }
 .menubar.multi {
 	max-width:96%;
@@ -1215,19 +1226,19 @@ table tr.caption {
 }
 .filterTip {
 	padding:0 4px;
-	height:26px !important;
-	line-height:26px !important;
+	height:$inputHeight - 4 !important;
+	line-height:$inputHeight - 4 !important;
 }
 .filterTip > a {
 	margin:0;
     padding:6px 3px;
 }
 .filterInputField .filters {
-	height:32px;
+	height:$inputHeight + 2;
 }
 .filterDropDrawer {
 	width:20px;
-	height:36px;
+	height:$inputHeight;
 	margin:1px;
 }
 .filterDropDrawer i {

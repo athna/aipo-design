@@ -691,8 +691,24 @@
 }
 
 
-// Mobile Header
+
+// AUI Mixins
 // --------------------------------------------------
+
+// auiButton
+// -------------------------
+@mixin auiButtonStyle() {
+	color:#000;
+	text-shadow:0 1px 0 #f8f8f8;
+	border:solid 1px #c0c0c0;
+	background:$grayLighter;
+	background:$grayLighter url(../images/common/auibutton_back.gif) left top repeat-x;/*IE*/
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($grayLighter));
+	background: -moz-linear-gradient(top, #fff, $grayLighter);
+}
+
+// Mobile Header
+// -------------------------
 
 @mixin portlet-title-text() {
 	font-size:16px;
@@ -716,7 +732,7 @@
 }
 
 // auiIcon Background
-// --------------------------------------------------
+// -------------------------
 @mixin auiIconBackGIF() {
 	background:url(../images/icon/auiIconSprites20130528.gif) no-repeat;
 }

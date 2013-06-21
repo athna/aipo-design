@@ -306,5 +306,133 @@ left = 「.menubar.multi」が「filterDropDrawer」の右辺に合うように�
 <!-- /menubar_auiFilter_1 -->
 
 
+
+<div id="modalDialog" class="modalDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: block; opacity: 1; left: 300px; top: 20px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+	<div class="auiPopup clearfix">
+		<table class="roundBlockWrapperTop">
+			<tbody>
+				<tr>
+					<td class="roundBlockTitle wide">ユーザー編集</td>
+					<td class="roundBlockIcon last"><div style="float:right"><img style="cursor:pointer" onclick="aipo.common.hideDialog()" id="dialogCloseButton" src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="top" title="閉じる"></div></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="roundBlockContent">
+<div id="messageDiv"></div>
+ <div class="indicator" id="indicator-dlg-P-135e7e25490-10b7a" style="display: none;">データを送信しています...</div>
+<form name="formP-135e7e25490-10b7a" id="formP-135e7e25490-10b7a" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b7a?template=SaaSAccountPersonFormJSONScreen" method="post" onsubmit="aimluck.io.createSelectFromFileList(this, 'P-135e7e25490-10b7a');aimluck.io.submit(this,'indicator-dlg-', 'P-135e7e25490-10b7a', aipo.account_person.onReceiveMessage);return false;">
+<input type="hidden" name="_name" value="topaccountpersonForm">
+<input type="hidden" name="secid" value="9a1f9e21198f93e5c1b0495cca2c7508">
+<input type="hidden" name="mode" value="update">
+<table class="listTable wide">
+  <tbody>
+    <tr>
+      <td class="caption">メールアドレス</td>
+      <td>kimura@aimluck.com</td>
+    </tr>
+    <tr>
+      <td class="caption"><span class="required">名前</span>
+</td>
+      <td><input class="text" type="text" name="lastname" id="lastname" value="木村" maxlength="20" style="width:30%;ime-mode:active">
+<input class="text" type="text" name="firstname" id="firstname" value="一郎" maxlength="20" style="width:30%;ime-mode:active">
+</td>
+    </tr>
+    <tr>
+      <td class="caption"><span class="required">名前（フリガナ）</span>
+</td>
+      <td><input class="text" type="text" name="last_name_kana" id="last_name_kana" value="木村" maxlength="20" style="width:30%;ime-mode:active">
+<input class="text" type="text" name="first_name_kana" id="first_name_kana" value="一郎" maxlength="20" style="width:30%;ime-mode:active">
+</td>
+    </tr>
+    <tr>
+      <td class="caption"><span class="required">パスワード</span>
+</td>
+    <td>
+<input class="text" type="password" name="new_password" id="new_password" value="******" maxlength="" style="width:50%;ime-mode:disabled">
+<span class="caution">（半角英数字）</span>
+    </td>
+  </tr>
+    <tr>
+      <td class="caption"><span class="required">パスワード<br>（確認用）</span>
+</td>
+    <td>
+<input class="text" type="password" name="new_password_confirm" id="new_password_confirm" value="******" maxlength="" style="width:50%;ime-mode:disabled">
+<span class="caution">（半角英数字）</span>
+    </td>
+  </tr>
+    <tr>
+      <td class="caption">電話番号（外線）</td>
+    <td>
+<input class="text" type="text" name="out_telephone1" id="out_telephone1" value="" maxlength="5" style="width:20%;ime-mode:disabled">
+-&nbsp;<input class="text" type="text" name="out_telephone2" id="out_telephone2" value="" maxlength="4" style="width:20%;ime-mode:disabled">
+-&nbsp;<input class="text" type="text" name="out_telephone3" id="out_telephone3" value="" maxlength="4" style="width:20%;ime-mode:disabled">
+<span class="caution">（半角数字）</span>
+    </td>
+  </tr>
+    <tr>
+      <td class="caption">電話番号（内線）</td>
+      <td><input class="text" type="text" name="in_telephone" id="in_telephone" value="" maxlength="13" style="width:30%;ime-mode:disabled">
+<span class="caution">（半角英数字）</span>
+</td>
+    </tr>
+    <tr>
+      <td class="caption">電話番号（携帯）</td>
+    <td>
+<input class="text" type="text" name="cellular_phone1" id="cellular_phone1" value="090" maxlength="5" style="width:20%;ime-mode:disabled">
+-&nbsp;<input class="text" type="text" name="cellular_phone2" id="cellular_phone2" value="1234" maxlength="4" style="width:20%;ime-mode:disabled">
+-&nbsp;<input class="text" type="text" name="cellular_phone3" id="cellular_phone3" value="5678" maxlength="4" style="width:20%;ime-mode:disabled">
+<span class="caution">（半角数字）</span>
+    </td>
+  </tr>
+    <tr>
+      <td class="caption">携帯メールアドレス</td>
+      <td><input class="text" type="text" name="cellular_mail" id="cellular_mail" value="" maxlength="50" style="width:75%;ime-mode:disabled">
+<span class="caution">（半角英数字）</span>
+</td>
+    </tr>
+    <tr>
+      <td class="caption">顔写真</td>
+    <td>
+<div>
+<iframe name="if_fileupload_P-135e7e25490-10b7a" id="if_fileupload_P-135e7e25490-10b7a" allowtransparency="true" class="auiInputFileFrame" src="../timeline/inner_form.html" frameborder="0" scrolling="no">
+</iframe>
+</div>
+
+
+<div id="attachments_P-135e7e25490-10b7a" class="attachments">
+	<p data-fileid="0">現在の写真<span class="deletebutton" onclick="aipo.fileupload.removeFileFromList(this.parentNode.parentNode, this.parentNode, 'P-135e7e25490-10b7a');aipo.account_person.setDeletePhotoValue('P-135e7e25490-10b7a');">削除</span></p>
+	<p><img class="avatar" id="facephoto_P-135e7e25490-10b7a" src="../themes/default/images/common/avatar_default3.png" alt="顔写真" style="display:block"></p>
+</div>
+
+
+<input type="hidden" id="folderName_P-135e7e25490-10b7a" name="folderName" value="">
+<input type="hidden" id="delete_photo_P-135e7e25490-10b7a" name="delete_photo" value="false">
+    </td>
+  </tr>
+    <tr>
+      <td class="caption">部署</td>
+    <td>
+<span style="display:block;">企画本部</span>
+    </td>
+  </tr>
+    <tr>
+      <td class="caption">役職</td>
+      <td>部長</td>
+    </tr>
+
+  </tbody>
+</table>
+<div align="center">
+<input name="eventSubmit_doAccountedit_update" class="auiButtonAction" id="al_submit_P-135e7e25490-10b7a" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
+<input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="aipo.common.hideDialog();">
+</div>
+</form>
+		</div>
+	</div>
+</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: block; opacity: 1;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
+
+
 </body>
 </html>

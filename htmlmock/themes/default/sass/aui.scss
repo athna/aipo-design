@@ -1,6 +1,7 @@
 // Core variables and mixins
 @import "variables";
 @import "mixins";
+@import "compass";
 
 @charset "utf-8";
 
@@ -924,7 +925,7 @@ img.avatar,
 	background:#fff;
 }
 .auiSelectButtonV2 li,
-.auiSelectButton div {
+.auiSelectButtonV2 div {
 	float:left;
 	background:none;
     padding:0;
@@ -933,6 +934,7 @@ img.avatar,
 .auiSelectButtonV2 a {
 	display:block;
     margin:0 -1px;
+    padding:0 !important;
     text-decoration:none;
     text-align:center;
     height:$inputHeight;
@@ -942,11 +944,16 @@ img.avatar,
     border-left-color:#dcdcdc;
     border-right-color:#dcdcdc;
 }
-.auiSelectButtonV2 a:hover {
+.auiWidget .auiSelectButtonV2 a {
+	@include gradient-vertical(#fff, $grayLighter);
+}
+.auiSelectButtonV2 a:hover,
+.auiWidget .auiSelectButtonV2 a:hover {
 	color:$black !important;
 	@include gradient-vertical(#eee,#e1e1e1);
 }
-.auiSelectButtonV2 a:active {
+.auiSelectButtonV2 a:active,
+.auiWidget .auiSelectButtonV2 a:active {
 	@include gradient-vertical(#ddd,#eee);
 }
 
@@ -966,6 +973,11 @@ img.avatar,
 }
 .auiSelectButtonV2 a:hover span {
 	color:$black;
+}
+.auiSelectButtonV2 a span{
+	display:inline !important;
+	padding:0 !important;
+    background-image:none !important;
 }
 .auiSelectButtonV2 span i {
     margin:6px 0;

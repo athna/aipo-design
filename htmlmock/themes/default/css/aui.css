@@ -96,6 +96,7 @@ form.searchbox {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   border: solid 1px #ccc;
   overflow: hidden;
@@ -1055,7 +1056,7 @@ img.avatar,
 }
 
 .auiSelectButtonV2 li,
-.auiSelectButton div {
+.auiSelectButtonV2 div {
   float: left;
   background: none;
   padding: 0;
@@ -1065,6 +1066,7 @@ img.avatar,
 .auiSelectButtonV2 a {
   display: block;
   margin: 0 -1px;
+  padding: 0 !important;
   text-decoration: none;
   text-align: center;
   height: 30px;
@@ -1082,7 +1084,19 @@ img.avatar,
   border-right-color: #dcdcdc;
 }
 
-.auiSelectButtonV2 a:hover {
+.auiWidget .auiSelectButtonV2 a {
+  background-color: #f9f9f9;
+  background-image: -moz-linear-gradient(top, white, #f0f0f0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#f0f0f0));
+  background-image: -webkit-linear-gradient(top, white, #f0f0f0);
+  background-image: -o-linear-gradient(top, white, #f0f0f0);
+  background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFF0F0F0', GradientType=0);
+}
+
+.auiSelectButtonV2 a:hover,
+.auiWidget .auiSelectButtonV2 a:hover {
   color: black !important;
   background-color: #e8e8e8;
   background-image: -moz-linear-gradient(top, #eeeeee, #e1e1e1);
@@ -1094,7 +1108,8 @@ img.avatar,
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFE1E1E1', GradientType=0);
 }
 
-.auiSelectButtonV2 a:active {
+.auiSelectButtonV2 a:active,
+.auiWidget .auiSelectButtonV2 a:active {
   background-color: #e3e3e3;
   background-image: -moz-linear-gradient(top, #dddddd, #eeeeee);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dddddd), to(#eeeeee));
@@ -1109,11 +1124,11 @@ img.avatar,
 .auiSelectButtonV2 a.btn {
   margin-left: 0;
   border-left-color: #c0c0c0;
-  -webkit-border-top-left-radius: 3px;
   -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
   -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
@@ -1121,16 +1136,22 @@ img.avatar,
 .auiSelectButtonV2 a.btn {
   margin-right: 0;
   border-right-color: #c0c0c0;
-  -webkit-border-top-right-radius: 3px;
   -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
   -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
 .auiSelectButtonV2 a:hover span {
   color: black;
+}
+
+.auiSelectButtonV2 a span {
+  display: inline !important;
+  padding: 0 !important;
+  background-image: none !important;
 }
 
 .auiSelectButtonV2 span i {
@@ -1472,6 +1493,7 @@ button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   white-space: nowrap;
 }
@@ -3343,6 +3365,7 @@ ul.attachments >li{
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
+  -o-border-radius: 8px;
   border-radius: 8px;
   min-width: 480px;
   margin: 0 5px 5px;
@@ -3407,6 +3430,7 @@ IE6は透過PNGが利用できないため透過GIFへ置き換えている。
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
+  -o-border-radius: 2px;
   border-radius: 2px;
   background: url(../images/icon/auiIconSprites20130528.png) no-repeat;
 }

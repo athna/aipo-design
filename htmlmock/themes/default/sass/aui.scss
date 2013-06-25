@@ -8,6 +8,7 @@
 * {
 	@include font-family-sans-serif();
 }
+
 html, body {
 	margin:0;
 	padding:0;
@@ -20,6 +21,7 @@ body {
 	font-size:.75em;
 	line-height:1.4;
 	background:#fff;
+    overflow-x:hidden;
 }
 body#login {
 	background:#eee url(../images/body.png) left top repeat-x;
@@ -878,6 +880,7 @@ img.avatar,
 	text-shadow:0 1px 0 rgba(0,0,0,0.2);
 	border:none;
 	background:url(../images/login_btn_back.png) 0px 0px no-repeat;
+	filter:none;
 }
 #auiLoginBox input.button:hover {
 	box-shadow:none;
@@ -920,17 +923,17 @@ img.avatar,
 /***************************************************
 	AUI Generic Class - Undermost
 --------------------------------------------------*/
-.auiSelectButtonV2 {
+.auiSelectButton {
 	background:#fff;
 }
-.auiSelectButtonV2 li,
-.auiSelectButtonV2 div {
+.auiSelectButton li,
+.auiSelectButton div {
 	float:left;
 	background:none;
     padding:0;
     line-height:1;
 }
-.auiSelectButtonV2 a {
+.auiSelectButton a {
 	display:block;
     margin:0 -1px;
     padding:0 !important;
@@ -943,58 +946,59 @@ img.avatar,
     border-left-color:#dcdcdc;
     border-right-color:#dcdcdc;
 }
-.auiWidget .auiSelectButtonV2 a {
+.auiWidget .auiSelectButton a {
 	@include gradient-vertical(#fff, $grayLighter);
 }
-.auiSelectButtonV2 a:hover,
-.auiWidget .auiSelectButtonV2 a:hover {
+.auiSelectButton a:hover,
+.auiWidget .auiSelectButton a:hover {
 	color:$black !important;
 	@include gradient-vertical(#eee,#e1e1e1);
 }
-.auiSelectButtonV2 a:active,
-.auiWidget .auiSelectButtonV2 a:active {
+.auiSelectButton a:active,
+.auiWidget .auiSelectButton a:active {
 	@include gradient-vertical(#ddd,#eee);
 }
 
-.auiSelectButtonV2 a.first,
-.auiSelectButtonV2 a.btn {
+.auiSelectButton a.first,
+.auiSelectButton a.btn {
 	margin-left:0;
     border-left-color:#c0c0c0;
     @include border-top-left-radius(3px);
     @include border-bottom-left-radius(3px);
 }
-.auiSelectButtonV2 a.last,
-.auiSelectButtonV2 a.btn {
+.auiSelectButton a.last,
+.auiSelectButton a.btn {
 	margin-right:0;
     border-right-color:#c0c0c0;
     @include border-top-right-radius(3px);
     @include border-bottom-right-radius(3px);
 }
-.auiSelectButtonV2 a:hover span {
+.auiSelectButton a:hover span {
 	color:$black;
 }
-.auiSelectButtonV2 a span{
+.auiSelectButton a span{
 	display:inline !important;
 	padding:0 !important;
     background-image:none !important;
 }
-.auiSelectButtonV2 span i,
-.auiSelectButtonV2 span img {
+.auiSelectButton span i,
+.auiSelectButton span img {
     margin:6px 0;
 }
 
-.auiSelectButtonV2 .active a {
+.auiSelectButton .active a {
     color:$white !important;
 	text-shadow:none;
 	@include gradient-vertical(#ff9900, #ffbb22);
     border-color:#f09000;
 }
-.auiSelectButtonV2 .active a:hover span {
+.auiSelectButton .active a:hover span {
     color:$white !important;
 }
 
 
-/* auiSelectButton ********************/
+/* OLD auiSelectButton ********************/
+/*
 .auiSelectButton {
 	padding-right:1px;
 	background:#FFF;
@@ -1045,7 +1049,8 @@ img.avatar,
 	color:#000;
     background-image:none !important;
 }
-/* first */
+*/
+/* first
 .auiSelectButton li.first {
 	border:none !important;
 }
@@ -1064,8 +1069,8 @@ img.avatar,
 }
 .auiSelectButton a.first:active span {
 	background:url(../images/common/bg_auiselectbutton.gif) 0px -48px no-repeat !important;
-}
-/* last */
+} */
+/* last
 .auiSelectButton a.last {
 	background:url(../images/common/bg_auiselectbutton.gif) right -96px no-repeat !important;
 }
@@ -1080,8 +1085,8 @@ img.avatar,
 }
 .auiSelectButton a.last:active span {
 	background:url(../images/common/bg_auiselectbutton.gif) right -144px no-repeat !important;
-}
-/* btn*/
+} */
+/* btn
 .auiSelectButton a.btn {
 	border:none !important;
 	background:url(../images/common/bg_auiselectbutton.gif) 0px 0px no-repeat !important;
@@ -1100,8 +1105,8 @@ img.avatar,
 }
 .auiSelectButton a.btn:active span {
 	background:url(../images/common/bg_auiselectbutton.gif) right -144px no-repeat !important;
-}
-/* active */
+}*/
+/* active
 .auiSelectButton li.active,
 .auiSelectButton li.active a,
 .auiSelectButton li.active span{
@@ -1109,8 +1114,6 @@ img.avatar,
 }
 .auiSelectButton li.active a {
 	cursor:default;
-/*	border-right:solid 2px #f37e00;
-	border-left:solid 1px #f37e00;*/
 }
 .auiSelectButton li.active span {
 	color:#fff;
@@ -1126,7 +1129,6 @@ img.avatar,
 }
 .auiSelectButton li.active a.last {
 	border-right:none !important;
-/*	padding-left:2px;*/
 }
 .auiSelectButton li.active a.last,
 .auiSelectButton li.active a.last:hover,
@@ -1138,7 +1140,7 @@ img.avatar,
 }
 .auiSelectButton .arrow {
 	width:25px !important;
-}
+} */
 
 /***************************************************
 	auiWidgetsArea
@@ -1278,9 +1280,7 @@ button {
 	text-shadow:0 1px 0 #f8f8f8;
 	border:solid 1px #c0c0c0;
 	background:$grayLighter;
-	background:$grayLighter url(../images/common/auibutton_back.gif) left top repeat-x;/*IE*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($grayLighter));
-	background: -moz-linear-gradient(top, #fff, $grayLighter);
+    @include gradient-vertical(#fff,$grayLighter);
 }
 .auiButton,
 .auiButtonAction,
@@ -1308,6 +1308,13 @@ button {
     line-height:$inputHeight;
 	padding:0 0.7em;
 }
+*:first-child+html input[type=submit],
+*:first-child+html input[type=button],
+*:first-child+html input[type=reset],
+*:first-child+html button {
+    line-height:$inputHeight - 4;
+}
+
 button.auiButton,
 button {
 	padding:0 0.55em;
@@ -1386,10 +1393,14 @@ button:active {
 	font-weight:bold;
 	text-shadow:0 1px 0 #f09000 !important;
 	border:solid 1px #f09000 !important;
-	background:#ff9900;
-	background:#ff9900 url(../images/common/auibuttonaction_back.gif) left top repeat-x !important;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffbb22), to(#ff9900)) !important;/*Ch*/
-	background: -moz-linear-gradient(top, #ffbb22, #ff9900);/*Fx*/
+	background:#ff9900 !important;
+    background-image: -moz-linear-gradient(top, #ffbb22, #ff9900) !important;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffbb22), to(#ff9900)) !important;
+    background-image: -webkit-linear-gradient(top, #ffbb22, #ff9900) !important;
+    background-image: -o-linear-gradient(top, #ffbb22, #ff9900) !important;
+    background-image: linear-gradient(to bottom, #ffbb22, #ff9900) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFBB22', endColorstr='#FFFF9900', GradientType=0) !important;
 }
 .auiButtonBold {
 	color:#000;
@@ -1407,8 +1418,13 @@ button:active {
 	-moz-box-shadow:0 1px 1px rgba(0,0,0,0.2);
 	box-shadow:0 1px 1px rgba(0,0,0,0.2);*/
 	background:#ffbb22 !important;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffcc33), to(#ff9900)) !important;/*Ch*/
-	background: -moz-linear-gradient(top, #ffcc33, #ff9900);/*Fx*/
+    background-image: -moz-linear-gradient(top, #ffcc33, #ff9900) !important;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffcc33), to(#ff9900)) !important;
+    background-image: -webkit-linear-gradient(top, #ffcc33, #ff9900) !important;
+    background-image: -o-linear-gradient(top, #ffcc33, #ff9900) !important;
+    background-image: linear-gradient(to bottom, #ffcc33, #ff9900) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFCC33', endColorstr='#FFFF9900', GradientType=0) !important;
 }
 .auiButtonAction:active {
 	border:solid 1px #e08000 !important;
@@ -1504,8 +1520,8 @@ button[disabled]:hover {
 	background: -moz-linear-gradient(top, #eee, #ddd) !important;/*Fx*/
 }
 *:first-child+html .auiButtonSearch {
-	height:26px;
-	line-height:26px;
+	height:$inputHeight;
+	line-height:$inputHeight;
 }
 .auiButtonSearch:hover {
 	color:#000;
@@ -1573,6 +1589,9 @@ button[disabled]:hover {
 	line-height:2em;
 	margin:$elementMarginPC;
 	vertical-align:middle;
+}
+*:first-child+html .auiSummaryMeta {
+	overflow:hidden;
 }
 /*.auiSummaryMeta */.count {
 	float:left;
@@ -2007,8 +2026,8 @@ input[type=password] {
 }
 *:first-child+html input[type=text],
 *:first-child+html input[type=password] {/*IE7Hack*/
-	height:26px;
-	line-height:26px;
+	height:$inputHeight;
+	line-height:$inputHeight;
 	max-width:99.2%;
 	padding:0 2px;
 }
@@ -2536,6 +2555,7 @@ ul.attachments >li{
 	line-height:$inputHeight - 4 !important;
 	white-space:nowrap;
 	font-size:0.9em;
+    cursor:pointer;
 }
 *:first-child+html .filterTip {/* IE7 Hack */
 	white-space:normal;

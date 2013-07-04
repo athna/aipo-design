@@ -633,23 +633,25 @@ function appsNaviSwitch() {
 	var lists = navi.getElementsByTagName("ul");
 	var bk = document.getElementById('appsNavigationBack');
 	var wrapper = document.getElementById('wrapper');
+	var drawer = document.getElementById('anDrawer');
 	var nLeft = '-260px';
 	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
 		for (var i=0; i<lists.length; i++){
 			lists[i].style.display = "block";
 		}
 		navi.style.display = 'block';
+		drawer.style.display = 'block';
 		navi.style.left = '0px';
-		/*navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';*/
-		/*navi.style.borderRight = 'solid 1px #909090';*/
+		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
+		navi.style.borderRight = 'solid 1px #909090';
 		bk.style.display = 'block';
 		wrapper.style.overflow = 'hidden';
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 	}else{
 		navi.style.display = 'none';
 		navi.style.left = nLeft;
-		/*navi.style.boxShadow = 'none';
-		navi.style.borderRight = 'none';*/
+		navi.style.boxShadow = 'none';
+		navi.style.borderRight = 'none';
 		bk.style.display = 'none';
 		wrapper.style.overflow = 'visible';
 		wrapper.style.height = 'auto'
@@ -661,7 +663,7 @@ function appsNaviSwitch() {
 </script>
 <div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
 <div id="appsNavigation"><div id="anInner">
-	<!--div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="../themes/default/images/mobile/an_list.png"></a></div-->
+	<div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="auiIcon auiIconDelete_w"></i></a></div>
 	<div class="anUser">
 		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
 		<div class="name">木村 一郎</div>

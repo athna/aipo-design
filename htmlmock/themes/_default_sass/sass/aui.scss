@@ -2686,38 +2686,43 @@ ul.attachments >li{
 }
 
 /***************************************************
-	auiMailList
+	auiWideList
 --------------------------------------------------*/
-$auiMLLeft:	30px;
-.auiMailList {
+$auiWLLeft:	30px;
+.auiWideList {
 	margin:$elementMarginMB;
     margin-right:-5px;
     margin-left:-5px;
     border-top:solid 1px #eee;
 }
-.auiMailList .row {
+.auiWideList div {
+    cursor:pointer;
+}
+.auiWideList .row {
 	position:relative;
-    padding:8px 5px 7px $auiMLLeft;
+    padding:8px 5px 7px $auiWLLeft;
     border-bottom:solid 1px #eee;
-    background:$grayHightLight;
     overflow:hidden;
 }
-.auiMailList .noread {
+.auiWideList .read {
+    background:$grayHightLight;
+}
+.auiWideList .noread {
     background:none;
 }
-.auiMailList .checked {
+.auiWideList .checked {
 	background:$blueLight;
 }
 
-.auiMLName,
-.auiMLTitle,
-.auiMLBody {
+.auiWLCaption,
+.auiWLName,
+.auiWLTitle,
+.auiWLBody {
 	overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
-    cursor:pointer;
 }
-.auiMLDate {
+.auiWLDate {
 	float:right;
     height:24px;
     line-height:24px;
@@ -2726,29 +2731,29 @@ $auiMLLeft:	30px;
     color:$gray;
     white-space:nowrap;
 }
-.auiMLName {
+.auiWLName {
     height:24px;
     line-height:24px;
     font-size:16px;
 }
-.noread .auiMLName {
+.noread .auiWLName {
 	font-weight:bold;
 }
-.auiMLCheck {
+.auiWLCheck {
 	position:absolute;
     top:0;
     left:0;
     height:100%;
 }
-.auiMLCheck label {
+.auiWLCheck label {
 	display:block;
 	position:relative;
-    width:$auiMLLeft;
+    width:$auiWLLeft;
     height:100%;
     text-align:center;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.auiMLCheck input[type=checkbox] {
+.auiWLCheck input[type=checkbox] {
 	cursor:pointer;
     position:absolute;
     top:50%;
@@ -2756,34 +2761,34 @@ $auiMLLeft:	30px;
     left:5px\9;
     margin-top:-7px;
 }
-.auiMLCheck input {
+.auiWLCheck input {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.auiMLTitle,
-.auiMLBody {
+.auiWLTitle,
+.auiWLBody {
 	color:$gray;
 }
-.noread .auiMLTitle {
+.noread .auiWLTitle {
 	color:#000;
 }
-.auiMLCover {
+.auiWLCover {
 	position:absolute;
     height:100%;
     top:0;
     bottom:0;
     left:0;
     right:0;
-    margin-left:$auiMLLeft;
+    margin-left:$auiWLLeft;
     cursor:pointer;
 }
-.auiMLCover a {
+.auiWLCover a {
 	display:block;
     height:100%;
 	background:#ffffff\9;/*IE8*/
     -ms-filter:"alpha(opacity=0)";/*IE8*/
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-*:first-child+html .auiMLCover a {/*IE7*/
+*:first-child+html .auiWLCover a {/*IE7*/
 	background:#ffffff;
     filter:alpha(opacity=0);
 }

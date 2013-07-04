@@ -155,7 +155,7 @@ input[type=reset],
 button {
 	min-width:$inputHeight;
 	height:$inputHeight + 2;
-	line-height:$inputHeight + 2;
+	line-height:$inputHeight;
 	padding:0 5px;
 	@include box-sizing(border-box);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -256,22 +256,14 @@ input[type=password] {
 	background-image:none;
 }
 .auiPortletHead {
-	/*background:#666666
-		-webkit-gradient(
-		linear, left top, left bottom,
-		from(rgba(255,255,255,0.4)),
-		to(rgba(255,255,255,0))
-	);
-	border-top:solid 1px #c0c0c0;
-	border-bottom:solid 1px $gray;
-	-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);
-	box-shadow:0 2px 3px rgba(0,0,0,0.2);*/
-	margin-bottom:5px;
+	position:absolute;
+    top:0;
     height:44px;
     @include mobile-header-style();
+/*
+	margin-bottom:5px;
     box-shadow:none;
-    display:none;
+    display:none;*/
 }
 .auiPortletHead .inner {
 	margin:0 50px;
@@ -301,6 +293,89 @@ input[type=password] {
 }
 .auiPortletBody .inner {
 	padding:0 5px;
+}
+
+/***************************************************
+	auiRowTable
+--------------------------------------------------*/
+.auiRowTable div a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/***************************************************
+	auiMbTable
+--------------------------------------------------*/
+.auiMbTable {
+	display:block;
+    margin:0 -5px;
+    padding:0 5px;
+	border-top:solid 1px #eee;
+}
+.auiMbTable tbody {
+	margin:0 -5px;
+	display:block;
+}
+.auiMbTable tr:first-child {
+	display:none;
+}
+.auiMbTable tr {
+    padding:8px 5px;
+	display:block;
+    border-bottom:solid 1px #eee;
+    @include box-sizing(border-box);
+}
+.auiMbTable tr:hover {
+	background:$grayHightLight !important;
+}
+.auiMbTable td {
+	display:inline-block;
+    width:auto;
+    border:none;
+    padding:0;
+    margin-right:10px;
+}
+.auiMbTable .auiMTCheck {
+	display:table-cell;
+    margin:0;
+    padding:0 10px 0 5px;
+    vertical-align:middle;
+}
+.auiMTCheck ~ td {
+}
+.auiMbTable .auiMTCaption {
+	display:table-cell;
+    margin:0;
+}
+.auiMbTable .auiMTCaption div {
+    margin:0;
+    height:auto;
+    line-height:1;
+}
+.auiMbTable .auiMTCaption a {
+	display:block;
+    margin:0;
+	height:24px;
+    line-height:24px;
+    font-size:14px;
+	overflow:hidden;
+}
+
+
+/***************************************************
+	auiBlogEntry
+--------------------------------------------------*/
+#auiBlogEntries {
+	padding-top:10px;
+}
+#auiBlogEntries .avatar img {
+	max-width:32px;
+    max-height:32px;
+}
+#auiBlogEntries .entry {
+	margin-bottom:10px;
+}
+#auiContentsArea .entryBody {
+	margin-left:42px;
 }
 
 /***************************************************
@@ -452,7 +527,7 @@ input[type=password] {
 	right:5px;
 }
 #mobileHeader .auiMbBtn {
-	font-size:11px;
+	font-size:14px;
 }
 
 .auiMbBtn {
@@ -475,27 +550,26 @@ input[type=password] {
 	);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.auiMbBtn:hover {
+/*.auiMbBtn:hover {
 	color:#000;
-}
+}*/
 .auiMbBtnNavi {
 	display:table-cell;
 	background-color:#666;
     vertical-align:middle;
 }
-.auiMbBtnNavi:hover {
+/*.auiMbBtnNavi:hover {
 	background-color:#000;
-}
+}*/
 
 .auiMbBtnActivity, .auiMbBtnAction  {
 	text-align:center;
-	font-weight:bold;
 	color:#fff;
 	text-shadow:0 -1px 0 rgba(0,0,0,0.3);    
 }
-.auiMbBtnActivity:hover, .auiMbBtnActivityZero:hover, .auiMbBtnAction:hover {
+/*.auiMbBtnActivity:hover, .auiMbBtnActivityZero:hover, .auiMbBtnAction:hover {
 	color:#fff;
-}
+}*/
 .auiMbBtnActivity {
 	background-color:$linkColorHover;
 }
@@ -503,11 +577,12 @@ input[type=password] {
 	background:#c0c0c0;
 	color:#fff;
 }
-.auiMbBtnActivity:hover,
+/*.auiMbBtnActivity:hover,*/
 .auiMbBtnActivity.active {
-	background-color:#c60;
+	background-color:#666;
 }
-.auiMbBtnActivity.zero:hover {
+/*.auiMbBtnActivity.zero:hover*/
+.auiMbBtnActivity.zero.active {
 	background-color:#666;
 }
 
@@ -531,7 +606,6 @@ input[type=password] {
 	appsNavigation
 --------------------------------------------------*/
 #appsNavigation {
-	display:none;
 	position:absolute;
 	top:0;
 	left:-260px;
@@ -540,8 +614,6 @@ input[type=password] {
 	font-size:13px;
 	background:#505050;
 	color:#ffffff;
-    -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
-	box-shadow:0 0 10px rgba(0,0,0,0.5);
     border-right:solid 1px #909090;
 	z-index:10000;
 }
@@ -560,14 +632,17 @@ input[type=password] {
 #appsNavigationBack a {
 	display:block;
 	height:100%;
+    background:rgba(0,0,0,0.1);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .anDrawer {
+	display:none;
 	position:absolute;
-	right:-45px;
+	right:-40px;
+    top:7px;
 	overflow:hidden;
-	-webkit-border-radius:0 6px 6px 0;
+/*	-webkit-border-radius:0 6px 6px 0;
 	-moz-border-radius:0 6px 6px 0;
 	-ms-border-radius:0 6px 6px 0;
 	border-radius:0 6px 6px 0;
@@ -579,14 +654,18 @@ input[type=password] {
 		color-stop(0.5, rgba(255,255,255,0)), 
 		to(rgba(0,0,0,0.1))
 	);
-}
+*/}
 .anDrawer a {
 	display:table-cell;
-	width:45px;
-
-	height:45px;
+/*	width:45px;
+	height:45px;*/
 	vertical-align:middle;
 	text-align:center;
+    width:30px;
+    height:30px;
+    background:#505050;
+    @include border-radius(30px);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .anDrawer img {
 	width:24px;
@@ -681,6 +760,11 @@ input[type=password] {
 #auiContentsAreaInner {
 	margin-left:0;
 }
+#auiContentsArea h2, h2.caption {
+	margin:5px 0;
+    padding:5px 0;
+}
+
 /***************************************************
 	auiWidget
 --------------------------------------------------*/
@@ -845,7 +929,8 @@ input[type=password] {
 	Apps Style
 --------------------------------------------------*/
 /* timeline*/
-#timelineOuter {
+/*#timelineOuter*/
+.timeline {
 	font-size:14px;
 }
 .timeline .avatar img,
@@ -855,7 +940,7 @@ input[type=password] {
 }
 .timeline .messageContents,
 .timeline .comments .messageContents {
-	padding-left:42px;
+	margin-left:42px;
 }
 .timeline .comments {
 	margin-left:42px;
@@ -892,7 +977,7 @@ input[type=password] {
 	display: none !important;
 }
 
-table.listTable td.caption, table.subTable td.caption {
+.listTable .caption, .subTable .caption {
 	width:auto !important;
 }
 .modalDialog .listTable th, .modalDialog .listTable td{
@@ -924,6 +1009,7 @@ table.listTable td.caption, table.subTable td.caption {
 .dijitPopup {
 	width:100%;
     padding-top:10px;
+	position:fixed;
 }
 
 #imageDialog {
@@ -1001,11 +1087,11 @@ table.listTable td.caption, table.subTable td.caption {
 	margin:$elementMarginMB;
 }
 .auiSummaryMeta .count {
-	height:32px;
-	line-height:32px;
+	height:$inputHeight + 2;
+	line-height:$inputHeight + 2;
 }
 .auiSelectButton {
-	margin:4px 0;
+/*	margin:4px 0;*/
 }
 
 /***************************************************
@@ -1214,10 +1300,12 @@ table tr.caption {
 --------------------------------------------------*/
 .filterInputField {
 	max-width:100%;
+    float:none;
 }
 .filterInputField input[type=text] {
 	max-width:100%;
-    float:left;
+    width:100% !important;
+    /*float:left;*/
 }
 .menubar.multi {
 	max-width:96%;

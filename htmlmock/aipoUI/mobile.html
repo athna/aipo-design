@@ -520,28 +520,41 @@ UA判別などでPC版では表示させないでください。
 <script language="javascript">
 function appsNaviSwitch() {
 	var navi = document.getElementById('appsNavigation');
+	var lists = navi.getElementsByTagName("ul");
 	var bk = document.getElementById('appsNavigationBack');
 	var wrapper = document.getElementById('wrapper');
+	var drawer = document.getElementById('anDrawer');
 	var nLeft = '-260px';
-	var h = document.documentElement.clientHeight;
-	var nh = document.getElementById('anInner').clientHeight
-	if(nh > h) h = nh;
 	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "block";
+		}
+		navi.style.display = 'block';
+		drawer.style.display = 'block';
 		navi.style.left = '0px';
+		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
+		navi.style.borderRight = 'solid 1px #909090';
 		bk.style.display = 'block';
 		wrapper.style.overflow = 'hidden';
-		wrapper.style.height = h + 'px';
+		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 	}else{
+		navi.style.display = 'none';
 		navi.style.left = nLeft;
+		navi.style.boxShadow = 'none';
+		navi.style.borderRight = 'none';
 		bk.style.display = 'none';
 		wrapper.style.overflow = 'visible';
 		wrapper.style.height = 'auto'
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "none";
+		}
 	}
 }
 </script>
 <div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">test</a></div>
 <div id="appsNavigation"><div id="anInner">
-	<div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="../themes/default/images/mobile/an_list.png"></a></div>
+	<div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="auiIcon auiIconDelete_w"></i></a></div>
+	<!--div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="../themes/default/images/mobile/an_list.png"></a></div-->
 	<div class="anUser">
 		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
 		<div class="name">木村 一郎</div>
@@ -553,20 +566,25 @@ function appsNaviSwitch() {
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_schedule.png" /></span>スケジュール</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_timeline.png" /></span>タイムライン</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_info.png"></span>更新情報</a></li>
-			
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_blog.png" /></span>ブログ</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_bbs.png"></span>掲示板</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_todo.png" /></span>共有ToDo</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_folder.png"></span>共有フォルダ</a></li>
-			
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_workflow.png" /></span>ワークフロー</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_note.png"></span>伝言メモ</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_report.png"></span>報告書</a></li>
-			
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_mail.png" /></span>Webメール</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_address.png"></span>アドレス帳</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_users.png"></span>ユーザー名簿</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_memo.png"></span>メモ帳</a></li>
+		</ul>
+	</div>
+	<div class="anApps">
+		<h2>追加アプリ</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/77/icon/64/A10566991420987508-trans.png"></span>Yahoo!ニュース</a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/66/icon/64/A6829183567519825-trans.png"></span>美人時計</a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/65/icon/64/A4407366647751848-trans.png"></span>美人時計</a></li>
 		</ul>
 	</div>
 	<div class="anSetting">

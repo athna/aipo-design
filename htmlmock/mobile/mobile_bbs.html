@@ -184,7 +184,7 @@
 <input type="hidden" name="_name" value="トピック">
 <input type="hidden" name="secid" value="30d53eaf7347c6cd5e8142a8e642511d">
 
-<table class="auiRowTable wide tableBbs">
+<table class="auiRowTable auiMbTable wide tableBbs">
 
 	<colgroup>
 		<col class="" />
@@ -204,7 +204,7 @@
 		</tr>
 		
 		<tr>
-		<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+		<td class="wTitle auiMTCaption"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
 		<td class="mb_hide"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
 		<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
 		<td class="wCreater"><div>木村 一郎</div></td>
@@ -212,7 +212,7 @@
 		</tr>
 		
 		<tr>
-		<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+		<td class="wTitle auiMTCaption"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
 		<td class="mb_hide"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
 		<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
 		<td class="wCreater"><div>木村 一郎</div></td>
@@ -220,7 +220,7 @@
 		</tr>
 		
 		<tr>
-		<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+		<td class="wTitle auiMTCaption"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
 		<td class="mb_hide"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
 		<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
 		<td class="wCreater"><div>木村 一郎</div></td>
@@ -228,7 +228,7 @@
 		</tr>
 		
 		<tr>
-		<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+		<td class="wTitle auiMTCaption"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
 		<td class="mb_hide"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
 		<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
 		<td class="wCreater"><div>木村 一郎</div></td>
@@ -236,7 +236,7 @@
 		</tr>
 		
 		<tr>
-		<td class="wTitle"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
+		<td class="wTitle auiMTCaption"><div><a href="#">トピックタイトルトピックタイトルトピックタイトル  （999）</a></div></td>
 		<td class="mb_hide"><div><img class="img_icon" src="https://app.aipo.com/images/msgboard/msgboard_secret.gif" alt="非公開" title="非公開"></div></td>
 		<td class="wCategory"><div>カテゴリ名カテゴリ名</div></td>
 		<td class="wCreater"><div>木村 一郎</div></td>
@@ -483,23 +483,25 @@ function appsNaviSwitch() {
 	var lists = navi.getElementsByTagName("ul");
 	var bk = document.getElementById('appsNavigationBack');
 	var wrapper = document.getElementById('wrapper');
+	var drawer = document.getElementById('anDrawer');
 	var nLeft = '-260px';
 	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
 		for (var i=0; i<lists.length; i++){
 			lists[i].style.display = "block";
 		}
 		navi.style.display = 'block';
+		drawer.style.display = 'block';
 		navi.style.left = '0px';
-		/*navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';*/
-		/*navi.style.borderRight = 'solid 1px #909090';*/
+		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
+		navi.style.borderRight = 'solid 1px #909090';
 		bk.style.display = 'block';
 		wrapper.style.overflow = 'hidden';
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 	}else{
 		navi.style.display = 'none';
 		navi.style.left = nLeft;
-		/*navi.style.boxShadow = 'none';
-		navi.style.borderRight = 'none';*/
+		navi.style.boxShadow = 'none';
+		navi.style.borderRight = 'none';
 		bk.style.display = 'none';
 		wrapper.style.overflow = 'visible';
 		wrapper.style.height = 'auto'
@@ -511,7 +513,7 @@ function appsNaviSwitch() {
 </script>
 <div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
 <div id="appsNavigation"><div id="anInner">
-	<!--div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="../themes/default/images/mobile/an_list.png"></a></div-->
+	<div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="auiIcon auiIconDelete_w"></i></a></div>
 	<div class="anUser">
 		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
 		<div class="name">木村 一郎</div>

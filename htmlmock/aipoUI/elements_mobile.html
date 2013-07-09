@@ -1701,23 +1701,25 @@ function appsNaviSwitch() {
 	var lists = navi.getElementsByTagName("ul");
 	var bk = document.getElementById('appsNavigationBack');
 	var wrapper = document.getElementById('wrapper');
+	var drawer = document.getElementById('anDrawer');
 	var nLeft = '-260px';
 	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
 		for (var i=0; i<lists.length; i++){
 			lists[i].style.display = "block";
 		}
 		navi.style.display = 'block';
+		drawer.style.display = 'block';
 		navi.style.left = '0px';
-		/*navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';*/
-		/*navi.style.borderRight = 'solid 1px #909090';*/
+		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
+		navi.style.borderRight = 'solid 1px #909090';
 		bk.style.display = 'block';
 		wrapper.style.overflow = 'hidden';
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 	}else{
 		navi.style.display = 'none';
 		navi.style.left = nLeft;
-		/*navi.style.boxShadow = 'none';
-		navi.style.borderRight = 'none';*/
+		navi.style.boxShadow = 'none';
+		navi.style.borderRight = 'none';
 		bk.style.display = 'none';
 		wrapper.style.overflow = 'visible';
 		wrapper.style.height = 'auto'
@@ -1730,32 +1732,14 @@ function appsNaviSwitch() {
 <div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
 <div id="appsNavigation"><div id="anInner">
 	<div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="auiIcon auiIconDelete_w"></i></a></div>
-	<!--div class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><img src="../themes/default/images/mobile/an_list.png"></a></div-->
 	<div class="anUser">
 		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
 		<div class="name">木村 一郎</div>
 	</div>
 	<div class="anApps">
-		<h2>アプリ</h2>
+		<!--h2>アプリ（旧画像版）</h2>
 		<ul>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconTimecard"></i></span>タイムカード</a></li>
-
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconSchedule"></i></span>スケジュール</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconTimeline"></i></span>タイムライン</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconInfo"></i></span>更新情報</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconBlog"></i></span>ブログ</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconBbs"></i></span>掲示板</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconTodo"></i></span>共有ToDo</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconFolder"></i></span>共有フォルダ</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconWorkflow"></i></span>ワークフロー</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconNote"></i></span>伝言メモ</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconReport"></i></span>報告書</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconMail"></i></span>Webメール</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconAddress"></i></span>アドレス帳</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconUsers"></i></span>ユーザー名簿</a></li>
-			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconMemo"></i></span>メモ帳</a></li>
-
-			<!--li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_timecard.png"></span>タイムカード</a></li>
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_timecard.png"></span>タイムカード</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_schedule.png" /></span>スケジュール</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_timeline.png" /></span>タイムライン</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_info.png"></span>更新情報</a></li>
@@ -1769,7 +1753,25 @@ function appsNaviSwitch() {
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_mail.png" /></span>Webメール</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_address.png"></span>アドレス帳</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_users.png"></span>ユーザー名簿</a></li>
-			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_memo.png"></span>メモ帳</a></li-->
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_memo.png"></span>メモ帳</a></li>
+		</ul-->
+		<h2>アプリ</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><i class="icon-time"></i></span>タイムカード</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-calendar"></i></span>スケジュール</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-comments"></i></span>タイムライン</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-volume-up"></i></span>更新情報</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-book"></i></span>ブログ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-picture"></i></span>掲示板</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-list-ul"></i></span>共有ToDo</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-open"></i></span>共有フォルダ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-inbox"></i></span>ワークフロー</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-phone"></i></span>伝言メモ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-file-text"></i></span>報告書</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-envelope"></i></span>Webメール</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-compass"></i></span>アドレス帳</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-group"></i></span>ユーザー名簿</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-pencil"></i></span>メモ帳</a></li>
 		</ul>
 	</div>
 	<div class="anApps">
@@ -1781,14 +1783,20 @@ function appsNaviSwitch() {
 		</ul>
 	</div>
 	<div class="anSetting">
-		<h2>設定</h2>
+		<!--h2>設定（旧画像版）</h2>
 		<ul>
 			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconSetting"></i></span>個人設定</a></li>
 			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconPc"></i></span>PC版表示へ変更</a></li>
 			<li><a href="#"><span class="icon"><i class="auiMbIcon auiMbIconLogout"></i></span>ログアウト</a></li>
 			<!--li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_setting.png" /></span>個人設定</a></li>
 			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_pc.png" /></span>PC版表示へ変更</a></li>
-			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_logout.png" /></span>ログアウト</a></li-->
+			<li><a href="#"><span class="icon"><img src="../themes/default/images/mobile/an_logout.png" /></span>ログアウト</a></li>
+		</ul-->
+		<h2>設定</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><i class="icon-cog"></i></span>個人設定</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-desktop"></i></span>PC版表示へ変更</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-power-off"></i></span>ログアウト</a></li>
 		</ul>
 	</div>
 	<div class="anFooter">

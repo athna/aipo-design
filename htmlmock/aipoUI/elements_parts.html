@@ -209,10 +209,10 @@ h2.title:first-child {
 					
 					<tr>
 						<th>auiButtonSearch</th>
-						<td><a href="#" class="auiButtonSearch">ボタン</a></td>
-						<td><input type="submit" class="auiButtonSearch" value="ボタン" /></td>
-						<td><span class="auiButtonSearch">ボタン</span></td>
-						<td><button class="auiButtonSearch">ボタン</button></td>
+						<td><a href="#" class="auiButtonSearch">検索</a></td>
+						<td><input type="submit" class="auiButtonSearch" value="検索" /></td>
+						<td><span class="auiButtonSearch">検索</span></td>
+						<td><button class="auiButtonSearch">検索</button></td>
 					</tr>
 					
 					<tr>
@@ -223,6 +223,14 @@ h2.title:first-child {
 						<td><button class="auiButtonSmall">ボタン</button></td>
 					</tr>
 					
+					<tr>
+						<th>アイコン入りauiButton</th>
+						<td><a href="#" class="auiButton"><span><i class="icon-remove"></i></span></a></td>
+						<td>不可</td>
+						<td><span class="auiButton"><span><i class="icon-remove"></i></span></span></td>
+						<td><button class="auiButton"><span><i class="icon-remove"></i></span></button></td>
+					</tr>
+					
 					</table>
 					</div>
 					<div class="floatRight w45">
@@ -231,6 +239,8 @@ h2.title:first-child {
 						<p>disabled を適用した際、iPadでの表示が大きく制限される。disabled状態には a か span を使うのが好ましい。</p>
 						<h4 class="mt10">button</h4>
 						<p>button はブラウザの差異が大きく、一定以下の余白を詰められないため利用を避ける</p>
+						<h4 class="mt10">disabledは&lt;a&gt;か&lt;span&gt;に</h4>
+						<p>&lt;input&gt;や&lt;button&gt;といった標準フォームパーツへ属性値disabledを付与すると、ブラウザによってCSS制御が効かず独自表示となるためHTMLタグ自体を差し替える。</p>
 					</div>
 				</div>
 
@@ -239,18 +249,6 @@ h2.title:first-child {
 				
 				<table class="listTable wide">
 					<tr>
-						<th>旧</th>
-						<th>新</th>
-					</tr>
-					<tr>
-						<td>
-							<div class="auiSelectButton clearfix mh20">
-								<ul class="">
-									<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
-									<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
-								</ul>
-							</div>
-						</td>
 						<td>
 							<div class="auiSelectButton clearfix mh20">
 								<ul class="">
@@ -282,32 +280,7 @@ h2.title:first-child {
 									</li>
 									</ul>
 								</div>
-								<div style="height:30px; line-height:24px; overflow:hidden;"><span id="viewWeekly-P-135ea887364-10654" style="font-weight:bold">2012年10月24日(水)</span>
-								</div>
-							</div>
-						</td>
-						<td>
-							<div class="clearfix mh20">
-								<div class="auiSelectButton">
-									<ul>
-									<li style="width:4em;margin-right:3px;" title="今日へ">
-									<a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a>
-									</li>
-									<li style="margin-right:3px;" title="前の週へ">
-									<a href="javascript:void(0);" class="btn arrow" onclick="" title="前の週へ"><span><i class="auiIconArrow auiIconArrowLeftW"></i></span></a>
-									</li>
-									<li title="前の日へ">
-									<a href="javascript:void(0);" class="first arrow" onclick="" title="前の日へ"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-									</li>
-									<li style="margin-right:3px;" title="次の日へ">
-									<a href="javascript:void(0);" class="last arrow" onclick="" title="次の日へ"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-									</li>
-									<li style="margin-right:3px;" title="次の週へ">
-									<a href="javascript:void(0);" class="btn arrow" onclick="" title="次の週へ"><span><i class="auiIconArrow auiIconArrowRightW"></i></span></a>
-									</li>
-									</ul>
-								</div>
-								<div style="height:30px; line-height:24px; overflow:hidden;"><span id="viewWeekly-P-135ea887364-10654" style="font-weight:bold">2012年10月24日(水)</span></div>
+								<div class="count"><span id="viewWeekly-P-135ea887364-10654" style="font-weight:bold">2012年10月24日(水)</span></div>
 							</div>
 						</td>
 					</tr>
@@ -322,13 +295,11 @@ h2.title:first-child {
 									<li><a class="last" style="width:4em;" href="javascript:void(0);" onclick=""><span>一覧</span></a></li>
 								</ul>
 							</div>
-						</td>
-						<td>
 							<div class="auiSelectButton clearfix mh20">
 								<ul>
-									<li class="active"><a class="first" style="width:6em;" href="javascript:void(0);" onclick=""><span>ブロック</span></a></li>
+									<li><a class="first" style="width:6em;" href="javascript:void(0);" onclick=""><span>ブロック</span></a></li>
 									<li><a style="width:3em;" href="javascript:void(0);" onclick=""><span>日</span></a></li>
-									<li><a style="width:3em;" href="javascript:void(0);" onclick=""><span>週</span></a></li>
+									<li class="active"><a style="width:3em;" href="javascript:void(0);" onclick=""><span>週</span></a></li>
 									<li><a style="width:3em;" href="javascript:void(0);" onclick=""><span>月</span></a></li>
 									<li><a class="last" style="width:4em;" href="javascript:void(0);" onclick=""><span>一覧</span></a></li>
 								</ul>

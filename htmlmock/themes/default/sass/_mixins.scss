@@ -700,11 +700,10 @@
 @mixin auiButtonStyle() {
 	color:#000;
 	text-shadow:0 1px 0 #f8f8f8;
-	border:solid 1px #c0c0c0;
-	background:$grayLighter;
-	background:$grayLighter url(../images/common/auibutton_back.gif) left top repeat-x;/*IE*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($grayLighter));
-	background: -moz-linear-gradient(top, #fff, $grayLighter);
+	border:solid 1px;
+    border-color: #e4e4e4 #d1d1d1 #c0c0c0;
+	background-color:$grayLighter;
+    @include gradient-vertical($white,$grayLighter);
 }
 
 // Mobile Header

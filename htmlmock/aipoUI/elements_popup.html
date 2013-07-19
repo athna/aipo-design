@@ -1362,6 +1362,277 @@
 								</div>
 							</div>
 	
+
+							<br>
+							<!-- ################################################################################
+							
+							Webメールアカウント追加
+							
+							################################################################################ -->
+							<div class="auiPopup clearfix">
+								<table class="roundBlockWrapperTop">
+								<tbody>
+									<tr>
+										<td class="roundBlockTitle wide">新規メールアカウント追加</td>
+										<td class="roundBlockIcon last">
+										<div style="float:right"><img style="cursor:pointer" onclick="dijit.byId('modalDialog').hide()" id="dialogCloseButton" src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="top" title="閉じる"></div>
+										</td>
+									</tr>
+								</tbody>
+								</table>
+								<div class="roundBlockContent">
+								<div class="indicator" id="indicator-dlg-P-13652023f79-10161" style="display:none;">データを送信しています...</div>
+								<div id="messageDiv"></div>
+								<form name="formP-13652023f79-10161" id="formP-13652023f79-10161" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailAccountFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this,'indicator-dlg-','P-13652023f79-10161',aipo.webmail.onReceiveMessage);return false;">
+								<input type="hidden" name="_name" value="webmailForm">
+								<input type="hidden" name="secid" value="02c3f2c2b139f8db66fc6a75818fa602">
+								<input type="hidden" name="mode" value="insert">
+								<table class="listTable wide">
+								<tbody>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								メールアカウント名
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="account_name" id="account_name" value="" maxlength="50" style="width:60%;ime-mode:active">
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								送信メールサーバ名（SMTP）
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="smtpserver_name" id="smtpserver_name" value="" maxlength="50" style="width:60%;ime-mode:disabled">
+								<span class="caution">（半角英数字）</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信メールサーバ名（POP3）
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="pop3server_name" id="pop3server_name" value="" maxlength="50" style="width:60%;ime-mode:disabled">
+								<span class="caution">（半角英数字）</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信用ユーザーID
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="pop3user_name" id="pop3user_name" value="" maxlength="50" style="width:60%;ime-mode:disabled">
+								<span class="caution">（半角英数字）</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信用ユーザーパスワード
+								</div>
+								</span>
+								</td>
+								<td>
+								<input class="text" name="pop3_password" value="" type="password" size="20" maxlength="50"><span class="caution">（半角英数字）</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								名前
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="mail_user_name" id="mail_user_name" value="" maxlength="50" style="width:60%;ime-mode:active">
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								メールアドレス
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="mail_address" id="mail_address" value="" maxlength="50" style="width:60%;ime-mode:disabled">
+								<span class="caution">（半角英数字）</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								送信ポート番号（SMTP）
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="smtp_port" id="smtp_port" value="25" maxlength="5" style="width:60%;ime-mode:disabled">
+								<span class="caution">（半角数字）</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信ポート番号（POP3）
+								</div>
+								</span>
+								</td>
+								<td><input class="text" type="text" name="pop3_port" id="pop3_port" value="110" maxlength="5" style="width:60%;ime-mode:disabled">
+								<span class="caution">（半角数字）</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								送信時の認証方式
+								</div>
+								</span>
+								</td>
+								<td>
+								<input name="auth_send_flg" type="radio" value="0" id="P-13652023f79-10161auth_send_id0" checked="checked" onclick="aipo.webmail.switchAuthSend(this)">
+								<label for="P-13652023f79-10161auth_send_id0">認証なし</label>
+								<input name="auth_send_flg" type="radio" value="1" id="P-13652023f79-10161auth_send_id1" onclick="aipo.webmail.switchAuthSend(this)">
+								<label for="P-13652023f79-10161auth_send_id1">POP before SMTP</label>
+								<input name="auth_send_flg" type="radio" value="2" id="P-13652023f79-10161auth_send_id2" onclick="aipo.webmail.switchAuthSend(this)">
+								<label for="P-13652023f79-10161auth_send_id2">SMTP認証</label>
+								<span id="smtp_auth_field" style="display:none">
+								<div class="spaceTop">
+								<h3>SMTP認証情報<span class="caution">（半角英数字）</span>
+								</h3>
+								<div style="padding:3px;width:70px;float:left;clear:both;">ユーザー</div><input class="text" type="text" name="auth_send_user_id" id="auth_send_user_id" value="" maxlength="50" style="width:60%;ime-mode:disabled">
+								<br>
+								<div style="padding:3px;width:70px;float:left;clear:both;">パスワード</div><input class="text" type="password" name="auth_send_user_password" id="auth_send_user_password" value="" maxlength="50" style="width:60%;ime-mode:disabled">
+								</div>
+								</span>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信時の認証方式
+								</div>
+								</span>
+								</td>
+								<td>
+								<input name="auth_receive_flag" type="radio" value="0" id="P-13652023f79-10161auth_receive_id0" checked="checked">
+								<label for="P-13652023f79-10161auth_receive_id0">標準</label>
+								<input name="auth_receive_flag" type="radio" value="1" id="P-13652023f79-10161auth_receive_id1">
+								<label for="P-13652023f79-10161auth_receive_id1">APOP</label>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								送信時の暗号化方式
+								</div>
+								</span>
+								</td>
+								<td>
+								<input name="smtp_encryption_flag" type="radio" value="0" id="P-13652023f79-10161smtp_encryption_id0" checked="checked">
+								<label for="P-13652023f79-10161smtp_encryption_id0">暗号化しない</label>
+								<input name="smtp_encryption_flag" type="radio" value="1" id="P-13652023f79-10161smtp_encryption_id1">
+								<label for="P-13652023f79-10161smtp_encryption_id1">SSL暗号化</label>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信時の暗号化方式
+								</div>
+								</span>
+								</td>
+								<td>
+								<input name="pop3_encryption_flag" type="radio" value="0" id="P-13652023f79-10161pop3_encryption_id0" checked="checked">
+								<label for="P-13652023f79-10161pop3_encryption_id0">暗号化しない</label>
+								<input name="pop3_encryption_flag" type="radio" value="1" id="P-13652023f79-10161pop3_encryption_id1">
+								<label for="P-13652023f79-10161pop3_encryption_id1">SSL暗号化</label>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信後、サーバからメールを削除する
+								</div>
+								</span>
+								</td>
+								<td nowrap="nowrap">
+								<input name="del_at_pop3_flg" type="radio" value="1" id="P-13652023f79-10161del_at_pop3_flg_enable_id" onclick="aipo.webmail.switchDelAtPop3(this)">
+								<label for="P-13652023f79-10161del_at_pop3_flg_enable_id">有効</label>
+								<input name="del_at_pop3_flg" type="radio" value="0" id="P-13652023f79-10161del_at_pop3_flg_disable_id" checked="checked" onclick="aipo.webmail.switchDelAtPop3(this)">
+								<label for="P-13652023f79-10161del_at_pop3_flg_disable_id">無効</label>
+								<span id="del_at_pop3_flg_on_field" style="display:">
+								<br><input name="del_at_pop3_before_days_flg" type="checkbox" value="1" id="P-13652023f79-10161del_at_pop3_for_days_flg_enable_id">
+								<select name="del_at_pop3_before_days" witdth="30%">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+								</select>
+								<label for="P-13652023f79-10161del_at_pop3_for_days_flg_enable_id">日以上前の受信メールを自動的に削除</label>
+								</span>
+								<br>
+								<div><small>
+								※ご使用のメールサーバーの設定によっては、<br>　メールが削除されないことがございます。
+								</small></div>
+								</td>
+								</tr><tr>
+								<td class="caption" style="width:160px;">
+								<span class="required">
+								<div style="white-space:normal;width:110px;">
+								受信済みメッセージは取り込まない
+								</div>
+								</span>
+								</td>
+								<td>
+								<input name="non_received_flg" type="radio" value="1" id="P-13652023f79-10161non_received_flg_enable_id" checked="checked">
+								<label for="P-13652023f79-10161non_received_flg_enable_id">有効</label>
+								<input name="non_received_flg" type="radio" value="0" id="P-13652023f79-10161non_received_flg_disable_id">
+								<label for="P-13652023f79-10161non_received_flg_disable_id">無効</label>
+								</td>
+								</tr>
+								<tr>
+								<td class="caption" style="width:160px;">
+								<span class="">
+								<div style="white-space:normal;width:110px;">
+								署名
+								</div>
+								</span>
+								</td>
+								<td><textarea class="text wide" name="signature" rows="10" cols="20"></textarea>
+								</td>
+								</tr>
+								</tbody>
+								</table>
+								<div class="center auiPopupButtons">
+								<input name="eventSubmit_doWebmail_insert_account" class="auiButtonAction" type="submit" value="追加する" onclick="aimluck.io.setHiddenValue(this);">
+								<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+								</div>
+								</form>
+								</div>
+								</div>
+
 						</div>
 						<!-- /modalDialog -->
 					</td>

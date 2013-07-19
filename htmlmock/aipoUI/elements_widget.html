@@ -81,7 +81,7 @@
 
 	<div class="menubar" id="menubar_hdInformation" style="display: none; width:310px; top:31px; right:270px;">
 		<ul>
-		<li><a href="#">スタートガイド</a></li>
+		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
 		<li><a href="http://www.aipo.com/support/" target="_blank">サポート</a></li>
 		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
 		</ul>
@@ -2394,9 +2394,9 @@
 <!-- /MAIN OUTER  -->
 
 <!-- FOOTER -->
-<div id="footer" class="clearfix">
+<!--div id="footer" class="clearfix">
 
-	<!-- START GUIDE -->
+	<-- START GUIDE
 	<div id="startGuide" style="display:none;">
 		<div class="close"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='40px';document.getElementById('guide_on').style.display='inline'"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"> 閉じる</a></div>
 		<div class="clearfix">
@@ -2410,13 +2410,13 @@
 			</div>
 		</div>
 	</div>
-	<!-- /START GUIDE -->
+	<-- /START GUIDE
 
 	<div id="footText">
 	<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
 	<div id="guide_on" style="display:inline;"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='170px';document.getElementById('guide_on').style.display='none'">スタートガイド</a></div>
 	</div>
-</div>
+</div-->
 <!-- /FOOTER -->
 
 
@@ -2713,6 +2713,36 @@ left = 「filters」の画面内X位置
 </div>
 <!-- /popup_3 -->
 
+
+<div class="modalDialogUnderlayWrapper" id="guide1" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
+
+<div id="guide2" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display:none; opacity: 1; left: 365px; top: 200px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+	<div class="auiPopup clearfix">
+		<table class="roundBlockWrapperTop">
+			<tbody>
+				<tr>
+					<td class="roundBlockTitle wide">スタートガイド</td>
+					<td class="roundBlockIcon last">
+						<div style="float:right"><img style="cursor:pointer" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')" id="dialogCloseButton" src="https://app.aipo.com/images/close.gif" alt="閉じる" width="19" height="20" border="0" align="top" title="閉じる"></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="roundBlockContent">
+			<div id="messageDiv"></div>
+			
+			<h3>みんなを招待しましょう</h3>
+			<p class="center mb10"><i class="icon-group fcGrayLight mr20" style="font-size:60px; vertical-align:middle"></i><a href="#" class="auiButtonAction w25">ユーザーを追加する</a></p>
+
+			<h3>新しいアプリを使ってみましょう</h3>
+			<p class="center mb10"><i class="icon-cloud-download fcGrayLight mr20" style="font-size:60px; vertical-align:middle"></i><a href="#" class="auiButtonAction w25">アプリを追加する</a></p>
+
+			<h3>みんなの画面を同じにしましょう</h3>
+			<p class="center mb10"><i class="icon-desktop fcGrayLight mr20" style="font-size:60px; vertical-align:middle"></i><a href="#" class="auiButtonAction w25">画面を統一する</a></p>
+		</div>
+	</div>
+</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
 
 </body>
 </html>

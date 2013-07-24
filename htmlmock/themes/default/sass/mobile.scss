@@ -302,6 +302,37 @@ input[type=password] {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* folder mng */
+/*
+.auiRowTable .d1 a,
+.auiRowTable .d2 a,
+.auiRowTable .d3 a,
+.auiRowTable .d4 a,
+.auiRowTable .d5 a,
+.auiRowTable .d6 a,
+.auiRowTable .d7 a,
+.auiRowTable .d8 a,
+.auiRowTable .d9 a,
+.auiRowTable .d10 a,
+.auiRowTable .d11 a,
+.auiRowTable .d12 a,
+.auiRowTable .d13 a,
+.auiRowTable .d14 a,
+.auiRowTable .d15 a,
+.auiRowTable .d16 a,
+.auiRowTable .d17 a,
+.auiRowTable .d18 a,
+.auiRowTable .d19 a,
+.auiRowTable .d20 a {
+	padding-left:0;
+}
+*/
+@for $i from 1 through 20 {
+    .auiRowTable .d#{$i} a {
+        padding-left:#{($i - 1) * 5 }px;
+    }
+}
+
 /***************************************************
 	auiMbTable
 --------------------------------------------------*/
@@ -853,6 +884,8 @@ input[type=password] {
 	bottom:44px;
 	min-width:150px;
 	max-width:300px;
+    max-height:250px;
+    overflow:auto;
 	/*padding:0 5px;*/
 	background:#ffffff;
 	border:solid 1px $gray;

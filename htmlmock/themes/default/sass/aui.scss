@@ -157,6 +157,7 @@ form.searchbox input.submit:active {
 }
 .hdUserName .auiIcon {
 	margin-bottom:2px;
+    vertical-align:middle;
 }
 *:first-child+html .hdUserName .auiIcon {
 	margin-bottom:1px;
@@ -164,6 +165,7 @@ form.searchbox input.submit:active {
 .hdUserName a:hover .auiIcon {
 	background-color:$gray;
 }
+
 * html .hdUserName a:hover .auiIcon {background-color:transparent;}/*IE6*/
 
 .hdUserName a:hover .auiIconSetting {background-position:0px -16px;}
@@ -419,11 +421,43 @@ img.avatar,
 	top:0;
 }
 
+.auiPopupHead {
+	padding:10px 0 10px 20px;
+	background:transparent url(../images/common/icon_p.gif) no-repeat left center;
+}
+
+.auiPopupHead .auiPopupTitle {
+    line-height:24px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.auiPopupTool {
+	float:right;
+}
+.auiPopupTool > div {
+	float:left;
+    margin-left:5px;
+}
+
+.auiPopupTool .auiButtonSmall {
+	padding:3px !important;
+    font-size:14px;
+    color:lighten($grayDark,20);
+}
+.auiPopupTool .auiButtonSmall:hover i {
+	color:$grayDark;
+}
+.auiPopupTool .auiButtonSmall span {
+	width:16px;
+    height:16px;
+}
+
 .auiPopupMeta {
 	width:100%;
 	margin-top:10px;
 }
-.auiPopupTitle {
+.auiPopupMeta .auiPopupTitle {
 	position:absolute;
 	max-width:90%;
 	overflow:hidden;
@@ -466,6 +500,7 @@ img.avatar,
 .auiPopupButtons .auiButtonSearch,
 .auiPopupButtons .auiButtonSmall,
 .auiPopupButtons .auiButtonDisabled,
+.auiPopupButtons .auiButtonIcon,
 .auiPopupButtons input[type=submit],
 .auiPopupButtons input[type=button],
 .auiPopupButtons input[type=reset],
@@ -1216,6 +1251,7 @@ button,
 .auiButtonSearch,
 .auiButtonSmall,
 .auiButtonDisabled,
+.auiButtonIcon,
 .auiSelectButton a {
     display: inline-block;
     *display: inline;
@@ -1295,6 +1331,10 @@ button.active,
 .auiButtonDisabled:focus,
 .auiButtonDisabled:active,
 .auiButtonDisabled.active,
+.auiButtonIcon:hover,
+.auiButtonIcon:focus,
+.auiButtonIcon:active,
+.auiButtonIcon.active,
 .auiSelectButton a:hover,
 .auiSelectButton a:focus,
 .auiSelectButton a:active {
@@ -1322,6 +1362,8 @@ button.active,
 .auiButtonSmall.active,
 .auiButtonDisabled:active,
 .auiButtonDisabled.active,
+.auiButtonIcon:active,
+.auiButtonIcon.active,
 .auiSelectButton a:active {
     background-color: #cccccc \9;
 }
@@ -1336,6 +1378,7 @@ button:first-child,
 .auiButtonSearch:first-child,
 .auiButtonSmall:first-child,
 .auiButtonDisabled:first-child,
+.auiButtonIcon:first-child,
 .auiSelectButton a:first-child {
     *margin-left: 0;
 }
@@ -1360,6 +1403,8 @@ button:focus,
 .auiButtonSmall:focus,
 .auiButtonDisabled:hover,
 .auiButtonDisabled:focus,
+.auiButtonIcon:hover,
+.auiButtonIcon:focus,
 .auiSelectButton a:hover,
 .auiSelectButton a:focus {
     color: #333333;
@@ -1378,6 +1423,7 @@ button:focus,
 .auiButtonSearch:focus,
 .auiButtonSmall:focus,
 .auiButtonDisabled:focus,
+.auiButtonIcon:focus,
 .auiSelectButton a:focus {
     outline: thin dotted #333;
     outline: 5px auto -webkit-focus-ring-color;
@@ -1404,6 +1450,8 @@ button.active,
 .auiButtonSmall.active,
 .auiButtonDisabled:active,
 .auiButtonDisabled.active,
+.auiButtonIcon:active,
+.auiButtonIcon.active,
 .auiSelectButton a:active {
     background-image: none;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -1415,6 +1463,7 @@ button.active,
 .auiButtonAction,
 .auiButtonBold,
 .auiButtonDisabled,
+.auiButtonIcon,
 .auiButtonSearch,
 .auiSelectButton a,
 input[type=submit],
@@ -1428,6 +1477,7 @@ button {
 *:first-child+html input[type=submit],
 *:first-child+html input.auiButton,
 *:first-child+html input.auiButtonAction,
+*:first-child+html input.auiButtonIcon,
 *:first-child+html input.auiButtonBold,
 *:first-child+html input.auiButtonSearch {
 	padding:0 2px;
@@ -1545,7 +1595,6 @@ input.auiButtonSearch.active {
 }
 
 
-/* other */
 .auiButton span {
 	display:table-cell;
     min-width:$inputHeight - 10;
@@ -1582,6 +1631,36 @@ input.auiButtonSearch.active {
 *:first-child+html .auiButton img,
 *:first-child+html .auiButtonSmall img {
 	padding:2px 0;
+}
+
+/* auiButtonIcon */
+.auiButtonIcon {
+    width:16px;
+	height:16px;
+	padding:3px !important;
+    font-size:15px;
+    color:lighten($grayDark,20);
+}
+.auiButtonIcon:hover i {
+    color:lighten($grayDark,20);
+}
+.auiButtonIcon span {
+	display:table-cell;
+    width:16px;
+	height:16px;
+	line-height:16px;
+	text-align:center;
+	vertical-align:middle;
+}
+.auiButtonIcon span,
+.auiButtonIcon i {
+	cursor:pointer;
+}
+*:first-child+html .auiButtonIcon span {
+	display:block;
+}
+*:first-child+html .auiButtonIcon i {
+	width:16px;
 }
 
 
@@ -1669,6 +1748,10 @@ input.auiButtonSearch.active {
 }
 .auiSelectButton .active a:hover span {
     cursor:default;
+}
+
+.auiSelectButton .auiIconArrowLeft {
+	margin-left:-4px !important;
 }
 
 /*
@@ -1926,7 +2009,6 @@ input.auiButtonSearch.active {
 	background:#f5f5f5;
 }
 
-
 /***************************************************
 	auiMultiTable
 --------------------------------------------------*/
@@ -1995,6 +2077,8 @@ input.auiButtonSearch.active {
 .auiDirectoryList .open .directory {
 	background:url(../images/icon/folder_open.gif) 4px 0.3em no-repeat;
 }
+
+/*
 .auiDirectoryList .d1 span {}
 .auiDirectoryList .d2 span {margin-left:10px;}
 .auiDirectoryList .d3 span {margin-left:20px;}
@@ -2015,6 +2099,18 @@ input.auiButtonSearch.active {
 .auiDirectoryList .d18 span {margin-left:170px;}
 .auiDirectoryList .d19 span {margin-left:180px;}
 .auiDirectoryList .d20 span {margin-left:190px;}
+*/
+@for $i from 1 through 20 {
+    .auiDirectoryList .d#{$i} span {
+        margin-left:#{($i - 1) * 10 }px;
+    }
+}
+
+@for $i from 1 through 20 {
+    .auiRowTable .d#{$i} a {
+        padding-left:#{($i - 1) * 15 }px;
+    }
+}
 
 /***************************************************
 	auiSakuin
@@ -3158,7 +3254,7 @@ IE6は透過PNGが利用できないため透過GIFへ置き換えている。
 	width:16px;
 	height:16px;
 	overflow:hidden;
-	vertical-align:middle;
+	vertical-align:baseline;
     @include border-radius(2px);
 	@include auiIconBackPNG();
 }
@@ -3167,6 +3263,11 @@ IE6は透過PNGが利用できないため透過GIFへ置き換えている。
 
 a.auiIcon:hover {background-color:$gray;}
 * html a.auiIcon:hover {background-color:transparent;}/*IE6*/
+
+*:first-child + html .auiIcon + .auiIcon {
+	margin-left:2px;
+}
+
 
 .auiIconClear {background-position:16px 0}
 
@@ -3311,13 +3412,13 @@ a.auiIconTrash:hover {background-position:0px -768px;}
 
 
 /***************************************************
-	auiIcon
+	auiIconArrow
 --------------------------------------------------*/
 .auiIconArrow {
 	display:inline-block;
 	width:15px;
 	height:18px;
-	vertical-align:middle;
+	vertical-align:baseline;
 	@include auiIconBackPNG();
 }
 * html .auiIconArrow {@include auiIconBackGIF()}

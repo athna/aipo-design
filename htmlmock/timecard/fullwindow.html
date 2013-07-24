@@ -1,22 +1,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Language" content="ja" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta http-equiv="Content-Script-Type" content="text/javascript" />
-    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
-    <meta name="robots" content="noindex,follow" />
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
-    <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" media="screen,tv,print" />
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" media="screen,tv,print" />
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" media="screen,tv,print" />
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body>
 <script type="text/javascript">
@@ -27,103 +30,62 @@
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
 
-
 <!-- WRAPPER -->
-<div id="wrapper"  style="margin-bottom : 15px">
+<div id="wrapper" style="margin-bottom:170px;">
 
 <!-- HEADER -->
 <div id="header" class="clearfix"><div class="inner">
+
 	<div class="hdSign">
-		<div class="hdLogo"><img src="../themes/default/images/logo_aipoplus_20120628.png" alt="Aipo+"/></div>
-   </div>
-   <div class="hdNavi">
-		<div class="hdMessege mb_hide"><a href="https://message.aipo.com" target="_blank"><div id="messagechecker" class="zero counter"></div>メッセージ</a></div>
-		<div class="hdActivity" title="お知らせ"><div id="activitycheckerContainer" class="dijitInline" ><div id="activitychecker" class="zero counter"></div><span class="mb_hide">お知らせ</span></div></div>
-			<div class="hdUserName">
-				<a href="javascript:void(0);" onclick="">
-																<img src="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/template/FileuploadFacePhotoScreen?uid=4&amp;t=1337907151000" class="avatar" alt="顔写真" />
-															<span class="useraccount">
-				 株式会社エイムラック  木村 一郎
-				</span>
-				</a>
-			</div>
-			<div class="hdLogout"><input type="submit" value="ログアウト" onclick=""/></div>
+		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
 	</div>
+
+	<div class="hdNavi">
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+		<div class="hdActivity" title="お知らせ">
+			<div>
+				<div id="activitychecker" class="zero counter">0</div>
+				<span class="mb_hide">お知らせ</span>
+			</div>
+		</div>
+		
+		<!-- /hdActivity -->
+
+		<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
+		<div class="hdSetting">
+			<a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_hdSetting').style.display!='block') {document.getElementById('menubar_hdSetting').style.display='block'}else{document.getElementById('menubar_hdSetting').style.display='none'}" title="カスタマイズ"></a>
+			<div class="menubar" id="menubar_hdSetting" style="position: absolute; display: none; ">
+			<ul>
+			<li><a href="#">個人設定</a></li>
+			<li class="last"><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+
 </div></div>
 <!-- /HEADER -->
-<script type="text/javascript">
-//<![CDATA[
-
-dojo.require("aipo.widget.DropdownActivityChecker");
-
-dojo.addOnLoad(function () {
-    var acHtml = document.getElementById("activitycheckerContainer");
-    if(acHtml){
-       var params = {
-            widgetId: "activitychecker",
-
-            iconURL: "themes/default/images/common/icon_message.gif",
-            iconWidth: "19",
-            iconHeight: "15",
-            iconAlt: "あなた宛のお知らせ"
-       };
-       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
-   }
-});
-
-//]]>
-</script>
 
 <!-- MAIN TAB -->
 <div id="auiTabs" class="clearfix">
 	<ul>
-		<li class="first  ">
-			<div class="tab active">
-				<div class="title"><a title="マイページ" href="">マイページ</a></div>
-				<div class="setting">
-					<a href="javascript:void(0);" id="" title="カスタマイズ"></a>
-					<div class="menubar body-child" id="" style="position:absolute; width=16em; display:none;">
-						<ul>
-							<li>
-							<a href="javascript:void(0);" onclick="">設定</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="  ">
-			<div class="tab activeNext">
-				<div class="title"><a title="画面確認用" href="">画面確認用</a></div>
-				<div class="setting">
-					<a href="javascript:void(0);" id="" class="customizeMenuIcon auiIcon auiIconSetting" onclick="" title="カスタマイズ"></a>
-					<div class="menubar body-child" id="" style="position:absolute; width=16em; display:none;">
-						<ul>
-							<li><a href="javascript:void(0);" onclick="">設定</a></li>
-							<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="  ">
-			<div class="tab">
-				<div class="title"><a title="個人設定" href="">個人設定</a></div>
-				<div class="setting"></div>
-			</div>
-		</li>
-		<li class=" last ">
-			<div class="tab">
-				<div class="title"><a title="システム管理" href="">システム管理</a></div>
-				<div class="setting"></div>
-			</div>
-		</li>
+    	<li class="first">
+        	<div class="tab active">
+                <div class="title"><a href="#">マイページ</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab activeNext">
+                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
 		<li class="addTab">
-			<a href="javascript:void(0);" onclick=""><span>+</span></a>
+			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
 		</li>
-	</ul>
+    </ul>
 </div>
-<input id="data-activecustomizeurl" type="hidden" value="" />
 <!-- /MAIN TAB -->
 
 <!-- roundWrapper -->
@@ -140,7 +102,7 @@ dojo.addOnLoad(function () {
 				</div>
 			</div></div>
 
-			<!-- PORTLET OUTER -->
+			<!-- auiPortletBody -->
 			<div class="auiPortletBody"><div class="inner">
 				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
 

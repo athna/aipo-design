@@ -178,6 +178,7 @@ form.searchbox input.submit:active {
 
 .hdUserName .auiIcon {
   margin-bottom: 2px;
+  vertical-align: middle;
 }
 
 *:first-child + html .hdUserName .auiIcon {
@@ -463,12 +464,48 @@ img.avatar,
   top: 0;
 }
 
+.auiPopupHead {
+  padding: 10px 0 10px 20px;
+  background: transparent url(../images/common/icon_p.gif) no-repeat left center;
+}
+
+.auiPopupHead .auiPopupTitle {
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.auiPopupTool {
+  float: right;
+}
+
+.auiPopupTool > div {
+  float: left;
+  margin-left: 5px;
+}
+
+.auiPopupTool .auiButtonSmall {
+  padding: 3px !important;
+  font-size: 14px;
+  color: #666666;
+}
+
+.auiPopupTool .auiButtonSmall:hover i {
+  color: #333333;
+}
+
+.auiPopupTool .auiButtonSmall span {
+  width: 16px;
+  height: 16px;
+}
+
 .auiPopupMeta {
   width: 100%;
   margin-top: 10px;
 }
 
-.auiPopupTitle {
+.auiPopupMeta .auiPopupTitle {
   position: absolute;
   max-width: 90%;
   overflow: hidden;
@@ -515,6 +552,7 @@ img.avatar,
 .auiPopupButtons .auiButtonSearch,
 .auiPopupButtons .auiButtonSmall,
 .auiPopupButtons .auiButtonDisabled,
+.auiPopupButtons .auiButtonIcon,
 .auiPopupButtons input[type=submit],
 .auiPopupButtons input[type=button],
 .auiPopupButtons input[type=reset],
@@ -1370,6 +1408,7 @@ button,
 .auiButtonSearch,
 .auiButtonSmall,
 .auiButtonDisabled,
+.auiButtonIcon,
 .auiSelectButton a {
   display: inline-block;
   *display: inline;
@@ -1457,6 +1496,10 @@ button.active,
 .auiButtonDisabled:focus,
 .auiButtonDisabled:active,
 .auiButtonDisabled.active,
+.auiButtonIcon:hover,
+.auiButtonIcon:focus,
+.auiButtonIcon:active,
+.auiButtonIcon.active,
 .auiSelectButton a:hover,
 .auiSelectButton a:focus,
 .auiSelectButton a:active {
@@ -1484,6 +1527,8 @@ button.active,
 .auiButtonSmall.active,
 .auiButtonDisabled:active,
 .auiButtonDisabled.active,
+.auiButtonIcon:active,
+.auiButtonIcon.active,
 .auiSelectButton a:active {
   background-color: #cccccc \9;
 }
@@ -1498,6 +1543,7 @@ button:first-child,
 .auiButtonSearch:first-child,
 .auiButtonSmall:first-child,
 .auiButtonDisabled:first-child,
+.auiButtonIcon:first-child,
 .auiSelectButton a:first-child {
   *margin-left: 0;
 }
@@ -1522,6 +1568,8 @@ button:focus,
 .auiButtonSmall:focus,
 .auiButtonDisabled:hover,
 .auiButtonDisabled:focus,
+.auiButtonIcon:hover,
+.auiButtonIcon:focus,
 .auiSelectButton a:hover,
 .auiSelectButton a:focus {
   color: #333333;
@@ -1540,6 +1588,7 @@ button:focus,
 .auiButtonSearch:focus,
 .auiButtonSmall:focus,
 .auiButtonDisabled:focus,
+.auiButtonIcon:focus,
 .auiSelectButton a:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
@@ -1566,6 +1615,8 @@ button.active,
 .auiButtonSmall.active,
 .auiButtonDisabled:active,
 .auiButtonDisabled.active,
+.auiButtonIcon:active,
+.auiButtonIcon.active,
 .auiSelectButton a:active {
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -1579,6 +1630,7 @@ button.active,
 .auiButtonAction,
 .auiButtonBold,
 .auiButtonDisabled,
+.auiButtonIcon,
 .auiButtonSearch,
 .auiSelectButton a,
 input[type=submit],
@@ -1593,6 +1645,7 @@ button {
 *:first-child + html input[type=submit],
 *:first-child + html input.auiButton,
 *:first-child + html input.auiButtonAction,
+*:first-child + html input.auiButtonIcon,
 *:first-child + html input.auiButtonBold,
 *:first-child + html input.auiButtonSearch {
   padding: 0 2px;
@@ -1730,7 +1783,6 @@ input.auiButtonSearch.active {
   background-color: #c0c0c0 \9;
 }
 
-/* other */
 .auiButton span {
   display: table-cell;
   min-width: 20px;
@@ -1774,6 +1826,41 @@ input.auiButtonSearch.active {
 *:first-child + html .auiButton img,
 *:first-child + html .auiButtonSmall img {
   padding: 2px 0;
+}
+
+/* auiButtonIcon */
+.auiButtonIcon {
+  width: 16px;
+  height: 16px;
+  padding: 3px !important;
+  font-size: 15px;
+  color: #666666;
+}
+
+.auiButtonIcon:hover i {
+  color: #666666;
+}
+
+.auiButtonIcon span {
+  display: table-cell;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.auiButtonIcon span,
+.auiButtonIcon i {
+  cursor: pointer;
+}
+
+*:first-child + html .auiButtonIcon span {
+  display: block;
+}
+
+*:first-child + html .auiButtonIcon i {
+  width: 16px;
 }
 
 /*
@@ -1882,6 +1969,10 @@ input.auiButtonSearch.active {
 
 .auiSelectButton .active a:hover span {
   cursor: default;
+}
+
+.auiSelectButton .auiIconArrowLeft {
+  margin-left: -4px !important;
 }
 
 /*
@@ -2257,6 +2348,32 @@ input.auiButtonSearch.active {
   background: url(../images/icon/folder_open.gif) 4px 0.3em no-repeat;
 }
 
+/*
+.auiDirectoryList .d1 span {}
+.auiDirectoryList .d2 span {margin-left:10px;}
+.auiDirectoryList .d3 span {margin-left:20px;}
+.auiDirectoryList .d4 span {margin-left:30px;}
+.auiDirectoryList .d5 span {margin-left:40px;}
+.auiDirectoryList .d6 span {margin-left:50px;}
+.auiDirectoryList .d7 span {margin-left:60px;}
+.auiDirectoryList .d8 span {margin-left:70px;}
+.auiDirectoryList .d9 span {margin-left:80px;}
+.auiDirectoryList .d10 span {margin-left:90px;}
+.auiDirectoryList .d11 span {margin-left:100px;}
+.auiDirectoryList .d12 span {margin-left:110px;}
+.auiDirectoryList .d13 span {margin-left:120px;}
+.auiDirectoryList .d14 span {margin-left:130px;}
+.auiDirectoryList .d15 span {margin-left:140px;}
+.auiDirectoryList .d16 span {margin-left:150px;}
+.auiDirectoryList .d17 span {margin-left:160px;}
+.auiDirectoryList .d18 span {margin-left:170px;}
+.auiDirectoryList .d19 span {margin-left:180px;}
+.auiDirectoryList .d20 span {margin-left:190px;}
+*/
+.auiDirectoryList .d1 span {
+  margin-left: 0px;
+}
+
 .auiDirectoryList .d2 span {
   margin-left: 10px;
 }
@@ -2331,6 +2448,86 @@ input.auiButtonSearch.active {
 
 .auiDirectoryList .d20 span {
   margin-left: 190px;
+}
+
+.auiRowTable .d1 a {
+  padding-left: 0px;
+}
+
+.auiRowTable .d2 a {
+  padding-left: 15px;
+}
+
+.auiRowTable .d3 a {
+  padding-left: 30px;
+}
+
+.auiRowTable .d4 a {
+  padding-left: 45px;
+}
+
+.auiRowTable .d5 a {
+  padding-left: 60px;
+}
+
+.auiRowTable .d6 a {
+  padding-left: 75px;
+}
+
+.auiRowTable .d7 a {
+  padding-left: 90px;
+}
+
+.auiRowTable .d8 a {
+  padding-left: 105px;
+}
+
+.auiRowTable .d9 a {
+  padding-left: 120px;
+}
+
+.auiRowTable .d10 a {
+  padding-left: 135px;
+}
+
+.auiRowTable .d11 a {
+  padding-left: 150px;
+}
+
+.auiRowTable .d12 a {
+  padding-left: 165px;
+}
+
+.auiRowTable .d13 a {
+  padding-left: 180px;
+}
+
+.auiRowTable .d14 a {
+  padding-left: 195px;
+}
+
+.auiRowTable .d15 a {
+  padding-left: 210px;
+}
+
+.auiRowTable .d16 a {
+  padding-left: 225px;
+}
+
+.auiRowTable .d17 a {
+  padding-left: 240px;
+}
+
+.auiRowTable .d18 a {
+  padding-left: 255px;
+}
+
+.auiRowTable .d19 a {
+  padding-left: 270px;
+}
+
+.auiRowTable .d20 a {
+  padding-left: 285px;
 }
 
 /***************************************************
@@ -3660,7 +3857,7 @@ IE6は透過PNGが利用できないため透過GIFへ置き換えている。
   width: 16px;
   height: 16px;
   overflow: hidden;
-  vertical-align: middle;
+  vertical-align: baseline;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -3688,6 +3885,10 @@ a.auiIcon:hover {
 }
 
 /*IE6*/
+*:first-child + html .auiIcon + .auiIcon {
+  margin-left: 2px;
+}
+
 .auiIconClear {
   background-position: 16px 0;
 }
@@ -4201,13 +4402,13 @@ a.auiIconTrash:hover {
 
 /*IE6*/
 /***************************************************
-	auiIcon
+	auiIconArrow
 --------------------------------------------------*/
 .auiIconArrow {
   display: inline-block;
   width: 15px;
   height: 18px;
-  vertical-align: middle;
+  vertical-align: baseline;
   background-image: url(../images/icon/auiIconSprites20130528.png);
   background-repeat: no-repeat;
 }

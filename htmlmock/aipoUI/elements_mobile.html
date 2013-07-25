@@ -44,30 +44,116 @@
 
 	<div class="hdSign">
 		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-   </div>
+	</div>
 
-    <div class="hdNavi">
+	<script>
+	function dispMenubar(obj,target) {
+		if(document.getElementById(target).style.display!='block') {
+			document.getElementById(target).style.display = 'block';
+		}else{
+			document.getElementById(target).style.display='none';
+		}
+	}
+	</script>
+
+	<div class="hdNavi">
 		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
 		<div class="hdActivity" title="お知らせ">
 			<div>
-				<div id="activitychecker" class="zero counter">0</div>
+				<div id="activitychecker" class="counter">5</div>
 				<span class="mb_hide">お知らせ</span>
 			</div>
 		</div>
-		
-		<!-- /hdActivity -->
+		<div class="hdInformation">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
+				<div class="counter zero">0</div>
+				<span>サポート</span>
+			</a>
+		</div>
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a>
+		</div>
+	</div>
 
-		<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
-		<div class="hdSetting">
-			<a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_hdSetting').style.display!='block') {document.getElementById('menubar_hdSetting').style.display='block'}else{document.getElementById('menubar_hdSetting').style.display='none'}" title="カスタマイズ"></a>
-			<div class="menubar" id="menubar_hdSetting" style="position: absolute; display: none; ">
-			<ul>
-			<li><a href="#">個人設定</a></li>
-			<li class="last"><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+	<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
+		<ul>
+		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
+		<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+		</ul>
+
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">Aipo.comからのお知らせ</div>
+			<ul class="tipInfo">
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
 			</ul>
+			<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
+		</div>
+
+		<!-- ##################################################
+		●開発担当者へ
+				
+		twitter設定前は下記を表示。
+		タイトルの（）内は削ってください。
+
+		################################################## -->
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
+			<div class="tipBody">
+				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+			</div>
+		</div>
+
+		<!-- ##################################################
+		●開発担当者へ
+				
+		twitter設定後は下記を表示。
+		タイトルの（）内は削ってください。
+
+		################################################## -->
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
+			<div class="tipBody">
+				<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+				<textarea></textarea>
+				<div class="clearfix mt5">
+					<div class="floatLeft fs11 fcGray">
+						これまでの獲得容量(全社)：5MB<br>
+						<a href="#" class="fcGray">twitter連携の設定を解除</a>
+					</div>
+					<div class="floatRight">
+						<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tipDivider"></div>
+		<div class="tipBox tipFoot clearfix">
+			<div class="capacity">
+				100MB(10%) / 1024MB を使用中
+			</div>
+			<div class="social">
+				<a href="https://twitter.com/Aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+				<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
 			</div>
 		</div>
 	</div>
+
+	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+		<ul>
+		<li><a href="#">個人設定</a></li>
+		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+		</ul>
+	</div>
+
 
 </div></div>
 

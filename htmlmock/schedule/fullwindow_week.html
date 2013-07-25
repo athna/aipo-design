@@ -1,22 +1,25 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Language" content="ja"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title></title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta http-equiv="Content-Style-Type" content="text/css"/>
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta name="robots" content="noindex,follow"/>
-    <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body>
 <script type="text/javascript">
@@ -35,35 +38,128 @@
 
 	<div class="hdSign">
 		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-   </div>
-
-    <div class="hdNavi">
-		<!--
-		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
-		-->
-		<div class="hdActivity" title="あなた宛のお知らせ">
-        	<div class="activityField" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='activityField'}else{this.className='activityField active'};">
-                <div class="dijitRight">
-                    <div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="#" widgetid="activitycheckerContainer">
-                        <div class="dijitRight">
-                            <span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><span class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" popupactive="true"><img src="../themes/default/images/icon/icon_message.png" alt="あなた宛のお知らせ"></span>
-                            <div style="display: block; " id="activitychecker"><span class="activitychecker-right"><span id="activitychecker-counter" class="activitychecker-left" style="display: block; ">99</span></span></div>
-                            <select name="" id="" size="10" multiple="multiple" style="display:none" dojoattachpoint="selectNode"></select><input type="hidden" id="" name="" value="" dojoattachpoint="valueNode"><span name="" id="" dojoattachpoint="inputNode"></span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-		</div>
-		<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
-		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
 	</div>
+
+	<script>
+	function dispMenubar(obj,target) {
+		if(document.getElementById(target).style.display!='block') {
+			document.getElementById(target).style.display = 'block';
+		}else{
+			document.getElementById(target).style.display='none';
+		}
+	}
+	</script>
+	<!--div class="hdNavi_v2">
+		<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
+		<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
+		<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="icon-caret-down"></i></a>
+		</div>
+	</div-->
+
+	<div class="hdNavi">
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+		<div class="hdActivity" title="お知らせ">
+			<div>
+				<div id="activitychecker" class="counter">5</div>
+				<span class="mb_hide">お知らせ</span>
+			</div>
+		</div>
+		<div class="hdInformation">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
+				<div class="counter zero">0</div>
+				<span>ヘルプ</span>
+			</a>
+		</div>
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a>
+		</div>
+	</div>
+
+	<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
+		<ul>
+		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
+		<li><a href="http://www.aipo.com/support/" target="_blank">サポート</a></li>
+		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+		</ul>
+
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">Aipo.comからのお知らせ</div>
+			<ul class="tipInfo">
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+			</ul>
+		</div>
+
+		<!-- ##################################################
+		●開発担当者へ
+				
+		twitter設定前は下記を表示。
+		タイトルの（）内は削ってください。
+
+		################################################## -->
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
+			<div class="tipBody">
+				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+			</div>
+		</div>
+
+		<!-- ##################################################
+		●開発担当者へ
+				
+		twitter設定後は下記を表示。
+		タイトルの（）内は削ってください。
+
+		################################################## -->
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
+			<div class="tipBody">
+				<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+				<textarea></textarea>
+				<div class="clearfix mt5">
+					<div class="floatLeft fs11 fcGray">
+						これまでの獲得容量(全社)：5MB<br>
+						<a href="#" class="fcGray">twitter連携の設定を解除</a>
+					</div>
+					<div class="floatRight">
+						<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tipDivider"></div>
+		<div class="tipBox tipFoot clearfix">
+			<div class="capacity">
+				100MB(10%) / 1024MB を使用中
+			</div>
+			<div class="social">
+				<a href="https://twitter.com/Aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+				<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+		<ul>
+		<li><a href="#">個人設定</a></li>
+		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+		</ul>
+	</div>
+
 
 </div></div>
 <!-- /HEADER -->
 
-
-<!-- roundWrapper -->
-<div id="roundWrapper">
 
 <!-- MAIN TAB -->
 <div id="auiTabs" class="clearfix">
@@ -751,7 +847,7 @@
 <div class="small">10:00-10:30</div>
 <div class="small"><a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=1&amp;userid=4&amp;view_date=2012-02-20', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)">全体朝礼</a></div>
 </div>
-<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<i class="auiIcon auiIconRepeat" title="繰り返し"></i>
     </td>
 
     <td colspan="2">
@@ -767,8 +863,8 @@
 <div class="small"><a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=10&amp;userid=4&amp;view_date=2012-02-20', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)">リクルート活<wbr>動</a></div>
 </div>
 <img class="icon_schedule" src="images/schedule/schedule_duplicate.gif" alt="重複スケジュール" title="重複スケジュール">
-<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
-<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+<i class="auiIcon auiIconRepeat" title="繰り返し"></i>
+<i class="auiIcon auiIconTmpreserve " title="仮スケジュール"></i>
     </td>
 
     <td colspan="4" style="background-color:#EDF1F2">
@@ -776,7 +872,7 @@
 <div class="small">16:00-17:00</div>
 <div class="small"><a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=4&amp;userid=4&amp;view_date=2012-02-20', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)">営業会議</a></div>
 </div>
-<img class="icon_schedule" src="images/schedule/schedule_repeat.gif" alt="繰り返し" title="繰り返し">
+<i class="auiIcon auiIconRepeat" title="繰り返し"></i>
     </td>
 
     <td colspan="20">
@@ -805,7 +901,7 @@
 <div class="small"><a class="small" href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135968e6692-10013?template=ScheduleDetailScreen&amp;entityid=9&amp;userid=4&amp;view_date=2012-02-20', 'P-135968e6692-10013', aipo.schedule.onLoadScheduleDetail)">定例会議</a></div>
 </div>
 <img class="icon_schedule" src="images/schedule/schedule_duplicate.gif" alt="重複スケジュール" title="重複スケジュール">
-<img class="icon_schedule" src="images/schedule/schedule_tmpreserve.gif" alt="仮スケジュール" title="仮スケジュール">
+<i class="auiIcon auiIconTmpreserve " title="仮スケジュール"></i>
     </td>
 
 

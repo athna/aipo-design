@@ -2189,7 +2189,16 @@ div.off, td.off {
   background: #efefef url(../images/common/bg_slash.gif) repeat left top;
 }
 
-table.calendar {
+.calendarWrapper {
+  overflow-x: auto;
+}
+
+*:first-child + html .calendarWrapper {
+  padding-bottom: 15px;
+  overflow-y: hidden;
+}
+
+.calendar {
   margin-top: 5px;
   margin-bottom: 5px;
   border-collapse: collapse;
@@ -2198,17 +2207,17 @@ table.calendar {
   border-top: 2px solid #ddd;
 }
 
-table.calendar td.calendarHeader {
+.calendar td.calendarHeader {
   background: #ddd;
 }
 
-table.calendar td {
+.calendar td {
   border: 1px solid #ddd;
   padding: 2px;
   vertical-align: top;
 }
 
-table.calendar th {
+.calendar th {
   border: 1px solid #ddd;
   padding: 0;
   font-weight: normal;
@@ -2216,11 +2225,11 @@ table.calendar th {
   font-size: 0.9em;
 }
 
-table.calendar th.groupOneday {
+.calendar th.groupOneday {
   width: auto;
 }
 
-table.calendar th.groupWeekly {
+.calendar th.groupWeekly {
   border: 1px solid #ddd;
   padding: 0;
   font-weight: normal;
@@ -2228,59 +2237,59 @@ table.calendar th.groupWeekly {
   width: 12.5%;
 }
 
-table.calendar th.sunday {
+.calendar th.sunday {
   background: #ffefe5 url(../images/common/bg_slash.gif) repeat left top;
 }
 
-table.calendar th.saturday {
+.calendar th.saturday {
   background: #ebf0f6 url(../images/common/bg_slash.gif) repeat left top;
 }
 
-table.calendar th.holiday {
+.calendar th.holiday {
   background: #ffefe5 url(../images/common/bg_slash.gif) repeat left top;
 }
 
-table.calendar th.today {
+.calendar th.today {
   background: #ddffdd url(../images/common/bg_slash.gif) repeat left top;
 }
 
-table.calendar div.calendarDay {
+.calendar div.calendarDay {
   color: #666;
   margin: 0;
   padding: 0 2px 0 2px;
   vertical-align: top;
 }
 
-table.calendar td.day {
+.calendar td.day {
   background-color: #FFFFE5;
   border-bottom: none;
 }
 
-table.calendar td.sunday2 {
+.calendar td.sunday2 {
   background-color: #FFDFD5;
 }
 
-table.calendar td.saturday2 {
+.calendar td.saturday2 {
   background-color: #DBE0F6;
 }
 
-table.calendar td.holiday2 {
+.calendar td.holiday2 {
   background-color: #FFDFD5;
 }
 
-table.calendar td.off2 {
+.calendar td.off2 {
   background-color: #DDD;
 }
 
-table.calendar div.calendarBody {
+.calendar div.calendarBody {
   height: 60px;
 }
 
-table.calendar div.calendarFooter {
+.calendar div.calendarFooter {
   height: 17px;
 }
 
-table.calendar div {
+.calendar div {
   overflow: hidden;
 }
 
@@ -2340,12 +2349,12 @@ div.calendarScheduleDiv .addSchedule:hover {
   text-decoration: none !important;
 }
 
-table.calendar td.term {
+.calendar td.term {
   border-top: none;
   border-bottom: none;
 }
 
-table.calendar div.calerndarTermScheduleDiv {
+.calendar div.calerndarTermScheduleDiv {
   font-weight: normal;
   text-align: center;
   border: 1px solid #9c9;
@@ -2353,7 +2362,7 @@ table.calendar div.calerndarTermScheduleDiv {
   overflow: hidden;
 }
 
-table.calendar td.topNone {
+.calendar td.topNone {
   border-top: none;
 }
 
@@ -2370,7 +2379,7 @@ div.calerndarTermScheduleDiv a:hover {
   padding: 0;
 }
 
-table.calendar div.calerndarTodoDiv {
+.calendar div.calerndarTodoDiv {
   padding: 0;
   font-weight: normal;
   text-align: center;
@@ -4809,6 +4818,10 @@ div.userInfo {
 
 .fcGrayLight {
   color: #d2d2d2 !important;
+}
+
+.fcOrange {
+  color: #ff9900 !important;
 }
 
 .colorTwitter {

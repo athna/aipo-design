@@ -358,6 +358,38 @@ h2.title:first-child {
 				</div>
 
 
+				<h2 class="title">※IE7での&lt;input&gt;、&lt;button&gt;ボタンについて</h2>
+				<p>IE7以前では&lt;input&gt;、&lt;button&gt;によるボタンの幅を、個別にwidth指定しなければ制御ができない。</p>
+				<p>下記のようにボタンの文字数次第で、CSSで制御できない左右の余白が比例的に増えていくため。</p>
+				<table class="listTable">
+				<tr>
+				<th>&lt;input&gt;によるボタン</th>
+				<td><input type="button" class="auiButton" value="追加" /></td>
+				<td><input type="button" class="auiButton" value="ボタン" /></td>
+				<td><input type="button" class="auiButton" value="追加する" /></td>
+				<td><input type="button" class="auiButton" value="ボタン名長い場合" /></td>
+				<td><input type="button" class="auiButton" value="さらにボタン名が長い場合" /></td>
+				</tr>
+				<tr>
+				<th>&lt;a&gt;によるボタン</th>
+				<td><a href="#" class="auiButton">追加</a></td>
+				<td><a href="#" class="auiButton">ボタン</a></td>
+				<td><a href="#" class="auiButton">追加する</a></td>
+				<td><a href="#" class="auiButton">ボタン名長い場合</a></td>
+				<td><a href="#" class="auiButton">さらにボタン名が長い場合</a></td>
+				<tr>
+				<th>&lt;input&gt;を100px固定</th>
+				<td><input type="button" class="auiButton" value="追加" style="width:100px" /></td>
+				<td><input type="button" class="auiButton" value="ボタン" style="width:100px" /></td>
+				<td><input type="button" class="auiButton" value="追加する" style="width:100px" /></td>
+				<td><input type="button" class="auiButton" value="ボタン名長い場合" style="width:100px" /></td>
+				<td><input type="button" class="auiButton" value="さらにボタン名が長い場合" style="width:100px" /></td>
+				</tr>
+				</table>
+				
+				ほかブラウザとボタンサイズを一致させるには、個別width指定か、&lt;input&gt;、&lt;button&gt;以外にボタンクラスを適用しonLoadでコールするのが好ましい。
+
+
 				<h2 class="title">auiSelectButton</h2>
 				
 				<table class="listTable wide">

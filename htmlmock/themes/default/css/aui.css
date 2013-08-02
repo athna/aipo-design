@@ -45,7 +45,6 @@ span[type="button"] {
 #header {
   padding-top: 5px;
   height: 35px;
-  min-width: 800px;
   /*background:url(../images/head_bg.png) repeat-x left bottom; **reserved**/
   /*overflow:hidden;*/
 }
@@ -809,7 +808,6 @@ img.avatar,
   position: fixed;
   bottom: 0;
   width: 100%;
-  min-width: 800px;
   margin: 0;
   font-size: 0.9em;
   text-align: center;
@@ -907,7 +905,6 @@ img.avatar,
 
 #auiTabs ul {
   position: relative;
-  min-width: 800px;
   padding: 0 20px;
   margin: 0;
   white-space: nowrap;
@@ -1399,7 +1396,8 @@ button,
 .auiButtonSmall,
 .auiButtonDisabled,
 .auiButtonIcon,
-.auiSelectButton a {
+.auiSelectButton a,
+.auiWidget .auiSelectButton a {
   display: inline-block;
   *display: inline;
   padding: 4px 12px;
@@ -1902,7 +1900,8 @@ input.auiButtonSearch.active {
   line-height: 1;
 }
 
-.auiSelectButton a {
+.auiSelectButton a,
+.auiWidget .auiSelectButton a {
   display: block;
   margin: 0 -1px;
   padding: 0 !important;
@@ -1969,44 +1968,11 @@ input.auiButtonSearch.active {
   margin-left: -4px !important;
 }
 
-/*
-.auiSelectButton a {
-	display:block;
-    margin:0 -1px;
-    padding:0 !important;
-    text-decoration:none;
-    text-align:center;
-    height:$inputHeight;
-    line-height:$inputHeight;
-    min-width:$inputHeight - 4;
-	@include auiButtonStyle();
-    border-left-color:#dcdcdc;
-    border-right-color:#dcdcdc;
-}
-.auiWidget .auiSelectButton a {
-	@include gradient-vertical(#fff, $grayLighter);
-}
-.auiSelectButton a:hover,
-.auiWidget .auiSelectButton a:hover {
-	color:$black !important;
-	@include gradient-vertical(#eee,#e1e1e1);
-}
-.auiSelectButton a:active,
-.auiWidget .auiSelectButton a:active {
-	@include gradient-vertical(#ddd,#eee);
+.auiWidget .auiSelectButton span {
+  padding: 0;
+  background-image: none;
 }
 
-.auiSelectButton a:hover span {
-	color:$black;
-}
-.auiSelectButton a span {
-	display:inline !important;
-	padding:0 !important;
-    background-image:none !important;
-    cursor:pointer;
-}
-
-*/
 /***************************************************
 	auiMultiSelector
 --------------------------------------------------*/
@@ -2014,9 +1980,17 @@ input.auiButtonSearch.active {
   margin: -5px 0;
 }
 
+*:first-child + html .auiMultiSelector.auiSummaryMeta {
+  margin: 0 0 10px 0;
+}
+
 .auiMultiSelector .floatLeft,
 .auiMultiSelector .floatRight {
   margin: 5px 0;
+}
+
+.auiMultiSelector .auiSelectButton ul {
+  white-space: nowrap;
 }
 
 /***************************************************
@@ -2097,6 +2071,7 @@ input.auiButtonSearch.active {
   height: 32px;
   line-height: 32px !important;
   margin: 0 5px;
+  white-space: nowrap;
 }
 
 .auiSummaryTitle {
@@ -2738,10 +2713,11 @@ textarea,
 select {
   /*margin:1px 0;*/
   border: solid 1px #ccc;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
 
 input[type=text],
@@ -2753,6 +2729,7 @@ input[type=password] {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #c9c9c9;
   -webkit-box-sizing: border-box;
@@ -2773,6 +2750,7 @@ input[type=password] {
 select {
   min-height: 32px;
   padding: 0.25em;
+  max-width: 300px;
 }
 
 *:first-child + html select {
@@ -2781,8 +2759,6 @@ select {
 }
 
 form textarea {
-  border-radius: 3px;
-  -ms-border-radius: 3px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;

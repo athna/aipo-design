@@ -48,7 +48,6 @@ span[type="button"] {
 #header {
 	padding-top:5px;
 	height:35px;
-    min-width:800px;
 	/*background:url(../images/head_bg.png) repeat-x left bottom; **reserved**/
 	/*overflow:hidden;*/
 }
@@ -720,7 +719,6 @@ img.avatar,
 	position:fixed;
 	bottom:0;
 	width:100%;
-    min-width:800px;
 	margin:0;
 	font-size:0.9em;
 	text-align:center;
@@ -806,7 +804,6 @@ img.avatar,
 }
 #auiTabs ul {
 	position:relative;
-    min-width:800px;
 	padding:0 20px;
 	margin:0;
 	white-space:nowrap;
@@ -1243,7 +1240,8 @@ button,
 .auiButtonSmall,
 .auiButtonDisabled,
 .auiButtonIcon,
-.auiSelectButton a {
+.auiSelectButton a,
+.auiWidget .auiSelectButton a {
     display: inline-block;
     *display: inline;
     padding: 4px 12px;
@@ -1702,7 +1700,8 @@ input.auiButtonSearch.active {
     padding:0;
     line-height:1;
 }
-.auiSelectButton a {
+.auiSelectButton a,
+.auiWidget .auiSelectButton a {
 	display:block;
     margin:0 -1px;
     padding:0 !important;
@@ -1748,55 +1747,27 @@ input.auiButtonSearch.active {
 	margin-left:-4px !important;
 }
 
-/*
-.auiSelectButton a {
-	display:block;
-    margin:0 -1px;
-    padding:0 !important;
-    text-decoration:none;
-    text-align:center;
-    height:$inputHeight;
-    line-height:$inputHeight;
-    min-width:$inputHeight - 4;
-	@include auiButtonStyle();
-    border-left-color:#dcdcdc;
-    border-right-color:#dcdcdc;
+.auiWidget .auiSelectButton span {
+	padding:0;
+    background-image:none;
 }
-.auiWidget .auiSelectButton a {
-	@include gradient-vertical(#fff, $grayLighter);
-}
-.auiSelectButton a:hover,
-.auiWidget .auiSelectButton a:hover {
-	color:$black !important;
-	@include gradient-vertical(#eee,#e1e1e1);
-}
-.auiSelectButton a:active,
-.auiWidget .auiSelectButton a:active {
-	@include gradient-vertical(#ddd,#eee);
-}
-
-.auiSelectButton a:hover span {
-	color:$black;
-}
-.auiSelectButton a span {
-	display:inline !important;
-	padding:0 !important;
-    background-image:none !important;
-    cursor:pointer;
-}
-
-*/
-
 /***************************************************
 	auiMultiSelector
 --------------------------------------------------*/
 .auiMultiSelector.auiSummaryMeta {
 	margin:-5px 0;
 }
+*:first-child + html .auiMultiSelector.auiSummaryMeta {
+	margin:0 0 10px 0;
+}
 .auiMultiSelector .floatLeft,
 .auiMultiSelector .floatRight {
 	margin:5px 0;
 }
+.auiMultiSelector .auiSelectButton ul {
+	white-space:nowrap;
+}
+
 /***************************************************
 	auiSearch
 --------------------------------------------------*/
@@ -1865,6 +1836,7 @@ input.auiButtonSearch.active {
 	height:$inputHeight + 2;
 	line-height:$inputHeight + 2 !important;
     margin:0 5px;
+    white-space:nowrap;
 }
 .auiSummaryTitle {
 	line-height:2em;
@@ -2290,10 +2262,7 @@ textarea,
 select {
 	/*margin:1px 0;*/
 	border:solid 1px #ccc;
-	-webkit-border-radius:2px;
-	-moz-border-radius:2px;
-	-ms-border-radius:2px;
-	border-radius:2px;
+    @include border-radius(3px);
 }
 input[type=text],
 input[type=password] {
@@ -2301,10 +2270,7 @@ input[type=password] {
 	/*padding:0 2px;*/
 	padding:4px 2px;
 	vertical-align:middle;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
+    @include border-radius(3px);
 	border:1px solid #c9c9c9;
     @include box-sizing(border-box);
 	background-color:#fff;
@@ -2319,6 +2285,7 @@ input[type=password] {
 select {
 	min-height:$inputHeight +2;
 	padding:0.25em;
+    max-width:300px;
 }
 *:first-child + html select {
     height:$inputHeight +2;
@@ -2326,8 +2293,6 @@ select {
 }
 
 form textarea {
-	border-radius:3px;
-	-ms-border-radius:3px;
     @include box-sizing(border-box);
 	background-color:#fff;
 }
@@ -3442,13 +3407,12 @@ a.auiIconTrash:hover {background-position:0px -768px;}
 * html .auiIconArrow {@include auiIconBackGIF()}
 .auiIconArrowLeft {background-position:0 -367px;}
 .auiIconArrowLeft_w {background-position:0 -383px;}
-.auiIconArrowLeftW {background-position:0 -623px;}
+.auiIconArrowLeftW{background-position:0 -623px;}
 .auiIconArrowRight {background-position:0 -399px;}
 .auiIconArrowRight_w {background-position:0 -417px;}
 .auiIconArrowRightW {background-position:0 -655px;}
 .auiIconArrowBottom {background-position:0 -431px;}
 .auiIconArrowTop {background-position:0 -463px;}
-
 
 /* auiAbsLayer ********************/
 .auiAbsLayer {

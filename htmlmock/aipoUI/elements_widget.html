@@ -41,14 +41,20 @@
 	</div>
 
 	<script>
-	function dispMenubar(obj,target) {
-		if(document.getElementById(target).style.display!='block') {
-			document.getElementById(target).style.display = 'block';
+	function popupToggle($this,$target) {
+		if(document.getElementById($target).style.display=='none'){
+			document.getElementById($target).style.display='block'
 		}else{
-			document.getElementById(target).style.display='none';
+			document.getElementById($target).style.display='none'
 		}
+		if($this.className.indexOf('active')>0){
+			$this.className = $this.className.replace(' active','');
+		}else{
+			$this.className += ' active'
+		};
 	}
 	</script>
+
 	<!--div class="hdNavi_v2">
 		<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
 		<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
@@ -65,22 +71,51 @@
 
 
 		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
 					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
 						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
 						<span class="mb_hide">お知らせ</span>
+						<span class="pc_hide"><i class="icon-comment"></i></span>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="hdInformation">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="informationcheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-informationcheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="informationcheckerContainer_label" id="informationcheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="informationcheckerContainer_label" onclick="dispMenubar(this,'menubar_hdInformation')">
-						<div id="informationchecker" class="informationcheckerstyle counter">5</div>
+		<div class="hdInformation" title="サポート">
+			<div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+						<div id="supportchecker" class="counter zero">0</div>
 						<span class="mb_hide">サポート</span>
+						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
 					</div>
 				</div>
 			</div>
@@ -94,79 +129,8 @@
 		</div-->
 
 		<div class="hdUserName">
-			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+			<a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')">
 				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a>
-		</div>
-	</div>
-
-	<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
-		<ul>
-		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
-		<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
-		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
-		</ul>
-
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">Aipo.comからのお知らせ</div>
-			<ul class="tipInfo">
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-			</ul>
-			<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
-		</div>
-
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定前は下記を表示。
-		タイトルの（）内は削ってください。
-
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
-			<div class="tipBody">
-				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
-				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
-			</div>
-		</div>
-
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定後は下記を表示。
-		タイトルの（）内は削ってください。
-
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
-			<div class="tipBody">
-				<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
-				<textarea></textarea>
-				<div class="clearfix mt5">
-					<div class="floatLeft fs11 fcGray">
-						これまでの獲得容量(全社)：5MB<br>
-						<a href="#" class="fcGray">twitter連携の設定を解除</a>
-					</div>
-					<div class="floatRight">
-						<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="tipDivider"></div>
-		<div class="tipBox tipFoot clearfix">
-			<div class="capacity hide">
-				100MB(10%) / 1024MB を使用中
-			</div>
-			<div class="social">
-				<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
-				<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
-			</div>
 		</div>
 	</div>
 
@@ -3128,7 +3092,7 @@
 </div>
 
 
-<div class="dijitPopup" style="z-index: 1000; left:1090px; visibility: visible; top: 32px; ">
+<div class="dijitPopup" style="z-index: 1000; visibility: visible; top:30px; right:340px; ">
     <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
     <div class="activityPopup">
     <div class="clearfix">
@@ -3137,50 +3101,46 @@
     
     <h2>あなた宛のお知らせ</h2>
     <div style="background:#ffffff;padding:2px;">
-    <ul class="activityList">
-    <li class="unread">
-    <div class="meta">12月26日 &nbsp; 山本 次郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3088&amp;view_date=2012-01-10-00-00&amp;activityId=3563&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3563)">予定「PMI様訪問」を編集しました。</a>
-    </li>
-    <li>
-    <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
-    <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle">
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=GadgetsPopupScreen&amp;view=popup&amp;aid=61&amp;activityId=3518&amp;eid=804&amp;mid=487&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3518)">あなたの投稿にコメントしました。</a>
-    </li>
-    <li>
-    <div class="meta">12月22日 &nbsp; 山中 愛子</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=NoteDetailScreen&amp;entityid=356&amp;activityId=3505&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3505)">かねこさん様より伝言「伝言をお願いします。」がありました。</a>
-    </li>
-    <li>
-    <div class="meta">12月21日 &nbsp; 山本 次郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3037&amp;view_date=2011-12-22-00-00&amp;activityId=3467&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3467)">予定「ハイソル様修正連絡」を追加しました。</a>
-    </li>
-    <li>
-    <div class="meta">12月21日 &nbsp; 田村 三郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ReportDetailScreen&amp;entityid=4&amp;activityId=3441&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3441)">報告書「form.aipo.comのボタン画像にテキストが表示されます」の確認依頼を出しました。</a>
-    </li>
-    </ul>
+
+		<div class="auiSummaryMeta clearfix">
+			<div class="floatRight">
+				<div class="count">1 - 5 / 20</div>
+				<div class="auiSelectButton floatLeft">
+				  <ul>
+					<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+					<li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+				  </ul>
+				</div>
+			</div>
+		</div>
+
+		<ul class="activityList">
+		<li class="unread">
+		<div class="meta">12月26日 &nbsp; 山本 次郎</div>
+		<a href="javascript:void(0);" onclick="">予定「お客様<wbr>訪問」を編<wbr>集しました。<wbr></a>
+		</li>
+		<li>
+		<div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+		<img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle">
+		<a href="javascript:void(0);" onclick="">あなたの投稿<wbr>にコメントし<wbr>ました。</a>
+		</li>
+		<li>
+		<div class="meta">12月22日 &nbsp; 山中 愛子</div>
+		<a href="javascript:void(0);" onclick="">山田様<wbr>より伝言「伝言をお願いします。」があ<wbr>りました。</a>
+		</li>
+		<li>
+		<div class="meta">12月21日 &nbsp; 山本 次郎</div>
+		<a href="javascript:void(0);" onclick="">予定「お客様<wbr>修正連絡<wbr>」を追加しました。</a>
+		</li>
+		<li>
+		<div class="meta">12月21日 &nbsp; 田村 三郎</div>
+		<a href="javascript:void(0);" onclick="">報告書「業務報告」<wbr>の確認依頼を<wbr>出しました。<wbr></a>
+		</li>
+		</ul>
     
-    <div class="clearfix">
-      <div class="alignleft small">
-    
-        <div class="pagination">
-          <ul>
-            <li class="prev disabled"><a href="javascript:void(0);" class="small">前へ</a></li>
-            <li class="next"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">次へ</a></li>
-            <li class="selected"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=1');" class="small">1</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">2</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=3');" class="small">3</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=4');" class="small">4</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=5');" class="small">5</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <p class="rightBtn">
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
-    </p>
+		<p class="rightBtn">
+		<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
+		</p>
     
     </div>
     </div>
@@ -3188,9 +3148,6 @@
     </div>
     </div>
 </div>
-
-
-
 
 
 <!-- menubar_auiFilter_1 -->
@@ -3275,148 +3232,88 @@ left = 「filters」の画面内X位置
 <!-- /menubar_auiFilter_2 -->
 
 
-
-<!-- popup_3 -->
-<div id="popup_3" class="dijitPopup" style="z-index: 1000; display:none; ">
-<table cellspacing="0" cellpadding="0" class="dijitCalendarContainer" id="" widgetid="" style="width:280px;">
-	<thead>
-		<tr>
-			<td colspan="7" class="dijitCalendarTimeContainer">
-			<div id="timeField" style="display:">
-				<span id="startTimeSpan">
-				<select name="start_date_hour" size="1">
-								<option value="0">0時</option>
-								<option value="1">1時</option>
-								<option value="2">2時</option>
-								<option value="3">3時</option>
-								<option value="4">4時</option>
-								<option value="5">5時</option>
-								<option value="6">6時</option>
-								<option value="7">7時</option>
-								<option value="8">8時</option>
-								<option value="9" selected="selected">9時</option>
-								<option value="10">10時</option>
-								<option value="11">11時</option>
-								<option value="12">12時</option>
-								<option value="13">13時</option>
-								<option value="14">14時</option>
-								<option value="15">15時</option>
-								<option value="16">16時</option>
-								<option value="17">17時</option>
-								<option value="18">18時</option>
-								<option value="19">19時</option>
-								<option value="20">20時</option>
-								<option value="21">21時</option>
-								<option value="22">22時</option>
-								<option value="23">23時</option>
-								</select>
-					<select name="start_date_minute" size="1">
-					<option value="0" selected="selected">00分</option>
-					<option value="5">05分</option>
-					<option value="10">10分</option>
-					<option value="15">15分</option>
-					<option value="20">20分</option>
-					<option value="25">25分</option>
-					<option value="30">30分</option>
-					<option value="35">35分</option>
-					<option value="40">40分</option>
-					<option value="45">45分</option>
-					<option value="50">50分</option>
-					<option value="55">55分</option>
-					</select>
-				</span>
-				 - 
-				<span id="endTimeSpan">
-					<select name="end_date_hour" size="1" onchange="aipo.schedule.changeEnd(this.form)">
-					<option value="">--時</option>
-								<option value="0">0時</option>
-								<option value="1">1時</option>
-								<option value="2">2時</option>
-								<option value="3">3時</option>
-								<option value="4">4時</option>
-								<option value="5">5時</option>
-								<option value="6">6時</option>
-								<option value="7">7時</option>
-								<option value="8">8時</option>
-								<option value="9" selected="selected">9時</option>
-								<option value="10">10時</option>
-								<option value="11">11時</option>
-								<option value="12">12時</option>
-								<option value="13">13時</option>
-								<option value="14">14時</option>
-								<option value="15">15時</option>
-								<option value="16">16時</option>
-								<option value="17">17時</option>
-								<option value="18">18時</option>
-								<option value="19">19時</option>
-								<option value="20">20時</option>
-								<option value="21">21時</option>
-								<option value="22">22時</option>
-								<option value="23">23時</option>
-								</select>
-					<select name="end_date_minute" size="1" onchange="aipo.schedule.changeEnd(this.form)">
-					<option value="0">00分</option>
-					<option value="5">05分</option>
-					<option value="10">10分</option>
-					<option value="15">15分</option>
-					<option value="20">20分</option>
-					<option value="25">25分</option>
-					<option value="30" selected="selected">30分</option>
-					<option value="35">35分</option>
-					<option value="40">40分</option>
-					<option value="45">45分</option>
-					<option value="50">50分</option>
-					<option value="55">55分</option>
-					</select>
-				</span>
+<!-- support popup -->
+<div id="popup_77" class="dijitPopup" style="z-index: 1000; top:30px; right:270px;">
+	<div id="aipo_widget_SupportList_0" widgetid="aipo_widget_SupportList_0" style="display:none;">
+		<div class="auiPopup supportPopup">
+			<div class="clearfix">
+				<div id="supportListPane" widgetid="supportListPane" class="dijitContentPane" title="">
+					<ul class="blockList">
+						<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
+						<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+						<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+					</ul>
+				
+					<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">Aipo.comからのお知らせ</div>
+						<ul class="tipInfo">
+							<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+							<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+							<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+						</ul>
+						<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
+					</div>
+				
+					<!-- ##################################################
+					●開発担当者へ
+							
+					twitter設定前は下記を表示。
+					タイトルの（）内は削ってください。
+				
+					################################################## -->
+					<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
+						<div class="tipBody">
+							<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+							<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+						</div>
+					</div>
+				
+					<!-- ##################################################
+					●開発担当者へ
+							
+					twitter設定後は下記を表示。
+					タイトルの（）内は削ってください。
+				
+					################################################## -->
+					<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
+						<div class="tipBody">
+							<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+							<textarea></textarea>
+							<div class="clearfix mt5">
+								<div class="floatLeft fs11 fcGray">
+									これまでの獲得容量(全社)：5MB<br>
+									<a href="#" class="fcGray">twitter連携の設定を解除</a>
+								</div>
+								<div class="floatRight">
+									<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="tipDivider"></div>
+					<div class="tipBox tipFoot clearfix">
+						<div class="capacity">
+							100MB(10%) / 1024MB を使用中
+						</div>
+						<div class="social">
+							<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+							<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
+						</div>
+					</div>
+				</div>
 			</div>
-			</td>
-		</tr>
-		<tr class="dijitReset dijitCalendarMonthContainer" valign="top">
-			<th class="dijitReset" dojoattachpoint="decrementMonth">
-				<span class="dijitInline dijitCalendarIncrementControl dijitCalendarDecrease"><span dojoattachpoint="decreaseArrowNode" class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarDecreaseInner">-</span></span>
-			</th>
-			<th class="dijitReset" colspan="5">
-				<div dojoattachpoint="monthLabelSpacer" class="dijitCalendarMonthLabelSpacer"><div>1 月</div><div>2 月</div><div>3 月</div><div>4 月</div><div>5 月</div><div>6 月</div><div>7 月</div><div>8 月</div><div>9 月</div><div>10 月</div><div>11 月</div><div>12 月</div></div>
-				<div dojoattachpoint="monthLabelNode" class="dijitCalendarMonth">7 月</div>
-			</th>
-			<th class="dijitReset" dojoattachpoint="incrementMonth">
-				<div class="dijitInline dijitCalendarIncrementControl dijitCalendarIncrease"><span dojoattachpoint="increaseArrowNode" class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarIncreaseInner">+</span></div>
-			</th>
-		</tr>
-		<tr>
-			<th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">日</span></th>
-		<th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">月</span></th><th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">火</span></th><th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">水</span></th><th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">木</span></th><th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">金</span></th><th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">土</span></th></tr>
-	</thead>
-	<tbody dojoattachevent="onclick: _onDayClick" class="dijitReset dijitCalendarBodyContainer">
-		<tr class="dijitReset dijitCalendarWeekTemplate">
-			<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">1</span></td>
-		<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">2</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">3</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">4</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">5</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">6</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">7</span></td></tr>
-	<tr class="dijitReset dijitCalendarWeekTemplate">
-			<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">8</span></td>
-		<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">9</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">10</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">11</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">12</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">13</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">14</span></td></tr><tr class="dijitReset dijitCalendarWeekTemplate">
-			<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">15</span></td>
-		<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">16</span></td><td class="dijitCalendarSelectedDate dijitCalendarCurrentDate dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">17</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">18</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">19</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">20</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">21</span></td></tr><tr class="dijitReset dijitCalendarWeekTemplate">
-			<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">22</span></td>
-		<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">23</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">24</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">25</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">26</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">27</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">28</span></td></tr><tr class="dijitReset dijitCalendarWeekTemplate">
-			<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">29</span></td>
-		<td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">30</span></td><td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">31</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">1</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">2</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">3</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">4</span></td></tr><tr class="dijitReset dijitCalendarWeekTemplate">
-			<td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">5</span></td>
-		<td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">6</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">7</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">8</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">9</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">10</span></td><td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">11</span></td></tr></tbody>
-	<tfoot class="dijitReset dijitCalendarYearContainer">
-		<tr>
-			<td class="dijitReset" valign="top" colspan="7">
-				<h3 class="dijitCalendarYearLabel">
-					<span dojoattachpoint="previousYearLabelNode" class="dijitInline dijitCalendarPreviousYear">2011年</span>
-					<span dojoattachpoint="currentYearLabelNode" class="dijitInline dijitCalendarSelectedYear">2012年</span>
-					<span dojoattachpoint="nextYearLabelNode" class="dijitInline dijitCalendarNextYear">2013年</span>
-				</h3>
-			</td>
-		</tr>
-	</tfoot>
-</table>
+		</div>
+	</div>
 </div>
-<!-- /popup_3 -->
+<!-- /support popup -->
+
+
 
 
 <div class="modalDialogUnderlayWrapper" id="guide1" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
@@ -3472,6 +3369,7 @@ left = 「filters」の画面内X位置
 		</div>
 	</div>
 </div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+
 
 </body>
 </html>

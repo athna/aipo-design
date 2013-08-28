@@ -1,25 +1,25 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Language" content="ja"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Aipo.com</title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta http-equiv="Content-Style-Type" content="text/css"/>
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta name="robots" content="noindex,follow"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
-	<meta name="format-detection" content="telephone=no">
-    <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+<meta http-equiv="Content-Language" content="ja"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Aipo.com</title>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+<meta name="robots" content="noindex,follow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
 </head>
 <body>
 <script type="text/javascript">
@@ -38,26 +38,130 @@
 
 	<div class="hdSign">
 		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-   </div>
+	</div>
 
-    <div class="hdNavi">
-		<!--
-		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
-		-->
+	<script>
+	function dispMenubar(obj,target) {
+		if(document.getElementById(target).style.display!='block') {
+			document.getElementById(target).style.display = 'block';
+		}else{
+			document.getElementById(target).style.display='none';
+		}
+	}
+	</script>
+
+	<div class="hdNavi">
+
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+
+
 		<div class="hdActivity" title="お知らせ">
-			<div class="" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display == 'none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'}">
-				<div style="outline:0" class="">
-					<div class="">
-						<div id="activitychecker" class="zero counter">0</div>
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer">
+				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
 						<span class="mb_hide">お知らせ</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
-		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
+
+		<div class="hdInformation">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="informationcheckerContainer">
+				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-informationcheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="informationcheckerContainer_label" id="informationcheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="informationcheckerContainer_label" onclick="dispMenubar(this,'menubar_hdInformation')">
+						<div id="informationchecker" class="informationcheckerstyle counter">5</div>
+						<span class="mb_hide">サポート</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a>
+		</div>
 	</div>
+
+	<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
+		<ul>
+		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
+		<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+		</ul>
+
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">Aipo.comからのお知らせ</div>
+			<ul class="tipInfo">
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+			</ul>
+			<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
+		</div>
+
+		<!-- ##################################################
+		●開発担当者へ
+				
+		twitter設定前は下記を表示。
+		タイトルの（）内は削ってください。
+
+		################################################## -->
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
+			<div class="tipBody">
+				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+
+				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+			</div>
+		</div>
+
+		<!-- ##################################################
+		●開発担当者へ
+				
+		twitter設定後は下記を表示。
+		タイトルの（）内は削ってください。
+
+		################################################## -->
+		<div class="tipDivider"></div>
+		<div class="tipBox clearfix">
+			<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
+			<div class="tipBody">
+				<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+				<textarea></textarea>
+				<div class="clearfix mt5">
+					<div class="floatLeft fs11 fcGray">
+						これまでの獲得容量(全社)：5MB<br>
+						<a href="#" class="fcGray">twitter連携の設定を解除</a>
+					</div>
+					<div class="floatRight">
+						<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tipDivider"></div>
+		<div class="tipBox tipFoot clearfix">
+			<div class="capacity">
+				100MB(10%) / 1024MB を使用中
+			</div>
+			<div class="social">
+				<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+				<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+		<ul>
+		<li><a href="#">個人設定</a></li>
+		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+		</ul>
+	</div>
+
 
 </div></div>
 <!-- /HEADER -->
@@ -100,7 +204,7 @@
 	  <!-- PORTLET OUTER -->
 		<div class="dojoDndItem auiPortlet">
 			<div class="auiPortletHead"><div class="inner">
-				<div class="auiPortletTitle">長いアプリ名の場合長いアプリ名の場合長いアプリ名の場合</div>
+				<div class="auiPortletTitle">長いアプリ名長いアプリ名</div>
 				<div class="auiPortletTool">
 					<div class="auiPortletAction"><a href="#">トピック追加</a></div>
 					<div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1a0d64-10014');" title="カスタマイズ"></a></div>
@@ -134,7 +238,7 @@
 				<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
 				<div class="tlClipBoard clearfix">
 				<div class="tlClipImage">
-				<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a>				</div>
+				<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a>				</div>
 				<div class="tlClipContents">
 				<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
 				<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
@@ -410,8 +514,274 @@
 <!-- /wrapper -->
 
 
+<!-- ******************************
+
+■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+
+ヘッダーで「mobile.css」を読み込んでいます。
+<link>タグでの読み込む順番も重要なため、記述通りの順でお願いします。
+
+可能であれば「あなた宛のお知らせ」の画像「icon_message.png」を
+「an_activity.png」へ変更してください。
+
+以下よりスマホ表示専用の要素になります。
+UA判別などでPC版では表示させないでください。
+
+直下に「appsNaviSwitch」のJS関数を定義しています。
+これはスマホ用ナビゲーションの開閉に利用する関数です。
+可能ならばソースに直接書かずJSファイルへ記述をお願いします。
+
+****************************** -->
+<!-- mobileHeader -->
+<div id="mobileHeader" class="clearfix"><div class="inner">
+	<h1><span>長いアプリ名長いアプリ名</span></h1>
+	<div class="mhLeft">
+		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
+		<!--a href="#" class="auiMbBtn auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i><img src="../themes/default/images/mobile/an_list.png" width="24" height="24" /></a-->
+	</div>
+	<div class="mhRight clearfix">
+
+		<!--a href="javascript:void(0)" id="auiMbBtnActivity" class="auiMbBtn auiMbBtnActivity" title="お知らせ" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='auiMbBtn auiMbBtnActivity'}else{this.className='auiMbBtn auiMbBtnActivity active'};">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton dijitDropDownButtonFocused">
+				<div id="activitycheckerContainer">
+					<div id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle ">5</div>
+						<span class="mb_hide">お知らせ</span>
+					</div>
+				</div>
+			</div>
+		</a-->
+
+		<!--a href="javascript:void(0)" id="auiMbBtnActivity" class="auiMbBtn auiMbBtnActivity" title="サポート" onClick="if(document.getElementById('aipo_widget_SupportList_0').style.display=='none'){document.getElementById('aipo_widget_SupportList_0').style.display='block'}else{document.getElementById('aipo_widget_SupportList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='auiMbBtn auiMbBtnActivity'}else{this.className='auiMbBtn auiMbBtnActivity active'};">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton dijitDropDownButtonFocused">
+				<div id="activitycheckerContainer">
+					<div id="activitycheckerContainer_label">
+						<div id="supportchecker" class="activitycheckerstyle ">5</div>
+						<span class="mb_hide">サポート</span>
+					</div>
+				</div>
+			</div>
+		</a-->
+
+		<script>
+		function popupToggle($this,$target) {
+			if(document.getElementById($target).style.display=='none'){
+				document.getElementById($target).style.display='block'
+			}else{
+				document.getElementById($target).style.display='none'
+			}
+			if($this.className.indexOf('active')>0){
+				$this.className = $this.className.replace(' active','');
+			}else{
+				$this.className += ' active'
+			};
+		}
+		</script>
+
+		<div class="hdMessege">
+			<a href="https://message.aipo.com" target="_blank">
+				<div id="messagechecker" class="counter">3</div>
+				<span class="mb_hide">メッセージ</span>
+				<span class="pc_hide"><i class="icon-comment"></i></span>
+			</a>
+		</div>
+
+
+		<div class="hdActivity" title="お知らせ">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+						<span class="mb_hide">お知らせ</span>
+						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--div class="hdInformation" title="サポート">
+			<div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+						<div id="supportchecker" class="counter zero">0</div>
+						<span class="mb_hide">サポート</span>
+						<span class="pc_hide"><i class="icon-info-sign"></i></span>
+					</div>
+				</div>
+			</div>
+		</div-->
+
+	</div>
+</div></div>
+<!-- /mobileHeader -->
+
+
+<!-- appsNavigation -->
+<script language="javascript">
+function appsNaviSwitch() {
+	var navi = document.getElementById('appsNavigation');
+	var lists = navi.getElementsByTagName("ul");
+	var bk = document.getElementById('appsNavigationBack');
+	var wrapper = document.getElementById('wrapper');
+	var drawer = document.getElementById('anDrawer');
+	var nLeft = '-260px';
+	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "block";
+		}
+		navi.style.display = 'block';
+		drawer.style.display = 'block';
+		navi.style.left = '0px';
+		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
+		navi.style.borderRight = 'solid 1px #909090';
+		bk.style.display = 'block';
+		wrapper.style.overflow = 'hidden';
+		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
+	}else{
+		navi.style.display = 'none';
+		navi.style.left = nLeft;
+		navi.style.boxShadow = 'none';
+		navi.style.borderRight = 'none';
+		bk.style.display = 'none';
+		wrapper.style.overflow = 'visible';
+		wrapper.style.height = 'auto'
+		for (var i=0; i<lists.length; i++){
+			lists[i].style.display = "none";
+		}
+	}
+}
+</script>
+<div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
+<div id="appsNavigation"><div id="anInner">
+	<div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="auiIcon auiIconDelete_w"></i></a></div>
+	<div class="anUser">
+		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
+		<div class="name">木村 一郎</div>
+	</div>
+
+	<div class="anContent">
+		<h2>Aipo.comからのお知らせ</h2>
+		<div class="anContentBody">
+			<ul class="tipInfo">
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="anApps">
+		<h2>アプリ</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><i class="icon-time"></i></span>タイムカード</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-calendar"></i></span>スケジュール</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-comments"></i></span>タイムライン</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-volume-up"></i></span>更新情報</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-book"></i></span>ブログ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-picture"></i></span>掲示板</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-list-ul"></i></span>共有ToDo</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-open"></i></span>共有フォルダ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-inbox"></i></span>ワークフロー</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-phone"></i></span>伝言メモ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-file-text"></i></span>報告書</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-envelope"></i></span>Webメール</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-compass"></i></span>アドレス帳</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-group"></i></span>ユーザー名簿</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-pencil"></i></span>メモ帳</a></li>
+		</ul>
+
+		<h2>追加アプリ</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/77/icon/64/A10566991420987508-trans.png"></span>Yahoo!ニュースYahoo!ニュースYahoo!ニュース</a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/66/icon/64/A6829183567519825-trans.png"></span>美人時計</a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/65/icon/64/A4407366647751848-trans.png"></span>美人時計</a></li>
+		</ul>
+
+		<h2>設定</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><i class="icon-cog"></i></span>個人設定</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-desktop"></i></span>PC版表示へ変更</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-power-off"></i></span>ログアウト</a></li>
+		</ul>
+
+		<h2>サポート</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><i class="icon-info-sign"></i></span>スタートガイド</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-question-sign"></i></span>ヘルプ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-user"></i></span>お問い合わせ</a></li>
+		</ul>
+
+	</div>
+
+	<div class="anContent">
+		<h2>ご意見・ご要望（連携前）</h2>
+		<div class="anContentBody">
+			<p class="mt0">twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+			<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+		</div>
+	</div>
+
+	<div class="anContent">
+		<h2>ご意見・ご要望（連携後）</h2>
+		<div class="anContentBody">
+			<p class="mt0">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+			<textarea class="w100"></textarea>
+			<p class="center">
+				<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+			</p>
+			<p class="fcGray">
+				これまでの獲得容量(全社)：9999MB<br>
+				<a href="#" class="fcGray">twitter連携の設定を解除</a>
+			</p>
+		</div>
+	</div>
+
+
+	<div class="anFooter">
+		<div class="copyright">Aipo &copy; Aimluck,Inc</div>
+	</div>
+</div></div>
+<!-- /mobileNavigation -->
+
+
+<!-- ******************************
+
+■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+
+スマホ専用要素ここまで
+
+****************************** -->
+
+
 <div class="dijitPopup" style="z-index: 1000; visibility: visible; top: 45px; ">
-    <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; width:420px; ">
+    <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
     <div class="activityPopup">
     <div class="clearfix">
     <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
@@ -468,137 +838,66 @@
 </div>
 
 
-<!-- ******************************
-
-■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
-
-ヘッダーで「mobile.css」を読み込んでいます。
-<link>タグでの読み込む順番も重要なため、記述通りの順でお願いします。
-
-可能であれば「あなた宛のお知らせ」の画像「icon_message.png」を
-「an_activity.png」へ変更してください。
-
-以下よりスマホ表示専用の要素になります。
-UA判別などでPC版では表示させないでください。
-
-直下に「appsNaviSwitch」のJS関数を定義しています。
-これはスマホ用ナビゲーションの開閉に利用する関数です。
-可能ならばソースに直接書かずJSファイルへ記述をお願いします。
-
-****************************** -->
-
-<!-- appsNavigation -->
-<script language="javascript">
-function appsNaviSwitch() {
-	var navi = document.getElementById('appsNavigation');
-	var lists = navi.getElementsByTagName("ul");
-	var bk = document.getElementById('appsNavigationBack');
-	var wrapper = document.getElementById('wrapper');
-	var nLeft = '-260px';
-	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
-		for (var i=0; i<lists.length; i++){
-			lists[i].style.display = "block";
-		}
-		navi.style.left = '0px';
-		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
-		navi.style.borderRight = 'solid 1px #909090';
-		bk.style.display = 'block';
-		wrapper.style.overflow = 'hidden';
-		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
-	}else{
-		navi.style.left = nLeft;
-		navi.style.boxShadow = 'none';
-		navi.style.borderRight = 'none';
-		bk.style.display = 'none';
-		wrapper.style.overflow = 'visible';
-		wrapper.style.height = 'auto'
-		for (var i=0; i<lists.length; i++){
-			lists[i].style.display = "none";
-		}
-	}
-}
-</script>
-
-<!-- auiSmpHeader -->
-<div class="auiSmpHead"><div class="inner">
-	<div class="auiShTitle">アプリタイトルアプリタイトル</div>
-	<!-- auiShTools -->
-	<div class="auiShTools">
-		<!-- ******************************
-		■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
-		「alertCount」は0件の時は表示させないでください。
-		
-		アイコンは平時「active」は付いていません。下記の際にアイコンに「active」を付与してください。
-		・「alertCount」が1件以上ある時
-		・クリックされアクティビティのポップアップが開いている時（alertCountは0件でも）
-		****************************** -->
-		<div class="alertVoice">
-			<a href="#">
-			<span class="alertCount">999</span>
-			<i class="iconAlertVoice active"></i>
-			</a>
-		</div>
-		<div class="alertActivity">
-			<a href="#">
-			<span class="alertCount">999</span>
-			<i class="iconAlertActivity active"></i>
-			</a>
+<div id="popup_77" class="dijitPopup" style="z-index: 1000; top:45px;">
+	<div id="aipo_widget_SupportList_0" widgetid="aipo_widget_SupportList_0" style="display:none;">
+		<div class="auiPopup supportPopup">
+			<div class="clearfix">
+				<div id="supportListPane" widgetid="supportListPane" class="dijitContentPane" title="">
+					<ul class="blockList">
+						<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
+						<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+						<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+					</ul>
+				
+					<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">Aipo.comからのお知らせ</div>
+						<ul class="tipInfo">
+							<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+						</ul>
+						<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
+					</div>
+				
+					<!-- ##################################################
+					●開発担当者へ
+							
+					twitter設定後は下記を表示。
+					タイトルの（）内は削ってください。
+				
+					################################################## -->
+					<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">ご意見・ご要望</div>
+						<div class="tipBody">
+							<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+							<textarea></textarea>
+							<div class="clearfix mt5">
+								<div class="floatLeft fs11 fcGray">
+									これまでの獲得容量(全社)：5MB<br>
+									<a href="#" class="fcGray">twitter連携の設定を解除</a>
+								</div>
+								<div class="floatRight">
+									<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="tipDivider"></div>
+					<div class="tipBox tipFoot clearfix">
+						<div class="capacity">
+							100MB(10%) / 1024MB を使用中
+						</div>
+						<div class="social">
+							<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+							<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- /auiShTools -->
-</div></div>
-<!-- /auiSmpHeader -->
-
-<div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">test</a></div>
-<div id="appsNavigation"><div id="anInner">
-	<div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="auiMbIcon auiMbIconList"></i></a></div>
-	<div class="anUser">
-		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
-		<div class="name">木村 一郎</div>
-	</div>
-	<div class="anApps">
-		<h2>アプリ</h2>
-		<ul>
-			<li><a href="#"><i class="auiMbIcon auiMbIconTimecard"></i><span>タイムカード</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconSchedule"></i><span>スケジュール</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconTimeline"></i><span>タイムライン</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconInfo"></i><span>更新情報</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconBlog"></i><span>ブログ</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconBbs"></i><span>掲示板</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconTodo"></i><span>共有ToDo</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconFolder"></i><span>共有フォルダ</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconWorkflow"></i><span>ワークフロー</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconNote"></i><span>伝言メモ</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconReport"></i><span>報告書</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconMail"></i><span>Webメール</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconAddress"></i><span>アドレス帳</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconUsers"></i><span>ユーザー名簿</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconMemo"></i><span>メモ帳</span></a></li>
-		</ul>
-	</div>
-	<div class="anSetting">
-		<h2>設定</h2>
-		<ul>
-			<li><a href="#"><i class="auiMbIcon auiMbIconSetting"></i><span>個人設定</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconPc"></i><span>PC版表示へ変更</span></a></li>
-			<li><a href="#"><i class="auiMbIcon auiMbIconLogout"></i><span>ログアウト</span></a></li>
-		</ul>
-	</div>
-	<div class="anFooter">
-		<div class="copyright">Aipo &copy; Aimluck,Inc</div>
-	</div>
-</div></div>
-<!-- /mobileNavigation -->
-
-
-<!-- ******************************
-
-■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
-
-スマホ専用要素ここまで
-
-****************************** -->
-
+</div>
 
 </body>
 </html>

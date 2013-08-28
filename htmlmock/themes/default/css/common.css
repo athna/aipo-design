@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 h1, h2, h3, h4, h5, h6, p, pre, address, cite {
   margin: .5em auto;
   line-height: 1.4;
@@ -94,7 +94,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, textar
 
 ul li {
   list-style: none;
-  line-height: 150%;
+  line-height: 1.5;
   text-align: left;
   display: block;
   background: url(../images/common/li_icon.gif) 0 0.5em no-repeat;
@@ -136,7 +136,7 @@ select {
   font-size: 1em;
   line-height: normal;
   margin: 1px;
-  z-index: 0!important;
+  z-index: 0 !important;
 }
 
 img {
@@ -149,13 +149,11 @@ a img {
 }
 
 h3 {
-  /*background:#eee url(../images/common/bg_slash.gif) repeat scroll left bottom*/
   background: #f6f6f6;
   line-height: 150%;
   padding: 3px 5px;
   margin: 0 0 10px;
   border-bottom: 1px solid #ddd;
-  /*border-right:1px solid #ddd;*/
 }
 
 h4 {
@@ -167,33 +165,19 @@ h4 {
 
 blockquote {
   border: 5px solid #ddd;
-  background: whitesmoke url(../images/common/bg_slash.gif) repeat scroll left bottom;
+  background: #f5f5f5;
   padding: 3px;
 }
 
 div.outer {
-  border-top: 1px solid #eee;
-  border-left: 1px solid #eee;
+  border-top: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
   border-bottom: 1px solid #C9C9C9;
   border-right: 1px solid #C9C9C9;
   margin-bottom: 2px;
   margin-top: 2px;
 }
 
-/*
-.clearfix:after,
-.inner:after {
-	content:".";
-	display:block;
-	height:0;
-	clear:both;
-	visibility:hidden;
-}
-.clearfix.
-.inner {
-	display:inline-block;
-}
-*/
 .clearfix, .inner {
   zoom: 1;
 }
@@ -204,16 +188,10 @@ div.outer {
   clear: both;
 }
 
-/* Hides from IE-mac \*/
-* html .clearfix, * html .inner {
-  height: 1%;
-}
-
 .clearfix, .inner {
   display: block;
 }
 
-/* End hides from IE-mac */
 .clear {
   clear: both;
 }
@@ -1069,6 +1047,7 @@ table.simpleTable .caption {
 }
 */
 .popup {
+  display: block;
   width: auto !important;
   padding: 5px;
   border: 3px solid #ddd;
@@ -1083,17 +1062,9 @@ table.simpleTable .caption {
   visibility: hidden;
 }
 
-.popup {
-  display: inline-block;
-}
-
 /* Hides from IE-mac \*/
 * html .popup {
   height: 1%;
-}
-
-.popup {
-  display: block;
 }
 
 /***************************************************
@@ -1147,8 +1118,8 @@ table.simpleTable .caption {
 }
 
 .dijit_a11y .modalDialog {
-  opacity: 1!important;
-  background-color: white!important;
+  opacity: 1 !important;
+  background-color: white !important;
 }
 
 .modalDialog .closeText {
@@ -1205,8 +1176,8 @@ table.simpleTable .caption {
 }
 
 .dijit_a11y .fileuploadDialog {
-  opacity: 1!important;
-  background-color: white!important;
+  opacity: 1 !important;
+  background-color: white !important;
 }
 
 .fileuploadDialog .closeText {
@@ -1250,8 +1221,8 @@ table.simpleTable .caption {
 }
 
 .dijit_a11y .addressbookDialog {
-  opacity: 1!important;
-  background-color: white!important;
+  opacity: 1 !important;
+  background-color: white !important;
 }
 
 .addressbookDialog .closeText {
@@ -1555,59 +1526,73 @@ table.simpleTable .caption {
 	padding:.2em .25em .2em .25em;
 	@include font-family-sans-serif();
 }
+
 .calendarContainer .monthLabelContainer {
 	font-weight:bold;
 	text-align:center;
 }
+
 .calendarContainer .monthLabelContainer .incrementControl {
 	padding:2px;
 	font-size:.7em;
 	color:$linkColorHover;
 }
+
 * html .calendarContainer .monthLabelContainer .incrementControl {
 	padding:4px;
 	font-size:.6em;
 	@include font-family-sans-serif();
 }
+
 *+html .calendarContainer .monthLabelContainer .incrementControl {
 	padding:4px;
 	font-size:.6em;
 	@include font-family-sans-serif();
 }
+
 .calendarBodyContainer tbody tr td.previousMonth {
 	background:#ddd;
 }
+
 .calendarBodyContainer tbody tr td.previousMonthDisabled {
 	background:#ddd;
 	cursor:default;
 }
+
 .calendarBodyContainer tbody tr td.currentMonthDisabled {
 	background-color:#bbbbbc;
 	cursor:default;
 }
+
 .calendarBodyContainer tbody tr td.nextMonth {
 	background:#ddd;
 }
+
 .calendarBodyContainer tbody tr td.nextMonthDisabled {
 	background:#ddd;
 	cursor:default;
 }
+
 .calendarBodyContainer tbody tr td.currentDate {
 	text-decoration:underline;
 	font-weight:bold;
 }
+
 .calendarBodyContainer tbody tr td.selectedDate {
 	background:#ddd;
 	color:#FFF;
 	font-weight:bold;
 }
+
 .calendarContainer .incrementControl {
 	cursor:pointer;
 	cursor:hand;
 }
+
 .calendarContainer .increase {
 	float:right;
 }
+
 .calendarContainer .decrease {
 	float:left;
 }
@@ -1901,7 +1886,7 @@ div.weeklyTermRights div.weeklyTermRight {
 }
 
 div.weeklyTermRights div.weeklyTermRightR {
-  border-width: 1px 1px 0 1px!important;
+  border-width: 1px 1px 0 1px !important;
 }
 
 div.weeklyTermRights div.weeklyTermRight div.weeklyTermRightTop, div.weeklyTermRights div.weeklyTermRightR div.weeklyTermRightTop {
@@ -2002,6 +1987,7 @@ div.scheduleDivFirstLine {
   white-space: nowrap;
   border: solid #c33;
   border-width: 1px;
+  cursor: move;
 }
 
 div.scheduleDivFirstLine span.scheduleDivTime, div.scheduleDivFirstLine span.scheduleDivSepalater {
@@ -2240,19 +2226,23 @@ div.off, td.off {
 }
 
 .calendar th.sunday {
-  background: #ffefe5 url(../images/common/bg_slash.gif) repeat left top;
+  /*background:#FFEFE5 url(../images/common/bg_slash.gif) repeat left top;*/
+  background: #fef6f1;
 }
 
 .calendar th.saturday {
-  background: #ebf0f6 url(../images/common/bg_slash.gif) repeat left top;
+  /*background:#EBF0F6 url(../images/common/bg_slash.gif) repeat left top;*/
+  background: #f4f7fa;
 }
 
 .calendar th.holiday {
-  background: #ffefe5 url(../images/common/bg_slash.gif) repeat left top;
+  /*background:#FFEFE5 url(../images/common/bg_slash.gif) repeat left top;*/
+  background: #fef6f1;
 }
 
 .calendar th.today {
-  background: #ddffdd url(../images/common/bg_slash.gif) repeat left top;
+  /*background:#ddffdd url(../images/common/bg_slash.gif) repeat left top;*/
+  background: #edfeed;
 }
 
 .calendar div.calendarDay {
@@ -2317,10 +2307,6 @@ div.calendarScheduleDiv a:hover {
   border: 1px solid #ff9900;
   text-decoration: none;
   padding: 0;
-  /*
-  background:#ddd;
-  color:#000;
-  */
 }
 
 div.calendarScheduleDiv .calendarTime {
@@ -3149,60 +3135,52 @@ div.userInfo {
 }
 
 .menuBarIconPortletAdd {
-  background: url(../images/icon/portlet_add.gif) no-repeat;
+  background: url(../../../images/layout/portlet_add.gif) no-repeat;
 }
 
 .menuBarIconLayoutConf {
-  background: url(../images/icon/layout_conf.gif) no-repeat;
+  background: url(../../../images/layout/layout_conf.gif) no-repeat;
 }
 
 .menuBarIconCellular {
   background: url(../images/icon/cellular.gif) no-repeat;
 }
 
+/* NONE
 .menuBarIconNetworkInfo {
-  background: url(../images/icon/network_info.gif) no-repeat;
+	background:url(../images/icon/network_info.gif) no-repeat;
 }
-
 .menuBarIconLicense {
-  background: url(../images/icon/license.gif) no-repeat;
+	background:url(../images/icon/license.gif) no-repeat;
 }
-
 .menuBarIconWebmailCreateMail {
-  background: url(../images/icon/webmail_create_mail.gif) no-repeat;
+	background:url(../images/icon/webmail_create_mail.gif) no-repeat;
 }
-
 .menuBarIconWebmailCheckNewMails {
-  background: url(../images/icon/webmail_check_newmails.gif) no-repeat;
+	background:url(../images/icon/webmail_check_newmails.gif) no-repeat;
 }
-
+*/
 .menuBarIconWebmailReceiveMail {
   background: url(../images/icon/webmail_receive_mail.gif) no-repeat;
 }
 
+/* NONE
 .menuBarIconWebmailAccountConfig {
-  background: url(../images/icon/webmail_account_config.gif) no-repeat;
+	background:url(../images/icon/webmail_account_config.gif) no-repeat;
 }
-
 .menuBarIconFileAdd {
-  background: url(../images/icon/file_add.gif) no-repeat;
+	background:url(../images/icon/file_add.gif) no-repeat;
 }
-
 .menuBarIconFolderAdd {
-  background: url(../images/icon/folder_add.gif) no-repeat;
+	background:url(../images/icon/folder_add.gif) no-repeat;
 }
-
+*/
 .menuBarIconSeparator {
-  width: 7px!important;
-  height: 20px!important;
+  width: 7px !important;
+  height: 20px !important;
   background: url(../images/icon/icon_separator.gif) no-repeat;
 }
 
-/* NO USE
-.menuBarIconNone {
-	width:0!important;
-}
-*/
 .menuBarItemSelected {
   background-color: #FFF5D8 !important;
   border: 1px solid #ff9900 !important;
@@ -3223,7 +3201,7 @@ div.userInfo {
   color: #5D6A70;
   display: block;
   margin: 0;
-  padding: 0!important;
+  padding: 0 !important;
   text-decoration: none;
 }
 
@@ -3232,13 +3210,13 @@ div.userInfo {
 --------------------------------------------------*/
 .menubar {
   position: absolute;
+  background: #ffffff;
   padding: 5px;
   border: 1px solid #B5B5B5;
-  background: #FFF;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -3252,20 +3230,25 @@ div.userInfo {
   display: block;
 }
 
+.dijitPopup .menubar {
+  position: static;
+}
+
 *:first-child + html .roundBlockIcon .menubar {
   margin: 18px 0 0 -18px;
 }
 
-.menubar ul {
+.menubar ul,
+ul.blockList {
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-.menubar ul li {
+.menubar ul li,
+ul.blockList li {
   margin: 0;
   padding: 0;
-  /*border-top:solid 1px #eee;*/
   background: none;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -3273,12 +3256,14 @@ div.userInfo {
   border-radius: 3px;
 }
 
-.menubar ul li:first-child {
+.menubar ul li:first-child,
+ul.blockList li:first-child {
   border: none;
 }
 
 .menubar > ul li a,
-.menubar.multi ul li a {
+.menubar.multi ul li a,
+ul.blockList li a {
   display: block;
   padding: 4px 6px !important;
   margin: 0;
@@ -3293,20 +3278,22 @@ div.userInfo {
 }
 
 .menubar > ul li.last a,
-.menubar.multi ul li.last a {
-  background-image: none!important;
-  /*@include border-radius(0 0 3px 3px);    */
+.menubar.multi ul li.last a,
+ul.blockList li.last a {
+  background-image: none !important;
   overflow: hidden;
 }
 
 .menubar > ul li a:hover,
-.menubar.multi ul li a:hover {
+.menubar.multi ul li a:hover,
+ul.blockList li a:hover {
   color: #000;
   background: #f0f0f0;
 }
 
 .menubar > ul li a.selected,
-.menubar.multi ul li a.selected {
+.menubar.multi ul li a.selected,
+ul.blockList li a.selected {
   background: #f0f0f0;
 }
 
@@ -3348,11 +3335,18 @@ div.userInfo {
 /* tip Class */
 .tipDivider {
   border-top: solid 1px #f0f0f0;
+}
+
+.supportPopup .tipDivider {
+  margin: 9px -9px 10px;
+}
+
+.menubar .tipDivider {
   margin: 5px -5px;
 }
 
 .tipBox {
-  margin: 4px 6px;
+  margin: 4px 0;
 }
 
 .tipTitle,
@@ -3372,7 +3366,7 @@ div.userInfo {
 
 .tipInfo {
   margin-bottom: 5px !important;
-  background: whitesmoke !important;
+  background: #f0f0f0 !important;
 }
 
 *:first-child + html .tipInfo {
@@ -3382,8 +3376,9 @@ div.userInfo {
 .tipInfo li {
   margin: 0 8px !important;
   padding: 8px 0 !important;
-  border-top: solid 1px #d2d2d2;
+  border-top: solid 1px #dfdfdf;
   font-size: 11px;
+  background-image: none;
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
   -ms-border-radius: 0 !important;

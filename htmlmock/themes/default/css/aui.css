@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 * {
   font-family: "メイリオ", Meiryo, Verdana, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", sans-serif;
 }
@@ -34,19 +34,12 @@ p {
   margin: 5px 0;
 }
 
-/* NO USE
-span[type="button"] {
-	outline:none;
-}
-*/
 /***************************************************
 	auiHeader
 --------------------------------------------------*/
 #header {
   padding-top: 5px;
   height: 35px;
-  /*background:url(../images/head_bg.png) repeat-x left bottom; **reserved**/
-  /*overflow:hidden;*/
 }
 
 #header .inner {
@@ -65,9 +58,7 @@ span[type="button"] {
 
 .hdMessege,
 .hdActivity,
-.hdSearch,
 .hdUserName,
-.hdLogout,
 .hdSetting,
 .hdInformation {
   float: left;
@@ -81,17 +72,11 @@ span[type="button"] {
 
 .hdMessege a,
 .hdActivity a,
-.hdSearch a,
 .hdUserName a,
-.hdLogout a,
 .hdSetting a,
 .hdInformation a {
   text-decoration: none;
   display: block;
-}
-
-.hdNavi div.active {
-  background: #ddd;
 }
 
 .hdLogo a:hover img {
@@ -99,49 +84,9 @@ span[type="button"] {
   filter: alpha(opacity=75);
 }
 
-form.searchbox {
-  padding: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  border: solid 1px #ccc;
-  overflow: hidden;
-}
-
-form.searchbox:hover {
-  border-color: #999999;
-}
-
-form.searchbox input {
-  border: none !important;
-  height: 21px !important;
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  -ms-border-radius: 0 !important;
-  border-radius: 0 !important;
-}
-
-form.searchbox input.submit,
-form.searchbox input.submit:hover,
-form.searchbox input.submit:active {
-  width: 24px;
-  border-left: solid 1px #ddd !important;
-  background: url(../images/icon/search.png) no-repeat center center;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-}
-
-form.searchbox input.submit:hover,
-form.searchbox input.submit:active {
-  background: #eeeeee url(../images/icon/search.png) no-repeat center center;
-}
-
 .hdActivity,
 .hdInformation {
   cursor: pointer;
-  /*padding:0 2px !important;*/
 }
 
 .hdActivity span,
@@ -152,26 +97,6 @@ form.searchbox input.submit:active {
 .hdActivity:hover .mb_hide,
 .hdInformation:hover .mb_hide {
   color: #FF9900;
-}
-
-.hdNavi .hdLogout {
-  padding-right: 0;
-  height: 24px;
-}
-
-.hdLogout input {
-  height: 23px !important;
-  line-height: 23px !important;
-}
-
-*:first-child + html .hdLogout input {
-  /* IE7 Hack */
-  line-height: 20px !important;
-}
-
-.hdLogout input:hover {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
 }
 
 .hdUserName {
@@ -225,10 +150,6 @@ img.avatar,
   border-radius: 3px;
 }
 
-/*.hdSetting {
-	position:relative;
-	padding:4px 0 0 8px;
-}*/
 .hdUserName .menubar {
   right: 0;
 }
@@ -258,12 +179,16 @@ img.avatar,
   border-radius: 3px;
 }
 
-.hdActivity div.active,
-.hdInformation div.active {
-  background: #e0e0e0;
+.hdActivity div,
+.hdInformation div {
+  outline: 0;
 }
 
 /*
+.hdActivity div.active,
+.hdInformation div.active {
+	background:#e0e0e0;
+}
 #activitychecker {
 	text-align:center;
 	right:2px;
@@ -275,27 +200,7 @@ img.avatar,
 	margin-top:5px;
 }
 */
-.activitychecker-right {
-  float: left;
-  display: block;
-  height: 12px;
-  background: url(../images/icon/activitychecker.png) bottom right no-repeat;
-  padding: 0 4px;
-}
-
-.activitychecker-left {
-  float: left;
-  display: block;
-  height: 12px;
-  padding: 0;
-  background: #f03d25;
-  color: #FFF;
-  font-size: 8px;
-  line-height: 12px;
-}
-
 .counter {
-  position: inherit !important;
   float: left;
   font-size: 9px;
   height: 13px;
@@ -432,16 +337,17 @@ img.avatar,
 
 .auiPopup,
 .activityPopup {
-  /*position:absolute;*/
   background: #FFF;
   padding: 9px;
-  border: 1px solid #999999;
+  border: 1px solid #B5B5B5;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 9998 !important;
 }
 
@@ -449,6 +355,11 @@ img.avatar,
   width: 400px;
   right: 0;
   top: 0;
+}
+
+.supportPopup {
+  	/*width:320px;
+      padding:5px;*/
 }
 
 .auiPopupHead {
@@ -620,7 +531,7 @@ img.avatar,
 }
 
 .activityList li.unread {
-  background: #FFEFE5;
+  background: #f0f0f0 !important;
 }
 
 .activityList li.unread a {
@@ -719,9 +630,9 @@ img.avatar,
   float: left;
   padding: 0 5px;
   border-left: solid 1px #dbdbdb;
-  background: #fff;
-  box-shadow: -5px 0 3px white;
-  -webkit-box-shadow: -5px 0 3px white;
+  background: #ffffff;
+  box-shadow: -5px 0 3px #ffffff;
+  -webkit-box-shadow: -5px 0 3px #fff;
   white-space: nowrap;
 }
 
@@ -1404,7 +1315,7 @@ button,
   margin-bottom: 0;
   *margin-left: .3em;
   line-height: 20px;
-  color: #333333;
+  color: #333333 !important;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: middle;
@@ -1683,7 +1594,7 @@ button.auiButtonSmall {
 /* auiButtonAction */
 .auiButtonAction,
 input.auiButtonAction {
-  color: #ffffff;
+  color: #ffffff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
   background-color: #ffb133;
   background-color: #fa9828;
@@ -1841,6 +1752,7 @@ input.auiButtonSearch.active {
 .auiButtonIcon span,
 .auiButtonIcon i {
   cursor: pointer;
+  vertical-align: baseline;
 }
 
 *:first-child + html .auiButtonIcon span {
@@ -2571,12 +2483,12 @@ input.auiButtonSearch.active {
 }
 
 .auiCalendar .sunday {
-  background: #fff0f0;
+  background: #fef6f1;
   width: 25px;
 }
 
 .auiCalendar .saturday {
-  background: #f0ffff;
+  background: #f4f7fa;
   width: 25px;
 }
 
@@ -2711,7 +2623,6 @@ select {
 
 textarea,
 select {
-  /*margin:1px 0;*/
   border: solid 1px #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2723,7 +2634,6 @@ select {
 input[type=text],
 input[type=password] {
   height: 32px;
-  /*padding:0 2px;*/
   padding: 4px 2px;
   vertical-align: middle;
   -webkit-border-radius: 3px;
@@ -2731,11 +2641,11 @@ input[type=password] {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #c9c9c9;
+  border: 1px solid #d2d2d2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 *:first-child + html input[type=text],
@@ -2749,12 +2659,12 @@ input[type=password] {
 
 select {
   min-height: 32px;
-  padding: 0.25em;
+  padding: 5px;
   max-width: 300px;
 }
 
 *:first-child + html select {
-  height: 32px;
+  /*    height:$inputHeight +2;*/
   padding: 0;
 }
 
@@ -3367,7 +3277,6 @@ ul.attachments >li{
 }
 
 .filterTip {
-  display: inline-block;
   display: block;
   float: left;
   background: #e0e0e0;
@@ -3377,11 +3286,12 @@ ul.attachments >li{
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   height: 32px !important;
   line-height: 33px !important;
   white-space: nowrap;
-  font-size: 0.9em;
+  font-size: 11px;
   cursor: pointer;
 }
 
@@ -3431,44 +3341,73 @@ ul.attachments >li{
   margin-top: 5px;
 }
 
-.filterInputField .filterTip > a {
-  position: absolute;
-  margin: 5px -3px 0 3px;
-}
-
-.filterInputField *:first-child + html .filterTip > a {
-  margin-top: 4px;
-}
-
 .filterInputField {
   float: left;
   position: relative;
-}
-
-.filterInputField input.text {
-  width: auto;
-  min-width: auto;
+  border: solid 1px #d2d2d2;
+  height: 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background: #ffffff;
 }
 
 *:first-child + html .filterInputField {
   overflow: hidden;
 }
 
-.filterInputField .menubar.multi {
-  left: auto;
-  right: 0;
-}
-
 .filterInputField .filters {
   position: absolute;
   height: 30px;
-  padding: 1px 1px 0 1px;
   overflow: hidden;
   white-space: normal;
 }
 
-*:first-child + html .filterInputField .filters {
-  padding-top: 2px;
+.filterInputField input[type=text] {
+  margin: 0 !important;
+  height: 30px;
+  border: none;
+  background: transparent;
+}
+
+/*
+.filterInputField {
+	float:left;
+	position:relative;
+    height:$inputHeight + 2;
+}
+*:first-child+html .filterInputField {
+	overflow:hidden;
+}
+.filterInputField .filterTip > a {
+	position:absolute;
+	margin:5px -3px 0 3px;
+}
+*:first-child+html .filterInputField .filterTip > a {
+	margin-top:4px;
+}
+.filterInputField input.text {
+	width:auto;
+	min-width:auto;
+}
+.filterInputField .filters {
+	position:absolute;
+    top:0;
+    left:0;
+	height:$inputHeight;
+	padding:1px 1px 0 1px;
+	overflow:hidden;
+	white-space:normal;
+}
+*:first-child+html .filterInputField .filters {
+	padding-top:2px;
+}
+*/
+.filterInputField .menubar.multi {
+  left: auto;
+  right: 0;
 }
 
 .filterDropDrawer {
@@ -3476,33 +3415,32 @@ ul.attachments >li{
   display: block;
   right: 0;
   width: 20px;
-  height: 26px;
-  margin: 1px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
+  height: 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
   vertical-align: middle;
+  background: #ffffff;
 }
 
 *:first-child + html .filterDropDrawer {
-  right: -1px;
-  margin-top: 2px;
-  background: #fff;
-  border-right: solid 1px #c9c9c9;
-}
-
-*:first-child + html .filterInputField:hover .filterDropDrawer {
-  border-right: solid 1px #999999;
+  top: 1px;
 }
 
 .filterDropDrawer i {
-  margin-top: 7px;
+  cursor: pointer;
+  margin: 7px 0 0 2px;
 }
 
 .filterInputField input[type=text] {
   max-width: 500px;
   padding-right: 20px;
+}
+
+*:first-child + html .filterInputField input[type=text] {
+  padding-right: 15px;
 }
 
 .filterInputField .menubar.multi {
@@ -3680,7 +3618,7 @@ ul.attachments >li{
 .auiWLCover a {
   display: block;
   height: 100%;
-  background: #ffffff\9;
+  background: white \9;
   /*IE8*/
   -ms-filter: "alpha(opacity=0)";
   /*IE8*/
@@ -3859,7 +3797,7 @@ IE6は透過PNGが利用できないため透過GIFへ置き換えている。
   width: 16px;
   height: 16px;
   overflow: hidden;
-  vertical-align: baseline;
+  vertical-align: middle;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -3897,10 +3835,12 @@ a.auiIcon:hover {
 
 .auiIconSetting {
   background-position: 0px 0px;
+  height: 17px;
 }
 
 .auiIconSetting_w {
   background-position: 0px -16px;
+  height: 17px;
 }
 
 a.auiIconSetting:hover {

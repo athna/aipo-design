@@ -115,7 +115,6 @@
 			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
 			<div class="tipBody">
 				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
-
 				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
 			</div>
 		</div>
@@ -649,7 +648,6 @@ UA判別などでPC版では表示させないでください。
 <!-- appsNavigation2 -->
 <script language="javascript">
 function appsNaviSwitch() {
-	//var lists = navi.getElementsByTagName("ul");
 	//var drawer = document.getElementById('anDrawer');
 	var navi = document.getElementById('appsNavigation');
 	var wrapper = document.getElementById('wrapper');
@@ -660,7 +658,7 @@ function appsNaviSwitch() {
 
 	if(navi.className!='anOpen'){
 		navi.style.display = 'block';
-		setTimeout('setClassName("appsNavigation","anOpen")',200);
+		setTimeout('setClassName("appsNavigation","anOpen")',100);
 		wrapper.style.overflow = 'hidden';
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 		bk.style.display = 'block';
@@ -676,9 +674,10 @@ function appsNaviSwitch() {
 			//Other
 		}
 	}else{
-		//navi.style.display = 'none';
 		wrapper.style.overflow = 'visible';
-		wrapper.style.height = 'auto'
+		setTimeout('setWrapperHeight()',300);
+		//navi.style.display = 'none';
+		//wrapper.style.height = 'auto'
 		//bk.style.display = 'none';
 		//bk.style.height = 'auto'
 		mh.style.position = 'fixed';
@@ -686,9 +685,9 @@ function appsNaviSwitch() {
 		//navi.style.left = '-280px';
 		navi.className = '';
 		//bk.className = '';
-		setTimeout('setClassName("appsNavigationBack","")',200);
+		setTimeout('setClassName("appsNavigationBack","")',100);
 		//setTimeout('setNaviDisp("appsNavigation","none")',300);
-		setTimeout('setNaviDisp("appsNavigationBack","none")',400);
+		setTimeout('setNaviDisp("appsNavigationBack","none")',300);
 		//navi.style.left = '-280px';
 		if(ua.indexOf('Android') > 0) {
 			//Android
@@ -697,15 +696,16 @@ function appsNaviSwitch() {
 		}
 	}
 }
-function setStyle ($obj, $style, $str){
-	document.getElementById($obj).$style = $str;
-}
 function setClassName ($obj,$class) {
 	document.getElementById($obj).className = $class;
 }
 function setNaviDisp ($obj,$str){
 	document.getElementById($obj).style.display = $str;
 }
+function setWrapperHeight() {
+	document.getElementById("wrapper").style.height = "auto";
+}
+
 </script>
 <div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
 <div id="appsNavigation"><div id="anInner">
@@ -751,8 +751,7 @@ function setNaviDisp ($obj,$str){
 		<h2>追加アプリ</h2>
 		<ul>
 			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/77/icon/64/A10566991420987508-trans.png"></span>Yahoo!ニュースYahoo!ニュースYahoo!ニュース</a></li>
-			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/66/icon/64/A6829183567519825-trans.png"></span>美人時計</a></li>
-			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/prod.upload.aipo.com/app/65/icon/64/A4407366647751848-trans.png"></span>美人時計</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-close"></i></span>美人時計</a></li>
 		</ul>
 
 		<h2>設定</h2>

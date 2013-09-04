@@ -29,6 +29,7 @@
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+
 <!-- WRAPPER -->
 <div id="wrapper">
 
@@ -40,14 +41,29 @@
 	</div>
 
 	<script>
-	function dispMenubar(obj,target) {
-		if(document.getElementById(target).style.display!='block') {
-			document.getElementById(target).style.display = 'block';
+	function popupToggle($this,$target) {
+		if(document.getElementById($target).style.display=='none'){
+			document.getElementById($target).style.display='block'
 		}else{
-			document.getElementById(target).style.display='none';
+			document.getElementById($target).style.display='none'
 		}
+		if($this.className.indexOf('active')>0){
+			$this.className = $this.className.replace(' active','');
+		}else{
+			$this.className += ' active'
+		};
 	}
 	</script>
+
+	<!--div class="hdNavi_v2">
+		<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
+		<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
+		<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="icon-caret-down"></i></a>
+		</div>
+	</div-->
 
 	<div class="hdNavi">
 
@@ -55,101 +71,66 @@
 
 
 		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
 					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
 						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
 						<span class="mb_hide">お知らせ</span>
+						<span class="pc_hide"><i class="icon-comment"></i></span>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="hdInformation">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="informationcheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-informationcheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="informationcheckerContainer_label" id="informationcheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="informationcheckerContainer_label" onclick="dispMenubar(this,'menubar_hdInformation')">
-						<div id="informationchecker" class="informationcheckerstyle counter">5</div>
+		<div class="hdInformation" title="サポート">
+			<div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+						<div id="supportchecker" class="counter zero">0</div>
 						<span class="mb_hide">サポート</span>
+						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!--div class="hdInformation">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
+				<div class="counter zero">0</div>
+				<span>サポート</span>
+			</a>
+		</div-->
 
 		<div class="hdUserName">
-			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+			<a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')">
 				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a>
-		</div>
-	</div>
-
-	<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
-		<ul>
-		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
-		<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
-		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
-		</ul>
-
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">Aipo.comからのお知らせ</div>
-			<ul class="tipInfo">
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-			</ul>
-			<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
-		</div>
-
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定前は下記を表示。
-		タイトルの（）内は削ってください。
-
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
-			<div class="tipBody">
-				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
-				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
-			</div>
-		</div>
-
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定後は下記を表示。
-		タイトルの（）内は削ってください。
-
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
-			<div class="tipBody">
-				<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
-				<textarea></textarea>
-				<div class="clearfix mt5">
-					<div class="floatLeft fs11 fcGray">
-						これまでの獲得容量(全社)：5MB<br>
-						<a href="#" class="fcGray">twitter連携の設定を解除</a>
-					</div>
-					<div class="floatRight">
-						<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="tipDivider"></div>
-		<div class="tipBox tipFoot clearfix">
-			<div class="capacity">
-				100MB(10%) / 1024MB を使用中
-			</div>
-			<div class="social">
-				<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
-				<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
-			</div>
 		</div>
 	</div>
 
@@ -162,20 +143,19 @@
 
 
 </div></div>
-
 <!-- /HEADER -->
 
 <!-- MAIN TAB -->
 <div id="auiTabs" class="clearfix">
 	<ul>
     	<li class="first">
-        	<div class="tab active">
+        	<div class="tab">
                 <div class="title"><a href="#">マイページ</a></div>
                 <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
             </div>
         </li>
     	<li class="last">
-        	<div class="tab activeNext">
+        	<div class="tab">
                 <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
                 <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
             </div>
@@ -191,337 +171,289 @@
 <div id="roundWrapper">
 	<!-- roundMainWrapper -->
 	<div class="roundMainWrapper">
-
-		<table class="tableWrapper">
-		<tr>
-			<td class="top" width="200">
-				<!-- SUBMENU -->
-				<div class="submenu">
-				<ul>
-				<li class="selected"><a href="">ユーザー情報</a></li>
-				<li><a href="">Myグループ</a></li>
-				<li><a href="">ページ設定</a></li>
-				</ul>
-				<div class="endcap"></div>
-				</div>
-				<img src="images/common/dot.gif" width="200" height="1" alt="">
-				<!-- /SUBMENU -->
-			</td>
-			<td class="wide top">
-				<!-- PORTLET OUTER -->
-				<div class="dojoDndItem auiPortlet P-135e7e25490-10b7a">
-				<div class="auiPortletHead"><div class="inner dojoDndHandle">
-				<div class="auiPortletTitle">
-				<a href="javascript:void(0)">ユーザー情報</a>
-				</div>
+	
+		<!-- auiPortlet -->
+		<div class="dojoDndItem auiPortlet">
+			<div class="auiPortletHead"><div class="inner">
+				<div class="auiPortletTitle">個人設定</div>
 				<div class="auiPortletTool">
-				<div class="auiPortletAction">
-				<span id="portletMenu"></span>
 				</div>
-				<div class="auiPortletSetting">
-				<span id="portletMenu"></span>
-				</div>
-				</div>
-				</div></div>
-				<!-- auiPortletBody -->
-				<div class="auiPortletBody dndIdentifier">
-				<div class="inner" dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135e7e25490-10b7a" id="portlet_P-135e7e25490-10b7a">
+			</div></div>
+	
+			<!-- auiPortletBody -->
+			<div class="auiPortletBody"><div class="inner">
+				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
+					
+					<div id="auiContentsArea"><div id="auiContentsAreaInner">
+	
+						<div class="auiSummaryMeta clearfix">
+							<a class="auiButtonAction" title="ユーザー情報とパスワードを編集する" href="user_info_edit.html" onclick="">ユーザー情報とパスワードを編集する</a>
+						</div>
+	
+						<form name="formP-135e7e25490-10b7a" id="formP-135e7e25490-10b7a" action="#" method="post" onsubmit="return false;">
+						<input type="hidden" name="_name" value="ユーザー">
+						<input type="hidden" name="secid" value="9a1f9e21198f93e5c1b0495cca2c7508">
+						<table class="listTable wide">
+						<tbody>
+							<tr>
+								<td class="caption">メールアドレス</td>
+								<td>kimura@aimluck.com</td>
+							</tr>
+							<tr>
+								<td class="caption">名前</td>
+								<td>木村 一郎</td>
+							</tr>
+							<tr>
+								<td class="caption">名前（フリガナ）</td>
+								<td>キムラ イチロウ</td>
+							</tr>
+							<tr>
+								<td class="caption">電話番号（外線）</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="caption">電話番号（内線）</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="caption">電話番号（携帯）</td>
+								<td>090-1234-5678</td>
+							</tr>
+							<tr>
+								<td class="caption">携帯メールアドレス</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="caption">顔写真</td>
+								<td>
+								<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="顔写真" align="absmiddle">
+								</td>
+							</tr>
+							<tr>
+								<td class="caption">部署</td>
+								<td>
+								<span style="display:block;">営業本部</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="caption">役職</td>
+								<td>部長</td>
+							</tr>
+						</tbody>
+						</table>
+						</form>
 				
-				
-				
-				<script language="JavaScript" type="text/javascript" src="/javascript/aipo/account_person/form.js?1371694710000"></script>
-				<script language="JavaScript" type="text/javascript" src="/javascript/aipo/fileupload/form.js?1371694710000"></script>
-				<script type="text/javascript">
-				//<![CDATA[
-				
-				ptConfig['P-135e7e25490-10b7a'] = { group:"account_person", initUrl:'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b7a?template=SaaSAccountPersonScreen', reloadFunction:aipo.reloadPage };
-				
-				//]]>
-				</script>
-				
-				
-				
-				
-				<div class="auiSummaryMeta clearfix">
-				<div class="floatRight">
-				<a class="auiButton" title="ユーザー情報とパスワードを編集する" href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b7a?template=SaaSAccountPersonFormScreen','P-135e7e25490-10b7a','aipo.account_person.onLoadPersonInfoDialog');">ユーザー情報とパスワードを編集する</a>
-				</div>
-				</div>
-				
-				<form name="formP-135e7e25490-10b7a" id="formP-135e7e25490-10b7a" action="#" method="post" onsubmit="return false;">
-				<input type="hidden" name="_name" value="ユーザー">
-				<input type="hidden" name="secid" value="9a1f9e21198f93e5c1b0495cca2c7508">
-				<table class="listTable wide">
-				<tbody>
-				<tr>
-				<td class="caption">メールアドレス</td>
-				<td>kimura@aimluck.com</td>
-				</tr>
-				<tr>
-				<td class="caption">名前</td>
-				<td>木村 一郎</td>
-				</tr>
-				<tr>
-				<td class="caption">名前（フリガナ）</td>
-				<td>キムラ イチロウ</td>
-				</tr>
-				<tr>
-				<td class="caption">電話番号（外線）</td>
-				<td></td>
-				</tr>
-				<tr>
-				<td class="caption">電話番号（内線）</td>
-				<td></td>
-				</tr>
-				<tr>
-				<td class="caption">電話番号（携帯）</td>
-				<td>090-1234-5678</td>
-				</tr>
-				<tr>
-				<td class="caption">携帯メールアドレス</td>
-				<td></td>
-				</tr>
-				<tr>
-				<td class="caption">顔写真</td>
-				<td>
-				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="顔写真" align="absmiddle">
-				</td>
-				</tr>
-				<tr>
-				<td class="caption">部署</td>
-				<td>
-				<span style="display:block;">営業本部</span>
-				</td>
-				</tr>
-				<tr>
-				<td class="caption">役職</td>
-				<td>部長</td>
-				</tr>
-				</tbody>
-				</table>
-				</form>
-				
-				<h3>会社情報</h3>
-				<table class="listTable wide">
-				<tbody>
-				<tr>
-				<td class="caption">会社名</td>
-				<td>株式会社エイムラック</td>
-				</tr>
-				<tr>
-				<td class="caption">郵便番号</td>
-				<td>
-				
-				</td>
-				</tr>
-				<tr>
-				<td class="caption">住所</td>
-				<td></td>
-				</tr>
-				<tr>
-				<td class="caption">電話番号</td>
-				<td></td>
-				</tr>
-				<tr>
-				<td class="caption">FAX番号</td>
-				<td></td>
-				</tr>
-				</tbody>
-				</table>
-				
-				</div>
-				</div>
-				<!-- /auiPortletBody -->
-				<div class="auiPortletFoot"><div class="inner"></div></div>
-				</div>
-				<!-- /PORTLET OUTER -->
-				
-				
-			</td>
-		</tr>
-		</table>
+						<h3>会社情報</h3>
+						<table class="listTable wide">
+						<tbody>
+							<tr>
+								<td class="caption">会社名</td>
+								<td>株式会社エイムラック</td>
+							</tr>
+							<tr>
+								<td class="caption">郵便番号</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="caption">住所</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="caption">電話番号</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="caption">FAX番号</td>
+								<td></td>
+							</tr>
+						</tbody>
+						</table>
 
+					</div></div>
+					
+					
+					
+					<!-- Start Widgets Area -->
+					<!-- ******************************
+					
+					■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+					
+					1. 各アプリで「auiButtonAction」の収まっている「auiWidget」に「widgetButton」を追記
+					2. 「snDrawer」をスマホ表示時に表示する
+					3. 各アプリでカテゴリなどのメニューが収まっている「auiWidget」に「id="subNavigation"」を追記
+					
+					直下に「widgetMenuSwitch」のJS関数を定義しています。
+					これは全体化時の左側メニューの開閉に利用する関数です。
+					可能ならばソースに直接書かずJSファイルへ記述をお願いします。
+					
+					****************************** -->
+					<script language="javascript">
+					function widgetMenuSwitch() {
+					var subNavi = document.getElementById('subNavigation');
+					if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
+					subNavi.style.display = 'block';
+					}else{
+					subNavi.style.display = 'none';
+					}
+					}
+					</script>
+
+					<!-- auiWidgetsArea -->
+					<div id="auiWidgetsArea">
+						<div class="snDrawer"><a href="javascript:void(0)" class="auiButtonBold" onClick="widgetMenuSwitch()"><img src="../themes/default/images/mobile/sn_list.png"></a></div>
+						<!-- subNavigation -->
+						<div id="subNavigation">
+						
+							<div class="auiWidget clearfix">
+								<ul>
+									<li class="active">
+										<a href="user_info.html" onclick="">個人設定</a>
+									</li>
+									<li>
+										<a href="mygroup.html" onclick="">Myグループ</a>
+									</li>
+								</ul>
+							</div>
+						
+						</div>
+						<!-- /subNavigation -->
+					</div>
+					<!-- /auiWidgetsArea -->
+				</div>
+			</div></div>
+			<div class="auiPortletFoot"><div class="inner"></div></div>
+			<!-- /auiPortletBody -->
+		</div>
+		<!-- /auiPortlet  -->
 	</div>
 	<!-- /roundMainWrapper -->
 </div>
-<!-- /roundWrapper -->
+<!-- /rounWrapper  -->
 
 </div>
 <!-- /wrapper -->
 
 
-<!-- menubar_auiFilter_1 -->
-<!--
-***************************************************
-●開発担当者へコメント
-
-「.menubar.multi」は「menubar」の複数列版です。
-必ず同じ「class」内で「class="menubar multi"」としてください。
-
-
-クリック元となる「filterDropDrawer」の直下、右揃えに表示されるように「top」「left」をJSでベタで入れる必要があります。
-※【厳重注意】トップのポートレット表示と合わせる位置（算出方法）が異なります。
-
-
-top = 「filterDropDrawer」の画面内Y位置+28
-left = 「.menubar.multi」が「filterDropDrawer」の右辺に合うように調整
-
-またウィンドウサイズの変更による位置ズレに常時対応するため、クリックイベントではなく常時イベントとしてください。
-
-***************************************************
--->
-<div class="menubar multi" id="menubar_auiFilter_1" style="width:390px;display:none;top:85px;left:276px;">
-	<div>
-		<p class="caption">部署</p>
-		<ul>
-			<li><a href="#" class="selected">すべての部署</a></li>
-			<li><a href="#">営業本部</a></li>
-			<li><a href="#">開発本部本部</a></li>
-			<li><a href="#">企画本部</a></li>
-		</ul>
-	</div>
-	<div>
-		<p class="caption">カテゴリ</p>
-		<ul>
-			<li><a href="#">カテゴリ名</a></li>
-			<li><a href="#">カテゴリ名</a></li>
-			<li><a href="#" class="selected">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
-		</ul>
-	</div>
-	<div>
-		<p class="caption">長いタイトル長いタイトル長いタイトル長いタイトル</p>
-		<ul>
-			<li><a href="#">カテゴリ名</a></li>
-			<li><a href="#">カテゴリ名</a></li>
-			<li><a href="#">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
-		</ul>
-	</div>
-</div>
-<!-- /menubar_auiFilter_1 -->
-
-
-
 <div id="modalDialog" class="modalDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: block; opacity: 1; left: 300px; top: 20px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
 
 	<div class="auiPopup clearfix">
-		<table class="roundBlockWrapperTop">
-			<tbody>
-				<tr>
-					<td class="roundBlockTitle wide">ユーザー編集</td>
-					<td class="roundBlockIcon last"><div style="float:right"><img style="cursor:pointer" onclick="aipo.common.hideDialog()" id="dialogCloseButton" src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="top" title="閉じる"></div></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="auiPopupHead clearfix">
+			<div class="auiPopupTool">
+				<div><a href="user_info.html" class="auiButtonIcon" title="閉じる"><span><i class="icon-remove"></i></span></a></div>
+			</div>
+			<div class="auiPopupTitle">ユーザー編集</div>
+		</div>
 		<div class="roundBlockContent">
-<div id="messageDiv"></div>
- <div class="indicator" id="indicator-dlg-P-135e7e25490-10b7a" style="display: none;">データを送信しています...</div>
-<form name="formP-135e7e25490-10b7a" id="formP-135e7e25490-10b7a" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b7a?template=SaaSAccountPersonFormJSONScreen" method="post" onsubmit="aimluck.io.createSelectFromFileList(this, 'P-135e7e25490-10b7a');aimluck.io.submit(this,'indicator-dlg-', 'P-135e7e25490-10b7a', aipo.account_person.onReceiveMessage);return false;">
-<input type="hidden" name="_name" value="topaccountpersonForm">
-<input type="hidden" name="secid" value="9a1f9e21198f93e5c1b0495cca2c7508">
-<input type="hidden" name="mode" value="update">
-<table class="listTable wide">
-  <tbody>
-    <tr>
-      <td class="caption">メールアドレス</td>
-      <td>kimura@aimluck.com</td>
-    </tr>
-    <tr>
-      <td class="caption"><span class="required">名前</span>
-</td>
-      <td><input class="text" type="text" name="lastname" id="lastname" value="木村" maxlength="20" style="width:30%;ime-mode:active">
-<input class="text" type="text" name="firstname" id="firstname" value="一郎" maxlength="20" style="width:30%;ime-mode:active">
-</td>
-    </tr>
-    <tr>
-      <td class="caption"><span class="required">名前（フリガナ）</span>
-</td>
-      <td><input class="text" type="text" name="last_name_kana" id="last_name_kana" value="木村" maxlength="20" style="width:30%;ime-mode:active">
-<input class="text" type="text" name="first_name_kana" id="first_name_kana" value="一郎" maxlength="20" style="width:30%;ime-mode:active">
-</td>
-    </tr>
-    <tr>
-      <td class="caption"><span class="required">パスワード</span>
-</td>
-    <td>
-<input class="text" type="password" name="new_password" id="new_password" value="******" maxlength="" style="width:50%;ime-mode:disabled">
-<span class="caution">（半角英数字）</span>
-    </td>
-  </tr>
-    <tr>
-      <td class="caption"><span class="required">パスワード<br>（確認用）</span>
-</td>
-    <td>
-<input class="text" type="password" name="new_password_confirm" id="new_password_confirm" value="******" maxlength="" style="width:50%;ime-mode:disabled">
-<span class="caution">（半角英数字）</span>
-    </td>
-  </tr>
-    <tr>
-      <td class="caption">電話番号（外線）</td>
-    <td>
-<input class="text" type="text" name="out_telephone1" id="out_telephone1" value="" maxlength="5" style="width:20%;ime-mode:disabled">
--&nbsp;<input class="text" type="text" name="out_telephone2" id="out_telephone2" value="" maxlength="4" style="width:20%;ime-mode:disabled">
--&nbsp;<input class="text" type="text" name="out_telephone3" id="out_telephone3" value="" maxlength="4" style="width:20%;ime-mode:disabled">
-<span class="caution">（半角数字）</span>
-    </td>
-  </tr>
-    <tr>
-      <td class="caption">電話番号（内線）</td>
-      <td><input class="text" type="text" name="in_telephone" id="in_telephone" value="" maxlength="13" style="width:30%;ime-mode:disabled">
-<span class="caution">（半角英数字）</span>
-</td>
-    </tr>
-    <tr>
-      <td class="caption">電話番号（携帯）</td>
-    <td>
-<input class="text" type="text" name="cellular_phone1" id="cellular_phone1" value="090" maxlength="5" style="width:20%;ime-mode:disabled">
--&nbsp;<input class="text" type="text" name="cellular_phone2" id="cellular_phone2" value="1234" maxlength="4" style="width:20%;ime-mode:disabled">
--&nbsp;<input class="text" type="text" name="cellular_phone3" id="cellular_phone3" value="5678" maxlength="4" style="width:20%;ime-mode:disabled">
-<span class="caution">（半角数字）</span>
-    </td>
-  </tr>
-    <tr>
-      <td class="caption">携帯メールアドレス</td>
-      <td><input class="text" type="text" name="cellular_mail" id="cellular_mail" value="" maxlength="50" style="width:75%;ime-mode:disabled">
-<span class="caution">（半角英数字）</span>
-</td>
-    </tr>
-    <tr>
-      <td class="caption">顔写真</td>
-    <td>
-<div>
-<iframe name="if_fileupload_P-135e7e25490-10b7a" id="if_fileupload_P-135e7e25490-10b7a" allowtransparency="true" class="auiInputFileFrame" src="../timeline/inner_form.html" frameborder="0" scrolling="no">
-</iframe>
-</div>
-
-
-<ul id="attachments_P-135e7e25490-10b7a" class="attachments singleFile">
-	<li data-fileid="0">現在の写真<span class="deletebutton" onclick="aipo.fileupload.removeFileFromList(this.parentNode.parentNode, this.parentNode, 'P-135e7e25490-10b7a');aipo.account_person.setDeletePhotoValue('P-135e7e25490-10b7a');">削除</span></li>
-	<li><img class="avatar" id="facephoto_P-135e7e25490-10b7a" src="../themes/default/images/common/avatar_default3.png" alt="顔写真" style="display:block"></li>
-</ul>
-
-
-<input type="hidden" id="folderName_P-135e7e25490-10b7a" name="folderName" value="">
-<input type="hidden" id="delete_photo_P-135e7e25490-10b7a" name="delete_photo" value="false">
-    </td>
-  </tr>
-    <tr>
-      <td class="caption">部署</td>
-    <td>
-<span style="display:block;">企画本部</span>
-    </td>
-  </tr>
-    <tr>
-      <td class="caption">役職</td>
-      <td>部長</td>
-    </tr>
-
-  </tbody>
-</table>
-<div align="center">
-<input name="eventSubmit_doAccountedit_update" class="auiButtonAction" id="al_submit_P-135e7e25490-10b7a" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
-<input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="aipo.common.hideDialog();">
-</div>
-</form>
+			<div id="messageDiv"></div>
+			<div class="indicator" id="indicator-dlg-P-135e7e25490-10b7a" style="display: none;">データを送信しています...</div>
+			<form name="formP-135e7e25490-10b7a" id="formP-135e7e25490-10b7a" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b7a?template=SaaSAccountPersonFormJSONScreen" method="post" onsubmit="aimluck.io.createSelectFromFileList(this, 'P-135e7e25490-10b7a');aimluck.io.submit(this,'indicator-dlg-', 'P-135e7e25490-10b7a', aipo.account_person.onReceiveMessage);return false;">
+				<input type="hidden" name="_name" value="topaccountpersonForm">
+				<input type="hidden" name="secid" value="9a1f9e21198f93e5c1b0495cca2c7508">
+				<input type="hidden" name="mode" value="update">
+				<table class="listTable wide">
+				<tbody>
+					<tr>
+					<td class="caption">メールアドレス</td>
+					<td>kimura@aimluck.com</td>
+					</tr>
+					<tr>
+					<td class="caption"><span class="required">名前</span>
+					</td>
+					<td><input class="text" type="text" name="lastname" id="lastname" value="木村" maxlength="20" style="width:30%;ime-mode:active">
+					<input class="text" type="text" name="firstname" id="firstname" value="一郎" maxlength="20" style="width:30%;ime-mode:active">
+					</td>
+					</tr>
+					<tr>
+					<td class="caption"><span class="required">名前（フリガナ）</span>
+					</td>
+					<td><input class="text" type="text" name="last_name_kana" id="last_name_kana" value="木村" maxlength="20" style="width:30%;ime-mode:active">
+					<input class="text" type="text" name="first_name_kana" id="first_name_kana" value="一郎" maxlength="20" style="width:30%;ime-mode:active">
+					</td>
+					</tr>
+					<tr>
+					<td class="caption"><span class="required">パスワード</span>
+					</td>
+					<td>
+					<input class="text" type="password" name="new_password" id="new_password" value="******" maxlength="" style="width:50%;ime-mode:disabled">
+					<span class="caution">（半角英数字）</span>
+					</td>
+					</tr>
+					<tr>
+					<td class="caption"><span class="required">パスワード<br>（確認用）</span>
+					</td>
+					<td>
+					<input class="text" type="password" name="new_password_confirm" id="new_password_confirm" value="******" maxlength="" style="width:50%;ime-mode:disabled">
+					<span class="caution">（半角英数字）</span>
+					</td>
+					</tr>
+					<tr>
+					<td class="caption">電話番号（外線）</td>
+					<td>
+					<input class="text" type="text" name="out_telephone1" id="out_telephone1" value="" maxlength="5" style="width:20%;ime-mode:disabled">
+					-&nbsp;<input class="text" type="text" name="out_telephone2" id="out_telephone2" value="" maxlength="4" style="width:20%;ime-mode:disabled">
+					-&nbsp;<input class="text" type="text" name="out_telephone3" id="out_telephone3" value="" maxlength="4" style="width:20%;ime-mode:disabled">
+					<span class="caution">（半角数字）</span>
+					</td>
+					</tr>
+					<tr>
+					<td class="caption">電話番号（内線）</td>
+					<td><input class="text" type="text" name="in_telephone" id="in_telephone" value="" maxlength="13" style="width:30%;ime-mode:disabled">
+					<span class="caution">（半角英数字）</span>
+					</td>
+					</tr>
+					<tr>
+					<td class="caption">電話番号（携帯）</td>
+					<td>
+					<input class="text" type="text" name="cellular_phone1" id="cellular_phone1" value="090" maxlength="5" style="width:20%;ime-mode:disabled">
+					-&nbsp;<input class="text" type="text" name="cellular_phone2" id="cellular_phone2" value="1234" maxlength="4" style="width:20%;ime-mode:disabled">
+					-&nbsp;<input class="text" type="text" name="cellular_phone3" id="cellular_phone3" value="5678" maxlength="4" style="width:20%;ime-mode:disabled">
+					<span class="caution">（半角数字）</span>
+					</td>
+					</tr>
+					<tr>
+					<td class="caption">携帯メールアドレス</td>
+					<td><input class="text" type="text" name="cellular_mail" id="cellular_mail" value="" maxlength="50" style="width:75%;ime-mode:disabled">
+					<span class="caution">（半角英数字）</span>
+					</td>
+					</tr>
+					<tr>
+					<td class="caption">顔写真</td>
+					<td>
+					<div>
+					<iframe name="if_fileupload_P-135e7e25490-10b7a" id="if_fileupload_P-135e7e25490-10b7a" allowtransparency="true" class="auiInputFileFrame" src="../timeline/inner_form.html" frameborder="0" scrolling="no">
+					</iframe>
+					</div>
+					
+					
+					<ul id="attachments_P-135e7e25490-10b7a" class="attachments singleFile">
+					<li data-fileid="0">現在の写真<span class="deletebutton" onclick="aipo.fileupload.removeFileFromList(this.parentNode.parentNode, this.parentNode, 'P-135e7e25490-10b7a');aipo.account_person.setDeletePhotoValue('P-135e7e25490-10b7a');">削除</span></li>
+					<li><img class="avatar" id="facephoto_P-135e7e25490-10b7a" src="../themes/default/images/common/avatar_default3.png" alt="顔写真" style="display:block"></li>
+					</ul>
+					
+					
+					<input type="hidden" id="folderName_P-135e7e25490-10b7a" name="folderName" value="">
+					<input type="hidden" id="delete_photo_P-135e7e25490-10b7a" name="delete_photo" value="false">
+					</td>
+					</tr>
+					<tr>
+					<td class="caption">部署</td>
+					<td>
+					<span style="display:block;">企画本部</span>
+					</td>
+					</tr>
+					<tr>
+					<td class="caption">役職</td>
+					<td>部長</td>
+					</tr>
+				
+				</tbody>
+				</table>
+				<div align="center">
+				<input name="eventSubmit_doAccountedit_update" class="auiButtonAction" id="al_submit_P-135e7e25490-10b7a" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
+				<input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="aipo.common.hideDialog();">
+				</div>
+			</form>
 		</div>
 	</div>
 </div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>

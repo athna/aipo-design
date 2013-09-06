@@ -130,19 +130,33 @@ input[type=password] {
     top:0;
     height:44px;
     @include mobile-header-style();
-}
-.auiPortletHead .inner {
-	margin:1px 0;
+
+    .inner {
+        margin:1px 0;
+    }
 }
 .auiPortletTitle {
 	float:none;
 	font-weight:bold;
+    display:block;
+    width:48%;
+    margin:0 auto;
+    padding:0;
+    text-align:center;
+    vertical-align:middle;
+    line-height:42px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    @include portlet-title-text();
+    
+    a {
+        color:#ffffff;
+        text-decoration:none;
+        padding:0;
+    }
 }
-.auiPortletTitle a {
-	color:#ffffff;
-	text-decoration:none;
-	padding:0;
-}
+
 .auiPortletTool {
 	display:none;
 }
@@ -513,7 +527,6 @@ input[type=password] {
         position:absolute;
         width:100%;
     }
-    .auiPortletTitle,
     h1 span, {
         display:block;
         width:48%;
@@ -664,160 +677,152 @@ input[type=password] {
 	appsNavigation
 --------------------------------------------------*/
 #appsNavigation {
-  position: absolute;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100%;
-  font-size: 13px;
-  background: #505050;
-  color: #ffffff;
-  z-index: 10000;
+    position: absolute;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100%;
+    font-size: 13px;
+    background: #505050;
+    color: #ffffff;
+    z-index: 10000;
+
+    .anDrawer {
+        display: none;
+        position: fixed;
+        left: 270px;
+        top: 7px;
+        overflow: hidden;
+
+        a {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            background: #505050;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            -o-border-radius: 30px;
+            border-radius: 30px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    h2 {
+        line-height: 2em;
+        padding: 0 5px;
+        white-space: nowrap;
+        text-shadow: 0 1px 0 black;
+        background: #505050;
+    }
+    ul {
+      display: none;
+    }
+    li {
+        clear: both;
+        padding: 0;
+        background: none;
+        overflow: hidden;
+        background: #333333;
+
+        a {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 1px 0 black;
+            border-top: solid 1px rgba(255, 255, 255, 0.3);
+            border-bottom: solid 1px rgba(0, 0, 0, 0.8);
+        }
+    }
+    a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    .anUser {
+        font-size:16px;
+        font-weight:bold;
+        text-shadow:0 1px 0 rgba(0,0,0,1);
+        background:#333333
+            -webkit-gradient(
+            linear, left top, left bottom,
+            from(rgba(255,255,255,0.2)),
+            color-stop(0.5, rgba(255,255,255,0)),
+            to(rgba(0,0,0,0.1))
+            );
+        border-bottom:solid 1px rgba(0,0,0,0.7);
+    }
+    .anUser > div {
+        display: table-cell;
+        vertical-align: middle;
+        height: 45px;
+        line-height: 45px;
+    }
+    .anUser .avatar {
+        width: 40px;
+        text-align: center;
+    }
+    .icon {
+        display: block;
+        float: left;
+        padding: 10px;
+        vertical-align: middle;
+        text-align: center;
+
+        img {
+            width: 20px;
+            max-height: 20px;
+        }
+
+        i {
+            display: block;
+            width: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            color: #fff !important;
+        }
+    }
+    
+    .anFooter {
+        display: table-cell;
+        width: 260px;
+        height: 43px;
+        padding: 0 5px;
+        vertical-align: middle;
+        background: #505050;
+        overflow: hidden;
+        text-shadow:0 1px 0 rgba(0,0,0,1);
+    }
+
 }
 
 #appsNavigationBack {
-  display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  z-index: 9999;
-}
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 9999;
 
-#appsNavigation ul {
-  display: none;
+    a {
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.2);
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
 }
-
-#appsNavigationBack a {
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.2);
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.anDrawer {
-  display: none;
-  position: fixed;
-  left: 270px;
-  top: 7px;
-  overflow: hidden;
-}
-
-.anDrawer a {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  width: 30px;
-  height: 30px;
-  background: #505050;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  border-radius: 30px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.anDrawer img {
-  width: 24px;
-  height: 24px;
-}
-
-#appsNavigation h2 {
-  line-height: 2em;
-  padding: 0 5px;
-  white-space: nowrap;
-  text-shadow: 0 1px 0 black;
-  background: #505050;
-}
-
-#appsNavigation li {
-  clear: both;
-  padding: 0;
-  background: none;
-  overflow: hidden;
-  background: #333333;
-}
-
-#appsNavigation a {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-#appsNavigation li a {
-  display: block;
-  height: 40px;
-  line-height: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  text-shadow: 0 1px 0 black;
-  border-top: solid 1px rgba(255, 255, 255, 0.3);
-  border-bottom: solid 1px rgba(0, 0, 0, 0.8);
-}
-
-.anUser {
-	font-size:16px;
-	font-weight:bold;
-	text-shadow:0 1px 0 rgba(0,0,0,1);
-	background:#333333
-		-webkit-gradient(
-		linear, left top, left bottom,
-		from(rgba(255,255,255,0.2)),
-		color-stop(0.5, rgba(255,255,255,0)),
-		to(rgba(0,0,0,0.1))
-	);
-	border-bottom:solid 1px rgba(0,0,0,0.7);
-}
-
-.anUser > div {
-  display: table-cell;
-  vertical-align: middle;
-  height: 45px;
-  line-height: 45px;
-}
-
-.anUser .avatar {
-  width: 40px;
-  text-align: center;
-}
-
-#appsNavigation .icon {
-  display: block;
-  float: left;
-  padding: 10px;
-  vertical-align: middle;
-  text-align: center;
-}
-
-#appsNavigation .icon img {
-  width: 20px;
-  max-height: 20px;
-}
-
-#appsNavigation .icon i {
-  display: block;
-  width: 20px;
-  font-size: 18px;
-  line-height: 20px;
-  color: #fff !important;
-}
-
-.anFooter {
-  display: table-cell;
-  width: 260px;
-  height: 43px;
-  padding: 0 5px;
-  vertical-align: middle;
-  background: #505050;
-  overflow: hidden;
-  text-shadow:0 1px 0 rgba(0,0,0,1);
-}
-
 
 /***************************************************
 	appsNavigation_v2

@@ -659,20 +659,22 @@ function appsNaviSwitch() {
 
 	if(navi.className!='anOpen'){
 		navi.style.display = 'block';
-		setTimeout('setClassName("appsNavigation_v2","anOpen")',100);
 		wrapper.style.overflow = 'hidden';
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 		bk.style.display = 'block';
 		bk.style.height = document.getElementById('anInner').clientHeight + 'px';
-		setTimeout('setClassName("appsNavigationBack_v2","anOpen")',1);
 		mh.style.position = 'absolute';
 		mh.style.top = '0';
 		//setTimeout('setStyle("appsNavigationBack","left","0")',300);
 		//navi.style.left = '0';
 		if(ua.indexOf('Android') > 0) {
 			//Android
+			navi.className = 'anOpen';
+			bk.className = 'anOpen';
 		} else {
 			//Other
+			setTimeout('setClassName("appsNavigation_v2","anOpen")',100);
+			setTimeout('setClassName("appsNavigationBack_v2","anOpen")',1);
 		}
 	}else{
 		wrapper.style.overflow = 'visible';
@@ -686,14 +688,16 @@ function appsNaviSwitch() {
 		//navi.style.left = '-280px';
 		navi.className = '';
 		//bk.className = '';
-		setTimeout('setClassName("appsNavigationBack_v2","")',100);
 		//setTimeout('setNaviDisp("appsNavigation","none")',300);
-		setTimeout('setNaviDisp("appsNavigationBack_v2","none")',300);
 		//navi.style.left = '-280px';
 		if(ua.indexOf('Android') > 0) {
 			//Android
+			bk.className = '';
+			bk.style.display = 'none';
 		} else {
 			//Other
+			setTimeout('setClassName("appsNavigationBack_v2","")',100);
+			setTimeout('setNaviDisp("appsNavigationBack_v2","none")',300);
 		}
 	}
 }

@@ -54,7 +54,8 @@
 
 	<div class="hdNavi">
 
-		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>
+		メッセージ</a></div>
 
 
 		<div class="hdActivity" title="お知らせ">
@@ -535,7 +536,7 @@ UA判別などでPC版では表示させないでください。
 
 ****************************** -->
 <!-- mobileHeader -->
-<div id="mobileHeader" class="clearfix"><div class="inner">
+<div id="mobileHeader_v2" class="clearfix"><div class="inner">
 	<h1><span>長いアプリ名長いアプリ名</span></h1>
 	<div class="mhLeft">
 		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
@@ -639,9 +640,9 @@ UA判別などでPC版では表示させないでください。
 				</div>
 			</div>
 		</div>
-
 	</div>
-</div></div>
+</div>
+</div>
 <!-- /mobileHeader -->
 
 
@@ -649,21 +650,21 @@ UA判別などでPC版では表示させないでください。
 <script language="javascript">
 function appsNaviSwitch() {
 	//var drawer = document.getElementById('anDrawer');
-	var navi = document.getElementById('appsNavigation');
+	var navi = document.getElementById('appsNavigation_v2');
 	var wrapper = document.getElementById('wrapper');
-	var bk = document.getElementById('appsNavigationBack');
-	var mh = document.getElementById('mobileHeader');
+	var bk = document.getElementById('appsNavigationBack_v2');
+	var mh = document.getElementById('mobileHeader_v2');
 	var naviLeft = document.defaultView.getComputedStyle(navi,null).left.substr(0,document.defaultView.getComputedStyle(navi,null).left.length - 2);
 	var ua = navigator.userAgent;
 
 	if(navi.className!='anOpen'){
 		navi.style.display = 'block';
-		setTimeout('setClassName("appsNavigation","anOpen")',100);
+		setTimeout('setClassName("appsNavigation_v2","anOpen")',100);
 		wrapper.style.overflow = 'hidden';
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 		bk.style.display = 'block';
 		bk.style.height = document.getElementById('anInner').clientHeight + 'px';
-		setTimeout('setClassName("appsNavigationBack","anOpen")',1);
+		setTimeout('setClassName("appsNavigationBack_v2","anOpen")',1);
 		mh.style.position = 'absolute';
 		mh.style.top = '0';
 		//setTimeout('setStyle("appsNavigationBack","left","0")',300);
@@ -685,9 +686,9 @@ function appsNaviSwitch() {
 		//navi.style.left = '-280px';
 		navi.className = '';
 		//bk.className = '';
-		setTimeout('setClassName("appsNavigationBack","")',100);
+		setTimeout('setClassName("appsNavigationBack_v2","")',100);
 		//setTimeout('setNaviDisp("appsNavigation","none")',300);
-		setTimeout('setNaviDisp("appsNavigationBack","none")',300);
+		setTimeout('setNaviDisp("appsNavigationBack_v2","none")',300);
 		//navi.style.left = '-280px';
 		if(ua.indexOf('Android') > 0) {
 			//Android
@@ -707,8 +708,8 @@ function setWrapperHeight() {
 }
 
 </script>
-<div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
-<div id="appsNavigation"><div id="anInner">
+<div id="appsNavigationBack_v2"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
+<div id="appsNavigation_v2"><div id="anInner">
 	<!--div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="icon-remove"></i></a></div-->
 	<div class="anUser">
 		<div class="close"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="icon-remove"></i></a></div>
@@ -767,7 +768,6 @@ function setWrapperHeight() {
 			<li><a href="#"><span class="icon"><i class="icon-question-sign"></i></span>ヘルプ</a></li>
 			<li><a href="#"><span class="icon"><i class="icon-user"></i></span>お問い合わせ</a></li>
 		</ul-->
-
 	</div>
 
 	<!--div class="anContent">

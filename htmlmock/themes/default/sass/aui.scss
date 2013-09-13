@@ -2263,14 +2263,6 @@ ul.attachments{
 	margin:5px 0;
 }
 
-.tlInputControls ul.attachments {
-	float:left;
-	margin:0;
-}
-.tlInputControls ul.attachments > li {
-	margin-left:5px;
-}
-
 /*
 ul.attachments >li{
 	list-style: none;
@@ -2293,11 +2285,7 @@ ul.attachments >li{
 	height:$inputHeight + 2;
     width:130px;
 }
-/*.tlInputControls .auiButtonAction,
-#uploadContainer .auiButtonBold {
-	height:$inputHeight;
-    line-height:$inputHeight;
-}*/
+
 .uploadText {
     position:absolute;
     top:50%;
@@ -2361,65 +2349,64 @@ ul.attachments >li{
 #timelineOuter {
 	position:relative;
 	margin:5px 0;
-}
-#timelineOuter .message {
-	margin:0;
-	padding:10px 0 0;
-	clear:both;
-	border-top: 1px solid #dcdcdc;
-}
-#timelineOuter .message:first-child,
-.message.first {
-	border-top: none !important;
-	padding-top:0 !important;
-	margin-top:0 !important;
-}
-#timelineOuter .on {
-	border-top: 1px solid #999999;
+
+    .message {
+        margin:0;
+        padding:10px 0 0;
+        clear:both;
+        border-top: 1px solid #dcdcdc;
+    }
+    .message:first-child,
+    .message.first {
+        border-top: none !important;
+        padding-top:0 !important;
+        margin-top:0 !important;
+    }
+    .on {
+        border-top: 1px solid #999999;
+    }
+    #inputField,
+    .outer {
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+        -ms-border-radius:3px;
+        border-radius:3px;
+        border: 1px #cdcdcd solid;
+        background:#fff;
+        overflow:hidden;
+    }
+    #inputField {
+        margin-bottom: 15px;
+        background:transparent;
+    }
+    .outer {
+        padding: 3px;
+        margin:0 0 5px 0;
+    }
+    textarea {
+        border:none;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        -ms-border-radius:0;
+        border-radius:0;
+        font-size:13px;
+    }
+    textarea:focus {
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+    }
+    textarea.elastic {
+        width: 99%;
+        overflow: hidden;
+        resize: none;
+        outline: 0;
+        line-height: normal;
+        height: 21px;
+        -webkit-appearance: caret;
+    }
 }
 
-#timelineOuter #inputField,
-#timelineOuter .outer {
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
-	border: 1px #cdcdcd solid;
-	background:#fff;
-	overflow:hidden;
-}
-#timelineOuter #inputField {
-	margin-bottom: 15px;
-}
-#timelineOuter #inputField {
-	background:transparent;
-}
-#timelineOuter .outer {
-	padding: 3px;
-	margin:0 0 5px 0;
-}
-#timelineOuter textarea {
-	border:none;
-	-webkit-border-radius:0;
-	-moz-border-radius:0;
-	-ms-border-radius:0;
-	border-radius:0;
-    font-size:13px;
-}
-#timelineOuter textarea:focus {
-	-webkit-box-shadow:none;
-	-moz-box-shadow:none;
-	box-shadow:none;
-}
-#timelineOuter textarea.elastic {
-	width: 99%;
-	overflow: hidden;
-	resize: none;
-	outline: 0;
-	line-height: normal;
-	height: 21px;
-	-webkit-appearance: caret;
-}
 .tlInputMention {
 	padding:4px;
 }
@@ -2431,19 +2418,42 @@ ul.attachments >li{
 .tlInputAttachmentTitle {
 	font-weight:bold;
 }
+
 .tlInputControls {
 	border-top:solid 1px #e6e6e6;
 	padding:4px;
 	background:$grayLighter;
+
+    .floatRight {
+        li {
+            float:left;
+            background:none;
+            padding:0 0 0 5px;
+        }
+        li:first-child {
+            padding:0;
+        }
+        .indicatorglay {
+        	display:inline-block;
+        }
+    }
+    ul.attachments {
+        float:left;
+        margin:0;
+
+        > li {
+            margin-left:5px;
+        }
+    }
 }
-.tlInputControls .floatRight li {
-	float:left;
-	background:none;
-	padding:0 0 0 5px;
+*:first-child+html .tlInputControls {
+	.floatRight {
+        .indicatorglay {
+        	display:inline; /*IE7*/
+        }
+    }
 }
-.tlInputControls .floatRight li:first-child {
-	padding:0;
-}
+
 
 .tlDisplayChanger {
 	position:relative;
@@ -2452,28 +2462,35 @@ ul.attachments >li{
 	/*text-align:right;*/
 	border-top:1px solid #DCDCDC;
 	z-index:1;
-}
-.tlDisplayChanger .btn {
-	background:#fff;
-	padding:0 3px;
-	position:absolute;
-	top:-9px;
-	right:15px;
+
+    .btn {
+        background:#fff;
+        padding:0 3px;
+        position:absolute;
+        top:-9px;
+        right:15px;
+
+        a {
+            font-size:11px;
+        }
+        span {
+            height:20px;
+            line-height:20px;
+        }
+    }
+    .indicator {
+        vertical-align:middle;
+        float:left;
+        margin:1px 0;
+    }
+    .menubar {
+        top:10px;
+        right:0;
+        width:12em;
+    }
 }
 *:first-child+html .tlDisplayChanger .btn {/*IE7*/
 	top:-10px;
-}
-.tlDisplayChanger .indicator {
-	vertical-align:middle;
-	float:left;
-	margin:1px 0;
-}
-.tlDisplayChanger .btn a {
-	font-size:11px;
-}
-.tlDisplayChanger .btn span {
-	height:20px;
-	line-height:20px;
 }
 .tlDisplayGroup {
 /*	display:inline-block;
@@ -2483,87 +2500,85 @@ ul.attachments >li{
 	overflow:hidden;*/
 	cursor:pointer;/*IE7*/
 }
-.tlDisplayChanger .menubar {
-	top:10px;
-	right:0;
-	width:12em;
-}
 .timeline {
+    .avatar {
+        float:left;
+        margin:0 10px 0 0;
+    }
+    .messageContents {
+        margin-left:60px;
+        margin-bottom:10px;
+    }
+    .comments {
+        margin:0 0 10px 60px;
+        background:$grayLighter;
+        overflow:hidden;
+
+        .messageContents {
+            margin-left:42px;
+        }
+        .message {
+            margin:0;
+            padding:5px !important;
+            border: none;
+            border-bottom:solid 1px #e6e6e6;
+            border-top:solid 1px #fff !important;
+        }
+    }
+    .message .comments {
+        margin-top:10px;
+        margin-bottom:10px;
+
+        .avatar {
+            margin:0 10px 0 0;
+        }
+    }
+    .commentCaption {
+        padding:3px 5px;
+        font-size:smaller;
+        border-top:solid 1px #fff;
+        border-bottom:solid 1px #e6e6e6;
+    }
+    .timeline {
+        width: 100%;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
 }
-.timeline .avatar {
-	float:left;
-	margin:0 10px 0 0;
-}
-.timeline .messageContents {
-	margin-left:60px;
-	margin-bottom:10px;
-}
-.timeline .comments {
-	margin:0 0 10px 60px;
-	background:$grayLighter;
-	overflow:hidden;
-}
-.timeline .message .comments {
-	margin-top:10px;
-	margin-bottom:10px;
-}
-/*.timeline .message .comments:last-child {
-	margin-bottom:0;
-}*/
-.timeline .comments .messageContents {
-	margin-left:42px;
-}
-.timeline .comments .avatar {
-	margin:0 10px 0 0;
-}
-.messageContents .name {
-	/*color: #369;*/
-	font-weight: bold;
-	padding-right: 5px;
-}
-.messageContents .body {
-	padding:5px 0;
+.messageContents {
+    .name {
+        font-weight: bold;
+        padding-right: 5px;
+    }
+    .body {
+        padding:5px 0;
+    }
+    .time {
+        font-size: 80%;
+        *font-size: 75%;
+        color: #434343;
+    }
 }
 
-.messageContents .time {
-	font-size: 80%;
-	*font-size: 75%;
-	color: #434343;
-}
 .tlActivity,
 .tlActivity a {
 	color:#666666;
 	font-size:11px;
 }
-.tlActivity .messageContents {
-	display:table-cell;
-	padding-left:0px !important;
-	line-height:20px;
-}
-.tlActivity .messageContents div {
-	display:inline;
-	padding:0;
+.tlActivity {
+	.messageContents {
+        display:table-cell;
+        padding-left:0px !important;
+        line-height:20px;
+
+        div {
+            display:inline;
+            padding:0;
+        }
+    }
 }
 
 
-.timeline .commentCaption {
-	padding:3px 5px;
-	font-size:smaller;
-	border-top:solid 1px #fff;
-	border-bottom:solid 1px #e6e6e6;
-}
-.timeline .comments .message {
-	margin:0;
-	padding:5px !important;
-	border: none;
-	border-bottom:solid 1px #e6e6e6;
-	border-top:solid 1px #fff !important;
-}
-.timeline .timeline {
-	width: 100%;
-	word-break: break-all;
-	word-wrap: break-word;
-}
 /* tlImageBox */
 .tlImageBlock {
 	margin:10px 0;

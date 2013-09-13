@@ -2729,15 +2729,6 @@ ul.attachments {
   margin: 5px 0;
 }
 
-.tlInputControls ul.attachments {
-  float: left;
-  margin: 0;
-}
-
-.tlInputControls ul.attachments > li {
-  margin-left: 5px;
-}
-
 /*
 ul.attachments >li{
 	list-style: none;
@@ -2762,11 +2753,6 @@ ul.attachments >li{
   width: 130px;
 }
 
-/*.tlInputControls .auiButtonAction,
-#uploadContainer .auiButtonBold {
-	height:$inputHeight;
-    line-height:$inputHeight;
-}*/
 .uploadText {
   position: absolute;
   top: 50%;
@@ -2837,25 +2823,21 @@ ul.attachments >li{
   position: relative;
   margin: 5px 0;
 }
-
 #timelineOuter .message {
   margin: 0;
   padding: 10px 0 0;
   clear: both;
   border-top: 1px solid #dcdcdc;
 }
-
 #timelineOuter .message:first-child,
-.message.first {
+#timelineOuter .message.first {
   border-top: none !important;
   padding-top: 0 !important;
   margin-top: 0 !important;
 }
-
 #timelineOuter .on {
   border-top: 1px solid #999999;
 }
-
 #timelineOuter #inputField,
 #timelineOuter .outer {
   -webkit-border-radius: 3px;
@@ -2866,20 +2848,14 @@ ul.attachments >li{
   background: #fff;
   overflow: hidden;
 }
-
 #timelineOuter #inputField {
   margin-bottom: 15px;
-}
-
-#timelineOuter #inputField {
   background: transparent;
 }
-
 #timelineOuter .outer {
   padding: 3px;
   margin: 0 0 5px 0;
 }
-
 #timelineOuter textarea {
   border: none;
   -webkit-border-radius: 0;
@@ -2888,13 +2864,11 @@ ul.attachments >li{
   border-radius: 0;
   font-size: 13px;
 }
-
 #timelineOuter textarea:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-
 #timelineOuter textarea.elastic {
   width: 99%;
   overflow: hidden;
@@ -2924,15 +2898,28 @@ ul.attachments >li{
   padding: 4px;
   background: #f0f0f0;
 }
-
 .tlInputControls .floatRight li {
   float: left;
   background: none;
   padding: 0 0 0 5px;
 }
-
 .tlInputControls .floatRight li:first-child {
   padding: 0;
+}
+.tlInputControls .floatRight .indicatorglay {
+  display: inline-block;
+}
+.tlInputControls ul.attachments {
+  float: left;
+  margin: 0;
+}
+.tlInputControls ul.attachments > li {
+  margin-left: 5px;
+}
+
+*:first-child + html .tlInputControls .floatRight .indicatorglay {
+  display: inline;
+  /*IE7*/
 }
 
 .tlDisplayChanger {
@@ -2943,7 +2930,6 @@ ul.attachments >li{
   border-top: 1px solid #DCDCDC;
   z-index: 1;
 }
-
 .tlDisplayChanger .btn {
   background: #fff;
   padding: 0 3px;
@@ -2951,25 +2937,27 @@ ul.attachments >li{
   top: -9px;
   right: 15px;
 }
-
-*:first-child + html .tlDisplayChanger .btn {
-  /*IE7*/
-  top: -10px;
+.tlDisplayChanger .btn a {
+  font-size: 11px;
 }
-
+.tlDisplayChanger .btn span {
+  height: 20px;
+  line-height: 20px;
+}
 .tlDisplayChanger .indicator {
   vertical-align: middle;
   float: left;
   margin: 1px 0;
 }
-
-.tlDisplayChanger .btn a {
-  font-size: 11px;
+.tlDisplayChanger .menubar {
+  top: 10px;
+  right: 0;
+  width: 12em;
 }
 
-.tlDisplayChanger .btn span {
-  height: 20px;
-  line-height: 20px;
+*:first-child + html .tlDisplayChanger .btn {
+  /*IE7*/
+  top: -10px;
 }
 
 .tlDisplayGroup {
@@ -2982,54 +2970,55 @@ ul.attachments >li{
   /*IE7*/
 }
 
-.tlDisplayChanger .menubar {
-  top: 10px;
-  right: 0;
-  width: 12em;
-}
-
 .timeline .avatar {
   float: left;
   margin: 0 10px 0 0;
 }
-
 .timeline .messageContents {
   margin-left: 60px;
   margin-bottom: 10px;
 }
-
 .timeline .comments {
   margin: 0 0 10px 60px;
   background: #f0f0f0;
   overflow: hidden;
 }
-
+.timeline .comments .messageContents {
+  margin-left: 42px;
+}
+.timeline .comments .message {
+  margin: 0;
+  padding: 5px !important;
+  border: none;
+  border-bottom: solid 1px #e6e6e6;
+  border-top: solid 1px #fff !important;
+}
 .timeline .message .comments {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-/*.timeline .message .comments:last-child {
-	margin-bottom:0;
-}*/
-.timeline .comments .messageContents {
-  margin-left: 42px;
-}
-
-.timeline .comments .avatar {
+.timeline .message .comments .avatar {
   margin: 0 10px 0 0;
+}
+.timeline .commentCaption {
+  padding: 3px 5px;
+  font-size: smaller;
+  border-top: solid 1px #fff;
+  border-bottom: solid 1px #e6e6e6;
+}
+.timeline .timeline {
+  width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .messageContents .name {
-  /*color: #369;*/
   font-weight: bold;
   padding-right: 5px;
 }
-
 .messageContents .body {
   padding: 5px 0;
 }
-
 .messageContents .time {
   font-size: 80%;
   *font-size: 75%;
@@ -3047,31 +3036,9 @@ ul.attachments >li{
   padding-left: 0px !important;
   line-height: 20px;
 }
-
 .tlActivity .messageContents div {
   display: inline;
   padding: 0;
-}
-
-.timeline .commentCaption {
-  padding: 3px 5px;
-  font-size: smaller;
-  border-top: solid 1px #fff;
-  border-bottom: solid 1px #e6e6e6;
-}
-
-.timeline .comments .message {
-  margin: 0;
-  padding: 5px !important;
-  border: none;
-  border-bottom: solid 1px #e6e6e6;
-  border-top: solid 1px #fff !important;
-}
-
-.timeline .timeline {
-  width: 100%;
-  word-break: break-all;
-  word-wrap: break-word;
 }
 
 /* tlImageBox */

@@ -311,9 +311,9 @@ img.avatar,
 }
 .auiPopup,
 .activityPopup {
-	background:#FFF;
+	background:$white;
 	padding:9px;
-	border:1px solid #B5B5B5;
+	border:1px solid $grayBorderDark;
 	@include border-radius(4px);    
     @include box-shadow(0 2px 4px rgba(0,0,0,0.2));
 	z-index:9998 !important;
@@ -329,7 +329,9 @@ img.avatar,
 }
 
 .auiPopupHead {
-	padding:10px 0 10px 20px;
+	//padding:10px 0 10px 20px;
+    padding-left:20px;
+    margin-bottom:10px;
 	background:transparent url(../images/common/icon_p.gif) no-repeat left center;
 }
 
@@ -383,7 +385,7 @@ img.avatar,
 .auiPopup h2,
 #activityListPane h2 {
 	padding:0 0 5px;
-	border-bottom:solid 1px #ccc;
+	border-bottom:solid 1px $grayBorderDark;
 }
 .auiPopup .roundBlockWrapperTop,
 .auiPopup .roundBlockTitle,
@@ -428,7 +430,7 @@ img.avatar,
 .activityTable td {
 	padding:3px;
 	margin:0;
-	border-bottom:#EEE solid 1px;
+	border-bottom:$grayBorderLight solid 1px;
 	vertical-align:top;
 }
 .activityTable td.icon {
@@ -463,7 +465,7 @@ img.avatar,
 .activityList li {
 	padding:3px;
 	margin:0;
-	border-bottom:#EEE solid 1px;
+	border-bottom:$grayBorderLight solid 1px;
 	vertical-align:top;
 	background:none;
 }
@@ -525,31 +527,30 @@ img.avatar,
 --------------------------------------------------*/
 
 .auiPortlet {
-	background:url(../images/common/portlet_x.gif?20121011) repeat-x bottom center;
+	background:url(../images/common/portlet_x.gif?20130918) repeat-x bottom center;
 }
 .auiPortletHead {
-	background:url(../images/common/portlet_x.gif?20121011) repeat-x left -189px;
+	background:url(../images/common/portlet_x.gif?20130918) repeat-x left -189px;
 	height:45px;
-}
-.auiPortletHead .inner {
-	background:url(../images/common/portlet_x.gif?20121011) no-repeat left 0;
-	height:45px;
-	position:relative;
+
+    .inner {
+        background:url(../images/common/portlet_x.gif?20130918) no-repeat left 0;
+        height:45px;
+        position:relative;
+    }
 }
 .auiPortletBody .auiPortletHead .inner {
-	background:url(../images/common/portlet_x.gif?20121011) no-repeat left 0 !important;
+	background:url(../images/common/portlet_x.gif?20130918) no-repeat left 0 !important;
     padding:0 !important
 }
 .auiPortletTitle {
 	float:left;
 	padding:13px 0 0 30px;
 	white-space:nowrap;
-	background:url(../images/common/portlet_x.gif?20121011) no-repeat left -144px;
-}
-.auiPortletTitle a {
+	background:url(../images/common/portlet_x.gif?20130918) no-repeat left -144px;
 }
 .auiPortletTool {
-	background:url(../images/common/portlet_x.gif?20121011) no-repeat right -50px;
+	background:url(../images/common/portlet_x.gif?20130918) no-repeat right -50px;
 	top:0;
 	right:0;
 	float:right;
@@ -557,15 +558,16 @@ img.avatar,
 	height:32px;
 	padding:13px 10px 0 0;
 	position:absolute;
-}
-.auiPortletTool > div {
-	float:left;
-	padding:0 5px;
-	border-left:solid 1px #dbdbdb;
-	background:#ffffff;
-	box-shadow:-5px 0 3px #ffffff;
-	-webkit-box-shadow:-5px 0 3px #fff;
-	white-space:nowrap;
+
+    > div {
+        float:left;
+        padding:0 5px;
+        border-left:solid 1px $grayBorder;
+        background:#ffffff;
+        box-shadow:-5px 0 3px #ffffff;
+        -webkit-box-shadow:-5px 0 3px #fff;
+        white-space:nowrap;
+    }
 }
 .auiPortletSetting .menubar {
 	right:15px;
@@ -577,24 +579,96 @@ img.avatar,
 }
 
 .auiPortletBody {
-	background:#fff url(../images/common/portlet_l.gif) repeat-y left 0;
-}
-.auiPortletBody .inner {
-	background:url(../images/common/portlet_r.gif) repeat-y right 0;
-	padding:4px 22px 0 22px;
-}
-.auiPortletBody .inner:after{
-	content:".";display:block;height:0;clear:both;visibility:hidden;
+	background:#fff url(../images/common/portlet_l.gif?20130918) repeat-y left 0;
+
+    .inner {
+        background:url(../images/common/portlet_r.gif?20130918) repeat-y right 0;
+        padding:4px 22px 0 22px;
+    }
+    .inner:after{
+        content:".";display:block;height:0;clear:both;visibility:hidden;
+    }
 }
 .auiPortletFoot {
-	background:url(../images/common/portlet_x.gif?20121011) no-repeat left -102px;
-}
-.auiPortletFoot .inner {
-	background:url(../images/common/portlet_x.gif?20121011) no-repeat right -124px;
-	height:20px;
+	background:url(../images/common/portlet_x.gif?20130918) no-repeat left -102px;
+    .inner {
+        background:url(../images/common/portlet_x.gif?20130918) no-repeat right -124px;
+        height:20px;
+    }
 }
 .auiPortletBody .auiPortletFoot .inner {
-	background:url(../images/common/portlet_x.gif?20121011) no-repeat right -124px !important;
+	background:url(../images/common/portlet_x.gif?20130918) no-repeat right -124px !important;
+    padding:0 !important;
+}
+
+/***************************************************
+	auiPortlet_v2
+--------------------------------------------------*/
+
+.auiPortlet_v2 {
+	background:url(../images/common/portlet_x_v2.gif) repeat-x bottom center;
+}
+.auiPortletHead_v2 {
+	background:url(../images/common/portlet_x_v2.gif) repeat-x left -189px;
+	height:45px;
+
+    .inner {
+        background:url(../images/common/portlet_x_v2.gif) no-repeat left 0;
+        height:45px;
+        position:relative;
+    }
+}
+.auiPortletBody_v2 .auiPortletHead_v2 .inner {
+	background:url(../images/common/portlet_x_v2.gif) no-repeat left 0 !important;
+    padding:0 !important
+}
+.auiPortletTitle_v2 {
+	float:left;
+	padding:13px 0 0 30px;
+	white-space:nowrap;
+	background:url(../images/common/portlet_x_v2.gif) no-repeat left -144px;
+}
+.auiPortletTool_v2 {
+	background:url(../images/common/portlet_x_v2.gif) no-repeat right -50px;
+	top:0;
+	right:0;
+	float:right;
+	min-width:25px;
+	height:32px;
+	padding:13px 10px 0 0;
+	position:absolute;
+
+    > div {
+        float:left;
+        padding:0 5px;
+        border-left:solid 1px $grayBorder;
+        background:#ffffff;
+        box-shadow:-5px 0 3px #ffffff;
+        -webkit-box-shadow:-5px 0 3px #fff;
+        white-space:nowrap;
+    }
+}
+
+.auiPortletBody_v2 {
+	background:#fff url(../images/common/portlet_l_v2.gif) repeat-y left 0;
+
+    .inner {
+        background:url(../images/common/portlet_r_v2.gif) repeat-y right 0;
+        padding:4px 22px 0 22px;
+    }
+    .inner:after{
+        content:".";display:block;height:0;clear:both;visibility:hidden;
+    }
+}
+.auiPortletFoot_v2 {
+	background:url(../images/common/portlet_x_v2.gif) no-repeat left -102px;
+    .inner {
+        background:url(../images/common/portlet_x_v2.gif) no-repeat right -124px;
+        height:20px;
+    }
+}
+.auiPortletBody_v2 .auiPortletFoot_v2 .inner {
+	background:url(../images/common/portlet_x_v2.gif) no-repeat right -124px !important;
     padding:0 !important;
 }
 
@@ -613,7 +687,7 @@ img.avatar,
 .userList li {
 	background:none;
 	padding:5px 0;
-	border-bottom:solid 1px #eee;
+	border-bottom:solid 1px $grayBorderLight;
 }
 .userList .avatar {
 	height:50px;
@@ -673,7 +747,7 @@ img.avatar,
 	height:30px;
 	line-height:30px;
 	padding:0 1em;
-	border-left:solid 1px #ccc;
+	border-left:solid 1px $grayBorderDark;
 }
 #footer div.copyright {
 	text-align:center;
@@ -713,144 +787,159 @@ img.avatar,
 /***************************************************
 	auiTabs
 --------------------------------------------------*/
+$tabBackgroundImage:	"../images/tab.png";
 #auiTabs {
 	white-space:nowrap;
 	height:25px;
 	padding:0;
 	margin:0;
-	background:#fff url(../images/tab.png) left bottom repeat-x;
+	background:#fff url($tabBackgroundImage) left bottom repeat-x;
 	overflow:hidden;
-}
-#auiTabs ul {
-	position:relative;
-	padding:0 20px;
-	margin:0;
-	white-space:nowrap;
-}
-#auiTabs li {
-	display:block;
-	float:left;
-	height:25px;
-	padding:0;
-	font-size:11px;
-	background:none;
-}
-#auiTabs .tab {
-	height:100%;
-}
-/* basic */
-#auiTabs .title {
-	float:left;
-	height:25px;
-	line-height:25px;
-	padding-left:20px;
-	background:url(../images/tab.png) left -180px no-repeat;
-}
-#auiTabs .setting {
-	float:left;
-	height:25px;
-	background:url(../images/tab.png) left -270px no-repeat;
-}
-#auiTabs .setting a {
-	margin-top:4px;
-}
-/* first */
-#auiTabs .first .title {
-	background:url(../images/tab.png) left -120px no-repeat;
-}
-/* last */
-#auiTabs .last .setting {
-	padding-right:20px;
-	background:url(../images/tab.png?20120928) right -150px no-repeat;
-}
-/* active */
-#auiTabs .active .title {
-	background:url(../images/tab.png) left -60px no-repeat;
-}
-#auiTabs .active .setting {
-	background:url(../images/tab.png) left -240px no-repeat;
-}
-#auiTabs .activeNext {
-	padding-left:20px;
-	background:url(../images/tab.png) left -90px no-repeat;
-}
-#auiTabs .activeNext .title {
-	padding-left:0;
-	background:url(../images/tab.png) left -270px no-repeat;
-}
-#auiTabs .first .active .title {
-	background:url(../images/tab.png) left -0px no-repeat;
-}
-#auiTabs .last .active {
-	padding-right:20px;
-	background:url(../images/tab.png) right -30px no-repeat;
-}
-#auiTabs .last .active .setting {
-	padding-right:0;
-}
-#auiTabs .last .activeNext {
-	background:url(../images/tab.png) left -90px no-repeat;
-}
 
-#auiTabs .store {
-	padding-right:20px;
-	background:url(../images/tab.png) right -150px no-repeat;
-}
+    ul {
+        position:relative;
+        padding:0 20px;
+        margin:0;
+        white-space:nowrap;
+    }
+    li {
+        display:block;
+        float:left;
+        height:25px;
+        padding:0;
+        font-size:11px;
+        background:none;
 
-#auiTabs li.selectedMenu {
-	height:25px;
-	background:url(../images/tab.png) right -25px no-repeat;
-	text-decoration:none;
-}
-#auiTabs li.selectedMenu .title {
-	background:url(../images/tab.png) left 0px no-repeat;
-}
-#auiTabs li.selectedMenu .title a {
-	text-decoration:none;
-}
-#auiTabs li a {
-	margin:0 5px;
-	white-space:nowrap;
-	text-decoration:none;
-	text-shadow:0 1px 0 rgba(255,255,255,0.75);
-}
-#auiTabs li.selectedMenu a {
-	white-space:nowrap;
-	text-decoration:none;
-}
-#auiTabs li.selectedMenu .menuIcon {
-	float:left;
-	height:25px;
-	background:url(../images/tab.png) right -0px no-repeat;
+        a {
+            margin:0 5px;
+            white-space:nowrap;
+            text-decoration:none;
+            text-shadow:0 1px 0 rgba(255,255,255,0.75);
+        }
+    }
+    .tab {
+        height:100%;
+    }
+    /* basic */
+    .title {
+        float:left;
+        height:25px;
+        line-height:25px;
+        padding-left:20px;
+        background:url($tabBackgroundImage) left -180px no-repeat;
+    }
+    .setting {
+        float:left;
+        height:25px;
+        background:url($tabBackgroundImage) left -270px no-repeat;
+    }
+    .setting a {
+        margin-top:4px;
+    }
+    /* first */
+    .first {
+        .title {
+            background:url($tabBackgroundImage) left -120px no-repeat;
+        }
+        .active .title {
+            background:url($tabBackgroundImage) left -0px no-repeat;
+        }
+    }
+    /* last */
+    .last {
+        .setting {
+            padding-right:20px;
+            background:url($tabBackgroundImage) right -150px no-repeat;
+        }
+        .active {
+            padding-right:20px;
+            background:url($tabBackgroundImage) right -30px no-repeat;
+        }
+        .active .setting {
+            padding-right:0;
+        }
+        .activeNext {
+            background:url($tabBackgroundImage) left -90px no-repeat;
+        }
+    }
+    /* active */
+    .active {
+        .title {
+            background:url($tabBackgroundImage) left -60px no-repeat;
+        }
+        .setting {
+            background:url($tabBackgroundImage) left -240px no-repeat;
+        }
+    }
+    .activeNext {
+        padding-left:20px;
+        background:url($tabBackgroundImage) left -90px no-repeat;
+
+        .title {
+            padding-left:0;
+            background:url($tabBackgroundImage) left -270px no-repeat;
+        }
+    }
+    .store {
+        padding-right:20px;
+        background:url($tabBackgroundImage) right -150px no-repeat;
+    }
+    
+    li.selectedMenu {
+        height:25px;
+        background:url($tabBackgroundImage) right -25px no-repeat;
+        text-decoration:none;
+
+        .title {
+            background:url($tabBackgroundImage) left 0px no-repeat;
+
+            a {
+                text-decoration:none;
+            }
+        }
+        a {
+            white-space:nowrap;
+            text-decoration:none;
+        }
+        .menuIcon {
+            float:left;
+            height:25px;
+            background:url($tabBackgroundImage) right -0px no-repeat;
+        }
+    }
+    .singleTab {
+        height:25px;
+        line-height:25px;
+        background:url($tabBackgroundImage) left -100px no-repeat;
+
+        a {
+            text-decoration:none;
+        }
+    }
+    .addTab {
+        a {
+            display:block;
+            margin:0 0 0 -5px;
+            width:25px;
+            height:25px;
+            line-height:25px;
+            font-size:11px;
+            font-weight:bold;
+            text-align:center;
+            background:url(../images/addtab.png) 0 0 no-repeat;
+        }
+        a:hover {
+            background:url(../images/addtab.png) 0 -25px no-repeat;
+        }
+        span {
+            display:none;
+        }
+    }
 }
 .tooltip_gray {
 	display:none;
 }
-#auiTabs .singleTab {
-	height:25px;
-	line-height:25px;
-	background:url(../images/tab.png) left -100px no-repeat;
-}
-#auiTabs .singleTab a {
-	text-decoration:none;
-}
-#auiTabs .addTab a {
-	display:block;
-	margin:0 0 0 -5px;
-	width:25px;
-	height:25px;
-	line-height:25px;
-	font-size:11px;
-	font-weight:bold;
-	text-align:center;
-	background:url(../images/addtab.png) 0 0 no-repeat;
-}
-#auiTabs .addTab a:hover {
-	background:url(../images/addtab.png) 0 -25px no-repeat;
-}
-#auiTabs .addTab span {
-	display:none;
-}
+
 
 /***************************************************
 	MainTab - NO USE - Delete Reserved
@@ -1040,13 +1129,13 @@ img.avatar,
 --------------------------------------------------*/
 .dialogTable {
 	margin:15px 0;
-	border-top:solid 1px #eee;
+	border-top:solid 1px $grayBorderLight;
 	border-collapse:collapse;
 }
 .dialogTable th,
 .dialogTable td {
 	padding:10px;
-	border-bottom:solid 1px #eee;
+	border-bottom:solid 1px $grayBorderLight;
 }
 
 .dialogTable .caption {
@@ -1067,7 +1156,7 @@ img.avatar,
 .auiWidget {
 	clear:both;
 	padding:0.8em 0;
-	border-bottom:solid 1px #eee;
+	border-bottom:solid 1px $grayBorderLight;
 }
 .auiWidget h2 {
 	line-height:2em;
@@ -1189,9 +1278,9 @@ button,
     background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-    border: 1px solid #cccccc;
-    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid $grayBorder;
+    border-color: $grayBorder $grayBorder $grayBorderDark;
+    //border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     border-bottom-color: #b3b3b3;
 	@include border-radius(4px);
     *zoom: 1;
@@ -1480,8 +1569,8 @@ button[disabled]:active {
 	color:$gray;
     background-image: none !important;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
-    background-color:#eeeeee;
-    border:solid 1px $grayLight;
+    background-color:$grayBack;
+    border:solid 1px $grayBorder;
     cursor: default;
     @include box-shadow(none);
     text-shadow:0 1px 0 $white;
@@ -1581,38 +1670,6 @@ input.auiButtonSearch.active {
 	width:16px;
 }
 
-
-/*
-.auiButtonGroup {
-	-webkit-border-radius:10px;
-	-moz-border-radius:10px;
-	-ms-border-radius:10px;
-	border-radius:10px;
-}
-.auiButtonGroup .auiButton {
-	margin:0 -1px;
-	-webkit-border-radius:0;
-	-moz-border-radius:0;
-	-ms-border-radius:0;
-	border-radius:0;
-}
-.auiButtonGroup .auiButton:hover {
-	border:solid 1px #c0c0c0;
-}
-.auiButtonGroup .left {
-	-webkit-border-radius:2px 0 0 2px;
-	-moz-border-radius:2px 0 0 2px;
-	-ms-border-radius:2px 0 0 2px;
-	border-radius:2px 0 0 2px;
-}
-.auiButtonGroup .right {
-	-webkit-border-radius:0 2px 2px 0;
-	-moz-border-radius:0 2px 2px 0;
-	-ms-border-radius:0 2px 2px 0;
-	border-radius:0 2px 2px 0;
-}
-*/
-
 /***************************************************
 	auiSelectButton
 --------------------------------------------------*/
@@ -1637,7 +1694,7 @@ input.auiButtonSearch.active {
     line-height:$inputHeight;
     min-width:$inputHeight - 3;
     @include border-radius(0);
-    border-color: #e6e6e6 #dcdcdc #bfbfbf;
+    border-color: $grayBorder $grayBorder $grayBorderDark;
 }
 .auiSelectButton a.first,
 .auiSelectButton a.btn {
@@ -1660,7 +1717,7 @@ input.auiButtonSearch.active {
 }
 .auiSelectButton .active a {
     background:$grayLight;
-    border-color:$grayLight $grayLight #bfbfbf;
+    border-color:$grayLight $grayLight $grayBorderDark;
     cursor:default;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
 }
@@ -1715,7 +1772,7 @@ input.auiButtonSearch.active {
 	left:0px;
 	width:360px;
 	padding:10px;
-	border:solid 1px #ccc;
+	border:solid 1px $grayBorderDark;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	-ms-border-radius:3px;
@@ -1732,7 +1789,7 @@ input.auiButtonSearch.active {
 .auiSearchOption .element {
 	margin-bottom:10px;
 	padding-bottom:5px;
-	border-bottom:solid 1px #eee;
+	border-bottom:solid 1px $grayBorderLight;
 }
 .auiSearchOption label {
 	line-height:2em;
@@ -1787,12 +1844,12 @@ input.auiButtonSearch.active {
 .auiGridTable th {
 	padding:8px 5px;
 	white-space:nowrap;
-	border:1px solid #ccc;
+	border:1px solid $grayBorderDark;
 	background:$grayLighter;
 }
 .auiGridTable td {
 	padding:8px 5px;
-	border:1px solid #ccc;
+	border:1px solid $grayBorderDark;
 }
 .auiGridTable .even {
 	background:$grayLighter url(../images/common/bg_slash.gif) repeat left top;
@@ -1826,7 +1883,7 @@ input.auiButtonSearch.active {
 	border-collapse:collapse;
 }
 .auiRowTable.scheduleList {
-    border-bottom:solid 1px #eee;
+    border-bottom:solid 1px $grayBorderLight;
 }
 .auiRowTable th {
 	padding:8px 5px;
@@ -1836,13 +1893,13 @@ input.auiButtonSearch.active {
 }
 .auiRowTable td {
 	padding:8px 5px;
-    border-bottom:solid 1px #eee;
+    border-bottom:solid 1px $grayBorderLight;
 }
 .auiRowTable.scheduleList td {
 	border-bottom:none;
 }
 .auiRowTable .dayStart td {
-	border-top:solid 1px #eee;
+	border-top:solid 1px $grayBorderLight;
 }
 .auiRowTable .day,
 .auiRowTable .time {
@@ -2070,11 +2127,11 @@ input.auiButtonSearch.active {
 	padding:0 0.7em;
 }
 .auiCalendar .sunday {
-	background:#fef6f1;
+	background:#fff0f0;
 	width:25px;
 }
 .auiCalendar .saturday {
-	background:#f4f7fa;
+	background:#f0ffff;
 	width:25px;
 }
 .auiCalendar td a {
@@ -2131,14 +2188,14 @@ input.auiButtonSearch.active {
 --------------------------------------------------*/
 #auiBlogEntries {
 	padding-top:1em;
-	border-top:solid 1px #eee;
+	border-top:solid 1px $grayBorderLight;
 }
 #auiBlogEntries .avatar {
 	float:left;
 }
 #auiBlogEntries .entry {
 	margin:0 0 1em 0;
-	border-bottom:solid 1px #eee;
+	border-bottom:solid 1px $grayBorderLight;
 }
 .entry:first-child .entryHeader p {
 	margin-top:0;
@@ -2189,7 +2246,7 @@ select {
 }
 textarea,
 select {
-	border:solid 1px #ccc;
+	border:solid 1px $grayBorderDark;
     @include border-radius(3px);
 }
 input[type=text],
@@ -2198,7 +2255,7 @@ input[type=password] {
 	padding:4px 2px;
 	vertical-align:middle;
     @include border-radius(3px);
-	border:1px solid $grayLight;
+	border:1px solid $grayBorder;
     @include box-sizing(border-box);
 	background-color:#ffffff;
 }
@@ -2354,7 +2411,7 @@ ul.attachments >li{
         margin:0;
         padding:10px 0 0;
         clear:both;
-        border-top: 1px solid #dcdcdc;
+        border-top: 1px solid $grayBorderLight;
     }
     .message:first-child,
     .message.first {
@@ -2371,7 +2428,7 @@ ul.attachments >li{
         -moz-border-radius:3px;
         -ms-border-radius:3px;
         border-radius:3px;
-        border: 1px #cdcdcd solid;
+        border: 1px $grayBorder solid;
         background:#fff;
         overflow:hidden;
     }
@@ -2411,7 +2468,7 @@ ul.attachments >li{
 	padding:4px;
 }
 .tlInputAttachment {
-	border-top:dotted 1px #e0e0e0;
+	border-top:dotted 1px $grayBorder;
 	margin-top:5px;
 	padding:10px 6px;
 }
@@ -2420,9 +2477,9 @@ ul.attachments >li{
 }
 
 .tlInputControls {
-	border-top:solid 1px #e6e6e6;
+	border-top:solid 1px $grayBorderLight;
 	padding:4px;
-	background:$grayLighter;
+	background:$grayBackLight;
 
     .floatRight {
         li {
@@ -2460,7 +2517,7 @@ ul.attachments >li{
 	height:10px;
 	line-height:10px;
 	/*text-align:right;*/
-	border-top:1px solid #DCDCDC;
+	border-top:1px solid $grayBorderLight;
 	z-index:1;
 
     .btn {
@@ -2511,7 +2568,7 @@ ul.attachments >li{
     }
     .comments {
         margin:0 0 10px 60px;
-        background:$grayLighter;
+        background:$grayBackLight;
         overflow:hidden;
 
         .messageContents {
@@ -2521,7 +2578,7 @@ ul.attachments >li{
             margin:0;
             padding:5px !important;
             border: none;
-            border-bottom:solid 1px #e6e6e6;
+            border-bottom:solid 1px $grayBorderLight;
             border-top:solid 1px #fff !important;
         }
     }
@@ -2537,7 +2594,7 @@ ul.attachments >li{
         padding:3px 5px;
         font-size:smaller;
         border-top:solid 1px #fff;
-        border-bottom:solid 1px #e6e6e6;
+        border-bottom:solid 1px $grayBorderLight;
     }
     .timeline {
         width: 100%;
@@ -2593,7 +2650,7 @@ ul.attachments >li{
 	max-height:200px;
 	height:auto;
 	padding:4px;
-	border:solid 1px #cccccc;
+	border:solid 1px $grayBorderDark;
 }
 .tlImageBlock a:hover img,
 .thumbBlock a:hover img {
@@ -2625,30 +2682,21 @@ ul.attachments >li{
 	width:23px;
 	height:23px;
 	margin:0 4px 0 0;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
+    @include border-radius(3px); 
 }
 #timelineOuter .newMessage {
-	background: $grayLighter;
+	background: $grayBackLight;
 	text-align: center;
-	border: 1px #cdcdcd solid;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
+	border: 1px $grayBorder solid;
+    @include border-radius(3px); 
 	margin-bottom:15px;
 }
 .timeline .readMore {
 	margin-top: 10px;
-	background: $grayLighter;
+	background: $grayBack;
 	text-align: center;
-	border: 1px #cdcdcd solid;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
+	border: 1px $grayBorder solid;
+    @include border-radius(3px); 
 }
 #timelineOuter .newMessage a,
 .timeline .readMore a {
@@ -2663,24 +2711,21 @@ ul.attachments >li{
 .timeline .commentInputDummy {
 	padding:5px;
 	border-top:solid 1px #fff;
-	border-bottom:solid 1px #e6e6e6;
+	border-bottom:solid 1px $grayBorderLight;
 }
 .timeline .commentInputDummy span {
 	display:block;
 	padding:5px;
-	border: 1px #cdcdcd solid;
-	color: #aaaaaa;
+	border: 1px $grayBorder solid;
+	color: $grayLight;
 	cursor: text;
 	background:#fff;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
+    @include border-radius(3px); 
 }
 .timeline .commentField {
 	padding:5px;
 	border-top:solid 1px #fff;
-	border-bottom:solid 1px #e6e6e6;
+	border-bottom:solid 1px $grayBorderLight;
 }
 .timeline .commentField form {
 	margin-left:42px;
@@ -2719,7 +2764,7 @@ ul.attachments >li{
 .dijitCalendarTimeContainer {
 	text-align:center;
 	padding:5px 0;
-	border-bottom:solid 1px #cdcdcd;
+	border-bottom:solid 1px $grayBorderDark;
 	-webkit-box-shadow:0 1px 0 #f9f9f9;
 	-moz-box-shadow:0 1px 0 #f9f9f9;
 	box-shadow:0 1px 0 #f9f9f9;
@@ -2748,7 +2793,7 @@ ul.attachments >li{
 .filterTip {
     display:block;
     float:left;
-	background:#e0e0e0;
+	background:$grayBack;
 	color:#000;
 	margin:0 2px 4px !important;
 	padding:0 5px;
@@ -2799,7 +2844,7 @@ ul.attachments >li{
 .filterInputField {
 	float:left;
 	position:relative;
-    border:solid 1px $grayLight;
+    border:solid 1px $grayBorder;
     height:$inputHeight;
     @include border-radius(4px);
     background:#ffffff;
@@ -2916,7 +2961,7 @@ ul.attachments >li{
 	width:100%;
 	background:none;
 	padding:0;
-	border-top:solid 1px #eee;
+	border-top:solid 1px $grayBorderLight;
     overflow:hidden;
 }
 .auiScheduleList li:first-child {
@@ -2971,12 +3016,12 @@ $wuiWLCaptionHeight: 24px;
 	margin:$elementMarginMB;
     margin-right:-5px;
     margin-left:-5px;
-    border-top:solid 1px #eee;
+    border-top:solid 1px $grayBorderLight;
 
     .row {
         position:relative;
         padding:7px 5px 6px 5px;
-        border-bottom:solid 1px #eee;
+        border-bottom:solid 1px $grayBorderLight;
         overflow:hidden;
     }
     .row:hover {
@@ -3144,7 +3189,7 @@ $wuiWLCaptionHeight: 24px;
 --------------------------------------------------*/
 .auiCheckList {
 	margin:5px 0;
-	border:solid 1px #ddd;
+	border:solid 1px $grayBorder;
     overflow:auto;
     max-height:200px;
 }
@@ -3215,6 +3260,34 @@ $wuiWLCaptionHeight: 24px;
             line-height: 20px;
             color: #fff !important;
         }
+    }
+}
+
+/***************************************************
+	auiRowList
+--------------------------------------------------*/
+.auiRowList {
+	text-align:center;
+
+	li {
+    	display:inline-block;
+        text-align:center;
+        background-image:none;
+        padding:0 10px;
+    }
+    .section {
+    	display:block;
+        margin:5px 0;
+    }
+    label {
+    	display:block;
+    }
+}
+*:first-child + html .auiRowList {
+	li {
+    	display:inline;
+    }
+	.section {
     }
 }
 
@@ -3420,7 +3493,7 @@ a.auiIconTrash:hover {background-position:0px -768px;}
 .auiAbsLayer {
 	position:absolute;
 	background:#fff;
-	border:solid 1px #c9c9c9;
+	border:solid 1px $grayBorderDark;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	-ms-border-radius:3px;

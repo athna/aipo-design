@@ -55,7 +55,7 @@
 	}
 	</script>
 
-	<!--div class="hdNavi_v2">
+	<!--div class="hdNavi">
 		<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
 		<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
 		<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
@@ -155,15 +155,26 @@
                 <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
             </div>
         </li>
-    	<li class="last">
+    	<li class="">
         	<div class="tab activeNext">
+                <div class="title"><a href="#">タブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="">
+        	<div class="tab">
+                <div class="title"><a href="#">タブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab">
                 <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
                 <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
             </div>
         </li>
 		<li class="addTab">
-			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
-		</li>
+			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>		</li>
     </ul>
 </div>
 <!-- /MAIN TAB -->
@@ -686,7 +697,7 @@
 
 
 
-		<div class="dojoDndItem auiPortlet P-13fe4f1e48c-108e3 dojoDndItemOver" id="dojoUnique12">
+		<div class="dojoDndItem auiPortlet" id="dojoUnique12">
 			<div class="auiPortletHead"><div class="inner dojoDndHandle">
 					<div class="auiPortletTitle">
 						<a href="#">スケジュール</a>
@@ -1803,7 +1814,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- /auiportletBody -->
+		<!-- /auiPortletBody -->
 		<div class="auiPortletFoot"><div class="inner"></div></div>
 	</div>
 
@@ -3230,7 +3241,7 @@ left = 「filters」の画面内X位置
 			<div class="clearfix">
 				<div id="supportListPane" widgetid="supportListPane" class="dijitContentPane" title="">
 					<ul class="blockList">
-						<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'guide1');dispMenubar(this,'guide2')">スタートガイド</a></li>
+						<li><a href="javascript:void(0);" onClick="popupToggle(this,'aipo_widget_SupportList_0');popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');">スタートガイド</a></li>
 						<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
             <li><a href="https://www.facebook.com/aipocom.jp" target="_blank">Facebook</a></li>
             <li><a href="https://twitter.com/aipocom" target="_blank">Twitter</a></li>
@@ -3305,21 +3316,21 @@ left = 「filters」の画面内X位置
 
 
 
-<div class="modalDialogUnderlayWrapper" id="guide1" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
+<!-- popupMask -->
+<div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
+<!-- /popupMask -->
 
-<div id="guide2" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display:none; opacity: 1; left: 50%; top: 50px; margin-left:-275px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+<!-- startGuide -->
+<div id="popupStartGuide" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display:none; opacity: 1; left: 50%; top: 50px; margin-left:-275px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
 
 	<div class="auiPopup clearfix">
-		<table class="roundBlockWrapperTop">
-			<tbody>
-				<tr>
-					<td class="roundBlockTitle wide">スタートガイド</td>
-					<td class="roundBlockIcon last">
-						<div style="float:right"><img style="cursor:pointer" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')" id="dialogCloseButton" src="https://app.aipo.com/images/close.gif" alt="閉じる" width="19" height="20" border="0" align="top" title="閉じる"></div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="auiPopupHead clearfix">
+			<div class="auiPopupTool">
+				<div><a href="javascript:void(0)" class="auiButtonIcon" onClick="popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');" title="閉じる"><span><i class="icon-remove"></i></span></a></div>
+			</div>
+			<div class="auiPopupTitle">スタートガイド</div>
+		</div>
 		<div class="roundBlockContent">
 			<div id="messageDiv"></div>
 			
@@ -3329,7 +3340,7 @@ left = 「filters」の画面内X位置
 					<p>同僚、メンバーをAipo.comに招待しましょう！</p>
 					<p>予定の確認や作業の進捗状況、ノウハウの共有など、Aipo.comには組織を最適化する機能が備わっています。</p>
 				</div>
-				<p class="center mb15"><a href="#" class="auiButton w25">ユーザーを追加する</a></p>
+				<p class="center mb15"><a href="#" class="auiButton">ユーザーを追加する</a></p>
 
 			<h3>新しいアプリを使ってみましょう</h3>
 				<div class="clearfix">
@@ -3337,7 +3348,7 @@ left = 「filters」の画面内X位置
 					<p>最初から配置されているアプリ以外にも多くのアプリがあります！</p>
 					<p>また <a href="http://store.aipo.com/" target="_blank">Aipoストア</a> から、新しいアプリを追加して利用することもできます。</p>
 				</div>
-				<p class="center mb15"><a href="#" class="auiButton w25">アプリを追加する</a></p>
+				<p class="center mb15"><a href="#" class="auiButton">アプリを追加する</a></p>
 
 			<h3>みんなの画面を同じにしましょう</h3>
 				<div class="clearfix">
@@ -3345,7 +3356,7 @@ left = 「filters」の画面内X位置
 					<p>管理者以外のユーザーの画面を、管理者と同じ状態にできます。</p>
 					<p>限られた機能だけで充分なとき、多くの機能を使ってほしいときなど、組織や用途に応じてご自由に設定できます。</p>
 				</div>
-				<p class="center mb15"><a href="#" class="auiButton w25">画面を統一する</a></p>
+				<p class="center mb15"><a href="javascript:void(0)" class="auiButton" onClick="popupToggle(this,'popupStartGuide');popupToggle(this,'popupAppPosition');">画面を統一する</a></p>
 
 			<h3>本格的に導入しましょう</h3>
 				<div class="clearfix">
@@ -3353,11 +3364,73 @@ left = 「filters」の画面内X位置
 					<p>容量と機能の充実したMプラン、Lプランへ変更できます。</p>
 					<p>容量が1GBまで拡張されるほか、ワークフローや共有フォルダなど、組織活動に役立つ機能がご利用いただけます。詳しくは <a href="http://www.aipo.com/price/" target="_blank">料金</a> をご覧ください。</p>
 				</div>
-				<p class="center mb15"><a href="#" class="auiButton w25">プラン変更を申し込む</a></p>
+				<p class="center mb15"><a href="#" class="auiButton">プラン変更を申し込む</a></p>
 
 		</div>
 	</div>
 </div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /startGuide -->
+
+
+
+<!-- appPosition -->
+<div id="popupAppPosition" class="modalDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; opacity: 1; left:50%; top:200px; margin-left:-275px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+	<div class="auiPopup clearfix">
+	<div class="auiPopupHead clearfix">
+	<div class="auiPopupTool">
+	<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onClick="popupToggle(this,'popupMask');popupToggle(this,'popupAppPosition');"><span><i class="icon-remove"></i></span></a>
+	</div>
+	</div>
+	<div class="auiPopupTitle">アプリ配置の設定</div>
+	</div>
+	<div class="roundBlockContent">
+	
+	</div>
+	<div class="indicator" id="indicator-form-121" style="display:none;">データを送信しています...</div>
+	<div id="messageDiv"></div>
+	
+	<form name="form121" id="form121" action="" method="post" onsubmit="">
+	<input type="hidden" name="_name" value="psmlForm">
+	<input type="hidden" name="secid" value="">
+	<div class="p">
+	<input type="hidden" value="" id="121-mode" name="mode">
+	</div>
+	
+	<p class="center">すべてのユーザーの配置を変更できます。</p>
+
+	<ul class="auiRowList mb10">
+		<li>
+			<label for="layout01">
+			<span class="section auiRowListImg"><img src="../themes/default/images/function/btn_selectlayout_timeline.gif" alt="タイムラインメイン" width="130" height="130" class="mb5"></span>
+			<span class="section"><input type="radio" name="layout" id="layout01" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'timeline')"></span>
+			<span class="section small">「タイムライン」を中心に配置</span>
+			</label>
+		</li>
+		<li>
+			<label for="layout02">
+			<span class="section auiRowListImg"><img src="../themes/default/images/function/btn_selectlayout_schedule.gif" alt="スケジュールメイン" width="130" height="130" class="mb5"></span>
+			<span class="section"><input type="radio" name="layout" id="layout02" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'schedule')"></span>
+			<span class="section small">「スケジュール」を中心に配置</span>
+			</label>
+		</li>
+		<li>
+			<label for="layout03">
+			<span class="section auiRowListImg"><img src="../themes/default/images/function/btn_selectlayout_mine.gif" alt="あなたの現在の配置" width="130" height="130" class="mb5"></span>
+			<span class="section"><input type="radio" name="layout" id="layout03" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'all_user')"></span>
+			<span class="section small">あなたの現在の配置を適用</span>
+			</label>
+		</li>
+	</ul>
+	
+	<div align="center">
+	<input type="submit" onclick="aimluck.io.setHiddenValue(this)" value="配置を変更する" class="auiButtonAction">
+	<input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+	</div>
+	</form></div>
+	
+</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /appPosition -->
 
 
 </body>

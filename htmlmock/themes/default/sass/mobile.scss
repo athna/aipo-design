@@ -212,7 +212,7 @@ input[type=password] {
 	display:block;
     margin:0 -5px;
     padding:0 5px;
-	border-top:solid 1px #eee;
+	border-top:solid 1px $grayBorderLight;
 }
 .auiMbTable tbody {
 	margin:0 -5px;
@@ -224,7 +224,7 @@ input[type=password] {
 .auiMbTable tr {
     padding:8px 5px;
 	display:block;
-    border-bottom:solid 1px #eee;
+    border-bottom:solid 1px $grayBorderLight;
     @include box-sizing(border-box);
 }
 .auiMbTable tr:hover {
@@ -302,7 +302,7 @@ input[type=password] {
 		from(rgba(255,255,255,0.4)),
 		to(rgba(255,255,255,0))
 	);
-	border-top:solid 1px #c0c0c0;
+	border-top:solid 1px $grayBorderDark;
 	border-bottom:solid 1px $gray;
 	-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);
@@ -390,7 +390,7 @@ input[type=password] {
     left: 0;
     width: 100%;
     background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
-    border-top: solid 1px #dcdcdc;
+    border-top: solid 1px $grayBorderLight;
     border-bottom: solid 1px #d0d0d0;
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -1303,28 +1303,6 @@ input[type=password] {
 	max-width:100% !important;
 }
 
-//.activityPopup:before,
-//.supportPopup:before {
-//    position:absolute;
-//	content:"";
-//    width:10px;
-//    height:10px;
-//    background:#ffffff;
-//    border:solid 1px #b5b5b5;
-//    border-right:none;
-//    border-bottom:none;
-//    @include rotate(45deg);
-//}
-//.activityPopup:before {
-//    top:-6px;
-//    right:11px;
-//}
-//.supportPopup:before {
-//    top:-6px;
-//    right:11px;
-//}
-
-
 /***************************************************
 	login
 --------------------------------------------------*/
@@ -1434,7 +1412,7 @@ table tr.caption {
 	width:100%;
     border-collapse: collapse;
 	background:$grayLighter;
-    border:1px solid #cccccc;
+    border:1px solid $grayBorder;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
 	-ms-border-radius:4px;
@@ -1454,15 +1432,15 @@ table tr.caption {
     padding-bottom:0em;
     color:#293a4b;
     text-align:center;
-	border-bottom:solid 1px #c0c0c0;
+	border-bottom:solid 1px $grayBorderDark;
 }
 .auiScDate {
     font-size: 0.9em;
     font-weight: normal;
     text-align: center;
     letter-spacing: 1px;
-	border-right:solid 1px #c0c0c0;
-	border-bottom:solid 1px #c0c0c0;
+	border-right:solid 1px $grayBorderDark;
+	border-bottom:solid 1px $grayBorderDark;
 	background:#e0e0e0;
 }
 .auiScDate:hover {
@@ -1486,7 +1464,7 @@ table tr.caption {
 .auiScCurrentMonth {
 }
 .auiScCurrentDate {
-    background-color:#c0c0c0;
+    background-color:$grayBorderDark;
 }
 .auiScSelectedDate {
     background-color:#909090 !important;
@@ -1507,7 +1485,7 @@ table tr.caption {
 	overflow: hidden;
 	width: 100%;
 	padding:0;
-	border:1px #ccc solid;
+	border:1px $grayBorder solid;
 	border-bottom:0;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to($grayLighter));
 	display:block;
@@ -1519,7 +1497,7 @@ table tr.caption {
 .auiGradList ul li:last-child{
 	-webkit-border-bottom-left-radius: 3px;
 	-webkit-border-bottom-right-radius: 3px;
-	border-bottom:1px #ccc solid;
+	border-bottom:1px $grayBorderDark solid;
 }
 .auiGradList ul li a{
 	background: url(spm_arrow.png) no-repeat 97% 50%;
@@ -1633,7 +1611,7 @@ table tr.caption {
 	margin-bottom:0;
 }
 .menubar.multi .caption {
-	border-top:solid 1px #ccc;
+	border-top:solid 1px $grayBorderDark;
 }
 .menubar.multi > div:first-child .caption {
 	border-top:none;
@@ -1741,6 +1719,30 @@ div.weeklyTermRights div.weeklyTermRightR {
     
 	.submenu {
         @include mobile-footer-style();
+    }
+}
+
+/***************************************************
+	auiRowList
+--------------------------------------------------*/
+.auiRowList {
+	text-align:left;
+
+	li {
+    	display:block;
+        text-align:left;
+        padding:5px 0;
+    }
+    .section {
+    	display:inline-block;
+        margin:0;
+        vertical-align:middle;
+    }
+}
+.auiRowListImg {
+	img {
+    	max-width:60px;
+        height:auto;
     }
 }
 

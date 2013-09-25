@@ -20,6 +20,8 @@
 <link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css"/>
 <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
 <link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--link rel="stylesheet" type="text/css" href="../themes/default/css/android.css" /-->
+<script language="JavaScript" type="text/javascript" src="../javascript/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
 </head>
 <body>
 <script type="text/javascript">
@@ -52,7 +54,8 @@
 
 	<div class="hdNavi">
 
-		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>
+		メッセージ</a></div>
 
 
 		<div class="hdActivity" title="お知らせ">
@@ -113,7 +116,6 @@
 			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
 			<div class="tipBody">
 				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
-
 				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
 			</div>
 		</div>
@@ -193,8 +195,8 @@
 <!-- roundWrapper -->
 <div id="roundWrapper">
 <!-- MAIN OUTER -->
-												<div class="roundMainWrapper">
-													<!-- LAYOUT -->
+	<div class="roundMainWrapper">
+	<!-- LAYOUT -->
 
 
 <!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
@@ -283,7 +285,8 @@
 				
 				<div id="message21" class="message">
 				<div class="avatar mr10">
-				<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">				</div>
+				<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">
+				</div>
 				<div class="messageContents">
 				<div class="name">名前 名前</div>
 				<div class="body">
@@ -620,32 +623,27 @@ UA判別などでPC版では表示させないでください。
 <!-- /mobileHeader -->
 
 
-<!-- appsNavigation -->
+<!-- appsNavigation2 -->
 <script language="javascript">
-
-// ナビゲーションメニュー用
-var navEventList=[];
 function appsNaviSwitch() {
-	var navi = document.getElementById('appsNavigation');
-	var lists = navi.getElementsByTagName("ul");
-	var bk = document.getElementById('appsNavigationBack');
+	var navi = document.getElementById('appsNavigation_v2');
 	var wrapper = document.getElementById('wrapper');
-    //var drawer = document.getElementById('anDrawer');
-	var nLeft = '-260px';
-	if(document.defaultView.getComputedStyle(navi,null).left==nLeft){
-		//show
-		for (var i=0; i<lists.length; i++){
-			lists[i].style.display = "block";
-		}
-        //drawer.style.display = 'block';
-		navi.style.left = '0px';
-		navi.style.boxShadow = '0 5px 5px rgba(0,0,0,0.5)';
-		navi.style.borderRight = 'solid 1px #909090';
-		bk.style.display = 'block';
+	var bk = document.getElementById('appsNavigationBack_v2');
+	var mh = document.getElementById('mobileHeader_v2');
+	var ua = navigator.userAgent;
+
+	if(navi.className!='anOpen'){
+		navi.style.display = 'block';
 		wrapper.style.overflow = 'hidden';
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
+		bk.style.display = 'block';
+		bk.style.height = document.getElementById('anInner').clientHeight + 'px';
+		mh.style.position = 'absolute';
+		mh.style.top = '0';
+		if(ua.indexOf('Android') > 0) {
+			navi.className = 'anOpen';
+			bk.className = 'anOpen';
 
-		if (aipo.userAgent.isAndroid()){
 		 	var content=dojo.query(".roundBlockContent")[0];
 		 	if(content){
 		 		content.style.display="none";
@@ -658,7 +656,7 @@ function appsNaviSwitch() {
             	return false;
             };
 
-            var naviNodes=dojo.query("input,select,button,a",dojo.byId("appsNavigation"));
+            var naviNodes=dojo.query("input,select,button,a",dojo.byId("appsNavigation_v2"));
 
 			//ナビゲーション外のクリックイベントを無効化
             dojo.query("input,select,button,a").forEach(function(node){
@@ -675,21 +673,20 @@ function appsNaviSwitch() {
         		}
         	});
 
-		 }
-	}else{
-		//hide
-        //drawer.style.display = 'none';
-		navi.style.left = nLeft;
-		navi.style.boxShadow = 'none';
-		navi.style.borderRight = 'none';
-		bk.style.display = 'none';
-		wrapper.style.overflow = 'visible';
-		wrapper.style.height = 'auto';
-		for (var i=0; i<lists.length; i++){
-			lists[i].style.display = "none";
+		} else {
+			setTimeout('setClassName("appsNavigation_v2","anOpen")',100);
+			setTimeout('setClassName("appsNavigationBack_v2","anOpen")',1);
 		}
+	}else{
+		wrapper.style.overflow = 'visible';
+		setTimeout('setWrapperHeight()',300);
+		mh.style.position = 'fixed';
+		mh.style.top = '';
+		navi.className = '';
+		if(ua.indexOf('Android') > 0) {
+			bk.className = '';
+			bk.style.display = 'none';
 
-		 if (aipo.userAgent.isAndroid()){
 		 	var content=dojo.query(".roundBlockContent")[0];
 		 	if(content){
 		 		content.style.display="";
@@ -707,16 +704,29 @@ function appsNaviSwitch() {
         		node.disabled=false;
         	});
 
-		 }
+		} else {
+			setTimeout('setClassName("appsNavigationBack_v2","")',100);
+			setTimeout('setNaviDisp("appsNavigationBack_v2","none")',300);
+			setTimeout('setNaviDisp("appsNavigation_v2","none")',300);
+		}
 	}
 }
+function setClassName ($obj,$class) {
+	document.getElementById($obj).className = $class;
+}
+function setNaviDisp ($obj,$str){
+	document.getElementById($obj).style.display = $str;
+}
+function setWrapperHeight() {
+	document.getElementById("wrapper").style.height = "auto";
+}
 </script>
-<div id="appsNavigationBack"><a class="backLayer" href="javascript:void(0)" onclick="appsNaviSwitch()"></a></div>
-<div id="appsNavigation"><div id="anInner">
-	<!--div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onclick="appsNaviSwitch()"><i class="auiIcon auiIconDelete_w"></i></a></div-->
+<div id="appsNavigationBack_v2"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
+<div id="appsNavigation_v2"><div id="anInner">
+	<!--div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="icon-remove"></i></a></div-->
 	<div class="anUser">
 		<div class="close"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="icon-remove"></i></a></div>
-		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="顔写真" width="20" height="20"> </div>
+		<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
 		<div class="name">アーノルド シュワルツェネッガー</div>
 	</div>
 
@@ -740,6 +750,7 @@ function appsNaviSwitch() {
 			<li><a href="#"><span class="icon"><i class="icon-pencil"></i></span>メモ帳</a></li>
 			<li><a href="#"><span class="icon"><i class="icon-comments"></i></span>メッセージ</a></li>
 		</ul>
+
 	</div>
 
 	<div class="anApps">
@@ -770,8 +781,9 @@ function appsNaviSwitch() {
 			<li><a href="#"><span class="icon"><i class="icon-power-off"></i></span>ログアウト</a></li>
 		</ul>
 	</div>
+
 	<div class="anFooter">
-		<div class="copyright">c Aimluck</div>
+		<div class="copyright">Aipo &copy; Aimluck,Inc</div>
 	</div>
 </div></div>
 <!-- /mobileNavigation -->
@@ -850,7 +862,7 @@ function appsNaviSwitch() {
 			<div class="clearfix">
 				<div id="supportListPane" widgetid="supportListPane" class="dijitContentPane" title="">
 					<ul class="blockList">
-						<li><a href="javascript:void(0);" onClick="popupToggle(this,'aipo_widget_SupportList_0');popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');">スタートガイド</a></li>
+						<li><a href="javascript:void(0);" onClick="popupToggle(this,'aipo_widget_SupportList_0');popupToggle(this,'popupMask');popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');">スタートガイド</a></li>
 						<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
 						<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
 					</ul>
@@ -960,8 +972,6 @@ function appsNaviSwitch() {
 	</div>
 </div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
 <!-- /startGuide -->
-
-
 
 
 <!-- appPosition -->

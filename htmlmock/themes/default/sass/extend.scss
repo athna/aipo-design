@@ -40,7 +40,8 @@
         Also, apparently works on a DIV as well as a FIELDSET.
     */
 /*  display:-moz-inline-box;        /* FF2 */
-    display:inline-block;           /* webkit and FF3 */
+    //display:inline-block;           /* webkit and FF3 */
+    display:inline;
     border:0px;
     padding:0px;
     vertical-align:middle;
@@ -316,6 +317,7 @@
     width:16px;
     height:16px;
     cursor:pointer;
+    display:inline-block;
 }
 .dj_ie6 .dijitCalendarIncrementControl {
     padding:.1em;
@@ -654,4 +656,27 @@ background-repeat:no-repeat;
     display: none;
 }
 .dojoDndAvatarItem {
+}
+
+/* pinpoint modify */
+.dijitDropDownButton {
+	div,
+	span {
+        display:inline;
+        float:none !important;
+        line-height:24px;
+    }
+}
+*:first-child + html .dijitDropDownButton {
+	div,
+	span {
+	    vertical-align:middle !important;
+	}
+}
+#allDayField {
+	position:relative;
+    top:2px;
+}
+*:first-child + html #allDayField {
+	position:static;
 }

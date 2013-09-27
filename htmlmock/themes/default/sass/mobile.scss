@@ -50,7 +50,6 @@ select[multiple] {
     height:auto;
 }
 
-
 /***************************************************
 	auiButton
 --------------------------------------------------*/
@@ -863,13 +862,13 @@ input[type=password] {
 	position:absolute;
     display:none;
 	top:0;
-	width:280px;
+	width:260px;
 	height:100%;
 	font-size:13px;
    	background:$white;
 	z-index:10000;
     @include transition(all 0.2s ease-in-out);
-    @include translate3d(-280px,0,0);
+    @include translate3d(-260px,0,0);
     //-webkit-transform-style: preserve-3d;
     //   -moz-transform-style: preserve-3d;
     //    -ms-transform-style: preserve-3d;
@@ -884,9 +883,9 @@ input[type=password] {
     a {
     }
     h2 {
-        color:#ffffff;
+        color:$grayDark;
     	clear:both;
-        background:$gray;
+        background:$grayBack;
         padding:5px;
         font-size:12px;
 
@@ -911,7 +910,7 @@ input[type=password] {
     }
     .anUser {
         height:44px;
-        @include mobile-header-style();
+        //@include mobile-header-style();
         border-bottom:0;
 
         > div {
@@ -974,7 +973,8 @@ input[type=password] {
             color:$grayDark;
             text-shadow:0 1px 0 $white;
             border-top:solid 1px $white;
-            border-bottom:solid 1px $grayBorder;
+            border-bottom:solid 1px $grayBorderLight;
+            background:$white;
             //@include gradient-vertical(lighten($grayLighter,10),$grayLighter);
         }
         li:last-child {
@@ -1031,7 +1031,7 @@ input[type=password] {
         bottom:0;
         left:0;
         right:0;
-        background:rgba(0,0,0,0.3);
+        background:rgba(0,0,0,0.4);
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 }
@@ -1254,6 +1254,12 @@ input[type=password] {
 	margin:45px 0 0 0;
 	top:0 !important;
 	left:0 !important;
+
+
+    input[type=checkbox],
+    input[type=radio] {
+        vertical-align:0;
+    }
 }
 /* .modalDialog.mb_dialog {
 	position: relative;
@@ -1795,6 +1801,14 @@ div.weeklyTermRights div.weeklyTermRightR {
 .auiIcon {
 	@include auiIconBackSMP();
     background-size:16px auto;
+}
+
+[class^="auiButton"],
+[class*=" auiButton"] {
+	[class^="auiIcon"],
+    [class*=" auiIcon"] {
+	    vertical-align:text-top;
+    }
 }
 
 /***************************************************

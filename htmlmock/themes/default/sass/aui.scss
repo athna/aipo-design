@@ -37,6 +37,11 @@ p {
 	margin:5px 0;
 }
 
+h1, h2, h3, h4, h5, h6, p, span {
+    outline:none;
+}
+
+
 /***************************************************
 	auiHeader
 --------------------------------------------------*/
@@ -1644,24 +1649,33 @@ input.auiButtonSearch.active {
     width:16px;
 	height:16px;
 	padding:3px !important;
-    font-size:15px;
-    color:lighten($grayDark,20);
+    font-size:14px;
+    color:lighten($grayDark,20) !important;
+
+    span {
+        display:table-cell;
+        width:16px;
+        height:16px;
+        line-height:16px;
+        text-align:center;
+        vertical-align:middle;
+    }
+    span,
+    i {
+        cursor:pointer;
+        vertical-align:baseline;
+    }
+}
+[class^="auiButton"] {
+	[class^="icon-"] {
+		font-size:14px;
+    }
+    .icon-remove {
+    	font-size:15px !important;
+    }
 }
 .auiButtonIcon:hover i {
-    color:lighten($grayDark,20);
-}
-.auiButtonIcon span {
-	display:table-cell;
-    width:16px;
-	height:16px;
-	line-height:16px;
-	text-align:center;
-	vertical-align:middle;
-}
-.auiButtonIcon span,
-.auiButtonIcon i {
-	cursor:pointer;
-    vertical-align:baseline;
+    color:lighten($grayDark,20) !important;
 }
 *:first-child+html .auiButtonIcon span {
 	display:block;

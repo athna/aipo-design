@@ -212,56 +212,85 @@ input[type=password] {
     margin:0 -5px;
     padding:0 5px;
 	border-top:solid 1px $grayBorderLight;
-}
-.auiMbTable tbody {
-	margin:0 -5px;
-	display:block;
-}
-.auiMbTable tr:first-child {
-	display:none;
-}
-.auiMbTable tr {
-    padding:8px 5px;
-	display:block;
-    border-bottom:solid 1px $grayBorderLight;
-    @include box-sizing(border-box);
-}
-.auiMbTable tr:hover {
-	background:$grayHightLight !important;
-}
-.auiMbTable td {
-	display:inline-block;
-    width:auto;
-    border:none;
-    padding:0;
-    margin-right:10px;
-}
-.auiMbTable .auiMTCheck {
-	display:table-cell;
-    margin:0;
-    padding:0 10px 0 5px;
-    vertical-align:middle;
-}
-.auiMTCheck ~ td {
-}
-.auiMbTable .auiMTCaption {
-	display:table-cell;
-    margin:0;
-}
-.auiMbTable .auiMTCaption div {
-    margin:0;
-    height:auto;
-    line-height:1;
-}
-.auiMbTable .auiMTCaption a {
-	display:block;
-    margin:0;
-	height:24px;
-    line-height:24px;
-    font-size:14px;
-	overflow:hidden;
-}
 
+    tbody {
+        margin:0 -5px;
+        display:block;
+    }
+    tr:first-child {
+        display:none;
+    }
+    tr {
+        padding:8px 5px;
+        display:block;
+        overflow:hidden;
+        border-bottom:solid 1px $grayBorderLight;
+        @include box-sizing(border-box);
+    }
+    tr:hover {
+        background:$grayHightLight !important;
+    }
+    td {
+        display:inline-block;
+        width:auto;
+        border:none;
+        padding:3px 0;
+        margin-right:10px;
+    }
+    td,
+    td a {
+    	color:$gray;
+    }
+    .auiMTCheck {
+        //display:table-cell;
+        display:block;
+        float:left;
+        margin:0;
+        padding:3px 10px 0 5px;
+        vertical-align:middle;
+
+        ~ td {
+        }
+        input[type=checkbox] {
+            height:20px;
+            line-height:20px;
+        }
+    }
+    .auiMTCaption {
+        //display:table-cell;
+        display:inline;
+        width:100%;
+        margin:0;
+        color:$linkColor;
+
+        div {
+        	display:inline;
+            margin:0;
+            height:auto;
+            line-height:1;
+        }
+        a {
+            display:block;
+            margin:0;
+            height:25px;
+            line-height:25px !important;
+            font-size:18px;
+            color:$linkColor;
+            overflow:hidden;
+        }
+    }
+}
+.auiRowTable.auiMbTable {
+	div {
+    	height:auto !important;
+    	line-height:normal !important;
+        margin:0 !important;
+
+		a {
+        	line-height:normal;
+        }
+    }
+}
 
 /***************************************************
 	auiBlogEntry

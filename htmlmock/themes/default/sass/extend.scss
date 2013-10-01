@@ -659,24 +659,30 @@ background-repeat:no-repeat;
 }
 
 /* pinpoint modify */
-.dijitDropDownButton {
-	div,
-	span {
-        display:inline;
-        float:none !important;
-        line-height:24px;
+.auiSetDate {
+    .dijitDropDownButton {
+        div,
+        span {
+            display:inline;
+            float:none !important;
+            line-height:24px;
+        }
+    }
+    #allDayField {
+        position:relative;
+        top:2px;
     }
 }
-*:first-child + html .dijitDropDownButton {
-	div,
-	span {
-	    vertical-align:middle !important;
-	}
-}
-#allDayField {
-	position:relative;
-    top:2px;
-}
-*:first-child + html #allDayField {
-	position:static;
+*:first-child + html {
+	.auiSetDate {
+        .dijitDropDownButton {
+            div,
+            span {
+                vertical-align:middle !important;
+            }
+        }
+        #allDayField {
+            position:static !important;
+        }
+    }
 }

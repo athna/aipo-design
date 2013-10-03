@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="author" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Voice - 無料のビジネスメッセンジャー">
+<meta property="og:url" content="https://aipo-m.appspot.com/">
+<meta property="og:image" content="https://aipo-m.appspot.com/img/apple-touch-icon-precomposed.png">
+<meta property="og:description" content="Voice(ボイス)は無料で通話やメッセージ送信ができるアプリです。同じドメインのアドレスを自動で結びつけ、同じ会社内でスムーズに無料通話を導入できます。PC版とiPhone/Androidアプリ版をご用意しています。">
+<!-- 
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+Le fav and touch icons -->
+
+<link rel="stylesheet" type="text/css" href="css/all-min.css?date=20121108"/>
+<link rel="stylesheet" type="text/css" href="css/smp-min.css?date=20121108" media="only screen and (max-width: 480px)" >
+
+<!--link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel='stylesheet' href='css/style.css'/>
+<link rel="stylesheet" type="text/css" href="css/smp.css" media="only screen and (max-width: 480px)" >
+<link rel="stylesheet" type="text/css" href="js/plugins/fancybox/jquery.fancybox.css?v=2.1.0" media="screen" /-->
+
+<!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--script type="text/javascript" src="/socket.io/socket.io.js"></script-->
+<script type="text/javascript" src="js/plugins/bootstrap.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.autoresize.1.14.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/plugins/fancybox/jquery.fancybox.js?v=2.1.0"></script>
+<!--script type="text/javascript" src="js/talk.js"></script-->
+<title>AipoVoice - 参加者名,参加者名,参加者名</title>
+<!--script type="text/javascript">  
+$(document).ready(function() {  
+	$(".popImage").fancybox({
+		margin		: 5,
+		padding		: 5,
+		closeClick	: true,
+		closeBtn	: false,
+		arrows		: false,
+		helpers : {
+			title : {
+				type : 'outside'
+			},
+			overlay : {
+				speedOut : 0
+			}
+		}
+	});
+});  
+</script-->
+<script>
+if(window!=parent){
+    //iframeで埋めこまれた場合の処理
+	document.write('<link rel="stylesheet" type="text/css" href="css/iniframe.css"/>');
+}
+else if (window==parent){
+    //通常表示された場合の処理
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+
+<!--script type="text/javascript">
+//<![CDATA[
+$.currentRoomId = "default";
+$.loadChatHistory = function (roomId) {
+var cursor = parseInt($("input#cursor_" + roomId).val());
+$("#chat_" + roomId).each(function() {
+if ($(this).hasClass("empty") || $(this).hasClass("hasNext")) {
+$("#room_" + roomId + " .loader").show();
+if (cursor == 0) {
+$("#chat_" + roomId).empty();
+}
+$.ajax({
+type : "GET",
+url : "/room/history/" + roomId + "/" + cursor,
+cache : false,
+dataType : "json",
+success : function(result) {
+$("#room_" + roomId + " .loader").hide();
+$("#chat_" + roomId).removeClass("empty");
+if ((result.result == "success") && result.data) {
+for (var i in result.data) {
+$("#chat_" + roomId).append(result.data[i].bodyHtml);
+}
+$("input#cursor_" + roomId).val(cursor + result.data.length);
+} else {
+$("#chat_" + roomId).removeClass("hasNext");
+}
+}
+});
+}
+});
+};
+
+$.loadInviteList = function() {
+    $.ajax({
+        type : "GET",
+        url : "/invite/json",
+        cache : false,
+        dataType : "json",
+        success : function(result) {
+            if ((result.result == "success") && result.data) {
+                for (var i in result.data) {
+                    var invite = result.data[i];
+                    $("#invite").append($("<div>")
+                            .addClass("ma20")
+                            .text(escapeHTML(invite.message))
+                            .append(
+                            $("<button>").addClass("ml10 mt20 pa5 btn primary")
+                                    .text("参加").click(function() {
+                                        $.ajax({
+                                            type : "GET",
+                                            url : "/invite/accept/" + invite.roomId,
+                                            cache : false,
+                                            dataType : "json",
+                                            success : function(result) {
+                                                console.dir(result);
+                                                location.href = "/?accept" + Math.random() + "#/r/" + invite.roomId;
+                                            }
+                                        });
+                                    })).append(
+                            $("<button>").addClass("ml10 mt20 pa5 btn")
+                                    .text("拒否").click(function() {
+                                        $.ajax({
+                                            type : "GET",
+                                            url : "/invite/decline/" + invite.roomId,
+                                            cache : false,
+                                            dataType : "json",
+                                            success : function(result) {
+                                                location.reload();
+                                            }
+                                        });
+                                    })));
+                }
+            }
+        }
+    });
+};
+
+$.loadTargetUserList = function(roomId) {
+    $.ajax({
+        type : "GET",
+        url : "/invite/target/json/" + roomId,
+        cache : false,
+        dataType : "json",
+        success : function(result) {
+            if ((result.result == "success") && result.data) {
+                $("#targetUserIdWrapper").empty();
+                for (var k in result.data) {
+                    var targetUser = result.data[k];
+                    var targetUserId = escapeHTML(targetUser.id);
+                    $("#targetUserIdWrapper").append(
+                            $("<div>").append($("<label>").attr("for", "targetUserId" + targetUserId)
+                                    .text(escapeHTML(targetUser.displayName))
+                                    .prepend($("<input>")
+                                    .attr("type", "checkbox")
+                                    .attr("name", "targetUserId[]")
+                                    .attr("id", "targetUserId" + targetUserId)
+                                    .val(targetUserId)))
+                    );
+                }
+            }
+        }
+    });
+}
+
+$(window).hashchange(function() {
+    if (location.hash.match(/\/r\/([^\/]+)\/?/)) {
+        var newRoomId = RegExp.$1;
+        if (newRoomId != $.currentRoomId) {
+            $(".roomWrapper").hide();
+            $(".memberList").hide();
+            $.loadChatHistory(newRoomId);
+            $("#room_" + newRoomId).show();
+            $("#roomMembers_" + newRoomId).show();
+            $.resizeFormHeight();
+            $("#inviteFormTitle").text($("#roomName_" + newRoomId).text() + " にメンバーを招待");
+            $.loadTargetUserList(newRoomId);
+            if (newRoomId == "default") {
+                $(".roomMenu").hide();
+            } else {
+                $(".roomMenu").show();
+            }
+        }
+        $.currentRoomId = newRoomId;
+    }
+    $("#currentRoom").text($("#roomName_" + $.currentRoomId).text());
+});
+
+$(window).scroll(function() {
+    var contentBottom = $('body').offset().top + $('body').height();
+    var displayBottom = $(window).scrollTop() + $(window).height();
+    if (contentBottom - displayBottom < 0) {
+        if ($("#room_" + $.currentRoomId + " .loader").css("display") === "none") {
+            $.loadChatHistory($.currentRoomId);
+        }
+    }
+});
+
+$.onReceiveChat = function(roomId) {
+    var cursor = parseInt($("input#cursor_" + roomId).val());
+    $("input#cursor_" + roomId).val(cursor + 1);
+};
+
+$.onReceiveRoomMembers = function(roomId, data) {
+    var notEmpty = false;
+    for (var dummy in data) {
+        notEmpty = true;
+        break;
+    }
+
+    if (notEmpty) {
+        $("#roomMembers_" + roomId).empty();
+        for (var k in data) {
+            var member = data[k];
+            var liClass = "";
+            if (!member.present) {
+                liClass = "off";
+            }
+            $("#roomMembers_" + roomId).prepend(
+                    $("<li>").addClass(liClass).append(
+                            $("<img>").attr("src", escapeHTML(member.imageUrl))
+                    ).append(
+                            $("<span>").text(escapeHTML(member.displayName))
+                    )
+            );
+        }
+    }
+    $.resizeFormHeight();
+};
+
+$.resizeFormHeight = function() {
+    var textAreaHeight = $("#msg:first").height() + $("#memberListWrapper").height();
+    $(".chatFormWrapper").height(textAreaHeight + 80);
+    if (textAreaHeight > 80) {
+        $(".chatListWrapper").css("padding-top", textAreaHeight - 100);
+    } else {
+        $(".chatListWrapper").css("padding-top", 0);
+    }
+};
+
+$(function() {
+    $.ignoreId = "da4a426a589dcddc6138d418b4af036b";
+    $(".roomWrapper").each(function() {
+        if ($(this).attr("roomId")) {
+            $.initializeRoom($(this).attr("roomId"));
+        }
+    });
+    $("#room_" + $.currentRoomId).show();
+    $("#msg:first").autoResize({
+        onAfterResize : $.resizeFormHeight,
+        extraSpace: 20,
+        minHeight : 48,
+        animate: false
+    });
+
+    if (location.hash == "" && $("#roomSelect li:first > a").size() > 0) {
+        location.href = $("#roomSelect li:first > a").attr("href");
+    }
+
+    $(window).hashchange();
+    $(window).resize(function() {
+        $.resizeFormHeight();
+    });
+
+    $.loadInviteList();
+    $.socketListen("invite", $.loadInviteList);
+});
+//]]>
+</script-->
+
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</a>
+			<h1><a class="brand" href="index.html">Aipo Voice</a></h1>
+
+			<div class="nav-collapse">
+				<ul class="nav pull-right">
+					<li class="dropdown nav-room">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="$.positionChange()" title="木村 一郎, 田村 涼子"><span id="totalUnreadNum" class="activitychecker zero">0</span><span class="activeRoom" style="min-width: 2em;">木村 一郎, 田村 涼子</span><b class="caret"></b></a>
+						<ul id="roomSelect" class="dropdown-menu" >
+							<li id="roomcreate"><a href="javascript:void(0)" onclick="$.loadRoomCreate();$('#modalFormRoomCreate').modal('toggle');"><i class="icon-edit"></i> メッセージを送る</a></li><li id="roomcreate-divider" class="divider"></li>
+							<li id="">
+								<a href="#/r/" onclick="$.positionChange()" title="木村 一郎, 田村 涼子">
+								<span id="" class="activitychecker zero">0</span>
+								<span id="">木村 一郎, 田村 涼子
+								</span>
+								</a>
+							</li>
+							<li id="">
+								<a href="#/r/" onclick="$.positionChange()" title="鈴木 太朗">
+								<span id="" class="activitychecker zero">0
+								</span>
+								<span id="">鈴木 太朗
+								</span>
+								</a>
+							</li>
+							<li id="">
+								<a href="#/r/" onclick="$.positionChange()" title="伊藤 博文">
+								<span id="" class="activitychecker zero">0
+								</span>
+								<span id="">伊藤 博文
+								</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				
+				</ul>
+			</div>
+
+		</div>
+	</div><!-- /navbar-inner -->
+</div><!-- /navbar -->
+
+
+
+<!-- chatFormWrapper -->
+<div class="chatFormWrapper" style="">
+	<div class="inner">
+		<div id="memberListWrapper" class="clearfix mb5">
+			<ul class="memberList clearfix" id="roomMembers_fb1ad30d6dfa32987e6212bcb667cad0">
+				<li><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="木村 一郎" /></span></li>
+				<li><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="田村 涼子" /></span></li>
+				<li><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="鈴木 太朗" /></span></li>
+				<li class="off"><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="伊藤 博文 / OFF" /></span></li>
+				<li><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="木村 一郎" /></span></li>
+				<li><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="田村 涼子" /></span></li>
+				<li><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="鈴木 太朗" /></span></li>
+				<li class="off"><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="伊藤 博文 / OFF" /></span></li>
+			</ul>
+		</div>
+
+		<form onSubmit="$.onSubmitMsg($.currentRoomId); return false;">
+			<fieldset>
+			<!--<input id="imageUrl" name="imageUrl" type="hidden" value="/images/person.png"/>-->
+			<input id="name" name="name" type="hidden" value="goto">
+
+			<div class="inputMention">
+				<textarea onKeyUp="$.onKeyUp($.currentRoomId);" id="msg" name="msg" rows="2" rel="tooltipFocus" data-original-title="Ctrl+Enterでも投稿できます。"></textarea>
+			</div>
+			<div class="inputControls clearfix">
+				<div class="floatLeft">
+					<a class="btn" href="javascript:void(0)" onClick="$('#modalFormPostFile').modal('toggle');">ファイルの追加</a>
+				</div>
+				<div class="floatRight">
+					<input type="submit" class="btn btn-aipo" value="　投稿する　">
+				</div>
+			</div>
+			</fieldset>
+		</form>
+	</div>
+	<div id="messages"></div>
+</div>
+<!-- /chatFormWrapper -->
+
+
+
+
+
+
+<!-- chatListWrapper -->
+<div class="chatListWrapper" style="padding-top: 0px; ">
+<div class="inner">
+
+	<!-- invite
+	<div id="invite" class="alert pl15 pr15">
+		<div>
+			<p><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/d28310568a0605adf1d1c1ecd234e4b8" rel="tooltipBottom" data-original-title="高瀬" /></span> 高瀬さんがチャット「<strong>ルーム名ルーム名ルーム名ルーム名ルーム名</strong>」に招待しています</p>
+			<div class="center"><button class="btn btn-warning">Bootstrapデフォ</button> <button class="btn btn-aipo">auiButtonActionと同じ色</button> <button class="btn">拒否</button></div>
+		</div>
+		<div>
+			<p><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/d28310568a0605adf1d1c1ecd234e4b8" rel="tooltipBottom" data-original-title="高瀬" /></span> 高瀬さんがチャット「<strong>ルーム名ルーム名ルーム名ルーム名ルーム名</strong>」に招待しています</p>
+			<div class="center"><button class="btn btn-aipo">参加</button> <button class="btn">拒否</button></div>
+		</div>
+		<div>
+			<p><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/d28310568a0605adf1d1c1ecd234e4b8" rel="tooltipBottom" data-original-title="高瀬" /></span> 高瀬さんがチャット「<strong>ルーム名ルーム名ルーム名ルーム名ルーム名</strong>」に招待しています</p>
+			<div class="center"><button class="btn btn-aipo">参加</button> <button class="btn">拒否</button></div>
+		</div>
+	</div> -->
+	<!-- /invite -->
+
+
+
+	<div class="roomWrapper" id="" roomid="" style="">
+		<input type="hidden" id="cursor_2166731c0953c3fa06ccf839e3361d2b" class="hide" value="15">
+		<div id="draft_2166731c0953c3fa06ccf839e3361d2b"></div>
+		<div id="chat_2166731c0953c3fa06ccf839e3361d2b" class="hasNext">
+
+
+				<div class="entry clearfix">
+					<div class="avatar">
+						<img width="48px" height="48px" src="../../themes/default/images/common/avatar_default3.png">
+					</div>
+					<div class="chatBody">
+						<div class="name">木村 一郎</div>
+						<div class="body">チャットテキスト。<br />チャットテキスト。チャットテキスト。<br /><a href="http://www.google.com/" target="_blank">http://www.google.com/</a></div>
+						<div class="file"><a href="#">ファイル名ファイル名ファイル名.pdf</a></div>
+					</div>
+					<div class="meta">
+						<div class="time">15:30</div>
+						<div class="read"><a href="javascript:void(0)" onClick="$('#modalReaderList').modal('toggle');">既読 99+</a></div>
+					</div>
+				</div>
+	
+				<div class="entry clearfix">
+					<div class="avatar">
+						<img width="48px" height="48px" src="../../themes/default/images/common/avatar_default3.png">
+					</div>
+					<div class="chatBody">
+						<div class="name">木村 一郎</div>
+						<div class="body">チャットテキスト。<br />チャットテキスト。チャットテキスト。<br /><a href="http://www.google.com/" target="_blank">http://www.google.com/</a></div>
+						<div class="file"><a href="#">ファイル名ファイル名ファイル名.pdf</a></div>
+					</div>
+					<div class="meta">
+						<div class="time">15:30</div>
+						<div class="read"><a href="javascript:void(0)" onClick="$('#modalReaderList').modal('toggle');">既読 99+</a></div>
+					</div>
+				</div>
+	
+				<div class="entry clearfix">
+					<div class="avatar">
+						<img width="48px" height="48px" src="../../themes/default/images/common/avatar_default3.png">
+					</div>
+					<div class="chatBody">
+						<div class="name">木村 一郎</div>
+						<div class="body">チャットテキスト。<br />チャットテキスト。チャットテキスト。<br /><a href="http://www.google.com/" target="_blank">http://www.google.com/</a></div>
+						<div class="file"><a href="#">ファイル名ファイル名ファイル名.pdf</a></div>
+					</div>
+					<div class="meta">
+						<div class="time">15:30</div>
+						<div class="read"><a href="javascript:void(0)" onClick="$('#modalReaderList').modal('toggle');">既読 99+</a></div>
+					</div>
+				</div>
+	
+				<div class="entry clearfix">
+					<div class="avatar">
+						<img width="48px" height="48px" src="../../themes/default/images/common/avatar_default3.png">
+					</div>
+					<div class="chatBody">
+						<div class="name">木村 一郎</div>
+						<div class="body">チャットテキスト。<br />チャットテキスト。チャットテキスト。<br /><a href="http://www.google.com/" target="_blank">http://www.google.com/</a></div>
+						<div class="file"><a href="#">ファイル名ファイル名ファイル名.pdf</a></div>
+					</div>
+					<div class="meta">
+						<div class="time">15:30</div>
+						<div class="read"><a href="javascript:void(0)" onClick="$('#modalReaderList').modal('toggle');">既読 99+</a></div>
+					</div>
+				</div>
+	
+				<div class="entry clearfix">
+					<div class="avatar">
+						<img width="48px" height="48px" src="../../themes/default/images/common/avatar_default3.png">
+					</div>
+					<div class="chatBody">
+						<div class="name">木村 一郎</div>
+						<div class="body">チャットテキスト。<br />チャットテキスト。チャットテキスト。<br /><a href="http://www.google.com/" target="_blank">http://www.google.com/</a></div>
+						<div class="file"><a href="#">ファイル名ファイル名ファイル名.pdf</a></div>
+					</div>
+					<div class="meta">
+						<div class="time">15:30</div>
+						<div class="read"><a href="javascript:void(0)" onClick="$('#modalReaderList').modal('toggle');">既読 99+</a></div>
+					</div>
+				</div>
+	
+		</div>
+		<div class="loader"><img src="img/loading_gray.gif" width="18" height="18"> 読み込み中</div>
+	</div>
+</div>
+</div>
+<!-- /chatListWrapper -->
+
+
+
+
+<!-- form -->
+<!-- ##################################################
+●開発担当者へコメント
+
+招待フォーム。
+
+################################################## -->
+<div class="modal hide fade" id="modalFormUserInvite" style="">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>友人・同僚を招待する</h3>
+	</div>
+	<form method="POST" action="" id="roomForm">
+		<!-- modal-body -->
+		<div class="modal-body">
+			<p>招待したい人のメールアドレスを記入してください。<br>
+			改行して複数のアドレスを記入することで複数人を招待できます。</p>
+			<textarea class="w100 mt10" rows="8"></textarea>
+			<span id="displayNameError" class="help-inline"></span>
+		</div>
+		<!-- /modal-body -->
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">キャンセル</a>
+			<a href="#" class="btn btn-aipo pl20 pr20">招待</a>
+		</div>
+	</form>
+</div>
+
+
+
+<!-- ##################################################
+●開発担当者へコメント
+
+チャット追加フォーム。
+
+################################################## -->
+<div class="modal hide fade" id="modalFormUserAdd" style="">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>メンバーを追加</h3>
+	</div>
+	<form method="POST" action="" id="inviteForm">
+		<!-- modal-body -->
+		<div class="modal-body" style="max-height:300px">
+
+			<div class="searchBar clearfix mb10">
+				<form>
+					<div class="text"><input type="text" class="w100" placeholder="ユーザー名、メールアドレスで検索" /></div>
+					<div class="submit"><input type="submit" class="btn" value="検索" /></div>
+				</form>
+			</div>
+
+			<div id="targetUserIdWrapper" class="checkList">
+
+				<h4>@aipo.com</h4>
+
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+
+
+				<h4>@gmail.com</h4>
+
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+				<div>
+					<label>
+						<input type="checkbox">
+						<span class="avatar avatar_s"><img src="img/avatar.png" width="48" height="48"></span>
+						木村 一郎 （xxx@aimluck.com）
+					</label>
+				</div>
+
+			</div>
+			<span id="targetUserIdError" class="help-inline"></span>
+
+		</div>
+		<!-- /modal-body -->
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">キャンセル</a>
+			<a href="#" class="btn btn-aipo pl20 pr20">追加</a>
+		</div>
+	</form>
+</div>
+
+
+
+<!-- ##################################################
+●開発担当者へコメント
+
+※新規追加フォーム
+ファイルの選択フォーム。
+
+直感的に複数のファイルをアップできることが分かるようにするため、初期状態でinputタグを複数置く。
+また3個以上にも追加できるようにする。（最大数はあって良い。4～5点程度）
+
+################################################## -->
+<div class="modal hide fade" id="modalFormPostFile" style="">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>ファイルの選択</h3>
+	</div>
+	<form method="post" action="/user_image" enctype="multipart/form-data">
+		<!-- modal-body -->
+		<div class="modal-body">
+			<div><input type="file"></div>
+			<div><input type="file"></div>
+			<p class="mt10"><a href="#">アップロードするファイルを追加</a></p>
+		</div>
+		<!-- /modal-body -->
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">キャンセル</a>
+			<a href="#" class="btn btn-aipo">アップロード</a>
+		</div>
+	</form>
+</div>
+
+
+
+<!-- ##################################################
+●開発担当者へコメント
+
+投稿削除確認。
+
+################################################## -->
+<div class="modal hide fade" id="modalConfirmDelete" style="">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>投稿の削除</h3>
+	</div>
+	<form method="post" action="/user_image" enctype="multipart/form-data">
+		<!-- modal-body -->
+		<div class="modal-body">
+			<p>下記の投稿を削除します。</p>
+			<div class="well">
+			削除元の投稿内容。削除元の投稿内容。削除元の投稿内容。削除元の投稿内容。削除元の投稿内容。削除元の投稿内容。削除元の投稿内容。削除元の投稿内容。
+			</div>
+			<p>削除した投稿はもとに戻せません。ご注意ください。</p>
+		</div>
+		<!-- /modal-body -->
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">キャンセル</a>
+			<a href="#" class="btn btn-danger pl20 pr20">削除</a>
+		</div>
+	</form>
+</div>
+
+
+
+<!-- ##################################################
+●開発担当者へコメント
+
+既読のユーザー一覧
+
+################################################## -->
+<div class="modal hide fade" id="modalReaderList" style="">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>既読のユーザー</h3>
+	</div>
+	<form method="post" action="/user_image" enctype="multipart/form-data">
+		<!-- modal-body -->
+		<div class="modal-body">
+			<!-- entryPickup -->
+			<div class="entry entryPicup clearfix">
+				<div class="meta">
+					<div class="avatar">
+						<img width="48px" height="48px" src="../../themes/default/images/common/avatar_default3.png">
+					</div>
+				</div>
+				<div class="chatBody">
+					<div class="name">木村 一郎</div>
+					<div class="body">既読元のエントリー。既読元のエントリー。既読元のエントリー。既読元のエントリー。既読元のエントリー。既読元のエントリー。既読元のエントリー。<br>
+					</div>
+				</div>
+				<div class="date">
+					2012/06/20 15:30
+				</div>
+			</div>
+			<!-- /entryPickup -->
+
+			<div id="memberListWrapper">
+				<ul class="memberList clearfix" id="roomMembers_fb1ad30d6dfa32987e6212bcb667cad0">
+					<li><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/dba518130bb2f9975587912a5a797d84" rel="tooltipBottom" data-original-title="jonieet" /></span></li>
+					<li><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/d28310568a0605adf1d1c1ecd234e4b8" rel="tooltipBottom" data-original-title="高瀬" /></span></li>
+					<li><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/e552767cda3843ce2a978e2fd94dc0c9" rel="tooltipBottom" data-original-title="古森　貞" /></span></li>
+					<li class="off"><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/abd2c533f2d7f96c9648b03bccf9858a" rel="tooltipBottom" data-original-title="大野悠人 / OFF" /></span></li>
+					<li class="off"><span class="avatar avatar_s"><img src="http://chatbull.herokuapp.com/user_image/9c69952a2675ea223da37beed7634d83" rel="tooltipBottom" data-original-title="iwasaki / OFF" /></span></li>
+					<li><span class="avatar avatar_s"><img src="../../themes/default/images/common/avatar_default3.png" rel="tooltipBottom" data-original-title="goto" /></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /modal-body -->
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">キャンセル</a>
+			<a href="#" class="btn btn-danger pl20 pr20">削除</a>
+		</div>
+	</form>
+</div>
+
+
+
+<!-- footer -->
+<footer><div class="inner">
+<ul>
+	<li><a href="privacy.html">プライバシーポリシー</a></li>
+	<li><a href="commercial_law.html">特定商法に基づく表示</a></li>
+</ul>
+<div class="copyright">&copy; 2012 Aimluck</div>
+</div></footer>
+<!-- /footer -->
+
+</div>
+<!-- /wrapper -->
+
+
+<arclones>
+	<textarea onKeyUp="$.onKeyUp($.currentRoomId);" class="mb10 w100 ar1338860052800" style="resize: none; line-height: 18px; text-decoration: none; letter-spacing: normal; font-size: 13px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: normal; font-weight: normal; text-transform: none; text-align: -webkit-auto; direction: ltr; word-spacing: 0px; padding: 4px; position: absolute; top: -9999px; left: -9999px; opacity: 0; overflow: hidden; width: 954px; height: 0px; " tabindex="-1"></textarea>
+</arclones>
+<style id="_clearly_component__css" type="text/css">
+#next_pages_container { width: 5px; hight: 5px; position: absolute; top: -100px; left: -100px; z-index: 2147483647 !important; } 
+</style>
+<div id="_clearly_component__next_pages_container"></div>
+
+
+<!-- ##################################################
+●開発担当者へコメント
+
+コミュニケーションダイアログ
+
+################################################## -->
+<div class="modal hide fade" id="modalSelectContact" style="">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>コンタクト</h3>
+	</div>
+	<form method="POST" action="" id="roomForm">
+		<!-- modal-body -->
+		<div class="modal-body">
+			<div class="userSingle clearfix mb10">
+				<div class="avatar"><img src="img/avatar.png" width="48" height="48"></div>
+				<div class="body">
+					<div class="name">アーノルド・シュワルツェネッガー</div>
+				</div>
+			</div>
+			<div class="btn-group btn-double">
+				<a href="#" class="btn"><i class="appicon-24-baloon"></i><br />メッセージ</a>
+				<a href="#" class="btn"><i class="appicon-24-phone"></i><br />無料通話</a>
+			</div>
+		</div>
+		<!-- /modal-body -->
+	</form>
+</div>
+
+
+</body>
+</html>

@@ -170,6 +170,113 @@
 
 	  <!-- PORTLET OUTER -->
 		<div class="dojoDndItem auiPortlet">
+
+
+<!-- ******************************
+
+■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+
+ヘッダーで「mobile.css」を読み込んでいます。
+<link>タグでの読み込む順番も重要なため、記述通りの順でお願いします。
+
+可能であれば「あなた宛のお知らせ」の画像「icon_message.png」を
+「an_activity.png」へ変更してください。
+
+以下よりスマホ表示専用の要素になります。
+UA判別などでPC版では表示させないでください。
+
+直下に「appsNaviSwitch」のJS関数を定義しています。
+これはスマホ用ナビゲーションの開閉に利用する関数です。
+可能ならばソースに直接書かずJSファイルへ記述をお願いします。
+
+****************************** -->
+<!-- mobileHeader -->
+<div id="mobileHeader_v2" class="clearfix"><div class="inner">
+	<h1><span>長いアプリ名長いアプリ名</span></h1>
+	<div class="mhLeft">
+		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
+	</div>
+	<div class="mhRight clearfix">
+
+		<script>
+		function popupToggle($this,$target) {
+			if(document.getElementById($target).style.display=='none'){
+				document.getElementById($target).style.display='block'
+			}else{
+				document.getElementById($target).style.display='none'
+			}
+			if($this.className.indexOf('active')>0){
+				$this.className = $this.className.replace(' active','');
+			}else{
+				$this.className += ' active'
+			};
+		}
+		</script>
+
+		<!--div class="hdMessege">
+			<a href="https://message.aipo.com" target="_blank">
+				<div id="messagechecker" class="counter">3</div>
+				<span class="mb_hide">メッセージ</span>
+				<span class="pc_hide"><i class="icon-comment"></i></span>
+			</a>
+		</div-->
+
+
+		<div class="hdActivity" title="お知らせ">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+						<span class="mb_hide">お知らせ</span>
+						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hdInformation" title="サポート">
+			<div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+						<div id="supportchecker" class="counter">1</div>
+						<span class="mb_hide">サポート</span>
+						<span class="pc_hide"><i class="icon-info-sign"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!-- /mobileHeader -->
+
 			<div class="auiPortletHead"><div class="inner">
 				<div class="auiPortletTitle">長いアプリ名長いアプリ名</div>
 				<div class="auiPortletTool">
@@ -482,112 +589,6 @@
 <!-- /wrapper -->
 
 
-<!-- ******************************
-
-■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
-
-ヘッダーで「mobile.css」を読み込んでいます。
-<link>タグでの読み込む順番も重要なため、記述通りの順でお願いします。
-
-可能であれば「あなた宛のお知らせ」の画像「icon_message.png」を
-「an_activity.png」へ変更してください。
-
-以下よりスマホ表示専用の要素になります。
-UA判別などでPC版では表示させないでください。
-
-直下に「appsNaviSwitch」のJS関数を定義しています。
-これはスマホ用ナビゲーションの開閉に利用する関数です。
-可能ならばソースに直接書かずJSファイルへ記述をお願いします。
-
-****************************** -->
-<!-- mobileHeader -->
-<div id="mobileHeader_v2" class="clearfix"><div class="inner">
-	<h1><span>長いアプリ名長いアプリ名</span></h1>
-	<div class="mhLeft">
-		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
-	</div>
-	<div class="mhRight clearfix">
-
-		<script>
-		function popupToggle($this,$target) {
-			if(document.getElementById($target).style.display=='none'){
-				document.getElementById($target).style.display='block'
-			}else{
-				document.getElementById($target).style.display='none'
-			}
-			if($this.className.indexOf('active')>0){
-				$this.className = $this.className.replace(' active','');
-			}else{
-				$this.className += ' active'
-			};
-		}
-		</script>
-
-		<!--div class="hdMessege">
-			<a href="https://message.aipo.com" target="_blank">
-				<div id="messagechecker" class="counter">3</div>
-				<span class="mb_hide">メッセージ</span>
-				<span class="pc_hide"><i class="icon-comment"></i></span>
-			</a>
-		</div-->
-
-
-		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="activitycheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="activitycheckerContainer_label"
-					id="activitycheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
-						<span class="mb_hide">お知らせ</span>
-						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="hdInformation" title="サポート">
-			<div
-				class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="supportcheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="supportcheckerContainer_label"
-					id="supportcheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
-						<div id="supportchecker" class="counter">1</div>
-						<span class="mb_hide">サポート</span>
-						<span class="pc_hide"><i class="icon-info-sign"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-<!-- /mobileHeader -->
-
-
 <!-- appsNavigation2 -->
 <script language="javascript">
 function appsNaviSwitch() {
@@ -603,7 +604,6 @@ function appsNaviSwitch() {
 		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
 		bk.style.display = 'block';
 		bk.style.height = document.getElementById('anInner').clientHeight + 'px';
-		mh.style.position = 'absolute';
 		mh.style.top = '0';
 		if(ua.indexOf('Android') > 0) {
 			navi.className = 'anOpen';
@@ -639,12 +639,12 @@ function appsNaviSwitch() {
         	});
 
 		} else {
+			mh.style.position = 'absolute';
 			setTimeout('setClassName("appsNavigation_v2","anOpen")',100);
 			setTimeout('setClassName("appsNavigationBack_v2","anOpen")',1);
 		}
 	}else{
 		wrapper.style.overflow = 'visible';
-		mh.style.position = 'fixed';
 		mh.style.top = '';
 		navi.className = '';
 		if(ua.indexOf('Android') > 0) {
@@ -671,6 +671,7 @@ function appsNaviSwitch() {
         	});
 
 		} else {
+			mh.style.position = 'fixed';
 			setTimeout('setWrapperHeight()',300);
 			setTimeout('setClassName("appsNavigationBack_v2","")',100);
 			setTimeout('setNaviDisp("appsNavigationBack_v2","none")',300);

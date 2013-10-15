@@ -226,7 +226,10 @@
 						<tr>
 							<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
 							<td class="auiMTCaption">
-								<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								<div>
+									<i class="auiIcon auiIconSecret" title="非公開"></i>
+									<a href="javascript:void(0);" onclick="">鈴木 太郎</a>
+								</div>
 							</td>
 							<td>
 								<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
@@ -663,10 +666,11 @@ UA判別などでPC版では表示させないでください。
 
 ****************************** -->
 <!-- mobileHeader -->
-<div id="mobileHeader_v2" class="clearfix"><div class="inner">
+<div id="mobileHeader_v3" class="clearfix"><div class="inner">
 	<h1><span>アドレス帳</span></h1>
 	<div class="mhLeft">
-		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>	</div>
+		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
+	</div>
 	<div class="mhRight clearfix">
 
 		<script>
@@ -692,6 +696,31 @@ UA判別などでPC版では表示させないでください。
 			</a>
 		</div-->
 
+
+		<div class="hdActivity" title="メッセージ">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+						<span class="mb_hide">メッセージ</span>
+						<span class="pc_hide"><i class="icon-comments"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="hdActivity" title="お知らせ">
 			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
@@ -737,6 +766,7 @@ UA判別などでPC版では表示させないでください。
 					aria-disabled="false">
 					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
 						<div id="supportchecker" class="counter">1</div>
+
 						<span class="mb_hide">サポート</span>
 						<span class="pc_hide"><i class="icon-info-sign"></i></span>
 					</div>

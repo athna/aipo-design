@@ -213,187 +213,305 @@
 				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
 					
 					<div id="auiContentsArea"><div id="auiContentsAreaInner">
-	
 						<div class="auiSummaryMeta clearfix">
-						<form class="auiSearch">
-						<input class="text floatLeft long" type="text" name="q" id="q" style="margin-right:5px;" value="">
-						<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+						<form class="auiSearch" id="searchForm_P-141100351cc-100cd" action="" onsubmit="">
+						<input type="hidden" name="template" value="AddressBookListScreen">
+						<input class="text floatLeft long" type="text" name="sword" id="qP-" style="margin-right:5px;" value="">
+						<a href="javascript:void(0)" tabindex="0" class="auiButtonSearch floatLeft" onclick="dojo.byId('searchForm_P-141100351cc-100cd').onsubmit();">検索</a>
 						</form>
+						<div class="indicatorWrap floatLeft ml10" style="padding-top: 0.4em;"> <div class="indicator" id="search-indicator-list-P-141100351cc-100cd" style="display:none;">&nbsp;</div>
 						</div>
-					
-	
+						</div>
+						 <div class="indicator" id="indicator-list-P-141100351cc-100cd" style="display:none;">データを送信しています...</div>
+						
+						<form name="formP-141100351cc-100cd" id="formP-141100351cc-100cd" action="#" method="post" onsubmit="return false;">
+						<input type="hidden" name="_name" value="アドレス">
+						<input type="hidden" name="secid" value="611bdcb5684e69c0069fd95fa64e9656">
 						<div class="auiSummaryMeta clearfix">
-							<div class="floatLeft auiForm">
-								<label class="auiButton"><span><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></span></label>
-	
-								<a class="auiButton" title="メール受信" href="javascript:void(0)" onclick=""><span><i class="auiIcon auiIconReload"></i></span></a>
-								<a name="ajaxbuttonCheckboxDelete" title="削除する" class="auiButton" onclick=""><span><i class="auiIcon auiIconTrash"></i></span></a>	
-								<a name="ajaxbuttonCheckboxAction" class="auiButton" onclick="">既読にする</a>	
-	
-							</div>
-	
-							<div class="floatRight">
-								<div class="count">1 - 20 / 500</div>
-								<div class="auiSelectButton floatLeft">
-									<ul>
-										<li title="前へ">
-										<a href="javascript:void(0);" class="first arrow" onclick="" title="前へ"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-										</li>
-										<li style="margin-right:3px;" title="次へ">
-										<a href="javascript:void(0);" class="last arrow" onclick="" title="次へ"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-										</li>
-									</ul>
-								</div>
+						<div class="floatLeft">
+						<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
+						<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete" value="">
+						<a class="auiButton" title="表示中の一覧をダウンロード" href="javascript:void(0);" onclick="">表示中の一覧をダウンロード</a>
+						<input type="hidden" name="sword" value="">
+						</div>
+						
+						<div class="floatRight">
+						  <div class="count">1 - 20 / 2902</div>
+							<div class="auiSelectButton floatLeft">
+							  <ul class="floatLeft">
+								<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+								<li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow" title="次の 20 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+							  </ul>
 							</div>
 						</div>
-	
-						<form name="formP-13652023f79-10161" id="formP-13652023f79-10161" action="#" method="post" onsubmit="return false;">
-							<input type="hidden" name="_name" value="Webメール">
-							<input type="hidden" name="secid" value="4367840eeb0725e14f29a881f96d5274">
-							
-	
-	
-							<div class="auiWideList auiMailList useCheck">
-								<script>
-									function auiWLCheckChanger(obj) {
-										var thisRow = obj.parentNode.parentNode.parentNode;
-										if(thisRow.className.indexOf('checked') > 0) {
-											thisRow.className = thisRow.className.slice(0,thisRow.className.indexOf(' checked'));
-										} else {
-											thisRow.className += ' checked';
-										}
-									}
-								</script>
-	
-								<div class="row">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
+						</div>
+						<table class="auiRowTable wide">
+						<tbody>
+							<tr>
+								<th class="thin"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);">
+								</th>
+								<th> <a class="headDown" href="javascript:void(0);" onclick="">名前</a>
+								</th>
+								<th><a href="javascript:void(0);" onclick="">会社名</a>
+								</th>
+								<th class="mb_hide">メールアドレス</th>
+								<th class="mb_hide">電話番号</th>
+								<th class="mb_hide">携帯番号</th>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div>
+										<i class="auiIcon auiIconSecret" title="非公開"></i>
+										<a href="javascript:void(0);" onclick="">鈴木 太郎</a>
 									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div></div>
-										<div>※タイトルが無く本文だけだった場合。※タイトルが無く本文だけだった場合。※タイトルが無く本文だけだった場合。</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>※タイトルが無く本文だけだった場合。※タイトルが無く本文だけだった場合。※タイトルが無く本文だけだった場合。</div>
-										<div></div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-								<div class="row read">
-									<div class="auiWLCheck"><label><input type="checkbox" onClick="auiWLCheckChanger(this)" /></label></div>
-									<div class="auiWLDate">2011年10月20日</div>
-									<div class="auiWLCaption">差出人名差出人名差出人名差出人名 &lt;info@free-groupware.com&gt;</div>
-									<div class="auiWLRows">
-										<div>メールタイトルメールタイトルメールタイトルメールタイトルメールタイトル</div>
-										<div>メール本文メール本文メール本文メール本文メール本文メール本文メール本文</div>
-									</div>
-									<div class="auiWLCover"><a href="#"></a></div>
-								</div>
-	
-							</div>
-	
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">長い名前さん長い名前さん長い名前さん長い名前さん</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">ながいなまえ株式会社ながいなまえ株式会社ながいなまえ株式会社</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2908" type="checkbox" value="2908"></td>
+								<td class="auiMTCaption">
+									<div><a href="javascript:void(0);" onclick="">鈴木 太郎</a></div>
+								</td>
+								<td>
+									<div><a href="javascript:void(0);" onclick="">株式会社かいしゃめい</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-91</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+							<tr>
+								<td align="center" class="auiMTCheck"><input name="check2907" type="checkbox" value="2907"></td>
+								<td class="auiMTCaption">
+								<div><a href="javascript:void(0);" onclick="">アーノルド シュワルツェネッガー</a></div>
+								</td>
+								<td>
+								<div><a href="javascript:void(0);" onclick="">Arnold Alois Schwarzenegger.inc</a></div>
+								</td>
+								<td nowrap="nowrap" class="mb_hide"><div>info@corp.<wbr>com</div></td>
+								<td nowrap="nowrap" class="mb_hide">99-99-92</td>
+								<td nowrap="nowrap" class="mb_hide">999-9999-9999</td>
+							</tr>
+						</tbody>
+						</table>
 						<div class="auiSummaryMeta clearfix">
-							<div class="floatRight">
-								<div class="count">1 - 20 / 500</div>
-								<div class="auiSelectButton floatLeft">
-									<ul>
-										<li title="前へ">
-										<a href="javascript:void(0);" class="first arrow" onclick="aipo.calendar.populateWeeklySchedule(&quot;P-135ea887364-10654&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-135ea887364-10654&quot;].jsonData[&quot;prevDate&quot;]);" title="前へ"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-										</li>
-										<li style="margin-right:3px;" title="次へ">
-										<a href="javascript:void(0);" class="last arrow" onclick="aipo.calendar.populateWeeklySchedule(&quot;P-135ea887364-10654&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-135ea887364-10654&quot;].jsonData[&quot;nextDate&quot;]);" title="次へ"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-										</li>
-									</ul>
-								</div>
-							</div>
+						<div class="floatLeft">
+						<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
+						<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdeleteP-141100351cc-100cd" value="">
+						<a title="表示中の一覧をダウンロード" href="" class="auiButton">表示中の一覧をダウンロード</a>
 						</div>
-	
+						</div>
 						</form>
+						
 					</div></div>
 					
 					
@@ -427,7 +545,7 @@
 					
 					<div id="auiWidgetsArea">
 					<div class="auiWidget widgetButton clearfix">
-					<a title="メールを作成する" href="" class="auiButton auiButtonAction">メールを作成する</a>
+					<a title="アドレスを追加する" href="" class="auiButton auiButtonAction">アドレスを追加する</a>
 					</div>
 					
 					
@@ -436,7 +554,7 @@
 					
 					<div class="auiWidget clearfix">
 						<ul>
-							<li class="active"><a href="#">すべてのグループ</a></li>
+							<li class="active"><a href="#">すべてのアドレス</a></li>
 							<li><a href="#">アドレスグループ1</a></li>
 							<li><a href="#">アドレスグループ2</a></li>
 							<li><a href="#">アドレスグループ3</a></li>
@@ -444,25 +562,13 @@
 							<li><a href="#">長いグループ名長いグループ名長いグループ名</a></li>
 						</ul>
 					<div style="margin:0.5em 0;">
-					<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_folder_list=1">フォルダの管理</a>
-					</div>
-					</div>
-					
-					<div class="auiWidget clearfix">
-					<ul>
-					
-					<li class="active">
-					<a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;accountid=16', 'P-13652023f79-10161');">free-groupware</a>
-					</li>
-					</ul>
-					<div style="margin:0.5em 0;">
-					<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_account_list=1">アカウントの管理</a>
+					<a href="#">グループの管理</a>
 					</div>
 					</div>
 					
 					<div class="auiWidget clearfix">
 					<div style="margin:0.5em 0;">
-					<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_filter_list=1">フィルタの管理</a>
+					<a href="#">会社情報の管理</a>
 					</div>
 					</div>
 					</div>
@@ -487,330 +593,5 @@
 <!-- /wrapper -->
 
 
-
-
-<table class="tableWrapper">
-    <tbody>
-    <tr>
-        <td width="100%" class="top container dojoDndSource dojoDndTarget dojoDndContainerOver">
-
-<div class="roundTopBlock clearfix">
-<div class="roundRightBlock">
-<div class="roundBottomBlock">
-<div class="roundLeftBlock">
-<div class="roundTopLeftBlock">
-<div class="roundTopRightBlock">
-<div class="roundBottomRightBlock">
-<div class="roundBottomLeftBlock">
-<table class="roundBlockWrapperTop">
-<tbody>
-<tr>
-<td class="roundBlockTitle">アドレス帳</td>
-</tr>
-</tbody>
-</table>
-<div class="roundBlockWrapperBottom clearfix">
-<div class="roundBlockContent">
-<div dojotype="aimluck:Contentpane" widgetid="widget_P-132ce6ce6bf-10479" id="portlet_P-132ce6ce6bf-10479">
-
-
-<!-- Start Contents Area -->
-<div id="auiContentsArea"><div id="auiContentsAreaInner">
-
-<div class="auiSummaryMeta clearfix">
-<form class="auiSearch floatLeft" style="margin-right:1em;">
-<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
-<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
-</form>
-</div>
-
-<div class="auiSummaryMeta clearfix">
-	<div class="floatLeft">
-	<a href="#" class="auiButton">削除する</a>
-	<a href="#" class="auiButton">表示中の一覧をダウンロード</a>
-	</div>
-	<div class="floatRight">
-		<div class="count">1 - 20 / 72</div>
-		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li title="前へ">
-		<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-		</li>
-		<li title="次へ" style="margin-right:5px;">
-		<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-		</li>
-		</ul>
-		</div>
-	</div>
-</div>
-
-<div class="auiSummaryMeta auiSearchResult">
-検索結果：木村
-</div>
-
-<div class="indicator" id="indicator-list-P-132ce6ce6bf-10479" style="display:none;">データを送信しています...</div>
-<form name="formP-132ce6ce6bf-10479" id="formP-132ce6ce6bf-10479" action="javascript:void(0)" method="post" onsubmit="return aipo.msgboard.onChangeSearch('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-132ce6ce6bf-10479','P-132ce6ce6bf-10479');">
-<input type="hidden" name="_name" value="トピック">
-<input type="hidden" name="secid" value="30d53eaf7347c6cd5e8142a8e642511d">
-
-<table class="auiRowTable wide">
-<tbody>
-<tr>
-<th class="thin"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
-<th class=""><a href="#">名前</a></th>
-<th class=""><a href="#">会社名</a></th>
-<th class="thin"><a href="#">メールアドレス</a></th>
-<th class="thin"><a href="#">電話番号</a></th>
-<th class="thin"><a href="#">携帯番号</a></th>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td><div><a href="#">木村 一郎</a></div></td>
-<td><div>株式会社コーポレーション</div></td>
-<td nowrap="nowrap">example@aimluck.com</td>
-<td nowrap="nowrap">03-xxxx-xxxx</td>
-<td nowrap="nowrap">090-xxxx-xxxx</td>
-</tr>
-
-</tbody>
-</table>
-
-<div class="auiSummaryMeta clearfix">
-	<div class="floatLeft">
-	<a href="#" class="auiButton">削除する</a>
-	<a href="#" class="auiButton">表示中の一覧をダウンロード</a>
-	</div>
-	<div class="floatRight">
-		<div class="count">1 - 20 / 72</div>
-		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li title="前へ">
-		<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-		</li>
-		<li title="次へ" style="margin-right:5px;">
-		<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-		</li>
-		</ul>
-		</div>
-	</div>
-</div>
-</form>
-</div></div>
-<!-- END Contents Area -->
-
-
-<!-- Start Widgets Area -->
-<div id="auiWidgetsArea">
-
-<div class="auiWidget clearfix">
-	<a href="#" class="auiButtonAction">アドレスを追加する</a>
-</div>
-
-<div class="auiWidget clearfix">
-	<ul>
-		<li class="active"><a href="#">すべてのグループ</a></li>
-		<li><a href="#">アドレスグループ1</a></li>
-		<li><a href="#">アドレスグループ2</a></li>
-		<li><a href="#">アドレスグループ3</a></li>
-		<li><a href="#">アドレスグループ4</a></li>
-		<li><a href="#">長いグループ名長いグループ名長いグループ名</a></li>
-	</ul>
-
-	<div style="margin:0.5em 0;"><a href="#" class="auiButton">グループを追加する</a></div>
-	<div style="margin:0.5em 0;"><a href="#">グループの管理・削除</a></div>
-	<div style="margin:0.5em 0;"><a href="#">会社情報の管理・削除</a></div>
-</div>
-
-</div>
-<!-- END Widgets Area -->
-
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-			</td>
-    </tr>
-    </tbody>
-</table>
 </body>
 </html>

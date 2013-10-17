@@ -42,9 +42,11 @@
 				<li><a href="#scheduleDetail">スケジュール詳細</a></li>
 				<li><a href="#memoAdd">伝言メモ追加</a></li>
 				<li><a href="#workflowAdd">ワークフロー依頼追加</a></li>
+				<li><a href="#reportAdd">報告書追加</a></li>
 				<li><a href="#socialapp">Aipoアプリ汎用ポップアップ</a></li>
 			</ul>
 			<!-- ▼ポップアップ群ここから▼ -->
+
 			<!-- ################################################################################
 	
 			スケジュール追加
@@ -316,7 +318,9 @@
 												</div>
  
 																																																																														  
-																																																																														&nbsp;-&nbsp;
+																																																																																																																																																												  
+																																																																														  
+																																																																																																																																																												&nbsp;-&nbsp;
 												<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitEndDateSpan">
 													<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
 														<div class="dijitRight">
@@ -679,6 +683,7 @@
 			</div>
 			<!-- /スケジュール追加 -->
 			<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
 			<!-- ################################################################################
 			
 			スケジュール追加（繰り返し展開）
@@ -845,7 +850,11 @@
 																																																																														  
 																																																																																																																																																												  
 																																																																														  
-																																																																																																																																																												&nbsp;-&nbsp;
+																																																																																																																																																																																																																																										  
+																																																																														  
+																																																																																																																																																												  
+																																																																														  
+																																																																																																																																																																																																																																										&nbsp;-&nbsp;
 												<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitEndDateSpan">
 													<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
 														<div class="dijitRight">
@@ -1212,6 +1221,7 @@
 			</div>
 			<!-- /スケジュール追加（繰り返し展開）-->
 			<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
 			<!-- ################################################################################
 			
 			スケジュール詳細
@@ -1318,6 +1328,7 @@
 			</div>
 			<!-- /スケジュール詳細 -->
 			<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
 			<!-- ################################################################################
 			
 			伝言メモ追加
@@ -1553,6 +1564,7 @@
 			</div>
 			<!-- /伝言メモ追加 -->
 			<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
 			<!-- ################################################################################
 			
 			ワークフロー依頼追加
@@ -1763,6 +1775,338 @@
 			</div>
 			<!-- /ワークフロー依頼追加 -->
 			<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
+
+			<!-- ################################################################################
+			
+			報告書追加
+			
+			################################################################################ -->
+			<a id="reportAdd"></a>
+			<div class="auiPopup clearfix">
+				<div class="auiPopupHead clearfix">
+					<div class="auiPopupTool">
+						<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();">
+							<span><i class="icon-remove"></i></span>
+							</a> </div>
+					</div>
+					<div class="auiPopupTitle">報告書追加</div>
+				</div>
+				<div class="roundBlockContent">
+					<div class="indicator" id="indicator-dlg-P-141c235bd79-1000f" style="display: none;">データを送信しています...</div>
+					<div id="messageDiv"></div>
+					<div id="messageDiv_P-141c235bd79-1000f"></div>
+					<form name="formP-141c235bd79-1000f" id="formP-141c235bd79-1000f" action="" method="post" onsubmit="">
+						<input type="hidden" name="_name" value="reportForm">
+						<input type="hidden" name="secid" value="">
+						<input type="hidden" name="mode" value="insert">
+						<table class="listTable wide">
+							<tbody>
+								<tr>
+									<td class="caption"><span class="required">タイトル</span>
+									</td>
+									<td><input class="text w100" type="text" name="report_name" id="report_name" value="" maxlength="50" style="ime-mode:active">
+									</td>
+								</tr>
+								<tr>
+									<td class="caption"><span class="required">社内参加者</span>
+									</td>
+									<td><div id="memberFieldButton">
+											<table style="width:98%;">
+												<tbody>
+													<tr>
+														<td style="width:80%; border:none;"><span>木村 一郎</span></td>
+														<td style="border:none;"><input type="button" class="alignright" value="参加ユーザー選択" onclick="aipo.report.expandMember();"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="memberField" style="display: none;">
+											<table class="none">
+												<tbody>
+													<tr>
+														<td><div class="spaceTop spaceLeft small">左側に社内参加者を追加してください。</div>
+															<div id="membernormalselect" widgetid="membernormalselect">
+																<table class="none">
+																	<tbody>
+																		<tr>
+																			<td><div id="memberPopupDiv">
+																					<div class="outer">
+																						<div class="popup">
+																							<div class="clearfix">
+																								<div class="memberlistToTop">社内参加者一覧</div>
+																								<div class="memberlistFromTop">
+																									<select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
+																										<option value="LoginUser">すべてのグループ</option>
+																										<option value="1204104365437_4">全員</option>
+																										<option value="1204101769781_1">商品開発部</option>
+																										<option value="1204101786437_1">営業部</option>
+																									</select>
+																								</div>
+																							</div>
+																							<div class="clearfix mb5">
+																								<div class="memberlistToBody">
+																									<select size="5" multiple="multiple" style="width:100%" name="members" id="members">
+																										<option value="sample1">木村 一郎</option>
+																									</select>
+																								</div>
+																								<div class="memberlistFromBody">
+																									<select size="5" multiple="multiple" style="width:100%" name="tmp_member_from" id="tmp_member_from">
+																										<option value="sample1">木村 一郎</option>
+																										<option value="sample2">田村 涼子</option>
+																										<option value="sample3">山田 太郎</option>
+																									</select>
+																								</div>
+																							</div>
+																							<div class="clearfix">
+																								<div class="memberlistToBottom">
+																									<div class="alignright">
+																										<input id="button_member_remove" name="button_member_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+																									</div>
+																								</div>
+																								<div class="memberlistFromBottom">
+																									<div style="display: none;" id="membernormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+																									<div class="alignright">
+																										<input id="button_member_add" name="button_member_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+															<select size="5" multiple="multiple" style="display:none;" name="init_memberlist" id="init_memberlist">
+																<option value="sample1">木村 一郎</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div></td>
+								</tr>
+								<tr>
+									<td class="caption"><span class="required">日時</span>
+									</td>
+									<td class="auiSetDate">
+										<div class="mb5">
+											<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="datepicker">
+												<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
+													<div class="dijitRight">
+														<span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-datepicker_label" role="button" aria-haspopup="true" aria-labelledby="datepicker_label" id="datepicker" tabindex="0" aria-valuenow="" aria-disabled="false">
+														<span class="" dojoattachpoint="containerNode,popupStateNode" id="datepicker_label"><a href="javascript:void(0)" class="auiButtonIcon">
+														<span><i class="icon-calendar"></i></span>
+														</a> </span>
+														</span>
+													</div>
+												</div>
+												<div class="alignleft">
+													<span name="startDate_view" id="startDate_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly">2013年10月17日(木)</span>
+													<span style="display:none">
+													<input name="startDate_check" type="checkbox" value="TRUE" id="startDate_flag" dojoattachevent="onclick:onCheckBlank">
+													<label for="startDate_flag"> 指定しない</label>
+													</span>
+													<input type="hidden" id="startDate" name="startDate" value="2013/10/17" dojoattachpoint="valueNode">
+													<input type="hidden" id="startDate_year" name="startDate_year" value="2013" dojoattachpoint="valueYearNode">
+													<input type="hidden" id="startDate_month" name="startDate_month" value="10" dojoattachpoint="valueMonthNode">
+													<input type="hidden" id="startDate_day" name="startDate_day" value="17" dojoattachpoint="valueDayNode">
+												</div>
+											</div>
+										</div>
+										<select name="startDate_hour" size="1">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16" selected="">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+										</select>
+										&nbsp;:
+										<select name="startDate_minute" size="1">
+											<option value="0">00</option>
+											<option value="5">05</option>
+											<option value="10" selected="">10</option>
+											<option value="15">15</option>
+											<option value="20">20</option>
+											<option value="25">25</option>
+											<option value="30">30</option>
+											<option value="35">35</option>
+											<option value="40">40</option>
+											<option value="45">45</option>
+											<option value="50">50</option>
+											<option value="55">55</option>
+										</select>
+										&nbsp;-&nbsp;
+										<select name="endDate_hour" size="1">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16" selected="">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+										</select>
+										&nbsp;:
+										<select name="endDate_minute" size="1">
+											<option value="0">00</option>
+											<option value="5">05</option>
+											<option value="10" selected="">10</option>
+											<option value="15">15</option>
+											<option value="20">20</option>
+											<option value="25">25</option>
+											<option value="30">30</option>
+											<option value="35">35</option>
+											<option value="40">40</option>
+											<option value="45">45</option>
+											<option value="50">50</option>
+											<option value="55">55</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="caption"><span class="required">内容</span>
+									</td>
+									<td><textarea class="text wide" name="note" rows="10" cols="40"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td class="caption">添付ファイル</td>
+									<td><div class="clearfix">
+											<div>
+												<iframe name="if_fileupload_P-141c235bd79-1000f" id="if_fileupload_P" allowtransparency="true" class="auiInputFileFrame" src="" frameborder="0" scrolling="no"> </iframe>
+											</div>
+											<ul id="attachments_P-141c235bd79-1000f" class="attachments">
+											</ul>
+											<input type="hidden" id="folderName_P" name="folderName" value="">
+										</div></td>
+								</tr>
+								<tr>
+									<td class="caption"><span class="required">通知先</span>
+									</td>
+									<td><div id="mapFieldButton">
+											<table style="width:98%;">
+												<tbody>
+													<tr>
+														<td style="width:80%; border:none"></td>
+														<td style="border:none;"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="mapField" style="display: block;">
+											<table class="none">
+												<tbody>
+													<tr>
+														<td><div class="spaceTop spaceLeft small">左側に通知先を追加してください。</div>
+															<div id="mapnormalselect" widgetid="mapnormalselect">
+																<table class="none">
+																	<tbody>
+																		<tr>
+																			<td><div id="memberPopupDiv">
+																					<div class="outer">
+																						<div class="popup">
+																							<div class="clearfix">
+																								<div class="memberlistToTop">通知先一覧</div>
+																								<div class="memberlistFromTop">
+																									<select size="1" style="width:100%" name="tmp_map_group" id="tmp_map_group" dojoattachevent="onchange:changeGroup">
+																										<option value="LoginUser">すべてのグループ</option>
+																										<option value="1204104365437_4">全員</option>
+																										<option value="1204101769781_1">商品開発部</option>
+																										<option value="1204101786437_1">営業部</option>
+																									</select>
+																								</div>
+																							</div>
+																							<div class="clearfix mb5">
+																								<div class="memberlistToBody">
+																									<select size="5" multiple="multiple" style="width:100%" name="positions" id="positions">
+																									</select>
+																								</div>
+																								<div class="memberlistFromBody">
+																									<select size="5" multiple="multiple" style="width:100%" name="tmp_map_from" id="tmp_map_from">
+																										<option value="sample1">木村 一郎</option>
+																										<option value="sample2">田村 涼子</option>
+																										<option value="sample3">山田 太郎</option>
+																									</select>
+																								</div>
+																							</div>
+																							<div class="clearfix">
+																								<div class="memberlistToBottom">
+																									<div class="alignright">
+																										<input id="button_map_remove" name="button_map_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+																									</div>
+																								</div>
+																								<div class="memberlistFromBottom">
+																									<div style="display: none;" id="mapnormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+																									<div class="alignright">
+																										<input id="button_map_add" name="button_map_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+															<select size="5" multiple="multiple" style="display:none;" name="init_maplist" id="init_maplist">
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="center auiPopupButtons">
+							<input name="eventSubmit_doReport_insert" class="auiButtonAction" type="submit" id="al_submit_P-141c235bd79-1000f" value="追加する" onclick="aimluck.io.setHiddenValue(this);">
+							<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- /報告書追加 -->
+			<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
+
 			<!-- ################################################################################
 			
 			Aipoアプリ汎用ポップアップ

@@ -1,0 +1,473 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+
+<!-- WRAPPER -->
+<div id="wrapper">
+
+<!-- HEADER -->
+<div id="header" class="clearfix"><div class="inner">
+
+	<div class="hdSign">
+		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
+	</div>
+
+	<script>
+	function popupToggle($this,$target) {
+		if(document.getElementById($target).style.display=='none'){
+			document.getElementById($target).style.display='block'
+		}else{
+			document.getElementById($target).style.display='none'
+		}
+		if($this.className.indexOf('active')>0){
+			$this.className = $this.className.replace(' active','');
+		}else{
+			$this.className += ' active'
+		};
+	}
+	</script>
+
+	<!--div class="hdNavi_v2">
+		<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
+		<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
+		<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="icon-caret-down"></i></a>
+		</div>
+	</div-->
+
+	<div class="hdNavi">
+
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+
+
+		<div class="hdActivity" title="お知らせ">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+						<span class="mb_hide">お知らせ</span>
+						<span class="pc_hide"><i class="icon-comment"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hdInformation" title="サポート">
+			<div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+						<div id="supportchecker" class="counter zero">0</div>
+						<span class="mb_hide">サポート</span>
+						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--div class="hdInformation">
+			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
+				<div class="counter zero">0</div>
+				<span>サポート</span>
+			</a>
+		</div-->
+
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a>
+		</div>
+	</div>
+
+	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+		<ul>
+		<li><a href="#">個人設定</a></li>
+		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+		</ul>
+	</div>
+
+
+</div></div>
+<!-- /HEADER -->
+
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+    	<li class="first">
+        	<div class="tab">
+                <div class="title"><a href="#">マイページ</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab">
+                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+            </div>
+        </li>
+		<li class="addTab">
+			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
+		</li>
+    </ul>
+</div>
+<!-- /MAIN TAB -->
+
+<!-- roundWrapper -->
+<div id="roundWrapper">
+	<!-- roundMainWrapper -->
+	<div class="roundMainWrapper">
+	
+		<!-- auiPortlet -->
+		<div class="dojoDndItem auiPortlet">
+			<div class="auiPortletHead"><div class="inner">
+				<div class="auiPortletTitle">個人設定</div>
+				<div class="auiPortletTool">
+				</div>
+			</div></div>
+	
+			<!-- auiPortletBody -->
+			<div class="auiPortletBody"><div class="inner">
+				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
+					
+					<div id="auiContentsArea"><div id="auiContentsAreaInner">
+	
+						<div class="auiSummaryMeta clearfix">
+							<div class="floatRight">
+								<a class="auiButton" title="ユーザー情報とパスワードを編集する" href="javascript:void(0);" onclick="">ユーザー情報とパスワードを編集する</a>
+							</div>
+						</div>
+	
+						<form name="formP-135e7e25490-10b7a" id="formP-135e7e25490-10b7a" action="#" method="post" onsubmit="return false;">
+						<input type="hidden" name="_name" value="ユーザー">
+						<input type="hidden" name="secid" value="9a1f9e21198f93e5c1b0495cca2c7508">
+						<table class="listTable wide">
+						<tbody>
+						<tr>
+						<td class="caption">メールアドレス</td>
+						<td>kimura@aimluck.com</td>
+						</tr>
+						<tr>
+						<td class="caption">名前</td>
+						<td>木村 一郎</td>
+						</tr>
+						<tr>
+						<td class="caption">名前（フリガナ）</td>
+						<td>キムラ イチロウ</td>
+						</tr>
+						<tr>
+						<td class="caption">電話番号（外線）</td>
+						<td></td>
+						</tr>
+						<tr>
+						<td class="caption">電話番号（内線）</td>
+						<td></td>
+						</tr>
+						<tr>
+						<td class="caption">電話番号（携帯）</td>
+						<td>090-1234-5678</td>
+						</tr>
+						<tr>
+						<td class="caption">携帯メールアドレス</td>
+						<td></td>
+						</tr>
+						<tr>
+						<td class="caption">顔写真</td>
+						<td>
+						<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="顔写真" align="absmiddle">
+						</td>
+						</tr>
+						<tr>
+						<td class="caption">部署</td>
+						<td>
+						<span style="display:block;">営業本部</span>
+						</td>
+						</tr>
+						<tr>
+						<td class="caption">役職</td>
+						<td>部長</td>
+						</tr>
+						</tbody>
+						</table>
+						</form>
+				
+						<h3>会社情報</h3>
+						<table class="listTable wide">
+						<tbody>
+						<tr>
+						<td class="caption">会社名</td>
+						<td>株式会社エイムラック</td>
+						</tr>
+						<tr>
+						<td class="caption">郵便番号</td>
+						<td>
+						</td>
+						</tr>
+						<tr>
+						<td class="caption">住所</td>
+						<td></td>
+						</tr>
+						<tr>
+						<td class="caption">電話番号</td>
+						<td></td>
+						</tr>
+						<tr>
+						<td class="caption">FAX番号</td>
+						<td></td>
+						</tr>
+						</tbody>
+						</table>
+
+					</div></div>
+					
+					
+					
+					<!-- Start Widgets Area -->
+					<!-- ******************************
+					
+					■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+					
+					1. 各アプリで「auiButtonAction」の収まっている「auiWidget」に「widgetButton」を追記
+					2. 「snDrawer」をスマホ表示時に表示する
+					3. 各アプリでカテゴリなどのメニューが収まっている「auiWidget」に「id="subNavigation"」を追記
+					
+					直下に「widgetMenuSwitch」のJS関数を定義しています。
+					これは全体化時の左側メニューの開閉に利用する関数です。
+					可能ならばソースに直接書かずJSファイルへ記述をお願いします。
+					
+					****************************** -->
+					<script language="javascript">
+					function widgetMenuSwitch() {
+					var subNavi = document.getElementById('subNavigation');
+					if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
+					subNavi.style.display = 'block';
+					}else{
+					subNavi.style.display = 'none';
+					}
+					}
+					</script>
+
+					<!-- auiWidgetsArea -->
+					<div id="auiWidgetsArea">
+						<!-- subNavigation -->
+						<div id="subNavigation">
+						
+							<div class="auiWidget clearfix">
+								<ul>
+									<li class="active">
+										<a href="setting_user_info.html" onclick="">個人設定</a>
+									</li>
+									<li>
+										<a href="setting_mygroup.html" onclick="">Myグループ</a>
+									</li>
+								</ul>
+							</div>
+						
+						</div>
+						<!-- /subNavigation -->
+					</div>
+					<!-- /auiWidgetsArea -->
+				</div>
+			</div></div>
+			<div class="auiPortletFoot"><div class="inner"></div></div>
+			<!-- /auiPortletBody -->
+		</div>
+		<!-- /auiPortlet  -->
+	</div>
+	<!-- /roundMainWrapper -->
+</div>
+<!-- /rounWrapper  -->
+
+</div>
+<!-- /wrapper -->
+
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+dojo.require("aimluck.widget.Dialog");
+
+dojo.addOnLoad(function() {
+    var params = {
+        widgetId:'modalDialog'
+    };
+    new aimluck.widget.Dialog(params, "modalDialog");
+    //dojo.disconnect(dojo, "loaded", "_dialog");
+    gadgets.rpc.setRelayUrl("sharedStateIframe", "/gadgets/files/container/rpc_relay.html");
+    gadgets.rpc.setAuthToken("sharedStateIframe", "17968987521394787");
+    dojo.byId('sharedStateIframe').src='check.html?st=default:kSV_B6nhQAXgSQpvF1wLgnHsxvmJg3i4I2MivoQZ1x69K16KweuS2TqTqRH88xhba4jodkSKbxHzZ_UP7lB8StOE7DAnsWfKe63ahGM3wPWaHL9BL2s2p2n0KSR_sfoWKyTiPA&parent=http%3A%2F%2Fhudson.aipo.com%3A8080%2Faipo%2Fportal%2Fmedia-type%2Fhtml%2Fuser%2Fsample1%2Fpage%2Fdefault.psml%2Fjs_pane%2FP-13602b3e559-10016&interval=300#rpctoken=17968987521394787';
+    if(window.webkitNotifications) {
+    　　aipo.container.gadgetService.requestDesktopNotifyEnable();
+    }
+});
+
+scheduleTooltipEnable = true;
+
+dojo.require("dojo.dnd.Source");
+
+dojo.addOnLoad(function() {
+    dojo.query('.customizeMenuIcon').forEach(function(element) {
+        dojo.connect(element, 'onmouseenter', null, function(){
+            dojo.addClass(this, 'customizeMenuIconMouseenter');
+        });
+        dojo.connect(element, 'onmouseleave', null, function(){
+            dojo.removeClass(this, 'customizeMenuIconMouseenter');
+        });
+    });
+
+    var handle = dojo.connect(dojo.query('body')[0], 'onclick', null, function(){
+        if (dojo.query('.customizeMenuIconMouseenter').length == 0) {
+            aipo.customize.hideMenu();
+        }
+    });
+
+    var containers = dojo.query('.container');
+    var containerSources = [];
+    for(var c = 0; c < containers.length ; c++){
+        var container = new dojo.dnd.Source(containers[c], {
+            withHandles: true,
+            copyOnly: false
+        });
+        containerSources.push(container);
+    }
+
+
+    for(var c = 0; c < containers.length ; c++){
+        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
+            dojo.addClass(this, 'dojoDndContainerItemOver');
+            aipo.customize.hideMenu();
+        });
+
+        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
+            dojo.removeClass(this, 'dojoDndContainerItemOver');
+        });
+
+        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
+            if (this == target) {
+                if (copy) {
+                    nodes.orphan();
+                }
+                var params = '';
+                var cols = dojo.query('.container');
+                for(var c = 0; c < cols.length ; c++){
+                    var rows = dojo.query('.dojoDndItem .roundBlockContent > div', cols[c]);
+                    var reverse = false;
+                    if (rows.length >= 2) {
+                        var top = rows[0];
+                        var bottom = rows[rows.length - 1];
+
+                        var _top = dojo._abs(top);
+                        var _bottom = dojo._abs(bottom);
+
+                        while (_top && _bottom && _top.y == _bottom.y) {
+                            top = top.offsetParent;
+                            bottom = bottom.offsetParent;
+                            _top = dojo._abs(top);
+                            _bottom = dojo._abs(bottom);
+                        }
+
+                        if (_top.y > _bottom.y) {
+                            reverse = true;
+                        }
+
+                    }
+                    for (var r = 0 ; r < rows.length ; r++) {
+                        var pid = rows[r].id.split("portlet_")[1];
+                        if (reverse) {
+                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
+                        } else {
+                            params = params + '&' + pid + '_row=' + r;
+                        }
+                        params = params + '&' + pid + '_col=' + c;
+                    }
+                }
+
+                url = "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1?template=CustomizeFormJSONScreen&mode=layout" + params;
+                aipo.customize.submit(url, '', function(){
+                });
+
+                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+                if(iframe && iframe.length == 1) {
+                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+                  var gadgets_ = aipo.container.gadgets_;
+                  for(var i in gadgets_) {
+                     var gadget = gadgets_[i];
+                     if(gadget.portletId == pid) {
+                       aipo.container.renderGadget(gadget);
+                       break;
+                     }
+                  }
+                }
+
+                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+            }
+        });
+    }
+
+    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='${id}_underlay'><div dojoAttachPoint='node'></div></div>" });
+    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
+        underlay.hide();
+    });
+    underlay.show();
+});
+
+//]]>
+</script>
+<iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/common.js"></script>
+</body>
+</html>

@@ -166,7 +166,94 @@
 	
 		<!-- auiPortlet -->
 		<div class="dojoDndItem auiPortlet">
-			<div class="auiPortletHead"><div class="inner">
+
+        <!-- mobileHeader -->
+        <div id="mobileHeader_v2" class="clearfix"><div class="inner">
+            <h1><span>管理設定</span></h1>
+            <div class="mhLeft">
+                <a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>	</div>
+            <div class="mhRight clearfix">
+
+                <script>
+                    function popupToggle($this,$target) {
+                        if(document.getElementById($target).style.display=='none'){
+                            document.getElementById($target).style.display='block'
+                        }else{
+                            document.getElementById($target).style.display='none'
+                        }
+                        if($this.className.indexOf('active')>0){
+                            $this.className = $this.className.replace(' active','');
+                        }else{
+                            $this.className += ' active'
+                        };
+                    }
+                </script>
+
+                <!--div class="hdMessege">
+                    <a href="https://message.aipo.com" target="_blank">
+                        <div id="messagechecker" class="counter">3</div>
+                        <span class="mb_hide">メッセージ</span>
+                        <span class="pc_hide"><i class="icon-comment"></i></span>
+                    </a>
+                </div-->
+
+
+                <div class="hdActivity" title="お知らせ">
+                    <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+                         dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                         widgetid="activitycheckerContainer"
+                         onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+                        <div type="button"
+                             dojoattachpoint="focusNode,titleNode"
+                             wairole="button"
+                             waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+                             role="button"
+                             aria-haspopup="true"
+                             aria-labelledby="activitycheckerContainer_label"
+                             id="activitycheckerContainer"
+                             tabindex="0"
+                             aria-valuenow=""
+                             aria-disabled="false">
+                            <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                                <div id="activitychecker" class="activitycheckerstyle counter">5</div>
+                                <span class="mb_hide">お知らせ</span>
+                                <span class="pc_hide"><i class="icon-bell-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hdInformation" title="サポート">
+                    <div
+                            class="dijit dijitLeft dijitInline dijitDropDownButton"
+                            dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                            widgetid="supportcheckerContainer"
+                            onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+                        <div type="button"
+                             dojoattachpoint="focusNode,titleNode"
+                             wairole="button"
+                             waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+                             role="button"
+                             aria-haspopup="true"
+                             aria-labelledby="supportcheckerContainer_label"
+                             id="supportcheckerContainer"
+                             tabindex="0"
+                             aria-valuenow=""
+                             aria-disabled="false">
+                            <div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+                                <div id="supportchecker" class="counter">1</div>
+                                <span class="mb_hide">サポート</span>
+                                <span class="pc_hide"><i class="icon-info-sign"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- /mobileHeader -->
+
+            <div class="auiPortletHead"><div class="inner">
 				<div class="auiPortletTitle">管理設定</div>
 				<div class="auiPortletTool">				</div>
 			</div></div>
@@ -177,391 +264,63 @@
 					
 					<div id="auiContentsArea"><div id="auiContentsAreaInner">
 
-						<div id="listMessageDiv"></div>
-						<form name="form129" id="form129" action="#" method="post" onsubmit="return false;">
-						<input type="hidden" name="_name" value="イベントログ">
-						<input type="hidden" name="secid" value="">
-						
-						<div class="auiSummaryMeta clearfix">
-							<h2>イベントログ</h2>
-						</div>
+                        <form name="" id="" action="#" method="post" onsubmit="return false;">
+                            <input type="hidden" name="_name" value="役職" />
+                            <input type="hidden" name="secid" value="" />
 
-						<div class="auiSummaryMeta clearfix">
-							<select id="start_date_year" name="start_date_year" size="1" onchange="">
-							<option value="2006">2006年</option>
-							<option value="2007">2007年</option>
-							<option value="2008">2008年</option>
-							<option value="2009">2009年</option>
-							<option value="2010">2010年</option>
-							<option value="2011">2011年</option>
-							<option value="2012">2012年</option>
-							<option value="2013" selected="selected">2013年</option>
-							</select>
-							<select id="start_date_month" name="start_date_month" size="1" onchange="">
-							<option value="1">1月</option>
-							<option value="2">2月</option>
-							<option value="3">3月</option>
-							<option value="4">4月</option>
-							<option value="5">5月</option>
-							<option value="6">6月</option>
-							<option value="7">7月</option>
-							<option value="8">8月</option>
-							<option value="9" selected="selected">9月</option>
-							<option value="10">10月</option>
-							<option value="11">11月</option>
-							<option value="12">12月</option>
-							</select>
-							<select id="start_date_day" name="start_date_day" size="1" onchange="">
-							<option value="1" selected="selected">1日</option>
-							<option value="2">2日</option>
-							<option value="3">3日</option>
-							<option value="4">4日</option>
-							<option value="5">5日</option>
-							<option value="6">6日</option>
-							<option value="7">7日</option>
-							<option value="8">8日</option>
-							<option value="9">9日</option>
-							<option value="10">10日</option>
-							<option value="11">11日</option>
-							<option value="12">12日</option>
-							<option value="13">13日</option>
-							<option value="14">14日</option>
-							<option value="15">15日</option>
-							<option value="16">16日</option>
-							<option value="17">17日</option>
-							<option value="18">18日</option>
-							<option value="19">19日</option>
-							<option value="20">20日</option>
-							<option value="21">21日</option>
-							<option value="22">22日</option>
-							<option value="23">23日</option>
-							<option value="24">24日</option>
-							<option value="25">25日</option>
-							<option value="26">26日</option>
-							<option value="27">27日</option>
-							<option value="28">28日</option>
-							<option value="29">29日</option>
-							<option value="30">30日</option>
-							</select>
-							&nbsp;-&nbsp;
-							<select id="end_date_year" name="end_date_year" size="1" onchange="">
-							<option value="2006">2006年</option>
-							<option value="2007">2007年</option>
-							<option value="2008">2008年</option>
-							<option value="2009">2009年</option>
-							<option value="2010">2010年</option>
-							<option value="2011">2011年</option>
-							<option value="2012">2012年</option>
-							<option value="2013" selected="selected">2013年</option>
-							</select>
-							<select id="end_date_month" name="end_date_month" size="1" onchange="">
-							<option value="1">1月</option>
-							<option value="2">2月</option>
-							<option value="3">3月</option>
-							<option value="4">4月</option>
-							<option value="5">5月</option>
-							<option value="6">6月</option>
-							<option value="7">7月</option>
-							<option value="8">8月</option>
-							<option value="9">9月</option>
-							<option value="10" selected="selected">10月</option>
-							<option value="11">11月</option>
-							<option value="12">12月</option>
-							</select>
-							<select id="end_date_day" name="end_date_day" size="1" onchange="">
-							<option value="1" selected="selected">1日</option>
-							<option value="2">2日</option>
-							<option value="3">3日</option>
-							<option value="4">4日</option>
-							<option value="5">5日</option>
-							<option value="6">6日</option>
-							<option value="7">7日</option>
-							<option value="8">8日</option>
-							<option value="9">9日</option>
-							<option value="10">10日</option>
-							<option value="11">11日</option>
-							<option value="12">12日</option>
-							<option value="13">13日</option>
-							<option value="14">14日</option>
-							<option value="15">15日</option>
-							<option value="16">16日</option>
-							<option value="17">17日</option>
-							<option value="18">18日</option>
-							<option value="19">19日</option>
-							<option value="20">20日</option>
-							<option value="21">21日</option>
-							<option value="22">22日</option>
-							<option value="23">23日</option>
-							<option value="24">24日</option>
-							<option value="25">25日</option>
-							<option value="26">26日</option>
-							<option value="27">27日</option>
-							<option value="28">28日</option>
-							<option value="29">29日</option>
-							<option value="30">30日</option>
-							<option value="31">31日</option>
-							</select>
-						</div>
-						
-						<div class="auiSummaryMeta clearfix">
-							<div class="floatLeft">
-							<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
-							<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete129" value="">
-							
-							<a class="auiButton" title="選択期間の一覧をダウンロード" href="javascript:void(0);" onclick="">選択期間の一覧をダウンロード</a>
-							
-							</div>
-						
-							<div class="floatRight">
-								<div class="count">1 - 50 / 520</div>
-								<div class="auiSelectButton floatLeft">
-									<ul class="floatLeft">
-									<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
-									<li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow" title="次の 50 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
-									</ul>
-	  							</div>
-							</div>
-						</div>
+                            <div class="auiSummaryMeta clearfix">
+                                <a title="役職を追加する" href="#" class="auiButtonAction">役職を追加する</a>
+                            </div>
 
-						<table class="auiRowTable auiMbTable wide">
-						<colgroup style="width:20px;">
-						</colgroup><colgroup style="">
-						</colgroup><colgroup style="width:10em;">
-						</colgroup><colgroup style="width:15em;">
-						</colgroup><colgroup style="width:10em;">
-						</colgroup><colgroup style="width:10em;">
-						</colgroup>
-						<tbody>
-							<tr>
-								<th><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
-								<th><a class="headUp" href="javascript:void(0);" onclick="">日時</a></th>
-								<th><a href="javascript:void(0);" onclick="">名前</a></th>
-								<th class="center mb_hide"><a href="javascript:void(0);" onclick="">機能名</a></th>
-								<th class="center mb_hide"><a href="javascript:void(0);" onclick="">操作</a></th>
-								<th class="mb_hide"><a href="javascript:void(0);" onclick="">接続IP</a></th>
-							</tr>
+                            <div class="auiSummaryMeta clearfix">
+                                <div class="floatLeft">
 
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
+                                    <a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
+                                    <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete133" value="" />
+                                </div>
+                                <div class="floatRight">
+                                    <div class="count">1 ～ 2 件 / 計 2 件</div>
+                                </div>
+                            </div>
 
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
+                            <table class="auiRowTable wide">
+                                <colgroup style="width:20px;">
+                                </colgroup><colgroup style="">
+                            </colgroup>
+                                <tbody>
 
-							<tr>
-								<td class="center auiMTCheck"><input name="check4955" type="checkbox" value="4955"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:09:13</a>
-								</td>
-								<td><div>長い名前さん長い名前さん長い名前さん長い名前さん</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
+                                <tr>
+                                    <th class="auiMTCheck"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);" /></th>
+                                    <th> <a class="headDown" href="javascript:void(0);" onclick="">役職名</a></th>
+                                    <th class="w10 mb_hide">役職者数</th>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="auiMTCheck"><input name='check1' type='checkbox' value='1'/></td>
+                                    <td>
+                                        <div><a href="javascript:void(0);" onclick="">主任</a></div>
+                                    </td>
+                                    <td class="mb_hide"><div>3人</div></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="auiMTCheck"><input name='check2' type='checkbox' value='2'/></td>
+                                    <td>
+                                        <div><a href="javascript:void(0);" onclick="">部長</a></div>
+                                    </td>
+                                    <td class="mb_hide"><div>3人</div></td>
+                                </tr>
+                                </tbody>
+                            </table>
 
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4957" type="checkbox" value="4957"></td>
-								<td nowrap="nowrap" class="auiMTCaption"><a href="javascript:void(0);" onclick="">2013年10月1日(火)11:02:09</a></td>
-								<td><div>鈴木 太朗</div></td>
-								<td><div>機能名</div></td>
-								<td><div>操作</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-							<tr>
-								<td class="center auiMTCheck"><input name="check4956" type="checkbox" value="4956"></td>
-								<td nowrap="nowrap" class="auiMTCaption">
-								<a href="javascript:void(0);" onclick="">2013年9月30日(月)18:22:57</a>
-								</td>
-								<td><div>アーノルド シュワルツェネッガー</div></td>
-								<td><div>スケジュール管理</div></td>
-								<td><div>追加</div></td>
-								<td class="mb_hide"><div>118.243.235.67</div></td>
-							</tr>
-
-						</tbody>
-						</table>
-						<div class="auiSummaryMeta clearfix">
-						<div class="floatLeft">
-						<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
-						<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete129" value="">
-						</div>
-						
-						<div class="floatRight">
-						<div class="count">1 - 50 / 520</div>
-						<div class="auiSelectButton floatLeft">
-						<ul class="floatLeft">
-						<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
-						<li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow" title="次の 50 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
-						</ul>
-						</div>
-						</div>
-						</div>
-						</form>
+                            <div class="auiSummaryMeta clearfix">
+                                <div class="floatLeft">
+                                    <a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
+                                    <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete133" value="" />
+                                </div>
+                                <div class="floatRight">
+                                    <div class="count">1 ～ 2 件 / 計 2 件</div>
+                                </div>
+                            </div>
+                        </form>
 
 
 					</div></div>
@@ -635,112 +394,6 @@
 
 </div>
 <!-- /wrapper -->
-
-
-<!-- ******************************
-
-■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
-
-ヘッダーで「mobile.css」を読み込んでいます。
-<link>タグでの読み込む順番も重要なため、記述通りの順でお願いします。
-
-可能であれば「あなた宛のお知らせ」の画像「icon_message.png」を
-「an_activity.png」へ変更してください。
-
-以下よりスマホ表示専用の要素になります。
-UA判別などでPC版では表示させないでください。
-
-直下に「appsNaviSwitch」のJS関数を定義しています。
-これはスマホ用ナビゲーションの開閉に利用する関数です。
-可能ならばソースに直接書かずJSファイルへ記述をお願いします。
-
-****************************** -->
-<!-- mobileHeader -->
-<div id="mobileHeader_v2" class="clearfix"><div class="inner">
-	<h1><span>管理設定</span></h1>
-	<div class="mhLeft">
-		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>	</div>
-	<div class="mhRight clearfix">
-
-		<script>
-		function popupToggle($this,$target) {
-			if(document.getElementById($target).style.display=='none'){
-				document.getElementById($target).style.display='block'
-			}else{
-				document.getElementById($target).style.display='none'
-			}
-			if($this.className.indexOf('active')>0){
-				$this.className = $this.className.replace(' active','');
-			}else{
-				$this.className += ' active'
-			};
-		}
-		</script>
-
-		<!--div class="hdMessege">
-			<a href="https://message.aipo.com" target="_blank">
-				<div id="messagechecker" class="counter">3</div>
-				<span class="mb_hide">メッセージ</span>
-				<span class="pc_hide"><i class="icon-comment"></i></span>
-			</a>
-		</div-->
-
-
-		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="activitycheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="activitycheckerContainer_label"
-					id="activitycheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
-						<span class="mb_hide">お知らせ</span>
-						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="hdInformation" title="サポート">
-			<div
-				class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="supportcheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="supportcheckerContainer_label"
-					id="supportcheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
-						<div id="supportchecker" class="counter">1</div>
-						<span class="mb_hide">サポート</span>
-						<span class="pc_hide"><i class="icon-info-sign"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-<!-- /mobileHeader -->
-
 
 <!-- appsNavigation2 -->
 <script language="javascript">

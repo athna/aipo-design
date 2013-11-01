@@ -5,6 +5,14 @@
 
 @charset "utf-8";
 
+@font-face{
+	font-family:'FontAwesome';
+    src:url('../font/fontawesome-webfont.eot?v=3.2.0');
+    src:url('../font/fontawesome-webfont.eot?#iefix&v=3.2.0') format('embedded-opentype'),url('../font/fontawesome-webfont.woff?v=3.2.0') format('woff'),url('../font/fontawesome-webfont.ttf?v=3.2.0') format('truetype'),url('../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.0') format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+
 * {
 	@include font-family-sans-serif();
 }
@@ -1153,15 +1161,16 @@ $tabBackgroundImage:	"../images/tab.png";
 	margin:10px 0;
 	border-top:solid 1px $grayBorderLight;
 	border-collapse:collapse;
-}
-.dialogTable th,
-.dialogTable td {
-	padding:10px;
-	border-bottom:solid 1px $grayBorderLight;
-}
 
-.dialogTable .caption {
-	font-weight:bold;
+    th,
+    td {
+        padding:10px;
+        border-bottom:solid 1px $grayBorderLight;
+    }
+    
+    .caption {
+        font-weight:bold;
+    }
 }
 /***************************************************
 	auiWidgetsArea
@@ -1234,14 +1243,20 @@ $tabBackgroundImage:	"../images/tab.png";
 --------------------------------------------------*/
 .submenu_v2 {
 	clear:both;
-    width:190px;
+    width:200px;
     margin:0 0 10px 0;
-    padding:5px 10px 10px 5px;
-    border-bottom:solid 1px $grayBorderLight;
+    //padding:5px 10px 10px 5px;
+    padding:0;
+    background:url(../images/common/bg_submenu.gif) no-repeat bottom right;
     
+	> ul {
+    	padding:20px 0;
+        background:url(../images/common/bg_submenu.gif) no-repeat top left;
+    }
     li {
-        padding:0;
-        background:none;
+        padding:0 6px;
+        //background:none;
+        background:url(../images/common/bg_submenu.gif) repeat-y top center;
 
         span {
             display:block;
@@ -1273,10 +1288,10 @@ $tabBackgroundImage:	"../images/tab.png";
             padding:0.3em 0 0.3em 36px;
             background-position:23px 1em;
         }
-    }
-    li.selected > a {
-        font-weight:bold;
-        background:$grayLighter;
+		&.selected > a {
+            font-weight:bold;
+            background:$grayLighter;
+        }
     }
 }
 
@@ -2113,40 +2128,50 @@ input.auiButtonSearch.active {
 --------------------------------------------------*/
 .auiDirectoryList {
 	margin-bottom:0.8em;
-}
-.auiDirectoryList div {
-	height:2.2em;
-}
-.auiDirectoryList a {
-	display:block;
-	width:100%;
-	line-height:2.2em;
-	height:2.2em;
-	text-decoration:none;
-	overflow:hidden;
-}
-.auiDirectoryList a span {
-	cursor:pointer;
-}
-.auiDirectoryList a:hover {
-	background:#f6f6f6;
-}
-.auiDirectoryList .active a {
-	font-weight:bold;
-	background:$grayLighter;
-}
-.auiDirectoryList a:hover span {
-	color:#000;
-}
-.auiDirectoryList .directory {
-	display:block;
-	line-height:2.2em;
-	height:2.2em;
-	padding-left:25px;
-	background:url(../images/icon/folder_close.gif) 4px 0.3em no-repeat;
-}
-.auiDirectoryList .open .directory {
-	background:url(../images/icon/folder_open.gif) 4px 0.3em no-repeat;
+
+    div {
+    }
+    a {
+        display:block;
+        width:100%;
+        text-decoration:none;
+        overflow:hidden;
+
+        span {
+            cursor:pointer;
+        }
+        &:hover {
+            background:#f6f6f6;
+
+            span {
+                color:#000;
+            }
+        }
+    }
+    .active a {
+        font-weight:bold;
+        background:$grayLighter;
+    }
+    .directory {
+        display:block;
+        line-height:26px;
+        height:26px;
+        //padding-left:25px;
+        padding-left:5px;
+        //background:url(../images/icon/folder_close.gif) 4px 0.3em no-repeat;
+
+        [class^="icon-"],[class*=" icon-"] {
+            color:$grayLight;
+            margin-right:5px;
+            font-size:16px;
+            display:inline-block;
+            height:26px;
+            line-height:26px;
+        }
+    }
+    .open .directory {
+        //background:url(../images/icon/folder_open.gif) 4px 0.3em no-repeat;
+    }
 }
 
 /*

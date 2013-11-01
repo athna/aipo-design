@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css"/>
 <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
 <link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<script language="JavaScript" type="text/javascript" src="../javascript/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
 </head>
 <body>
 <script type="text/javascript">
@@ -45,26 +46,90 @@
 
 	<div class="hdSign">
 		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-   </div>
+	</div>
 
-    <div class="hdNavi">
-		<!--
-		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
-		-->
-		<div class="hdActivity" title="あなた宛のお知らせ">
-        	<div class="activityField" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='activityField'}else{this.className='activityField active'};">
-                <div class="dijitRight">
-                    <div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="#" widgetid="activitycheckerContainer">
-                        <div class="dijitRight">
-                            <span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><span class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" popupactive="true"><!--<img src="../themes/default/images/icon/icon_message.png" alt="あなた宛のお知らせ">--><img src="../themes/default/images/mobile/an_activity.png" width="24" height="24" /></span>
-                            <div style="display: block; " id="activitychecker"><span class="activitychecker-right"><span id="activitychecker-counter" class="activitychecker-left" style="display: block; ">99</span></span></div>
-                            <select name="" id="" size="10" multiple="multiple" style="display:none" dojoattachpoint="selectNode"></select><input type="hidden" id="" name="" value="" dojoattachpoint="valueNode"><span name="" id="" dojoattachpoint="inputNode"></span></span>                        </div>
-                    </div>
-                </div>
-            </div>
+	<script>
+	function popupToggle($this,$target) {
+		if(document.getElementById($target).style.display=='none'){
+			document.getElementById($target).style.display='block'
+		}else{
+			document.getElementById($target).style.display='none'
+		}
+		if($this.className.indexOf('active')>0){
+			$this.className = $this.className.replace(' active','');
+		}else{
+			$this.className += ' active'
+		};
+	}
+	</script>
+
+	<div class="hdNavi">
+
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+
+
+		<div class="hdActivity" title="お知らせ">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+						<span class="mb_hide">お知らせ</span>
+						<span class="pc_hide"><i class="icon-comment"></i></span>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
-		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
+
+		<div class="hdInformation" title="サポート">
+			<div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+						<div id="supportchecker" class="counter zero">0</div>
+						<span class="mb_hide">サポート</span>
+						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')">
+				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a>
+		</div>
+	</div>
+
+	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+		<ul>
+		<li><a href="#">個人設定</a></li>
+		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+		</ul>
 	</div>
 
 </div></div>
@@ -97,357 +162,343 @@
 <!-- roundWrapper -->
 <div id="roundWrapper">
 <!-- MAIN OUTER -->
-												<div class="roundMainWrapper">
-													<!-- LAYOUT -->
-
-
+	<div class="roundMainWrapper">
+		<!-- LAYOUT -->
+	
 <!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
+	
+		<!-- PORTLET OUTER -->
+		<div class="dojoDndItem auiPortlet">
 
 
-<table class="tableWrapper">
-	<tbody>
-	  <tr>
-		<td class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
+<!-- mobileHeader -->
+<div id="mobileHeader_v3" class="clearfix"><div class="inner">
+    <h1><span>Webメール</span></h1>
+    <div class="mhLeft">
+        <a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
+    </div>
+    <div class="mhRight clearfix">
+
+        <script>
+        function popupToggle($this,$target) {
+            if(document.getElementById($target).style.display=='none'){
+                document.getElementById($target).style.display='block'
+            }else{
+                document.getElementById($target).style.display='none'
+            }
+            if($this.className.indexOf('active')>0){
+                $this.className = $this.className.replace(' active','');
+            }else{
+                $this.className += ' active'
+            };
+        }
+        </script>
+
+        <!--div class="hdMessege">
+            <a href="https://message.aipo.com" target="_blank">
+                <div id="messagechecker" class="counter">3</div>
+                <span class="mb_hide">メッセージ</span>
+                <span class="pc_hide"><i class="icon-comment"></i></span>
+            </a>
+        </div-->
+
+
+        <div class="hdActivity" title="メッセージ">
+            <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+                dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                widgetid="activitycheckerContainer"
+                onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+                <div type="button"
+                    dojoattachpoint="focusNode,titleNode"
+                    wairole="button"
+                    waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-labelledby="activitycheckerContainer_label"
+                    id="activitycheckerContainer"
+                    tabindex="0"
+                    aria-valuenow=""
+                    aria-disabled="false">
+                    <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                        <div id="activitychecker" class="activitycheckerstyle counter">5</div>
+                        <span class="mb_hide">メッセージ</span>
+                        <span class="pc_hide"><i class="icon-comments"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hdActivity" title="お知らせ">
+            <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+                dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                widgetid="activitycheckerContainer"
+                onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+                <div type="button"
+                    dojoattachpoint="focusNode,titleNode"
+                    wairole="button"
+                    waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-labelledby="activitycheckerContainer_label"
+                    id="activitycheckerContainer"
+                    tabindex="0"
+                    aria-valuenow=""
+                    aria-disabled="false">
+                    <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                        <div id="activitychecker" class="activitycheckerstyle counter">5</div>
+                        <span class="mb_hide">お知らせ</span>
+                        <span class="pc_hide"><i class="icon-bell-alt"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hdInformation" title="サポート">
+            <div
+                class="dijit dijitLeft dijitInline dijitDropDownButton"
+                dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                widgetid="supportcheckerContainer"
+                onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+                <div type="button"
+                    dojoattachpoint="focusNode,titleNode"
+                    wairole="button"
+                    waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-labelledby="supportcheckerContainer_label"
+                    id="supportcheckerContainer"
+                    tabindex="0"
+                    aria-valuenow=""
+                    aria-disabled="false">
+                    <div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+                        <div id="supportchecker" class="counter">1</div>
+                        <span class="mb_hide">サポート</span>
+                        <span class="pc_hide"><i class="icon-info-sign"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- /mobileHeader -->
+
+
+
+			<div class="auiPortletHead"><div class="inner">
+				<div class="auiPortletTitle">Webメール</div>
+				<div class="auiPortletTool">
+				</div>
+			</div></div>
+	
+			<!-- PORTLET OUTER -->
+			<div class="auiPortletBody"><div class="inner">
+				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
+					
+					<div id="auiContentsArea"><div id="auiContentsAreaInner">
+
+						<form name="formP-13652023f79-10161" id="formP-13652023f79-10161" action="#" method="post" onsubmit="return false;">
+							<input type="hidden" name="_name" value="Webメール">
+							<input type="hidden" name="secid" value="4367840eeb0725e14f29a881f96d5274">
+
+                            <div class="auiSummaryMeta clearfix">
+                                <div class="floatLeft auiForm">
+                                    <a name="ajaxbuttonCheckboxAction" class="auiButton" onclick="">既読にする</a>
+                                    <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxactionP-" value="">
+                                    <a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
+                                    <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdeleteP-13652023f79-10161" value="">
+                                    <select name="move_folder" id="move_folder" style="width:12em;" onchange="">
+                                        <option value="">フォルダ移動</option>
+                                        <option value="20">テスト1</option>
+                                    </select>
+                                    <a class="auiButton" title="メール受信" href="javascript:void(0)" onclick="">
+                                        <span><i class="auiIcon auiIconReload"></i></span>
+                                    </a>
+                                </div>
+                                <div class="floatRight">
+                                    <div class="count">1 - 1 / 1</div>
+                                </div>
+                            </div>
+
+                            <table class="auiRowTable auiMbTable wide">
+                                <tbody>
+                                <tr>
+                                    <th class="thin"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);">
+                                    </th>
+                                    <th style="width:10em;"><a href="javascript:void(0);" onclick="">差出人</a>
+                                    </th>
+                                    <th><a href="javascript:void(0);" onclick="">件名</a>
+                                    </th>
+                                    <th style="width:6em;"><a class="headUp" href="javascript:void(0);" onclick="">日付</a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="auiMTCheck"><input name="check3119" type="checkbox" value="3119"></td>
+                                    <td class="auiMTCaption"><div><a href="#">差出人名差出人名 &lt;info@free-groupware.com&gt;</a></div></td>
+                                    <td>
+                                        <div>
+                                            タイトルタイトルタイトルタイトルタイトルタイトルタイトル
+                                        </div>
+                                    </td>
+                                    <td class="right" nowrap="nowrap">2011年10月20日</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="auiMTCheck"><input name="check3119" type="checkbox" value="3119"></td>
+                                    <td class="auiMTCaption"><div><a href="#">差出人名差出人名 &lt;info@free-groupware.com&gt;</a></div></td>
+                                    <td>
+                                        <div>
+                                            タイトルタイトルタイトルタイトルタイトルタイトルタイトル
+                                        </div>
+                                    </td>
+                                    <td class="right" nowrap="nowrap">2011年10月20日</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="auiMTCheck"><input name="check3119" type="checkbox" value="3119"></td>
+                                    <td class="auiMTCaption"><div><a href="#">差出人名差出人名 &lt;info@free-groupware.com&gt;</a></div></td>
+                                    <td>
+                                        <div>
+                                            タイトルタイトルタイトルタイトルタイトルタイトルタイトル
+                                        </div>
+                                    </td>
+                                    <td class="right" nowrap="nowrap">2011年10月20日</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="auiMTCheck"><input name="check3119" type="checkbox" value="3119"></td>
+                                    <td class="auiMTCaption"><div><a href="#">差出人名差出人名 &lt;info@free-groupware.com&gt;</a></div></td>
+                                    <td>
+                                        <div>
+                                            タイトルタイトルタイトルタイトルタイトルタイトルタイトル
+                                        </div>
+                                    </td>
+                                    <td class="right" nowrap="nowrap">2011年10月20日</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="auiMTCheck"><input name="check3119" type="checkbox" value="3119"></td>
+                                    <td class="auiMTCaption"><div><a href="#">差出人名差出人名 &lt;info@free-groupware.com&gt;</a></div></td>
+                                    <td>
+                                        <div>
+                                            タイトルタイトルタイトルタイトルタイトルタイトルタイトル
+                                        </div>
+                                    </td>
+                                    <td class="right" nowrap="nowrap">2011年10月20日</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="auiSummaryMeta clearfix">
+                                <div class="floatLeft auiForm">
+                                    <a name="ajaxbuttonCheckboxAction" class="auiButton" onclick="">既読にする</a>
+                                    <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxactionP-" value="">
+                                    <a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="">削除する</a>
+                                    <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdeleteP-13652023f79-10161" value="">
+                                    <select name="move_folder" id="move_folder" style="width:12em;" onchange="">
+                                        <option value="">フォルダ移動</option>
+                                        <option value="20">テスト1</option>
+                                    </select>
+                                    <a class="auiButton" title="メール受信" href="javascript:void(0)" onclick="">
+                                        <span><i class="auiIcon auiIconReload"></i></span>
+                                    </a>
+                                </div>
+                                <div class="floatRight">
+                                    <div class="count">1 - 1 / 1</div>
+                                </div>
+                            </div>
+
+                        </form>
+					</div></div>
+
+					<!-- Start Widgets Area -->
+					<!-- ******************************
+					
+					■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+					
+					既存の「auiWidgetsArea」内に若干のHTML修正が必要となります。
+					
+					1. 各アプリで「auiButtonAction」の収まっている「auiWidget」に「widgetButton」を追記
+					2. 「snDrawer」をスマホ表示時に表示する
+					3. 各アプリでカテゴリなどのメニューが収まっている「auiWidget」に「id="subNavigation"」を追記
+					
+					直下に「widgetMenuSwitch」のJS関数を定義しています。
+					これは全体化時の左側メニューの開閉に利用する関数です。
+					可能ならばソースに直接書かずJSファイルへ記述をお願いします。
+					
+					****************************** -->
+					<script language="javascript">
+					function widgetMenuSwitch() {
+					var subNavi = document.getElementById('subNavigation');
+					if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
+					subNavi.style.display = 'block';
+					}else{
+					subNavi.style.display = 'none';
+					}
+					}
+					</script>
+					
+					<div id="auiWidgetsArea">
+					<div class="auiWidget widgetButton clearfix">
+					<a title="メールを作成する" href="#" class="auiButton auiButtonAction">メールを作成する</a>
+					</div>
+					
+					
+					<div id="subNavigation">
+					
+					
+					<div class="auiWidget clearfix">
+					<ul>
+					<li class="active">
+					<a href="javascript:void(0);" onclick=""> 受信トレイ </a>
+					</li>
+					<li>
+					<a href="javascript:void(0);" onclick="">送信トレイ</a>
+					</li>
+					<li>
+					<a href="javascript:void(0);" onclick=""> テスト1 </a>
+					</li>
+					</ul>
+					<div style="margin:0.5em 0;">
+					<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_folder_list=1">フォルダの管理</a>
+					</div>
+					</div>
+					
+					<div class="auiWidget clearfix">
+					<ul>
+					
+					<li class="active">
+					<a href="javascript:void(0);" onclick="">free-groupware</a>
+					</li>
+					</ul>
+					<div style="margin:0.5em 0;">
+					<a href="#">アカウントの管理</a>
+					</div>
+					</div>
+					
+					<div class="auiWidget clearfix">
+					<div style="margin:0.5em 0;">
+					<a href="#">フィルタの管理</a>
+					</div>
+					</div>
+					</div>
+					</div>
+				</div>
+			</div></div>
+		<div class="auiPortletFoot"><div class="inner"></div></div>
+	<!-- /PORTLET OUTER -->
+	
+	<!-- ###### ▲開発向け：ここまで改修コンテンツ（当コメントは反映しないで下さい） #####-->
 	
 	
-		  <!-- PORTLET OUTER -->
-		  <div class="roundTopBlock clearfix">
-<div class="roundRightBlock">
-<div class="roundBottomBlock">
-<div class="roundLeftBlock">
-<div class="roundTopLeftBlock">
-<div class="roundTopRightBlock">
-<div class="roundBottomRightBlock">
-<div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle">Webメール</td>
-                                                                                    <td class="roundBlockMenu"><span id="portletMenu"></span></td>
-                                                                                    <td class="endcap"></td>
-                                                                                  </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
-
-
-
-<div id="auiContentsArea"><div id="auiContentsAreaInner">
-
- <div class="indicator" id="indicator-list-P-13652023f79-10161" style="display:none;">データを送信しています...</div>
-<form name="formP-13652023f79-10161" id="formP-13652023f79-10161" action="#" method="post" onsubmit="return false;">
-<input type="hidden" name="_name" value="Webメール">
-<input type="hidden" name="secid" value="4367840eeb0725e14f29a881f96d5274">
-
-<div class="auiSummaryMeta clearfix">
-<div class="floatLeft auiForm">
-<a name="ajaxbuttonCheckboxAction" class="auiButton" onclick="aimluck.io.ajaxCheckboxActionSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxactionP-13652023f79-10161'), 'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailFormJSONScreen&amp;mode=multi_read', 'indicator-list-', 'P-13652023f79-10161', aipo.webmail.onReceiveMessage);">既読にする</a>
-<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxactionP-13652023f79-10161" value="">
-<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="aimluck.io.ajaxCheckboxDeleteSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdeleteP-13652023f79-10161'), 'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailFormJSONScreen&amp;mode=multi_delete', 'indicator-list-', 'P-13652023f79-10161', aipo.webmail.onReceiveMessage);">削除する</a>
-<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdeleteP-13652023f79-10161" value="">
-<select name="move_folder" id="move_folder" style="width:12em;" onchange="if(this.selectedIndex != 0)aimluck.io.ajaxCheckboxActionSubmit(this, 'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailFormJSONScreen&amp;mode=multi_move', 'indicator-list-', 'P-13652023f79-10161', aipo.webmail.onReceiveMessage);this.selectedIndex = 0;">
-<option value="">フォルダ移動</option>
-<option value="20">テスト1</option>
-</select>
-<a class="auiButton" title="メール受信" href="javascript:void(0)" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;mode=recieve', 'P-13652023f79-10161');">
-<span><img src="images/icon/icon_reload.gif" width="18" height="18" alt="メール受信"></span>
-</a>
-</div>
-
-<div class="floatRight">
-	<div class="count">1 ～ 1 件 / 計 1 件</div>
-</div>
-</div>
-
-<table class="auiRowTable wide">
-  <tbody>
-<tr>
-<th class="thin"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);">
-</th>
-<th style="width:10em;"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;start=1&amp;sort=person&amp;sorttype=asc', 'P-13652023f79-10161');">差出人</a>
-</th>
-<th><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;start=1&amp;sort=subject&amp;sorttype=asc', 'P-13652023f79-10161');">件名</a>
-</th>
-<th style="width:6em;"><a class="headUp" href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;start=1&amp;sort=date&amp;sorttype=asc', 'P-13652023f79-10161');">日付</a>
-</th>
-</tr>
-<tr>
-      <td align="center"><input name="check3119" type="checkbox" value="3119"></td>
-
-      <td align="left"><div>フリーグループウェア &lt;info@free-groupware.com&gt;</div></td>
-    <td>
-<div>
-<a href="javascript:void(0);" onclick="aipo.common.showDialog(&quot;https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_show_mail=1&amp;template=WebMailDetailScreen&amp;entityid=3119&amp;tab=receive&quot;);">
-テスト送信
-</a>
-</div>
-    </td>
-      <td class="right" nowrap="nowrap">2011年10月20日</td>
-</tr>
-  </tbody>
-</table>
-
-<div class="auiSummaryMeta clearfix">
-<div class="floatLeft auiForm">
-<a name="ajaxbuttonCheckboxAction" class="auiButton" onclick="aimluck.io.ajaxCheckboxActionSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxactionP-13652023f79-10161'), 'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailFormJSONScreen&amp;mode=multi_read', 'indicator-list-', 'P-13652023f79-10161', aipo.webmail.onReceiveMessage);">既読にする</a>
-<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxactionP-13652023f79-10161" value="">
-<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="aimluck.io.ajaxCheckboxDeleteSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdeleteP-13652023f79-10161'), 'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailFormJSONScreen&amp;mode=multi_delete', 'indicator-list-', 'P-13652023f79-10161', aipo.webmail.onReceiveMessage);">削除する</a>
-<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdeleteP-13652023f79-10161" value="">
-<select name="move_folder" id="move_folder" style="width:12em;" onchange="if(this.selectedIndex != 0)aimluck.io.ajaxCheckboxActionSubmit(this, 'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailFormJSONScreen&amp;mode=multi_move', 'indicator-list-', 'P-13652023f79-10161', aipo.webmail.onReceiveMessage);this.selectedIndex = 0;">
-<option value="">フォルダ移動</option>
-<option value="20">テスト1</option>
-</select>
-<a class="auiButton" title="メール受信" href="javascript:void(0)" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;mode=recieve', 'P-13652023f79-10161');">
-<span><img src="images/icon/icon_reload.gif" width="18" height="18" alt="メール受信"></span>
-</a>
-</div>
-
-<div class="floatRight">
-	<div class="count">1 ～ 1 件 / 計 1 件</div>
-</div>
-</div>
-
-</form>
-</div></div>
-
-
-
-<!-- Start Widgets Area -->
-<!-- ******************************
-
-■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
-
-既存の「auiWidgetsArea」内に若干のHTML修正が必要となります。
-
-1. 各アプリで「auiButtonAction」の収まっている「auiWidget」に「widgetButton」を追記
-2. 「snDrawer」をスマホ表示時に表示する
-3. 各アプリでカテゴリなどのメニューが収まっている「auiWidget」に「id="subNavigation"」を追記
-
-直下に「widgetMenuSwitch」のJS関数を定義しています。
-これは全体化時の左側メニューの開閉に利用する関数です。
-可能ならばソースに直接書かずJSファイルへ記述をお願いします。
-
-****************************** -->
-<script language="javascript">
-function widgetMenuSwitch() {
-	var subNavi = document.getElementById('subNavigation');
-	if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
-		subNavi.style.display = 'block';
-	}else{
-		subNavi.style.display = 'none';
-	}
-}
-</script>
-
-<div id="auiWidgetsArea">
-<div class="auiWidget widgetButton clearfix">
-<a title="メールを作成する" href="javascript:aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailFormScreen&entityid=new','P-13652023f79-10161',aipo.webmail.onLoadMailDialog);" class="auiButton">メールを作成する</a>
-</div>
-
-<div class="snDrawer">
-	<!--a id="snDrawer" href="javascript:void(0)" class="auiButtonBold" onclick="widgetMenuSwitch()"><img src="../themes/default/images/mobile/sn_list.png"></a-->
-	<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-reorder"></i></a>
-</div>
-
-<div id="subNavigation">
-
-	
-	<div class="auiWidget clearfix">
-	<ul>
-	<li class="active">
-	<a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;accountid=16&amp;folderid=19&amp;noupdateunread=1&amp;tab=receive', 'P-13652023f79-10161');"> 受信トレイ </a>
-	</li>
-	<li>
-	<a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;eventsubmit_dowebmail_show_sent_mails=1&amp;tab=sent&amp;folderid=-1', 'P-13652023f79-10161');">送信トレイ</a>
-	</li>
-	<li>
-	<a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;accountid=16&amp;folderid=20&amp;noupdateunread=1&amp;tab=receive', 'P-13652023f79-10161');"> テスト1 </a>
-	</li>
-	</ul>
-	<div style="margin:0.5em 0;">
-	<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_folder_list=1">フォルダの管理</a>
+	<!-- /LAYOUT -->
 	</div>
-	</div>
-	
-	<div class="auiWidget clearfix">
-	<ul>
-	
-	<li class="active">
-	<a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?template=WebMailListScreen&amp;accountid=16', 'P-13652023f79-10161');">free-groupware</a>
-	</li>
-	</ul>
-	<div style="margin:0.5em 0;">
-	<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_account_list=1">アカウントの管理</a>
-	</div>
-	</div>
-
-	<div class="auiWidget clearfix">
-	<div style="margin:0.5em 0;">
-	<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161?eventsubmit_dowebmail_filter_list=1">フィルタの管理</a>
-	</div>
-	</div>
-</div>
-</div>																				  </div>
-																				</div>
-                                                                              </div>
-                                                                            </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-		  <!-- /PORTLET OUTER -->
-		</td>
-	  </tr>
-	</tbody>
-</table>
-
-<!-- ###### ▲開発向け：ここまで改修コンテンツ（当コメントは反映しないで下さい） #####-->
-
-
-<!-- /LAYOUT -->
-</div>
 <!-- /MAIN OUTER  -->
 
-<!-- FOOTER -->
-<div id="footer" class="clearfix">
-
-	<!-- START GUIDE -->
-	<div id="startGuide" style="display:none;">
-		<div class="close"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='40px';document.getElementById('guide_on').style.display='inline'"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"> 閉じる</a></div>
-		<div class="clearfix">
-			<div class="guideContents">
-				<p>ユーザーを追加しよう</p>
-				<p><a href="#" class="auiButtonAction">ユーザー追加方法を見る</a></p>
-			</div>
-			<div class="guideContents">
-				<p>画面レイアウトを変更しよう</p>
-				<p><a href="#" class="auiButtonAction">レイアウト変更方法を見る</a></p>
-			</div>
-		</div>
-	</div>
-	<!-- /START GUIDE -->
-
-	<div id="footText">
-	<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
-	<div id="guide_on" style="display:inline;"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='170px';document.getElementById('guide_on').style.display='none'">スタートガイド</a></div>
-	</div>
 </div>
-<!-- /FOOTER -->
+<!-- /roundMainWrapper -->
 </div>
 <!-- /roundWrapper -->
 </div>
 <!-- /wrapper -->
 
 
-<!-- ******************************
-
-■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
-
-ヘッダーで「mobile.css」を読み込んでいます。
-<link>タグでの読み込む順番も重要なため、記述通りの順でお願いします。
-
-可能であれば「あなた宛のお知らせ」の画像「icon_message.png」を
-「an_activity.png」へ変更してください。
-
-以下よりスマホ表示専用の要素になります。
-UA判別などでPC版では表示させないでください。
-
-直下に「appsNaviSwitch」のJS関数を定義しています。
-これはスマホ用ナビゲーションの開閉に利用する関数です。
-可能ならばソースに直接書かずJSファイルへ記述をお願いします。
-
-****************************** -->
-<!-- mobileHeader -->
-<div id="mobileHeader_v2" class="clearfix"><div class="inner">
-	<h1><span>Webメール</span></h1>
-	<div class="mhLeft">
-		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
-	</div>
-	<div class="mhRight clearfix">
-
-		<script>
-		function popupToggle($this,$target) {
-			if(document.getElementById($target).style.display=='none'){
-				document.getElementById($target).style.display='block'
-			}else{
-				document.getElementById($target).style.display='none'
-			}
-			if($this.className.indexOf('active')>0){
-				$this.className = $this.className.replace(' active','');
-			}else{
-				$this.className += ' active'
-			};
-		}
-		</script>
-
-		<!--div class="hdMessege">
-			<a href="https://message.aipo.com" target="_blank">
-				<div id="messagechecker" class="counter">3</div>
-				<span class="mb_hide">メッセージ</span>
-				<span class="pc_hide"><i class="icon-comment"></i></span>
-			</a>
-		</div-->
-
-
-		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="activitycheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="activitycheckerContainer_label"
-					id="activitycheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
-						<span class="mb_hide">お知らせ</span>
-						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="hdInformation" title="サポート">
-			<div
-				class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="supportcheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="supportcheckerContainer_label"
-					id="supportcheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
-						<div id="supportchecker" class="counter">1</div>
-						<span class="mb_hide">サポート</span>
-						<span class="pc_hide"><i class="icon-info-sign"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-<!-- /mobileHeader -->
 
 
 <!-- appsNavigation2 -->
@@ -866,90 +917,238 @@ function setWrapperHeight() {
 
 
 
-<div id="addressbookDialog" class="addressbookDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="addressbookDialog" title="" style="display: block; opacity: 1; left:10px; top: 87px; "><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+<!--
+############################################################
+●新アドレス帳（auiPopup置き換え）
+############################################################
+-->
+<div id="addressbookDialog" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: block; opacity: 1; left: 365px; top: 100px;">
+    <span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+        <div class="auiPopup clearfix">
+            <div class="auiPopupHead clearfix">
+                <div class="auiPopupTool">
+                    <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();">
+                        <span><i class="icon-remove"></i></span>
+                        </a> </div>
+                </div>
+                <div class="auiPopupTitle">アドレス帳</div>
+            </div>
+
+            <form name="formP-1331ad9cff1-10000" id="formP-1331ad9cff1-10000" action="#" method="post" onsubmit="return false;">
+                <input type="hidden" name="_name" value="webmailAddressbookForm">
+                <input type="hidden" name="secid" value="0abc9628864a027c0417d748fd6c3a48">
+                <table class="dialogTable wide">
+                    <tbody>
+                        <tr>
+                            <td width="40%" rowspan="3" valign="top"><div style="width: 250px;">
+                                    <p style="line-height:1" class="mb5">
+                                        <input name="type_company" type="radio" value="1" id="corpIdP-1331ad9cff1-10000" checked="checked" onclick="aipo.webmail.switchTypeCompany(this)">
+                                        <label for="corpIdP-1331ad9cff1-10000">ユーザー名簿</label>
+                                        &emsp;
+                                        <input name="type_company" type="radio" value="0" id="syagaiIdP-1331ad9cff1-10000" onclick="aipo.webmail.switchTypeCompany(this)">
+                                        <label for="syagaiIdP-1331ad9cff1-10000">アドレス帳</label>
+                                    </p>
+                                    <div id="Block_Internal_Group" class="mb5">
+                                        <select name="currentInternalGroupName" id="currentInternalGroupName" style="width:98%" onchange="aipo.webmail.changeInternalGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-1331ad9cff1-10000/template/UserEmailLiteJSONScreen', this.options[this.selectedIndex].value)">
+                                            <option value="LoginUser" selected="selected">すべてのグループ</option>
+                                            <option value="1309354049146_21">アルバイト・インターン</option>
+                                            <option value="1309256925795_4">企画本部</option>
+                                            <option value="1309256875124_4">営業本部</option>
+                                            <option value="1309256852208_4">管理本部</option>
+                                            <option value="1309256899203_4">開発本部</option>
+                                            <option value="1309354067571_21">開発本部A</option>
+                                            <option value="1309354076422_21">開発本部B</option>
+                                            <option value="1309354083123_21">開発本部K</option>
+                                        </select>
+                                    </div>
+                                    <div id="userDiv" class="mb5">
+                                        <select name="internal_member_from" size="12" multiple="multiple" style="width: 98%">
+                                            <option value="山田 太郎&lt;example@aimluck.com&gt;">山田 太郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="田中 一郎&lt;example@aimluck.com&gt;">田中 一郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="山本 次郎&lt;example@aimluck.com&gt;">山本 次郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="別所 優一&lt;example@aimluck.com&gt;">別所 優一&lt;example@aimluck.com&gt;</option>
+                                            <option value="木村 一郎&lt;example@aimluck.com&gt;">木村 一郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="鈴木 花子&lt;example@aimluck.com&gt;">鈴木 花子&lt;example@aimluck.com&gt;</option>
+                                            <option value="田村 三郎&lt;example@aimluck.com&gt;">田村 三郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="高橋 四郎&lt;takase@aimluck.com&gt;">高橋 四郎&lt;takase@aimluck.com&gt;</option>
+                                            <option value="越後 太一&lt;example@aimluck.com&gt;">越後 太一&lt;example@aimluck.com&gt;</option>
+                                            <option value="佐藤 涼子&lt;example@aimluck.com&gt;">佐藤 涼子&lt;example@aimluck.com&gt;</option>
+                                            <option value="山中 愛子&lt;example@aimluck.com&gt;">山中 愛子&lt;example@aimluck.com&gt;</option>
+                                        </select>
+                                    </div>
+                                    <div id="Block_External_Group" style="display:none;">
+                                        <select name="currentExternalGroupName" id="currentExternalGroupName" style="width:99%" onchange="aipo.webmail.changeExternalGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-1331ad9cff1-10000/template/AddressBookUserEmailLiteJSONScreen', this.options[this.selectedIndex].value)">
+                                            <option value="">（全体）</option>
+                                        </select>
+                                    </div>
+                                    <div id="addrDiv" style="display:none;">
+                                        <select name="external_member_from" size="12" multiple="multiple" style="width: 99%">
+                                            <option value="三島 邦彦&lt;k.mishima@pmi-japan.org&gt;">三島 邦彦&lt;k.mishima@pmi-japan.org&gt;</option>
+                                            <option value="丸山 輝&lt;&gt;">丸山 輝&lt;&gt;</option>
+                                        </select>
+                                    </div>
+                                    <input name="add_to" class="button" type="button" value="宛先に追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_to_recipients, 'P-1331ad9cff1-10000')">
+                                    <input name="add_cc" class="button" type="button" value="CCに追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_cc_recipients, 'P-1331ad9cff1-10000')">
+                                    <input name="add_bcc" class="button" type="button" value="BCCに追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_bcc_recipients, 'P-1331ad9cff1-10000')">
+                                </div></td>
+                            <td class="caption">宛先</td>
+                            <td><select name="detail_to_recipients" id="detail_to_recipients" size="3" multiple="multiple" class="mb5 wide">
+                                </select>
+                                <div class="right">選択したアドレスを
+                                    <input name="del_to" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_to_recipients)">
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td class="caption">CC</td>
+                            <td><select name="detail_cc_recipients" id="detail_cc_recipients" size="3" multiple="multiple" class="mb5 wide">
+                                </select>
+                                <div class="right">選択したアドレスを
+                                    <input name="del_cc" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_cc_recipients)">
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td class="caption">BCC</td>
+                            <td><select name="detail_bcc_recipients" id="detail_bcc_recipients" size="3" multiple="multiple" class="mb5 wide">
+                                </select>
+                                <div class="right">選択したアドレスを
+                                    <input name="del_bcc" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_bcc_recipients)">
+                                </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div align="center" class="mb10">
+                    <input name="addAddresses" class="button" type="button" value="決定する" onclick="aipo.webmail.insertData()">
+                    <input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="dijit.byId('addressbookDialog').hide();">
+                </div>
+                <input type="hidden" id="urlUserlistP-1331ad9cff1-10000" name="urlUserlistP-1331ad9cff1-10000" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-1331ad9cff1-10000/template/UserEmailLiteJSONScreen">
+                <input type="hidden" id="urlAddrlistP-1331ad9cff1-10000" name="urlAddrlistP-1331ad9cff1-10000" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-1331ad9cff1-10000/template/AddressBookUserEmailLiteJSONScreen">
+            </form>
+
+        </div>
+    </div>
+    <span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+</div>
 
 
-<div class="spaceAll"><h4>アドレス帳</h4>
-<div class="spaceLeft">メールアドレスを選択してください。<br>Windows では 『Ctrl キー + マウスクリック』、Macintosh では 『コマンドキー+マウスクリック』 で複数選択ができます。</div>
-<form name="formP-13652023f79-10161" id="formP-13652023f79-10161" action="#" method="post" onsubmit="return false;">
-<input type="hidden" name="_name" value="webmailAddressbookForm">
-<input type="hidden" name="secid" value="78b3461778bf818162c1f7a2ec72b57b">
-<table class="dialogTable wide">
-  <tbody>
-<tr style="
+
+
+
+<!--
+############################################################
+●旧アドレス帳
+############################################################
+
+<div id="addressbookDialog" class="addressbookDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="addressbookDialog" title="" style="display: block; opacity: 1; left:10px; top: 87px; ">
+    <span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+        <div class="spaceAll">
+            <h4>アドレス帳</h4>
+            <div class="spaceLeft">メールアドレスを選択してください。<br>
+                Windows では 『Ctrl キー + マウスクリック』、Macintosh では 『コマンドキー+マウスクリック』 で複数選択ができます。</div>
+            <form name="formP-13652023f79-10161" id="formP-13652023f79-10161" action="#" method="post" onsubmit="return false;">
+                <input type="hidden" name="_name" value="webmailAddressbookForm">
+                <input type="hidden" name="secid" value="78b3461778bf818162c1f7a2ec72b57b">
+                <table class="dialogTable wide">
+                    <tbody>
+                        <tr style="
 ">
-<td width="40%" rowspan="3" valign="top" style="
-">
-<div style="width: 250px;">
-<p style="line-height:1" class="mb5">
-<input name="type_company" type="radio" value="1" id="corpIdP-13652023f79-10161" checked="checked" onclick="aipo.webmail.switchTypeCompany(this)">
-<label for="corpIdP-13652023f79-10161">ユーザー名簿</label>
-<input name="type_company" type="radio" value="0" id="syagaiIdP-13652023f79-10161" onclick="aipo.webmail.switchTypeCompany(this)">
-<label for="syagaiIdP-13652023f79-10161">アドレス帳</label>
-</p>
-<div id="Block_Internal_Group" class="mb5">
-<select name="currentInternalGroupName" id="currentInternalGroupName" style="width: 99%" onchange="aipo.webmail.changeInternalGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/UserEmailLiteJSONScreen', this.options[this.selectedIndex].value)">
-<option value="LoginUser" selected="selected">すべてのグループ</option>
-<option value="1331519412605_4">Pickles</option>
-<option value="">----------</option>
-<option value="1309354049146_21">アルバイト・インターン</option>
-<option value="1309256925795_4">企画本部</option>
-<option value="1309256875124_4">営業本部</option>
-<option value="1309256852208_4">管理本部</option>
-<option value="1309354067571_21">開発1部</option>
-<option value="1309354076422_21">開発2部</option>
-<option value="1309354083123_21">開発3部</option>
-<option value="1309256899203_4">開発本部</option>
-</select>
+                            <td width="40%" rowspan="3" valign="top" style="
+"><div style="width: 250px;">
+                                    <p style="line-height:1" class="mb5">
+                                        <input name="type_company" type="radio" value="1" id="corpIdP-13652023f79-10161" checked="checked" onclick="aipo.webmail.switchTypeCompany(this)">
+                                        <label for="corpIdP-13652023f79-10161">ユーザー名簿</label>
+                                        <input name="type_company" type="radio" value="0" id="syagaiIdP-13652023f79-10161" onclick="aipo.webmail.switchTypeCompany(this)">
+                                        <label for="syagaiIdP-13652023f79-10161">アドレス帳</label>
+                                    </p>
+                                    <div id="Block_Internal_Group" class="mb5">
+                                        <select name="currentInternalGroupName" id="currentInternalGroupName" style="width: 99%" onchange="aipo.webmail.changeInternalGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/UserEmailLiteJSONScreen', this.options[this.selectedIndex].value)">
+                                            <option value="LoginUser" selected="selected">すべてのグループ</option>
+                                            <option value="1331519412605_4">Pickles</option>
+                                            <option value="">----------</option>
+                                            <option value="1309354049146_21">アルバイト・インターン</option>
+                                            <option value="1309256925795_4">企画本部</option>
+                                            <option value="1309256875124_4">営業本部</option>
+                                            <option value="1309256852208_4">管理本部</option>
+                                            <option value="1309354067571_21">開発1部</option>
+                                            <option value="1309354076422_21">開発2部</option>
+                                            <option value="1309354083123_21">開発3部</option>
+                                            <option value="1309256899203_4">開発本部</option>
+                                        </select>
+                                    </div>
+                                    <div id="userDiv" class="mb5">
+                                        <select name="internal_member_from" size="12" multiple="multiple" style="width: 99%">
+                                            <option value="山田 太郎&lt;example@aimluck.com&gt;">山田 太郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="田中 一郎&lt;example@aimluck.com&gt;">田中 一郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="山本 次郎&lt;example@aimluck.com&gt;">山本 次郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="別所 優一&lt;example@aimluck.com&gt;">別所 優一&lt;example@aimluck.com&gt;</option>
+                                            <option value="木村 一郎&lt;example@aimluck.com&gt;">木村 一郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="鈴木 花子&lt;example@aimluck.com&gt;">鈴木 花子&lt;example@aimluck.com&gt;</option>
+                                            <option value="田村 三郎&lt;example@aimluck.com&gt;">田村 三郎&lt;example@aimluck.com&gt;</option>
+                                            <option value="高橋 四郎&lt;takase@aimluck.com&gt;">高橋 四郎&lt;takase@aimluck.com&gt;</option>
+                                            <option value="越後 太一&lt;example@aimluck.com&gt;">越後 太一&lt;example@aimluck.com&gt;</option>
+                                            <option value="佐藤 涼子&lt;example@aimluck.com&gt;">佐藤 涼子&lt;example@aimluck.com&gt;</option>
+                                            <option value="山中 愛子&lt;example@aimluck.com&gt;">山中 愛子&lt;example@aimluck.com&gt;</option>
+                                        </select>
+                                    </div>
+                                    <div id="Block_External_Group" class="mb5" style="display:none;">
+                                        <select name="currentExternalGroupName" id="currentExternalGroupName" style="width: 99%" onchange="aipo.webmail.changeExternalGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/AddressBookUserEmailLiteJSONScreen', this.options[this.selectedIndex].value)">
+                                            <option value="">すべてのグループ</option>
+                                        </select>
+                                    </div>
+                                    <div id="addrDiv" class="mb5" style="display:none;">
+                                        <select name="external_member_from" size="12" multiple="multiple" style="width: 99%">
+                                            <option value="三島 邦彦&lt;k.mishima@pmi-japan.org&gt;">三島 邦彦&lt;k.mishima@pmi-japan.org&gt;</option>
+                                            <option value="丸山 輝&lt;&gt;">丸山 輝&lt;&gt;</option>
+                                        </select>
+                                    </div>
+                                    <input name="add_to" class="button" type="button" value="宛先に追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_to_recipients, 'P-13652023f79-10161')">
+                                    <input name="add_cc" class="button" type="button" value="CCに追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_cc_recipients, 'P-13652023f79-10161')">
+                                    <input name="add_bcc" class="button" type="button" value="BCCに追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_bcc_recipients, 'P-13652023f79-10161')">
+                                </div></td>
+                            <td class="caption" style="min-width:50px;width:50px">宛先</td>
+                            <td><select name="detail_to_recipients" id="detail_to_recipients" size="3" multiple="multiple" style="width: 230px;">
+                                </select>
+                                <div class="alignright">選択したアドレスを
+                                    <input name="del_to" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_to_recipients)">
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td class="caption" style="min-width:50px;width:50px">CC</td>
+                            <td><select name="detail_cc_recipients" id="detail_cc_recipients" size="3" multiple="multiple" style="width: 230px;">
+                                </select>
+                                <div class="alignright">選択したアドレスを
+                                    <input name="del_cc" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_cc_recipients)">
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td class="caption" style="min-width:50px;width:50px">BCC</td>
+                            <td><select name="detail_bcc_recipients" id="detail_bcc_recipients" size="3" multiple="multiple" style="width: 230px;">
+                                </select>
+                                <div class="alignright">選択したアドレスを
+                                    <input name="del_bcc" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_bcc_recipients)">
+                                </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div align="center">
+                    <input name="addAddresses" class="button" type="button" value="決定する" onclick="aipo.webmail.insertData()">
+                    <input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="dijit.byId('addressbookDialog').hide();">
+                </div>
+                <input type="hidden" id="urlUserlistP-13652023f79-10161" name="urlUserlistP-13652023f79-10161" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/UserEmailLiteJSONScreen">
+                <input type="hidden" id="urlAddrlistP-13652023f79-10161" name="urlAddrlistP-13652023f79-10161" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/AddressBookUserEmailLiteJSONScreen">
+            </form>
+        </div>
+    </div>
+    <span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
 </div>
-<div id="userDiv" class="mb5"><select name="internal_member_from" size="12" multiple="multiple" style="width: 99%"><option value="山田 太郎&lt;example@aimluck.com&gt;">山田 太郎&lt;example@aimluck.com&gt;</option><option value="田中 一郎&lt;example@aimluck.com&gt;">田中 一郎&lt;example@aimluck.com&gt;</option><option value="山本 次郎&lt;example@aimluck.com&gt;">山本 次郎&lt;example@aimluck.com&gt;</option><option value="別所 優一&lt;example@aimluck.com&gt;">別所 優一&lt;example@aimluck.com&gt;</option><option value="木村 一郎&lt;example@aimluck.com&gt;">木村 一郎&lt;example@aimluck.com&gt;</option><option value="鈴木 花子&lt;example@aimluck.com&gt;">鈴木 花子&lt;example@aimluck.com&gt;</option><option value="田村 三郎&lt;example@aimluck.com&gt;">田村 三郎&lt;example@aimluck.com&gt;</option><option value="高橋 四郎&lt;takase@aimluck.com&gt;">高橋 四郎&lt;takase@aimluck.com&gt;</option><option value="越後 太一&lt;example@aimluck.com&gt;">越後 太一&lt;example@aimluck.com&gt;</option><option value="佐藤 涼子&lt;example@aimluck.com&gt;">佐藤 涼子&lt;example@aimluck.com&gt;</option><option value="山中 愛子&lt;example@aimluck.com&gt;">山中 愛子&lt;example@aimluck.com&gt;</option></select></div>
-<div id="Block_External_Group" class="mb5" style="display:none;">
-<select name="currentExternalGroupName" id="currentExternalGroupName" style="width: 99%" onchange="aipo.webmail.changeExternalGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/AddressBookUserEmailLiteJSONScreen', this.options[this.selectedIndex].value)">
-<option value="">すべてのグループ</option>
-</select>
-</div>
-<div id="addrDiv" class="mb5" style="display:none;"><select name="external_member_from" size="12" multiple="multiple" style="width: 99%"><option value="三島 邦彦&lt;k.mishima@pmi-japan.org&gt;">三島 邦彦&lt;k.mishima@pmi-japan.org&gt;</option><option value="丸山 輝&lt;&gt;">丸山 輝&lt;&gt;</option></select></div>
-<input name="add_to" class="button" type="button" value="宛先に追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_to_recipients, 'P-13652023f79-10161')">
-<input name="add_cc" class="button" type="button" value="CCに追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_cc_recipients, 'P-13652023f79-10161')">
-<input name="add_bcc" class="button" type="button" value="BCCに追加" onclick="aipo.webmail.exAddMember(this.form, this.form.detail_bcc_recipients, 'P-13652023f79-10161')">
-</div>
-</td>
-<td class="caption" style="min-width:50px;width:50px">宛先</td>
-    <td>
-<select name="detail_to_recipients" id="detail_to_recipients" size="3" multiple="multiple" style="width: 230px;">
-</select>
-<div class="alignright">選択したアドレスを<input name="del_to" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_to_recipients)">
-</div>
-    </td>
-  </tr>
-<tr><td class="caption" style="min-width:50px;width:50px">CC</td>
-    <td>
-<select name="detail_cc_recipients" id="detail_cc_recipients" size="3" multiple="multiple" style="width: 230px;">
-</select>
-<div class="alignright">選択したアドレスを<input name="del_cc" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_cc_recipients)">
-</div>
-    </td>
-  </tr>
-<tr><td class="caption" style="min-width:50px;width:50px">BCC</td>
-    <td>
-<select name="detail_bcc_recipients" id="detail_bcc_recipients" size="3" multiple="multiple" style="width: 230px;">
-</select>
-<div class="alignright">選択したアドレスを<input name="del_bcc" class="button" type="button" value="削除する" onclick="aimluck.io.removeOptions(this.form.detail_bcc_recipients)">
-</div>
-    </td>
-  </tr>
 
-  </tbody>
-</table>
-<div align="center">
-<input name="addAddresses" class="button" type="button" value="決定する" onclick="aipo.webmail.insertData()">
-<input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="dijit.byId('addressbookDialog').hide();">
-</div>
-<input type="hidden" id="urlUserlistP-13652023f79-10161" name="urlUserlistP-13652023f79-10161" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/UserEmailLiteJSONScreen">
-<input type="hidden" id="urlAddrlistP-13652023f79-10161" name="urlAddrlistP-13652023f79-10161" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-13652023f79-10161/template/AddressBookUserEmailLiteJSONScreen">
-</form>
-</div>
-</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+-->
+
 
 
 </body>

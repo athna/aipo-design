@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Aipo.com</title>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+<meta name="robots" content="noindex,follow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--link rel="stylesheet" type="text/css" href="../themes/default/css/android.css" /-->
+<script language="JavaScript" type="text/javascript" src="../javascript/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+</head>
+<body>
+<script type="text/javascript">
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<!-- WRAPPER -->
+<div id="wrapper">
+  <!-- roundMainWrapper -->
+  <div class="roundMainWrapper">
+    <!-- modalDialog -->
+    <div class="modalDialog" style="margin:10px 0; position:static">
+      <!-- ################################################################################
+	
+		スケジュール追加（非展開
+		
+		################################################################################ -->
+      <br />
+      <!-- ################################################################################
+			
+			スケジュール追加（展開
+			
+			################################################################################ -->
+      <br>
+      <!-- ################################################################################
+			
+			スケジュール詳細
+			
+			################################################################################ -->
+      <br>
+      <div class="auiPopup imgPopupTutorial">
+      <div class="startPopup">
+        <div class="startPopupTool"> <a href="#" class="auiButtonIcon" title="閉じる"><span><i class="icon-remove"></i></span></a> </div>
+        <div class="startPopupHead"><img src="../themes/default/images/tour/title_thanks.png" alt="いつもご利用ありがとうございます！" /></div>
+        <div class="startPopupContent">
+          <div class="mb20">
+            <p>公式Facebookページでは、お知らせだけでは伝えきれないニュースや情報をタイムリーに配信しています。「いいね！」を押して応援していただけると励みになります。</p>
+          <iframe src="../aipoUI/slide_fb.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:610px; height:220px;" allowTransparency="true"></iframe>
+          </div>
+          <div class="center auiPopupButtons">
+            <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- /modalDialog -->
+  </div>
+  <!-- /roundMainWrapper  -->
+</div>
+<!-- popupCalendar -->
+<div id="popupCalendar" class="dijitPopup" style="z-index: 1000; visibility: visible; left: 164px; top: 103px; display:none">
+  <table cellspacing="0" cellpadding="0" class="dijitCalendarContainer" id="aipo_widget_DateCalendar_4" widgetid="aipo_widget_DateCalendar_4" style="">
+    <thead>
+      <tr class="dijitReset dijitCalendarMonthContainer" valign="top">
+        <th class="dijitReset" dojoattachpoint="decrementMonth"> <span class="dijitInline dijitCalendarIncrementControl dijitCalendarDecrease"><span dojoattachpoint="decreaseArrowNode" class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarDecreaseInner">-</span></span> </th>
+        <th class="dijitReset" colspan="5"> <div dojoattachpoint="monthLabelSpacer" class="dijitCalendarMonthLabelSpacer">
+            <div>1 月</div>
+            <div>2 月</div>
+            <div>3 月</div>
+            <div>4 月</div>
+            <div>5 月</div>
+            <div>6 月</div>
+            <div>7 月</div>
+            <div>8 月</div>
+            <div>9 月</div>
+            <div>10 月</div>
+            <div>11 月</div>
+            <div>12 月</div>
+          </div>
+          <div dojoattachpoint="monthLabelNode" class="dijitCalendarMonth">9 月</div></th>
+        <th class="dijitReset" dojoattachpoint="incrementMonth"> <div class="dijitInline dijitCalendarIncrementControl dijitCalendarIncrease"><span dojoattachpoint="increaseArrowNode" class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarIncreaseInner">+</span></div></th>
+      </tr>
+      <tr>
+        <th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">日</span></th>
+        <th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">月</span></th>
+        <th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">火</span></th>
+        <th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">水</span></th>
+        <th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">木</span></th>
+        <th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">金</span></th>
+        <th class="dijitReset dijitCalendarDayLabelTemplate"><span class="dijitCalendarDayLabel">土</span></th>
+      </tr>
+    </thead>
+    <tbody dojoattachevent="onclick: _onDayClick" class="dijitReset dijitCalendarBodyContainer">
+      <tr class="dijitReset dijitCalendarWeekTemplate">
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">1</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">2</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">3</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">4</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">5</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">6</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">7</span></td>
+      </tr>
+      <tr class="dijitReset dijitCalendarWeekTemplate">
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">8</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">9</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">10</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">11</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">12</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">13</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">14</span></td>
+      </tr>
+      <tr class="dijitReset dijitCalendarWeekTemplate">
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">15</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">16</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">17</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">18</span></td>
+        <td class="dijitCalendarSelectedDate dijitCalendarCurrentDate dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">19</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">20</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">21</span></td>
+      </tr>
+      <tr class="dijitReset dijitCalendarWeekTemplate">
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">22</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">23</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">24</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">25</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">26</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">27</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">28</span></td>
+      </tr>
+      <tr class="dijitReset dijitCalendarWeekTemplate">
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">29</span></td>
+        <td class="dijitCalendarCurrentMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">30</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">1</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">2</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">3</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">4</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">5</span></td>
+      </tr>
+      <tr class="dijitReset dijitCalendarWeekTemplate">
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">6</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">7</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">8</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">9</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">10</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">11</span></td>
+        <td class="dijitCalendarNextMonth dijitCalendarDateTemplate"><span class="dijitCalendarDateLabel">12</span></td>
+      </tr>
+    </tbody>
+    <tfoot class="dijitReset dijitCalendarYearContainer">
+      <tr>
+        <td class="dijitReset" valign="top" colspan="7"><h3 class="dijitCalendarYearLabel"> <span dojoattachpoint="previousYearLabelNode" class="dijitInline dijitCalendarPreviousYear">2012年</span> <span dojoattachpoint="currentYearLabelNode" class="dijitInline dijitCalendarSelectedYear">2013年</span> <span dojoattachpoint="nextYearLabelNode" class="dijitInline dijitCalendarNextYear">2014年</span> </h3></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<!-- popupCalendar -->
+</body>
+</html>

@@ -1,12 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: 'FontAwesome';
-  src: url("../font/fontawesome-webfont.eot?v=3.2.0");
-  src: url("../font/fontawesome-webfont.eot?#iefix&v=3.2.0") format("embedded-opentype"), url("../font/fontawesome-webfont.woff?v=3.2.0") format("woff"), url("../font/fontawesome-webfont.ttf?v=3.2.0") format("truetype"), url("../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.0") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   font-family: "メイリオ", Meiryo, Verdana, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", sans-serif;
 }
@@ -1343,18 +1335,14 @@ img.avatar,
 --------------------------------------------------*/
 .submenu_v2 {
   clear: both;
-  width: 200px;
+  width: 190px;
   margin: 0 0 10px 0;
-  padding: 0;
-  background: url(../images/common/bg_submenu.gif) no-repeat bottom right;
-}
-.submenu_v2 > ul {
-  padding: 20px 0;
-  background: url(../images/common/bg_submenu.gif) no-repeat top left;
+  padding: 5px 10px 10px 5px;
+  border-bottom: solid 1px #f0f0f0;
 }
 .submenu_v2 li {
-  padding: 0 6px;
-  background: url(../images/common/bg_submenu.gif) repeat-y top center;
+  padding: 0;
+  background: none;
 }
 .submenu_v2 li span {
   display: block;
@@ -2296,38 +2284,47 @@ input.auiButtonSearch.active {
 .auiDirectoryList {
   margin-bottom: 0.8em;
 }
+
+.auiDirectoryList div {
+  height: 2.2em;
+}
+
 .auiDirectoryList a {
   display: block;
   width: 100%;
+  line-height: 2.2em;
+  height: 2.2em;
   text-decoration: none;
   overflow: hidden;
 }
+
 .auiDirectoryList a span {
   cursor: pointer;
 }
+
 .auiDirectoryList a:hover {
   background: #f6f6f6;
 }
-.auiDirectoryList a:hover span {
-  color: #000;
-}
+
 .auiDirectoryList .active a {
   font-weight: bold;
   background: #f0f0f0;
 }
+
+.auiDirectoryList a:hover span {
+  color: #000;
+}
+
 .auiDirectoryList .directory {
   display: block;
-  line-height: 26px;
-  height: 26px;
-  padding-left: 5px;
+  line-height: 2.2em;
+  height: 2.2em;
+  padding-left: 25px;
+  background: url(../images/icon/folder_close.gif) 4px 0.3em no-repeat;
 }
-.auiDirectoryList .directory [class^="icon-"], .auiDirectoryList .directory [class*=" icon-"] {
-  color: #d2d2d2;
-  margin-right: 5px;
-  font-size: 16px;
-  display: inline-block;
-  height: 26px;
-  line-height: 26px;
+
+.auiDirectoryList .open .directory {
+  background: url(../images/icon/folder_open.gif) 4px 0.3em no-repeat;
 }
 
 /*

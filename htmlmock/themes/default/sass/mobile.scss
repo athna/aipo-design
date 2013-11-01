@@ -252,6 +252,7 @@ $auiMbCaptionHeight:	18px !default;
     .auiMTCheck {
         display:block;
         float:left;
+        width:auto;
         margin:0;
         padding:4px 10px 0 5px;
         vertical-align:middle;
@@ -1787,30 +1788,41 @@ table tr.caption {
 /***************************************************
 	addressbookDialog
 --------------------------------------------------*/
+#addressbookDialog,
 .addressbookDialog {
-	width:auto;
-}
-.addressbookDialog .spaceLeft:nth-of-type(1) {
-	display:none;
-}
-.addressbookDialog .dialogTable {
-	display:block;
-	margin-top:0 !important;
-	padding:0 5px;
-	border:none !important;
-}
-.addressbookDialog .dialogTable th, .addressbookDialog .dialogTable td {
-	display:block;
-	width:100% !important;
-	padding:10px 0;
-}
-.addressbookDialog .dialogTable .caption {
-	padding:10px 0 0 0;
-	border:none;
-}
-.addressbookDialog .alignright {
-	float:none;
-	text-align:right;
+	//width:auto;
+
+    .spaceLeft:nth-of-type(1) {
+        display:none;
+    }
+    .dialogTable {
+        //display:block;
+        margin-top:0 !important;
+        //padding:0 5px;
+        //border:none !important;
+
+        th,
+        td {
+            display:block;
+            width:100% !important;
+            padding:10px 0;
+        }
+        .caption {
+            padding:10px 0 0 0;
+            border:none;
+        }
+        div {
+        	width:100% !important;
+        }
+        select {
+        	width:100% !important;
+            @include box-sizing(border-box);
+        }
+    }
+    .alignright {
+        float:none;
+        text-align:right;
+    }
 }
 
 /***************************************************

@@ -1,4 +1,3 @@
-@charset "utf-8";
 /***************************************************
 	style denial
 --------------------------------------------------*/
@@ -90,7 +89,7 @@ input[type=password] {
 	set PortletOuter
 --------------------------------------------------*/
 #roundWrapper .roundMainWrapper {
-  padding: 46px 0 0;
+  padding: 45px 0 0;
 }
 
 #roundWrapper .roundTopBlock, #roundWrapper .roundRightBlock, #roundWrapper .roundBottomBlock, #roundWrapper .roundLeftBlock, #roundWrapper .roundTopLeftBlock, #roundWrapper .roundTopRightBlock, #roundWrapper .roundBottomRightBlock, #roundWrapper .roundBottomLeftBlock {
@@ -99,10 +98,12 @@ input[type=password] {
 
 #roundWrapper .roundBlockWrapperTop {
   width: 100%;
+  height: 45px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   border-bottom: solid 1px #d0d0d0;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #roundWrapper .roundBlockWrapperTop .roundBlockIcon {
@@ -146,33 +147,31 @@ input[type=password] {
 .auiPortletHead {
   position: absolute;
   top: 0;
-  height: 44px;
   width: 100%;
+  height: 45px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   border-bottom: solid 1px #d0d0d0;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .auiPortletHead .inner {
   margin: 1px 0;
 }
 
 .auiPortletTitle {
-  float: none;
-  font-weight: bold;
   display: block;
   width: 48%;
-  margin: 0 auto;
+  margin-left: 45px;
   padding: 0;
-  text-align: center;
   vertical-align: middle;
   line-height: 42px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
   color: #333;
-  text-shadow: 0 1px 0 white;
 }
 .auiPortletTitle a {
   color: #ffffff;
@@ -351,6 +350,7 @@ input[type=password] {
 .auiMbTable .auiMTCheck {
   display: block;
   float: left;
+  width: auto;
   margin: 0;
   padding: 4px 10px 0 5px;
   vertical-align: middle;
@@ -654,10 +654,12 @@ input[type=password] {
   left: 0;
   z-index: 1000;
   width: 100%;
+  height: 45px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   border-bottom: solid 1px #d0d0d0;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 #mobileHeader_v2 .inner {
   position: relative;
@@ -807,7 +809,7 @@ input[type=password] {
 }
 
 /***************************************************
-	mobileHeader_v2
+	mobileHeader_v3
 --------------------------------------------------*/
 #mobileHeader_v3 {
   width: 100%;
@@ -816,9 +818,14 @@ input[type=password] {
   left: 0;
   z-index: 1000;
   width: 100%;
+  height: 45px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background: white -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.2, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   border-bottom: solid 1px #d0d0d0;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 #mobileHeader_v3 .inner {
@@ -841,6 +848,7 @@ input[type=password] {
   white-space: nowrap;
   overflow: hidden;
   font-size: 14px;
+  font-weight: bold;
   color: #333;
 }
 #mobileHeader_v3 .mhLeft {
@@ -1624,7 +1632,7 @@ input[type=password] {
 }
 
 /***************************************************
-	popup
+	modalDialog
 --------------------------------------------------*/
 .auiPopup,
 .activityPopup,
@@ -1658,8 +1666,7 @@ input[type=password] {
   height: auto;
 }
 
-.auiPopup iframe,
-.startPopup iframe {
+.auiPopup iframe {
   max-width: 100% !important;
 }
 
@@ -1670,16 +1677,11 @@ input[type=password] {
 
 .startPopupHead {
   margin-bottom: 20px;
-  font-size: 17px;
 }
 
 .startPopupHead img {
   max-width: 70%;
   max-height: auto;
-}
-
-.inline-block {
-  display: inline-block;
 }
 
 /***************************************************
@@ -1964,32 +1966,39 @@ table tr.caption {
 /***************************************************
 	addressbookDialog
 --------------------------------------------------*/
-.addressbookDialog {
-  width: auto;
-}
-
+#addressbookDialog .spaceLeft:nth-of-type(1),
 .addressbookDialog .spaceLeft:nth-of-type(1) {
   display: none;
 }
-
+#addressbookDialog .dialogTable,
 .addressbookDialog .dialogTable {
-  display: block;
   margin-top: 0 !important;
-  padding: 0 5px;
-  border: none !important;
 }
-
-.addressbookDialog .dialogTable th, .addressbookDialog .dialogTable td {
+#addressbookDialog .dialogTable th,
+#addressbookDialog .dialogTable td,
+.addressbookDialog .dialogTable th,
+.addressbookDialog .dialogTable td {
   display: block;
   width: 100% !important;
   padding: 10px 0;
 }
-
+#addressbookDialog .dialogTable .caption,
 .addressbookDialog .dialogTable .caption {
   padding: 10px 0 0 0;
   border: none;
 }
-
+#addressbookDialog .dialogTable div,
+.addressbookDialog .dialogTable div {
+  width: 100% !important;
+}
+#addressbookDialog .dialogTable select,
+.addressbookDialog .dialogTable select {
+  width: 100% !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#addressbookDialog .alignright,
 .addressbookDialog .alignright {
   float: none;
   text-align: right;

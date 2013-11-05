@@ -87,7 +87,7 @@ input[type=password] {
 	set PortletOuter
 --------------------------------------------------*/
 #roundWrapper .roundMainWrapper {
-	padding:46px 0 0;
+	padding:45px 0 0;
 }
 #roundWrapper .roundTopBlock, #roundWrapper .roundRightBlock, #roundWrapper .roundBottomBlock, #roundWrapper .roundLeftBlock, #roundWrapper .roundTopLeftBlock, #roundWrapper .roundTopRightBlock, #roundWrapper .roundBottomRightBlock, #roundWrapper .roundBottomLeftBlock {
 	background-image:none;
@@ -127,27 +127,25 @@ input[type=password] {
 .auiPortletHead {
 	position:absolute;
     top:0;
-    height:44px;
     @include mobile-header-style();
+	//@include box-shadow(none);
 
-    .inner {
-        margin:1px 0;
+	.inner {
+    	margin:1px 0;
     }
 }
 .auiPortletTitle {
-	float:none;
-	font-weight:bold;
     display:block;
     width:48%;
-    margin:0 auto;
+    margin-left:45px;
     padding:0;
-    text-align:center;
     vertical-align:middle;
     line-height:42px;
     text-overflow:ellipsis;
     white-space:nowrap;
     overflow:hidden;
-    @include portlet-title-text();
+    @include portlet-title-text_v3();
+    //@include portlet-title-text();
     
     a {
         color:#ffffff;
@@ -254,6 +252,7 @@ $auiMbCaptionHeight:	18px !default;
     .auiMTCheck {
         display:block;
         float:left;
+        width:auto;
         margin:0;
         padding:4px 10px 0 5px;
         vertical-align:middle;
@@ -714,7 +713,7 @@ $auiMbCaptionHeight:	18px !default;
 
 
 /***************************************************
-	mobileHeader_v2
+	mobileHeader_v3
 --------------------------------------------------*/
 #mobileHeader_v3 {
 	width:100%;
@@ -723,6 +722,7 @@ $auiMbCaptionHeight:	18px !default;
     left:0;
     z-index:1000;
 	@include mobile-header-style();
+    @include box-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
 
     .inner {
         position:relative;
@@ -1518,7 +1518,7 @@ $auiMbCaptionHeight:	18px !default;
 }
 
 /***************************************************
-	popup
+	modalDialog
 --------------------------------------------------*/
 .auiPopup,
 .activityPopup,
@@ -1546,25 +1546,22 @@ $auiMbCaptionHeight:	18px !default;
 	width:100%;
 	height:auto;
 }
-.auiPopup iframe,
-.startPopup iframe {
+.auiPopup iframe {
 	max-width:100% !important;
 }
+
 .startPopup {
 	width: auto;
 	padding: 20px 10px 10px;
 }
 .startPopupHead {
 	margin-bottom:20px;
-	font-size:17px;
 }
 .startPopupHead img {
 	max-width:70%;
 	max-height:auto;
 }
-.inline-block {
-	display:inline-block;
-}
+
 /***************************************************
 	login
 --------------------------------------------------*/
@@ -1804,30 +1801,41 @@ table tr.caption {
 /***************************************************
 	addressbookDialog
 --------------------------------------------------*/
+#addressbookDialog,
 .addressbookDialog {
-	width:auto;
-}
-.addressbookDialog .spaceLeft:nth-of-type(1) {
-	display:none;
-}
-.addressbookDialog .dialogTable {
-	display:block;
-	margin-top:0 !important;
-	padding:0 5px;
-	border:none !important;
-}
-.addressbookDialog .dialogTable th, .addressbookDialog .dialogTable td {
-	display:block;
-	width:100% !important;
-	padding:10px 0;
-}
-.addressbookDialog .dialogTable .caption {
-	padding:10px 0 0 0;
-	border:none;
-}
-.addressbookDialog .alignright {
-	float:none;
-	text-align:right;
+	//width:auto;
+
+    .spaceLeft:nth-of-type(1) {
+        display:none;
+    }
+    .dialogTable {
+        //display:block;
+        margin-top:0 !important;
+        //padding:0 5px;
+        //border:none !important;
+
+        th,
+        td {
+            display:block;
+            width:100% !important;
+            padding:10px 0;
+        }
+        .caption {
+            padding:10px 0 0 0;
+            border:none;
+        }
+        div {
+        	width:100% !important;
+        }
+        select {
+        	width:100% !important;
+            @include box-sizing(border-box);
+        }
+    }
+    .alignright {
+        float:none;
+        text-align:right;
+    }
 }
 
 /***************************************************

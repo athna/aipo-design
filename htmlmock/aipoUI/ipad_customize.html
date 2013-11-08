@@ -1,134 +1,150 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Language" content="ja"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
-    <title></title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta http-equiv="Content-Style-Type" content="text/css"/>
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta name="robots" content="noindex,follow"/>
-    <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body onload="aipo.container.renderGadgets()">
+
 <script type="text/javascript">
-  djConfig = {
-    cacheBust: '1348111306000',
-    siteTitle: 'Aipo'
-  };
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
 </script>
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/dojo/dojo.js?1348111306000"></script>
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo.js?1348111306000"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
 <!-- WRAPPER -->
-<div id="wrapper"  style="margin-bottom : 26px">
+<div id="wrapper">
 
 	<!-- HEADER -->
-	<div id="header" class="clearfix"><div class="inner">
-	
-		<div class="hdSign">
-			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-	   </div>
-	
-		<div class="hdNavi">
-			<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
-			<div class="hdActivity" title="お知らせ">
-				<div>
-					<div id="activitychecker" class="zero counter">0</div>
-					<span class="mb_hide">お知らせ</span>
-				</div>
-			</div>
-			
-			<!-- /hdActivity -->
-	
-			<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
-			<div class="hdSetting">
-				<a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_hdSetting').style.display!='block') {document.getElementById('menubar_hdSetting').style.display='block'}else{document.getElementById('menubar_hdSetting').style.display='none'}" title="カスタマイズ"></a>
-				<div class="menubar" id="menubar_hdSetting" style="position: absolute; display: none; ">
-				<ul>
-				<li><a href="#">個人設定</a></li>
-				<li class="last"><a href="javascript:void(0);" onclick="">ログアウト</a></li>
-				</ul>
-				</div>
-			</div>
-		</div>
-	
-	</div></div>
-	<!-- /HEADER -->
+  <div id="header" class="clearfix">
+    <div class="inner">
+      <div class="hdSign">
+        <div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
+      </div>
+      <script>
+    function popupToggle($this,$target) {
+        if(document.getElementById($target).style.display=='none'){
+            document.getElementById($target).style.display='block'
+        }else{
+            document.getElementById($target).style.display='none'
+        }
+        if($this.className.indexOf('active')>0){
+            $this.className = $this.className.replace(' active','');
+        }else{
+            $this.className += ' active'
+        };
+    }
+    </script>
+      <div class="hdNavi">
+        <div class="hdMessege"><a href="#">
+          <div id="messegechecker" class="zero counter">0</div>
+          メッセージ</a></div>
+        <div class="hdActivity" title="お知らせ">
+          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+                dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                widgetid="activitycheckerContainer"
+                onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+            <div type="button"
+                    dojoattachpoint="focusNode,titleNode"
+                    wairole="button"
+                    waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-labelledby="activitycheckerContainer_label"
+                    id="activitycheckerContainer"
+                    tabindex="0"
+                    aria-valuenow=""
+                    aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                <div id="activitychecker" class="activitycheckerstyle counter">5</div>
+                <span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdInformation" title="サポート">
+          <div
+                class="dijit dijitLeft dijitInline dijitDropDownButton"
+                dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                widgetid="supportcheckerContainer"
+                onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+            <div type="button"
+                    dojoattachpoint="focusNode,titleNode"
+                    wairole="button"
+                    waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-labelledby="supportcheckerContainer_label"
+                    id="supportcheckerContainer"
+                    tabindex="0"
+                    aria-valuenow=""
+                    aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+                <div id="supportchecker" class="counter zero">0</div>
+                <span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span> </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdUserName"> <a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a> </div>
+      </div>
+      <div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+        <ul>
+          <li><a href="#">個人設定</a></li>
+          <li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <!-- /HEADER -->
 
-	<script language="JavaScript" type="text/javascript">
-	//<![CDATA[
-	
-	dojo.require("aipo.widget.DropdownActivityChecker");
-	
-	dojo.addOnLoad(function () {
-		var num;
-		if(dojo.byId("messagechecker") != undefined  && dojo.byId("activitychecker") != undefined) {
-			num = parseInt(dojo.byId("activitychecker").innerHTML) + parseInt(dojo.byId("messagechecker").innerHTML);
-		} else if(dojo.byId("activitychecker") != undefined) {
-			num = parseInt(dojo.byId("activitychecker"));
-		} else {
-			num = 0;
-		}
-		if (!num){
-			document.title = djConfig.siteTitle;
-		} else if (num > 99) {
-			document.title = "(99+) " + djConfig.siteTitle;
-		} else {
-			document.title = "(" + num + ") " + djConfig.siteTitle;
-		}
-		var acHtml = document.getElementById("activitycheckerContainer");
-		if(acHtml){
-		   var params = {
-				widgetId: "activitychecker",
-	
-				iconURL: "themes/default/images/common/icon_message.gif",
-				iconWidth: "19",
-				iconHeight: "15",
-				iconAlt: "あなた宛のお知らせ"
-		   };
-		   var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
-	   }
-	});
-	
-	//]]>
-	</script>
-	<!-- Custmize -->
-
-	<!-- MAIN TAB -->
-	<div id="auiTabs" class="clearfix">
-		<ul>
-			<li class="first">
-				<div class="tab active">
-					<div class="title"><a href="#">マイページ</a></div>
-					<div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
-				</div>
-			</li>
-			<li class="">
-				<div class="tab activeNext">
-					<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
-					<div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
-				</div>
-			</li>
-			<li class="last">
-				<div class="tab">
-					<div class="title"><a href="#">システム管理</a></div>
-					<div class="setting"></div>
-				</div>
-			</li>
-			<li class="addTab">
-				<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
-			</li>
-		</ul>
-	</div>
-	<!-- /MAIN TAB -->
+  <!-- MAIN TAB -->
+  <div id="auiTabs" class="clearfix">
+    <ul>
+      <li class="first">
+        <div class="tab active">
+          <div class="title"><a href="#">マイページ</a></div>
+          <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+        </div>
+      </li>
+      <li class="">
+        <div class="tab activeNext">
+          <div class="title"><a href="#">タブ名</a></div>
+          <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+        </div>
+      </li>
+      <li class="">
+        <div class="tab">
+          <div class="title"><a href="#">タブ名</a></div>
+          <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+        </div>
+      </li>
+      <li class="last">
+        <div class="tab">
+          <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+          <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+        </div>
+      </li>
+      <li class="addTab"> <a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a> </li>
+    </ul>
+  </div>
+  <!-- /MAIN TAB -->
 
 
   <!-- roundWrapper -->
@@ -150,50 +166,20 @@
 
 			<div class="auiPortletBody"><div class="inner">
 				<div dojoType="aimluck:Contentpane" widgetId="widget_" id="portlet_">
-					<h3>ページ名の変更</h3>
-					  <div class="auiSummaryMeta clearfix"><input class="auiButtonAction" type="submit" value="ページ名を変更する" /></div>
-					  <h3>配置の選択</h3>
-					  <table class="tableWrapper">
-						<tbody>
-						  <tr>
-							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=OneColumn"><img src="https://app.aipo.com/images/layout/layout_100.gif" alt="レイアウト [ 100% ]" title="レイアウト [ 100% ]" width="72" height="72" border="0"  /></a></td>
-							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumns"><img src="https://app.aipo.com/images/layout/layout_50-50.gif" alt="レイアウト [ 50% | 50% ]" title="レイアウト [ 50% | 50% ]" width="72" height="72" border="0" /></a></td>
-							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumnsRight"><img src="https://app.aipo.com/images/layout/layout_25-75.gif" alt="レイアウト [ 25% | 75% ]" title="レイアウト [ 25% | 75% ]" width="72" height="72" border="0" /></a></td>
-							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=TwoColumnsLeft"><img src="https://app.aipo.com/images/layout/layout_75-25.gif" alt="レイアウト [ 75% | 25% ]" title="レイアウト [ 75% | 25% ]" width="72" height="72" border="0"  /></a></td>
-							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=ThreeColumnsSymetric"><img src="https://app.aipo.com/images/layout/layout_33-33-33.gif" alt="レイアウト [ 33% | 33% | 33% ]" title="レイアウト [ 33% | 33% | 33% ]" width="72" height="72" border="0" /></a></td>
-							<td width="72" align="left" nowrap="nowrap"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/template/Customize?mtype=html&amp;eventSubmit_doLayout=layout&amp;controller=ThreeColumns"><img src="https://app.aipo.com/images/layout/layout_25-50-25.gif" alt="レイアウト [ 25% | 50% | 25% ]" title="レイアウト [ 25% | 50% | 25% ]" width="72" height="72" border="0" /></a></td>
-							<td width="99%"></td>
-						  </tr>
-						</tbody>
-					  </table>
-					  <br />
-					  <h3>アプリの配置・追加</h3>
-					  <div class="auiSummaryMeta clearfix"><input class="auiButtonAction" type="submit" value="アプリを追加する" /></div>
-					<style>
-					.middle{vertical-align:middle;}
-					/***************************************************
-					auiIconArrowBtn
-					--------------------------------------------------*/
-					.auiIconArrowBtn {
-					display:inline-block;
-					width:15px;
-					height:18px;
-					margin-top:4px;
-					vertical-align:middle;
-					background: url(../themes/default/images/icon/auiIconSprites20120820.png) no-repeat;
-					}
-					*html .auiIconArrow {background:url(../themes/default/images/icon/auiIconSprites20120820.gif) no-repeat;}
-					.auiIconArrowLeft {background-position:0 -367px;}
-					.auiIconArrowLeftWhite {background-position:0 -383px;}
-					.auiIconArrowRight {background-position:0 -399px;}
-					.auiIconArrowRightWhite {background-position:0 -415px;}
-					.auiIconArrowTop {background-position:0 -464px;}
-					.auiIconArrowTopWhite {background-position:0 -480px;}
-					.auiIconArrowBottom {background-position:0 -430px;}
-					.auiIconArrowBottomWhite {background-position:0 -446px;}
-					</style>
-					  <div class="message">アプリの位置をボタンで自由に変更できます。</div>
-					  <div class="message">また、不要なアプリを <img src="https://app.aipo.com/images/close.gif" alt="削除" class="middle" /> ボタンで削除することができます。</div>
+                    <h3>ページ名の変更</h3>
+                    <div class="auiSummaryMeta clearfix center"><input type="text" value="ページ名" class="w40" />&nbsp;<input class="auiButtonAction" type="submit" value="ページ名を変更する" /></div>
+                    <h3>配置の選択</h3>
+                    <ul class="auiRowList">
+                        <li><a href="#"><img src="../themes/default/images/layout/layout_100.gif" width="70"></a></li>
+                        <li><a href="#"><img src="../themes/default/images/layout/layout_50-50.gif" width="70"></a></li>
+                        <li><a href="#"><img src="../themes/default/images/layout/layout_25-75.gif" width="70"></a></li>
+                        <li><a href="#"><img src="../themes/default/images/layout/layout_75-25.gif" width="70"></a></li>
+                        <li><a href="#"><img src="../themes/default/images/layout/layout_33-33-33.gif" width="70"></a></li>
+                        <li><a href="#"><img src="../themes/default/images/layout/layout_25-50-25.gif" width="70"></a></li>
+                    </ul>
+
+					  <h3>アプリの追加と配置</h3>
+					  <div class="auiSummaryMeta clearfix center"><input class="auiButtonAction" type="submit" value="アプリを追加する" /></div>
 					  <table class="tableWrapper mb20">
 						<tbody>
 						  <tr>
@@ -213,7 +199,9 @@
 													<div class="auiPortletHead"><div class="inner">
 														<div class="auiPortletTitle">タイムカード</div>
 														<div class="auiPortletTool">
-															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+                                                        	<div class="auiPortletDelete">
+                                                                <a href="javascript:void(0)" onclick="dijit.byId('modalDialog').hide();" class="auiIcon"><i class="icon-remove"></i></a>
+                                                            </div>
 														</div>
 													</div></div>
 													<div class="auiPortletBody"><div class="inner">
@@ -223,17 +211,17 @@
 															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</span></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  <tr>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowLeft"></i></span> </td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span> </td>
 																	<td>&nbsp;</td>
-																									 <td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</a></td>
 													</tr>
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  
@@ -260,7 +248,9 @@
 													<div class="auiPortletHead"><div class="inner">
 														<div class="auiPortletTitle">掲示板</div>
 														<div class="auiPortletTool">
-															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+                                                        	<div class="auiPortletDelete">
+                                                                <a href="javascript:void(0)" onclick="dijit.byId('modalDialog').hide();" class="auiIcon"><i class="icon-remove"></i></a>
+                                                            </div>
 														</div>
 													</div></div>
 													<div class="auiPortletBody"><div class="inner">
@@ -270,18 +260,18 @@
 															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  <tr>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowLeft"></i></span>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span>
 		</td>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</a></td>
 																  </tr>
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonDisabled"><i class="auiIconArrowBtn auiIconArrowBottom"></i></a></td>
+																	<td><a href="#" class="auiButtonDisabled">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																</table></td>
@@ -311,7 +301,9 @@
 													<div class="auiPortletHead"><div class="inner">
 														<div class="auiPortletTitle">タイムライン</div>
 														<div class="auiPortletTool">
-															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+                                                        	<div class="auiPortletDelete">
+                                                                <a href="javascript:void(0)" onclick="dijit.byId('modalDialog').hide();" class="auiIcon"><i class="icon-remove"></i></a>
+                                                            </div>
 														</div>
 													</div></div>
 													<div class="auiPortletBody"><div class="inner">
@@ -321,17 +313,17 @@
 															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</span></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  <tr>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowRightWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</a></td>
 																  </tr>
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowBottom"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</span></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  
@@ -362,7 +354,9 @@
 													<div class="auiPortletHead"><div class="inner">
 														<div class="auiPortletTitle">スケジュール</div>
 														<div class="auiPortletTool">
-															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+                                                        	<div class="auiPortletDelete">
+                                                                <a href="javascript:void(0)" onclick="dijit.byId('modalDialog').hide();" class="auiIcon"><i class="icon-remove"></i></a>
+                                                            </div>
 														</div>
 													</div></div>
 													<div class="auiPortletBody"><div class="inner">
@@ -372,17 +366,17 @@
 															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowTop"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</span></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  <tr>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</span></td>
 																  </tr>
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  
@@ -409,7 +403,9 @@
 													<div class="auiPortletHead"><div class="inner">
 														<div class="auiPortletTitle">ユーザー名簿</div>
 														<div class="auiPortletTool">
-															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+                                                        	<div class="auiPortletDelete">
+                                                                <a href="javascript:void(0)" onclick="dijit.byId('modalDialog').hide();" class="auiIcon"><i class="icon-remove"></i></a>
+                                                            </div>
 														</div>
 													</div></div>
 													<div class="auiPortletBody"><div class="inner">
@@ -419,17 +415,17 @@
 															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  <tr>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</span></td>
 																  </tr>
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowBottomWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  
@@ -456,7 +452,9 @@
 													<div class="auiPortletHead"><div class="inner">
 														<div class="auiPortletTitle">アドレス帳</div>
 														<div class="auiPortletTool">
-															<input type="image" src="https://app.aipo.com/images/close.gif" alt="削除" title="削除" name="eventSubmit_doDelete" />
+                                                        	<div class="auiPortletDelete">
+                                                                <a href="javascript:void(0)" onclick="dijit.byId('modalDialog').hide();" class="auiIcon"><i class="icon-remove"></i></a>
+                                                            </div>
 														</div>
 													</div></div>
 													<div class="auiPortletBody"><div class="inner">
@@ -466,17 +464,17 @@
 															  <td nowrap="nowrap" class="middle center"><table style="margin:0 auto;">
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowTopWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  <tr>
-																	<td><a href="#" class="auiButtonAction"><i class="auiIconArrowBtn auiIconArrowLeftWhite"></i></a></td>
+																	<td><a href="#" class="auiButton">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</a></td>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowRight"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</span></td>
 																  </tr>
 																  <tr>
 																	<td>&nbsp;</td>
-																	<td><span class="auiButtonDisabled pl10 pr10"><i class="auiIconArrowBtn auiIconArrowBottom"></i></span></td>
+																	<td><span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</span></td>
 																	<td>&nbsp;</td>
 																  </tr>
 																  
@@ -504,6 +502,7 @@
 								<input type="hidden" name="action" value="controllers.MultiColumnControllerAction"/>
 								<div align="center">
 								  <input name="eventSubmit_doSave" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);" />
+                                  <input type="button" value="キャンセルする" />
 								</div>
 							  </form></td>
 						  </tr>
@@ -550,13 +549,7 @@
   <!-- /roundWrapper -->
 </div>
 <!-- /Custmize -->
-<!-- FOOTER -->
-<div id="footer" class="clearfix">
-  <div id="footText">
-    <div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 7.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
-  </div>
-</div>
-<!-- /FOOTER -->
+
 </div>
 <!-- /WRAPPER -->
 <div id="modalDialog" class="modalDialog" style="display:none"></div>

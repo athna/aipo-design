@@ -673,143 +673,6 @@
 <!-- /appPosition -->
 
 
-<!-- modalDialog_adddate -->
-<div id="modalDialog_adddate" class="modalDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 250px; margin-left:-275px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
-
-    <div class="auiPopup clearfix">
-        <div class="auiPopupHead clearfix">
-            <div class="auiPopupTool">
-                <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_adddate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
-                </div>
-            </div>
-            <div class="auiPopupTitle">項目追加</div>
-        </div>
-        <div class="roundBlockContent">
-            <div class="indicator" id="" style="display:none;">データを送信しています...</div>
-            <div id="messageDiv"></div>
-            <form name="formP-1424f148b96-10000" id="" action="" method="post" onsubmit="">
-                <input type="hidden" name="_name" value="gpdbForm">
-                <input type="hidden" name="secid" value="">
-                <input type="hidden" name="gpdb_id" value="1">
-                <input type="hidden" name="mode" value="insert">
-                <table class="listTable wide">
-                    <tbody>
-                    <tr>
-                        <td class="caption"><span class="required">項目名</span>
-                        </td>
-                        <td>
-                            <input class="text w100 mb5" type="text" name="gpdb_item_name" id="gpdb_item_name" value="" maxlength="50" style="ime-mode:active">
-                            <div>
-                                <input name="title_flg_checkbox" type="checkbox" value="" id="" onchange="">&nbsp;<label for="P-1424f148b96-10000title_flg_id">タイトルにする</label>
-                                <input name="title_flg" type="hidden" id="title_flg" value="f">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="caption"><span class="required">入力形式</span>
-                        </td>
-                        <td>
-                            <select name="type" id="type" style="width:;" onchange="aipo.gpdb.formTypeChanged(this);">
-                                <option value="01">テキスト</option>
-                                <option value="02">テキストエリア</option>
-                                <option value="03">リンク</option>
-                                <option value="04">選択式（択一）</option>
-                                <option value="05">選択式（複数）</option>
-                                <option value="06">ファイル</option>
-                                <option value="07">画像</option>
-                                <option value="08">自動採番</option>
-                                <option value="09">メール</option>
-                                <option value="10">日付</option>
-                                <option value="13">登録者</option>
-                                <option value="14">更新者</option>
-                                <option value="11">登録日時</option>
-                                <option value="12">更新日時</option>
-                            </select>
-                            <div id="type_select" style="display:none;">
-                                <input name="gpdb_kubun_use_flg" type="hidden" id="gpdb_kubun_use_flg" value="">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr id="kubun_select" style="display:none;">
-                        <td class="caption"><span class="required">区分マスタ</span>
-                        </td>
-                        <td>
-                            <select name="gpdb_kubun_id" id="gpdb_kubun_id" style="width:;" onchange="">
-                                <option value="1">性別</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr id="tr_size_col">
-                        <td class="caption"><span class="required">表示サイズ（横）</span>
-                        </td>
-                        <td>
-                            <input class="text" type="text" name="size_col" id="size_col" value="300" maxlength="50" style="width:10%;ime-mode:inactive">
-                            px (デフォルト300)
-                        </td>
-                    </tr>
-                    <tr id="tr_size_row" style="display:none;">
-                        <td class="caption"><span class="required">表示サイズ（縦）</span>
-                        </td>
-                        <td>
-                            <input class="text" type="text" name="size_row" id="size_row" value="100" maxlength="50" style="width:10%;ime-mode:inactive">
-                            px (デフォルト100)
-                        </td>
-                    </tr>
-                    <tr id="tr_line" style="display:none;">
-                        <td class="caption"><span class="required">表示行数</span>
-                        </td>
-                        <td>
-                            <input class="text" type="text" name="line" id="line" value="3" maxlength="50" style="width:10%;ime-mode:inactive">
-                            行 (デフォルト3)
-                        </td>
-                    </tr>
-                    <tr id="tr_required">
-                        <td class="caption">必須</td>
-                        <td>
-                            <input name="required_flg_checkbox" type="checkbox" value="" id="P-1424f148b96-10000required_flg_id" onchange="aipo.gpdb.formFlgToggle(this,'required_flg');">&nbsp;<label for="P-1424f148b96-10000required_flg_id">必須にする</label>
-                            <input name="required_flg" type="hidden" id="required_flg" value="f">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="caption">画面表示</td>
-                        <td>
-                            <div>
-                                <input name="list_flg_checkbox" type="checkbox" value="" id="P-1424f148b96-10000list_flg_id" onchange="aipo.gpdb.formFlgToggle(this,'list_flg');">&nbsp;<label for="P-1424f148b96-10000list_flg_id">一覧画面に表示する</label>
-                                <input name="list_flg" type="hidden" id="list_flg" value="f">
-                            </div>
-                            <div>
-                                <input name="detail_flg_checkbox" type="checkbox" value="" id="P-1424f148b96-10000detail_flg_id" onchange="aipo.gpdb.formFlgToggle(this,'detail_flg');">&nbsp;<label for="P-1424f148b96-10000detail_flg_id">詳細画面に表示する</label>
-                                <input name="detail_flg" type="hidden" id="detail_flg" value="f">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="caption">デフォルトソート</td>
-                        <td>
-                            <div>
-                                <input name="default_sort_flg_checkbox" type="checkbox" value="" id="P-1424f148b96-10000default_sort_flg_id" onchange="aipo.gpdb.formFlgToggle(this,'default_sort_flg');aipo.gpdb.checkOnSort(this)">&nbsp;<label for="P-1424f148b96-10000default_sort_flg_id">ソート項目に指定する</label>
-                                <input name="default_sort_flg" type="hidden" id="default_sort_flg" value="f">
-                            </div>
-                            <div id="tr_asc_desc" style="display:none;">
-                                <label><input name="asc_desc" type="radio" value="ASC" checked="">&nbsp;昇順</label>
-                                <label><input name="asc_desc" type="radio" value="DESC">&nbsp;降順</label>
-                            </div>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
-                <div class="center auiPopupButtons">
-                    <input name="eventSubmit_doGpdb_insert" class="auiButtonAction" type="submit" value="追加する" onclick="aimluck.io.setHiddenValue(this);">
-                    <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_adddate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
-                </div>
-            </form>
-        </div>
-    </div>
-</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
-<!-- /#modalDialog_adddate -->
-
-
 <!-- #modalDialog_datedetail -->
 <div id="modalDialog_datedetail" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 250px; margin-left:-275px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
     <div class="auiPopup clearfix">
@@ -818,7 +681,7 @@
                 <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_datedetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
                 </div>
             </div>
-            <div class="auiPopupTitle">項目詳細</div>
+            <div class="auiPopupTitle">データ詳細</div>
         </div>
         <div class="roundBlockContent">
             <div class="indicator" id="indicator-dlg-P-1424f148b96-10000" style="display:none;">データを送信しています...</div>
@@ -829,37 +692,20 @@
                 <tbody>
 
                 <tr>
+                    <td class="caption">タイトル項目名</td>
+                    <td>項目内データ</td>
+                </tr>
+                <tr>
                     <td class="caption">項目名</td>
-                    <td>
-                        名前
-                        <div>※タイトルにする</div>
-                    </td>
+                    <td>項目内データ</td>
                 </tr>
                 <tr>
-                    <td class="caption">入力形式</td>
-                    <td>
-                        テキスト
-                    </td>
+                    <td class="caption">項目名</td>
+                    <td>項目内データ</td>
                 </tr>
                 <tr>
-                    <td class="caption">表示サイズ（横）</td>
-                    <td>300 px</td>
-                </tr>
-                <tr>
-                    <td class="caption">必須</td>
-                    <td>必須</td>
-                </tr><tr>
-                    <td class="caption">画面表示</td>
-                    <td>
-                        <div>一覧画面に表示する<div>
-                            <div>詳細画面に表示する<div>
-                            </div></div></div></div></td>
-                </tr>
-                <tr>
-                    <td class="caption">デフォルトソート</td>
-                    <td>
-                        <div>指定しない<div>
-                        </div></div></td>
+                    <td class="caption">項目名</td>
+                    <td>項目内データ</td>
                 </tr>
                 </tbody>
             </table>

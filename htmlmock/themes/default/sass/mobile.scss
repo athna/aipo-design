@@ -1682,14 +1682,9 @@ table tr.caption {
 	auiScheduleCalendar
 --------------------------------------------------*/
 .auiScheduleCalendar {
-	width:100%;
-    border-collapse: collapse;
-	background:$grayLighter;
-    border:1px solid $grayBorder;
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	-ms-border-radius:4px;
-	border-radius:4px;
+  width:100%;
+  border-collapse: collapse;
+  //border:1px solid $grayBorder;
 }
 .auiScMonth th {
     padding:5px 0;
@@ -1697,56 +1692,69 @@ table tr.caption {
 	vertical-align:middle;
 }
 .auiScMonthLabel {
-	font-size:16px;
-}
-.auiScWeek {
+	font-size:14px;
+}.auiScWeek {
     font-weight:normal;
     padding-top:.15em;
     padding-bottom:0em;
     color:#293a4b;
     text-align:center;
-	border-bottom:solid 1px $grayBorderDark;
+	//border-bottom:solid 1px $grayBorderDark;
 }
 .auiScDate {
-    font-size: 0.9em;
-    font-weight: normal;
-    text-align: center;
-    letter-spacing: 1px;
-	border-right:solid 1px $grayBorderDark;
-	border-bottom:solid 1px $grayBorderDark;
-	background:#e0e0e0;
-}
-.auiScDate:hover {
-	background:#ffffff;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: 1px;
+  //border-right:solid 1px $grayBorderDark;
+  //border-bottom:solid 1px $grayBorderDark;
+  border-top:solid 1px $grayBorder;
+  background:$grayBackLight;
+  cursor:pointer;
+
+  &:hover {
+    background: $white;
+  }
+
+  .sign {
+    padding: 0 0 5px;
+    line-height: 15px;
+    height: 15px;
+    font-size: 15px;
+    color: $grayLight;
+  }
 }
 .auiScDateLabel {
 	display:block;
-	padding:5px;
-	border-top:solid 1px rgba(255,255,255,0.8);
-	border-left:solid 1px rgba(255,255,255,0.8);
-    cursor:pointer;
-	text-shadow:0 1px 0 rgba(255,255,255,0.8);
-	font-size:16px;
+	padding:5px 5px 0;
+	font-size:14px;
 }
 .auiScPrevMonth,
 .auiScNextMonth {
     color:$gray;
-	background:#e0e0e0;
     cursor:pointer;
 }
 .auiScCurrentMonth {
 }
 .auiScCurrentDate {
     background-color:$grayBorderDark;
+
+   .sign {
+     color: $white;
+   }
+  &:hover {
+    .sign {
+      color: $grayLight;
+    }
+  }
 }
 .auiScSelectedDate {
     background-color:#909090 !important;
     color:#ffffff !important;
-}
-.auiScSelectedDate .auiScDateLabel {
-	text-shadow:0 1px 0 rgba(0,0,0,0.3);
-	border-top:solid 1px #606060;
-	border-left:solid 1px #606060;
+
+  .sign {
+    color: $white;
+  }
 }
 /***************************************************
 	auiGradList

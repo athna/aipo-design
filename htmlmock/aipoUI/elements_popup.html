@@ -37,6 +37,7 @@
         <div class="modalDialog" style="margin:10px auto; position:static">
             <h3>ポップアップ一覧</h3>
             <ul class="mb30">
+                <li><a href="#pageSetting">ページ設定</a></li>
                 <li><a href="#scheduleAdd">スケジュール / スケジュール追加</a></li>
                 <li><a href="#scheduleAddOpen">スケジュール / スケジュール追加（繰り返し展開）</a></li>
                 <li><a href="#scheduleDetail">スケジュール / スケジュール詳細</a></li>
@@ -52,10 +53,536 @@
             </ul>
             <!-- ▼ポップアップ群ここから▼ -->
             <!-- ################################################################################
-	
-			スケジュール追加
-			
-			################################################################################ -->
+
+            スケジュール追加
+
+            ################################################################################ -->
+            <a id="pageSetting"></a>
+            <div class="auiPopup clearfix">
+                <div class="auiPopupHead clearfix">
+                    <div class="auiPopupTool">
+                        <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a>
+                        </div>
+                    </div>
+                    <div class="auiPopupTitle">ページ設定</div>
+                </div>
+                <div class="roundBlockContent">
+                <div class="indicator" id="indicator-dlg-P" style="display:none;">データを送信しています...</div>
+                <div id="messageDiv"></div>
+
+                <form name="formP-135e7e25490-10b6d" id="formP-135e7e25490-10b6d" action="" method="post" onsubmit="">
+                <input type="hidden" name="_name" value="ページ">
+                <input type="hidden" name="secid" value="">
+                <input type="hidden" name="portlet_id" value="">
+                <input type="hidden" name="mode" value="add">
+                <input type="hidden" name="secid" value="">
+
+                <h3>ページ名</h3>
+                <p style="margin-bottom:10px">
+                    マイページ
+                </p>
+
+                <h3>配置の選択</h3>
+                <input type="hidden" name="controller" value="ThreeColumns">
+                <table class="tableWrapper controllerTable layoutList">
+                    <tbody>
+                    <tr>
+                        <td align="left" nowrap="nowrap" id="OneColumn"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_100.png" alt="レイアウト [ 100% ]" title="レイアウト [ 100% ]" width="70" height="70" border="0"></a></td>
+                        <td align="left" nowrap="nowrap" id="TwoColumns"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_50-50.png" alt="レイアウト [ 50% | 50% ]" title="レイアウト [ 50% | 50% ]" width="70" height="70" border="0"></a></td>
+                        <td align="left" nowrap="nowrap" id="TwoColumnsRight"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-75.png" alt="レイアウト [ 25% | 75% ]" title="レイアウト [ 25% | 75% ]" width="70" height="70" border="0"></a></td>
+                        <td align="left" nowrap="nowrap" id="TwoColumnsLeft"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_75-25.png" alt="レイアウト [ 75% | 25% ]" title="レイアウト [ 75% | 25% ]" width="70" height="70" border="0"></a></td>
+                        <td align="left" nowrap="nowrap" id="ThreeColumnsSymetric"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_33-33-33.png" alt="レイアウト [ 33% | 33% | 33% ]" title="レイアウト [ 33% | 33% | 33% ]" width="70" height="70" border="0"></a></td>
+                        <td align="left" nowrap="nowrap" id="ThreeColumns" class="selected"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-50-25.png" alt="レイアウト [ 25% | 50% | 25% ]" title="レイアウト [ 25% | 50% | 25% ]" width="70" height="70" border="0"></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                <h3>アプリ選択</h3>
+                <div style="height:300px;overflow:scroll;overflow-x:hidden;">
+                    <table class="listTable" style="margin-top:0">
+                    <tbody><tr>
+                        <th class="thin">追加</th>
+                        <th class="thin">現在数</th>
+                        <th class="w25">タイトル</th>
+                        <th class="w50">説明</th>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::397">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            Aipo.comへの意見･要望     </td>
+                        <td>
+                            Aipo.comへTwitter投稿で寄せられた意見・要望を表示します     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::58">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            BtoBマーケティング.jp     </td>
+                        <td>
+                            「BtoBマーケティング.jp」の更新情報をお知らせするアプリです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::98">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            Gmail     </td>
+                        <td>
+                            Google の無料メール システムの小規模版です。受信トレイをプレビューします。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::3">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            Gmail Checker     </td>
+                        <td>
+                            Gmail の未読メールを確認することができるアプリケーションです。自動更新機能により、新着のメールをお知らせしてくれます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="ToDo">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            ToDo     </td>
+                        <td>
+                            作業の進捗を共有できるToDoです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::7">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            twiリーダー     </td>
+                        <td>
+                            特定のキーワードでtwitterを検索し、表示することができるtwitter検索アプリです。
+                            キーワードは3つまで指定でき、ハッシュタグも指定可能。
+                            会社名や会社の製品などで検索する場合、設定画面でキーワードを指定するため、毎日の確認に便利です。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::6">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            Webページ     </td>
+                        <td>
+                            Aipoの中で表示できる簡易ウェブブラウザです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="WebMail">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            Webメール     </td>
+                        <td>
+                            メールの送受信が行えるWebメール機能です。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::77">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            Yahoo!ニュース     </td>
+                        <td>
+                            Yahoo!ニュースへ掲載されているトピックスをお知らせするアプリです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::61">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            つぶやき     </td>
+                        <td>
+                            短いメッセージでやり取りするシンプルなコミュニケーションツールです。発言ごとにコメントを返せるなど、リアルタイムな情報共有に役立ちます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="AddressBook">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            アドレス帳     </td>
+                        <td>
+                            電話番号やメールアドレスを共有できます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::57">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            エクセル関数辞典     </td>
+                        <td>
+                            エクセル関数を関数名での検索、または逆引き検索することが出来ます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::63">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            サイボウズまでの距離     </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Schedule">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            スケジュール     </td>
+                        <td>
+                            全員でスケジュールの共有が行えます。設備予約や継続スケジュールの登録もできます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="ExtTimecard">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            タイムカード     </td>
+                        <td>
+                            出退勤を1クリックで登録できます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Timeline">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            タイムライン     </td>
+                        <td>
+                            チャット感覚で情報共有ができ、予定やToDoの追加・編集などが時系列に表示されることで社内の動きを把握してコミュニケーションできます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::59">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            チャットルーム     </td>
+                        <td>
+                            一言つぶやくことができるチャットルームです。古い発言から削除されます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::1">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            フィードリーダー     </td>
+                        <td>
+                            お気に入りのRSS、Atomフィードを閲覧することができるシンプルなフィードリーダーです。
+                            自動更新機能により、新着の記事をお知らせしてくれます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Cabinet">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            フォルダ     </td>
+                        <td>
+                            階層化されたフォルダでファイルを共有できます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Blog">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            ブログ     </td>
+                        <td>
+                            日記のほか日報などに活用できるブログです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::5">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            マルチ検索窓     </td>
+                        <td>
+                            検索用の窓です。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Memo">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            メモ帳     </td>
+                        <td>
+                            個人用の簡易的なメモ帳です。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="UserList">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            ユーザー名簿     </td>
+                        <td>
+                            利用しているユーザー一覧を表示します。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::73">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            リリーススケジュール共有     </td>
+                        <td>
+                            会社内のリリーススケジュール情報共有のためのアプリです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Workflow">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            ワークフロー     </td>
+                        <td>
+                            決裁や有給の稟議に利用できるワークフローです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Note">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            伝言メモ     </td>
+                        <td>
+                            メンバーを指定して連絡事項をメールで通知できます。自分宛の伝言メモも表示されます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::65">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            備品管理     </td>
+                        <td>
+                            備品の補充状況を簡単設定で一目で確認できるアプリです。残り少なくなれば誰でも状態を更新できます。快適な職場づくりにお役立てください。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::62">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            共有メモ     </td>
+                        <td>
+                            ユーザー同士で共有することができるメモ集です。メモ集をクリップしておくことにより、初回に表示させたいメモ集を覚えさせておくことができます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::2">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            共有リンク     </td>
+                        <td>
+                            ユーザー同士で共有することができるリンク集です。リンク集をクリップしておくことにより、初回に表示させたいリンク集を覚えさせておくことができます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Report">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            報告書     </td>
+                        <td>
+                            特定のユーザへ報告書を通知し共有できます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::56">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            安否確認     </td>
+                        <td>
+                            安否を確認できるアプリです。各自の安否と出社可否を一覧で確認できます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Msgboard">
+                        </td>
+                        <td align="center">1</td>
+                        <td>
+                            掲示板     </td>
+                        <td>
+                            カテゴリやトピックを設定して、お知らせなどを掲載できます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="Activity">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            更新情報     </td>
+                        <td>
+                            追加や更新のあった内容を時系列で表示します。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::60">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            東京電力きょうの電力予想     </td>
+                        <td>
+                            本日の最大電力供給力に対する予想最大消費電力の割合を求めるアプリです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::10">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            東京電力電力利用状況     </td>
+                        <td>
+                            東京電力電力利用状況を表示するアプリです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::64">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            業績管理     </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::67">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            簡易データシート     </td>
+                        <td>
+                            項目をカスタマイズしてお好みの一覧データを作成するアプリです。細やかなデータ共有にご利用くださいませ。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::8">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            簡易在席確認     </td>
+                        <td>
+                            同じアプリを使用している人の在席状況が確認できるアプリです。
+                            離れた席や、違うフロアにいる人の在席状況を確認する際に是非ご利用下さい。
+
+                            ステータスは「在席」、「外出」の2つ。他にステータス変更時間と付属するコメントが表示されます。
+                            コメントには外出先や戻り予定を入れておけば、電話応対の際の確認もらくらくです。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::66">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            美人時計     </td>
+                        <td>
+                            “美人時計であなたは１分間の恋をする。" 美人時計は、美人（1,440枚の写真）と時計（1,440分）を組み合わせた、時計アプリです。
+                            360人、1440枚の美人写真が1分ごとに時刻をお知らせし、あなたに微笑みかけます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::70">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            郵便番号検索     </td>
+                        <td>
+                            郵便番号から住所、住所から郵便番号を調べられます。     </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+
+                            <input type="checkbox" name="pname" value="GadgetsTemplate::9">
+                        </td>
+                        <td align="center">0</td>
+                        <td>
+                            飲みイコ     </td>
+                        <td>
+                            飲みへのお誘い機能です。     </td>
+                    </tr>
+                    </tbody></table>
+                </div>
+                <input type="hidden" name="size" value="30">
+                <div class="center auiPopupButtons">
+                    <input name="eventSubmit_doTodo_insert" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
+                    <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+                </div>
+                </form>
+                </div>
+            </div>
+            <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
+            <!-- ################################################################################
+
+                        スケジュール追加
+
+                        ################################################################################ -->
             <a id="scheduleAdd"></a>
             <div class="auiPopup clearfix">
                 <div class="auiPopupHead clearfix">
@@ -320,37 +847,6 @@
                                                         <input type="hidden" id="limit_start_date_day" name="limit_start_date_day" value="2" dojoattachpoint="valueDayNode">
                                                     </div>
                                                 </div>
- 
-																																																																														  
-																																																																																																																																																												  
-																																																																														  
-																																																																																																																																																																																																																																										  
-																																																																														  
-																																																																																																																																																												  
-																																																																														  
-																																																																																																																																																																																																																																										                                                                                                                                                              
-																																																																														  
-																																																																																																																																																												  
-																																																																														  
-																																																																																																																																																																																																																																										  
-																																																																														     
-																																																																														  
-																																																																																																																																																																																																																																										                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-																																																																														  
-																																																																																																																																																												  
-																																																																														  
-																																																																																																																																																																																																																																										  
-																																																																														  
-																																																																																																																																																												  
-																																																																														  
-																																																																																																																																																																																																																																										                                                                                                                                                              
-																																																																														  
-																																																																																																																																																												  
-																																																																														  
-																																																																																																																																																																																																																																										  
-																																																																														     
-																																																																														  
-																																																																																																																																																																																																																																										                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    &nbsp;-&nbsp;
                                                 <div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitEndDateSpan">
                                                     <div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
                                                         <div class="dijitRight">

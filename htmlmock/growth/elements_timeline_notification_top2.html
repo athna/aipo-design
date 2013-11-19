@@ -405,7 +405,9 @@
               <div class="auiPortletBody">
                 <div class="inner">
                 <!--////////////////////NOTIFICATION////////////////////-->
-                    <!--既存<div class="" style="background:#F0F0F0; text-align:left; padding:10px 10px; margin-bottom:10px;"><div class="floatRight"><a class="auiIcon auiIconDelete" href="#"><span>x</span></a></div><a class="auiButtonAction" href="#" style="margin-right:10px;">メンバーを追加する</a><span>チームのメンバーを追加して、情報を共有しましょう。</span></div>--><div class="" style="background:#F0F0F0; text-align:left; padding:10px 10px; margin-bottom:10px;"><div class="floatRight"><a class="auiIcon auiIconDelete" href="#"><span>x</span></a></div><span>メンバーを追加していただくことで、10MBの容量をプレゼントいたします。<span style="display:inline-block;"><a href="#">メンバーを追加する</a>。</span></span></div>
+                    <div class="alertSuccess mt0"><div class="floatRight"><a class="auiIcon auiIconDelete" href="#"><span>x</span></a></div>
+                    チームのメンバーを追加して、情報を共有しましょう。<br>
+                    メンバーを追加していただくことで、10MBの容量をプレゼントいたします。<span style="display:inline-block;"><a href="#">メンバーを追加する</a>。</span></div>
                     <!--////////////////////NOTIFICATION////////////////////-->
                   <div id="timelineOuter">
                     <input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
@@ -501,7 +503,127 @@
             </div>
             <!-- /PORTLET OUTER -->
           </td>
-          <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><div class="dojoDndItem auiPortlet P-13fe4f1e48c-108e3 dojoDndItemOver" id="dojoUnique12">
+          <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
+          <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">タイムライン</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"><a href="#">トピック追加</a></div>
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody">
+                <div class="inner">
+                <!--////////////////////NOTIFICATION////////////////////-->
+                    <div class="alertSuccess mt0"><div class="floatRight"><a class="auiIcon auiIconDelete" href="#"><span>x</span></a></div>
+                    チームのメンバーを追加して、情報を共有しましょう。<br>
+                    メンバーを追加していただくことで、10MBの容量をプレゼントいたします。<span style="display:inline-block;"><a href="#">メンバーを追加する</a>。</span></div>
+                  <!--////////////////////NOTIFICATION////////////////////-->
+                  <div id="timelineOuter">
+                    <input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+                    <!-- inputField -->
+                    <div id="inputField">
+                      <form name="" id="" action="" method="post" onsubmit="">
+                        <input type="hidden" name="_name" value="timelineForm">
+                        <input type="hidden" name="secid" value="">
+                        <div class="tlInputMention">
+                          <textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+                        </div>
+                        
+                        <!-- tlInputControls -->
+                        <div class="tlInputControls clearfix">
+                          <div class="floatLeft">
+                            <iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a" class="auiInputFileFrame"></iframe>
+                          </div>
+                          <!-- ##################################################
+					●開発担当者へ
+					
+					下記にある「スケジュールに追加する」ボタンの「onClick」処理はベタ書きの仮のものです。適切な内容に修正をお願いします。
+					
+					「スケジュールに追加する」ボタンをクリックすることで、タイムラインからスケジュール登録が行えるショートコードを挿入してください。
+					開いたカレンダーの時間・日付が変更されたタイミングでもショートコードを差し替えてください。
+					※ボタン周りに日付埋め込みのスペースが無いことと、書式を覚えてしまえば手入力でもできることからショートコードを採用しています。
+					
+					################################################## -->
+                          <div class="floatRight">
+                            <ul class="clearfix">
+                              <!--li><a href="javascript:void(0)" class="auiButton" title="スケジュールに追加する" onclick="if(document.getElementById('popup_3').style.display!='none'){document.getElementById('popup_3').style.display='none'}else{bounds=this.getBoundingClientRect();document.getElementById('popup_3').style.top=bounds.top+30+'px';document.getElementById('popup_3').style.right=document.body.clientWidth-bounds.right+'px';document.getElementById('popup_3').style.display='block'; document.getElementById('timelineTextarea').value='[[2012/07/17 09:00-09:30]]';}"><span><i class="auiIcon auiIconCalendar"></i></span></a></li-->
+                              <li>
+                                <input type="submit" class="auiButtonAction" value="投稿する" />
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- /tlInputControls -->
+                      </form>
+                    </div>
+                    <!-- /inputField -->
+                    <!--<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a> </div>-->
+                    <div class="tlDisplayChanger">
+                      <!-- ##################################################
+					●開発担当者へ
+				
+					スイッチとなるリンクのJSをとりあえずベタ書きしています。適宜修正をお願いします。
+					「tlDisplayGroup」の内容は選択中のグループ名を入れてください。
+				
+					################################################## -->
+                      <div class="btn"> <!--<i class="indicator"></i>--> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a> </div>
+                      <!-- ##################################################
+					●開発担当者へ
+				
+					「menubar」内の選択項目の<a>タグには「class="selected"」を付与させてください。	
+				
+					################################################## -->
+                      <div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
+                        <ul>
+                          <li><a href="#" class="selected">すべてのグループ</a></li>
+                          <li><a href="#">管理本部</a></li>
+                          <li><a href="#">開発本部</a></li>
+                          <li><a href="#">企画本部</a></li>
+                          <li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div id="timeline" class="timeline">
+                      <div id="content_xxx">
+                        <input id="readHidden_P-135e7e25490-10b76" type="hidden" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b76?template=TimelineContentScreen&amp;start=2', 'P-135e7e25490-10b76', '1', '82');" />
+                        <input type="hidden" id="last_timelineId_P-135e7e25490-10b76" value="4072" />
+                        <div id="message21" class="message first">
+                          <div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"> </div>
+                          <div class="messageContents">
+                            <div class="name">木村 一郎</div>
+                            <div class="body"> <a href="#">予定「シフト表作成」を追加しました。</a>                            </div>
+                            <div class="time"> 13:15 &nbsp; 
+                              <form style="display:inline">
+                                <input type="hidden" name="secid" value="">
+                                <a href="javascript:void(0)" onclick="">いいね！</a> &nbsp;
+                              </form>
+                              <a href="javascript:void(0)" onclick="">コメントする</a> &nbsp;<a href="javascript:void(0)" onclick="">削除する</a>&nbsp; </div>
+                          </div>
+                        </div>                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+          <div class="dojoDndItem auiPortlet P-13fe4f1e48c-108e3 dojoDndItemOver" id="dojoUnique12">
               <div class="auiPortletHead">
                 <div class="inner dojoDndHandle">
                   <div class="auiPortletTitle"> <a href="#">スケジュール</a> </div>

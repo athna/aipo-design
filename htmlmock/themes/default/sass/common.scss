@@ -103,7 +103,7 @@ textarea.wide {
 	width:100%;
 }
 .dj_ie textarea.wide {
-	width:98%;
+	//width:98%;
 }
 .dj_ie7 textarea.wide {
 	width:97%;
@@ -2601,12 +2601,38 @@ ul.blockList li a.selected {
 }
 
 
-.controllerTable td img {
-	border:2px solid #FFF;
+/***************************************************
+	controllerTable
+--------------------------------------------------*/
+.controllerTable {
+  margin-right:auto;
+  margin-left:auto;
+  td {
+    text-align: center;
+  }
 }
-.controllerTable td.selected img {
-	border:2px solid $grayBorder;
+
+.layoutList {
+  a {
+    display: inline-block;
+    overflow: hidden;
+    background: $white;
+    border:solid 1px $grayBorder;
+    @include border-radius(6px);
+    &:hover {
+      background: $grayBackLight;
+    }
+  }
+  .selected {
+    a {
+      border:solid 2px $orange;
+      &:hover {
+        background: $white;
+      }
+    }
+  }
 }
+
 .addUser {
 	*line-height:1.5 !important;
 	cursor:pointer;

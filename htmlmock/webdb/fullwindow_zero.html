@@ -165,9 +165,17 @@
             <div id="auiContentsArea">
               <div id="auiContentsAreaInner">
 
-                  <div class="auiBlankBox">
-                      データベースの管理よりデータベースを追加してください。
-                  </div>
+                  <h2>データベースの管理</h2>
+                  <table class="auiRowTable wide">
+                      <tbody>
+                      <tr><td colspan="4" class="auiNoData">
+                          <p class="mh10">
+                              <a href="javascript:void(0)" class="auiButtonAction"  onclick="popupToggle(this,'modalDialog_dbcreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">データベースを作成する</a>
+                          </p>
+                          <p>※開発向けコメント：DBが0件の場合、データベース管理に飛ばしてしまう想定</p>
+                      </td></tr>
+                      </tbody>
+                  </table>
 
               </div>
             </div>
@@ -546,5 +554,213 @@ left = 「filters」の画面内X位置
   </div>
   <span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
 <!-- /appPosition -->
+
+
+
+<!-- modalDialog_dbcreate -->
+<div id="modalDialog_dbcreate" class="modalDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 50px; margin-left:-275px">
+    <span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+    <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+            <div class="auiPopupTool">
+                <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_dbcreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+                </div>
+            </div>
+            <div class="auiPopupTitle">データベース作成</div>
+        </div>
+        <div class="roundBlockContent">
+            <div class="indicator" id="indicator-dlg-P-1424f148b96-10000" style="display:none;">データを送信しています...</div>
+            <div id="messageDiv"></div>
+            <form name="formP-1424f148b96-10000" id="formP-1424f148b96-10000" action="" method="post" onsubmit="aimluck.io.submit(this,'indicator-dlg-','P-1424f148b96-10000',aipo.gpdb.onReceiveMessage);return false;">
+                <input type="hidden" name="_name" value="gpdbForm">
+                <input type="hidden" name="secid" value="">
+                <input type="hidden" name="mode" value="insert">
+                <table class="listTable wide">
+                    <tbody>
+                    <tr>
+                        <td class="caption"><span class="required">データベース名</span>
+                        </td>
+                        <td><input class="text w100" type="text" name="gpdb_name" id="gpdb_name" value="" maxlength="50" style="ime-mode:active">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="caption">メール配信</td>
+                        <td>
+                            <input name="mail_flg_checkbox" type="checkbox" value="" id="P-1424f148b96-10000mail_flg_id" onchange="aipo.gpdb.formFlgToggle(this,'mail_flg');">&nbsp;<label for="P-1424f148b96-10000mail_flg_id">データ登録時にメールを送信する</label>
+                            <input name="mail_flg" type="hidden" id="mail_flg" value="f">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="caption">ソート順</td>
+                        <td>
+                            <label><input type="radio" name="listSort" checked />昇順</label>
+                            <label><input type="radio" name="listSort" />降順</label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <!-- webdbFelds -->
+                <table class="listTable wide webdbFelds">
+                    <caption>データベース項目</caption>
+                    <tbody>
+                    <tr>
+                        <th>項目名</th>
+                        <th>入力形式</th>
+                        <th class="center">タイトル</th>
+                        <th class="center">必須</th>
+                        <th class="center">一覧表示</th>
+                        <th class="center">ソート</th>
+                    </tr>
+                    <tr>
+                        <td><input class="webdbFieldName" type="text"/></td>
+                        <td class="webdbFieldType"><select name="" id="">
+                            <option value="">テキスト</option>
+                            <option value="">テキストエリア</option>
+                            <option value="">リンク</option>
+                            <option value="">選択式（択一）</option>
+                            <option value="">選択式（複数）</option>
+                            <option value="">ファイル</option>
+                            <option value="">画像</option>
+                            <option value="">自動採番</option>
+                            <option value="">メール</option>
+                            <option value="">日付</option>
+                            <option value="">登録者</option>
+                            <option value="">更新者</option>
+                            <option value="">登録日時</option>
+                            <option value="">更新日時</option>
+                        </select></td>
+                        <td class="webdbFieldCheck"><input name="title" type="radio"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input name="sort" type="radio"/></td>
+                    </tr>
+                    <tr>
+                        <td><input class="webdbFieldName" type="text"/></td>
+                        <td class="webdbFieldType">
+                            <select name="" id="">
+                                <option value="">テキスト</option>
+                                <option value="">テキストエリア</option>
+                                <option value="">リンク</option>
+                                <option value="" selected>選択式（択一）</option>
+                                <option value="">選択式（複数）</option>
+                                <option value="">ファイル</option>
+                                <option value="">画像</option>
+                                <option value="">自動採番</option>
+                                <option value="">メール</option>
+                                <option value="">日付</option>
+                                <option value="">登録者</option>
+                                <option value="">更新者</option>
+                                <option value="">登録日時</option>
+                                <option value="">更新日時</option>
+                            </select>
+                            <br/>
+                            <select name="" id="" class="mt5">
+                                <option value="">都道府県</option>
+                                <option value="">性別</option>
+                                <option value="">長い選択項目長い選択項目</option>
+                            </select>
+
+                        </td>
+                        <td class="webdbFieldCheck"><input name="title" type="radio"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input name="sort" type="radio"/></td>
+                    </tr>
+                    <tr>
+                        <td><input class="webdbFieldName" type="text"/></td>
+                        <td class="webdbFieldType"><select name="" id="">
+                            <option value="">テキスト</option>
+                            <option value="">テキストエリア</option>
+                            <option value="">リンク</option>
+                            <option value="">選択式（択一）</option>
+                            <option value="">選択式（複数）</option>
+                            <option value="">ファイル</option>
+                            <option value="">画像</option>
+                            <option value="" selected>自動採番</option>
+                            <option value="">メール</option>
+                            <option value="">日付</option>
+                            <option value="">登録者</option>
+                            <option value="">更新者</option>
+                            <option value="">登録日時</option>
+                            <option value="">更新日時</option>
+                        </select>
+                            <br/>
+                        </td>
+                        <td class="webdbFieldCheck"><input name="title" type="radio"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox" disabled/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input name="sort" type="radio"/></td>
+                    </tr>
+                    <tr>
+                        <td><input class="webdbFieldName" type="text"/></td>
+                        <td class="webdbFieldType"><select name="" id="">
+                            <option value="">テキスト</option>
+                            <option value="">テキストエリア</option>
+                            <option value="">リンク</option>
+                            <option value="">選択式（択一）</option>
+                            <option value="">選択式（複数）</option>
+                            <option value="">ファイル</option>
+                            <option value="">画像</option>
+                            <option value="">自動採番</option>
+                            <option value="">メール</option>
+                            <option value="">日付</option>
+                            <option value="">登録者</option>
+                            <option value="">更新者</option>
+                            <option value="">登録日時</option>
+                            <option value="">更新日時</option>
+                        </select></td>
+                        <td class="webdbFieldCheck"><input name="title" type="radio"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input name="sort" type="radio"/></td>
+                    </tr>
+                    <tr>
+                        <td><input class="webdbFieldName" type="text"/></td>
+                        <td class="webdbFieldType"><select name="" id="">
+                            <option value="">テキスト</option>
+                            <option value="">テキストエリア</option>
+                            <option value="">リンク</option>
+                            <option value="">選択式（択一）</option>
+                            <option value="">選択式（複数）</option>
+                            <option value="">ファイル</option>
+                            <option value="">画像</option>
+                            <option value="">自動採番</option>
+                            <option value="">メール</option>
+                            <option value="">日付</option>
+                            <option value="">登録者</option>
+                            <option value="">更新者</option>
+                            <option value="">登録日時</option>
+                            <option value="">更新日時</option>
+                        </select></td>
+                        <td class="webdbFieldCheck"><input name="title" type="radio"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input type="checkbox"/></td>
+                        <td class="webdbFieldCheck"><input name="sort" type="radio"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="center"><a href="#" class="auiButton">項目を追加する</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- /.webdbFelds -->
+
+
+                <div class="center auiPopupButtons">
+                    <input name="eventSubmit_doGpdb_insert" class="auiButtonAction" type="submit" value="作成する" onclick="aimluck.io.setHiddenValue(this);">
+                    <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_dbcreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+                </div>
+            </form>
+        </div>
+    </div>
+</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /#modalDialog_dbcreate -->
+
+
+
+<!-- modalBackground-->
+<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
 </body>
 </html>

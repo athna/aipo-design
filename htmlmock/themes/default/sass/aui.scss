@@ -1954,6 +1954,9 @@ input.auiButtonSearch.active {
       padding:8px 0;
       font-weight: bold;
     }
+  form {
+    line-height: 32px;
+  }
 }
 *:first-child+html .auiSummaryMeta {
 	overflow:hidden;
@@ -3082,21 +3085,23 @@ ul.attachments >li{
 	right:0;
 }
 .filterDropDrawer {
-	position:absolute;
-	display:block;
-	right:0;
-	width:20px;
-	height:$inputHeight;
-    @include border-radius(4px);
-	vertical-align:middle;
-    background:#ffffff;
+  position:absolute;
+  display:block;
+  right:0;
+  width:20px;
+  height:$inputHeight - 4;
+  top:2px;
+  right:2px;
+  @include border-radius(4px);
+  vertical-align:middle;
+  background:#ffffff;
 }
 *:first-child+html .filterDropDrawer {
     top:1px;
 }
 .filterDropDrawer i {
 	cursor:pointer;
-	margin:7px 0 0 2px;
+	margin:6px 0 0 2px;
 }
 .filterInputField input[type=text] {
 	max-width:500px;
@@ -3489,6 +3494,17 @@ $wuiWLCaptionHeight: 24px;
 .webdbFieldCheck {
   text-align: center;
   width: 50px;
+
+  label {
+    width: 100%;
+    display: block;
+
+    input[type=radio],
+    input[type=checkbox] {
+      height: 32px;
+      cursor: pointer;
+    }
+  }
 }
 /***************************************************
 	auiIcon

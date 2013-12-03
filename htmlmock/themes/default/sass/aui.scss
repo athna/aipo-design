@@ -2430,16 +2430,23 @@ select {
 }
 input[type=text],
 input[type=password] {
-	height:$inputHeight +2;
-	padding:4px 2px;
-	vertical-align:middle;
-    @include border-radius(3px);
-	border:1px solid $grayBorder;
-    @include box-sizing(border-box);
-	background-color:#ffffff;
+  height:$inputHeight +2;
+  padding:4px 2px;
+  vertical-align:middle;
+  @include border-radius(3px);
+  border:1px solid $grayBorder;
+  @include box-sizing(border-box);
+  background-color:#ffffff;
 }
+/*IE8Hack*/
+html>/**/body input[type=text],
+html>/**/body input[type=password] {
+  line-height/*\**/:$inputHeight + 2\9;
+  padding/*\**/:0 2px \9;
+}
+/*IE7Hack*/
 *:first-child+html input[type=text],
-*:first-child+html input[type=password] {/*IE7Hack*/
+*:first-child+html input[type=password] {
 	height:$inputHeight;
 	line-height:$inputHeight;
 	max-width:99.2%;

@@ -655,6 +655,7 @@ img.avatar,
 	background:#fff url(../images/common/portlet_l.gif?20130918) repeat-y left 0;
 
     .inner {
+      position: relative;
         background:url(../images/common/portlet_r.gif?20130918) repeat-y right 0;
         padding:4px 22px 0 22px;
     }
@@ -1341,7 +1342,8 @@ $tabBackgroundImage:	"../images/tab.png";
 	margin-left:-200px;
 }
 #auiContentsAreaInner {
-	margin-left:200px;
+  position: relative;
+  margin-left:200px;
 }
 #auiContentsArea h2, h2.caption {
 	margin:0;
@@ -3720,13 +3722,37 @@ a.auiIconTrash:hover {background-position:0px -768px;}
   //background: $grayBackLight;
   padding: 10px;
   height:20px;
-  @include border-radius(4px);
+  //@include border-radius(4px);
   background: url(../images/common/indicator.gif) no-repeat center center;
   background-size:16px;
+  text-align: center;
 
   img {
     vertical-align: middle;
   }
+}
+.auiLoadWrapper {
+  position: relative;
+
+  .loader {
+    position: absolute;
+    padding: 0;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8);
+    //filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#c0ffffff,endcolorstr=#c0ffffff,gradienttype=0);
+    //-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#c0ffffff,endColorstr=#c0ffffff)";
+    zoom:1;
+  }
+}
+/*IE8Hack*/
+html>/**/body .auiLoadWrapper .loader {
+  background-color/*\**/: #ffffff\9;
+  filter: alpha(opacity=80);
+  -ms-filter: "alpha(opacity=80)";
 }
 
 /* auiAbsLayer ********************/

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>ログイン｜Aipo.com</title>
+<base href="https://login.aipo.com/">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="グループウェア,フリー,無料,クラウド" />
+<meta name="description" content="無料で使えるクラウドとオープンソースから選べるグループウェア「アイポ」です。コミュニケーション向上で組織力をつくります。" />
+<meta name="author" content="aipo.com">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="/static/css/bootstrap-responsive.css" rel="stylesheet"/>
+<link href="/static/css/style.css?20130530" rel="stylesheet"/>
+<link href="/static/css/camera.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="http://59.106.173.26/aipo-html/htmlmock/themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link href="/static/css/font-awesome-ie7.min.css" rel="stylesheet"><![endif]-->
+<link href="/static/css/ie.css" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]><script src="/static/js/html5shiv.js"></script><![endif]-->
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/static/aipo/themes/iphone/img/apple-touch-icon-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<div id="wrapper">
+
+<!-- contents  ================================================== -->
+<div id="contents" class="simplified-box">
+  <div class="container">
+  <!-- main  ================================================== -->
+  <div class="main-only span6">
+    
+  <div class="borderBox">
+  <h1><a class="brand" href="http://www.aipo.com/">Aipo.com</a><span>ログイン</span></h1>
+  
+<div>
+  <script type="text/javascript">
+
+//<![CDATA[
+var tmpUsername = "";
+
+function submit2(form) {
+  if (form.save_username.checked) {
+	set_cookie("username", form.username.value);
+  } else {
+    remove_cookie("username");
+  }
+  set_cookie("save_username", form.save_username.checked);
+  return true;
+}
+
+function init() {
+  var form = document.forms[0];
+  tmpUsername = form.username.value;
+  var saveUsernameStr = get_cookie("save_username");
+  var saveUsernameObj = form.save_username;
+  if (saveUsernameStr != "false") {
+    saveUsernameObj.checked = true;
+  }
+  set_input_value(form);
+}
+
+function set_input_value(form) {
+  if (form.save_username.checked) {
+    var usernameStr = "";
+    if (tmpUsername == "") {
+      usernameStr = get_cookie("username");
+    } else {
+      usernameStr = tmpUsername;
+    }
+    var usernameObj = form.username;
+    usernameObj.value = usernameStr;
+  }
+}
+
+function get_cookie(strName) {
+  var strReturn = "";
+  var nLoop = 0;
+  var nLength = 0;
+  var strNameEx = strName + "=";
+  var strTemp = "";
+  while (nLoop < document.cookie.length) {
+    nLength = nLoop + strNameEx.length;
+    if (document.cookie.substring(nLoop, nLength) == strNameEx) {
+      strTemp = document.cookie.indexOf(";", nLength);
+      if (strTemp == -1) {
+        strReturn = document.cookie.substring(nLength, document.cookie.length);
+      } else {
+        strReturn = document.cookie.substring(nLength, strTemp);
+      }
+      break;
+   }
+   nLoop = document.cookie.indexOf(" ", nLoop) + 1;
+   if (nLoop == 0) {
+     break;
+    }
+  }
+  return strReturn;
+}
+
+function set_cookie(strName, strValue) {
+  var dtExpire = new Date();
+  dtExpire.setTime(dtExpire.getTime() + 10*24*60*60*1000);
+  document.cookie = strName + "=" + strValue + "; expires=" + dtExpire.toGMTString() + "; path=/";
+}
+
+function remove_cookie(strName) {
+  var strValue;
+  var dtExpire = new Date();
+  dtExpire.setTime(dtExpire.getTime() - 1);
+  strValue = get_cookie(strName);
+  document.cookie = strName + "=" + strValue + "; expires=" + dtExpire.toGMTString() + "; path=/";
+}
+
+//]]>
+
+</script>
+  <form action="?wicket:bookmarkablePage=:com.aipo.login.page.IndexPage&amp;wicket:interface=:0:loginForm:form::IFormSubmitListener::" method="post" onsubmit="return submit2(this);" class="bs-docs-example form-horizontal" id="id3"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input type="hidden" name="id3_hf_0" id="id3_hf_0" /></div>
+  <input type="hidden" name="action" value="" id="id4"/>
+  <input type="hidden" name="appId" value="" id="id5"/>
+  <input type="hidden" name="planType" value="" id="id6"/>
+    
+  <div class="inner">
+  <div id="id7">  </div>
+  <div class="control-group">
+  <label for="id1" class="control-label fs11">メールアドレス</label>
+  <div class="controls">
+  <input type="text" name="username" placeholder="メールアドレス" class="w100" id="id1" value=""/>
+  </div>
+  </div>
+  <div class="control-group mb5">
+  <label for="id2" class="control-label fs11">パスワード</label>
+  <div class="controls">
+  <input type="password" name="password" placeholder="パスワード" class="w100" id="id2" value=""/>
+  </div>
+  </div>
+  <div class="control-group mb10">
+  <div class="controls">
+  <label class="checkbox check-mail"><input type="checkbox" name="save_username" id="save_username" />メールアドレスを保存する</label>
+  </div>
+  </div>
+  </div>
+  <div class="form-actions right">
+  <button class="btn btn-middle btn-warning span2" type="submit" name=":submit" id="id8">ログイン</button>
+  <p class="forget-password"><i class="icon icon-question-sign mr5"></i><a href="reminder/">パスワードをお忘れですか？</a></p>
+  </div>
+  </form>
+  <script type="text/javascript">
+
+//<![CDATA[
+
+init();
+
+//]]>
+
+</script>
+  </div>
+</div>
+  
+<script type="text/JavaScript">
+<!--
+document.write('<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Faipocom.jp&amp;width=570&amp;height=395&amp;colorscheme=light&amp;show_faces=false&amp;header=false&amp;stream=true&amp;show_border=false&amp;appId=207529679428894" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:375px;" allowTransparency="true" class="mt40"></iframe>');
+//-->
+</script>
+  </div>
+  <!-- contents END  ================================================== -->
+  </div>
+</div>
+<div></div>
+<!-- Footer  ================================================== -->
+<div class="footer">
+<div class="container">
+<div class="copyright">Copyright &copy; Aimluck,Inc. All Rights Reserved.</div>
+</div>
+</div>
+<!-- Le javascript  ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<div>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+</div>
+</div>
+</body>
+</html>

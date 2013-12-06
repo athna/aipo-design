@@ -122,7 +122,7 @@
 					output += '</span>';
 					if(exists(data[k].message)) {
 						
-						 output += '<span class="title ml20">'+(data[k].message.substr(0,30))+' ...</span>';
+						 output += '<span class="title ml20">'+(data[k].message.substr(0,28))+' ...</span>';
 					}
 					output += '</span>';
 					

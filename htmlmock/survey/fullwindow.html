@@ -197,20 +197,22 @@
                           <th class=""><a href="#">タイトル</a></th>
                           <th class="wName"><a href="#">作成者</a></th>
                           <th class="w10"><a href="#">作成日</a></th>
+                          <th class="w10"><a href="#">受付開始日</a></th>
                           <th class="w10"><a href="#">回答期日</a></th>
-                          <th class="w10"><a href="#">回答数</a></th>
+                          <th class="w10"><a href="#">回答率</a></th>
                       </tr>
                       <tr>
                           <td class="auiMTCheck center"><input type="checkbox" /></td>
                           <td class="auiMTCaption">
                               <div>
-                                  <a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_svdetail1');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">回答項目がフリーテキストの場合</a>
+                                  <a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_svdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">アンケートタイトルアンケートタイトルアンケートタイトル</a>
                               </div>
                           </td>
                           <td>木村 一郎</td>
                           <td>12月10日</td>
-                          <td>12月17日</td>
-                          <td class="right">10</td>
+                          <td>12月11日</td>
+                          <td>12月31日</td>
+                          <td>96.7%</td>
                       </tr>
                       </tbody>
                   </table>
@@ -560,39 +562,37 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="caption">内容</td>
+                        <td class="caption"><span class="required">内容</span></td>
                         <td>
                             <textarea rows="5" class="w100"></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td class="caption">回答形式</td>
+                        <td class="caption"><span class="required">回答形式</span></td>
                         <td>
-                            <select onchange="selectToggle(this,'select','surveyAnsertypeSelect');">
-                                <option value="text">テキスト</option>
-                                <option value="select">選択（択一）</option>
-                                <option value="select">選択（複数）</option>
-                            </select>
-                            <div id="surveyAnsertypeSelect" class="mt5" style="display: none;">
-                                <input type="text" name="" class="w100 mb5" id=""/><br/>
-                                <input type="text" name="" class="w100 mb5" id=""/><br/>
-                                <input type="text" name="" class="w100 mb5" id=""/><br/>
-                                <a href="javascript:void(0)" onclick="">項目を追加する</a>
-                            </div>
+                            <label for="surveyAnserTypeRadio"><input type="radio" name="anserType" value="radio" id="surveyAnserTypeRadio" checked />1つだけ選択</label><br />
+                            <label for="surveyAnserTypeCheck"><input type="radio" name="anserType" value="check" id="surveyAnserTypeCheck" />複数選択</label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="caption">回答対象者</td>
+                        <td class="caption"><span class="required">回答項目</span></td>
                         <td>
-                            <select onchange="selectToggle(this,'select','memberField');">
-                                <option value="text">全メンバー</option>
-                                <option value="select">選択</option>
-                            </select>
+                            <div class="mb5"><input type="text" name="" class="w90" id=""/></div>
+                            <div class="mb5"><input type="text" name="" class="w90" id=""/></div>
+                            <div class="mb5"><input type="text" name="" class="w90 mr10" id=""/><a href="#" title="項目を削除"><span><i class="icon-remove"></i></span></a></div>
+                            <a href="javascript:void(0)" onclick="">項目を追加する</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="caption"><span class="required">回答対象者</span></td>
+                        <td>
+                            <label for="surveyAnserAll"><input type="radio" name="anser" value="all" id="surveyAnserAll"  onchange="selectToggle(this,'select','memberField');" />すべてのユーザー</label><br />
+                            <label for="surveyAnserSelect"><input type="radio" name="anser" value="select" id="surveyAnserSelect"  onchange="selectToggle(this,'select','memberField');" />ユーザーを選択</label>
 
                             <div id="memberField" style="display: none;">
                                 <table class="none">
                                     <tbody><tr><td>
-                                        <div class="spaceTop spaceLeft small">左側に参加ユーザーを追加してください。</div>
+                                        <div class="spaceTop spaceLeft small">左側に解答対象者を追加してください。</div>
                                         <div id="membernormalselect" widgetid="membernormalselect">
                                             <table class="none">
                                                 <tbody>
@@ -602,7 +602,7 @@
                                                             <div class="outer">
                                                                 <div class="popup">
                                                                     <div class="clearfix">
-                                                                        <div class="memberlistToTop">参加ユーザー一覧</div>
+                                                                        <div class="memberlistToTop">回答対象者一覧</div>
                                                                         <div class="memberlistFromTop">
                                                                             <select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
                                                                                 <option value="LoginUser">すべてのグループ</option>
@@ -647,27 +647,12 @@
                                         </div>
                                         <select size="5" multiple="multiple" style="display:none;" name="init_memberlist" id="init_memberlist"><option value="0000005102">エイム テスト</option></select>
                                     </td></tr>
-                                    <tr><td>
-                                        <div class="p">
-                                            <a href="javascript:void()" onclick="popupToggle(this,'edit_control_context');">回答対象者によるアンケートの編集権限を設定する</a>
-                                            <div id="edit_control_context" style="display:none;">
-                                                <input name="edit_flag" type="radio" value="T" id="" checked="checked"><label for="edit_control_flagT_P-14278461a03-1001d">可（回答対象者は、このアンケートを編集／削除できます）</label><br>
-                                                <input name="edit_flag" type="radio" value="F" id=""><label for="edit_control_flagF_P-14278461a03-1001d">不可（回答対象者は、このアンケートを編集／削除できません）</label></div>
-                                        </div>
-                                        <div class="p">
-                                            <a href="javascript:void()" onclick="popupToggle(this,'mail_context');">回答対象者へのメール通知を設定する</a>
-                                            <div id="mail_context" style="display:none;">
-                                                <input name="mail_flag" type="radio" value="A" id="mail_flag_A" checked="checked"><label for="mail_flag_A">通知する</label><br>
-                                                <input name="mail_flag" type="radio" value="N" id="mail_flag_N"><label for="mail_flag_N">通知しない</label>
-                                            </div>
-                                        </div>
-                                    </td></tr>
                                     </tbody></table>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td class="caption">回答期日</td>
+                        <td class="caption"><span class="required">回答期日</span></td>
                         <td class="auiSetDate">
                             <div class="mb5">
                                 <div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="field_421Span">
@@ -682,7 +667,7 @@
                                     </div>
                                     <div class="alignleft">
                                         <span name="field_421_view" id="field_421_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly">
-                                            ---- 年 -- 月 -- 日</span>
+                                            2013年12月31日(金)</span>
                                         <input type="hidden" id="field_421" name="field_421" value="2013/11/25" dojoattachpoint="valueNode">
                                         <input type="hidden" id="field_421_year" name="field_421_year" value="" dojoattachpoint="valueYearNode">
                                         <input type="hidden" id="field_421_month" name="field_421_month" value="" dojoattachpoint="valueMonthNode">
@@ -691,6 +676,10 @@
                                 </div>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="caption">匿名回答</td>
+                        <td><label for="surveyAnonym"><input type="checkbox" id="surveyAnonym" /> 匿名での回答にする</label></td>
                     </tr>
                     </tbody>
                 </table>
@@ -707,12 +696,12 @@
 
 
 
-<!-- #modalDialog_svdetail1 -->
-<div id="modalDialog_svdetail1" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 50px; margin-left:-275px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+<!-- #modalDialog_svdetail -->
+<div id="modalDialog_svdetail" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 50px; margin-left:-275px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
     <div class="auiPopup clearfix">
         <div class="auiPopupHead clearfix">
             <div class="auiPopupTool">
-                <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_svdetail1');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+                <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_svdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
                 </div>
             </div>
             <div class="auiPopupTitle">アンケート詳細</div>
@@ -727,35 +716,142 @@
 
                 <tr>
                     <td class="caption">タイトル</td>
-                    <td>回答項目がフリーテキストの場合</td>
+                    <td>アンケートタイトル</td>
                 </tr>
                 <tr>
                     <td class="caption">質問内容</td>
-                    <td>内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。</td>
+                    <td>内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。<br/>内容テキスト。内容テキスト。内容テキスト。</td>
                 </tr><tr>
                     <td class="caption">回答項目</td>
+                    <td>
+                        <table class="w100">
+                            <tr>
+                                <td>項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名</td>
+                                <td class="w20"> 33.5%<br/><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist');popupToggle(this,'modalDialog_svdetail');">回答者(10)</a></td>
+                            </tr>
+                            <tr>
+                                <td>項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名</td>
+                                <td>33%<br/><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist');popupToggle(this,'modalDialog_svdetail');">回答者(9)</a></td>
+                            </tr>
+                            <tr>
+                                <td>項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名</td>
+                                <td>33.5%<br/><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist');popupToggle(this,'modalDialog_svdetail');">回答者(10)</a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">回答率</td>
+                    <td>96.7% (29/30)<br /><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist');popupToggle(this,'modalDialog_svdetail');">未回答者(1)</a></td>
+                </tr>
+                <tr>
+                    <td class="caption">作成者</td>
                     <td>木村 一郎</td>
                 </tr>
                 <tr>
                     <td class="caption">作成日</td>
-                    <td>11月13日</td>
+                    <td>12月10日</td>
                 </tr>
                 <tr>
-                    <td class="caption">更新日</td>
-                    <td>11月13日</td>
+                    <td class="caption">受付開始日</td>
+                    <td>12月11日</td>
+                </tr>
+                <tr>
+                    <td class="caption">回答期日</td>
+                    <td>12月31日</td>
                 </tr>
                 </tbody>
             </table>
                 <div class="center auiPopupButtons">
                     <input name="ajaxbuttonEdit" class="button" type="button" value="編集する" onclick="aimluck.io.openDialog(this, '', '', aipo.gpdb.onLoadGpdbDialog);">
                     <input name="ajaxbuttonDelete" class="button" type="button" value="削除する" onclick="aimluck.io.ajaxDeleteSubmit(this, '', 'indicator-dlg-', '', aipo.gpdb.onReceiveMessage);">
-                    <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_svdetail1');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+                    <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_svdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
                 </div>
             </form>
         </div>
     </div>
 </div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
-<!-- /modalDialog_svdetail1 -->
+<!-- /modalDialog_svdetail -->
+
+
+
+<div id="modalDialog_userlist" class="modalDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 50px; margin-left:-275px">
+    <span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+        <div class="borderAuiHead">
+            <div id="messageDiv"></div>
+            <div class="auiPopup clearfix">
+                <div class="auiPopupHead clearfix">
+                    <div class="auiPopupTool">
+                        <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_userlist');popupToggle(this,'modalDialog_svdetail');"><span><i class="icon-remove"></i></span></a>
+                        </div>
+                    </div>
+                    <div class="auiPopupTitle">回答者</div>
+                </div>
+                <div class="roundBlockContent">
+                    <div class="auiListWrapper">
+                        <ul class="userList">
+                            <li>
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img style="border-radius: 3px;" src="../themes/default/images/common/avatar_default3.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="name">木村 一郎</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img style="border-radius: 3px;" src="../themes/default/images/common/avatar_default3.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="name">木村 一郎</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img style="border-radius: 3px;" src="../themes/default/images/common/avatar_default3.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="name">木村 一郎</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img style="border-radius: 3px;" src="../themes/default/images/common/avatar_default3.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="name">木村 一郎</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img style="border-radius: 3px;" src="../themes/default/images/common/avatar_default3.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="name">木村 一郎</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img style="border-radius: 3px;" src="../themes/default/images/common/avatar_default3.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="name">木村 一郎</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="center auiPopupButtons pt10">
+                    <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_userlist');popupToggle(this,'modalDialog_svdetail');">
+                </div>
+            </div>
+        </div>
+    </div>
+    <span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+    <span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+</div>
 
 
 

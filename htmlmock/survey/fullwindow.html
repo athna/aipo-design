@@ -566,20 +566,14 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="caption">回答形式</td>
+                        <td class="caption">回答項目</td>
                         <td>
-                            <select onchange="selectToggle(this,'select','surveyAnsertypeSelect');selectToggle(this,'text','surveyAnsertypeText');">
+                            <select onchange="selectToggle(this,'select','surveyAnsertypeSelect');">
                                 <option value="text">テキスト</option>
                                 <option value="select">選択（択一）</option>
                                 <option value="select">選択（複数）</option>
                             </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="caption">回答項目</td>
-                        <td>
-                            <div id="surveyAnsertypeText">自由入力</div>
-                            <div id="surveyAnsertypeSelect" style="display: none;">
+                            <div id="surveyAnsertypeSelect" class="mt5" style="display: none;">
                                 <input type="text" name="" class="w100 mb5" id=""/><br/>
                                 <input type="text" name="" class="w100 mb5" id=""/><br/>
                                 <input type="text" name="" class="w100 mb5" id=""/><br/>
@@ -590,8 +584,11 @@
                     <tr>
                         <td class="caption">回答対象者</td>
                         <td>
-                            <label><input type="radio" name="anser" value="all" onClick="selectToggle(this,'select','memberField');"/> 全メンバー</label><br/>
-                            <label><input type="radio" name="anser" value="select" onClick="selectToggle(this,'select','memberField');" /> 選択</label>
+                            <select onchange="selectToggle(this,'select','memberField');">
+                                <option value="text">全メンバー</option>
+                                <option value="select">選択</option>
+                            </select>
+
                             <div id="memberField" style="display: none;">
                                 <table class="none">
                                     <tbody><tr><td>

@@ -295,13 +295,18 @@
                     <a title="データを追加する" href="javascript:void(0)" class="auiButtonAction" onclick="popupToggle(this,'modalDialog_svcreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">アンケートを追加する</a>
                 </div>
                 <div id="subNavigation">
-                <div class="auiWidget clearfix">
-                  <ul>
-                    <li class="active"><a href="fullwindow.html" onclick="">受付中のアンケート</a></li>
-                    <li><a href="fullwindow.html" onclick="">終了したアンケート</a></li>
-                  </ul>
+                    <div class="auiWidget clearfix">
+                      <ul>
+                        <li class="active"><a href="fullwindow.html" onclick="">受付中のアンケート</a></li>
+                        <li><a href="fullwindow_end.html" onclick="">終了したアンケート</a></li>
+                      </ul>
+                    </div>
+                    <div class="auiWidget clearfix">
+                        <ul>
+                            <li><a href="fullwindow_make.html" onclick="">追加したアンケート</a></li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -400,13 +405,7 @@
             </ul>
             <p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
           </div>
-          <!-- ##################################################
-					●開発担当者へ
-							
-					Twitter設定前は下記を表示。
-					タイトルの（）内は削ってください。
-				
-					################################################## -->
+
           <div class="tipDivider"></div>
           <div class="tipBox clearfix">
             <div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
@@ -415,13 +414,7 @@
               <p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> Twitter連携の設定</a></p>
             </div>
           </div>
-          <!-- ##################################################
-					●開発担当者へ
-							
-					Twitter連携解除直後は下記を表示。
-					タイトルの（）内は削ってください。
-				
-					################################################## -->
+
           <div class="tipDivider"></div>
           <div class="tipBox clearfix">
             <div class="tipTitle">ご意見・ご要望（Twitter連携解除直後こちら表示）</div>
@@ -431,13 +424,7 @@
               <p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> Twitter連携の設定</a></p>
             </div>
           </div>
-          <!-- ##################################################
-					●開発担当者へ
-							
-					Twitter設定後は下記を表示。
-					タイトルの（）内は削ってください。
-				
-					################################################## -->
+
           <div class="tipDivider"></div>
           <div class="tipBox clearfix">
             <div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
@@ -451,13 +438,7 @@
               </div>
             </div>
           </div>
-          <!-- ##################################################
-					●開発担当者へ
-							
-					ツイート後は下記を表示。
-					タイトルの（）内は削ってください。
-				
-					################################################## -->
+
           <div class="tipDivider"></div>
           <div class="tipBox clearfix">
             <div class="tipTitle">ご意見・ご要望（ツイート後こちら表示）</div>
@@ -586,7 +567,7 @@
 
 
 <!-- #modalDialog_svcreate -->
-<div id="modalDialog_svcreate" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: block; left: 50%; top: 50px; margin-left:-275px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+<div id="modalDialog_svcreate" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 50px; margin-left:-275px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
 
     <div class="auiPopup clearfix">
         <div class="auiPopupHead clearfix">
@@ -769,35 +750,104 @@
                     <td>アンケートタイトル</td>
                 </tr>
                 <tr>
-                    <td class="caption">質問内容</td>
+                    <td class="caption">内容</td>
                     <td>内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。内容テキスト。<br/>内容テキスト。内容テキスト。内容テキスト。</td>
-                </tr><tr>
+                </tr>
+                <tr>
+                    <td class="caption">回答形式</td>
+                    <td>1つだけ選択</td>
+                </tr>
+
+                <tr>
                     <td class="caption">回答項目</td>
                     <td>
                         <table class="w100">
                             <tr>
                                 <td>
-                                    項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名
-                                    <div><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">回答者: 10</a></div>
+                                    <div class="p">項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名項目名</div>
+                                    <ul>
+                                        <li>アーノルド シュワルツェネッガー</li>
+                                        <li>シルベスター スタローン</li>
+                                        <li>伊藤 博文</li>
+                                        <li>黒田 清隆</li>
+                                        <li>松方 正義</li>
+                                        <li><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">…計10名</a></li>
+                                    </ul>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    項目名項目名項目名項目
-                                    <div><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">回答者: 9</a></div>
+                                    <div class="p">項目名項目名項目名項目名</div>
+                                    <ul>
+                                        <li>アーノルド シュワルツェネッガー</li>
+                                        <li>シルベスター スタローン</li>
+                                        <li>伊藤 博文</li>
+                                        <li>黒田 清隆</li>
+                                        <li>松方 正義</li>
+                                        <li><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">…計9名</a></li>
+                                    </ul>
                                 </td>
                             </tr>
                             <tr>
-                                <td>項目名項目名項目名項目
-                                <div><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">回答者: 10</a></div>
+                                <td>
+                                    <div class="p">項目名項目名項目名項目名</div>
+                                    <ul>
+                                        <li>アーノルド シュワルツェネッガー</li>
+                                        <li>シルベスター スタローン</li>
+                                        <li>伊藤 博文</li>
+                                        <li>黒田 清隆</li>
+                                        <li>松方 正義</li>
+                                        <li><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">…計10名</a></li>
+                                    </ul>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 <tr>
+                    <td class="caption">回答対象者</td>
+                    <td>
+                        <ul>
+                            <li>アーノルド シュワルツェネッガー</li>
+                            <li>シルベスター スタローン</li>
+                            <li>伊藤 博文</li>
+                            <li>黒田 清隆</li>
+                            <li>松方 正義</li>
+                            <li><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">…計30名</a></li>
+                        </ul>
+
+                    </td>
+                </tr>
+                <tr>
                     <td class="caption">回答率</td>
-                    <td>96.7% (29/30)<br /><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist2');popupToggle(this,'modalDialog_svdetail');">未回答者: 1</a></td>
+                    <td>96.7% (29/30)
+                            <!--a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist2');popupToggle(this,'modalDialog_svdetail');">未回答者: 1</a-->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">未回答者</td>
+                    <td>
+                        <ul>
+                            <li>アーノルド シュワルツェネッガー</li>
+                            <li>シルベスター スタローン</li>
+                            <li>伊藤 博文</li>
+                            <li>黒田 清隆</li>
+                            <li>松方 正義</li>
+                            <li><a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_userlist1');popupToggle(this,'modalDialog_svdetail');">…計10名</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">回答期日</td>
+                    <td>2013年12月31日</td>
+                </tr>
+                <tr>
+                    <td class="caption">匿名回答</td>
+                    <td>匿名回答にしない</td>
+                </tr>
+                <tr>
+                    <td class="caption">状態</td>
+                    <td>終了</td>
                 </tr>
                 <tr>
                     <td class="caption">作成者</td>
@@ -807,28 +857,13 @@
                     <td class="caption">作成日</td>
                     <td>2013年12月10日</td>
                 </tr>
-                <tr>
-                    <td class="caption">回答期日</td>
-                    <td>2013年12月31日</td>
-                </tr>
-                <tr>
-                    <td class="caption">匿名回答</td>
-                    <td>匿名の回答にしない</td>
-                </tr>
-                <tr>
-                    <td class="caption">状態</td>
-                    <td>受付中</td>
-                </tr>
                 </tbody>
             </table>
                 <div class="center auiPopupButtons">
-                    <input name="ajaxbuttonDelete" class="button" type="button" value="受付終了する" onclick="">
+                    <input name="ajaxbuttonDelete" class="button" type="button" value="編集する" onclick="">
                     <input name="ajaxbuttonDelete" class="button" type="button" value="削除する" onclick="">
                     <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_svdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
                 </div>
-                <p>※開発向けコメント</p>
-                <p>受付中アンケートを期日前に締め切る「受付終了」ボタンがあってもよい？</p>
-                <p>受付中、終了どちらに関わらずアンケートは編集できない方がよい？（回答後に回答者の意図に反する内容にできてしまうことは問題。内容を間違えたら削除して作りなおす流れ）<br />回答が1つでもついたアンケートは編集不可とする？</p>
             </form>
         </div>
     </div>
@@ -959,6 +994,6 @@
 
 
 <!-- modalBackground-->
-<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: block;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
+<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
 </body>
 </html>

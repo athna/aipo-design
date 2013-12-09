@@ -116,22 +116,31 @@
 						output += '</div>';
 						output += '</div>';
 					}
-					output += '<span class="fb-wall-date accordion-toggle" data-toggle="collapse" href="#aipoinfo_'+k+'"><span class="fs11">';
+					output += '<span class="fb-wall-date accordion-toggle" data-toggle="collapse" href="#aipoinfo_'+k+'"><span class="fs11 date">';
 					if(exists(data[k].icon)) output += '<img class="fb-wall-icon" src="'+data[k].icon+'" title="'+data[k].type+'" alt="" />';
 					output += formatDate(data[k].created_time);
 					output += '</span>';
 					if(exists(data[k].message)) {
 						
-						 output += '<span class="title ml20">'+(data[k].message.substr(0,28))+' ...</span>';
+						 output += '<span class="title">';
+						 if((data[k].message).indexOf("障害情報")!=-1){
+							 output += '<span class="mr5">[障害情報]</span>';
+							 } else if((data[k].message).indexOf("アップデート")!=-1){
+							 output += '<span class="mr5">[アップデート情報]</span>';
+							 } else {
+							 output += '<span class="mr5">[その他]</span>';
+							 } 
+						 output += (data[k].message.substr(0,28))+' ...</span>';
 					}
 					output += '</span>';
 					
 					// massage
 					
 					output += '<div class="accordion-body collapse" id="aipoinfo_'+k+'"><div class="fb-wall-message">';
-					output += '<a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank">'+data[k].from.name+'</a> ';
+					output += '<div class="fb-wall-icon"><a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank">'+data[k].from.name+'</a></div>';
+					output += '<div class="fb-wall-inner">';
 					if(exists(data[k].message)) output += modText(data[k].message);
-					output += '</div></div>';
+					output += '</div></div></div>';
 
 				
 					// Likes -------------------------------------------------------------------------------------------------------------------------------
@@ -229,9 +238,11 @@
 					if(hour==0)hour==12;
 					else if(hour>12)hour=hour-12;
 					if(hour<10)hour='0'+hour;
-					return date.getFullYear()+'年'+month+'月'+day+'日 '+ampm+' '+hour+'時'+minute+'分';
+					//return date.getFullYear()+'年'+month+'月'+day+'日 '+ampm+' '+hour+'時'+minute+'分';
+					return date.getFullYear()+'年'+month+'月'+day+'日';
 				}
-				return date.getFullYear()+'年'+month+'月'+day+'日 '+hour+'時'+minute+'分';
+				//return date.getFullYear()+'年'+month+'月'+day+'日 '+hour+'時'+minute+'分';
+				return date.getFullYear()+'年'+month+'月'+day+'日';
 			}
 			
 			/******************************************************************************************************

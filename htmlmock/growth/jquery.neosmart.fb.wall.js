@@ -124,21 +124,27 @@
 						
 						 output += '<span class="title">';
 						 if((data[k].message).indexOf("障害情報")!=-1){
-							 output += '<span class="mr5">[障害情報]</span>';
+							 output += '障害復旧のご報告';
 							 } else if((data[k].message).indexOf("アップデート")!=-1){
-							 output += '<span class="mr5">[アップデート情報]</span>';
+							 output += 'アップデートのお知らせ';
 							 } else {
-							 output += '<span class="mr5">[その他]</span>';
+							 output += '<span>その他のお知らせ';
 							 } 
-						 output += (data[k].message.substr(0,28))+' ...</span>';
+						 //output += (data[k].message.substr(0,28))+' ...</span>';
+						 output += '</span>';
 					}
 					output += '</span>';
 					
 					// massage
 					
 					output += '<div class="accordion-body collapse" id="aipoinfo_'+k+'"><div class="fb-wall-message">';
-					output += '<div class="fb-wall-icon"><a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank">'+data[k].from.name+'</a></div>';
-					output += '<div class="fb-wall-inner">';
+					output += '<div class="fb-wall-icon">';
+										output += '<a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" target="_blank">';
+					output += '<img class="fb-wall-avatar" src="'+getAvatarURL(data[k].from.id)+'" />';
+					output += '</a>';
+					output += '</div>';
+					output += '<div class="fb-wall-inner"><a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank">'+data[k].from.name+'</a>';
+					
 					if(exists(data[k].message)) output += modText(data[k].message);
 					output += '</div></div></div>';
 

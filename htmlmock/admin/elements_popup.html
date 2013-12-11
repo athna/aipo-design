@@ -140,20 +140,17 @@
 <table class="listTable wide">
   <tbody>
     <tr>
+      <td class="caption">ドメイン自動振り分け</td>
+<td><label onclick="" for="public_flag_a1" class="mr20"><input type="radio" onclick="" id="public_flag_a1" value="O" name="public_flag_a" class="mr5">有効</label><label onclick="" for="public_flag_a2" class="mr20"><input type="radio" onclick="" id="public_flag_a2" value="P" checked="checked" name="public_flag_a" class="mr5">無効</label>
+</td>
+  </tr>
+    <tr>
       <td class="caption">ドメイン</td>
       <td>未設定</td>
     </tr>
     <tr>
-      <td class="caption">ドメイン自動振り分け</td>
-<td><p><label onclick="" for="public_flag_a1"><input type="radio" onclick="" id="public_flag_a1" value="O" name="public_flag_a" class="mr10">有効</label></p>
-<p><label onclick="" for="public_flag_a2"><input type="radio" onclick="" id="public_flag_a2" value="P" checked="checked" name="public_flag_a" class="mr10">無効</label>
-</p></td>
-  </tr>
-    <tr>
       <td class="caption">メンバー招待</td>
-      <td><p><label onclick="" for="public_flag_b1"><input type="radio" onclick="" id="public_flag_b1" value="O" name="public_flag_b" class="mr10">全員</label></p>
-<p><label onclick="" for="public_flag_b2"><input type="radio" onclick="" id="public_flag_b2" value="P" checked="checked" name="public_flag_b" class="mr10">管理者のみ</label>
-</p></td>
+      <td><label onclick="" for="public_flag_b1" class="mr20"><input type="radio" onclick="" id="public_flag_b1" value="O" name="public_flag_b" class="mr5">全員</label><label onclick="" for="public_flag_b2" class="mr20"><input type="radio" onclick="" id="public_flag_b2" value="P" checked="checked" name="public_flag_b" class="mr5">管理者のみ</label></td>
     </tr>
   </tbody>
 </table>
@@ -189,24 +186,28 @@
 <table class="listTable wide">
   <tbody>
     <tr>
-      <td class="caption">ドメイン</td>
-      <td>未設定</td>
-    </tr>
-    <tr>
       <td class="caption">ドメイン自動振り分け</td>
-<td><p><label onclick="" for="public_flag_a3"><input type="radio" onclick="" checked="checked" id="public_flag_a3" value="O" name="public_flag_a" class="mr10">有効</label></p>
-<p><label onclick="" for="public_flag_a4"><input type="radio" onclick="" id="public_flag_a4" value="P" name="public_flag_a" class="mr10">無効</label>
-</p></td>
+<td><label onclick="" for="public_flag_a3" class="mr20"><input type="radio" onclick="" checked="checked" id="public_flag_a3" value="O" name="public_flag_a" class="mr5">有効</label><label onclick="" for="public_flag_a4" class="mr20"><input type="radio" onclick="" id="public_flag_a4" value="P" name="public_flag_a" class="mr5">無効</label>
+</td>
   </tr>
       <tr>
-      <td class="caption"><span class="required">メールアドレス</span></td>
-      <td><input type="text" style="ime-mode:active" maxlength="50" value="kimura@sample.com" id="company_name" name="company_name" class="text w100"></td>
+      <td class="caption">ドメイン</td>
+      <td><select class="" tabindex="3" name="domainId" id="domain-id">
+<option value="130">samplemods.jp（yamada@samplemods.jp）</option>
+<option value="290">samplelomo.jp（saito@samplelomo.jp）</option>
+<option value="380">sampleoops.jp（kanamoto@sampleoops.jp）</option>
+<option value="440">samplemain.jp（saionji@samplemain.jp）</option>
+</select>
+<div class="mt5">
+<input type="button" onclick="aipo.msgboard.formSwitchCategoryInput(this)" value="新しく入力する" class="button" name="category_input_button">
+</div>
+</td>
     </tr>
+
     <tr>
       <td class="caption">メンバー招待</td>
-      <td><p><label onclick="" for="public_flag_b3"><input type="radio" onclick="" checked="checked" id="public_flag_b3" value="O" name="public_flag_b" class="mr10">全員</label></p>
-<p><label onclick="" for="public_flag_b4"><input type="radio" onclick="" id="public_flag_b4" value="P" name="public_flag_b" class="mr10">管理者のみ</label>
-</p></td>
+      <td><label onclick="" for="public_flag_b3" class="mr20"><input type="radio" onclick="" checked="checked" id="public_flag_b3" value="O" name="public_flag_b" class="mr5">全員</label><label onclick="" for="public_flag_b4" class="mr20"><input type="radio" onclick="" id="public_flag_b4" value="P" name="public_flag_b" class="mr5">管理者のみ</label>
+</td>
     </tr>
   </tbody>
 </table>
@@ -218,6 +219,59 @@
 		</div>
 	</div>
       <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
+							
+							ドメイン設定 (メールアドレスで新しく入力)
+							
+							################################################################################ -->
+      <a id="domain" name="domain"></a>
+      <!--<div class="auiPopup clearfix">
+		<div class="auiPopupHead clearfix">
+	    	<div class="auiPopupTool">
+	    			        	<div><a onclick="aipo.common.hideDialog();" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a>
+</div>
+	    	</div>
+	    		<div class="auiPopupTitle">ドメイン設定 (有効)</div>
+		</div>
+		<div class="roundBlockContent">
+<div id="messageDiv"></div>
+ <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+<form onsubmit="aimluck.io.submit(this,'indicator-dlg-', '131', aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/131?template=SystemCompanyFormJSONScreen" id="form131" name="form131">
+<input type="hidden" value="systemcompanyForm" name="_name">
+<input type="hidden" value="0dcffa4260c1e16fdbc1a0fbb2f4b039" name="secid">
+<input type="hidden" value="update" name="mode">
+<table class="listTable wide">
+  <tbody>
+    <tr>
+      <td class="caption">ドメイン自動振り分け</td>
+<td><label onclick="" for="public_flag_a3" class="mr20"><input type="radio" onclick="" checked="checked" id="public_flag_a3" value="O" name="public_flag_a" class="mr5">有効</label><label onclick="" for="public_flag_a4" class="mr20"><input type="radio" onclick="" id="public_flag_a4" value="P" name="public_flag_a" class="mr5">無効</label>
+</td>
+  </tr>
+      <tr>
+      <td class="caption">ドメイン</td>
+      <td><div><input type="text" style="width:70%;ime-mode:disabled" maxlength="50" value="" id="email2" name="email2" class="text"></div><div class="mt5"><span class="caution">あなたのメールアドレスとして設定されます。<br>
+メールアドレスの認証が必要になります。</span></div> 
+      <div class="mt5">
+<input type="button" onclick="aipo.msgboard.formSwitchCategoryInput(this)" value="一覧から選択する" class="button" name="category_input_button">
+</div>
+</td>
+    </tr>
+
+    <tr>
+      <td class="caption">メンバー招待</td>
+      <td><label onclick="" for="public_flag_b3" class="mr20"><input type="radio" onclick="" checked="checked" id="public_flag_b3" value="O" name="public_flag_b" class="mr5">全員</label><label onclick="" for="public_flag_b4" class="mr20"><input type="radio" onclick="" id="public_flag_b4" value="P" name="public_flag_b" class="mr5">管理者のみ</label>
+</td>
+    </tr>
+  </tbody>
+</table>
+<div class="center auiPopupButtons">
+<input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="更新する" class="auiButtonAction" name="eventSubmit_doSystem_company_update">
+<input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+</div>
+</form>
+		</div>
+	</div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>-->
       <!-- ################################################################################
 							
 							メンバー追加/1ユーザーずつ追加

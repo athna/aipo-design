@@ -38,11 +38,186 @@
     <div class="modalDialog" style="margin:10px auto 400px; position:static">
       <h3>ポップアップ一覧</h3>
       <ul class="mb30">
+        <li><a href="#company">会社情報編集</a></li>
+        <li><a href="#domain_none">ドメイン設定（無効）</a></li>
+        <li><a href="#domain">ドメイン設定（有効）</a></li>
         <li><a href="#guide01b">1ユーザーずつ追加</a></li>
         <li><a href="#guide01">メールで一括追加</a></li>
         <li><a href="#guide01c">CSVで一括追加</a></li>
       </ul>
       <!-- ▼ポップアップ群ここから▼ -->
+      <!-- ################################################################################
+							
+							会社情報編集
+							
+							################################################################################ -->
+      <a id="company" name="company"></a>
+      <div class="auiPopup clearfix">
+		<div class="auiPopupHead clearfix">
+	    	<div class="auiPopupTool">
+	    			        	<div><a onclick="aipo.common.hideDialog();" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a>
+</div>
+	    	</div>
+	    		<div class="auiPopupTitle">会社情報編集</div>
+		</div>
+		<div class="roundBlockContent">
+<div id="messageDiv"></div>
+ <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+<form onsubmit="aimluck.io.submit(this,'indicator-dlg-', '131', aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/131?template=SystemCompanyFormJSONScreen" id="form131" name="form131">
+<input type="hidden" value="systemcompanyForm" name="_name">
+<input type="hidden" value="0dcffa4260c1e16fdbc1a0fbb2f4b039" name="secid">
+<input type="hidden" value="update" name="mode">
+<table class="listTable wide">
+  <tbody>
+    <tr>
+      <td class="caption"><span class="required">会社名</span>
+</td>
+      <td><input type="text" style="ime-mode:active" maxlength="50" value="株式会社サンプル" id="company_name" name="company_name" class="text w100">
+</td>
+    </tr>
+    <tr>
+      <td class="caption">郵便番号</td>
+    <td>
+<input type="text" style="width:20%;ime-mode:disabled" maxlength="3" value="" id="zipcode1" name="zipcode1" class="text">
+-&nbsp;<input type="text" style="width:20%;ime-mode:disabled" maxlength="4" value="" id="zipcode2" name="zipcode2" class="text">
+<span class="caution">（半角数字）</span>
+    </td>
+  </tr>
+    <tr>
+      <td class="caption">住所</td>
+      <td><input type="text" style="ime-mode:active" maxlength="50" value="" id="address" name="address" class="text w100">
+</td>
+    </tr>
+    <tr>
+      <td class="caption">電話番号</td>
+    <td>
+<input type="text" style="width:20%;ime-mode:disabled" maxlength="5" value="" id="telephone1" name="telephone1" class="text">
+-&nbsp;<input type="text" style="width:20%;ime-mode:disabled" maxlength="4" value="" id="telephone2" name="telephone2" class="text">
+-&nbsp;<input type="text" style="width:20%;ime-mode:disabled" maxlength="4" value="" id="telephone3" name="telephone3" class="text">
+<span class="caution">（半角数字）</span>
+    </td>
+  </tr>
+    <tr>
+      <td class="caption">FAX番号</td>
+    <td>
+<input type="text" style="width:20%;ime-mode:disabled" maxlength="5" value="" id="fax_number1" name="fax_number1" class="text">
+-&nbsp;<input type="text" style="width:20%;ime-mode:disabled" maxlength="4" value="" id="fax_number2" name="fax_number2" class="text">
+-&nbsp;<input type="text" style="width:20%;ime-mode:disabled" maxlength="4" value="" id="fax_number3" name="fax_number3" class="text">
+<span class="caution">（半角数字）</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="center auiPopupButtons">
+<input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="更新する" class="auiButtonAction" name="eventSubmit_doSystem_company_update">
+<input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+</div>
+</form>
+		</div>
+	</div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
+							
+							ドメイン設定 (無効)
+							
+							################################################################################ -->
+      <a id="domain_none" name="domain_none"></a>
+      <div class="auiPopup clearfix">
+		<div class="auiPopupHead clearfix">
+	    	<div class="auiPopupTool">
+	    			        	<div><a onclick="aipo.common.hideDialog();" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a>
+</div>
+	    	</div>
+	    		<div class="auiPopupTitle">ドメイン設定 (無効)</div>
+		</div>
+		<div class="roundBlockContent">
+<div id="messageDiv"></div>
+ <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+<form onsubmit="aimluck.io.submit(this,'indicator-dlg-', '131', aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/131?template=SystemCompanyFormJSONScreen" id="form131" name="form131">
+<input type="hidden" value="systemcompanyForm" name="_name">
+<input type="hidden" value="0dcffa4260c1e16fdbc1a0fbb2f4b039" name="secid">
+<input type="hidden" value="update" name="mode">
+<table class="listTable wide">
+  <tbody>
+    <tr>
+      <td class="caption">ドメイン</td>
+      <td>未設定</td>
+    </tr>
+    <tr>
+      <td class="caption">ドメイン自動振り分け</td>
+<td><p><label onclick="" for="public_flag_a1"><input type="radio" onclick="" id="public_flag_a1" value="O" name="public_flag_a" class="mr10">有効</label></p>
+<p><label onclick="" for="public_flag_a2"><input type="radio" onclick="" id="public_flag_a2" value="P" checked="checked" name="public_flag_a" class="mr10">無効</label>
+</p></td>
+  </tr>
+    <tr>
+      <td class="caption">メンバー招待</td>
+      <td><p><label onclick="" for="public_flag_b1"><input type="radio" onclick="" id="public_flag_b1" value="O" name="public_flag_b" class="mr10">全員</label></p>
+<p><label onclick="" for="public_flag_b2"><input type="radio" onclick="" id="public_flag_b2" value="P" checked="checked" name="public_flag_b" class="mr10">管理者のみ</label>
+</p></td>
+    </tr>
+  </tbody>
+</table>
+<div class="center auiPopupButtons">
+<input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="更新する" class="auiButtonAction" name="eventSubmit_doSystem_company_update">
+<input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+</div>
+</form>
+		</div>
+	</div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
+							
+							ドメイン設定 (有効)
+							
+							################################################################################ -->
+      <a id="domain" name="domain"></a>
+      <div class="auiPopup clearfix">
+		<div class="auiPopupHead clearfix">
+	    	<div class="auiPopupTool">
+	    			        	<div><a onclick="aipo.common.hideDialog();" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a>
+</div>
+	    	</div>
+	    		<div class="auiPopupTitle">ドメイン設定 (有効)</div>
+		</div>
+		<div class="roundBlockContent">
+<div id="messageDiv"></div>
+ <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+<form onsubmit="aimluck.io.submit(this,'indicator-dlg-', '131', aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/131?template=SystemCompanyFormJSONScreen" id="form131" name="form131">
+<input type="hidden" value="systemcompanyForm" name="_name">
+<input type="hidden" value="0dcffa4260c1e16fdbc1a0fbb2f4b039" name="secid">
+<input type="hidden" value="update" name="mode">
+<table class="listTable wide">
+  <tbody>
+    <tr>
+      <td class="caption">ドメイン</td>
+      <td>未設定</td>
+    </tr>
+    <tr>
+      <td class="caption">ドメイン自動振り分け</td>
+<td><p><label onclick="" for="public_flag_a3"><input type="radio" onclick="" checked="checked" id="public_flag_a3" value="O" name="public_flag_a" class="mr10">有効</label></p>
+<p><label onclick="" for="public_flag_a4"><input type="radio" onclick="" id="public_flag_a4" value="P" name="public_flag_a" class="mr10">無効</label>
+</p></td>
+  </tr>
+      <tr>
+      <td class="caption"><span class="required">メールアドレス</span></td>
+      <td><input type="text" style="ime-mode:active" maxlength="50" value="kimura@sample.com" id="company_name" name="company_name" class="text w100"></td>
+    </tr>
+    <tr>
+      <td class="caption">メンバー招待</td>
+      <td><p><label onclick="" for="public_flag_b3"><input type="radio" onclick="" checked="checked" id="public_flag_b3" value="O" name="public_flag_b" class="mr10">全員</label></p>
+<p><label onclick="" for="public_flag_b4"><input type="radio" onclick="" id="public_flag_b4" value="P" name="public_flag_b" class="mr10">管理者のみ</label>
+</p></td>
+    </tr>
+  </tbody>
+</table>
+<div class="center auiPopupButtons">
+<input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="更新する" class="auiButtonAction" name="eventSubmit_doSystem_company_update">
+<input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+</div>
+</form>
+		</div>
+	</div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
       <!-- ################################################################################
 							
 							メンバー追加/1ユーザーずつ追加

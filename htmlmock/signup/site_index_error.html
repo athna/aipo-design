@@ -26,6 +26,8 @@ padding: 110px 0 100px;
 .signUpBox {
 width:410px;
 padding:0;
+position:relative;
+z-index:11;
 }
 .signUpBox input[type="text"].text-large {
 padding: 10px !important;
@@ -37,22 +39,12 @@ width:270px;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 }
-
-/*** IE7Hack ***/
-*:first-child + html .signUpBox input[type="text"].text-large {
-height: 20px !important;
-padding: 7px 5px !important;
-width:254px;
-}
-/*** / IE7Hack ***/
-
 .signUpBox .btn-middle {
 width:100px;
 }
 .signUpBox .well {
 padding:13px;
 margin-bottom:0;
-
 }
 .signUpBoxError{
 padding-right:14px;
@@ -64,6 +56,16 @@ bottom:10px;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 }
+/*** IE7Hack ***/
+*:first-child + html .signUpBox input[type="text"].text-large {
+height: 20px !important;
+padding: 7px 5px !important;
+width:254px;
+}
+*:first-child + html .signUpBoxError{
+width:380px;
+}
+/*** / IE7Hack ***/
 @media (max-width: 979px) {
 #topimg .container {
 padding: 70px 0 60px;
@@ -131,7 +133,6 @@ margin:10px;
 left:0;
 right:0;
 bottom:0;
-z-index:11;
 }
 .signUpBoxError{
 width:auto;

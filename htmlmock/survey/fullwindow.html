@@ -51,6 +51,11 @@
                 $this.className += ' active'
             };
         }
+        function tooltipToggle($this,$target) {
+            document.getElementById($target).style.left=$this.getBoundingClientRect().left+'px';
+            document.getElementById($target).style.top=$this.getBoundingClientRect().top+$this.offsetHeight+'px';
+            popupToggle($this,$target);
+        }
         function selectToggle($this,$value,$target){
             if($this.value == $value){
                 document.getElementById($target).style.display='block'

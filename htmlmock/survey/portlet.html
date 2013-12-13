@@ -39,19 +39,31 @@
         <div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
       </div>
       <script>
-    function popupToggle($this,$target) {
-        if(document.getElementById($target).style.display=='none'){
-            document.getElementById($target).style.display='block'
-        }else{
-            document.getElementById($target).style.display='none'
-        }
-        if($this.className.indexOf('active')>0){
-            $this.className = $this.className.replace(' active','');
-        }else{
-            $this.className += ' active'
-        };
-    }
-    </script>
+          function popupToggle($this,$target) {
+              if(document.getElementById($target).style.display=='none'){
+                  document.getElementById($target).style.display='block'
+              }else{
+                  document.getElementById($target).style.display='none'
+              }
+              if($this.className.indexOf('active')>0){
+                  $this.className = $this.className.replace(' active','');
+              }else{
+                  $this.className += ' active'
+              };
+          }
+          function tooltipToggle($this,$target) {
+              document.getElementById($target).style.left=$this.getBoundingClientRect().left+'px';
+              document.getElementById($target).style.top=$this.getBoundingClientRect().top+$this.offsetHeight+'px';
+              popupToggle($this,$target);
+          }
+          function selectToggle($this,$value,$target){
+              if($this.value == $value){
+                  document.getElementById($target).style.display='block'
+              } else {
+                  document.getElementById($target).style.display='none'
+              }
+          }
+      </script>
       <div class="hdNavi">
         <div class="hdMessege"><a href="#">
           <div id="messegechecker" class="zero counter">0</div>

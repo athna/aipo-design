@@ -71,10 +71,6 @@ button {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.auiButtonDisabled{
-	padding:0 10px;
-}
-
 /***************************************************
 	auiForm
 --------------------------------------------------*/
@@ -1371,22 +1367,24 @@ $auiMbCaptionHeight:	18px !default;
 	auiSearch
 --------------------------------------------------*/
 .auiSearch {
-	width:100%;
-	padding-right:65px;
-    @include box-sizing(border-box);
-}
-.auiSearch:after {
-	content: "";
-	display: block;
-	clear: both;
-}
+  position:relative;
+  width:100%;
+  padding-right:65px;
+  @include box-sizing(border-box);
 
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 
-.auiSearch input.long {
-	min-width:0 !important;
-}
-.auiSearch input.text {
-	width:100%;
+  input.long {
+    min-width:0 !important;
+  }
+
+  input.text {
+    width:100%;
+  }
 }
 .auiButtonSearch {
 	position:absolute;
@@ -1399,8 +1397,13 @@ $auiMbCaptionHeight:	18px !default;
 	indicator
 --------------------------------------------------*/
 .indicatorWrap {
-	margin:0 !important;
-    float:none;
+  padding: 0 !important;
+  margin-left: 0 !important;
+  position: absolute;
+  top: 5px;
+  right: 67px;
+  background: #fff;
+  box-shadow: -7px 0 5px 0 #fff;
 }
 
 .indicator {

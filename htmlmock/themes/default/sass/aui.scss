@@ -908,9 +908,11 @@ $tabBackgroundImage:	"../images/tab.png";
         float:left;
         height:25px;
         background:url($tabBackgroundImage) left -270px no-repeat;
-    }
-    .setting a {
-        margin-top:4px;
+
+      a {
+        display: inline-block;
+        margin-top: 4px;
+      }
     }
     /* first */
     .first {
@@ -3825,6 +3827,40 @@ a.auiIconMailOpen:hover {background-position:0px -800px;}
 .auiIconArrowRightW {background-position:0 -655px;}
 .auiIconArrowBottom {background-position:0 -431px;}
 .auiIconArrowTop {background-position:0 -463px;}
+
+/***************************************************
+	auiWFicon
+--------------------------------------------------*/
+.auiWFicon {
+  @include border-radius(2px);
+}
+.auiWFicon,
+.auiWFicon [class^="icon-"] {
+  display: inline-block;
+  text-align: center;
+  height: 16px;
+  width: 16px;
+  line-height: 16px;
+  font-size: 14px;
+  vertical-align: middle;
+  color: #666666;
+  text-decoration: none;
+  @include text-shadow(none);
+}
+a:hover .auiWFicon {
+  background: $gray;
+}
+a:hover .auiWFicon [class^="icon-"] {
+  color: #fff;
+}
+[class^="icon-"] {
+  font-size: 14px;
+  color: #666666;
+}
+
+/***************************************************
+	auiIconArrow
+--------------------------------------------------*/
 
 /***************************************************
 	loader

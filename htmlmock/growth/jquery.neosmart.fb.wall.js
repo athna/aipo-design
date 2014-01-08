@@ -116,13 +116,13 @@
 						output += '</div>';
 						output += '</div>';
 					}
-					output += '<span class="fb-wall-date accordion-toggle" data-toggle="collapse" href="#aipoinfo_'+k+'"><span class="fs11 date">';
+					output += '<span class="fb-wall-date"><span class="fs11 date">';
 					if(exists(data[k].icon)) output += '<img class="fb-wall-icon" src="'+data[k].icon+'" title="'+data[k].type+'" alt="" />';
 					output += formatDate(data[k].created_time);
 					output += '</span>';
 					if(exists(data[k].message)) {
 						
-						 output += '<span class="title">';
+						 output += '<span class="title accordion-toggle" data-toggle="collapse" href="#aipoinfo_'+k+'">';
 						 if((data[k].message).indexOf("障害情報")!=-1){
 							 output += '障害復旧のご報告';
 							 } else if((data[k].message).indexOf("アップデート")!=-1){

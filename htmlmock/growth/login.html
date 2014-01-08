@@ -18,7 +18,7 @@
 <link href="/static/css/bootstrap-responsive.css" rel="stylesheet"/>
 <link href="/static/css/style.css?20130530" rel="stylesheet"/>
 <link href="/static/css/camera.css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="http://59.106.173.26/aipo-html/htmlmock/growth/jquery.neosmart.fb.wall.css" />
+<link rel="stylesheet" type="text/css" href="http://192.168.3.31/aipo.com/aipo-design/htmlmock/growth/jquery.neosmart.fb.wall.css" />
 <link rel="stylesheet" type="text/css" href="http://59.106.173.26/aipo-html/htmlmock/themes/default/css/font-awesome.min.css" />
 <!--[if IE 7]><link href="/static/css/font-awesome-ie7.min.css" rel="stylesheet"><![endif]-->
 <link href="/static/css/ie.css" rel="stylesheet">
@@ -28,25 +28,17 @@
 <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="/static/aipo/themes/iphone/img/apple-touch-icon-precomposed.png">
 <style>
-html{
-overflow-y:scroll;
+html {
+	overflow-y:scroll;
 }
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
 	width: 100% !important;
 }
-@media (min-width: 1200px) {
-#wrapper {
- padding-top: 60px;
-}
-#contents.simplified-box {
- padding: 60px 0;
-}
-#contents {
- margin-top: -60px !important;
- padding-top: 60px !important;
+@media (min-width: 768px) and (max-width: 979px) {
+ #contents {
+ padding-bottom: 20px !important;
 }
 }
-
 </style>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -103,10 +95,12 @@ overflow-y:scroll;
             </form>
           </div>
         </div>
-        <h4 class="mb5 mt0 mt20 fs12">お知らせ</h4>
-         <div id="facebookwall"></div>
-        <div class="pt10 mt10" style="border-top:1px solid #DDDDDD; height:25px;">
-          <div class="fb-like" data-href="https://www.facebook.com/aipocom.jp" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+        <div id="iframe" class="mt20">
+          <h4 class="mb5 mt0 fs12">お知らせ</h4>
+          <div id="facebookwall"></div>
+          <div class="pt10 mt10" style="border-top:1px solid #DDDDDD; height:25px;">
+            <div class="fb-like" data-href="https://www.facebook.com/aipocom.jp" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+          </div>
         </div>
       </div>
       <!-- contents END  ================================================== -->
@@ -123,7 +117,7 @@ overflow-y:scroll;
   <!-- Placed at the end of the document so the pages load faster -->
   <div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://59.106.173.26/aipo-html/htmlmock/growth/jquery.neosmart.fb.wall.js"></script>
+    <script type="text/javascript" src="http://192.168.3.31/aipo.com/aipo-design/htmlmock/growth/jquery.neosmart.fb.wall.js"></script>
     <script type="text/javascript">
 jQuery(document).ready(function($){
     $('#facebookwall').fbWall({
@@ -134,7 +128,7 @@ jQuery(document).ready(function($){
         translateLikeThis:'がいいね！といっております。',
         translateErrorNoData:'エラー',
         translatePeople:'人',
-				max:5,
+				max:4,
         timeConversion:24,
 				accessToken:'207529679428894|TCOS9ugWCS3156vyFzAgXyTuh-g'
     });

@@ -138,20 +138,15 @@
 					// massage
 					
 					output += '<div class="accordion-body collapse" id="aipoinfo_'+k+'"><div class="fb-wall-message">';
-//					output += '<div class="fb-wall-icon">';
-//					output += '<a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" target="_blank">';
-//					output += '<img class="fb-wall-avatar" src="'+getAvatarURL(data[k].from.id)+'" />';
-//					output += '</a>';
-//					output += '</div>';
-//					output += '<div class="fb-wall-inner"><a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank">'+data[k].from.name+'</a>';
-//					
-//					if(exists(data[k].message)) output += modText(data[k].message);
-//					output += '</div></div></div>';
-					output += '<div class="fb-wall-inner"><a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank"><img class="fb-wall-avatar" src="'+getAvatarURL(data[k].from.id)+'" />'+data[k].from.name+'</a>';
+					output += '<div class="fb-wall-icon">';
+					output += '<a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" target="_blank">';
+					output += '<img class="fb-wall-avatar" src="'+getAvatarURL(data[k].from.id)+'" />';
+					output += '</a>';
+					output += '</div>';
+					output += '<div class="fb-wall-inner"><a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank">'+data[k].from.name+'</a>';
 					
 					if(exists(data[k].message)) output += modText(data[k].message);
 					output += '</div></div></div>';
-
 				
 					// Likes -------------------------------------------------------------------------------------------------------------------------------
 					if(exists(data[k].likes)){

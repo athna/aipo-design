@@ -26,6 +26,28 @@
 <!-- Le fav and touch icons -->
 <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="/static/aipo/themes/iphone/img/apple-touch-icon-precomposed.png">
+<style>
+#contents.simplified-box .main-only .borderBox {
+overflow: visible !important;
+}
+.popover {
+font-size:12px;
+}
+*:first-child+html .popover {
+width:210px;
+}
+*:first-child+html .popover-title {
+display:none;
+}
+@media (max-width: 320px) {
+.popover {
+max-width:40%;
+}
+.popover-content {
+padding: 9px;
+}
+}
+</style>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
 <div id="wrapper">
@@ -36,14 +58,58 @@
       <div class="main-only span7">
         <div class="borderBox">
           <div>
-            <h1><a class="brand" href="http://www.aipo.com/">Aipo.com</a><span>無料登録</span></h1>
+            <h1><a class="brand" href="http://59.106.173.26/aipo-html/htmlmock/signup/site_index.html">Aipo.com</a><span>無料登録（1/3）</span></h1>
             <form class="bs-docs-example form-horizontal" action="">
               <div class="inner">
+              <style>
+ol {
+    border-bottom: 1px solid #EEE;
+    height: 13px;
+    margin: 0 0 35px;
+    position: relative;
+}
+ol {
+    line-height: 17px;
+    list-style: none;
+}
+ol, li {
+    padding: 0 !important;
+}
 
+ol li.gk6SMd {
+    background: #FF9900;
+    border: 0 none;
+    color: #FFFFFF;
+font-weight: bold;
+}
 
-              <h4 class="mt0">メールアドレスをご登録ください。</h4>
-              <p class="sub">メールアドレスのドメインを自動的にグループ化します。</p>
-                <table class="table">
+ol li {
+background: #FFFFFF;
+border: 1px solid #DDD;
+border-radius: 1em;
+color: #999999;
+display: inline-block;
+height: 25px;
+line-height: 25px;
+position: absolute;
+text-align: center;
+width: 25px;
+}
+ol li.step1 {
+    left: 0;
+}
+ol li.step3 {
+    right: 0;
+}
+ol li.step2 {
+    left: 50%;
+    margin-left: -14px;
+}
+
+</style>
+              <ol><li class="step1 gk6SMd">1</li><li class="step2">2</li><li class="step3">3</li></ol>
+              <h4 class="mt0">このメールアドレス宛に登録手続きのメールをお送りします。</h4>
+                <table class="table mb10">
                   <tbody>
                     <tr>
                       <th class="w30 middle"><span class="inline-block">メール</span><span class="inline-block">アドレス</span></th>
@@ -51,11 +117,11 @@
                     </tr>
                   </tbody>
                 </table>
-
+                <div class="mb20 right"><a href="javascript:void(0);" class=" fs11 ml5" data-toggle="popover" data-html="true" data-placement="left" data-content="Aipo.comのSプランに登録します。<br>このプランでは期間やユーザー数など無制限に、完全無料でご利用いただけます。">この登録により何ができますか？</a></div>
               </div>
               <div class="form-actions right">
                 <!--<button onClick="var win = this.ownerDocument.defaultView || this.ownerDocument.parentWindow; if (win == window) { window.location.href='../?wicket:interface=:1:form:form:back::ILinkListener::'; } ;return false" type="button" class="btn btn-middle span2 fl">後で</button>-->
-                <button type="button" class="btn btn-middle btn-primary span2" onClick="location.href='http://59.106.173.26/aipo-html/htmlmock/signup/submit.html'">送信する</button>
+                <button type="button" class="btn btn-middle btn-primary span2" onClick="location.href='http://59.106.173.26/aipo-html/htmlmock/signup/mail_error.html'">送信する</button>
                 <p class="forget-password"><i class="icon icon-question-sign mr5"></i><a href="https://login.aipo.com/">すでにアカウントをお持ちですか？</a></p>
               </div>
             </form>
@@ -63,12 +129,7 @@
         </div>
         
       </div>
-      <div class="main-only span7">
-        <div>
-        <h4>10,000社以上導入のグループウェア</h4>
-        <div class="center"><img src="http://192.168.3.31/aipo.com/aipo-design/htmlmock/signup/logo.png" alt=""></div>
-        </div>
-        </div>
+      
       <!-- contents END  ================================================== -->
     </div>
   </div>
@@ -84,6 +145,12 @@
   <div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script>
+$('.tooltip-tool').tooltip({
+            selector: "a[data-toggle=tooltip]"
+        })
+$("a[data-toggle=popover]").popover()
+</script>
   </div>
 </div>
 </body>

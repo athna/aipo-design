@@ -52,32 +52,22 @@ color:#000000;
 *:first-child+html .popover {
 width:210px;
 }
-@media (max-width: 320px) {
-.popover {
-max-width:40%;
-}
-.popover-content {
-padding: 9px;
-}
-}
 
 #contents.simplified-box h1 {
-    border-bottom: 0px solid #EEEEEE;
+    border-bottom:none;
 }
 .formStep {
     display: table;
-    list-style: none;
-    margin: 5px 0 15px;
-    padding: 0;
+    margin: 10px -6% 15px;
     position: relative;
-    width: 100%;
+    width: 112%;
 }
 .formStep li {
     display: table-cell;
     text-align: center;
-    width: 1%;
+    width: 33%;
 }
-.formStep li .step {
+.formStep li .stepCircle {
     border: 1px solid #DDD;
 		background:#FFF;
     border-radius: 100%;
@@ -103,14 +93,6 @@ padding: 9px;
     width: 100%;
     z-index: 1;
 }
-.formStep li.active .step {
-		color:#333;
-		border-color:#888;
-}
-.formStep li.complete .step {
-		color:#999;
-}
-
 .formStep li .title {
     color: #999;
     display: block;
@@ -122,11 +104,30 @@ padding: 9px;
     word-wrap: break-word;
     z-index: 300;
 }
- .formStep li.active .title {
-    color: #333;
+.formStep li.active:before, .formStep li.complete:before { /* 選択中＆入力済み */
+/*    border-color: #FF9900;*/
 }
-.formStep li.active:before, .formStep li.complete:before, .formStep li.active .step, .formStep li.complete .step {
-    border-color: #999;
+.formStep li.active .stepCircle { /* 選択中 */
+		color:#FFF;
+		background:#FF9900;
+		border: 1px solid #FF9900;
+}
+.formStep li.complete .stepCircle { /* 入力済み */
+/*		color:#FFF;
+		background:#FF9900;
+		border: 1px solid #FF9900;*/
+}
+.formStep li.active .title {
+    color: #FF9900;
+		font-weight:bold;
+}
+.formStep li:first-child:before {
+    left: 50%;
+    max-width: 51%;
+}
+.formStep li:last-child:before {
+    max-width: 50%;
+    width: 50%;
 }
 *:first-child+html .formStep {
 		border-bottom:1px solid #EEE;
@@ -134,9 +135,23 @@ padding: 9px;
 		margin-bottom:30px;
 }
 *:first-child+html .formStep li {
-		width:33%;
 		display:block;
 		float:left;
+}
+@media (max-width: 320px) {
+.popover {
+max-width:40%;
+}
+.popover-content {
+padding: 9px;
+}
+.formStep {
+    margin: 10px 10px 15px !important;
+    width: 100%;
+}
+.formStep li .title {
+   font-size: 10px;
+}
 }
 </style>
 </head>
@@ -152,9 +167,9 @@ padding: 9px;
             <h1><a class="brand" href="http://www.aipo.com/">Aipo.com</a><span>プロフィール入力</span></h1>
 <div class="row-fluid">
               <ul class="formStep">
-              <li class="complete"> <span class="step"><i class="icon-ok"></i></span> <span class="title">メールアドレス入力</span> </li>
-                <li class="active"> <span class="step">2</span> <span class="title">プロフィール入力</span> </li>
-                <li> <span class="step">3</span> <span class="title">メンバー招待</span> </li>
+              <li class="complete"> <span class="stepCircle"><i class="icon-ok"></i></span> <span class="title">メールアドレス<span class="inline-block">入力</span></span> </li>
+                <li class="active"> <span class="stepCircle">2</span> <span class="title">プロフィール<span class="inline-block">入力</span></span> </li>
+                <li> <span class="stepCircle">3</span> <span class="title">メンバー招待</span> </li>
               </ul>
             </div>
             <form class="bs-docs-example form-horizontal" action="">

@@ -2332,49 +2332,66 @@ input.auiButtonSearch.active {
 .auiCalendar {
 	width:100%;
 	border-collapse:collapse;
-}
-.auiCalendar th {
-	font-weight:normal;
+
+  th {
+    font-weight:normal;
     padding-bottom:5px;
+
+    div {
+      line-height:$inputHeight + 2;
+    }
+  }
+
+  td {
+    text-align:center;
+    font-size:11px;
+    width:26px;
+
+    a {
+      padding:3px 1px;
+      display:block;
+      color:$black;
+      text-decoration:none;
+      &:hover {
+        //background:#ffffe0;
+        background: $grayLighter;
+      }
+
+    }
+  }
+
+  .week {
+    //border-bottom:solid 1px $grayBackLight;
+  }
+  .auiButton {
+    padding:0 0.7em;
+  }
+
+  .sunday {
+    background:none;
+    width:25px;
+  }
+
+  .saturday {
+    background:none;
+    width:25px;
+  }
+
+  .out a {
+    color:$gray;
+  }
+
+  .today a {
+    /*background:#e0ffe0;*/
+    background: $grayBack;
+  }
+
+  .selected a {
+    padding:2px 1px;
+    border:solid 1px $gray;
+  }
 }
-.auiCalendar th div {
-	line-height:$inputHeight + 2;
-}
-.auiCalendar td {
-	text-align:center;
-	font-size:11px;
-	width:26px;
-}
-.auiCalendar .auiButton {
-	padding:0 0.7em;
-}
-.auiCalendar .sunday {
-	background:#fff0f0;
-	width:25px;
-}
-.auiCalendar .saturday {
-	background:#f0ffff;
-	width:25px;
-}
-.auiCalendar td a {
-	padding:1px;
-	display:block;
-	color:#000;
-	text-decoration:none;
-}
-.auiCalendar td a:hover {
-	background:#ffffe0;
-}
-.auiCalendar .out a {
-	color:$gray;
-}
-.auiCalendar .today a {
-	/*background:#e0ffe0;*/
-}
-.auiCalendar .selected a {
-	padding:0;
-	border:solid 1px $gray;
-}
+
 
 /***************************************************
 	Avatar

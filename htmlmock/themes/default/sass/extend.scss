@@ -305,7 +305,8 @@
 
 /* Calendar*/
 .dijitCalendarContainer {
-    font-size: 100%;
+    //font-size: 100%;
+  font-size:11px;
     width: 200px;
 	background:$white;
     border:1px solid $grayBorderDark;
@@ -322,19 +323,16 @@
 .dj_ie6 .dijitCalendarIncrementControl {
     padding:.1em;
 }
-
 .dijitCalendarIncreaseInner,
 .dijitCalendarDecreaseInner {
     visibility:hidden;
 }
-
 .dijitCalendarDecrease {
     background:url("../images/common/btn_left.gif") no-repeat center center;
 }
 .dj_ie6 .dijitCalendarDecrease {
     background-image:url("../images/common/btn_left.gif");
 }
-
 .dijitCalendarIncrease {
     background:url("../images/common/btn_right.gif") no-repeat center center;
 }
@@ -352,99 +350,95 @@
     padding-top:.1em;
     padding-bottom:0em;
 }
-
 .dijitCalendarDayLabelTemplate {
     font-weight:normal;
-    padding-top:.15em;
-    padding-bottom:0em;
-    color:#293a4b;
+    //padding-top:.15em;
+    //padding-bottom:0em;
+    //color: $grayDark;
     text-align:center;
-	border-bottom:solid 1px $grayBorder;
+	//border-bottom:solid 1px $grayBorderLight;
 }
-
 .dijitCalendarMonthLabel {
     /* day of week labels */
+  /*
     color:#293a4b;
     font-size: 0.75em;
     font-weight: bold;
     text-align:center;
-    background:$grayLighter url(../images/common/bg_slash.gif) repeat left top;
+    background:$grayLighter url(../images/common/bg_slash.gif) repeat left top;*/
 }
-
 .dj_ie7 .dijitCalendarDateTemplate,
 .dj_ie6 .dijitCalendarDateTemplate {
-    font-size: 0.8em;
+    //font-size: 0.8em;
 }
-
 .dijitCalendarDateTemplate {
     /* style for each day cell */
-    font-size: 0.9em;
+    //font-size: 0.9em;
     font-weight: normal;
     text-align: center;
     /*padding: 0.3em 0.3em 0.05em 0.3em;*/
-    letter-spacing: 1px;
-	border-right:solid 1px $grayBorder;
-	border-bottom:solid 1px $grayBorder;
-	background:$grayBack;
+    //letter-spacing: 1px;
+	//border-right:solid 1px $grayBorder;
+	//border-bottom:solid 1px $grayBorder;
+	//background:$grayBack;
 }
 .dijitCalendarDateTemplate:hover {
-	background:#ffffff;
+	background:$grayLighter;
 }
 .dijitCalendarDateLabel {
 	/* oneday */
 	display:block;
-	padding:3px;
+	padding:3px 0;//3px
     cursor:pointer;
 }
-
 .dijitCalendarPreviousMonth,
 .dijitCalendarNextMonth         {
     /* days that are part of the previous or next month */
     color:$gray;
-	background:$grayBack;
-    cursor:pointer;
+	//background:$grayBack;
+    //cursor:pointer;
 }
-
 .dijitCalendarPreviousMonthDisabled,
 .dijitCalendarNextMonthDisabled {
     /* days that are part of the previous or next month - disabled*/
 }
-
 .dijitCalendarCurrentMonth {
     /* days that are part of this month */
 }
-
 .dijitCalendarCurrentMonthDisabled {
     /* days that are part of this month - disabled */
     background-color:#b5b5b5 !important;
 }
-
 .dijitCalendarDisabledDate {
     /* one or the other? */
     text-decoration:line-through !important;
     cursor:default !important;
 }
-
 .dijitCalendarCurrentDate {
     /* cell for today's date */
     /*text-decoration:underline;
     font-weight:bold;*/
-    background-color:#c0c0c0;
+    background:$grayBack;
 }
-
 .dijitCalendarSelectedDate {
-    /* cell for the selected date */
-    background-color:$gray !important;
-    color:#ffffff !important;
+  /* cell for the selected date */
+  //background-color:$gray !important;
+  //color:#ffffff !important;
+  span {
+    border: solid 1px $gray;
+    padding: 2px 0;
+  }
 }
 .dijitCalendarSelectedDate .dijitCalendarDateLabel {
 }
 .dijitCalendarYearContainer {
     /* footer of the table that contains the year display/selector */
     /*background:white url("images/calendarYearLabel.png") repeat-x bottom;*/
-    border-top:1px solid $grayBorderDark;
+    //border-top:1px solid $grayBorderDark;
+  td {
+    border-top:1px solid $grayBorderLight;
+  }
 }
-
 .dijitCalendarYearLabel {
     /* container for all of 3 year labels */
     margin:0;
@@ -456,9 +450,10 @@
 .dijitCalendarSelectedYear {
     /* label for selected year */
     color:black;
-    padding:0.2em 0.4em;
-    padding-bottom:0.1em;
-    background-color:#909090 !important;
+    //padding:0.2em 0.4em;
+    //padding-bottom:0.1em;
+  padding: 2px 5px;
+    background-color:$gray !important;
 	color:#ffffff;
 }
 

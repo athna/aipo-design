@@ -39,53 +39,104 @@ overflow: visible !important;
 }
 .popover {
 font-size:12px;
+color:#555555;
+}
+#contents h3.popover-title {
+margin:0;
+font-size:12px;
+border-bottom:none;
+padding:8px 14px 0;
+background:none;
+color:#000000;
 }
 *:first-child+html .popover {
 width:210px;
 }
-*:first-child+html .popover-title {
-display:none;
+
+#contents.simplified-box h1 {
+    border-bottom:none;
 }
-ol.olStep {
-    border-bottom: 1px solid #EEE;
-    height: 13px;
-    margin: 0 0 35px;
+.formStep {
+    display: table;
+    margin: 10px -6% 15px;
     position: relative;
-    line-height: 17px;
-    list-style: none;
+    width: 112%;
 }
-ol.olStep,ol.olStep li {
-    padding: 0 !important;
+.formStep li {
+    display: table-cell;
+    text-align: center;
+    width: 33%;
 }
-
-ol.olStep li.active {
-background: #FF9900;
-border: none;
-color: #FFF;
-font-weight: bold;
+.formStep li .stepCircle {
+    border: 1px solid #DDD;
+		background:#FFF;
+    border-radius: 100%;
+    color: #999;
+    display: inline-block;
+    font-size: 15px;
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    text-align: center;
+    width: 25px;
+    z-index: 2;
 }
-
-ol.olStep li {
-background: #FFF;
-border: 1px solid #DDD;
-border-radius: 1em;
-color: #999;
-display: inline-block;
-height: 25px;
-line-height: 25px;
-position: absolute;
-text-align: center;
-width: 25px;
+.formStep li:before {
+    border-top: 1px solid #EEEEEE;
+    content: "";
+    display: block;
+    font-size: 0;
+    height: 1px;
+    overflow: hidden;
+    position: relative;
+    top: 16px;
+    width: 100%;
+    z-index: 1;
 }
-ol.olStep li.step1 {
-    left: 0;
+.formStep li .title {
+    color: #999;
+    display: block;
+    font-size: 11px;
+    margin-top: 4px;
+    max-width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    word-wrap: break-word;
+    z-index: 300;
 }
-ol.olStep li.step3 {
-    right: 0;
+.formStep li.active:before, .formStep li.complete:before { /* 選択中＆入力済み */
+/*    border-color: #FF9900;*/
 }
-ol.olStep li.step2 {
+.formStep li.active .stepCircle { /* 選択中 */
+		color:#FFF;
+		background:#FF9900;
+		border: 1px solid #FF9900;
+}
+.formStep li.complete .stepCircle { /* 入力済み */
+/*		color:#FFF;
+		background:#FF9900;
+		border: 1px solid #FF9900;*/
+}
+.formStep li.active .title {
+    color: #FF9900;
+		font-weight:bold;
+}
+.formStep li:first-child:before {
     left: 50%;
-    margin-left: -14px;
+    max-width: 51%;
+}
+.formStep li:last-child:before {
+    max-width: 50%;
+    width: 50%;
+}
+*:first-child+html .formStep {
+		border-bottom:1px solid #EEE;
+		height:13px;
+		margin-bottom:30px;
+}
+*:first-child+html .formStep li {
+		display:block;
+		float:left;
 }
 @media (max-width: 320px) {
 .popover {
@@ -93,6 +144,13 @@ max-width:40%;
 }
 .popover-content {
 padding: 9px;
+}
+.formStep {
+    margin: 10px 10px 15px !important;
+    width: 100%;
+}
+.formStep li .title {
+   font-size: 10px;
 }
 }
 </style>
@@ -107,9 +165,16 @@ padding: 9px;
         <div class="borderBox">
           <div>
             <h1><a class="brand" href="http://www.aipo.com/">Aipo.com</a><span>プロフィール入力</span></h1>
+<div class="row-fluid">
+              <ul class="formStep">
+              <li class="complete"> <span class="stepCircle"><i class="icon-ok"></i></span> <span class="title">メールアドレス<span class="inline-block">入力</span></span> </li>
+                <li class="active"> <span class="stepCircle">2</span> <span class="title">プロフィール<span class="inline-block">入力</span></span> </li>
+                <li> <span class="stepCircle">3</span> <span class="title">メンバー招待</span> </li>
+              </ul>
+            </div>
             <form class="bs-docs-example form-horizontal" action="">
               <div class="inner">
-              <ol class="olStep"><li class="step1">1</li><li class="step2 active">2</li><li class="step3">3</li></ol>
+              
               <div class="alert alert-info pr15" style="word-break: break-all;">
               Aipo.com へようこそ！登録を完了させて、<span class="inline-block">今すぐ</span>始めてみましょう。</div>
               <h4>あなたのプロフィールを入力してください。</h4>

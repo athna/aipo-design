@@ -95,29 +95,9 @@
 					
 					
 					// Media -----------------------------------------------------------------------------------------------------------------------------------
-					if(exists(data[k].picture)||exists(data[k].link)||exists(data[k].caption)||exists(data[k].description)){
-						output += exists(data[k].picture) ? '<div class="fb-wall-media">' : '<div class="fb-wall-media fb-wall-border-left">';
-						if(exists(data[k].picture)){
-							if(exists(data[k].link)) output += '<a href="'+data[k].link+'" target="_blank" class="fb-wall-media-link">';
-							output += '<img class="fb-wall-picture" src="'+data[k].picture+'" />';
-							if(exists(data[k].link)) output += '</a>';
-						}
-						output += '<div class="fb-wall-media-container">';
-						if(exists(data[k].name)) output += '<a class="fb-wall-name" href="'+data[k].link+'" target="_blank">'+data[k].name+'</a>';
-						if(exists(data[k].caption)) output += '<a class="fb-wall-caption" href="http://'+data[k].caption+'" target="_blank">'+data[k].caption+'</a>';
-						if(exists(data[k].properties)){
-							for(var p=0;p<data[k].properties.length;p++) output += (p==0) ? '<div>'+formatDate(data[k].properties[p].text)+'</div>' : '<div>'+data[k].properties[p].text+'</div>';
-						}
-						if(exists(data[k].description)){
-							thisDesc = modText(data[k].description);
-							if(thisDesc.length>299)thisDesc=thisDesc.substr(0,thisDesc.lastIndexOf(' '))+' ...';
-							output += '<span class="fb-wall-description">'+thisDesc+'</span>';
-						}
-						output += '</div>';
-						output += '</div>';
-					}
+
 					output += '<span class="fb-wall-date"><span class="fs11 date">';
-					if(exists(data[k].icon)) output += '<img class="fb-wall-icon" src="'+data[k].icon+'" title="'+data[k].type+'" alt="" />';
+					//if(exists(data[k].icon)) output += '<img class="fb-wall-icon" src="'+data[k].icon+'" title="'+data[k].type+'" alt="" />';
 					output += formatDate(data[k].created_time);
 					output += '</span>';
 					if(exists(data[k].message)) {
@@ -146,6 +126,29 @@
 					output += '<div class="fb-wall-inner"><a href="http://www.facebook.com/profile.php?id='+data[k].from.id+'" class="fb-wall-message-from" target="_blank">'+data[k].from.name+'</a>';
 					
 					if(exists(data[k].message)) output += modText(data[k].message);
+					//リンクシェアの場合概要を表示
+					if(exists(data[k].picture)||exists(data[k].link)||exists(data[k].caption)||exists(data[k].description)){
+						output += exists(data[k].picture) ? '<div class="fb-wall-media">' : '<div class="fb-wall-media fb-wall-border-left">';
+						if(exists(data[k].picture)){
+							if(exists(data[k].link)) output += '<a href="'+data[k].link+'" target="_blank" class="fb-wall-media-link">';
+							output += '<img class="fb-wall-picture" src="'+data[k].picture+'" />';
+							if(exists(data[k].link)) output += '</a>';
+						}
+						output += '<div class="fb-wall-media-container">';
+						if(exists(data[k].name)) output += '<a class="fb-wall-name" href="'+data[k].link+'" target="_blank">'+data[k].name+'</a>';
+						if(exists(data[k].caption)) output += '<a class="fb-wall-caption" href="http://'+data[k].caption+'" target="_blank">'+data[k].caption+'</a>';
+						if(exists(data[k].properties)){
+							for(var p=0;p<data[k].properties.length;p++) output += (p==0) ? '<div>'+formatDate(data[k].properties[p].text)+'</div>' : '<div>'+data[k].properties[p].text+'</div>';
+						}
+						if(exists(data[k].description)){
+							thisDesc = modText(data[k].description);
+							if(thisDesc.length>299)thisDesc=thisDesc.substr(0,thisDesc.lastIndexOf(' '))+' ...';
+							output += '<span class="fb-wall-description">'+thisDesc+'</span>';
+						}
+						output += '</div>';
+						output += '</div>';
+					}
+					//リンクシェアここまで
 					output += '</div></div></div>';
 				
 					// Likes -------------------------------------------------------------------------------------------------------------------------------

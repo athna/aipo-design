@@ -174,22 +174,6 @@ img.avatar,
 .hdInformation div {
 	outline:0;
 }
-/*
-.hdActivity div.active,
-.hdInformation div.active {
-	background:#e0e0e0;
-}
-#activitychecker {
-	text-align:center;
-	right:2px;
-	top:2px;
-	background:url(../images/icon/activitychecker.png) top left no-repeat;
-}
-#activitycheckerContainer {
-	display:block;
-	margin-top:5px;
-}
-*/
 .hdIcon {
 	float:left !important;
 	font-size:9px;
@@ -583,7 +567,6 @@ img.avatar,
 /***************************************************
 	auiPortlet
 --------------------------------------------------*/
-/*
 .auiPortlet {
 	background:url(../images/common/portlet_x.gif?20130918) repeat-x bottom center;
 }
@@ -676,22 +659,23 @@ img.avatar,
 	background:url(../images/common/portlet_x.gif?20130918) no-repeat right -124px !important;
     padding:0 !important;
 }
-*/
+
 /***************************************************
 	auiPortlet_v2
 --------------------------------------------------*/
 
+$portletBackground:	"../images/common/portlet_20140116.gif";
 .auiPortlet_v2 {
 	background: $white;
-	background: #ffffff url(../images/common/portlet_v2.gif) repeat-x left bottom;
+	background: #ffffff url($portletBackground) repeat-x left bottom;
 	margin: 10px 5px;
 
 	.auiPortletHead {
 		border-bottom:solid 1px $grayBorderLight;
-		background: url(../images/common/portlet_v2.gif) repeat-x left top;
+		background: url($portletBackground) repeat-x left top;
 
 		.inner {
-			background: url(../images/common/portlet_v2.gif) no-repeat left -100px;
+			background: url($portletBackground) no-repeat left -100px;
 			padding: 9px 10px;
 			position:relative;
 			overflow: hidden;
@@ -705,11 +689,11 @@ img.avatar,
 		white-space:nowrap;
 	}
 	.auiPortletTool {
-		background: url(../images/common/portlet_v2.gif) no-repeat right -200px;
+		background: url($portletBackground) no-repeat right -200px;
 		top:0;
 		right:0;
 		float:right;
-		min-width:25px;
+		//min-width:25px;
 		min-height: 15px;
 		padding: 10px;
 		position:absolute;
@@ -766,10 +750,10 @@ img.avatar,
 		}
 	}
 	.auiPortletFoot {
-		background: url(../images/common/portlet_v2.gif) no-repeat left -390px;
+		background: url($portletBackground) no-repeat left -390px;
 		.inner {
 			height: 10px;
-			background: url(../images/common/portlet_v2.gif) no-repeat right -490px;
+			background: url($portletBackground) no-repeat right -490px;
 		}
 	}
 	.auiPortletBody .auiPortletFoot .inner {
@@ -1077,94 +1061,6 @@ $tabBackgroundImage:	"../images/tab.png";
 	display:none;
 }
 
-
-/***************************************************
-	MainTab - NO USE - Delete Reserved
---------------------------------------------------
-#mainTab {
-	white-space:nowrap;
-	height:25px;
-	padding:0;
-	margin:0;
-	background:#fff url(../images/tab.png) left bottom repeat-x;
-	overflow:hidden;
-}
-#mainTab ul {
-	position:relative;
-}
-.tabContainer {
-	padding:0 20px;
-	margin:0;
-	white-space:nowrap;
-}
-.tabContainer li {
-	display:block;
-	float:left;
-	height:25px;
-	padding:0 20px 0 0;
-	font-size:11px;
-	background:url(../images/tab.png) right -75px no-repeat;
-}
-.tabContainer .menuTitle {
-	height:25px;
-	line-height:25px;
-	background:url(../images/tab.png) left -50px no-repeat;
-	float:left;
-	padding:0 0 0 20px;
-	overflow:hidden;
-}
-.tabContainer .menuIcon {
-	float:left;
-	height:25px;
-	background:url(../images/tab.png) right -50px no-repeat;
-}
-.tabContainer .menuIcon a {
-	margin-top:4px;
-}
-.tabContainer li.selectedMenu {
-	height:25px;
-	background:url(../images/tab.png) right -25px no-repeat;
-	text-decoration:none;
-}
-.tabContainer li.selectedMenu .menuTitle {
-	background:url(../images/tab.png) left 0px no-repeat;
-}
-.tabContainer li.selectedMenu .menuTitle a {
-	text-decoration:none;
-}
-.tabContainer li a.menuList {
-	margin:0 5px;
-	white-space:nowrap;
-	text-decoration:none;
-	text-shadow:0 1px 0 rgba(255,255,255,0.75);
-}
-.tabContainer li.selectedMenu a.menuList {
-	white-space:nowrap;
-}
-.tabContainer li.selectedMenu .menuIcon {
-	float:left;
-	height:25px;
-	background:url(../images/tab.png) right -0px no-repeat;
-}
-.tabContainer li.tooltip_box {
-	padding:0;
-	background:none;
-}
-.tooltip_gray {
-	display:none;
-}
-.menuStore:hover .tooltip_gray {
-	display:block;
-	height:14px;
-	width:190px;
-	background:url(../images/common/bg_tooltip_gray.gif) top left no-repeat;
-	position:absolute;
-	top:10px;
-	padding:3px 0 8px;
-	font-size:10px;
-	text-align:center;
-}*/
-
 /***************************************************
 	auiLogin
 --------------------------------------------------*/
@@ -1420,15 +1316,16 @@ $tabBackgroundImage:	"../images/tab.png";
 /***************************************************
 	submenu_v3
 --------------------------------------------------*/
+$submenuBackground:	"../images/common/bg_submenu_20140116.gif";
 .submenu_v3 {
 	margin:10px 5px;
 	clear:both;
 	width:200px;
 	overflow: hidden;
-	background: url(../images/common/bg_submenu_v3.gif) no-repeat left top;
+	background: url($submenuBackground) no-repeat left top;
 
 	> ul {
-		background: url(../images/common/bg_submenu_v3.gif) no-repeat right bottom;
+		background: url($submenuBackground) no-repeat right bottom;
 		padding: 6px 0
 	}
 	li {
@@ -2197,6 +2094,7 @@ input.auiButtonSearch.active {
 .auiRowTable {
 	border-spacing:0;
 	border-collapse:collapse;
+	word-break: break-all;
 
     th {
         padding:8px 5px;
@@ -2328,7 +2226,7 @@ input.auiButtonSearch.active {
 	white-space: nowrap;
 }
 .auiMultiTable td {
-	border-bottom:1px solid $grayLighter;
+	border-bottom:1px solid $grayBorderLight;
 }
 .wDays {
 	width:35px;
@@ -2391,39 +2289,38 @@ input.auiButtonSearch.active {
     }
 }
 
-/*
-.auiDirectoryList .d1 span {}
-.auiDirectoryList .d2 span {margin-left:10px;}
-.auiDirectoryList .d3 span {margin-left:20px;}
-.auiDirectoryList .d4 span {margin-left:30px;}
-.auiDirectoryList .d5 span {margin-left:40px;}
-.auiDirectoryList .d6 span {margin-left:50px;}
-.auiDirectoryList .d7 span {margin-left:60px;}
-.auiDirectoryList .d8 span {margin-left:70px;}
-.auiDirectoryList .d9 span {margin-left:80px;}
-.auiDirectoryList .d10 span {margin-left:90px;}
-.auiDirectoryList .d11 span {margin-left:100px;}
-.auiDirectoryList .d12 span {margin-left:110px;}
-.auiDirectoryList .d13 span {margin-left:120px;}
-.auiDirectoryList .d14 span {margin-left:130px;}
-.auiDirectoryList .d15 span {margin-left:140px;}
-.auiDirectoryList .d16 span {margin-left:150px;}
-.auiDirectoryList .d17 span {margin-left:160px;}
-.auiDirectoryList .d18 span {margin-left:170px;}
-.auiDirectoryList .d19 span {margin-left:180px;}
-.auiDirectoryList .d20 span {margin-left:190px;}
-*/
+//.auiDirectoryList .d1 span {}
+//.auiDirectoryList .d2 span {margin-left:10px;}
+//.auiDirectoryList .d3 span {margin-left:20px;}
+//.auiDirectoryList .d4 span {margin-left:30px;}
+//.auiDirectoryList .d5 span {margin-left:40px;}
+//.auiDirectoryList .d6 span {margin-left:50px;}
+//.auiDirectoryList .d7 span {margin-left:60px;}
+//.auiDirectoryList .d8 span {margin-left:70px;}
+//.auiDirectoryList .d9 span {margin-left:80px;}
+//.auiDirectoryList .d10 span {margin-left:90px;}
+//.auiDirectoryList .d11 span {margin-left:100px;}
+//.auiDirectoryList .d12 span {margin-left:110px;}
+//.auiDirectoryList .d13 span {margin-left:120px;}
+//.auiDirectoryList .d14 span {margin-left:130px;}
+//.auiDirectoryList .d15 span {margin-left:140px;}
+//.auiDirectoryList .d16 span {margin-left:150px;}
+//.auiDirectoryList .d17 span {margin-left:160px;}
+//.auiDirectoryList .d18 span {margin-left:170px;}
+//.auiDirectoryList .d19 span {margin-left:180px;}
+//.auiDirectoryList .d20 span {margin-left:190px;}
+
 @for $i from 1 through 20 {
     .auiDirectoryList .d#{$i} span {
         margin-left:#{($i - 1) * 10 }px;
     }
 }
 
-@for $i from 1 through 20 {
-    .auiRowTable .d#{$i} a {
-        padding-left:#{($i - 1) * 15 }px;
-    }
-}
+//@for $i from 1 through 20 {
+//    .auiRowTable .d#{$i} a {
+//        padding-left:#{($i - 1) * 15 }px;
+//    }
+//}
 
 /***************************************************
 	auiSakuin
@@ -2576,6 +2473,7 @@ input.auiButtonSearch.active {
 }
 #auiContentsArea .entryBody {
 	margin-left:60px;
+	word-break: break-all;
 }
 .entryHeader {
 	padding:0 0 10px 0;
@@ -2698,13 +2596,12 @@ ul.attachments{
 	margin:5px 0;
 }
 
-/*
-ul.attachments >li{
-	list-style: none;
-	background:none;
-	padding:0;
-}
-*/
+//ul.attachments >li{
+//	list-style: none;
+//	background:none;
+//	padding:0;
+//}
+
 .attachments span.deletebutton{
 	margin-left:10px;
 	cursor:pointer;
@@ -3569,36 +3466,45 @@ $wuiWLCaptionHeight: 24px;
 --------------------------------------------------*/
 .auiCheckList {
 	margin:5px 0;
-	border:solid 1px $grayBorder;
-    overflow:auto;
+    overflow:auto !important;
     max-height:200px;
-}
-.auiCheckList li {
-	display:block;
-    float:left;
-    padding:0;
-    background:none;
-}
-.auiCheckList input {
-}
-.auiCheckList label {
-	display:block;
-    padding:5px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-.auiCheckList label:hover {
-	background:$grayLighter;
-}
+	border-top:solid 1px $grayBorder;
+	border-bottom:solid 1px $grayBorder;
 
-.auiCheckList .avatar {
-	width:23px;
-    height:23px;
-    vertical-align:middle;
-    margin:0 5px;
-}
+	ul {
+		border-left:solid 1px $grayBorder;
+		border-right:solid 1px $grayBorder;
+	}
 
+	li {
+		display:block;
+		float:left;
+		padding:0;
+		background:none;
+	}
+
+	input {
+	}
+
+	label {
+		display:block;
+		padding:5px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+
+		&:hover {
+			background:$grayLighter;
+		}
+	}
+
+	.avatar {
+		width:23px;
+		height:23px;
+		vertical-align:middle;
+		margin:0 5px;
+	}
+}
 .auiCL2 li {
 	width:50%;
 }
@@ -4010,10 +3916,6 @@ a:hover .auiWFicon [class^="icon-"] {
 }
 
 /***************************************************
-	auiIconArrow
---------------------------------------------------*/
-
-/***************************************************
 	loader
 --------------------------------------------------*/
 .loader {
@@ -4090,14 +3992,4 @@ html>/**/body .auiLoadWrapper .loader {
 		-moz-opacity:1;
 		opacity:1;
 	}
-}
-
-@mixin boxSize($wid, $hei) {
-  width:$wid+px;
-  height:$hei+px;
-}
-
-.box1 {
-  @include boxSize(300,200);
-  background-color:#f00;
 }

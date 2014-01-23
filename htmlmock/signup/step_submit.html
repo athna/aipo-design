@@ -35,53 +35,18 @@ overflow: visible !important;
 }
 .popover {
 font-size:12px;
+color:#555555;
+}
+#contents h3.popover-title {
+margin:0;
+font-size:12px;
+border-bottom:none;
+padding:8px 14px 0;
+background:none;
+color:#000000;
 }
 *:first-child+html .popover {
 width:210px;
-}
-*:first-child+html .popover-title {
-display:none;
-}
-ol.olStep {
-    border-bottom: 1px solid #EEE;
-    height: 13px;
-    margin: 0 0 35px;
-    position: relative;
-    line-height: 17px;
-    list-style: none;
-}
-ol.olStep,ol.olStep li {
-    padding: 0 !important;
-}
-
-ol.olStep li.active {
-background: #FF9900;
-border: none;
-color: #FFF;
-font-weight: bold;
-}
-
-ol.olStep li {
-background: #FFF;
-border: 1px solid #DDD;
-border-radius: 1em;
-color: #999;
-display: inline-block;
-height: 25px;
-line-height: 25px;
-position: absolute;
-text-align: center;
-width: 25px;
-}
-ol.olStep li.step1 {
-    left: 0;
-}
-ol.olStep li.step3 {
-    right: 0;
-}
-ol.olStep li.step2 {
-    left: 50%;
-    margin-left: -14px;
 }
 @media (max-width: 320px) {
 .popover {
@@ -90,6 +55,81 @@ max-width:40%;
 .popover-content {
 padding: 9px;
 }
+}
+
+.formStep {
+    display: table;
+    list-style: none;
+    margin: 5px 0 15px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.formStep li {
+    display: table-cell;
+    text-align: center;
+    width: 1%;
+}
+.formStep li .stepCircle {
+    border: 1px solid #DDD;
+		background:#FFF;
+    border-radius: 100%;
+    color: #999;
+    display: inline-block;
+    font-size: 15px;
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    text-align: center;
+    width: 25px;
+    z-index: 2;
+}
+.formStep li:before {
+    border-top: 1px solid #EEEEEE;
+    content: "";
+    display: block;
+    font-size: 0;
+    height: 1px;
+    overflow: hidden;
+    position: relative;
+    top: 16px;
+    width: 100%;
+    z-index: 1;
+}
+.formStep li.active .stepCircle {
+		color:#333;
+		border-color:#888;
+}
+.formStep li.complete .stepCircle {
+		color:#999;
+}
+
+.formStep li .title {
+    color: #999;
+    display: block;
+    font-size: 11px;
+    margin-top: 4px;
+    max-width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    word-wrap: break-word;
+    z-index: 300;
+}
+ .formStep li.active .title {
+    color: #333;
+}
+.formStep li.active:before, .formStep li.complete:before, .formStep li.active .stepCircle, .formStep li.complete .stepCircle {
+    border-color: #999;
+}
+*:first-child+html .formStep {
+		border-bottom:1px solid #EEE;
+		height:13px;
+		margin-bottom:30px;
+}
+*:first-child+html .formStep li {
+		width:33%;
+		display:block;
+		float:left;
 }
 </style>
 </head>
@@ -104,10 +144,11 @@ padding: 9px;
           <div>
             <h1><a class="brand" href="http://www.aipo.com/">Aipo.com</a><span>無料登録</span></h1>
               <div class="inner pb20">   
-              <ol class="olStep"><li class="step1 active">1</li><li class="step2">2</li><li class="step3">3</li></ol>         
-                	<div class="alert alert-success pr15"><span class="inline-block"></span>Aipo.comのお申込み、誠にありがとうございました！</div>
-	<p>入力いただいたメールアドレス宛に登録手続きのメールをお送りします。<br>
-  メールの受信まで1～2分ほどお待ちくださいますようお願い申し上げます。</p>
+                       
+                	<div class="alert alert-success pr15"><span class="inline-block"></span>入力いただいたメールアドレス宛に登録手続きのメールをお送りしました！</div>
+	<p>メールに記載されたURLをクリックして、登録を完了してください。</p>
+  <p>※ 記載されたURLの有効期限は24時間です。</p>
+  <div class="mb20 right"><a href="javascript:void(0);" class=" fs11 ml5" data-toggle="popover" data-html="true" data-placement="left" data-title="" data-content='迷惑メールフォルダに振り分けられてしまう場合がありますのでご確認ください。<br>解決しない場合は再度<a href="http://59.106.173.26/aipo-html/htmlmock/signup/mail_step.html" target="_blank">メールアドレスをご登録</a>いただくか、<a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a>ください。'>メールが届いていませんか？</a></div>
 
               </div>
           </div>
@@ -128,6 +169,12 @@ padding: 9px;
   <div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script>
+$('.tooltip-tool').tooltip({
+            selector: "a[data-toggle=tooltip]"
+        })
+$("a[data-toggle=popover]").popover()
+</script>
   </div>
 </div>
 </body>

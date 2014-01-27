@@ -27,12 +27,6 @@
 <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="/static/aipo/themes/iphone/img/apple-touch-icon-precomposed.png">
 <style>
-html{
-overflow-y:scroll;
-}
-#contents.simplified-box .main-only .borderBox {
-overflow: visible !important;
-}
 .popover {
 font-size:12px;
 color:#555555;
@@ -48,27 +42,21 @@ color:#000000;
 *:first-child+html .popover {
 width:210px;
 }
-@media (max-width: 320px) {
-.popover {
-max-width:40%;
-}
-.popover-content {
-padding: 9px;
-}
-}
 
+#contents.simplified-box h1 {
+    border-bottom:none;
+}
 .formStep {
-    display: table;
-    list-style: none;
-    margin: 5px 0 15px;
-    padding: 0;
+    display: block;
+    margin: 10px 0 15px;
     position: relative;
-    width: 100%;
+
 }
 .formStep li {
-    display: table-cell;
+    display: block;
     text-align: center;
-    width: 1%;
+    width: 33%;
+		float:left;
 }
 .formStep li .stepCircle {
     border: 1px solid #DDD;
@@ -96,14 +84,6 @@ padding: 9px;
     width: 100%;
     z-index: 1;
 }
-.formStep li.active .stepCircle {
-		color:#333;
-		border-color:#888;
-}
-.formStep li.complete .stepCircle {
-		color:#999;
-}
-
 .formStep li .title {
     color: #999;
     display: block;
@@ -115,11 +95,26 @@ padding: 9px;
     word-wrap: break-word;
     z-index: 300;
 }
- .formStep li.active .title {
-    color: #333;
+.formStep li.active:before, .formStep li.complete:before { /* 選択中＆入力済み */
 }
-.formStep li.active:before, .formStep li.complete:before, .formStep li.active .stepCircle, .formStep li.complete .stepCircle {
-    border-color: #999;
+.formStep li.active .stepCircle { /* 選択中 */
+		color:#FFF;
+		background:#FF9900;
+		border: 1px solid #FF9900;
+}
+.formStep li.complete .stepCircle { /* 入力済み */
+}
+.formStep li.active .title {
+    color: #FF9900;
+		font-weight:bold;
+}
+.formStep li:first-child:before {
+    left: 50%;
+    max-width: 51%;
+}
+.formStep li:last-child:before {
+    max-width: 50%;
+    width: 50%;
 }
 *:first-child+html .formStep {
 		border-bottom:1px solid #EEE;
@@ -127,10 +122,27 @@ padding: 9px;
 		margin-bottom:30px;
 }
 *:first-child+html .formStep li {
-		width:33%;
 		display:block;
 		float:left;
 }
+@media (max-width: 767px) {
+#contents.simplified-box .main-only .borderBox {
+overflow: visible !important;
+}
+.popover {
+max-width:40%;
+}
+.popover-content {
+padding: 9px;
+}
+.formStep {
+margin: 10px !important;
+}
+.formStep li .title {
+font-size: 10px;
+}
+}
+
 </style>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">

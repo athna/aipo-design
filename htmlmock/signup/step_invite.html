@@ -31,12 +31,6 @@ typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var
 b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script><!-- end Mixpanel -->
 <style>
-html{
-overflow-y:scroll;
-}
-#contents.simplified-box .main-only .borderBox {
-overflow: visible !important;
-}
 .popover {
 font-size:12px;
 color:#555555;
@@ -57,15 +51,16 @@ width:210px;
     border-bottom:none;
 }
 .formStep {
-    display: table;
-    margin: 10px -6% 15px;
+    display: block;
+    margin: 10px 0 15px;
     position: relative;
-    width: 112%;
+
 }
 .formStep li {
-    display: table-cell;
+    display: block;
     text-align: center;
     width: 33%;
+		float:left;
 }
 .formStep li .stepCircle {
     border: 1px solid #DDD;
@@ -134,7 +129,10 @@ width:210px;
 		display:block;
 		float:left;
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
+#contents.simplified-box .main-only .borderBox {
+overflow: visible !important;
+}
 .popover {
 max-width:40%;
 }
@@ -142,13 +140,13 @@ max-width:40%;
 padding: 9px;
 }
 .formStep {
-margin: 10px 10px 10px !important;
-width: auto;
+margin: 10px !important;
 }
 .formStep li .title {
 font-size: 10px;
 }
 }
+
 </style>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">

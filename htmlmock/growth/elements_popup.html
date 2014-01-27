@@ -1,0 +1,768 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if lt IE 10]><meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" /><![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<!-- WRAPPER -->
+<div id="wrapper">
+  <!-- roundMainWrapper -->
+  <div class="roundMainWrapper">
+    <!-- modalDialog -->
+    <div class="modalDialog" style="margin:10px auto; position:static">
+      <h3>ポップアップ一覧</h3>
+      <ul class="mb30">
+        <li><a href="#userMailSetting">メール通知設定</a></li>
+        <li><a href="#pageSetting">ページ設定</a></li>
+        <li><a href="#socialapp">Aipoアプリ汎用ポップアップ</a></li>
+      </ul>
+      <!-- ▼ポップアップ群ここから▼ -->
+      <!-- ################################################################################
+
+            メール通知設定
+
+            ################################################################################ -->
+      <a id="userMailSetting"></a>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">メール通知設定</div>
+        </div>
+        <div class="roundBlockContent">
+          <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+          <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007979/page/default.psml/js_peid/131?template=SystemWebMailSettingsFormJSONScreen" id="form131" name="form131">
+            <input type="hidden" value="webmailForm" name="_name">
+            <input type="hidden" value="961636320c1a25439d4c91d0976115f3" name="secid">
+            
+            <h3>通知先メールアドレス</h3>
+            <p class="mb10">
+aimluck.harada+okamotosaeko@gmail.com<br>
+<span class="">※携帯メールアドレスが設定されていません。<a href="#">こちら</a>から設定してください。</span>
+</p>
+            
+<!--            <h3>メール通知の可否</h3>-->
+            <table class="listTable wide">
+              <tbody>
+                <tr>
+                  <td class="caption">タイムラインの投稿へ<br>
+コメントがあったとき                              </td>
+                  <td><label for="pc_flg_blog_id" class="mr15"><input type="checkbox" checked="checked" id="pc_flg_blog_id" value="1" name="pc_flg_blog" class="mr5">通知する</label>
+                    
+                    <input type="checkbox" id="cell_flg_blog_id" value="1"  disabled name="cell_flg_blog">
+                  <label for="cell_flg_blog_id" class="fcGray">携帯に通知する</label></td>
+                </tr>
+                <tr>
+                  <td class="caption">コメントした投稿に<br>
+コメントがついたとき</td>
+                  <td><label for="pc_flg_schedule_id" class="mr15"><input type="checkbox" checked="checked" id="pc_flg_schedule_id" value="1" name="pc_flg_schedule" class="mr5">通知する</label>
+                    <input type="checkbox" id="cell_flg_schedule_id" value="1"  disabled name="cell_flg_schedule">
+                  <label for="cell_flg_schedule_id" class="fcGray">携帯に通知する</label></td>
+                </tr>
+                <tr>
+                  <td class="caption">特定のユーザーが<br>タイムラインへ投稿したとき</td>
+                  <td><input type="checkbox" checked="checked" id="pc_flg_msgboard_id" value="1" name="pc_flg_msgboard">
+                    <label for="pc_flg_msgboard_id" class="mr15">通知する</label>
+                    <input type="checkbox" id="cell_flg_msgboard_id" value="1"  disabled name="cell_flg_msgboard">
+                    <label for="cell_flg_msgboard_id" class="fcGray">携帯に通知する</label>
+                    
+                                        <div id="memberField" style="display: block;">
+                                            <table class="none">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><div class="spaceTop spaceLeft small">左側に更新をチェックするユーザーを追加してください。</div>
+                                                            <div id="membernormalselect" widgetid="membernormalselect">
+                                                                <table class="none">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td><div id="memberPopupDiv">
+                                                                                    <div class="outer">
+                                                                                        <div class="popup">
+                                                                                            <div class="clearfix">
+                                                                                                <div class="memberlistToTop">ユーザー一覧</div>
+                                                                                                <div class="memberlistFromTop">
+                                                                                                    <select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
+                                                                                                        <option value="LoginUser">すべてのグループ</option>
+                                                                                                        <option value="1344313087944_1">ERP開発部</option>
+                                                                                                        <option value="1344313207741_1">SCM開発部</option>
+                                                                                                        <option value="1344313018823_1">ユーザー・エクスペリエンス・クリエイティブデザイン課</option>
+                                                                                                        <option value="1344312907944_1">人事部</option>
+                                                                                                        <option value="1344312854185_1">営業部</option>
+                                                                                                        <option value="1344313063522_1">情報システム部</option>
+                                                                                                        <option value="1344312885238_1">経営企画部</option>
+                                                                                                        <option value="1344312849183_1">総務部</option>
+                                                                                                        <option value="1344312897425_1">鎌倉開発センター</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="clearfix">
+                                                                                                <div class="memberlistToBody">
+                                                                                                    <select size="5" multiple="multiple" style="width:100%" name="member_to" id="member_to">
+                                                                                                        <option value="user1">伊藤 博文</option>
+                                                                                                        <option value="user2">板垣 退助</option>
+                                                                                                        <option value="user3">沖田 総司</option>
+                                                                                                        <option value="user4">近藤 勇</option>
+                                                                                                        <option value="user5">北条 政子</option>
+                                                                                                        <option value="user6">小林 一茶</option>
+                                                                                                        <option value="user7">織田 信長</option>
+                                                                                                        <option value="user8">菅原 道真</option>
+                                                                                                        <option value="user9">水野 忠邦</option>
+                                                                                                        <option value="user10">源 頼朝</option>
+                                                                                                        <option value="user11">徳川 家康</option>
+                                                                                                        <option value="user12">徳川 慶喜</option>
+                                                                                                        <option value="user13">大久保 利通</option>
+                                                                                                        <option value="user14">ヴォルフガング・アマデウス モーツァルト</option>
+                                                                                                        <option value="user15">津田 梅子</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                <div class="memberlistFromBody">
+                                                                                                    <select size="5" multiple="multiple" style="width:100%" name="tmp_member_from" id="tmp_member_from">
+                                                                                                        <option value="user1">伊藤 博文</option>
+                                                                                                        <option value="user2">板垣 退助</option>
+                                                                                                        <option value="user3">沖田 総司</option>
+                                                                                                        <option value="user4">近藤 勇</option>
+                                                                                                        <option value="user5">北条 政子</option>
+                                                                                                        <option value="user6">小林 一茶</option>
+                                                                                                        <option value="user7">織田 信長</option>
+                                                                                                        <option value="user8">菅原 道真</option>
+                                                                                                        <option value="user9">水野 忠邦</option>
+                                                                                                        <option value="user10">源 頼朝</option>
+                                                                                                        <option value="user11">徳川 家康</option>
+                                                                                                        <option value="user12">徳川 慶喜</option>
+                                                                                                        <option value="user13">大久保 利通</option>
+                                                                                                        <option value="user14">ヴォルフガング・アマデウス モーツァルト</option>
+                                                                                                        <option value="user15">津田 梅子</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="clearfix">
+                                                                                                <div class="memberlistToBottom">
+                                                                                                    <div class="alignright">
+                                                                                                        <input id="button_member_remove" name="button_member_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="memberlistFromBottom">
+                                                                                                    <div style="display: none;" id="membernormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+                                                                                                    <div class="alignright">
+                                                                                                        <input id="button_member_add" name="button_member_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <select size="5" multiple="multiple" style="display:none;" name="init_memberlist" id="init_memberlist">
+                                                                <option value="user1">伊藤 博文</option>
+                                                            </select>                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div></td>
+                </tr>
+                <tr>
+                  <td class="caption">特定のユーザーが<br>予定を追加したとき</td>
+                  <td><input type="checkbox" checked="checked" id="pc_flg_plan_id" value="1" name="pc_flg_plan">
+                    <label for="pc_flg_plan_id" class="mr15">通知する</label>
+                    <input type="checkbox" id="cell_flg_plan_id" value="1"  disabled name="cell_flg_plan">
+                    <label for="cell_flg_plan_id" class="fcGray">携帯に通知する</label>
+                    
+                                        <div id="memberField" style="display: block;">
+                                            <table class="none">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><div class="spaceTop spaceLeft small">左側に更新をチェックするユーザーを追加してください。</div>
+                                                            <div id="membernormalselect" widgetid="membernormalselect">
+                                                                <table class="none">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td><div id="memberPopupDiv">
+                                                                                    <div class="outer">
+                                                                                        <div class="popup">
+                                                                                            <div class="clearfix">
+                                                                                                <div class="memberlistToTop">ユーザー一覧</div>
+                                                                                                <div class="memberlistFromTop">
+                                                                                                    <select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
+                                                                                                        <option value="LoginUser">すべてのグループ</option>
+                                                                                                        <option value="1344313087944_1">ERP開発部</option>
+                                                                                                        <option value="1344313207741_1">SCM開発部</option>
+                                                                                                        <option value="1344313018823_1">ユーザー・エクスペリエンス・クリエイティブデザイン課</option>
+                                                                                                        <option value="1344312907944_1">人事部</option>
+                                                                                                        <option value="1344312854185_1">営業部</option>
+                                                                                                        <option value="1344313063522_1">情報システム部</option>
+                                                                                                        <option value="1344312885238_1">経営企画部</option>
+                                                                                                        <option value="1344312849183_1">総務部</option>
+                                                                                                        <option value="1344312897425_1">鎌倉開発センター</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="clearfix">
+                                                                                                <div class="memberlistToBody">
+                                                                                                    <select size="5" multiple="multiple" style="width:100%" name="member_to" id="member_to">
+                                                                                                        <option value="user1">伊藤 博文</option>
+                                                                                                        <option value="user2">板垣 退助</option>
+                                                                                                        <option value="user3">沖田 総司</option>
+                                                                                                        <option value="user4">近藤 勇</option>
+                                                                                                        <option value="user5">北条 政子</option>
+                                                                                                        <option value="user6">小林 一茶</option>
+                                                                                                        <option value="user7">織田 信長</option>
+                                                                                                        <option value="user8">菅原 道真</option>
+                                                                                                        <option value="user9">水野 忠邦</option>
+                                                                                                        <option value="user10">源 頼朝</option>
+                                                                                                        <option value="user11">徳川 家康</option>
+                                                                                                        <option value="user12">徳川 慶喜</option>
+                                                                                                        <option value="user13">大久保 利通</option>
+                                                                                                        <option value="user14">ヴォルフガング・アマデウス モーツァルト</option>
+                                                                                                        <option value="user15">津田 梅子</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                <div class="memberlistFromBody">
+                                                                                                    <select size="5" multiple="multiple" style="width:100%" name="tmp_member_from" id="tmp_member_from">
+                                                                                                        <option value="user1">伊藤 博文</option>
+                                                                                                        <option value="user2">板垣 退助</option>
+                                                                                                        <option value="user3">沖田 総司</option>
+                                                                                                        <option value="user4">近藤 勇</option>
+                                                                                                        <option value="user5">北条 政子</option>
+                                                                                                        <option value="user6">小林 一茶</option>
+                                                                                                        <option value="user7">織田 信長</option>
+                                                                                                        <option value="user8">菅原 道真</option>
+                                                                                                        <option value="user9">水野 忠邦</option>
+                                                                                                        <option value="user10">源 頼朝</option>
+                                                                                                        <option value="user11">徳川 家康</option>
+                                                                                                        <option value="user12">徳川 慶喜</option>
+                                                                                                        <option value="user13">大久保 利通</option>
+                                                                                                        <option value="user14">ヴォルフガング・アマデウス モーツァルト</option>
+                                                                                                        <option value="user15">津田 梅子</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="clearfix">
+                                                                                                <div class="memberlistToBottom">
+                                                                                                    <div class="alignright">
+                                                                                                        <input id="button_member_remove" name="button_member_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="memberlistFromBottom">
+                                                                                                    <div style="display: none;" id="membernormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+                                                                                                    <div class="alignright">
+                                                                                                        <input id="button_member_add" name="button_member_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <select size="5" multiple="multiple" style="display:none;" name="init_memberlist" id="init_memberlist">
+                                                                <option value="user1">伊藤 博文</option>
+                                                            </select>                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div></td>
+                </tr>
+                <tr>
+                  <td class="caption">ブログへコメントがあったとき</td>
+                  <td><input type="checkbox" checked="checked" id="pc_flg_report_id" value="1" name="pc_flg_report">
+                    <label for="pc_flg_report_id" class="mr15">通知する</label>
+                    <input type="checkbox" id="cell_flg_report_id" value="1"  disabled name="cell_flg_report">
+                    <label for="cell_flg_report_id" class="fcGray">携帯に通知する</label>                  </td>
+                </tr>
+                <tr>
+                  <td class="caption">新しいメンバーが参加したとき</td>
+                  <td><input type="checkbox" checked="checked" id="pc_flg_report_id" value="1" name="pc_flg_report">
+                    <label for="pc_flg_report_id" class="mr15">通知する</label>
+                    <input type="checkbox" id="cell_flg_report_id" value="1"  disabled name="cell_flg_report">
+                    <label for="cell_flg_report_id" class="fcGray">携帯に通知する</label>                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="center auiPopupButtons">
+              <input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="適用する" class="auiButtonAction" name="eventSubmit_doWebmail_mailaccount_update_option">
+              <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
+
+            スケジュール追加
+
+            ################################################################################ -->
+      <a id="pageSetting"></a>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">ページ設定</div>
+        </div>
+        <div class="roundBlockContent">
+          <div class="indicator" id="indicator-dlg-P" style="display:none;">データを送信しています...</div>
+          <div id="messageDiv"></div>
+          <form name="formP-135e7e25490-10b6d" id="formP-135e7e25490-10b6d" action="" method="post" onsubmit="">
+            <input type="hidden" name="_name" value="ページ">
+            <input type="hidden" name="secid" value="">
+            <input type="hidden" name="portlet_id" value="">
+            <input type="hidden" name="mode" value="add">
+            <input type="hidden" name="secid" value="">
+            <h3>ページ名</h3>
+            <p style="margin-bottom:10px"> マイページ </p>
+            <h3>配置の選択</h3>
+            <input type="hidden" name="controller" value="ThreeColumns">
+            <table class="tableWrapper controllerTable layoutList">
+              <tbody>
+                <tr>
+                  <td align="left" nowrap="nowrap" id="OneColumn"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_100.png" alt="レイアウト [ 100% ]" title="レイアウト [ 100% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="TwoColumns"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_50-50.png" alt="レイアウト [ 50% | 50% ]" title="レイアウト [ 50% | 50% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="TwoColumnsRight"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-75.png" alt="レイアウト [ 25% | 75% ]" title="レイアウト [ 25% | 75% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="TwoColumnsLeft"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_75-25.png" alt="レイアウト [ 75% | 25% ]" title="レイアウト [ 75% | 25% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="ThreeColumnsSymetric"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_33-33-33.png" alt="レイアウト [ 33% | 33% | 33% ]" title="レイアウト [ 33% | 33% | 33% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="ThreeColumns" class="selected"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-50-25.png" alt="レイアウト [ 25% | 50% | 25% ]" title="レイアウト [ 25% | 50% | 25% ]" width="70" height="70" border="0"></a></td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <h3>アプリ選択</h3>
+            <!--<div style="height:300px;overflow:scroll;overflow-x:hidden;">-->
+            <div style="height:300px;overflow:scroll;overflow-x:hidden;">
+              <table class="listTable" style="margin-top:0">
+                <tbody>
+                  <tr>
+                    <th class="thin">追加</th>
+                    <th class="thin">現在数</th>
+                    <th class="w25">タイトル</th>
+                    <th class="w50">説明</th>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-down"></i></span>標準アプリ</th>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="ToDo">
+                    </td>
+                    <td align="center">1</td>
+                    <td> ToDo </td>
+                    <td> 作業の進捗を共有できるToDoです。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="WebMail">
+                    </td>
+                    <td align="center">0</td>
+                    <td> Webメール </td>
+                    <td> メールの送受信が行えるWebメール機能です。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="AddressBook">
+                    </td>
+                    <td align="center">1</td>
+                    <td> アドレス帳 </td>
+                    <td> 電話番号やメールアドレスを共有できます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Schedule">
+                    </td>
+                    <td align="center">1</td>
+                    <td> スケジュール </td>
+                    <td> 全員でスケジュールの共有が行えます。設備予約や継続スケジュールの登録もできます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="ExtTimecard">
+                    </td>
+                    <td align="center">1</td>
+                    <td> タイムカード </td>
+                    <td> 出退勤を1クリックで登録できます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Timeline">
+                    </td>
+                    <td align="center">1</td>
+                    <td> タイムライン </td>
+                    <td> チャット感覚で情報共有ができ、予定やToDoの追加・編集などが時系列に表示されることで社内の動きを把握してコミュニケーションできます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Cabinet">
+                    </td>
+                    <td align="center">1</td>
+                    <td> フォルダ </td>
+                    <td> 階層化されたフォルダでファイルを共有できます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Blog">
+                    </td>
+                    <td align="center">1</td>
+                    <td> ブログ </td>
+                    <td> 日記のほか日報などに活用できるブログです。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="UserList">
+                    </td>
+                    <td align="center">1</td>
+                    <td> ユーザー名簿 </td>
+                    <td> 利用しているユーザー一覧を表示します。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Workflow">
+                    </td>
+                    <td align="center">1</td>
+                    <td> ワークフロー </td>
+                    <td> 決裁や有給の稟議に利用できるワークフローです。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Note">
+                    </td>
+                    <td align="center">1</td>
+                    <td> 伝言メモ </td>
+                    <td> メンバーを指定して連絡事項をメールで通知できます。自分宛の伝言メモも表示されます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Report">
+                    </td>
+                    <td align="center">1</td>
+                    <td> 報告書 </td>
+                    <td> 特定のユーザへ報告書を通知し共有できます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Msgboard">
+                    </td>
+                    <td align="center">1</td>
+                    <td> 掲示板 </td>
+                    <td> カテゴリやトピックを設定して、お知らせなどを掲載できます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="Activity">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 更新情報 </td>
+                    <td> 追加や更新のあった内容を時系列で表示します。 </td>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-down"></i></span>Aipoアプリ</th>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::3">
+                    </td>
+                    <td align="center">0</td>
+                    <td> Gmail Checker </td>
+                    <td> Gmail の未読メールを確認することができるアプリケーションです。自動更新機能により、新着のメールをお知らせしてくれます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::7">
+                    </td>
+                    <td align="center">0</td>
+                    <td> twiリーダー </td>
+                    <td> 特定のキーワードでtwitterを検索し、表示することができるtwitter検索アプリです。
+                      キーワードは3つまで指定でき、ハッシュタグも指定可能。
+                      会社名や会社の製品などで検索する場合、設定画面でキーワードを指定するため、毎日の確認に便利です。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::6">
+                    </td>
+                    <td align="center">0</td>
+                    <td> Webページ </td>
+                    <td> Aipoの中で表示できる簡易ウェブブラウザです。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::77">
+                    </td>
+                    <td align="center">0</td>
+                    <td> Yahoo!ニュース </td>
+                    <td> Yahoo!ニュースへ掲載されているトピックスをお知らせするアプリです。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::61">
+                    </td>
+                    <td align="center">0</td>
+                    <td> つぶやき </td>
+                    <td> 短いメッセージでやり取りするシンプルなコミュニケーションツールです。発言ごとにコメントを返せるなど、リアルタイムな情報共有に役立ちます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::57">
+                    </td>
+                    <td align="center">0</td>
+                    <td> エクセル関数辞典 </td>
+                    <td> エクセル関数を関数名での検索、または逆引き検索することが出来ます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::59">
+                    </td>
+                    <td align="center">0</td>
+                    <td> チャットルーム </td>
+                    <td> 一言つぶやくことができるチャットルームです。古い発言から削除されます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::1">
+                    </td>
+                    <td align="center">0</td>
+                    <td> フィードリーダー </td>
+                    <td> お気に入りのRSS、Atomフィードを閲覧することができるシンプルなフィードリーダーです。
+                      自動更新機能により、新着の記事をお知らせしてくれます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::5">
+                    </td>
+                    <td align="center">0</td>
+                    <td> マルチ検索窓 </td>
+                    <td> 検索用の窓です。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::65">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 備品管理 </td>
+                    <td> 備品の補充状況を簡単設定で一目で確認できるアプリです。残り少なくなれば誰でも状態を更新できます。快適な職場づくりにお役立てください。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::62">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 共有メモ </td>
+                    <td> ユーザー同士で共有することができるメモ集です。メモ集をクリップしておくことにより、初回に表示させたいメモ集を覚えさせておくことができます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::2">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 共有リンク </td>
+                    <td> ユーザー同士で共有することができるリンク集です。リンク集をクリップしておくことにより、初回に表示させたいリンク集を覚えさせておくことができます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::56">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 安否確認 </td>
+                    <td> 安否を確認できるアプリです。各自の安否と出社可否を一覧で確認できます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::8">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 簡易在席確認 </td>
+                    <td> 同じアプリを使用している人の在席状況が確認できるアプリです。
+                      離れた席や、違うフロアにいる人の在席状況を確認する際に是非ご利用下さい。
+                      
+                      ステータスは「在席」、「外出」の2つ。他にステータス変更時間と付属するコメントが表示されます。
+                      コメントには外出先や戻り予定を入れておけば、電話応対の際の確認もらくらくです。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::66">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 美人時計 </td>
+                    <td> “美人時計であなたは１分間の恋をする。" 美人時計は、美人（1,440枚の写真）と時計（1,440分）を組み合わせた、時計アプリです。
+                      360人、1440枚の美人写真が1分ごとに時刻をお知らせし、あなたに微笑みかけます。 </td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input type="checkbox" name="pname" value="GadgetsTemplate::9">
+                    </td>
+                    <td align="center">0</td>
+                    <td> 飲みイコ </td>
+                    <td> 飲みへのお誘い機能です。 </td>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-down"></i></span>プレミアムアプリ（Lプラン専用）</th>
+                  </tr>
+                  <tr class="disabled">
+                    <td class="center"><input type="checkbox" disabled="disabled"></td>
+                    <td align="center">0</td>
+                    <td> Webデータベース </td>
+                    <td> 項目を自由に設定して、入力の簡単なオリジナルのデータベースを作成できる機能です。 </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <input type="hidden" name="size" value="30">
+            <div class="center auiPopupButtons">
+              <input name="eventSubmit_doTodo_insert" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
+              <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+            </div>
+          </form>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">ページ設定</div>
+        </div>
+        <div class="roundBlockContent">
+          <div class="indicator" id="indicator-dlg-P" style="display:none;">データを送信しています...</div>
+          <div id="messageDiv"></div>
+          <form name="formP-135e7e25490-10b6d" id="formP-135e7e25490-10b6d" action="" method="post" onsubmit="">
+            <input type="hidden" name="_name" value="ページ">
+            <input type="hidden" name="secid" value="">
+            <input type="hidden" name="portlet_id" value="">
+            <input type="hidden" name="mode" value="add">
+            <input type="hidden" name="secid" value="">
+            <h3>ページ名</h3>
+            <p style="margin-bottom:10px"> マイページ </p>
+            <h3>配置の選択</h3>
+            <input type="hidden" name="controller" value="ThreeColumns">
+            <table class="tableWrapper controllerTable layoutList">
+              <tbody>
+                <tr>
+                  <td align="left" nowrap="nowrap" id="OneColumn"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_100.png" alt="レイアウト [ 100% ]" title="レイアウト [ 100% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="TwoColumns"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_50-50.png" alt="レイアウト [ 50% | 50% ]" title="レイアウト [ 50% | 50% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="TwoColumnsRight"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-75.png" alt="レイアウト [ 25% | 75% ]" title="レイアウト [ 25% | 75% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="TwoColumnsLeft"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_75-25.png" alt="レイアウト [ 75% | 25% ]" title="レイアウト [ 75% | 25% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="ThreeColumnsSymetric"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_33-33-33.png" alt="レイアウト [ 33% | 33% | 33% ]" title="レイアウト [ 33% | 33% | 33% ]" width="70" height="70" border="0"></a></td>
+                  <td align="left" nowrap="nowrap" id="ThreeColumns" class="selected"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-50-25.png" alt="レイアウト [ 25% | 50% | 25% ]" title="レイアウト [ 25% | 50% | 25% ]" width="70" height="70" border="0"></a></td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <h3>アプリ選択</h3>
+            <!--<div style="height:300px;overflow:scroll;overflow-x:hidden;">-->
+            <div style="height:300px;overflow:scroll;overflow-x:hidden;">
+              <table class="listTable" style="margin-top:0">
+                <tbody>
+                  <tr>
+                    <th class="thin">追加</th>
+                    <th class="thin">現在数</th>
+                    <th class="w25">タイトル</th>
+                    <th class="w50">説明</th>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-up"></i></span>標準アプリ</th>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-up"></i></span>Aipoアプリ</th>
+                  </tr>
+                  <tr>
+                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-down"></i></span>プレミアムアプリ（Lプラン専用）</th>
+                  </tr>
+                  <tr class="disabled">
+                    <td class="center"><input type="checkbox" disabled="disabled"></td>
+                    <td align="center">0</td>
+                    <td> Webデータベース </td>
+                    <td> 項目を自由に設定して、入力の簡単なオリジナルのデータベースを作成できる機能です。 </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <input type="hidden" name="size" value="30">
+            <div class="center auiPopupButtons">
+              <input name="eventSubmit_doTodo_insert" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
+              <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
+			
+			Aipoアプリ汎用ポップアップ
+			
+			################################################################################ -->
+      <a id="socialapp"></a>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"> <span><i class="icon-remove"></i></span> </a> </div>
+          </div>
+          <div class="auiPopupTitle">Aipoアプリ汎用ポップアップ</div>
+        </div>
+        <div class="roundBlockContent">
+          <div class="indicator" id="indicator-dlg-26641236672261031" style="display:none;">データを送信しています...</div>
+          <a href='javascript:aipo.container.setCountry("JP");aipo.container.setLanguage("ja");aipo.container.setView("popup");aipo.container.setNoCache("0");aipo.container.renderGadgetFromContext({"portletId":"26641236672261031","appId":"200","specUrl":"http://gadgets.aipo.com/nomi-iko.xml","secureToken":"default:1YWg-FLfzmGu5VEzLkWz3nqjF3WKzVrj-xK16T3qT-sg8QIflbPpgUiLi3m69SnmClk4qG05E2V5CGoxx1WiS7zx3QOHQqZpMyVckXEEY-SYcy5VSay_QsaYp4FCprZbdK86LdSOSbUKvq22Cno6MJSjQ7XaO3h9eAt1mnAJhsK1bhkTvUbvc0b3TTGuEbAspq6z_w","serverBase":"http://59.106.173.26:8080/gadgets/","width":"100%","rpcRelay":"files/container/rpc_relay.html","userPrefs":{},"viewParams":{"externalId":"2001381983735892"}});' id="gadgets-popup-action"></a>
+          <div id="gadget-chrome-26641236672261031-popup">
+            <div class="gadgets-gadget-content">
+              <iframe id="remote_iframe_26641236672261031-popup_NN_1" name="remote_iframe_26641236672261031-popup_NN_1" class="gadgets-gadget" src="about:blank" frameborder="no" no="" width="100%" style="height: 105px;"></iframe>
+            </div>
+          </div>
+          <div align="center">
+            <input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="aipo.common.hideDialog();">
+          </div>
+        </div>
+      </div>
+      <!-- /Aipoアプリ汎用ポップアップ -->
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
+			
+			Aipoアプリ汎用ポップアップ
+			
+			################################################################################ -->
+      <a id="socialapp"></a>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a onclick="aipo.common.hideDialog();" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">アプリ詳細</div>
+        </div>
+        <div class="roundBlockContent">
+          <div style="display:none;" id="indicator-dlg-138" class="indicator">データを送信しています...</div>
+          <form onsubmit="return false;" method="post" action="#" id="form138" name="form138">
+            <input type="hidden" value="アプリ" name="_name">
+            <input type="hidden" value="9beca2862bd6e99acc450bd954f15f13" name="secid">
+            <table class="listTable wide">
+              <tbody>
+                <tr>
+                  <td class="caption">タイプ</td>
+                  <td>Lプラン専用アプリ</td>
+                </tr>
+                <tr>
+                  <td class="caption">タイトル</td>
+                  <td> Webデータベース </td>
+                </tr>
+                <tr>
+                  <td class="caption">説明</td>
+                  <td>項目を自由に設定して、入力の簡単なオリジナルのデータベースを作成できる機能です。</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><div class="center mt10 mb15"><img style="width:100%;" src="../themes/default/images/tour/web_database.png"></div></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="center auiPopupButtons">
+              <input type="button" onclick="aipo.gadgets_admin.ajaxDeleteSubmit(this, 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormJSONScreen&amp;entityid=33&amp;mode=delete', 'indicator-dlg-', '138', aipo.gadgets_admin.onReceiveMessage);" value="アンインストールする" class="button" name="ajaxbuttonDelete">
+              <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /Aipoアプリ汎用ポップアップ -->
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ▲ポップアップ群ここまで▲ -->
+    </div>
+    <!-- /modalDialog -->
+  </div>
+  <!-- /roundMainWrapper  -->
+</div>
+</body>
+</html>

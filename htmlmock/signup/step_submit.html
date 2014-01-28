@@ -27,110 +27,125 @@
 <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="/static/aipo/themes/iphone/img/apple-touch-icon-precomposed.png">
 <style>
-html{
-overflow-y:scroll;
+
+/* style.css にコミットここから　*/
+#contents.simplified-box h1.step {
+  border-bottom: none;
 }
-#contents.simplified-box .main-only .borderBox {
-overflow: visible !important;
-}
+
 .popover {
-font-size:12px;
-color:#555555;
+  font-size: 12px;
 }
-#contents h3.popover-title {
-margin:0;
-font-size:12px;
-border-bottom:none;
-padding:8px 14px 0;
-background:none;
-color:#000000;
-}
-*:first-child+html .popover {
-width:210px;
-}
-@media (max-width: 320px) {
-.popover {
-max-width:40%;
-}
-.popover-content {
-padding: 9px;
-}
+.popover h3.popover-title {
+  background: none;
+  margin: 0 !important;
+  font-size: 12px !important;
+  border-bottom: none !important;
+  padding: 8px 14px 0 !important;
 }
 
 .formStep {
-    display: table;
-    list-style: none;
-    margin: 5px 0 15px;
-    padding: 0;
-    position: relative;
-    width: 100%;
+  display: block;
+  margin: 10px 0;
+  position: relative;
 }
 .formStep li {
-    display: table-cell;
-    text-align: center;
-    width: 1%;
+  display: block;
+  text-align: center;
+  width: 33%;
+  float: left;
 }
 .formStep li .stepCircle {
-    border: 1px solid #DDD;
-		background:#FFF;
-    border-radius: 100%;
-    color: #999;
-    display: inline-block;
-    font-size: 15px;
-    height: 25px;
-    line-height: 25px;
-    position: relative;
-    text-align: center;
-    width: 25px;
-    z-index: 2;
+  border: 1px solid #DDDDDD;
+  background: #ffffff;
+  border-radius: 100%;
+  color: #999;
+  display: inline-block;
+  font-size: 15px;
+  height: 25px;
+  line-height: 25px;
+  position: relative;
+  width: 25px;
+  z-index: 2;
+}
+.formStep li .title {
+  color: #999;
+  display: block;
+  font-size: 11px;
+  margin-top: 4px;
+  max-width: 100%;
+  z-index: 300;
 }
 .formStep li:before {
-    border-top: 1px solid #EEEEEE;
-    content: "";
-    display: block;
-    font-size: 0;
-    height: 1px;
-    overflow: hidden;
-    position: relative;
-    top: 16px;
-    width: 100%;
-    z-index: 1;
+  border-top: 1px solid #EEEEEE;
+  content: "";
+  display: block;
+  font-size: 0;
+  height: 1px;
+  overflow: hidden;
+  position: relative;
+  top: 16px;
+  width: 100%;
+  z-index: 1;
 }
 .formStep li.active .stepCircle {
-		color:#333;
-		border-color:#888;
+  color: #FFF;
+  background: #FF9900;
+  border: 1px solid #FF9900;
 }
-.formStep li.complete .stepCircle {
-		color:#999;
+.formStep li.active .title {
+  color: #FF9900;
+  font-weight: bold;
+}
+.formStep li:first-child:before {
+  left: 50%;
+  max-width: 51%;
+}
+.formStep li:last-child:before {
+  max-width: 50%;
+  width: 50%;
 }
 
-.formStep li .title {
-    color: #999;
-    display: block;
-    font-size: 11px;
-    margin-top: 4px;
-    max-width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    word-wrap: break-word;
-    z-index: 300;
+@media (max-width: 767px) {
+  #contents.simplified-box .main-only .borderBox {
+    overflow: visible !important;
+  }
+
+  .popover {
+    max-width: 40%;
+  }
+  .popover .popover-content {
+    padding: 9px;
+  }
+
+  .formStep {
+    margin: 10px !important;
+  }
+  .formStep li .title {
+    font-size: 10px;
+  }
 }
- .formStep li.active .title {
-    color: #333;
-}
-.formStep li.active:before, .formStep li.complete:before, .formStep li.active .stepCircle, .formStep li.complete .stepCircle {
-    border-color: #999;
+/* style.css にコミットここまで　*/
+
+
+/* ie.css にコミットここから　*/
+*:first-child+html .popover {
+width:210px;
 }
 *:first-child+html .formStep {
-		border-bottom:1px solid #EEE;
-		height:13px;
-		margin-bottom:30px;
+border-bottom:1px solid #EEE;
+height:13px;
+margin-bottom:30px;
 }
 *:first-child+html .formStep li {
-		width:33%;
-		display:block;
-		float:left;
+display:block;
+float:left;
 }
+*:first-child+html .formStep li .stepCircle i {
+margin:0 auto;
+line-height:25px;
+}
+/* ie.css にコミットここまで　*/
 </style>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">

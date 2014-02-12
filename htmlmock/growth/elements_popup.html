@@ -23,6 +23,17 @@
 </head>
 <body>
 <script type="text/javascript">
+<!--
+function disp(){
+	if(window.confirm('選択したアプリの中に「Lプラン専用アプリ」が含まれています。\nLプラン30日間無料お試し申し込みフォームへ移動します。')){
+		location.href = "#";
+	}
+	else{
+	}
+}
+// -->
+</script>
+<script type="text/javascript">
     djConifg = {
         xDomainBasePath: 'https://app.aipo.com/javascript'
     };
@@ -815,8 +826,8 @@ aimluck.harada+okamotosaeko@gmail.com</p>
                   <tr>
                     <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-down"></i></span>プレミアムアプリ（Lプラン専用）</th>
                   </tr>
-                  <tr class="disabled">
-                    <td class="center"><input type="checkbox" disabled="disabled"></td>
+                  <tr class="disableded">
+                    <td class="center"><input type="checkbox"></td>
                     <td align="center">0</td>
                     <td> Webデータベース </td>
                     <td> 項目を自由に設定して、入力の簡単なオリジナルのデータベースを作成できる機能です。 </td>
@@ -826,7 +837,7 @@ aimluck.harada+okamotosaeko@gmail.com</p>
             </div>
             <input type="hidden" name="size" value="30">
             <div class="center auiPopupButtons">
-              <input name="eventSubmit_doTodo_insert" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
+              <a name="ajaxbuttonCheckboxEnable" class="auiButtonAction" onclick="disp();">適用する</a>
               <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
             </div>
           </form>
@@ -834,76 +845,7 @@ aimluck.harada+okamotosaeko@gmail.com</p>
       </div>
       <br>
       <br>
-      <div class="auiPopup clearfix">
-        <div class="auiPopupHead clearfix">
-          <div class="auiPopupTool">
-            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
-          </div>
-          <div class="auiPopupTitle">ページ設定</div>
-        </div>
-        <div class="roundBlockContent">
-          <div class="indicator" id="indicator-dlg-P" style="display:none;">データを送信しています...</div>
-          <div id="messageDiv"></div>
-          <form name="formP-135e7e25490-10b6d" id="formP-135e7e25490-10b6d" action="" method="post" onsubmit="">
-            <input type="hidden" name="_name" value="ページ">
-            <input type="hidden" name="secid" value="">
-            <input type="hidden" name="portlet_id" value="">
-            <input type="hidden" name="mode" value="add">
-            <input type="hidden" name="secid" value="">
-            <h3>ページ名</h3>
-            <p style="margin-bottom:10px"> マイページ </p>
-            <h3>配置の選択</h3>
-            <input type="hidden" name="controller" value="ThreeColumns">
-            <table class="tableWrapper controllerTable layoutList">
-              <tbody>
-                <tr>
-                  <td align="left" nowrap="nowrap" id="OneColumn"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_100.png" alt="レイアウト [ 100% ]" title="レイアウト [ 100% ]" width="70" height="70" border="0"></a></td>
-                  <td align="left" nowrap="nowrap" id="TwoColumns"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_50-50.png" alt="レイアウト [ 50% | 50% ]" title="レイアウト [ 50% | 50% ]" width="70" height="70" border="0"></a></td>
-                  <td align="left" nowrap="nowrap" id="TwoColumnsRight"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-75.png" alt="レイアウト [ 25% | 75% ]" title="レイアウト [ 25% | 75% ]" width="70" height="70" border="0"></a></td>
-                  <td align="left" nowrap="nowrap" id="TwoColumnsLeft"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_75-25.png" alt="レイアウト [ 75% | 25% ]" title="レイアウト [ 75% | 25% ]" width="70" height="70" border="0"></a></td>
-                  <td align="left" nowrap="nowrap" id="ThreeColumnsSymetric"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_33-33-33.png" alt="レイアウト [ 33% | 33% | 33% ]" title="レイアウト [ 33% | 33% | 33% ]" width="70" height="70" border="0"></a></td>
-                  <td align="left" nowrap="nowrap" id="ThreeColumns" class="selected"><a href="javascript:void(0);" onclick=""><img src="../themes/default/images/layout/layout_25-50-25.png" alt="レイアウト [ 25% | 50% | 25% ]" title="レイアウト [ 25% | 50% | 25% ]" width="70" height="70" border="0"></a></td>
-                </tr>
-              </tbody>
-            </table>
-            <br>
-            <h3>アプリ選択</h3>
-            <!--<div style="height:300px;overflow:scroll;overflow-x:hidden;">-->
-            <div style="height:300px;overflow:scroll;overflow-x:hidden;">
-              <table class="listTable" style="margin-top:0">
-                <tbody>
-                  <tr>
-                    <th class="thin">追加</th>
-                    <th class="thin">現在数</th>
-                    <th class="w25">タイトル</th>
-                    <th class="w50">説明</th>
-                  </tr>
-                  <tr>
-                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-up"></i></span>標準アプリ</th>
-                  </tr>
-                  <tr>
-                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-up"></i></span>Aipoアプリ</th>
-                  </tr>
-                  <tr>
-                    <th colspan="4" style="background:#EEE; font-size:11px;" class="left"><span class="floatRight mr5"><i class="icon-angle-down"></i></span>プレミアムアプリ（Lプラン専用）</th>
-                  </tr>
-                  <tr class="disabled">
-                    <td class="center"><input type="checkbox" disabled="disabled"></td>
-                    <td align="center">0</td>
-                    <td> Webデータベース </td>
-                    <td> 項目を自由に設定して、入力の簡単なオリジナルのデータベースを作成できる機能です。 </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <input type="hidden" name="size" value="30">
-            <div class="center auiPopupButtons">
-              <input name="eventSubmit_doTodo_insert" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
-              <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
-            </div>
-          </form>
-        </div>
-      </div>
+      
       <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
       <!-- ################################################################################
 			
@@ -938,7 +880,7 @@ aimluck.harada+okamotosaeko@gmail.com</p>
 			Aipoアプリ汎用ポップアップ
 			
 			################################################################################ -->
-      <a id="socialapp"></a>
+      <a id="webDatabase"></a>
       <div class="auiPopup clearfix">
         <div class="auiPopupHead clearfix">
           <div class="auiPopupTool">
@@ -971,7 +913,7 @@ aimluck.harada+okamotosaeko@gmail.com</p>
               </tbody>
             </table>
             <div class="center auiPopupButtons">
-              <input type="button" onclick="aipo.gadgets_admin.ajaxDeleteSubmit(this, 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormJSONScreen&amp;entityid=33&amp;mode=delete', 'indicator-dlg-', '138', aipo.gadgets_admin.onReceiveMessage);" value="アンインストールする" class="button" name="ajaxbuttonDelete">
+              <input type="button " onclick="aipo.gadgets_admin.ajaxDeleteSubmit(this, 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormJSONScreen&amp;entityid=33&amp;mode=delete', 'indicator-dlg-', '138', aipo.gadgets_admin.onReceiveMessage);" value="Lプラン 30日間無料お試し申込み" class="auiButtonAction" name="ajaxbuttonDelete">
               <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
             </div>
           </form>

@@ -1,0 +1,721 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8,chrome=1" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<link type="image/x-icon" rel="shortcut icon" href="../../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+</head>
+<body onload="aipo.container.renderGadgets()">
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+<div id="slideDialog" class="modalDialog imageDialog" style="display:none"></div>
+<script type="text/javascript">
+  djConfig = {
+    cacheBust: '1390227216000',
+    siteTitle: 'Aipo.com'
+	  };
+</script>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/dojo/dojo.js"></script>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo.js?1390227216000"></script>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo.js?1390227216000"></script>
+<!-- WRAPPER -->
+<div id="wrapper">
+
+
+
+							<!-- HEADER -->
+	<div id="header" class="clearfix"><div class="inner">
+		<div class="hdSign">
+			<div class="hdLogo"><img src="/aipo/themes/default/images/logo_aipoplus_20130613.png" alt="Aipo.com"/></div>
+		</div>
+		<script>
+	function dispMenubar(obj,target) {
+		if(!document.getElementById(target)) {
+			return;
+		}
+		if(document.getElementById(target).style.display!='block') {
+			document.getElementById(target).style.display = 'block';
+		}else{
+			document.getElementById(target).style.display='none';
+		}
+	}
+	</script>
+		<div class="hdNavi">
+							<div class="hdMessege"><a href="https://aipo-ctest.appspot.com/" target="_blank"><div id="messagechecker" class="zero counter"></div>メッセージ</a></div>
+				<div class="hdActivity" title="お知らせ"><div id="activitycheckerContainer" class="dijitInline activitycheckerContainerstyle" ><div id="activitychecker" class="zero counter activitycheckerstyle"></div><span class="mb_hide">お知らせ</span><span class="pc_hide"><i class="icon-bell-alt"></i></span></div></div>
+				<div class="hdInformation" title="サポート"><div id="supportcheckerContainer" class="dijitInline arrow_bottom" ><div id="supportchecker" class="zero counter"></div><span class="mb_hide">サポート</span><span class="pc_hide"><i class="icon-info-sign"></i></span></div></div>
+						<div class="hdUserName">
+				<a href="javascript:void(0);" class="arrow_bottom" onclick="aipo.customize.showMenu('hdSetting');" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ">
+										 <img src="/aipo/images/common/avatar_default3.png" class="avatar" alt="顔写真"/>
+										<span class="useraccount">
+					 株式会社エイムラック  &#20304;&#12293;&#26408; &#27915;&#24179;
+					</span>
+					<i id="menubar_button_hdSetting" class="auiIcon auiIconSetting"></i>
+				</a>
+				<div class="menubar body-child" id="menubar_hdSetting" style="position: absolute; display:none;">
+					<ul>
+													<li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-1427d6d0686-100f1%2CP-1427d6d0686-100f2?action=controls.Restore&amp;action=controls.Restore">個人設定</a></li>
+															<li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/101%2C131?action=controls.Restore&amp;action=controls.Restore">管理設定</a></li>
+																			<li class="last"><a href="javascript:void(0);" onclick="location.href='https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml?action=SaaSJLogoutUser'">ログアウト</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div></div>
+
+                            <!-- /HEADER -->
+<script type="text/javascript">
+//<![CDATA[
+
+dojo.require("aipo.widget.DropdownActivityChecker");
+dojo.require("aipo.widget.DropdownSupportChecker");
+
+dojo.addOnLoad(function () {
+    var acHtml = document.getElementById("activitycheckerContainer");
+    if(acHtml){
+       var params = {
+            widgetId: "activitychecker",
+
+            iconURL: "themes/default/images/common/icon_message.gif",
+            iconWidth: "19",
+            iconHeight: "15",
+            extendClass: "counter",
+            iconAlt: "あなた宛のお知らせ"
+       };
+       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
+   }
+   acHtml = document.getElementById("supportcheckerContainer");
+    if(acHtml){
+       var params = {
+            widgetId: "supportchecker",
+            iconAlt: "サポート"
+       };
+       var ac = new aipo.widget.DropdownSupportChecker(params , acHtml);
+   }
+});
+
+//]]>
+</script>
+
+
+
+
+
+
+                            <!-- MAIN TAB -->
+
+                            <div id="auiTabs" class="clearfix">
+                              <ul>
+                               <li class="first  ">
+                                  <div class="tab">
+
+                                  <div class="title"><a title="マイページ" href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-1427d6d0686-100e5?action=controls.Restore">マイページ</a></div>
+	                                  <div class="setting" style="position:relative;">
+	                                  																						<a href="javascript:void(0);" id="menubar_button_tab_P-1427d6d0686-100e5" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenuForTab('tab_P-1427d6d0686-100e5');" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ"></a>
+											<div class="menubar body-child" id="menubar_tab_P-1427d6d0686-100e5" style="position:absolute; width=16em; display:none;">
+											<ul>
+												<li>
+																									<a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-1427d6d0686-100e5?action=controls.Maximize&amp;template=CustomizeFormScreen')">設定</a>
+					    																		</li>
+																							</ul>
+											</div>
+	                                  	                                  </div>
+                                  </div>
+                                </li>
+	                               <li class="  ">
+                                  <div class="tab">
+
+                                  <div class="title"><a title="Dropbox" href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-14399a4a62e-10000?action=controls.Restore">Dropbox</a></div>
+	                                  <div class="setting" style="position:relative;">
+	                                  																						<a href="javascript:void(0);" id="menubar_button_tab_P-14399a4a62e-10000" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenuForTab('tab_P-14399a4a62e-10000');" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ"></a>
+											<div class="menubar body-child" id="menubar_tab_P-14399a4a62e-10000" style="position:absolute; width=16em; display:none;">
+											<ul>
+												<li>
+																									<a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-14399a4a62e-10000?action=controls.Maximize&amp;template=CustomizeFormScreen')">設定</a>
+					    																		</li>
+																								<li class="last">
+													<a href="javascript:void(0);" onclick="aipo.customize.deleteTabSubmit('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/P-1427d6d0686-100f4?template=PageFormJSONScreen&amp;entityid=P-14399a4a62e-10000&amp;mode=delete&amp;secid=71414262592b0aa37be4026aa3d4bc37', 'P-14399a4a62e-10000', function(){location.href='https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-1427d6d0686-100e5'})">削除</a>
+												</li>
+																							</ul>
+											</div>
+	                                  	                                  </div>
+                                  </div>
+                                </li>
+	                               <li class=" last ">
+                                  <div class="tab">
+
+                                  <div class="title"><a title="2カラム" href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-1439e88fae9-1031d?action=controls.Restore">2カラム</a></div>
+	                                  <div class="setting" style="position:relative;">
+	                                  																						<a href="javascript:void(0);" id="menubar_button_tab_P-1439e88fae9-1031d" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenuForTab('tab_P-1439e88fae9-1031d');" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ"></a>
+											<div class="menubar body-child" id="menubar_tab_P-1439e88fae9-1031d" style="position:absolute; width=16em; display:none;">
+											<ul>
+												<li>
+																									<a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-1439e88fae9-1031d?action=controls.Maximize&amp;template=CustomizeFormScreen')">設定</a>
+					    																		</li>
+																								<li class="last">
+													<a href="javascript:void(0);" onclick="aipo.customize.deleteTabSubmit('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/P-1427d6d0686-100f4?template=PageFormJSONScreen&amp;entityid=P-1439e88fae9-1031d&amp;mode=delete&amp;secid=71414262592b0aa37be4026aa3d4bc37', 'P-1439e88fae9-1031d', function(){location.href='https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/P-1427d6d0686-100e5'})">削除</a>
+												</li>
+																							</ul>
+											</div>
+	                                  	                                  </div>
+                                  </div>
+                                </li>
+																		<li class="addTab">
+										<a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/P-1427d6d0686-100f2?template=PageFormScreen&amp;entityid=new','P-1427b679294-10057',aipo.page.onLoadPageDialog);" title="メニュータブを追加"><span>+</span></a>
+									</li>
+								                              </ul>
+                            </div>
+							                             <input id="data-activecustomizeurl" type="hidden" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/?template=CustomizeFormErrorScreen" />
+							 <input id="startguide-data-activecustomizeurl" type="hidden" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/?template=CustomizeFormErrorScreen" />
+														<!-- /MAIN TAB -->
+                            <!-- MAIN OUTER -->
+														<div class="roundMainWrapper">
+														<noscript><div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div></noscript>
+																						
+
+
+
+
+
+<!-- LAYOUT -->
+<table class="tableWrapper">
+  <tbody>
+    <tr>
+      <td class="top mb_hide" width="200">
+        <!-- SUBMENU -->
+        <div class="submenu_v2">
+          <ul>
+	            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/131?action=controls.Restore">基本情報</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/127?action=controls.Restore">インポート</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/121?action=controls.Restore">ユーザー管理</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/122?action=controls.Restore">部署管理</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/133?action=controls.Restore">役職管理</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/123?action=controls.Restore">設備管理</a></li>
+		            <li class="selected"><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/138?action=controls.Restore">アプリ管理</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/124?action=controls.Restore">ワークフロー管理</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/137?action=controls.Restore">タイムカード管理</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/128?action=controls.Restore">アクセス権限管理</a></li>
+		            <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_pane/129?action=controls.Restore">イベントログ管理</a></li>
+	          </ul>
+        </div>
+	    <!-- /SUBMENU -->
+      </td>
+      <td class="wide top">
+
+
+
+
+
+
+
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem auiPortlet 138">
+	<div class="auiPortletHead"><div class="inner dojoDndHandle">
+			<div class="auiPortletTitle">
+			<a href="javascript:void(0)">&#12450;&#12503;&#12522;&#31649;&#29702;</a>
+		</div>
+		<div class="auiPortletTool">
+			<div class="auiPortletAction">
+				<span id="portletMenu"></span>
+			</div>
+			<div class="auiPortletSetting">
+				<span id="portletMenu"></span>
+			</div>
+		</div>
+		</div></div>
+	<!-- auiPortletBody -->
+	<div class="auiPortletBody dndIdentifier">
+    <div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_138" id="portlet_138">
+    
+
+
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['138'] = { group:"gadgets_admin", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminListScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+
+
+
+<div id="auiWideArea"><div id="auiWideAreaInner">
+	<div class="auiSummaryMeta clearfix">
+<div class="floatLeft">
+<a title="アプリを追加する" href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormScreen&amp;entityid=new','138',aipo.gadgets_admin.onLoadFormDialog);" class="auiButtonAction">アプリを追加する</a>
+</div>
+<div class="floatRight clearfix relative">
+<div><a href="javascript:void(0);" id="menubar_button_138" class='customizeMenuIcon auiButtonBold' onclick="aipo.customize.showMenu('138');"><span class="auiIcon auiIconSetting mr5"></span>設定</a></div>
+<div class="menubar body-child" id="menubar_138" style="width: 14em; right: 0px; display: none; ">
+<ul>
+<li><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=SaaSGadgetsPsmlFormScreen');">アプリ配置を設定する</a></li>
+</ul>
+</div>
+</div>
+	</div>
+	<div class="auiSummaryMeta clearfix">
+<form class="auiForm floatLeft" action="#" method="post" style="margin-right:1em;" onsubmit="return false;">
+<select onchange="aipo.viewPage(this.options[this.selectedIndex].value, '138')" style="width:180px;">
+<option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminListScreen&amp;filter=all&amp;filtertype=status">すべてのアプリ</option>
+<option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminListScreen&amp;filter=1&amp;filtertype=status" >有効のアプリ</option>
+<option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminListScreen&amp;filter=0&amp;filtertype=status" >無効のアプリ</option>
+</select>
+</form>
+<div class="floatLeft ml10" style="padding-top: 0.4em;"> <div class="indicator" id="indicator-list-138" style="display:none;">データを送信しています...</div>
+</div>
+	</div>
+<div id="listMessageDiv"></div>
+<form name="form138" id="form138" action="#" method="post" onsubmit="return false;">
+<input type="hidden" name="_name" value="アプリ" />
+<input type="hidden" name="secid" value="71414262592b0aa37be4026aa3d4bc37" />
+	<div class="auiSummaryMeta clearfix">
+<div class="floatLeft">
+<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="alert('標準アプリは削除できません。')">削除する</a>
+<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete138" value="" />
+<a name="ajaxbuttonCheckboxEnable" class="auiButton" onclick="aimluck.io.ajaxCheckboxEnableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxenable138'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormJSONScreen&amp;mode=multi_enable', 'indicator-list-', '138', aipo.gadgets_admin.onReceiveMessage);">有効にする</a>
+<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxenable138" value="" />
+<a name="ajaxbuttonCheckboxDisable" class="auiButton" onclick="aimluck.io.ajaxCheckboxDisableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdisable138'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormJSONScreen&amp;mode=multi_disable', 'indicator-list-', '138', aipo.gadgets_admin.onReceiveMessage);">無効にする</a>
+<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdisable138" value="" />
+ <div class="indicator" id="indicator-list-138" style="display:none;">データを送信しています...</div>
+</div>
+
+<div class="floatRight">
+  <div class="count">1 - 18 / 18</div>
+    <!--<div class="auiSelectButton floatLeft">
+      <ul class="floatLeft">
+	    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+        <li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminListScreen&amp;start=2', '138');" class="last arrow" title="次の 5 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+      </ul>
+    </div>-->
+</div>
+	</div>
+<table class="auiRowTable wide">
+<colgroup style="width:20px;">
+</colgroup><colgroup style="width:3em;">
+</colgroup><colgroup>
+</colgroup>
+<tbody>
+<tr>
+<th class='auiMTCheck center'><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);" /></th>
+<th>状態</th>
+<th>アプリ名</th>
+<th>アプリタイプ</th>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check9" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>ToDo</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr class="disabled">
+  <td class="center"><input type="checkbox" disabled="disabled" /></td>
+  <td nowrap="nowrap" class="center">無効</td>
+      <td ><div><a href="../../growth/elements_popup.html#webDatabase">Webデータベース</a></div></td>
+      <td >Lプラン専用アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check8" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>Webメール</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check7" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>アドレス帳</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check6" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>スケジュール</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check5" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>タイムカード</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" disabled="disabled" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>タイムライン</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check3" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>フォルダ</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check2" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>ブログ</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check" /></td>
+      <td class="center" nowrap="nowrap">有効</td>
+      <td ><div>ユーザー名簿</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check" /></td>
+      <td nowrap="nowrap" class="center">有効</td>
+      <td><div>ユーザー名簿</div></td>
+      <td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check" /></td>
+      <td nowrap="nowrap" class="center">有効</td>
+      <td><div>ワークフロー</div></td><td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check" /></td>
+      <td nowrap="nowrap" class="center">有効</td>
+      <td><div>伝言メモ</div></td><td >標準アプリ</td>
+</tr>
+<tr>
+     <td class="center"><input type="checkbox" value="220" name="check" /></td>
+      <td nowrap="nowrap" class="center">有効</td>
+      <td><div>報告書</div></td><td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check" /></td>
+      <td nowrap="nowrap" class="center">有効</td>
+      <td><div>掲示板</div></td><td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check" /></td>
+      <td nowrap="nowrap" class="center">有効</td>
+      <td><div>更新情報</div></td><td >標準アプリ</td>
+</tr>
+<tr>
+      <td class="center"><input type="checkbox" value="220" name="check220"></td>
+      <td nowrap="nowrap" class="center">有効</td>
+    <td>
+<div>
+<a onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/138?template=GadgetsAdminDetailScreen&amp;entityid=220');" href="javascript:void(0);">美人時計 美人時計 (bijin-tokei ver.jp)</a></div>    </td>
+<td>Aipoアプリ</td>
+</tr>
+<tr class="disabled">
+      <td class="center"><input type="checkbox" value="200" name="check200"></td>
+      <td nowrap="nowrap" class="center">無効</td>
+    <td>
+<div>
+<a onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/138?template=GadgetsAdminDetailScreen&amp;entityid=200');" href="javascript:void(0);">Yahoo!ニュース</a></div>    </td>
+<td>Aipoアプリ</td>
+</tr>
+  </tbody>
+</table>
+	<div class="auiSummaryMeta clearfix">
+<div class="floatLeft">
+<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="alert('標準アプリは削除できません。')">削除する</a>
+<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete138" value="" />
+<a name="ajaxbuttonCheckboxEnable" class="auiButton" onclick="aimluck.io.ajaxCheckboxEnableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxenable138'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormJSONScreen&amp;mode=multi_enable', 'indicator-list-', '138', aipo.gadgets_admin.onReceiveMessage);">有効にする</a>
+<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxenable138" value="" />
+<a name="ajaxbuttonCheckboxDisable" class="auiButton" onclick="aimluck.io.ajaxCheckboxDisableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdisable138'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormJSONScreen&amp;mode=multi_disable', 'indicator-list-', '138', aipo.gadgets_admin.onReceiveMessage);">無効にする</a>
+<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdisable138" value="" />
+</div>
+
+<div class="floatRight">
+  <div class="count">1 - 18 / 18</div>
+    <!--<div class="auiSelectButton floatLeft">
+      <ul class="floatLeft">
+	    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+        <li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminListScreen&amp;start=2', '138');" class="last arrow" title="次の 5 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+      </ul>
+    </div>-->
+</div>
+	</div>
+</form>
+</div></div>
+
+
+	  </div>
+  </div>
+	<!-- /auiPortletBody -->
+	<div class="auiPortletFoot"><div class="inner"></div></div>
+</div>
+<!-- /PORTLET OUTER -->
+
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- /LAYOUT -->
+
+
+														</div>
+                            <!-- MAIN OUTER -->
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/saas_dialog/dialog.js?1390227216000"></script>
+							                            <!-- FOOTER -->
+     <div class="modalDialogUnderlayWrapper" id="guide1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none; opacity: 1;"><div class="modalDialogUnderlay"></div></div>
+	<div id="guide2" class="modalDialog mb_dialog" widgetid="modalDialog" title="" style="display: none; opacity: 1; left: 50%; top: 50px; margin-left: -275px;"><div style="position: relative; z-index: 2;">
+
+	<div class="auiPopup clearfix">
+		<table class="roundBlockWrapperTop">
+			<tbody>
+				<tr>
+					<td class="roundBlockTitle wide">管理ガイド</td>
+					<td class="roundBlockIcon last">
+							<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onClick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')"><span><i class="icon-remove"></i></span></a>
+</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="roundBlockContent">
+
+			<h3>メンバーを招待しましょう</h3>
+				<div class="clearfix">
+					<i class="icon-group pull-left fcGrayLight mr20 ml10" style="font-size:60px;"></i>
+					<p>同僚やパートナーをAipo.comに招待しましょう！</p>
+					<p>Aipo.comにはメンバーと情報を共有してコミュニケーションを最適化する機能が備わっています。</p>
+				</div>
+				<p class="center mb15"><a href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/121?template=StartGuideFormScreen&amp;entityid=new');" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">ユーザーを追加する</a></p>
+
+			<div  class="mb_hide">
+			<h3>ページを設定しましょう</h3>
+				<div class="clearfix">
+					<i class="icon-cloud-download pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
+					<p>アプリの追加やレイアウトを変更して、ページを設定しましょう。</p>
+					<p>デフォルトアプリの他にも <a href="http://app.testtotest.com/store/" target="_blank">Aipoストア</a> から、新しいアプリを追加して利用することもできます。</p>
+				</div>
+					<p class="center mb15"><a href="javascript:aipo.saas_dialog.startGuideCustomizeDialog();" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">ページを設定する</a></p>
+			</div>
+
+			<h3>みんなの画面を同じにしましょう</h3>
+				<div class="clearfix">
+					<i class="icon-desktop pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
+					<p>すべてのユーザーの画面を、管理者と同じ状態に統一できます。</p>
+					<p>限られた機能だけで充分なときや、追加した機能を使ってほしいときなど、組織や用途に応じて自由に設定することができます。</p>
+				</div>
+				<p class="center mb15"><a href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/121?template=SaaSGadgetsPsmlFormScreen&amp;startguide=true');" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">画面を統一する</a></p>
+
+			<div  class="mb_hide">
+			<div   id="start_guide_agreement_div2">
+				<h3>本格的に導入しましょう</h3>
+					<div class="clearfix">
+						<i class="icon-building pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
+						<p>容量の充実したMプラン、Lプランへ変更することで、基本容量が1GBまで拡張されます。詳しくは&nbsp;<a href="http://www.aipo.com/price/" target="_blank">料金</a> をご覧ください。</p>
+					</div>
+					<p class="center mb15"><a href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/121?template=SystemAgreementFormScreen&amp;isfromstartguide=true');" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">プラン変更を申し込む</a></p>
+			</div>
+			</div>
+
+		</div>
+	</div>
+</div></div>
+                            <!-- /FOOTER -->
+
+</div>
+<!-- /WRAPPER -->
+<iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+
+<!-- SSO for messenger -->
+<iframe id="messengerIframe"  name="messengerIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+<form id="messengerForm" name="messengerForm" action="" target="messengerIframe" method="post">
+<input type="hidden" name="st" value="default:VhhH_n9oo1f5F9fg6ja7AFOasktSuJxU8VViI5qKGg4xoTTGIgboxfk2ZggiJeoJHjXc-ZJn9rxmte4sqSV4C0B3MtJKI3UtMvKbBeqhIE3R-DmvIWX_dSKlk9hrpyxC1eSuJJ3QPvM6binqb34bhmcBPYk" />
+</form>
+<!-- /SSO for messenger -->
+
+  <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/common.js?1390227216000" defer="defer"></script>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/saas-common.js?1390227216000" defer="defer"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+dojo.require("aimluck.widget.Dialog");
+
+dojo.addOnLoad(function() {
+    aipo.customize.positionInitialize();
+    gadgets.rpc.setRelayUrl("sharedStateIframe", "https://aipo-ctest.appspot.com/gadgets/files/container/rpc_relay.html");
+    gadgets.rpc.setAuthToken("sharedStateIframe", "20658811534991546");
+    dojo.byId('sharedStateIframe').src='https://aipo-ctest.appspot.com/state/?st=default:5vE8jsOdtLpRoeBS4uEuAnivM9l8LSBr5ypf3u04ceShW-qP6u-3HBZCnJVathO3TX3plOdprvgfRS6oZOIpY5dqjGAdRQp4oJ0v5c7u-MR8BxVynbIM-yEZ91FKRWDe40IKa207B3IcaleNDN2iqiEIn58&parent=https%3A%2F%2Fapp.testtotest.com%2Faipo%2Fportal%2Fmedia-type%2Fhtml%2Fuser%2F0000007719%2Fpage%2Fdefault.psml%2Fjs_pane%2F138&interval=300#rpctoken=20658811534991546';
+    if(window.webkitNotifications) {
+      aipo.container.gadgetService.requestDesktopNotifyEnable();
+    }
+	if(aipo.container.gadgetService.requestCheckInformation){
+		aipo.container.gadgetService.requestCheckInformation();
+	}
+});
+
+scheduleTooltipEnable = true;
+var dispChanger = false;
+
+
+
+dojo.require("dojo.dnd.Source");
+dojo.require("aipo.customize.form");
+
+dojo.addOnLoad(function() {
+
+	aipo.customize.addAutoHideMenuTrigger();
+
+    var containers = dojo.query('.container');
+    var containerSources = [];
+    for(var c = 0; c < containers.length ; c++){
+        var container = new dojo.dnd.Source(containers[c], {
+            withHandles: true,
+            copyOnly: false
+        });
+        container.onSelectStart = function(e){
+		    if(this.isDragging){
+			    dojo.stopEvent(e);
+		    }
+        };
+        containerSources.push(container);
+    }
+
+    for(var c = 0; c < containers.length ; c++){
+        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
+            dojo.addClass(this, 'dojoDndContainerItemOver');
+            aipo.customize.hideMenu();
+        });
+
+        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
+            dojo.removeClass(this, 'dojoDndContainerItemOver');
+        });
+
+        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
+            if (this == target) {
+                if (copy) {
+                    nodes.orphan();
+                }
+                var params = '';
+                var cols = dojo.query('.container');
+                for(var c = 0; c < cols.length ; c++){
+                    var rows = dojo.query('.dojoDndItem .dndIdentifier > div', cols[c]);
+                    var reverse = false;
+                    if (rows.length >= 2) {
+                        var top = rows[0];
+                        var bottom = rows[rows.length - 1];
+
+                        var _top = dojo._abs(top);
+                        var _bottom = dojo._abs(bottom);
+
+                        while (_top && _bottom && _top.y == _bottom.y) {
+                            top = top.offsetParent;
+                            bottom = bottom.offsetParent;
+                            _top = dojo._abs(top);
+                            _bottom = dojo._abs(bottom);
+                        }
+
+                        if (_top.y > _bottom.y) {
+                            reverse = true;
+                        }
+
+                    }
+                    for (var r = 0 ; r < rows.length ; r++) {
+                        var pid = rows[r].id.split("portlet_")[1];
+                        if (reverse) {
+                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
+                        } else {
+                            params = params + '&' + pid + '_row=' + r;
+                        }
+                        params = params + '&' + pid + '_col=' + c;
+                    }
+                }
+
+                url = "https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719?template=CustomizeFormJSONScreen&mode=layout" + params;
+                aipo.customize.submit(url, '', function(){
+                });
+
+                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+                if(iframe && iframe.length == 1) {
+                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+                  var gadgets_ = aipo.container.gadgets_;
+                  for(var i in gadgets_) {
+                     var gadget = gadgets_[i];
+                     if(gadget.portletId == pid) {
+                       aipo.container.renderGadget(gadget);
+                       break;
+                     }
+                  }
+                }
+
+                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+            }
+        });
+    }
+
+    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='${id}_underlay'><div dojoAttachPoint='node'></div></div>" });
+    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
+        underlay.hide();
+    });
+    underlay.show();
+});
+function activitySwitch(){
+    var wrapper = document.getElementById('wrapper');
+    var header = document.getElementById('mobileHeader_v3');
+    var popup = dojo.query('.dijitPopup');
+    if(popup[0] == null) {
+        wrapper.style.minHeight = '';
+    } else {
+        var popupHeight= popup?popup[0].clientHeight:0;
+        var headerHeight = header?header.clientHeight:0;
+        var minHeight = popupHeight + headerHeight;
+        wrapper.style.minHeight = minHeight +  'px';
+    }
+}
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+  var messenger_url ="https://aipo-ctest.appspot.com/sso";
+(function() {
+  var messenger = document.createElement('script'); messenger.type = 'text/javascript'; messenger.async = true;
+  messenger.src = '/aipo/javascript/aipo/messenger.js?1390227216000';
+  document.getElementsByTagName("head")[0].appendChild(messenger);
+})();
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+  var twitter = document.createElement('script'); twitter.type = 'text/javascript'; twitter.async = true;
+  twitter.src = '/aipo/javascript/aipo/saas_support/twitter-text-1.6.1.js?1390227216000';
+  document.getElementsByTagName("head")[0].appendChild(twitter);
+})();
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-11008420-14']);
+_gaq.push(['_setDomainName', '.aipo.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+//]]>
+</script>
+</body>
+</html>

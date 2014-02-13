@@ -10,70 +10,236 @@
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
 	<meta name="robots" content="noindex,follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
 	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
 	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-	<link rel="stylesheet" type="text/css" href="../themes/orange/css/extend.css"/>
-	<link rel="stylesheet" type="text/css" href="../themes/orange/css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="../themes/orange/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
 </head>
 <body>
 <script type="text/javascript">
-    djConifg = {
-        xDomainBasePath: 'https://app.aipo.com/javascript'
-    };
+	djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
-<table class="tableWrapper">
-    <tbody>
-    <tr>
-        <td width="100%" class="top container dojoDndSource dojoDndTarget dojoDndContainerOver">
 
-<div class="roundTopBlock clearfix">
-<div class="roundRightBlock">
-<div class="roundBottomBlock">
-<div class="roundLeftBlock">
-<div class="roundTopLeftBlock">
-<div class="roundTopRightBlock">
-<div class="roundBottomRightBlock">
-<div class="roundBottomLeftBlock">
-<table class="roundBlockWrapperTop">
-<tbody>
-<tr>
-<td class="roundBlockTitle">伝言メモ</td>
-</tr>
-</tbody>
-</table>
-<div class="roundBlockWrapperBottom clearfix">
-<div class="roundBlockContent">
-<div dojotype="aimluck:Contentpane" widgetid="widget_P-132ce6ce6bf-10479" id="portlet_P-132ce6ce6bf-10479">
+<!-- WRAPPER -->
+<div id="wrapper">
+
+<!-- HEADER -->
+<div id="header" class="clearfix">
+	<div class="inner">
+
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
+		</div>
+
+		<script>
+			function dispMenubar(obj, target) {
+				if (document.getElementById(target).style.display != 'block') {
+					document.getElementById(target).style.display = 'block';
+				} else {
+					document.getElementById(target).style.display = 'none';
+				}
+			}
+		</script>
+
+		<div class="hdNavi">
+
+			<div class="hdMessege"><a href="#">
+				<div id="messegechecker" class="zero counter">0</div>
+				メッセージ</a></div>
+
+
+			<div class="hdActivity" title="お知らせ">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer">
+					<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+							<span class="mb_hide">お知らせ</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="hdInformation">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="informationcheckerContainer">
+					<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-informationcheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="informationcheckerContainer_label" id="informationcheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="informationcheckerContainer_label" onclick="dispMenubar(this,'menubar_hdInformation')">
+							<div id="informationchecker" class="informationcheckerstyle counter">5</div>
+							<span class="mb_hide">サポート</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="hdUserName">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+					<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a>
+			</div>
+		</div>
+
+		<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
+			<ul>
+				<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'popupMask');dispMenubar(this,'popupStartGuide')">スタートガイド</a></li>
+				<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+				<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+			</ul>
+
+			<div class="tipDivider"></div>
+			<div class="tipBox clearfix">
+				<div class="tipTitle">Aipo.comからのお知らせ</div>
+				<ul class="tipInfo">
+					<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+					<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+					<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				</ul>
+				<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
+			</div>
+
+			<!-- ##################################################
+			●開発担当者へ
+
+			twitter設定前は下記を表示。
+			タイトルの（）内は削ってください。
+
+			################################################## -->
+			<div class="tipDivider"></div>
+			<div class="tipBox clearfix">
+				<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
+				<div class="tipBody">
+					<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+
+					<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+				</div>
+			</div>
+
+			<!-- ##################################################
+			●開発担当者へ
+
+			twitter設定後は下記を表示。
+			タイトルの（）内は削ってください。
+
+			################################################## -->
+			<div class="tipDivider"></div>
+			<div class="tipBox clearfix">
+				<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
+				<div class="tipBody">
+					<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+					<textarea></textarea>
+
+					<div class="clearfix mt5">
+						<div class="floatLeft fs11 fcGray">
+							これまでの獲得容量(全社)：5MB<br>
+							<a href="#" class="fcGray">twitter連携の設定を解除</a>
+						</div>
+						<div class="floatRight">
+							<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tipDivider"></div>
+			<div class="tipBox tipFoot clearfix">
+				<div class="capacity">
+					100MB(10%) / 1024MB を使用中
+				</div>
+				<div class="social">
+					<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+					<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+			<ul>
+				<li><a href="#">個人設定</a></li>
+				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+			</ul>
+		</div>
+
+
+	</div>
+</div>
+
+<!-- /HEADER -->
+
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+		<li class="first">
+			<div class="tab active">
+				<div class="title"><a href="#">マイページ</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="last">
+			<div class="tab activeNext">
+				<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="addTab">
+			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
+		</li>
+	</ul>
+</div>
+<!-- /MAIN TAB -->
+
+<!-- roundWrapper -->
+<div id="roundWrapper">
+<!-- roundMainWrapper -->
+<div class="roundMainWrapper">
+
+<!-- PORTLET OUTER -->
+<div class="dojoDndItem auiPortlet">
+
+<div class="auiPortletHead">
+	<div class="inner">
+		<div class="auiPortletTitle">伝言メモ</div>
+		<div class="auiPortletTool">
+		</div>
+	</div>
+</div>
+
+<!-- auiPortletBody -->
+<div class="auiPortletBody">
+<div class="inner">
+<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
 
 
 <!-- Start Contents Area -->
-<div id="auiContentsArea"><div id="auiContentsAreaInner">
+<div id="auiContentsArea">
+<div id="auiContentsAreaInner">
 
 <div class="auiSummaryMeta clearfix">
-<form class="auiSearch floatLeft" style="margin-right:1em;">
-<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
-<input type="submit" class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);" value="検索" />
-</form>
+	<form class="auiSearch floatLeft" style="margin-right:1em;">
+		<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
+		<input type="submit" class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);" value="検索"/>
+	</form>
 </div>
 
 <div class="auiSummaryMeta clearfix">
 	<div class="floatLeft">
-	<input type="button" href="#" class="auiButton" value="既読にする" /> <input type="button" href="#" class="auiButton" value="削除する" />
+		<input type="button" href="#" class="auiButton" value="既読にする"/> <input type="button" href="#" class="auiButton" value="削除する"/>
 	</div>
 	<div class="floatRight">
 		<div class="count">1 - 20 / 72</div>
 		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li>
-		<a href="#" title="前へ" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-		</li>
-		<li>
-		<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-		</li>
-		</ul>
+			<ul class="floatLeft">
+				<li>
+					<a href="#" title="前へ" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+				</li>
+				<li>
+					<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
@@ -86,253 +252,272 @@
 <table class="auiRowTable wide">
 <tbody>
 <tr>
-<th style="width:20px"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
-<th style="width:20px"><a href="#">状態</a></th>
-<th style="width:8em"><a href="#">依頼者</a></th>
-<th style="width:8em"><a href="#">依頼者所属</a></th>
-<th style=""><a href="#">用件</a></th>
-<th style="width:8em"><a href="#">送信者</a></th>
-<th style="width:10em"><a class="headUp" href="#">受付日時</a></th>
+	<th class="wCheckbox center"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
+	<th><a href="#">依頼者</a></th>
+	<th><a href="#">用件</a></th>
+	<th class="mb_hide"><a href="#">受信者</a></th>
+	<th class="thin center mb_hide"><a href="#">状況</a></th>
+	<th class="thin"><a class="headUp" href="#">受付日時</a></th>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">㈱ヤマダキヨシ 山田様</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎, 木村 一郎, 木村 一郎, 木村 一郎, 木村 一郎,</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 <tr>
-<td>
-<input type="checkbox">
-</td>
-<td class="center"><img src="https://app.aipo.com/images/note/note_read_message.gif" alt="既読" title="既読"></td>
-<td><div><a href="#">山田 太郎</a></div></td>
-<td><div>株式会社しょぞくめい</div></td>
-<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-<td><div>木村 一郎</div></td>
-<td nowrap="nowrap">9月16日19時12分</td>
+	<td class="auiMTCheck center"><input type="checkbox"></td>
+	<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
+	<td>
+		<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件</div>
+	</td>
+	<td class="mb_hide">
+		<div>木村 一郎</div>
+	</td>
+	<td class="center mb_hide" nowrap="nowrap">1/1</td>
+	<td nowrap="nowrap">9月16日19時12分</td>
 </tr>
 
 </tbody>
@@ -340,40 +525,41 @@
 
 <div class="auiSummaryMeta clearfix">
 	<div class="floatLeft">
-	<input type="button" class="auiButton" value="既読にする" /> <input type="button" class="auiButton" value="削除する" />
+		<input type="button" class="auiButton" value="既読にする"/> <input type="button" class="auiButton" value="削除する"/>
 	</div>
 	<div class="floatRight">
 		<div class="count">1 - 20 / 72</div>
 		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li>
-		<a href="#" title="前へ" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-		</li>
-		<li>
-		<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-		</li>
-		</ul>
+			<ul class="floatLeft">
+				<li>
+					<a href="#" title="前へ" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+				</li>
+				<li>
+					<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
 </form>
-</div></div>
+</div>
+</div>
 <!-- END Contents Area -->
 
 
 <!-- Start Widgets Area -->
 <div id="auiWidgetsArea">
 
-<div class="auiWidget clearfix">
-	<input type="button" title="伝言メモを作成する" class="auiButtonAction" value="伝言メモを作成する" />
-</div>
+	<div class="auiWidget clearfix">
+		<a title="伝言メモを作成する" href="#" class="auiButtonAction">伝言メモを作成する</a>
+	</div>
 
-<div class="auiWidget clearfix">
-	<ul>
-		<li class="active"><a href="#">受信履歴</a></li>
-		<li><a href="#">送信履歴</a></li>
-	</ul>
-</div>
+	<div class="auiWidget clearfix">
+		<ul>
+			<li><a href="fullwindow.html">受信履歴</a></li>
+			<li class="active"><a href="fullwindow_input.html">送信履歴</a></li>
+		</ul>
+	</div>
 
 </div>
 <!-- END Widgets Area -->
@@ -382,17 +568,13 @@
 </div>
 </div>
 </div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+	<div class="inner"></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-			</td>
-    </tr>
-    </tbody>
-</table>
+
 </body>
 </html>

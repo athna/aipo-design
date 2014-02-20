@@ -64,7 +64,6 @@
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }
-
 .tab_content{
   position:relative;
   height:300px;
@@ -75,16 +74,6 @@
   position:absolute;
 	overflow:scroll;overflow-x:hidden;
 }
-#page1-1{
-
-}
-#page1-2{
-
-}
-#page1-3{
-
-}
-
 .label {
     border-radius: 3px;
 }
@@ -99,7 +88,6 @@
     vertical-align: baseline;
     white-space: nowrap;
 }
-
 .label-primary{
     background-color: #FA9828;
 }
@@ -171,6 +159,86 @@ function disp(){
 <span id="lastDialog" style="display:none;"></span>
 <div id="inputAndConfirmForm">
 
+<div class="spaceAll">Mプラン、Lプランでご提供しているプレミアムアプリを、30日間無料でお試しいただくことができます。</div>
+<table class="listTable wide">
+                <tbody>
+                  <tr>
+
+                    <th class="w20">タイトル</th>
+                    <th class="">説明</th>
+                    <th class="w10">Mプラン</th>
+                    <th class="w10">Lプラン</th>
+                  </tr>
+                  <tr>
+                  <td class=""><label><input type="checkbox" name="pname" value="" class="mr10">プロジェクト管理</label></td>
+                  <td> プロジェクトを管理できる機能です。ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</td>
+                  <td class="center">◯</td>
+                  <td class="center">◯</td>
+                  </tr>
+                  <tr>
+                  <td class=""><label><input type="checkbox" name="pname" value="" class="mr10">Webデータベース</label></td>
+                  <td> 項目を自由に設定して、入力の簡単なオリジナルのデータベースを作成できる機能です。</td>
+                  <td class="center">-</td>
+                  <td class="center">◯</td>
+                  </tr>
+                  </tbody>
+                  </table>
+                  <p class="fs10 mb20">※お試し期間終了後に自動的に課金されることはございません。<br>
+※お試し期間終了後までに該当のプランへ変更なさらない場合は自動的に選択したアプリへのデータ追加ができなくなります。
+</p>
+<!--<div class="alertSuccess">
+            <ul>
+              <li>無料期間終了後に自動的に課金されることはございません。</li>
+<li>お試し期間終了後までにLプランへ変更なさらない場合は自動的に「Webデータベース」へのデータ追加ができなくなります。 </li>
+            </ul>
+          </div>-->
+</div>
+
+
+
+
+<div align="center" style="padding:0px 0px 0px 0px;" id="lastSubmitButtonDiv">
+<span id="submitButtonDiv">
+<input id="eventSubmit_doWebmail_mailaccount_update" name="eventSubmit_doWebmail_mailaccount_update" class="auiButtonAction" type="submit" value="お試し利用を開始する" onclick="aimluck.io.setHiddenValue(this);">
+<input id="closeButton" name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();">
+</span>
+<span id="finishButtonDiv" style="display:none;">
+<input id="closeButton" name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();">
+</span>
+<span id="confirmButtonDiv" style="display:none;">
+<input id="returnButton" name="returnButton" class="button" type="submit" value="　戻る　" onclick="aipo.saas_system.onReturnFlagChange(true);">
+<input id="eventSubmit" name="eventSubmit" class="auiButtonAction" type="submit" value="この内容で送信する" onclick="aimluck.io.setHiddenValue(this);aipo.saas_system.onReturnFlagChange();">
+</span>
+</div></form></div>
+</div>
+<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+<!--<div class="auiPopup clearfix">
+      <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">30日無料お試し申し込み</div>
+        </div>
+
+<div class="roundBlockContent">
+<div id="errorHidden">
+<div id="messageDiv"></div>
+</div>
+ <div class="indicator" id="indicator-dlg-121" style="display:none;">データを送信しています...</div>
+<form name="form121" id="form121" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007255/page/default.psml/js_peid/121?template=SystemAgreementFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this,'indicator-dlg-','121',aipo.saas_system.onReceiveMessageForAgreement);return false;">
+<input type="hidden" name="_name" value="systemAgreementForm">
+<input type="hidden" name="secid" value="9d57564d16d277affe316891607d59ff">
+
+<input type="hidden" name="mode" id="mode" value="update">
+<input type="hidden" name="agreement_peid" id="agreement_peid" value="121">
+<input type="hidden" name="confirm" id="confirm" value="">
+<input type="hidden" name="returnFlag" id="returnFlag" value="">
+<input type="hidden" name="userName" id="userName" value="木村 太一">
+<input type="hidden" name="userEmail" id="userEmail" value="aimluck.harada+kimurataichi@gmail.com">
+
+<span id="lastDialog" style="display:none;"></span>
+<div id="inputAndConfirmForm">
+
 
 
 <table class="listTable wide">
@@ -213,7 +281,7 @@ function disp(){
 </span>
 </div></form></div>
 </div>
-<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+<div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>-->
       <!-- ################################################################################
 
             メール通知設定

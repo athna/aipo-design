@@ -171,10 +171,8 @@
 
 		<!-- PORTLET OUTER -->
 		<div class="dojoDndItem auiPortlet">
-
-
-<!-- mobileHeader -->
-<div id="mobileHeader_v3" class="clearfix"><div class="inner">
+		<!-- mobileHeader -->
+		<div id="mobileHeader_v3" class="clearfix"><div class="inner">
 	<h1><span>アドレス帳</span></h1>
 	<div class="mhLeft">
 		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
@@ -284,7 +282,7 @@
 	</div>
 </div>
 </div>
-<!-- /mobileHeader -->
+		<!-- /mobileHeader -->
 
 
 			<div class="auiPortletHead"><div class="inner">
@@ -638,31 +636,35 @@ function widgetMenuSwitch() {
 	<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-caret-up"></i></a>
 </div>
 
-<div id="subNavigation">
-	<div class="auiWidget">
-	<select class="w100">
-		<option>すべての部署</option>
-		<option>管理本部</option>
-		<option>営業本部</option>
-		<option>開発本部</option>
-		<option>企画本部</option>
-	</select>
-	</div>
+	<div id="auiWidgetsArea">
+		<div class="auiWidget widgetButton clearfix">
+			<a title="アドレスを追加する" href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000005102/page/default.psml/js_peid/P-14052c22428-100d2?template=AddressBookFormScreen&entityid=new','P-14052c22428-100d2',aipo.addressbook.onLoadAddressbookDialog);" class="auiButtonAction">アドレスを追加する</a>
+		</div>
 
-	<div class="auiWidget clearfix">
-		<ul>
-		<li><a href="#">すべてのカテゴリ</a></li>
-		<li class="active"><a href="#">選択中のカテゴリ</a></li>
-		<li><a href="#">営業リスト(田中一郎)</a></li>
-		<li><a href="#">営業リスト(野原新一)</a></li>
-		<li><a href="#">Aipo+リリース情報</a></li>
-		<li><a href="#">Aipo+更新情報</a></li>
-		<li><a href="#">ほげ</a></li>
-		<li><a href="#">その他</a></li>
-		</ul>
-		<div style="margin:0.5em 0;"><a href="#">カテゴリの管理</a></div>
+		<div class="snDrawer">
+			<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-caret-up"></i></a>
+		</div>
+
+		<div id="subNavigation">
+			<div class="auiWidget clearfix">
+				<ul>
+					<li><a href="address.html">すべてのアドレス</a></li>
+					<li><a href="address.html"">グループ名</a></li>
+					<li><a href="address.html"">グループ名</a></li>
+					<li><a href="address.html"">グループ名</a></li>
+				</ul>
+
+				<div style="margin:0.5em 0;">
+					<a href="address_groupmng.html">グループの管理</a>
+				</div>
+			</div>
+			<div class="auiWidget clearfix">
+				<div style="margin:0.5em 0;">
+					<a href="address_companymng.html">会社情報の管理</a>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
 
 </div>
 <!-- END Widgets Area -->
@@ -775,7 +777,7 @@ function appsNaviSwitch() {
 	var navi = document.getElementById('appsNavigation_v2');
 	var wrapper = document.getElementById('wrapper');
 	var bk = document.getElementById('appsNavigationBack_v2');
-	var mh = document.getElementById('mobileHeader_v2');
+	var mh = document.getElementById('mobileHeader_v3');
 	var ua = navigator.userAgent;
 
 	if(navi.className!='anOpen'){

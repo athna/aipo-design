@@ -1,0 +1,1769 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<!-- WRAPPER -->
+<div id="wrapper">
+  <!-- HEADER -->
+  <div id="header" class="clearfix">
+    <div class="inner">
+      <div class="hdSign">
+        <div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
+      </div>
+      <script>
+	function popupToggle($this,$target) {
+		if(document.getElementById($target).style.display=='none'){
+			document.getElementById($target).style.display='block'
+		}else{
+			document.getElementById($target).style.display='none'
+		}
+		if($this.className.indexOf('active')>0){
+			$this.className = $this.className.replace(' active','');
+		}else{
+			$this.className += ' active'
+		};
+	}
+	</script>
+      <div class="hdNavi">
+        <div class="hdMessege"><a href="#">
+          <div id="messegechecker" class="zero counter">0</div>
+          メッセージ</a></div>
+        <div class="hdActivity" title="お知らせ">
+          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+            <div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                <div id="activitychecker" class="activitycheckerstyle zero counter">0</div>
+                <span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdInformation" title="サポート">
+          <div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+            <div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+                <div id="supportchecker" class="counter zero">0</div>
+                <span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span> </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdUserName"> <a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a> </div>
+      </div>
+      <div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+        <ul>
+          <li><a href="#">個人設定</a></li>
+          <li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /HEADER -->
+  <!-- MAIN TAB -->
+  <div id="auiTabs" class="clearfix">
+    <ul>
+      <li class="first last">
+        <div class="tab active">
+          <div class="title"><a href="#">マイページ</a></div>
+          <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+        </div>
+      </li>
+      <li class="addTab"> <a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a> </li>
+    </ul>
+  </div>
+  <!-- /MAIN TAB -->
+  <!-- MAIN OUTER -->
+  <div class="roundMainWrapper">
+    <!-- LAYOUT -->
+    <!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
+    <table class="tableWrapper">
+      <tbody>
+        <tr>
+          <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">タイムカード</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody">
+                <div class="inner">
+                  <div class="indicator" id="indicator-list-P-135ce1a0d5f-1000c" style="display:none;">データを送信しています...</div>
+                  <div id="exttimecardmessageDiv"></div>
+                  <form name="formP-135ce1a0d5f-1000c" id="formP-135ce1a0d5f-1000c" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000c?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, 'indicator-list-','P-135ce1a0d5f-1000c',aipo.exttimecard.onListReceiveMessage);return false;">
+                    <input type="hidden" name="_name" value="exttimecardForm">
+                    <input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
+                    <table class="wide">
+                      <tbody>
+                        <tr>
+                          <td nowrap="nowrap" class="w25 center"><input type="button" value="出勤" class="auiButtonAction">
+                          </td>
+                          <td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">退勤</span> </td>
+                          <td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">外出</span> </td>
+                          <td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">復帰</span> </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </form>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">試用中アプリ名（管理者）</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody">
+                <div class="inner">
+                  <div class="alert">お試し期間が終了いたしました。<br>
+                    こちらのアプリはM/Lプラン専用です。継続してご利用になる場合は、<a href="">プラン変更</a>をお願いします。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">試用中アプリ名</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody">
+                <div class="inner">
+                  <div class="alert">お試し期間が終了いたしました。<br>
+                    こちらのアプリはM/Lプラン専用です。継続してご利用になる場合は、プラン変更が必要となります。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">掲示板</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"><a href="#">トピック追加</a></div>
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody">
+                <div class="inner">
+                  <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js"></script>
+                  <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/msgboard/form.js"></script>
+                  <script language="JavaScript" type="text/javascript">
+				//<![CDATA[
+				ptConfig['P-135ce1a0d64-10014'] = { group:"msgboard", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen', reloadFunction:aipo.reloadPage };
+				//]]>
+				</script>
+                  <!-- auiSummaryMeta.auiFilter -->
+                  <div class="auiSummaryMeta auiFilter clearfix">
+                    <!--
+					***************************************************
+					●開発担当者へコメント
+					
+					「filters」内の「filterTip」内の要素は改行を発生させないでください。
+					勝手に挿入されるスペースによりズレが発生します。
+					
+					***************************************************
+					-->
+                    <div class="filters"> <a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}"> <span class="filterTip"><span>すべてのグループ</span></span> </a> </div>
+                  </div>
+                  <!-- /auiSummaryMeta.auiFilter -->
+                  <div class="message">指定された条件に該当するトピックはありません。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">フォルダ</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"><a href="#">ファイル追加</a></div>
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody dndIdentifier">
+                <div id="portlet_P-142c126cd04-100c1" widgetid="portlet_P-142c126cd04-100c1" dojotype="aimluck.widget.Contentpane" class="inner">
+                  <script src="/aipo/javascript/aipo/cabinet/form.js?1386771218000" type="text/javascript" language="JavaScript"></script>
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-142c126cd04-100c1'] = { group:"cabinet", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c1?template=CabinetScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+                  <div class="auiSummaryMeta auiFilter clearfix">
+                    <input type="hidden" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c1?template=CabinetScreen" id="baseuri_P-142c126cd04-100c1">
+                    <div id="filters_P-142c126cd04-100c1" class="filters floatLeft"><a onclick="aipo.cabinet.toggleMenu(dojo.byId('menubar_filter_P-142c126cd04-100c1'),dojo.byId('filters_P-142c126cd04-100c1'));" class="customizeMenuIcon filterTip menubarOpenButton" id="filter_group_P-142c126cd04-100c1" href="javascript:void(0);"><span>すべてのグループ</span></a></div>
+                  </div>
+                  <div style="width:260px;display:none;" id="menubar_filter_P-142c126cd04-100c1" class="menubar multi">
+                    <div>
+                      <p class="caption">グループ</p>
+                      <ul data-defaultparam="0" data-type="group" class="filtertype_P-142c126cd04-100c1">
+                        <li data-param="0"><a onclick="aipo.cabinet.onChangeGroup('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c1?template=CabinetScreen&amp;post_name=0','P-142c126cd04-100c1','')" class="selected" href="javascript:void(0)">すべてのグループ</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="caption">フォルダ</p>
+                      <ul data-defaultparam="0" data-type="folder" class="filtertype_folder_P-142c126cd04-100c1">
+                        <li data-param="0"><a onclick="aipo.cabinet.onChangeFolder('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c1?template=CabinetScreen&amp;folder_id=0','P-142c126cd04-100c1','0')" class="selected" href="javascript:void(0)">すべてのフォルダ</a></li>
+                        <li data-param="1"><a onclick="aipo.cabinet.onChangeFolder('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c1?template=CabinetScreen&amp;folder_id=1','P-142c126cd04-100c1','1')" href="javascript:void(0)">ルートフォルダ</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="message">指定したフォルダにファイルはありません。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet P-142c126cd04-100c2" id="dojoUnique4">
+              <div class="auiPortletHead">
+                <div class="inner dojoDndHandle">
+                  <div class="auiPortletTitle"> <a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c2?action=controls.Maximize">ToDo</a> </div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"> <a onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c2?template=ToDoFormScreen&amp;entityid=new','P-142c126cd04-100c2',aipo.todo.onLoadTodoDialog);" href="javascript:void(0);">ToDo追加</a> </div>
+                    <div class="auiPortletSetting"> <a title="カスタマイズ" onclick="aipo.customize.showMenu('P-142c126cd04-100c2');" class="customizeMenuIcon auiIcon auiIconSetting" id="menubar_button_P-142c126cd04-100c2" href="javascript:void(0);"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody dndIdentifier">
+                <div id="portlet_P-142c126cd04-100c2" widgetid="portlet_P-142c126cd04-100c2" dojotype="aimluck.widget.Contentpane" class="inner">
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-142c126cd04-100c2'] = { group:"todo", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c2?template=ToDoScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+                  <div class="auiSummaryMeta auiFilter clearfix">
+                    <input type="hidden" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c2?template=ToDoScreen" id="baseuri_P-142c126cd04-100c2">
+                    <div id="filters_P-142c126cd04-100c2" class="filters floatLeft"> <a onclick="aipo.todo.toggleMenu(dojo.byId('menubar_auiFilter_P-142c126cd04-100c2'),dojo.byId('filters_P-142c126cd04-100c2'),event);" class="customizeMenuIcon filterTip menubarOpenButton" href="javascript:void(0);"><span>すべてのグループ</span></a> <a onclick="aipo.todo.toggleMenu(dojo.byId('menubar_auiFilter_P-142c126cd04-100c2'),dojo.byId('filters_P-142c126cd04-100c2'),event);" style="display:none;" class="customizeMenuIcon filterTip menubarOpenButton" href="javascript:void(0);"><span>すべてのカテゴリ</span></a> </div>
+                    <div class="floatRight"> </div>
+                  </div>
+                  <div style="width:260px;display:none;" id="menubar_auiFilter_P-142c126cd04-100c2" class="menubar multi ">
+                    <div>
+                      <p class="caption">グループ</p>
+                      <ul data-defaultparam="0" data-type="post" class="filtertype_P-142c126cd04-100c2">
+                        <li data-param="0"><a onclick="aipo.todo.filterClick(&quot;P-142c126cd04-100c2&quot;,this,event)" class="selected" href="javascript:void(0)">すべてのグループ</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="caption">カテゴリ</p>
+                      <ul data-defaultparam="0" data-type="category" class="filtertype_P-142c126cd04-100c2">
+                        <li data-param="0" class="selected"><a onclick="aipo.todo.filterClick(&quot;P-142c126cd04-100c2&quot;,this,event)" class="selected" href="javascript:void(0)">すべてのカテゴリ</a></li>
+                        <li data-param="1"><a onclick="aipo.todo.filterClick(&quot;P-142c126cd04-100c2&quot;,this,event)" href="javascript:void(0);">未分類</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="message">指定された条件に該当するToDoはありません。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet P-142c126cd04-100c3" id="dojoUnique5">
+              <div class="auiPortletHead">
+                <div class="inner dojoDndHandle">
+                  <div class="auiPortletTitle"> <a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c3?action=controls.Maximize">伝言メモ</a> </div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"> <a onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c3?template=NoteFormScreen&amp;entityid=new','P-142c126cd04-100c3',aipo.note.afterFunction);" href="javascript:void(0);">伝言メモ追加</a> </div>
+                    <div class="auiPortletSetting"> <a title="カスタマイズ" onclick="aipo.customize.showMenu('P-142c126cd04-100c3');" class="customizeMenuIcon auiIcon auiIconSetting" id="menubar_button_P-142c126cd04-100c3" href="javascript:void(0);"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody dndIdentifier">
+                <div id="portlet_P-142c126cd04-100c3" widgetid="portlet_P-142c126cd04-100c3" dojotype="aimluck.widget.Contentpane" class="inner">
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-142c126cd04-100c3'] = { group:"note", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c3?template=NoteScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+                  <div class="message">伝言メモはありません。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet P-142c126cd04-100c4" id="dojoUnique6">
+              <div class="auiPortletHead">
+                <div class="inner dojoDndHandle">
+                  <div class="auiPortletTitle"> <a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c4?action=controls.Maximize">ワークフロー</a> </div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"> <a onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c4?template=WorkflowFormScreen&amp;entityid=new','P-142c126cd04-100c4',aipo.workflow.onLoadWorkflowDialog);" href="javascript:void(0);">依頼追加</a> </div>
+                    <div class="auiPortletSetting"> <a title="カスタマイズ" onclick="aipo.customize.showMenu('P-142c126cd04-100c4');" class="customizeMenuIcon auiIcon auiIconSetting" id="menubar_button_P-142c126cd04-100c4" href="javascript:void(0);"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody dndIdentifier">
+                <div id="portlet_P-142c126cd04-100c4" widgetid="portlet_P-142c126cd04-100c4" dojotype="aimluck.widget.Contentpane" class="inner">
+                  <script src="/aipo/javascript/aipo/workflow/MemberNormalSelectList.js?1386771218000" type="text/javascript" language="JavaScript"></script>
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-142c126cd04-100c4'] = { group:"workflow", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c4?template=WorkflowScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+                  <div class="message">依頼はありません。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet P-142c126cd04-100c5" id="dojoUnique7">
+              <div class="auiPortletHead">
+                <div class="inner dojoDndHandle">
+                  <div class="auiPortletTitle"> <a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c5?action=controls.Maximize">報告書</a> </div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"> <a onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c5?template=ReportFormScreen&amp;entityid=new','P-142c126cd04-100c5',aipo.report.onLoadReportDialog);" href="javascript:void(0);">報告書追加</a> </div>
+                    <div class="auiPortletSetting"> <a title="カスタマイズ" onclick="aipo.customize.showMenu('P-142c126cd04-100c5');" class="customizeMenuIcon auiIcon auiIconSetting" id="menubar_button_P-142c126cd04-100c5" href="javascript:void(0);"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody dndIdentifier">
+                <div id="portlet_P-142c126cd04-100c5" widgetid="portlet_P-142c126cd04-100c5" dojotype="aimluck.widget.Contentpane" class="inner">
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-142c126cd04-100c5'] = { group:"report", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c5?template=ReportScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+                  <div class="message">報告書はありません。</div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+          </td>
+          <td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">タイムライン</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody">
+                <div class="inner">
+                  <div id="timelineOuter">
+                    <input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+                    <!-- inputField -->
+                    <div id="inputField">
+                      <form name="" id="" action="" method="post" onsubmit="">
+                        <input type="hidden" name="_name" value="timelineForm">
+                        <input type="hidden" name="secid" value="">
+                        <div class="tlInputMention">
+                          <textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+                          <span style="display: block; position:absolute; color: #999999; top:5px; left:5px" onclick="this.style.display='none';document.getElementById('note_P-142c126cd04-100c6').focus();" id="guide_P-142c126cd04-100c6" class="guide">近況を共有しましょう</span> </div>
+                        <!-- tlInputControls -->
+                        <div class="tlInputControls clearfix">
+                          <div class="floatLeft">
+                            <iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a" class="auiInputFileFrame"></iframe>
+                          </div>
+                          <!-- ##################################################
+					●開発担当者へ
+					
+					下記にある「スケジュールに追加する」ボタンの「onClick」処理はベタ書きの仮のものです。適切な内容に修正をお願いします。
+					
+					「スケジュールに追加する」ボタンをクリックすることで、タイムラインからスケジュール登録が行えるショートコードを挿入してください。
+					開いたカレンダーの時間・日付が変更されたタイミングでもショートコードを差し替えてください。
+					※ボタン周りに日付埋め込みのスペースが無いことと、書式を覚えてしまえば手入力でもできることからショートコードを採用しています。
+					
+					################################################## -->
+                          <div class="floatRight">
+                            <ul class="clearfix">
+                              <li>
+                                <input type="submit" class="auiButtonAction" value="投稿する" />
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- /tlInputControls -->
+                      </form>
+                    </div>
+                    <!-- /inputField -->
+                    <div class="tlDisplayChanger">
+                      <!-- ##################################################
+					●開発担当者へ
+				
+					スイッチとなるリンクのJSをとりあえずベタ書きしています。適宜修正をお願いします。
+					「tlDisplayGroup」の内容は選択中のグループ名を入れてください。
+				
+					################################################## -->
+                      <div class="btn">
+                        <!--<i class="indicator"></i>-->
+                        <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a> </div>
+                      <!-- ##################################################
+					●開発担当者へ
+				
+					「menubar」内の選択項目の<a>タグには「class="selected"」を付与させてください。	
+				
+					################################################## -->
+                      <div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
+                        <ul>
+                          <li><a href="#" class="selected">すべてのグループ</a></li>
+                          <li><a href="#">管理本部</a></li>
+                          <li><a href="#">開発本部</a></li>
+                          <li><a href="#">企画本部</a></li>
+                          <li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div id="timeline" class="timeline" style="min-height:100px;">
+                      <div id="content_xxx">
+                        <input id="readHidden_P-135e7e25490-10b76" type="hidden" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b76?template=TimelineContentScreen&amp;start=2', 'P-135e7e25490-10b76', '1', '82');" />
+                        <input type="hidden" id="last_timelineId_P-135e7e25490-10b76" value="4072" />
+                        <div id="message21" class="message first">
+                          <div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"> </div>
+                          <div class="messageContents">
+                            <div class="name">木村 一郎</div>
+                            <div class="body"> Aipo.comへようこそ！<br>
+                              <br>
+                              チームのアカウントが作成されました。<br>
+                              Aipo.comを使うことで、チームのメンバーとの情報共有や交流がより簡単になります。<br>
+                              画像の活用例を参考に、早速タイムラインを活用してみましょう！&nbsp;
+                              <div class="tlImageBlock clearfix"> <a href="javascript:aipo.fileupload.showImageDialog('#'"><img border="0" src="../themes/default/images/tour/guide1_thumb.jpg" title="1. 近況を書き込みましょう.png" alt="1. 近況を書き込みましょう.png"></a><a href="javascript:aipo.fileupload.showImageDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/template/FileuploadViewScreen?screen=TimelineFileRawScreen&amp;ownerid=4&amp;entryid=1&amp;attachmentindex=2')"><img border="0" src="../themes/default/images/tour/guide2_thumb.jpg" title="2. ニュースを書き込みましょう.png" alt="2. ニュースを書き込みましょう.png"></a><a href="javascript:aipo.fileupload.showImageDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/template/FileuploadViewScreen?screen=TimelineFileRawScreen&amp;ownerid=4&amp;entryid=1&amp;attachmentindex=3')"><img border="0" src="../themes/default/images/tour/guide3_thumb.jpg" title="3. 予定を書き込みましょう.png" alt="3. 予定を書き込みましょう.png"></a></div>
+                            </div>
+                            <div class="time"> 12月5日
+                              &nbsp;
+                              <form onsubmit="aimluck.io.submit(this,'','P-142c126cd04-100c6',aipo.timeline.onReceiveLikeMessage('P-142c126cd04-100c6', '1', 'like', false))" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen&amp;entityid=1&amp;secid=2e1be78a82f9b5d3ba2f1bc606376ec8" id="likeForm_P-142c126cd04-100c6_1" name="likeForm_P-142c126cd04-100c6_1" style="display:inline">
+                                <input type="hidden" value="2e1be78a82f9b5d3ba2f1bc606376ec8" name="secid">
+                                <a onclick="aipo.timeline.addHiddenValue(dojo.byId('likeForm_P-142c126cd04-100c6_1'), 'mode', 'like');dojo.byId('likeForm_P-142c126cd04-100c6_1').onsubmit();" href="javascript:void(0)">いいね！</a>
+                              </form>
+                              <a onclick="aipo.timeline.showCommentField('P-142c126cd04-100c6', 1)" href="javascript:void(0)">コメントする</a>
+                              <form onsubmit="aimluck.io.disableForm(this, true);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen" id="deleteForm_P-142c126cd04-100c6_1" name="deleteForm_P-142c126cd04-100c6_1" style="display:inline">
+                                <input type="hidden" value="投稿" name="_name">
+                                <input type="hidden" value="2e1be78a82f9b5d3ba2f1bc606376ec8" name="secid">
+                                &nbsp; <a onclick="aimluck.io.ajaxDeleteSubmit(dojo.byId('dummy_P-142c126cd04-100c6_1'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen&amp;entityid=1&amp;mode=delete', 'indicator-dlg2-', 'P-142c126cd04-100c6', aipo.timeline.onReceiveMessageToList);" href="javascript:void(0)">削除する</a>
+                                <input type="hidden" value="" id="dummy_P-142c126cd04-100c6_1">
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+          </td>
+          <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><div class="dojoDndItem auiPortlet P-142c126cd04-100c7" id="dojoUnique9">
+              <div class="auiPortletHead">
+                <div class="inner dojoDndHandle">
+                  <div class="auiPortletTitle"> <a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?action=controls.Maximize">スケジュール</a> </div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"> <a onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleFormScreen&amp;entityid=new','P-142c126cd04-100c7',aipo.schedule.onLoadScheduleDialog);" href="javascript:void(0);">予定追加</a> </div>
+                    <div class="auiPortletSetting"> <a title="カスタマイズ" onclick="aipo.customize.showMenu('P-142c126cd04-100c7');" class="customizeMenuIcon auiIcon auiIconSetting" id="menubar_button_P-142c126cd04-100c7" href="javascript:void(0);"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody dndIdentifier">
+                <div id="portlet_P-142c126cd04-100c7" widgetid="portlet_P-142c126cd04-100c7" dojotype="aimluck.widget.Contentpane" class="inner">
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+    dojo.provide('aipo.schedule');
+
+    dojo.require("aipo.calendar.weekly");
+    dojo.require("aipo.widget.DropdownMemberFacilitypicker");
+
+    ptConfig['P-142c126cd04-100c7'] = { group:"schedule", thisUrl:"https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7", jsonUrl:"https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleWeeklyJSONScreen", formUrl: 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleFormScreen', detailUrl: 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleDetailScreen', rowHeight:18, scheduleDivDaySum:7, tmpIndex:-1, distance:3, timeStart:9, timeEnd:22, timeInterval:30, contentHeight: (22 - 9)*(60/30)*18, contentScrollTop: 9*(60/30)*18, initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen', reloadFunction:aipo.reloadPage };
+	aipo.schedule.login_id = "4";
+	aipo.schedule.login_name = "0000007877";
+    aipo.schedule.login_aliasname = "木村 一郎";
+//]]&gt;
+</script>
+                  <script src="/aipo/javascript/aipo/schedule/form.js?1386771218000" type="text/javascript" language="JavaScript"></script>
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    var portletId = 'P-142c126cd04-100c7';
+    var initCalendar = initCalendar || {};
+    initCalendar['P-142c126cd04-100c7'] = function(isAjax) {
+
+    ptConfig['P-142c126cd04-100c7'].isScroll = false;
+
+    aipo.schedule.login_id = "4";
+    aipo.schedule.login_name = "0000007877";
+    aipo.schedule.login_aliasname = "木村 一郎";
+    var portletId = 'P-142c126cd04-100c7';
+    dojo.style("termScheduleDivAdd_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd00_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd01_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd02_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd03_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd04_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd05_"+portletId,'opacity', 0);
+    dojo.style("scheduleDivAdd06_"+portletId,'opacity', 0);
+     dojo.style(dojo.byId('weeklyScrollPane_P-142c126cd04-100c7'), 'height', (22 - 9)*(60/30)*18 + 'px'); 
+	
+    var initCalendar=function(){
+			for(var i =0; i &lt; ptConfig['P-142c126cd04-100c7'].scheduleDivDaySum; i++) {
+		      tmpDraggable = new aipo.calendar.WeeklyScheduleAddDraggable('scheduleDivAdd0'+i+'_P-142c126cd04-100c7' , {idx: i});
+		      tmpDraggable.portletId = 'P-142c126cd04-100c7';
+		      tmpDraggable.index = i;
+		    };
+
+		    tmpDraggable = new aipo.calendar.WeeklyTermScheduleAddDraggable('termScheduleDivAdd_P-142c126cd04-100c7',  {idx: 0});
+		    tmpDraggable.portletId = 'P-142c126cd04-100c7';
+
+		    aipo.calendar.populateWeeklySchedule('P-142c126cd04-100c7');
+		};
+
+	var mpHTML = document.getElementById("memberpicker-P-142c126cd04-100c7");
+    if(mpHTML){
+
+        var tmpFrom = document.getElementById("tmp_member_from-P-142c126cd04-100c7");
+    	var tmpTo = document.getElementById("tmp_member_to-P-142c126cd04-100c7");
+    	if(tmpTo != null){
+	    	tmpTo.parentNode.removeChild(tmpTo);
+	    }
+    	if(tmpFrom != null){
+	    	tmpFrom.parentNode.removeChild(tmpFrom);
+	    }
+
+       params = {
+            widgetId: "member_to-P-142c126cd04-100c7",
+            iconURL: "themes/default/images/icon/icon_member.gif",
+            iconAlt: "参加者選択",
+            selectId: "member_to-P-142c126cd04-100c7" ,
+            inputId: "member_to_input-P-142c126cd04-100c7",
+            buttonAddId: "button_member_add-P-142c126cd04-100c7",
+            buttonRemoveId: "button_member_remove-P-142c126cd04-100c7",
+            memberFromId: "tmp_member_from-P-142c126cd04-100c7" ,
+            memberToId: "tmp_member_to-P-142c126cd04-100c7" ,
+            memberFromUrl: "https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleUserFacilityLiteJSONScreen&amp;mode=group&amp;groupname=LoginUser",
+            memberFromOptionKey: "name",
+            memberFromOptionValue: "aliasName",
+            groupSelectId: "tmp_group-P-142c126cd04-100c7",
+            groupSelectOptionKey: "groupId",
+            groupSelectOptionValue: "name",
+            memberGroupUrl: "https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleUserGroupLiteJSONScreen",
+            changeGroupUrl: "https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleUserFacilityLiteJSONScreen&amp;mode=group" ,
+            tmpPortretId: "P-142c126cd04-100c7"
+       };
+       var mp = new aipo.widget.DropdownMemberFacilitypicker(params , mpHTML);
+       ptConfig['P-142c126cd04-100c7'].DropdownMemberFacilitypicker = mp;
+
+       var addtxt=dojo.query("#adduser-"+portletId);
+       var gselect = document.getElementById("groupselect-"+portletId);
+        if(gselect.value.indexOf("pickup")!=-1){
+            addtxt.removeClass("hide");
+        }else{
+            addtxt.addClass("hide");
+        }
+    }
+
+    var mpicker = dijit.byId("memberpicker-P-142c126cd04-100c7");
+    if(mpicker){
+        var params="";
+        dojo.xhrGet({
+            portletId:'P-142c126cd04-100c7',
+            url:gselect.value,
+            encoding: "utf-8",
+            handleAs: "json-comment-filtered",
+            load:function(data, event) {
+                //paramsの編集+namesの変更
+                var html="";
+                mp.dropDown.removeMember(dojo.byId("member_to-"+'P-142c126cd04-100c7'));
+                for(var i=0;i&lt;data.length;i++){
+                    if (i != 0) {
+                        html += ' ';
+                    }
+                    params+="&amp;m_id="+data[i].name.replace(/&amp;/g, "&amp;amp;").replace(/"/g, "&amp;quot;").replace(/&lt;/g, "&amp;lt;").replace(/&gt;/g, "&amp;gt;");
+
+					var dataId = data[i].userFacilityId;
+					if(data[i].userFacilityType == 'F'){
+						dataId = 'f' + dataId;
+					}
+                    mpicker.addOptionSync(dataId,data[i].aliasName,true);
+                }
+            },
+            handle:function(){
+                initCalendar();
+            }
+        });
+    }
+  };
+
+//]]&gt;
+</script>
+                  <span style="display:none;" id="schedule_val_tooltip1">読み込み中...</span> <span style="display:none;" id="schedule_val_tooltip2">場所</span> <span style="display:none;" id="schedule_val_tooltip3">参加者</span> <span style="display:none;" id="schedule_val_tooltip4">設備</span>
+                  <div class="spaceBoth">
+                    <input type="hidden" value="0" id="isMac">
+                    <input type="hidden" value="simple" id="top_form_P-142c126cd04-100c7">
+                    <input type="hidden" value="1" id="view_type_P-142c126cd04-100c7">
+                    <div class="auiSummaryMeta auiMultiSelector clearfix">
+                      <div class="floatRight mb_hide">
+                        <div class="auiSelectButton"> </div>
+                      </div>
+                      <div class="floatLeft">
+                        <div class="auiSelectButton">
+                          <ul>
+                            <li title="今日へ" class="mr5" style="width:4em;"> <a onclick="aipo.calendar.populateWeeklySchedule(&quot;P-142c126cd04-100c7&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-142c126cd04-100c7&quot;].jsonData[&quot;today&quot;]);" class="btn" href="javascript:void(0);"><span>今日</span></a> </li>
+                            <li title="前の週へ" class="mr5"> <a title="前の週へ" onclick="aipo.calendar.populateWeeklySchedule(&quot;P-142c126cd04-100c7&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-142c126cd04-100c7&quot;].jsonData[&quot;prevWeek&quot;]);" class="btn arrow" href="javascript:void(0);"><span><i class="auiIconArrow auiIconArrowLeftW"></i></span></a> </li>
+                            <li title="前の日へ"> <a title="前の日へ" onclick="aipo.calendar.populateWeeklySchedule(&quot;P-142c126cd04-100c7&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-142c126cd04-100c7&quot;].jsonData[&quot;prevDate&quot;]);" class="first arrow" href="javascript:void(0);"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a> </li>
+                            <li title="次の日へ" class="mr5"> <a title="次の日へ" onclick="aipo.calendar.populateWeeklySchedule(&quot;P-142c126cd04-100c7&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-142c126cd04-100c7&quot;].jsonData[&quot;nextDate&quot;]);" class="last arrow" href="javascript:void(0);"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a> </li>
+                            <li title="次の週へ"> <a title="次の週へ" onclick="aipo.calendar.populateWeeklySchedule(&quot;P-142c126cd04-100c7&quot;, &quot;&amp;view_start=&quot; + ptConfig[&quot;P-142c126cd04-100c7&quot;].jsonData[&quot;nextWeek&quot;]);" class="btn arrow" href="javascript:void(0);"><span><i class="auiIconArrow auiIconArrowRightW"></i></span></a> </li>
+                            <li title="1日" style="width: 3em;" class="ml5"> <a onclick="aipo.customize.showMenuSchedule('P-142c126cd04-100c7');" class="btn menubarOpenButton" href="javascript:void(0);" id="indicateDate_P-142c126cd04-100c7"><span>1日</span></a> </li>
+                          </ul>
+                          <div class="count"><strong id="viewWeekly-P-142c126cd04-100c7">2013年12月12日(木)</strong></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="indicator-P-142c126cd04-100c7" class="center loader" style="display: none;"><img width="24" height="24" alt="" src="themes/default/images/common/loading_lg.gif">&nbsp;読み込み中...</div>
+                    <!-- WRAPPER -->
+                    <table id="tableWrapper_P-142c126cd04-100c7" class="tableWrapper">
+                      <tbody>
+                        <tr>
+                          <td class="wide top"><div style="display:none" id="error-P-142c126cd04-100c7"> </div>
+                            <div style="visibility: visible;" id="content-P-142c126cd04-100c7"> </div>
+                            <select onchange="aipo.schedule.groupSelectOnchange(this, event, 'P-142c126cd04-100c7', ptConfig['P-142c126cd04-100c7'].DropdownMemberFacilitypicker);" id="groupselect-P-142c126cd04-100c7">
+                              <option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleCalendarUserSelectJSONScreen&amp;mode=group&amp;groupname=f%3Ball">設備一覧</option>
+                              <option value="">----------</option>
+                              <option selected="selected" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleCalendarUserSelectJSONScreen&amp;mode=group&amp;groupname=pickup">ユーザー選択</option>
+                            </select>
+                            <input type="hidden" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleCalendarUserSelectJSONScreen&amp;mode=group&amp;groupname=pickup" id="groupselect-defaulturl-P-142c126cd04-100c7">
+                            <div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="memberpicker-P-142c126cd04-100c7">
+                              <div class="dijitRight"> <span waistate="haspopup-true,labelledby-memberpicker-P-142c126cd04-100c7_label" wairole="button" dojoattachpoint="focusNode,titleNode" type="button" class="" role="button" aria-haspopup="true" aria-labelledby="memberpicker" id="memberpicker-P-142c126cd04-100c7" tabindex="0" aria-valuenow="" aria-disabled="false"><span id="memberpicker-P-142c126cd04-100c7_label" dojoattachpoint="containerNode,popupStateNode" class=""></span>
+                                <select dojoattachpoint="selectNode" style="display:none" multiple="multiple" size="10" id="member_to-P-142c126cd04-100c7" name="member_to-P-142c126cd04-100c7">
+                                  <option value="4">木村 一郎</option>
+                                </select>
+                                <input type="hidden" dojoattachpoint="valueNode" value="" name="" id="">
+                                <span dojoattachpoint="inputNode" id="member_to_input-P-142c126cd04-100c7" name="member_to_input-P-142c126cd04-100c7"><span class="dispUser color0">木村 一郎</span></span> <span class="small addUser" id="adduser-P-142c126cd04-100c7">ユーザー追加</span></span></div>
+                            </div>
+                            <div style="display: none" widgetid="memberfacilitylistwidget-P-142c126cd04-100c7" id="memberfacilitylistwidget-P-142c126cd04-100c7">
+                              <div style="width:300px" class="auiPopup">
+                                <div class="clearfix">
+                                  <div class="memberlistToTop">閲覧ユーザー一覧</div>
+                                  <div class="memberlistFromTop">
+                                    <select dojoattachevent="onchange:changeGroup" id="tmp_group-P-142c126cd04-100c7" name="tmp_group-P-142c126cd04-100c7" style="width:100%" size="1">
+                                      <option value="LoginUser">（全体）</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="clearfix mb5">
+                                  <div class="memberlistToBody">
+                                    <select id="tmp_member_to-P-142c126cd04-100c7" name="tmp_member_to-P-142c126cd04-100c7" style="width:100%" multiple="multiple" size="10">
+                                      <option value="4">木村 一郎</option>
+                                    </select>
+                                  </div>
+                                  <div class="memberlistFromBody">
+                                    <select id="tmp_member_from-P-142c126cd04-100c7" name="tmp_member_from-P-142c126cd04-100c7" style="width:100%" multiple="multiple" size="10">
+                                      <option value="4">木村 一郎</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="clearfix">
+                                  <div class="memberlistToBottom">
+                                    <div class="alignright">
+                                      <input type="button" dojoattachevent="onclick:onMemberRemoveClick" value="削除" class="button" name="button_member_remove-P-142c126cd04-100c7" id="button_member_remove-P-142c126cd04-100c7">
+                                    </div>
+                                  </div>
+                                  <div class="memberlistFromBottom">
+                                    <div class="alignright">
+                                      <input type="button" dojoattachevent="onclick:onMemberAddClick" value="＜ 追加" class="button" name="button_member_add-P-142c126cd04-100c7" id="button_member_add-P-142c126cd04-100c7">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <select id="init_memberlist-P-142c126cd04-100c7" name="init_memberlist-P-142c126cd04-100c7" style="display:none;" multiple="multiple" size="10">
+                              <option value="4"> 木村 一郎 </option>
+                            </select>
+                            <select id="picked_memberlist-P-142c126cd04-100c7" class="hide" multiple="multiple">
+                              <option value="4"> 木村 一郎 </option>
+                            </select>
+                            <div style="display:none;" id="calender_m_empty_P-142c126cd04-100c7" class="message">選択したグループには、ユーザーおよび設備が登録されていません。</div>
+                            <div style="width: 100%; overflow: hidden; height: 58px;" id="weeklyTableHeadWrapper_P-142c126cd04-100c7">
+                              <table width="100%" cellspacing="0" cellpadding="0" border="0" id="weeklyTableHead_P-142c126cd04-100c7" class="weeklyTableHead" style="margin-top: 5px;">
+                                <tbody>
+                                  <tr>
+                                    <td width="50"><div class="weeklyHeadLeft">
+                                        <div class="weeklyHeadLeftTop">&nbsp;</div>
+                                        <div class="weeklyHeadLeftBottom">&nbsp;</div>
+                                      </div></td>
+                                    <td width="100%" valign="top" nowrap="nowrap"><div class="weeklyHeadRights" id="weeklyHeadRights-P-142c126cd04-100c7">
+                                        <div style="left: 0%;width: 100%; border-right: block;" class="weeklyHeadRightR weeklyHeadRightborder0_P-142c126cd04-100c7" id="weeklyHeadRightborder-P-142c126cd04-100c7">
+                                          <div id="weeklyDay0-P-142c126cd04-100c7" class="weeklyHeadRightTop today"> <a onclick="aipo.schedule.setIndicator('P-142c126cd04-100c7');aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen&amp;tab=oneday-group&amp;filter=null&amp;filtertype=group&amp;view_start=2013-12-12', 'P-142c126cd04-100c7');" href="javascript:void(0);" id="weeklyDay0_element_a-P-142c126cd04-100c7">12(木)</a> </div>
+                                          <div id="weeklyHoliday0-P-142c126cd04-100c7" class="weeklyHeadRightBottom today"></div>
+                                        </div>
+                                        <div style="left: 14.2857%;width: 0%;display: none;" class="weeklyHeadRight weeklyHeadRightborder1_P-142c126cd04-100c7">
+                                          <div id="weeklyDay1-P-142c126cd04-100c7" class="weeklyHeadRightTop"> <a onclick="aipo.schedule.setIndicator('P-142c126cd04-100c7');aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen&amp;tab=oneday-group&amp;filter=null&amp;filtertype=group&amp;view_start=2013-12-13', 'P-142c126cd04-100c7');" href="javascript:void(0);" id="weeklyDay1_element_a-P-142c126cd04-100c7">13(金)</a></div>
+                                          <div id="weeklyHoliday1-P-142c126cd04-100c7" class="weeklyHeadRightBottom"></div>
+                                        </div>
+                                        <div style="left: 28.5714%;width: 0%;display: none;" class="weeklyHeadRight weeklyHeadRightborder2_P-142c126cd04-100c7">
+                                          <div id="weeklyDay2-P-142c126cd04-100c7" class="weeklyHeadRightTop saturday"> <a onclick="aipo.schedule.setIndicator('P-142c126cd04-100c7');aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen&amp;tab=oneday-group&amp;filter=null&amp;filtertype=group&amp;view_start=2013-12-14', 'P-142c126cd04-100c7');" href="javascript:void(0);" id="weeklyDay2_element_a-P-142c126cd04-100c7">14(土)</a> </div>
+                                          <div id="weeklyHoliday2-P-142c126cd04-100c7" class="weeklyHeadRightBottom saturday"></div>
+                                        </div>
+                                        <div style="left: 42.8571%;width: 0%;display: none;" class="weeklyHeadRight weeklyHeadRightborder3_P-142c126cd04-100c7">
+                                          <div id="weeklyDay3-P-142c126cd04-100c7" class="weeklyHeadRightTop sunday"> <a onclick="aipo.schedule.setIndicator('P-142c126cd04-100c7');aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen&amp;tab=oneday-group&amp;filter=null&amp;filtertype=group&amp;view_start=2013-12-15', 'P-142c126cd04-100c7');" href="javascript:void(0);" id="weeklyDay3_element_a-P-142c126cd04-100c7">15(日)</a> </div>
+                                          <div id="weeklyHoliday3-P-142c126cd04-100c7" class="weeklyHeadRightBottom sunday"></div>
+                                        </div>
+                                        <div style="left: 57.1429%;width: 0%;display: none;" class="weeklyHeadRight weeklyHeadRightborder4_P-142c126cd04-100c7">
+                                          <div id="weeklyDay4-P-142c126cd04-100c7" class="weeklyHeadRightTop"> <a onclick="aipo.schedule.setIndicator('P-142c126cd04-100c7');aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen&amp;tab=oneday-group&amp;filter=null&amp;filtertype=group&amp;view_start=2013-12-16', 'P-142c126cd04-100c7');" href="javascript:void(0);" id="weeklyDay4_element_a-P-142c126cd04-100c7">16(月)</a></div>
+                                          <div id="weeklyHoliday4-P-142c126cd04-100c7" class="weeklyHeadRightBottom"></div>
+                                        </div>
+                                        <div style="left: 71.4286%;width: 0%;display: none;" class="weeklyHeadRight weeklyHeadRightborder5_P-142c126cd04-100c7">
+                                          <div id="weeklyDay5-P-142c126cd04-100c7" class="weeklyHeadRightTop"> <a onclick="aipo.schedule.setIndicator('P-142c126cd04-100c7');aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen&amp;tab=oneday-group&amp;filter=null&amp;filtertype=group&amp;view_start=2013-12-17', 'P-142c126cd04-100c7');" href="javascript:void(0);" id="weeklyDay5_element_a-P-142c126cd04-100c7">17(火)</a></div>
+                                          <div id="weeklyHoliday5-P-142c126cd04-100c7" class="weeklyHeadRightBottom"></div>
+                                        </div>
+                                        <div style="left: 85.7143%;width: 0%;display: none;" class="weeklyHeadRight weeklyHeadRightborder6_P-142c126cd04-100c7">
+                                          <div id="weeklyDay6-P-142c126cd04-100c7" class="weeklyHeadRightTop"> <a onclick="aipo.schedule.setIndicator('P-142c126cd04-100c7');aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c7?template=ScheduleScreen&amp;tab=oneday-group&amp;filter=null&amp;filtertype=group&amp;view_start=2013-12-18', 'P-142c126cd04-100c7');" href="javascript:void(0);" id="weeklyDay6_element_a-P-142c126cd04-100c7">18(水)</a></div>
+                                          <div id="weeklyHoliday6-P-142c126cd04-100c7" class="weeklyHeadRightBottom"></div>
+                                        </div>
+                                      </div></td>
+                                    <td width="18px" style="display:block;" id="weeklySpan-P-142c126cd04-100c7"><div style="width:16px" class="weeklySpan">&nbsp;</div>
+                                      <div style="width:16px" class="weeklySpan">&nbsp;</div></td>
+                                  </tr>
+                                  <tr>
+                                    <td width="50"><div id="weeklyTermLeft" class="weeklyTermLeft">
+                                        <div class="weeklyTermLeftTop">&nbsp;</div>
+                                      </div></td>
+                                    <td width="100%" valign="top" nowrap="nowrap"><div class="weeklyTermRights" id="weeklyTermRights-P-142c126cd04-100c7">
+                                        <div style="left: 0%;width: 100%; border-right: block;" id="termDay0-P-142c126cd04-100c7" class="weeklyHeadRightborder0_P-142c126cd04-100c7 weeklyTermRight weeklyTermRightL weeklyTermRightR today">
+                                          <div class="weeklyTermRightTop">&nbsp;</div>
+                                        </div>
+                                        <div style="left: 14.2857%;width: 0%;display: none;" id="termDay1-P-142c126cd04-100c7" class="weeklyHeadRightborder1_P-142c126cd04-100c7 weeklyTermRight">
+                                          <div class="weeklyTermRightTop">&nbsp;</div>
+                                        </div>
+                                        <div style="left: 28.5714%;width: 0%;display: none;" id="termDay2-P-142c126cd04-100c7" class="weeklyHeadRightborder2_P-142c126cd04-100c7 weeklyTermRight saturday">
+                                          <div class="weeklyTermRightTop">&nbsp;</div>
+                                        </div>
+                                        <div style="left: 42.8571%;width: 0%;display: none;" id="termDay3-P-142c126cd04-100c7" class="weeklyHeadRightborder3_P-142c126cd04-100c7 weeklyTermRight sunday">
+                                          <div class="weeklyTermRightTop">&nbsp;</div>
+                                        </div>
+                                        <div style="left: 57.1429%;width: 0%;display: none;" id="termDay4-P-142c126cd04-100c7" class="weeklyHeadRightborder4_P-142c126cd04-100c7 weeklyTermRight">
+                                          <div class="weeklyTermRightTop">&nbsp;</div>
+                                        </div>
+                                        <div style="left: 71.4286%;width: 0%;display: none;" id="termDay5-P-142c126cd04-100c7" class="weeklyHeadRightborder5_P-142c126cd04-100c7 weeklyTermRight">
+                                          <div class="weeklyTermRightTop">&nbsp;</div>
+                                        </div>
+                                        <div style="left: 85.7143%;width: 0%;display: none;" id="termDay6-P-142c126cd04-100c7" class="weeklyHeadRightborder6_P-142c126cd04-100c7 weeklyTermRight">
+                                          <div class="weeklyTermRightTop">&nbsp;</div>
+                                        </div>
+                                      </div></td>
+                                    <td width="18" class="weeklyTermTailTd_P-142c126cd04-100c7"><div class="weeklyTermTail" style="width: 18px;">&nbsp;</div></td>
+                                  </tr>
+                                  <tr id="weeklyTermTr_P-142c126cd04-100c7">
+                                    <td width="50"><div id="weeklyTermLeft" class="weeklyTermLeft">
+                                        <div id="weeklyTermLeftTopTall-P-142c126cd04-100c7" class="weeklyTermLeftTop" style="height: 0px;">&nbsp;</div>
+                                      </div></td>
+                                    <td width="100%" valign="top" nowrap="nowrap"><div style="z-index: -1;" class="termScheduleGarage" id="termScheduleGarage-P-142c126cd04-100c7">
+                                        <table cellspacing="0" cellpadding="0" border="0" style="width:100%;" id="termTable_P-142c126cd04-100c7">
+                                          <tbody>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="weeklyTermRights" id="weeklyTermRights-P-142c126cd04-100c7">
+                                        <div style="left: 0%; z-index: 1; opacity: 0; height: 17px; top: -17px;" class="termScheduleDivAdd" id="termScheduleDivAdd_P-142c126cd04-100c7">&nbsp;</div>
+                                      </div>
+                                      <div id="termScheduleContainer-P-142c126cd04-100c7" style="height: 0px;"></div></td>
+                                    <td width="18" style="display: none" class="weeklyTermTailTd_P-142c126cd04-100c7"><div class="weeklyTermTail" style="width: 18px;">&nbsp;</div></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="tableBorderM">&nbsp;</div>
+                            <div style="height: 468px;" id="weeklyScrollPane_P-142c126cd04-100c7" class="weeklyScrollPane">
+                              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                  <tr valign="top">
+                                    <td width="50"><div class="weeklyLeft">
+                                        <div class="leftMinute">00:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">01:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">02:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">03:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">04:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">05:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">06:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">07:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">08:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">09:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">10:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">11:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">12:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">13:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">14:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">15:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">16:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">17:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">18:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">19:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">20:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">21:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">22:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                        <div class="leftMinute">23:00</div>
+                                        <div class="leftMinuteBottom">&nbsp;</div>
+                                      </div></td>
+                                    <td width="100%"><div class="weeklyRights" id="weeklyRights-P-142c126cd04-100c7">
+                                        <div id="weeklyRight0-P-142c126cd04-100c7" style="left: 0%;width: 100%;" class="weeklyRight today">
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                        </div>
+                                        <div id="weeklyRight1-P-142c126cd04-100c7" style="left: 14.2857%;width: 0%;display: none;" class="weeklyRight">
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                        </div>
+                                        <div id="weeklyRight2-P-142c126cd04-100c7" style="left: 28.5714%;width: 0%;display: none;" class="weeklyRight saturday">
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                        </div>
+                                        <div id="weeklyRight3-P-142c126cd04-100c7" style="left: 42.8571%;width: 0%;display: none;" class="weeklyRight sunday">
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                        </div>
+                                        <div id="weeklyRight4-P-142c126cd04-100c7" style="left:57.1429%;width: 0%;display: none;" class="weeklyRight">
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                        </div>
+                                        <div id="weeklyRight5-P-142c126cd04-100c7" style="left: 71.4286%;width: 0%;display: none;" class="weeklyRight">
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                        </div>
+                                        <div id="weeklyRight6-P-142c126cd04-100c7" style="left: 85.7143%;width: 0%;display: none;" class="weeklyRight">
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                          <div class="rightMinute">&nbsp;</div>
+                                          <div class="rightMinuteBottom">&nbsp;</div>
+                                        </div>
+                                        <div style="left: 0%; width: 100%; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd00_P-142c126cd04-100c7">&nbsp;</div>
+                                        <div style="left: 14.2857%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd01_P-142c126cd04-100c7">&nbsp;</div>
+                                        <div style="left: 28.5714%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd02_P-142c126cd04-100c7">&nbsp;</div>
+                                        <div style="left: 42.8571%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd03_P-142c126cd04-100c7">&nbsp;</div>
+                                        <div style="left: 57.1429%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd04_P-142c126cd04-100c7">&nbsp;</div>
+                                        <div style="left: 71.4286%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd05_P-142c126cd04-100c7">&nbsp;</div>
+                                        <div style="left: 85.7143%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd06_P-142c126cd04-100c7">&nbsp;</div>
+                                        <div class="scheduleGarage" id="scheduleGarage-P-142c126cd04-100c7">
+                                          <div style=" position:absolute; width: 0px; height : 0px; left: 0px; top: -10000px; Filter: Alpha(Opacity=10);opacity:.10; background-color:#FFFFFF; " class="scheduleDivAdd dummy_div" id="dummy_div_P-142c126cd04-100c7">&nbsp;</div>
+                                        </div>
+                                      </div></td>
+                                    <td class="scrollRight"><div class="scroll_width"></div></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+dojo.require("aipo.calendar.weekly");
+
+dojo.addOnLoad(function () {
+  initCalendar['P-142c126cd04-100c7'](false);
+      aipo.calendar.changeDisypayPeriod('1', 'P-142c126cd04-100c7');
+   //aipo.calendar.populateWeeklySchedule('P-142c126cd04-100c7');
+});
+
+//]]&gt;
+</script>
+                    <div style="display:none" class="modalDialog" id="modalDialog2"></div>
+                    <input type="hidden" value="2e1be78a82f9b5d3ba2f1bc606376ec8" name="secid-P-142c126cd04-100c7" id="secid-P-142c126cd04-100c7">
+                    <input type="checkbox" value="f" id="showAll-P-142c126cd04-100c7" style="display:none">
+                    <div style="position:absolute;display:none;width: 3em;" id="menubar_P-142c126cd04-100c7_date" class="menubar">
+                      <ul>
+                        <li> <a onclick="aipo.calendar.changeDisypayPeriod('1', 'P-142c126cd04-100c7');aipo.calendar.populateWeeklySchedule('P-142c126cd04-100c7', '');aipo.setCookie('schedule_selected_daylist_P-142c126cd04-100c7',1,'/',365*24*60*60*1000)" href="javascript:void(0);">1日</a> </li>
+                        <li> <a onclick="aipo.calendar.changeDisypayPeriod('4', 'P-142c126cd04-100c7');aipo.calendar.populateWeeklySchedule('P-142c126cd04-100c7', '');aipo.setCookie('schedule_selected_daylist_P-142c126cd04-100c7',4,'/',365*24*60*60*1000)" href="javascript:void(0);">4日</a> </li>
+                        <li> <a onclick="aipo.calendar.changeDisypayPeriod('7', 'P-142c126cd04-100c7');aipo.calendar.populateWeeklySchedule('P-142c126cd04-100c7', '');aipo.setCookie('schedule_selected_daylist_P-142c126cd04-100c7',7,'/',365*24*60*60*1000)" href="javascript:void(0);">7日</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet P-142c126cd04-100c8" id="dojoUnique10">
+              <div class="auiPortletHead">
+                <div class="inner dojoDndHandle">
+                  <div class="auiPortletTitle"> <a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c8?action=controls.Maximize">ユーザー名簿</a> </div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletSetting"> <a title="カスタマイズ" onclick="aipo.customize.showMenu('P-142c126cd04-100c8');" class="customizeMenuIcon auiIcon auiIconSetting" id="menubar_button_P-142c126cd04-100c8" href="javascript:void(0);"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody dndIdentifier">
+                <div id="portlet_P-142c126cd04-100c8" widgetid="portlet_P-142c126cd04-100c8" dojotype="aimluck.widget.Contentpane" class="inner">
+                  <script src="/aipo/javascript/aipo/userlist/form.js?1386771218000" type="text/javascript" language="JavaScript"></script>
+                  <script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+    ptConfig['P-142c126cd04-100c8'] = { group:"userlist", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c8?template=UserListScreen', reloadFunction:aipo.reloadPage };
+
+//]]&gt;
+</script>
+                  <div class="auiSummaryMeta clearfix">
+                    <form onsubmit="aipo.userlist.onSubmitSearchButton(this,'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c8?template=UserListScreen','P-142c126cd04-100c8','', 'indicator-dlg-'); return false;" method="post" action="#" id="userlistP-142c126cd04-100c8" name="userlistP-142c126cd04-100c8" class="auiSearch auiForm">
+                      <input type="text" value="" style="width:60%; margin-right:5px;" id="sword" name="sword" class="text floatLeft">
+                      <a onclick="dojo.byId('userlistP-142c126cd04-100c8').onsubmit();" class="auiButtonSearch floatLeft">検索</a>
+                      <input type="hidden" value="ajaxsearch" name="mode">
+                      &nbsp; <i style="display:none;" id="indicator-dlg-P-142c126cd04-100c8" class="indicator"></i>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+            <!-- PORTLET OUTER -->
+            <div class="dojoDndItem auiPortlet">
+              <div class="auiPortletHead">
+                <div class="inner">
+                  <div class="auiPortletTitle"><a href="#">アドレス帳</a></div>
+                  <div class="auiPortletTool">
+                    <div class="auiPortletAction"><a href="#">アドレス追加</a></div>
+                    <div class="auiPortletSetting"><a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_test1').style.display!='block') {document.getElementById('menubar_test1').style.display='block'}else{document.getElementById('menubar_test1').style.display='none'}" title="カスタマイズ"></a>
+                      <div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+                        <ul>
+                          <li><a href="#">設定</a></li>
+                          <li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- auiPortletBody -->
+              <div class="auiPortletBody">
+                <div class="inner">
+                  <form class="auiSearch auiForm" name="addressbookP-135ce1a0d62-10011" id="addressbookP-135ce1a0d62-10011" action="#" method="post" onsubmit="aipo.addressbook.onSubmitSerchButton(this,'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10011?template=AddressBookScreen','P-135ce1a0d62-10011','','indicator-dlg-'); return false;">
+                    <div class="auiSummaryMeta clearfix">
+                      <input class="text floatLeft" type="text" name="sword" id="sword" style="width:60%; margin-right:5px;" value="">
+                      <a class="auiButtonSearch floatLeft" onclick="dojo.byId('addressbookP-135ce1a0d62-10011').onsubmit();">検索</a>
+                      <div class="floatLeft">
+                        <div class="indicator" id="indicator-dlg-P-135ce1a0d62-10011" style="display:none;">&nbsp;</div>
+                      </div>
+                    </div>
+                    <input name="mode" type="hidden" value="ajaxsearch">
+                  </form>
+                </div>
+              </div>
+              <!-- /auiPortletBody -->
+              <div class="auiPortletFoot">
+                <div class="inner"></div>
+              </div>
+            </div>
+            <!-- /PORTLET OUTER -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- /LAYOUT -->
+  </div>
+  <!-- /MAIN OUTER  -->
+</div>
+<div class="dijitPopup" style="z-index: 1000; visibility: visible; top:30px; right:340px; ">
+  <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
+    <div class="activityPopup">
+      <div class="clearfix">
+        <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
+          <h2>あなた宛のお知らせ</h2>
+          <div style="background:#ffffff;padding:2px;">
+            <div class="auiSummaryMeta clearfix">
+              <div class="floatRight">
+                <div class="count">1 - 5 / 20</div>
+                <div class="auiSelectButton floatLeft">
+                  <ul>
+                    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+                    <li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <ul class="activityList">
+              <li class="unread">
+                <div class="meta">12月26日 &nbsp; 山本 次郎</div>
+                <a href="javascript:void(0);" onclick="">予定「お客様<wbr>
+                訪問」を編<wbr>
+                集しました。<wbr>
+                </a> </li>
+              <li>
+                <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+                <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle"> <a href="javascript:void(0);" onclick="">あなたの投稿<wbr>
+                にコメントし<wbr>
+                ました。</a> </li>
+              <li>
+                <div class="meta">12月22日 &nbsp; 山中 愛子</div>
+                <a href="javascript:void(0);" onclick="">山田様<wbr>
+                より伝言「伝言をお願いします。」があ<wbr>
+                りました。</a> </li>
+              <li>
+                <div class="meta">12月21日 &nbsp; 山本 次郎</div>
+                <a href="javascript:void(0);" onclick="">予定「お客様<wbr>
+                修正連絡<wbr>
+                」を追加しました。</a> </li>
+              <li>
+                <div class="meta">12月21日 &nbsp; 田村 三郎</div>
+                <a href="javascript:void(0);" onclick="">報告書「業務報告」<wbr>
+                の確認依頼を<wbr>
+                出しました。<wbr>
+                </a> </li>
+            </ul>
+            <p class="rightBtn"> <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;
+              <input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- menubar_auiFilter_1 -->
+<!--
+***************************************************
+●開発担当者へコメント
+
+「.menubar.multi」は「menubar」の複数列版です。
+必ず同じ「class」内で「class="menubar multi"」としてください。
+
+
+クリック元となる「filters」の直下に表示されるように「top」「left」をJSでベタで入れる必要があります。
+top = 「filters」の画面内Y位置+28
+left = 「filters」の画面内X位置
+
+またウィンドウサイズの変更による位置ズレに常時対応するため、クリックイベントではなく常時イベントとしてください。
+
+そのため「部署」「カテゴリ」といったフィルタ要素1件ごとに、130pxをかけた値を入れてください。
+下記の場合は「部署・カテゴリ・長い～」の3点のため390pxを入れています。
+
+***************************************************
+-->
+<div class="menubar multi" id="menubar_auiFilter_1" style="width:390px;top:526px; left:33px;display:none;">
+  <div>
+    <p class="caption">部署</p>
+    <ul>
+      <li><a href="#" class="selected">すべての部署</a></li>
+      <li><a href="#">営業本部</a></li>
+      <li><a href="#">開発本部本部</a></li>
+      <li><a href="#">企画本部</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="caption">カテゴリ</p>
+    <ul>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="caption">長いタイトル長いタイトル長いタイトル長いタイトル</p>
+    <ul>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+    </ul>
+  </div>
+</div>
+<!-- /menubar_auiFilter_1 -->
+<!-- menubar_auiFilter_2 -->
+<div class="menubar multi" id="menubar_auiFilter_2" style="display:none;width:390px;top:1071px; left:33px;">
+  <div>
+    <p class="caption">部署</p>
+    <ul>
+      <li><a href="#" class="selected">すべての部署</a></li>
+      <li><a href="#">営業本部</a></li>
+      <li><a href="#">開発本部本部</a></li>
+      <li><a href="#">企画本部</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="caption">カテゴリ</p>
+    <ul>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#" class="selected">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="caption">長いタイトル長いタイトル長いタイトル長いタイトル</p>
+    <ul>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#">カテゴリ名</a></li>
+      <li><a href="#">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+    </ul>
+  </div>
+</div>
+<!-- /menubar_auiFilter_2 -->
+<!-- support popup -->
+<div id="popup_77" class="dijitPopup" style="z-index: 1000; top:30px; right:270px; width:320px;">
+  <div id="aipo_widget_SupportList_0" widgetid="aipo_widget_SupportList_0" style="display:none;">
+    <div class="auiPopup supportPopup">
+      <div class="clearfix">
+        <div id="supportListPane" widgetid="supportListPane" class="dijitContentPane" title="">
+          <ul class="blockList">
+            <li><a href="javascript:void(0);" onClick="popupToggle(this,'aipo_widget_SupportList_0');popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');">スタートガイド</a></li>
+            <li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+            <li><a href="https://www.facebook.com/aipocom.jp" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/aipocom" target="_blank">Twitter</a></li>
+            <li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+          </ul>
+          <div class="tipDivider"></div>
+          <div class="tipBox clearfix">
+            <div class="tipTitle">Aipo.comからのお知らせ</div>
+            <ul class="tipInfo">
+              <li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+              <li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+              <li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+            </ul>
+            <p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
+          </div>
+          <!-- ##################################################
+					●開発担当者へ
+							
+					twitter設定前は下記を表示。
+					タイトルの（）内は削ってください。
+				
+					################################################## -->
+          <!--<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
+						<div class="tipBody">
+							<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+							<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+						</div>
+					</div>-->
+          <!-- ##################################################
+					●開発担当者へ
+							
+					twitter設定後は下記を表示。
+					タイトルの（）内は削ってください。
+				
+					################################################## -->
+          <div class="tipDivider"></div>
+          <div class="tipBox clearfix">
+            <div class="tipTitle">ご意見・ご要望</div>
+            <div class="tipBody">
+              <p class="fs11 fcGray">頂いたご意見・ご要望をもとに改善に励みます。</p>
+              <div class="clearfix mb5">
+                <div class="fs11 floatRight"><a href="#">Twitter連携を解除</a></div>
+                <div class="floatLeft fs11 fcGray">獲得容量(全社)：5MB</div>
+              </div>
+              <textarea></textarea>
+              <div class="clearfix mt5">
+                <div class="floatRight"> <span class="fcGray mr10">0/128</span><a href="#" class="auiButtonAction">ツイート</a> </div>
+              </div>
+            </div>
+          </div>
+          <div class="tipDivider"></div>
+          <div class="tipBox tipFoot clearfix">
+            <div class="capacity"> 100MB(10%) / 1024MB を使用中 </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /support popup -->
+<!-- popupMask -->
+<div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;">
+  <div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+<!-- /popupMask -->
+<!-- startGuide -->
+<div id="popupStartGuide" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display:none; opacity: 1; top:50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+  <div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+    <div class="auiPopup clearfix">
+      <div class="auiPopupHead clearfix">
+        <div class="auiPopupTool">
+          <div><a href="javascript:void(0)" class="auiButtonIcon" onClick="popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');" title="閉じる"><span><i class="icon-remove"></i></span></a></div>
+        </div>
+        <div class="auiPopupTitle">スタートガイド</div>
+      </div>
+      <div class="roundBlockContent">
+        <div id="messageDiv"></div>
+        <h3>みんなを招待しましょう</h3>
+        <div class="clearfix"> <i class="icon-group pull-left fcGrayLight mr20 ml10" style="font-size:60px;"></i>
+          <p>同僚、メンバーをAipo.comに招待しましょう！</p>
+          <p>予定の確認や作業の進捗状況、ノウハウの共有など、Aipo.comには組織を最適化する機能が備わっています。</p>
+        </div>
+        <p class="center mb15"><a href="#" class="auiButton">ユーザーを追加する</a></p>
+        <h3>新しいアプリを使ってみましょう</h3>
+        <div class="clearfix"> <i class="icon-cloud-download pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
+          <p>最初から配置されているアプリ以外にも多くのアプリがあります！</p>
+          <p>また <a href="http://store.aipo.com/" target="_blank">Aipoストア</a> から、新しいアプリを追加して利用することもできます。</p>
+        </div>
+        <p class="center mb15"><a href="#" class="auiButton">アプリを追加する</a></p>
+        <h3>みんなの画面を同じにしましょう</h3>
+        <div class="clearfix"> <i class="icon-desktop pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
+          <p>管理者以外のユーザーの画面を、管理者と同じ状態にできます。</p>
+          <p>限られた機能だけで充分なとき、多くの機能を使ってほしいときなど、組織や用途に応じてご自由に設定できます。</p>
+        </div>
+        <p class="center mb15"><a href="javascript:void(0)" class="auiButton" onClick="popupToggle(this,'popupStartGuide');popupToggle(this,'popupAppPosition');">画面を統一する</a></p>
+        <h3>本格的に導入しましょう</h3>
+        <div class="clearfix"> <i class="icon-building pull-left fcGrayLight mr20 ml10" style="font-size:60px; width:64px; text-align:center; vertical-align:middle"></i>
+          <p>容量と機能の充実したMプラン、Lプランへ変更できます。</p>
+          <p>容量が1GBまで拡張されるほか、ワークフローや共有フォルダなど、組織活動に役立つ機能がご利用いただけます。詳しくは <a href="http://www.aipo.com/price/" target="_blank">料金</a> をご覧ください。</p>
+        </div>
+        <p class="center mb15"><a href="#" class="auiButton">プラン変更を申し込む</a></p>
+      </div>
+    </div>
+  </div>
+  <span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /startGuide -->
+<!-- appPosition -->
+<div id="popupAppPosition" class="modalDialog dijitContentPane" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; opacity: 1; left:50%; top:200px; margin-left:-275px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+  <div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+    <div class="auiPopup clearfix">
+      <div class="auiPopupHead clearfix">
+        <div class="auiPopupTool">
+          <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onClick="popupToggle(this,'popupMask');popupToggle(this,'popupAppPosition');"><span><i class="icon-remove"></i></span></a> </div>
+        </div>
+        <div class="auiPopupTitle">アプリ配置の設定</div>
+      </div>
+      <div class="roundBlockContent"> </div>
+      <div class="indicator" id="indicator-form-121" style="display:none;">データを送信しています...</div>
+      <div id="messageDiv"></div>
+      <form name="form121" id="form121" action="" method="post" onsubmit="">
+        <input type="hidden" name="_name" value="psmlForm">
+        <input type="hidden" name="secid" value="">
+        <div class="p">
+          <input type="hidden" value="" id="121-mode" name="mode">
+        </div>
+        <p class="center">すべてのユーザーの配置を変更できます。</p>
+        <ul class="auiRowList mb10">
+          <li>
+            <label for="layout01"> <span class="section auiRowListImg"><img src="../themes/default/images/function/btn_selectlayout_timeline.gif" alt="タイムラインメイン" width="130" height="130"></span> <span class="section">
+              <input type="radio" name="layout" id="layout01" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'timeline')">
+              </span> <span class="section small">「タイムライン」を中心に配置</span> </label>
+          </li>
+          <li>
+            <label for="layout02"> <span class="section auiRowListImg"><img src="../themes/default/images/function/btn_selectlayout_schedule.gif" alt="スケジュールメイン" width="130" height="130"></span> <span class="section">
+              <input type="radio" name="layout" id="layout02" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'schedule')">
+              </span> <span class="section small">「スケジュール」を中心に配置</span> </label>
+          </li>
+          <li>
+            <label for="layout03"> <span class="section auiRowListImg"><img src="../themes/default/images/function/btn_selectlayout_mine.gif" alt="あなたの現在の配置" width="130" height="130"></span> <span class="section">
+              <input type="radio" name="layout" id="layout03" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'all_user')">
+              </span> <span class="section small">あなたの現在の配置を適用</span> </label>
+          </li>
+        </ul>
+        <div align="center">
+          <input type="submit" onclick="aimluck.io.setHiddenValue(this)" value="配置を変更する" class="auiButtonAction">
+          <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+        </div>
+      </form>
+    </div>
+  </div>
+  <span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /appPosition -->
+</body>
+</html>

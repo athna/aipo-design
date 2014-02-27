@@ -1,0 +1,618 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8,chrome=1" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+</head>
+<body>
+
+<script type="text/javascript">
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<!-- WRAPPER -->
+<div id="wrapper">
+  <!-- HEADER -->
+  <div id="header" class="clearfix">
+    <div class="inner">
+      <div class="hdSign">
+        <div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
+      </div>
+      <script>
+        function popupToggle($this,$target) {
+            if(document.getElementById($target).style.display=='none'){
+                document.getElementById($target).style.display='block'
+            }else{
+                document.getElementById($target).style.display='none'
+            }
+            if($this.className.indexOf('active')>0){
+                $this.className = $this.className.replace(' active','');
+            }else{
+                $this.className += ' active'
+            };
+        }
+        function tooltipToggle($this,$target) {
+            document.getElementById($target).style.left=$this.getBoundingClientRect().left+'px';
+            document.getElementById($target).style.top=$this.getBoundingClientRect().top+$this.offsetHeight+'px';
+            popupToggle($this,$target);
+        }
+        function selectToggle($this,$value,$target){
+            if($this.value == $value){
+                document.getElementById($target).style.display='block'
+            } else {
+                document.getElementById($target).style.display='none'
+            }
+        }
+    </script>
+      <div class="hdNavi">
+        <div class="hdMessege"><a href="#">
+          <div id="messegechecker" class="zero counter">0</div>
+          メッセージ</a></div>
+        <div class="hdActivity" title="お知らせ">
+          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+                dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                widgetid="activitycheckerContainer"
+                onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+            <div type="button"
+                    dojoattachpoint="focusNode,titleNode"
+                    wairole="button"
+                    waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-labelledby="activitycheckerContainer_label"
+                    id="activitycheckerContainer"
+                    tabindex="0"
+                    aria-valuenow=""
+                    aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                <div id="activitychecker" class="activitycheckerstyle counter">5</div>
+                <span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdInformation" title="サポート">
+          <div
+                class="dijit dijitLeft dijitInline dijitDropDownButton"
+                dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+                widgetid="supportcheckerContainer"
+                onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+            <div type="button"
+                    dojoattachpoint="focusNode,titleNode"
+                    wairole="button"
+                    waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-labelledby="supportcheckerContainer_label"
+                    id="supportcheckerContainer"
+                    tabindex="0"
+                    aria-valuenow=""
+                    aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+                <div id="supportchecker" class="counter zero">0</div>
+                <span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span> </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdUserName"> <a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a> </div>
+      </div>
+      <div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+        <ul>
+          <li><a href="#">個人設定</a></li>
+          <li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /HEADER -->
+
+  <!-- MAIN TAB -->
+  <div id="auiTabs" class="clearfix">
+    <ul>
+      <li class="first">
+        <div class="tab active">
+          <div class="title"><a href="#">マイページ</a></div>
+          <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+        </div>
+      </li>
+      <li class="">
+        <div class="tab activeNext">
+			<div class="title"><a href="#">ページ名</a></div>
+			<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+        </div>
+      </li>
+      <li class="">
+        <div class="tab">
+			<div class="title"><a href="#">ページ名</a></div>
+			<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+        </div>
+      </li>
+      <li class="last">
+        <div class="tab">
+			<div class="title"><a href="#">ページ名</a></div>
+			<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+        </div>
+      </li>
+      <li class="addTab"> <a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a> </li>
+    </ul>
+  </div>
+  <!-- /MAIN TAB -->
+
+  <!-- roundMainWrapper -->
+  <div class="roundMainWrapper">
+
+	<noscript><div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div></noscript>
+
+    <!-- auiPortlet -->
+    <div class="dojoDndItem auiPortlet">
+      <div class="auiPortletHead">
+        <div class="inner">
+          <div class="auiPortletTitle">Wiki</div>
+          <div class="auiPortletTool"> </div>
+        </div>
+      </div>
+      <!-- PORTLET OUTER -->
+      <div class="auiPortletBody">
+        <div class="inner">
+          <div dojotype="aimluck:Contentpane" widgetid="widget_P-" id="portlet_P-">
+            <div id="auiContentsArea">
+              <div id="auiContentsAreaInner">
+
+                  <h2>Wikiの管理</h2>
+
+                  <div class="auiSummaryMeta clearfix">
+					  <a title="" href="javascript:void(0)" class="auiButtonAction" onclick="popupToggle(this,'modalDialog_wikicreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wikiを作成する</a>
+                  </div>
+                  <div class="auiSummaryMeta clearfix">
+					  <div class="floatLeft"><a href="#" class="auiButton">削除する</a></div>
+					  <div class="floatRight">
+                          <div class="count">1 - 10 / 20</div>
+                          <div class="auiSelectButton floatLeft">
+                              <ul class="floatLeft">
+                                  <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+                                  <li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage();" class="last arrow" title="次の 2 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+
+                  <table class="auiRowTable wide">
+                      <tbody>
+                      <tr>
+						  <th class="auiMTCheck center"><input type="checkbox"/></th>
+						  <th> <a class="headDown" href="javascript:void(0);" onclick="">Wiki名</a></th>
+                          <th class="wName mb_hide"><a href="javascript:void(0);" onclick="">作成者</a></th>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>アーノルド シュワルツェネッガー</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>木村 一郎</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>アーノルド シュワルツェネッガー</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>木村 一郎</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>アーノルド シュワルツェネッガー</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>木村 一郎</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>アーノルド シュワルツェネッガー</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>木村 一郎</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>アーノルド シュワルツェネッガー</div></td>
+                      </tr>
+                      <tr>
+						  <td class="auiMTCheck center"><input type="checkbox"/></td>
+                          <td>
+                              <div>
+                                  <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wiki名Wiki名</a>
+                              </div>
+                          </td>
+                          <td class="mb_hide"><div>木村 一郎</div></td>
+                      </tr>
+                      </tbody>
+                  </table>
+
+                  <div class="auiSummaryMeta clearfix">
+					  <div class="floatLeft"><a href="#" class="auiButton">削除する</a></div>
+					  <div class="floatRight">
+                          <div class="count">1 - 10 / 20</div>
+                          <div class="auiSelectButton floatLeft">
+                              <ul class="floatLeft">
+                                  <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+                                  <li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage();" class="last arrow" title="次の 2 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+            </div>
+            <script language="javascript">
+            function widgetMenuSwitch() {
+            var subNavi = document.getElementById('subNavigation');
+            if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
+            subNavi.style.display = 'block';
+            }else{
+            subNavi.style.display = 'none';
+            }
+            }
+            </script>
+            <div id="auiWidgetsArea">
+                <div class="auiWidget clearfix widgetButton">
+                    <a title="" href="javascript:void(0)" class="auiButton" onclick="popupToggle(this,'modalDialog_wikipagecreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wikiページを作成する</a>
+                </div>
+				<div id="subNavigation">
+					<div class="auiWidget clearfix">
+						<ul>
+							<li class="active"><a href="fullwindow.html" onclick="">Wiki名Wiki名</a></li>
+							<li><a href="fullwindow.html" onclick="">Wiki名Wiki名</a></li>
+							<li><a href="fullwindow.html" onclick="">Wiki名Wiki名</a></li>
+						</ul>
+						<div style="margin:0.5em 0;">
+							<a href="wiki_mng.html" onclick="">Wikiの管理</a>
+						</div>
+					</div>
+					<div class="auiWidget clearfix">
+						<div style="margin:0.5em 0;">
+							<a href="pagelist.html" onclick="">Wikiページ一覧</a>
+						</div>
+					</div>
+				</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="auiPortletFoot">
+        <div class="inner"></div>
+      </div>
+      <!-- /PORTLET OUTER -->
+    </div>
+    <!-- /auiPortlet -->
+
+  </div>
+  <!-- /roundMainWrapper  -->
+
+</div>
+
+
+
+<!-- #modalDialog_wikipagecreate -->
+<div id="modalDialog_wikipagecreate" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top: 50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_wikipagecreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">Wikiページ作成</div>
+			</div>
+			<div class="roundBlockContent">
+				<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
+				<div id="messageDiv"></div>
+				<form name="formP-1424f148b96-10000" id="formP" action="" method="post" onsubmit="aipo.fileuploadadv.createSelectFromFileList(this, 'P-1424f148b96-10000');aimluck.io.submit(this,'indicator-dlg-','P-1424f148b96-10000',aipo.gpdb.onReceiveMessage);return false;">
+					<input type="hidden" name="_name" value="gpdbForm">
+					<input type="hidden" name="secid" value="">
+					<input type="hidden" name="mode" value="insert">
+					<table class="listTable wide">
+						<tbody>
+						<tr>
+							<td class="caption"><span class="required">Wiki</span></td>
+							<td>
+								<div>
+									<select name="" id="" class="w100">
+										<option value="">Wiki名Wiki名Wiki名</option>
+										<option value="">Wiki名Wiki名Wiki名</option>
+										<option value="">Wiki名Wiki名Wiki名</option>
+									</select>
+								</div>
+								<div class="mt5">
+									<input name="category_input_button" type="button" class="button" value="Wikiを作成する">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption"><span class="required">タイトル</span>
+							</td>
+							<td><input class="text w100" type="text" name="field_241" id="field_241" value="" maxlength="50" style="ime-mode:">
+							</td>
+						</tr>
+						<tr>
+							<td class="caption"><span class="required">内容</span></td>
+							<td>
+								<div class="mb5">
+									<span class="auiButtonIcon" title="太字"><i class="icon-bold"></i></span>
+									<span class="auiButtonIcon" title="斜体"><i class="icon-italic"></i></span>
+									<span class="auiButtonIcon" title="下線"><i class="icon-underline"></i></span>
+									<span class="auiButtonIcon" title="打ち消し線"><i class="icon-strikethrough"></i></span>
+									<span class="auiButtonIcon" title="見出し1">h1</span>
+									<span class="auiButtonIcon" title="見出し2">h2</span>
+									<span class="auiButtonIcon" title="見出し3">h3</span>
+									<span class="auiButtonIcon" title="リスト(ul)"><i class="icon-list-ul"></i></span>
+									<span class="auiButtonIcon" title="連番リスト(ol)"><i class="icon-list-ol"></i></span>
+									<span class="auiButtonIcon" title="リンク"><i class="icon-link"></i></span>
+									<span class="auiButtonIcon" title="引用(blockquote)"><i class="icon-quote-right"></i></span>
+									<span class="auiButtonIcon" title="整形済みテキスト(pre)"><i class="icon-code"></i></span>
+									<span class="auiButtonIcon" title="水平線(hr)"><i class="icon-minus"></i></span>
+									<span class="auiButtonIcon" title="表の挿入"><i class="icon-table"></i></span>
+									<span class="auiButtonIcon" title="画像の挿入"><i class="icon-camera"></i></span>
+								</div>
+								<textarea name="" id="" rows="10" class="w100"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">添付ファイル</td>
+							<td>
+								<div><input name="" type="button" class="button" value="ファイルを追加する"></div>
+								<ul id="" class="attachments">
+									<li data-fileid="" data-filename=""><span>ファイル名.jpg</span><span class="deletebutton" onclick="">削除</span></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">トップページ</td>
+							<td>
+								<label><input name="" type="checkbox"> トップページに表示する。</label>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="center auiPopupButtons">
+						<input name="eventSubmit_doGpdb_insert" class="auiButtonAction" type="submit" id="al_submit_P-1424f148b96-10000" value="作成する" onclick="">
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_wikipagecreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /#modalDialog_wikipagecreate -->
+
+
+<!-- #modalDialog_wikicreate -->
+<div id="modalDialog_wikicreate" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top:50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+	<div class="auiPopup clearfix">
+		<div class="auiPopupHead clearfix">
+			<div class="auiPopupTool">
+				<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_wikicreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+				</div>
+			</div>
+			<div class="auiPopupTitle">Wiki作成</div>
+		</div>
+		<div class="roundBlockContent">
+			<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
+			<div id="messageDiv"></div>
+			<form name="" id="formP" action="" method="post">
+				<table class="listTable wide">
+					<tbody>
+					<tr>
+						<td class="caption"><span class="required">Wikiタイトル</span>
+						</td>
+						<td><input class="text w100" type="text" name="field_241" id="field_241" value="" maxlength="50" style="ime-mode:">
+						</td>
+					</tr>
+					<tr>
+						<td class="caption"><span class="required">内容</span></td>
+						<td>
+							<div>
+								<span class="auiButtonIcon mb5" title="太字"><i class="icon-bold"></i></span>
+								<span class="auiButtonIcon mb5" title="斜体"><i class="icon-italic"></i></span>
+								<span class="auiButtonIcon mb5" title="下線"><i class="icon-underline"></i></span>
+								<span class="auiButtonIcon mb5" title="打ち消し線"><i class="icon-strikethrough"></i></span>
+								<span class="auiButtonIcon mb5" title="見出し1">h1</span>
+								<span class="auiButtonIcon mb5" title="見出し2">h2</span>
+								<span class="auiButtonIcon mb5" title="見出し3">h3</span>
+								<span class="auiButtonIcon mb5" title="リスト(ul)"><i class="icon-list-ul"></i></span>
+								<span class="auiButtonIcon mb5" title="連番リスト(ol)"><i class="icon-list-ol"></i></span>
+								<span class="auiButtonIcon mb5" title="リンク"><i class="icon-link"></i></span>
+								<span class="auiButtonIcon mb5" title="引用(blockquote)"><i class="icon-quote-right"></i></span>
+								<span class="auiButtonIcon mb5" title="整形済みテキスト(pre)"><i class="icon-code"></i></span>
+								<span class="auiButtonIcon mb5" title="水平線(hr)"><i class="icon-minus"></i></span>
+								<span class="auiButtonIcon mb5" title="表の挿入"><i class="icon-table"></i></span>
+								<span class="auiButtonIcon mb5" title="画像の挿入"><i class="icon-camera"></i></span>
+							</div>
+							<textarea name="" id="" rows="10" class="w100"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="caption">添付ファイル</td>
+						<td>
+							<div><input name="" type="button" class="button" value="ファイルを追加する"></div>
+							<ul id="" class="attachments">
+								<li data-fileid="" data-filename=""><span>ファイル名.jpg</span><span class="deletebutton" onclick="">削除</span></li>
+							</ul>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="center auiPopupButtons">
+					<input name="eventSubmit_doGpdb_insert" class="auiButtonAction" type="submit" id="" value="作成する" onclick="">
+					<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_wikicreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+<!-- /#modalDialog_wikicreate -->
+
+
+<!-- #modalDialog_wikidetail -->
+<div id="modalDialog_wikidetail" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 50px; margin-left:-275px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+    <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+            <div class="auiPopupTool">
+                <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+                </div>
+            </div>
+            <div class="auiPopupTitle">Wiki詳細</div>
+        </div>
+        <div class="roundBlockContent">
+            <div class="indicator" id="" style="display:none;">データを送信しています...</div>
+            <form name="" id="" action="#" method="post">
+                <table class="listTable wide">
+                    <tbody>
+                    <tr>
+                        <td class="caption">Wikiタイトル</td>
+                        <td>WikiタイトルWikiタイトル</td>
+                    </tr>
+                    <tr>
+                        <td class="caption">トップページ</td>
+                        <td>トップページ</td>
+                    </tr>
+                    <tr>
+                        <td class="caption">作成者</td>
+                        <td>木村 一郎</td>
+                    </tr>
+                    <tr>
+                        <td class="caption">作成日</td>
+                        <td>2013年12月20日</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="center auiPopupButtons">
+					<input name="ajaxbuttonClose" class="button" type="button" value="編集する" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'modalDialog_wikiedit');">
+                    <input type="button" value="削除する" class="button" name="ajaxbuttonEdit">
+                    <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_wikidetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+                </div>
+            </form>
+        </div>
+    </div>
+</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /modalDialog_wikidetail -->
+
+
+<!-- #modalDialog_wikiedit -->
+<div id="modalDialog_wikiedit" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 50px; margin-left:-275px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+	<div class="auiPopup clearfix">
+		<div class="auiPopupHead clearfix">
+			<div class="auiPopupTool">
+				<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_wikiedit');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+				</div>
+			</div>
+			<div class="auiPopupTitle">Wiki編集</div>
+		</div>
+		<div class="roundBlockContent">
+			<div class="indicator" id="" style="display:none;">データを送信しています...</div>
+			<form name="" id="" action="#" method="post">
+				<table class="listTable wide">
+					<tbody>
+					<tr>
+						<td class="caption">Wikiタイトル</td>
+						<td><input type="text" class="w100" /></td>
+					</tr>
+					<tr>
+						<td class="caption">トップページ</td>
+						<td>
+							<select name="" id="" class="w100">
+								<option value="">トップページ</option>
+								<option value="">ページタイトルページタイトル</option>
+								<option value="">ページタイトルページタイトル</option>
+								<option value="">ページタイトルページタイトル</option>
+								<option value="">ページタイトルページタイトル</option>
+							</select>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="center auiPopupButtons">
+					<input type="button" value="更新する" class="auiButtonAction" name="ajaxbuttonEdit">
+					<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_wikiedit');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+				</div>
+			</form>
+		</div>
+	</div>
+</div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /modalDialog_wikiedit -->
+
+
+<!-- modalBackground-->
+<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
+</body>
+</html>

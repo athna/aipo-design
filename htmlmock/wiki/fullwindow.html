@@ -174,12 +174,6 @@
 					<div id="auiContentsArea">
 						<div id="auiContentsAreaInner">
 
-							<!--div class="auiSummaryMeta clearfix">
-								<form class="auiSearch">
-									<input class="text floatLeft long" type="text" name="q" id="q" style="margin-right:5px;">
-									<a class="auiButtonSearch" onclick="aimluck.io.setHiddenValue(this);">検索</a>
-								</form>
-							</div-->
 							<div class="auiSummaryMeta clearfix">
 								<a href="javascript:void(0)" class="auiButton" onclick="popupToggle(this,'modalDialog_wikipagecreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">編集する</a>
 								<a href="javascript:void(0)" class="auiButton" onclick="window.confirm('このWikiページを削除しますか？')">削除する</a>
@@ -298,6 +292,19 @@
 										<td>td:データセル</td>
 									</tr>
 								</table>
+
+								<div style="padding-top:15px;">
+									<ul>
+										<li><a href="#">添付画像ファイル.jpg</a>
+											<div id="popc" style="position:absolute"></div>
+											<div class="thumbBlock">
+												<a href="javascript:void(0);"><img class="width_thumbs" alt="添付画像ファイル.jpg" title="添付画像ファイル.jpg" src="../themes/default/images/logo_com_20130613.png"></a>
+											</div>
+										</li>
+										<li><a href="#">添付テキストファイル.txt</a>
+										</li>
+									</ul>
+								</div>
 							</div>
 
 						</div>
@@ -314,22 +321,17 @@
 					</script>
 					<div id="auiWidgetsArea">
 						<div class="auiWidget clearfix widgetButton">
-							<a title="" href="javascript:void(0)" class="auiButtonAction" onclick="popupToggle(this,'modalDialog_wikipagecreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wikiページを作成する</a>
+							<a title="" href="javascript:void(0)" class="auiButtonAction" onclick="popupToggle(this,'modalDialog_wikipagecreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Wikiを作成する</a>
 						</div>
 						<div id="subNavigation">
 							<div class="auiWidget clearfix">
 								<ul>
-									<li class="active"><a href="fullwindow.html" onclick="">Wiki名Wiki名</a></li>
-									<li><a href="fullwindow.html" onclick="">Wiki名Wiki名</a></li>
-									<li><a href="fullwindow.html" onclick="">Wiki名Wiki名</a></li>
+									<li class="active"><a href="fullwindow.html" onclick="">営業強化プロジェクトWiki</a></li>
+									<li><a href="fullwindow.html" onclick="">企画強化プロジェクトWiki</a></li>
+									<li><a href="fullwindow.html" onclick="">開発強化プロジェクトWiki</a></li>
 								</ul>
 								<div style="margin:0.5em 0;">
 									<a href="wiki_mng.html" onclick="">Wikiの管理</a>
-								</div>
-							</div>
-							<div class="auiWidget clearfix">
-								<div style="margin:0.5em 0;">
-									<a href="pagelist.html" onclick="">Wikiページ一覧</a>
 								</div>
 							</div>
 						</div>
@@ -626,7 +628,7 @@
 					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_wikipagecreate');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
 					</div>
 				</div>
-				<div class="auiPopupTitle">Wikiページ作成</div>
+				<div class="auiPopupTitle">Wiki作成</div>
 			</div>
 			<div class="roundBlockContent">
 				<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
@@ -635,22 +637,20 @@
 					<table class="listTable wide">
 						<tbody>
 						<tr>
-							<td class="caption"><span class="required">Wiki</span></td>
+							<td class="caption"><span class="required">親Wiki</span></td>
 							<td>
 								<div>
 									<select name="" id="" class="w100">
-										<option value="">Wiki名Wiki名Wiki名</option>
-										<option value="">Wiki名Wiki名Wiki名</option>
-										<option value="">Wiki名Wiki名Wiki名</option>
+										<option value="">指定しない</option>
+										<option value="">営業強化プロジェクトWiki</option>
+										<option value="">企画強化プロジェクトWiki</option>
+										<option value="">開発強化プロジェクトWiki</option>
 									</select>
-								</div>
-								<div class="mt5">
-									<input name="category_input_button" type="button" class="button" value="Wikiを作成する">
 								</div>
 							</td>
 						</tr>
 						<tr>
-							<td class="caption"><span class="required">タイトル</span>
+							<td class="caption"><span class="required">Wiki名</span>
 							</td>
 							<td><input class="text w100" type="text" name="field_241" id="field_241" value="" maxlength="50" style="ime-mode:">
 							</td>
@@ -685,12 +685,6 @@
 								<ul id="" class="attachments">
 									<li data-fileid="" data-filename=""><span>ファイル名.jpg</span><span class="deletebutton" onclick="">削除</span></li>
 								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td class="caption">トップページ</td>
-							<td>
-								<label><input name="" type="checkbox"> トップページに表示する。</label>
 							</td>
 						</tr>
 						</tbody>

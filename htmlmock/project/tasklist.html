@@ -876,115 +876,194 @@
 					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_addtask');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
 					</div>
 				</div>
-				<div class="auiPopupTitle">データ追加</div>
+				<div class="auiPopupTitle">タスク追加</div>
 			</div>
 			<div class="roundBlockContent">
 				<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
 				<div id="messageDiv"></div>
-				<form name="formP-1424f148b96-10000" id="formP" action="" method="post" onsubmit="aipo.fileuploadadv.createSelectFromFileList(this, 'P-1424f148b96-10000');aimluck.io.submit(this,'indicator-dlg-','P-1424f148b96-10000',aipo.gpdb.onReceiveMessage);return false;">
-					<input type="hidden" name="_name" value="gpdbForm">
-					<input type="hidden" name="secid" value="">
-					<input type="hidden" name="mode" value="insert">
+				<form name="" id="formP" action="" method="post">
 					<table class="listTable wide">
 						<tbody>
 						<tr>
-							<td class="caption">対象データベース</td>
-							<td>データベース名</td>
+							<td class="caption"><span class="required">分類</span></td>
+							<td>
+								<select name="" id="">
+									<option value="">機能</option>
+									<option value="">バグ</option>
+									<option value="">サポート</option>
+								</select>
+							</td>
 						</tr>
 						<tr>
-							<td class="caption"><span class="required">タイトル<wbr></span>
+							<td class="caption"><span class="required">タスク名</span>
 							</td>
 							<td><input class="text w100" type="text" name="field_241" id="field_241" value="" maxlength="50" style="ime-mode:">
 							</td>
 						</tr>
 						<tr>
-							<td class="caption">テキスト
-								<wbr>
-								エリア
-							</td>
+							<td class="caption">説明</td>
 							<td>
 								<textarea class="text w100" name="field_261" rows="10" cols="40"></textarea>
 							</td>
 						</tr>
 						<tr>
-							<td class="caption">リンク</td>
-							<td><input class="text w100" type="text" name="field_281" id="field_281" value="" maxlength="50" style="ime-mode:">
-							</td>
-						</tr>
-						<tr>
-							<td class="caption"><span class="required">選択択一<wbr></span>
-							</td>
+							<td class="caption"><span class="required">ステータス<wbr></span>
 							<td>
-								<select name="field_301" class="w100">
-									<option value="">(指定しない)</option>
-									<option value="1">男性</option>
-									<option value="21">女性</option>
-									<option value="41">長いカテゴリ長いカテゴリ長いカテゴリ長いカテゴリ長いカテゴリ</option>
+								<select name="" id="">
+									<option value="">新規</option>
+									<option value="">進行中</option>
+									<option value="">フィードバック</option>
+									<option value="">完了</option>
+									<option value="">却下</option>
+									<option value="">停止</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td class="caption"><span class="required">選択複数<wbr></span>
+							<td class="caption"><span class="required">優先度</span>
 							</td>
 							<td>
-								<select name="field_321" multiple="" size="5" class="w100">
-									<option value="1">男性</option>
-									<option value="21">女性</option>
-									<option value="41">長いカテゴリ長いカテゴリ長いカテゴリ長いカテゴリ長いカテゴリ</option>
+								<select name="" id="">
+									<option value="">高</option>
+									<option value="">中</option>
+									<option value="">低</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption"><span class="required">担当者</span>
+							</td>
+							<td>
+								<table class="w100">
+									<tr>
+										<td class="w50">
+											<select name="" id="" class="w100">
+												<option value="">木村 一郎</option>
+												<option value="">山田 太朗</option>
+												<option value="">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガーアーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</option>
+											</select>
+										</td>
+										<td nowrap="nowrap">
+											作業時間
+											<input type="text" style="width:3em" />
+											時間
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select name="" id="" class="w100">
+												<option value="">木村 一郎</option>
+												<option value="">山田 太朗</option>
+												<option value="">アーノルド シュワルツェネッガー</option>
+											</select>
+										</td>
+										<td nowrap="nowrap">
+											作業時間
+											<input type="text" style="width:3em" />
+											時間
+											<a href="javascript:void(0)" title="削除" onclick="this.parentNode.parentNode.style.display='none'"><i class="icon-remove"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select name="" id="" class="w100">
+												<option value="">木村 一郎</option>
+												<option value="">山田 太朗</option>
+												<option value="">アーノルド シュワルツェネッガー</option>
+											</select>
+										</td>
+										<td nowrap="nowrap">
+											作業時間
+											<input type="text" style="width:3em" />
+											時間
+											<a href="javascript:void(0)" title="削除" onclick="this.parentNode.parentNode.style.display='none'"><i class="icon-remove"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<a href="#">担当者を追加</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">開始予定日</td>
+							<td>
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								2014年10月10日
+								&emsp;
+								<label><input type="checkbox"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">期日</td>
+							<td>
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								2014年10月10日
+								&emsp;
+								<label><input type="checkbox"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">実開始日</td>
+							<td>
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								---- 年 -- 月 -- 日
+								&emsp;
+								<label><input type="checkbox" checked="checked"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">完了日</td>
+							<td >
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								---- 年 -- 月 -- 日
+								&emsp;
+								<label><input type="checkbox" checked="checked"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">計画工数</td>
+							<td>
+								<input type="text" style="width:3em" />
+								時間
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">進捗率</td>
+							<td>
+								<select name="" id="">
+									<option value="">0%</option>
+									<option value="">10%</option>
+									<option value="">20%</option>
+									<option value="">30%</option>
+									<option value="">40%</option>
+									<option value="">50%</option>
+									<option value="">60%</option>
+									<option value="">70%</option>
+									<option value="">80%</option>
+									<option value="">90%</option>
+									<option value="">100%</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
 							<td class="caption">ファイル
-								<wbr>
-							</td>
+								<wbr></td>
 							<td>
 								<div class="clearfix">
 									<div>
 										<iframe name="field_341" id="field_341" allowtransparency="true" class="auiInputFileFrame" src="http://192.168.3.28:8080/aipo/portal/media-type/html/user/user1/page/default.psml/js_peid/P-1424f148b96-10000?template=FileuploadadvFormScreen&amp;mode=miniform&amp;msize=1&amp;keyid=341" frameborder="0" scrolling="no"></iframe>
 									</div>
-									<ul id="attachments_P-1424f148b96-10000_341" class="attachments">
+									<ul id="" class="attachments">
 									</ul>
-									<div id="messageDiv_P-1424f148b96-10000_341"></div>
-									<input type="hidden" id="folderName_P-1424f148b96-10000_341" name="folderName_341" value="">
+									<div id=""></div>
+									<input type="hidden" id="" name="folderName_341" value="">
 								</div>
 							</td>
 						</tr>
-						<tr>
-							<td class="caption">画像</td>
-							<td>
-								<div class="clearfix">
-									<div>
-										<iframe name="field_361" id="field_361" allowtransparency="true" class="auiInputFileFrame" src="http://192.168.3.28:8080/aipo/portal/media-type/html/user/user1/page/default.psml/js_peid/P-1424f148b96-10000?template=FileuploadadvFormScreen&amp;mode=miniform&amp;msize=1&amp;keyid=361" frameborder="0" scrolling="no"></iframe>
-									</div>
-									<ul id="attachments_P-1424f148b96-10000_361" class="attachments">
-									</ul>
-									<div id="messageDiv_P-1424f148b96-10000_361"></div>
-									<input type="hidden" id="folderName_P-1424f148b96-10000_361" name="folderName_361" value="">
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="caption">メール</td>
-							<td><input class="text w100" type="text" name="field_401" id="field_401" value="" maxlength="50" style="ime-mode:">
-							</td>
-						</tr>
-						<tr>
-							<td class="caption">日付</td>
-							<td class="auiSetDate">
-								<div class="mb5">
-									<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="field_421Span">
-										<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
-											<div class="dijitRight">
-    <span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-field_421Span_label" role="button" aria-haspopup="true" aria-labelledby="field_421Span_label" id="field_421Span" tabindex="0" aria-valuenow="" aria-disabled="false"><span class="" dojoattachpoint="containerNode,popupStateNode" id="field_421Span_label"><a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
-    </span></span></div>
-										</div>
-										<div class="alignleft"><span name="field_421_view" id="field_421_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly">---- 年 -- 月 -- 日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="display:"><input name="field_421_check" type="checkbox" value="TRUE" id="field_421_flag" dojoattachevent="onclick:onCheckBlank"><label for="field_421_flag"> 指定しない</label></span><input type="hidden" id="field_421" name="field_421" value="2013/11/25" dojoattachpoint="valueNode"><input type="hidden" id="field_421_year" name="field_421_year" value="" dojoattachpoint="valueYearNode"><input type="hidden" id="field_421_month" name="field_421_month" value="" dojoattachpoint="valueMonthNode"><input type="hidden" id="field_421_day" name="field_421_day" value="" dojoattachpoint="valueDayNode"></div>
-									</div>
-								</div>
-							</td>
-						</tr>
-						</tbody>
+
 					</table>
 					<div class="center auiPopupButtons">
 						<input name="eventSubmit_doGpdb_insert" class="auiButtonAction" type="submit" id="al_submit_P-1424f148b96-10000" value="追加する" onclick="">

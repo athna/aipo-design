@@ -51,6 +51,7 @@
           <div class="auiPopupTitle">プラン変更申し込み（初期画面）</div>
         </div>
         <div class="roundBlockContent">
+        <p>各プランの内容につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
           <div id="errorHidden">
             <div id="messageDiv"></div>
           </div>
@@ -66,21 +67,20 @@
             <input type="hidden" value="" id="userEmail" name="userEmail">
             <span style="display:none;" id="lastDialog"></span>
             <div id="inputAndConfirmForm">
-            <h3>変更したい情報を入力してください。</h3>
               <table class="listTable wide">
                 <tbody>
                   <tr>
                     <td class="caption"><span id="planFlagRequired">プラン</span></td>
                     <td><div id="planFlag">
-                        <label for="132planFlag0">
+                       <p> <label for="132planFlag0">
                           <input type="radio" onclick="aipo.saas_system.changePlanS()" checked="checked" id="132planFlag0" value="S" name="planFlag">
-                          Sプラン：<span class="ml5">1ユーザーあたり ￥0 /月</span></label><br>
-                        <label for="132planFlag1">
+                          Sプラン：<span class="ml5">1ユーザーあたり月額 ￥0</span></label></p>
+                        <p><label for="132planFlag1">
                           <input type="radio" onclick="aipo.saas_system.changePlanM()" id="132planFlag1" value="M" name="planFlag">
-                          Mプラン：<span class="ml5">1ユーザーあたり ￥210 /月</span></label><br>
-                        <label for="132planFlag2">
+                          Mプラン：<span class="ml5">1ユーザーあたり月額 ￥210</span></label></p>
+                        <p><label for="132planFlag2">
                           <input type="radio" onclick="aipo.saas_system.changePlanL()" id="132planFlag2" value="L" name="planFlag">
-                          Lプラン：<span class="ml5">1ユーザーあたり ￥840 /月</span></label>
+                          Lプラン：<span class="ml5">1ユーザーあたり月額 ￥840</span></label></p>
                       </div>
                       <span id="planFlagSpan"></span> </td>
                   </tr>
@@ -99,7 +99,7 @@
                   </tbody>
               </table>
             </div>
-            
+            <div class="mt20 mb20 center" id="confirmLink">「入力を確認する」を押すことで、<a href="http://www.aipo.com/website/terms.html" onclick="window.open('http://www.aipo.com/website/terms.html','popup','width=800,height=760,scrollbars=yes') ; return false ;">ご利用規約</a>に同意するものとします。 </div>
             <div class="center auiPopupButtons" id="lastSubmitButtonDiv"> <span id="submitButtonDiv">
               <input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="入力を確認する" class="auiButtonAction" name="eventSubmit_doWebmail_mailaccount_update" id="eventSubmit_doWebmail_mailaccount_update">
               <input type="button" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose" id="closeButton">
@@ -122,6 +122,7 @@
           <div class="auiPopupTitle">プラン変更申し込み（Mプランを選択した場合）</div>
         </div>
         <div class="roundBlockContent">
+        <p>各プランの内容につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
           <div id="errorHidden">
             <div id="messageDiv"></div>
           </div>
@@ -137,21 +138,20 @@
             <input type="hidden" value="" id="userEmail" name="userEmail">
             <span style="display:none;" id="lastDialog"></span>
             <div id="inputAndConfirmForm">
-            <h3>変更したい情報を入力してください。</h3>
               <table class="listTable wide">
                 <tbody>
                   <tr>
-                    <td class="caption"><span class="required" id="planFlagRequired">プラン</span></td>
+                    <td class="caption"><span id="planFlagRequired">プラン</span></td>
                     <td><div id="planFlag">
-                        <label for="131planFlag0">
+                        <p><label for="131planFlag0">
                           <input type="radio" onclick="aipo.saas_system.changePlanS()" id="131planFlag0" value="S" name="planFlag">
-                          Sプラン：<span class="ml5">1ユーザーあたり ￥0 /月</span></label><br>
-                        <label for="131planFlag1">
+                          Sプラン：<span class="ml5">1ユーザーあたり月額 ￥0</span></label></p>
+                        <p><label for="131planFlag1">
                           <input type="radio" onclick="aipo.saas_system.changePlanM()" checked="checked" id="131planFlag1" value="M" name="planFlag">
-                          Mプラン：<span class="ml5">1ユーザーあたり ￥210 /月</span></label><br>
-                        <label for="131planFlag2">
+                          Mプラン：<span class="ml5">1ユーザーあたり月額 ￥210</span></label></p>
+                        <p><label for="131planFlag2">
                           <input type="radio" onclick="aipo.saas_system.changePlanL()" id="131planFlag2" value="L" name="planFlag">
-                          Lプラン：<span class="ml5">1ユーザーあたり ￥840 /月</span></label>
+                          Lプラン：<span class="ml5">1ユーザーあたり月額 ￥840</span></label></p>
                       </div>
                       <span id="planFlagSpan"></span> </td>
                   </tr>
@@ -166,38 +166,23 @@
 <span style="display:none" id="SCapacitySpan">10MB</span>
 <span style="display:none" id="MCapacitySpan">1GB</span>
 <span style="display:none" id="LCapacitySpan">1GB</span>
-<span id="capacitySpan">1GB + <span class="fs11">追加容量</span></span>
+<span id="capacitySpan">1GB + </span>
 <span style="" id="addCapacityOuterSpan">
-<select onchange="" style="width:10%;" id="addCapacity" name="addCapacity">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
-<span id="addCapacitySpan"></span>GB<span class="ml5"><strong>￥0</strong> /月</span>
+<input type="text" style="width:4em;ime-mode:inactive;" id="addCapacity" name="addCapacity">
+<span id="addCapacitySpan"></span>GB（追加容量）月額 <strong>￥0</strong>
 </span>
     </td>
                   </tr>
                   <tr id="payPlanOuterTr">
                     <td class="caption"><span id="payFlagRequired">お支払い方法</span></td>
                     <td><div id="payFlag">
-                        <label for="132payFlag0">
-                          <input type="radio" id="132payFlag0" value="月額" name="payFlag" checked="checked" />
-                          <span class="ml5">月払い：<strong>￥420</strong> /月</span></label><br>
-
-                        <label for="132payFlag1">
-                          <input type="radio" id="132payFlag1" value="年額" name="payFlag" />
-                          <span class="ml5">年間一括払い：<strong>￥5,040</strong> /年</span></label>
+                        <p><label for="132payFlag0">
+                          <input type="radio" id="132payFlag0" value="月額" name="payFlag" checked="checked" /><span class="ml5">月額 <strong>￥420</strong></span></label></p>
+                        <p><label for="132payFlag1">
+                          <input type="radio" id="132payFlag1" value="年額" name="payFlag" /><span class="ml5">年額 <strong>￥5,040</strong></span></label></p>
                       </div>
                       <span id="payFlagSpan"></span> </td>
                   </tr>
-                  </tbody>
-              </table>
-              <h3 class="mt20">会社の情報を入力してください。</h3>
-              <table class="listTable wide">
-              <tbody>
               <tr>
                     <td class="caption"><span class="required" id="addressRequired">郵便番号</span></td>
                     <td><input onkeyup="AjaxZip3.zip2addr(this,'','pref_id','addr');" name="zip2" size="10" type="text"  style="width:10em;ime-mode:inactive;" />

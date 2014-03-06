@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if lt IE 10]><meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" /><![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta name="robots" content="noindex,follow" />
+<link type="image/x-icon" rel="shortcut icon" href="../../themes/default/images/favicon.ico?20130719" />
+<link type="image/x-icon" rel="icon" href="../../themes/default/images/favicon.ico?20130719" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/extend.css" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/common.css" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/aui.css" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+</head>
+<body onload="aipo.container.renderGadgets()">
+<script src="../../Aipo_files/ga.js" async="" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript" src="../../Aipo_files/dojo.js"></script>
+<script language="JavaScript" type="text/javascript" src="../../Aipo_files/aipo.js"></script>
+<script type="text/javascript" src="../../Aipo_files/platform.js"></script>
+<script type="text/javascript" src="../../Aipo_files/container.js"></script>
+<script type="text/javascript" src="../../Aipo_files/saas.js"></script>
+<script type="text/javascript" src="../../Aipo_files/saas_002.js"></script>
+<script type="text/javascript" src="../../Aipo_files/form_002.js"></script>
+<script type="text/javascript" src="../../Aipo_files/saas_003.js"></script>
+</head>
+<body>
+<!-- WRAPPER -->
+<!-- /WRAPPER -->
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+<SPAN tabIndex=0 dojoattachpoint="tabStartOuter" dojoonblur="clearTrap" dojoonfocus="trapTabs"></SPAN><SPAN tabIndex=0 dojoattachpoint="tabStart" dojoonblur="clearTrap" dojoonfocus="trapTabs"></SPAN>
+<DIV style="Z-INDEX: 2; POSITION: relative" dojoattachpoint="containerNode">
+  <div dojoattachpoint="wrapper" class="modalDialog dijitContentPane mb_dialog" id="modalDialog" widgetid="modalDialog" title="" style="display: block; opacity: 1;"><span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabStartOuter"></span><span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabStart"></span>
+    <div style="position: relative; z-index: 2;" dojoattachpoint="containerNode">
+    	<a id="new"></a><br>
+      <br>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">契約更新のご案内</div>
+        </div>
+        <div class="roundBlockContent">
+          <p class="mb10">ご請求金額およびお振込先をご確認いただきまして、お支払い期日までにご入金をお願いいたします。</p>
+          <h3>ご請求内容</h3>
+          <table class="listTable wide mb20">
+            <tbody>
+              <tr>
+                <td class="caption">ご請求先</td>
+                <td>株式会社テスト</td>
+              </tr>
+              <tr>
+                <td class="caption">ご契約期間</td>
+                <td>2014年3月5日～2014年4月3日</td>
+              </tr>
+              <tr>
+                <td class="caption">プラン</td>
+                <td>M</td>
+              </tr>
+              <tr>
+                <td class="caption">ユーザー数</td>
+                <td>34ユーザー</td>
+              </tr>
+              <tr>
+                <td class="caption">お支払い</td>
+                <td>月額</td>
+              </tr>
+              <tr>
+                <td class="caption">お支払い期日</td>
+                <td>2014年3月24日</td>
+              </tr>
+              <tr>
+                <td class="caption">ご請求金額（税込）</td>
+                <td>7,140円 = 月額210円 x 34ユーザー</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>お振込先</h3>
+          <table class="listTable wide">
+            <tbody>
+              <tr>
+                <td class="caption">銀行名</td>
+                <td>三井住友銀行（0009）</td>
+              </tr>
+              <tr>
+                <td class="caption">支店名</td>
+                <td>築地支店（625）</td>
+              </tr>
+              <tr>
+                <td class="caption">口座</td>
+                <td>普通口座 7263081</td>
+              </tr>
+              <tr>
+                <td class="caption">口座名</td>
+                <td>カブシキガイシャエイムラック</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="center auiPopupButtons">
+            <input type="submit" name="eventSubmit_doInvite_user" class="auiButtonAction" value="メールで送信する" onclick="aimluck.io.setHiddenValue(this);">
+            <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <a id="new_list"></a><br>
+      <br>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">ご請求内訳</div>
+        </div>
+        <div class="roundBlockContent">
+          <h3>ご請求内容</h3>
+          <table class="listTable wide mb20">
+            <tbody>
+              <tr>
+                <td class="caption">ご請求先</td>
+                <td>株式会社テスト</td>
+              </tr>
+              <tr>
+                <td class="caption">ご契約期間</td>
+                <td>2014年3月5日～2014年4月3日</td>
+              </tr>
+              <tr>
+                <td class="caption">プラン</td>
+                <td>M</td>
+              </tr>
+              <tr>
+                <td class="caption">ユーザー数</td>
+                <td>34ユーザー</td>
+              </tr>
+              <tr>
+                <td class="caption">お支払い</td>
+                <td>月額</td>
+              </tr>
+              <tr>
+                <td class="caption">お支払い期日</td>
+                <td>2014年3月24日</td>
+              </tr>
+              <tr>
+                <td class="caption">ご請求金額（税込）</td>
+                <td>7,140円 = 月額210円 x 34ユーザー</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>お振込先</h3>
+          <table class="listTable wide">
+            <tbody>
+              <tr>
+                <td class="caption">銀行名</td>
+                <td>三井住友銀行（0009）</td>
+              </tr>
+              <tr>
+                <td class="caption">支店名</td>
+                <td>築地支店（625）</td>
+              </tr>
+              <tr>
+                <td class="caption">口座</td>
+                <td>普通口座 7263081</td>
+              </tr>
+              <tr>
+                <td class="caption">口座名</td>
+                <td>カブシキガイシャエイムラック</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="center auiPopupButtons">
+            <input type="submit" name="eventSubmit_doInvite_user" class="auiButtonAction" value="メールで送信する" onclick="aimluck.io.setHiddenValue(this);">
+            <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <a id="over"></a><br>
+      <br>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">契約停止のご案内</div>
+        </div>
+        <div class="roundBlockContent">
+          <p class="mb10">再請求お支払い期日までにご入金が完了されていない場合はアカウント停止となり、ログインができなくなります。</p>
+          <h3>ご請求内容（再請求）</h3>
+          <table class="listTable wide mb20">
+            <tbody>
+              <tr>
+                <td class="caption">ご請求先</td>
+                <td>株式会社テスト</td>
+              </tr>
+              <tr>
+                <td class="caption">ご契約期間</td>
+                <td>2014年3月5日～2014年4月3日</td>
+              </tr>
+              <tr>
+                <td class="caption">プラン</td>
+                <td>M</td>
+              </tr>
+              <tr>
+                <td class="caption">ユーザー数</td>
+                <td>34ユーザー</td>
+              </tr>
+              <tr>
+                <td class="caption">お支払い</td>
+                <td>月額</td>
+              </tr>
+              <tr>
+                <td class="caption">本来のお支払い期日</td>
+                <td>2014年3月24日</td>
+              </tr>
+              <tr>
+                <td class="caption">再請求お支払い期日</td>
+                <td>2014年4月3日</td>
+              </tr>
+              <tr>
+                <td class="caption">ご請求金額（税込）</td>
+                <td>7,140円 = 月額210円 x 34ユーザー</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>お振込先</h3>
+          <table class="listTable wide">
+            <tbody>
+              <tr>
+                <td class="caption">銀行名</td>
+                <td>三井住友銀行（0009）</td>
+              </tr>
+              <tr>
+                <td class="caption">支店名</td>
+                <td>築地支店（625）</td>
+              </tr>
+              <tr>
+                <td class="caption">口座</td>
+                <td>普通口座 7263081</td>
+              </tr>
+              <tr>
+                <td class="caption">口座名</td>
+                <td>カブシキガイシャエイムラック</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="center auiPopupButtons">
+            <input type="submit" name="eventSubmit_doInvite_user" class="auiButtonAction" value="メールで送信する" onclick="aimluck.io.setHiddenValue(this);">
+            <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <a id="old"></a><br>
+      <br>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">ご請求内訳</div>
+        </div>
+        <div class="roundBlockContent">
+          <table class="listTable wide">
+            <tbody>
+              <tr>
+                <td class="caption">ご請求先</td>
+                <td>株式会社テスト</td>
+              </tr>
+              <tr>
+                <td class="caption">ご契約期間</td>
+                <td>2014年3月5日～2014年4月3日</td>
+              </tr>
+              <tr>
+                <td class="caption">プラン</td>
+                <td>M</td>
+              </tr>
+              <tr>
+                <td class="caption">ユーザー数</td>
+                <td>34ユーザー</td>
+              </tr>
+              <tr>
+                <td class="caption">お支払い</td>
+                <td>月額</td>
+              </tr>
+              <tr>
+                <td class="caption">ご請求金額（税込）</td>
+                <td>7,140円 = 月額210円 x 34ユーザー</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="center auiPopupButtons">
+            <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabEnd"></span><span tabindex="0" dojoonblur="clearTrap" dojoonfocus="trapTabs" dojoattachpoint="tabEndOuter"></span></div>
+  <div id="messageDiv"></div>
+</DIV>
+<SPAN tabIndex=0 dojoattachpoint="tabEnd" dojoonblur="clearTrap" dojoonfocus="trapTabs"></SPAN><SPAN tabIndex=0 dojoattachpoint="tabEndOuter" dojoonblur="clearTrap" dojoonfocus="trapTabs"></SPAN>
+<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/common.js"></script>
+</body>
+</html>

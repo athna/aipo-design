@@ -180,9 +180,12 @@
 					<div id="auiContentsArea">
 						<div id="auiContentsAreaInner">
 
-							<div class="auiSummaryMeta clearfix">
-								<form class="auiSearch floatLeft" style="margin-right:1em;">
-									<input class="text floatLeft long" type="text" name="q" id="q" style="margin-right:5px;" value="">
+							<div class="auiSummaryMeta auiFilter clearfix">
+								<form class="auiSearch">
+									<div class="filterInputField">
+										<div class="filters"><span class="filterTip"><span>営業部</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span></div>
+										<a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}" title="フィルタ" class="filterDropDrawer"><span><i class="auiIcon auiIconArwBottom"></i></span></a>
+										<input class="text" type="text" name="q" id="q" style="padding-left:70px;width:410px;"></div>
 									<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
 								</form>
 							</div>
@@ -212,8 +215,8 @@
 										<div>木村 一郎</div>
 									</td>
 									<td class="center" nowrap>在席</td>
-									<td class="center" nowrap>-</td>
-									<td class="center" nowrap>-</td>
+									<td class="center" nowrap></td>
+									<td class="center" nowrap></td>
 									<td><div>（離席から在席に戻るとコメントがクリアされる想定）</div></td>
 								</tr>
 								<tr>
@@ -221,8 +224,8 @@
 										<div>アーノルド シュワルツェネッガー</div>
 									</td>
 									<td class="center" nowrap>在席</td>
-									<td class="center" nowrap>-</td>
-									<td class="center" nowrap>-</td>
+									<td class="center" nowrap></td>
+									<td class="center" nowrap></td>
 									<td><div></div></td>
 								</tr>
 								<tr>
@@ -230,8 +233,8 @@
 										<div>木村 一郎</div>
 									</td>
 									<td class="center" nowrap>在席</td>
-									<td class="center" nowrap>-</td>
-									<td class="center" nowrap>-</td>
+									<td class="center" nowrap></td>
+									<td class="center" nowrap></td>
 									<td><div></div></td>
 								</tr>
 								<tr>
@@ -268,7 +271,25 @@
 									<td class="center" nowrap>離席</td>
 									<td class="center" nowrap>2014年2月1日 10:05</td>
 									<td class="center" nowrap>2014年2月1日 11:00</td>
-									<td><div>在席を押し忘れて日数経過しているケース</div></td>
+									<td><div>（離席したまま日数経過しているケース）</div></td>
+								</tr>
+								<tr>
+									<td class="auiMTCaption">
+										<div>木村 一郎</div>
+									</td>
+									<td class="center" nowrap>離席</td>
+									<td class="center" nowrap>2014年2月1日 10:05</td>
+									<td class="center" nowrap>2014年2月1日 11:00</td>
+									<td><div>（離席したまま放置の表示は好ましくないため、タイムカードで出勤時も在席扱いにする？）</div></td>
+								</tr>
+								<tr>
+									<td class="auiMTCaption">
+										<div>木村 一郎</div>
+									</td>
+									<td class="center" nowrap>離席</td>
+									<td class="center" nowrap>2014年2月1日 10:05</td>
+									<td class="center" nowrap>2014年2月1日 11:00</td>
+									<td><div>（在席・離席の表示のため、出勤状態でない者は表示しない前提だと日数経過表示は発生しない？）</div></td>
 								</tr>
 							</table>
 
@@ -299,23 +320,6 @@
 					<div id="auiWidgetsArea">
 						<div class="auiWidget clearfix">
 							<a title="在席状態を変更する" href="javascript:void(0)" class="auiButtonAction" onclick="popupToggle(this,'modalDialog_PresenceChange1');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">在席状態を変更する</a>
-						</div>
-
-						<div class="auiWidget clearfix">
-							<a title="在席状態を変更する" href="javascript:void(0)" class="auiButtonAction" onclick="popupToggle(this,'modalDialog_PresenceChange2');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">在席状態を変更する</a>
-							<br>※離席の時に押したパターン
-						</div>
-
-						<div id="subNavigation">
-							<div class="auiWidget clearfix">
-								<ul>
-									<li class="active"><a href="fullwindow.html" onclick="">すべてのグループ</a></li>
-									<li><a href="fullwindow.html" onclick="">グループ名グループ名</a></li>
-									<li><a href="fullwindow.html" onclick="">グループ名グループ名</a></li>
-									<li><a href="fullwindow.html" onclick="">グループ名グループ名</a></li>
-									<li><a href="fullwindow.html" onclick="">グループ名グループ名</a></li>
-								</ul>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -610,6 +614,28 @@
 	<span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
 <!-- /appPosition -->
 
+<!-- menubar_auiFilter_1 -->
+<div class="menubar multi" id="menubar_auiFilter_1" style="top:163px; left:221px;display:none;">
+	<div>
+		<p class="caption">グループ</p>
+		<ul>
+			<li><a href="#">すべてのグループ</a></li>
+			<li><a href="#" class="selected">営業部</a></li>
+			<li><a href="#">開発部</a></li>
+			<li><a href="#">企画部</a></li>
+		</ul>
+	</div>
+	<div>
+		<p class="caption">状態</p>
+		<ul>
+			<li><a href="#" class="selected">すべての状態</a></li>
+			<li><a href="#">在席</a></li>
+			<li><a href="#">離席</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /menubar_auiFilter_1 -->
+
 
 <!-- #modalDialog_PresenceChange1 -->
 <div id="modalDialog_PresenceChange1" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; left: 50%; top: 150px; margin-left:-350px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
@@ -664,65 +690,17 @@
 								:
 								<select name="" id="">
 									<option value="" selected>00</option>
-									<option value="">01</option>
-									<option value="">02</option>
-									<option value="">03</option>
-									<option value="">04</option>
 									<option value="">05</option>
-									<option value="">06</option>
-									<option value="">07</option>
-									<option value="">08</option>
-									<option value="">09</option>
 									<option value="">10</option>
-									<option value="">11</option>
-									<option value="">12</option>
-									<option value="">13</option>
-									<option value="">14</option>
 									<option value="">15</option>
-									<option value="">16</option>
-									<option value="">17</option>
-									<option value="">18</option>
-									<option value="">19</option>
 									<option value="">20</option>
-									<option value="">21</option>
-									<option value="">22</option>
-									<option value="">23</option>
-									<option value="">24</option>
 									<option value="">25</option>
-									<option value="">26</option>
-									<option value="">27</option>
-									<option value="">28</option>
-									<option value="">29</option>
 									<option value="">30</option>
-									<option value="">31</option>
-									<option value="">32</option>
-									<option value="">33</option>
-									<option value="">34</option>
 									<option value="">35</option>
-									<option value="">36</option>
-									<option value="">37</option>
-									<option value="">38</option>
-									<option value="">39</option>
 									<option value="">40</option>
-									<option value="">41</option>
-									<option value="">42</option>
-									<option value="">43</option>
-									<option value="">44</option>
 									<option value="">45</option>
-									<option value="">46</option>
-									<option value="">47</option>
-									<option value="">48</option>
-									<option value="">49</option>
 									<option value="">50</option>
-									<option value="">51</option>
-									<option value="">52</option>
-									<option value="">53</option>
-									<option value="">54</option>
 									<option value="">55</option>
-									<option value="">56</option>
-									<option value="">57</option>
-									<option value="">58</option>
-									<option value="">59</option>
 								</select>
 							</td>
 						</tr>

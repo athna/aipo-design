@@ -33,7 +33,7 @@ b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script><!-- end Mixpanel -->
 
 </head>
-<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<body data-spy="scroll" data-target=".bs-docs-sidebar" onLoad="document.invite.email01.focus()">
 <div id="wrapper">
   <!-- contents  ================================================== -->
   <div id="contents" class="simplified-box">
@@ -50,7 +50,7 @@ mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script><!-- end Mix
                 <li class="active"> <span class="stepCircle">3</span> <span class="title">メンバー招待</span> </li>
               </ul>
             </div>
-            <form class="bs-docs-example form-horizontal" action="">
+            <form class="bs-docs-example form-horizontal" action="" name="invite">
               <div class="inner">
               
 <h4 class="mt0">一緒に利用する同僚を招待しましょう。</h4>
@@ -58,19 +58,19 @@ mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script><!-- end Mix
                   <tbody>
                     <tr>
                       <th rowspan="5" class="w30 middle">メンバーの<span class="inline-block">メール</span><span class="inline-block">アドレス</span></th>
-                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="id6"/></td>
+                      <td><input type="text" name="email01" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="validMailaddress01"/></td>
                     </tr>
                     <tr>
-                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="id6"/></td>
+                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="validMailaddress02"/></td>
                     </tr>
                     <tr>
-                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="id6"/></td>
+                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="validMailaddress03"/></td>
                     </tr>
                     <tr>
-                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="id6"/></td>
+                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="validMailaddress04"/></td>
                     </tr>
                     <tr>
-                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="id6"/></td>
+                      <td><input type="text" name="email" placeholder="メールアドレス" class="w100 domain-autocomplete" value="" style="ime-mode:disabled" id="validMailaddress05"/></td>
                     </tr>
                   </tbody>
                 </table>
@@ -99,6 +99,15 @@ mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script><!-- end Mix
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://59.106.173.26/aipo-html/htmlmock/signup/files/jquery.validate.js"></script>
+    <script type="text/javascript">
+		jQuery(function(){
+			jQuery("#validMailaddress01,#validMailaddress02,#validMailaddress03,#validMailaddress04,#validMailaddress05").validate({
+					expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
+					message: '<span class="alert alert-error fs11 mt5 pa5" style="display:block;">メールアドレスを正しくしてください。</span>'
+			});
+		});
+</script>
     <script>
 $(function() {
     var availableTags = [

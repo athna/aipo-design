@@ -33,7 +33,7 @@ b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script>
 <!-- end Mixpanel -->
 </head>
-<body data-spy="scroll" data-target=".bs-docs-sidebar" onLoad="document.profile_team.password.focus()">
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 <div id="wrapper">
   <!-- contents  ================================================== -->
   <div id="contents" class="simplified-box">
@@ -62,12 +62,18 @@ mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script>
                     </tr>
                     <tr>
                       <th class="w30 middle">パスワード</th>
-                      <td colspan="2"><input id="validPassword" type="password" placeholder="パスワード" class="w100" name="password" /></td>
+                      <td colspan="2"><div class="control-group error mb0">
+                          <input type="password" name="password" class="w100 ErrorField" placeholder="パスワード" id="validPassword" />
+                          <span class="ValidationErrors"><span style="display:block;" class="alert alert-error fs11 mt5 pa5">パスワードを入力してください。</span></span></div></td>
                     </tr>
                     <tr>
                       <th class="middle w30">お名前</th>
-                      <td class="w35 pr5"><input type="text" value="" name="lastname" class="w100" placeholder="姓：" id="validName1"/></td>
-                      <td class="w35 pl5"><input type="text" value="" name="firstname" class="w100" placeholder="名：" id="validName2"/></td>
+                      <td class="w35 pr5"><div class="control-group error mb0">
+                          <input type="text" id="validName1" placeholder="姓：" class="w100 ErrorField" name="lastname" value="" />
+                          <span class="ValidationErrors"><span style="display:block;" class="alert alert-error fs11 mt5 pa5">名字を入力してください。</span></span></div></td>
+                      <td class="w35 pl5"><div class="control-group error mb0">
+                          <input type="text" id="validName2" placeholder="名：" class="w100 ErrorField" name="firstname" value="" />
+                          <span class="ValidationErrors"><span style="display:block;" class="alert alert-error fs11 mt5 pa5">お名前を入力してください。</span></span></div></td>
                     </tr>
                     </tr>
                     
@@ -78,7 +84,9 @@ mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script>
                   <tbody>
                     <tr>
                       <th class="w30 middle">法人名</th>
-                      <td><input type="text" name="company" placeholder="法人名" class="w100" value="" id="validCompany"/></td>
+                      <td><div class="control-group error mb0">
+                          <input type="text" id="validCompany" value="" class="w100 ErrorField" placeholder="法人名" name="company" />
+                          <span class="ValidationErrors"><span style="display:block;" class="alert alert-error fs11 mt5 pa5">法人名を入力してください。</span></span></div></td>
                     </tr>
                   </tbody>
                 </table>

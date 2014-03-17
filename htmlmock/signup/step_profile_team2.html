@@ -59,24 +59,24 @@ mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script><!-- end Mix
 <tbody>
 <tr>
 									<th class="middle">メール<span class="inline-block">アドレス</span></th>
-									<td style="word-break: break-all;">kimura@sample.com</td></tr>
+									<td colspan="2" style="word-break: break-all;">kimura@sample.com</td>
+									</tr>
                   <tr>
 									<th class="w30 middle">パスワード</th>
-									<td><input type="password" placeholder="パスワード" class="w100" name="password" /></td>
-								</tr>
+									<td colspan="2"><input id="validPassword" type="password" placeholder="パスワード" class="w100" name="password" /></td>
+								  </tr>
                   <tr>
-<th class="middle">お名前</th>
-<td><input type="text" value="" name="lastname" class="name" placeholder="姓：" id="id4"/>
-<input type="text" value="" name="firstname" class="name" placeholder="名：" id="id5"/></td>
-</tr>
+<th class="middle w30">お名前</th>
+<td class="w35 pr5"><input type="text" value="" name="lastname" class="w100" placeholder="姓：" id="validName1"/></td>
+<td class="w35 pl5"><input type="text" value="" name="firstname" class="w100" placeholder="名：" id="validName2"/></td>
+                  </tr>
 								</tr>
-
-<tr></tr></tbody></table>
+</tbody></table>
 <h4>利用する会社の情報を入力してください。</h4>
 <table class="table">
 <tbody><tr>
 <th class="w30 middle">法人名</th>
-<td><input type="text" name="company" placeholder="法人名" class="w100" value="" id="id3"/></td>
+<td><input type="text" name="company" placeholder="法人名" class="w100" value="" id="validCompany"/></td>
 </tr>
 </tbody>
 </table>
@@ -110,6 +110,27 @@ mixpanel.init(mixpanelToken);mixpanel.track("View SignUp");</script><!-- end Mix
   <div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://59.106.173.26/aipo-html/htmlmock/signup/files/jquery.validate.js"></script>
+<script type="text/javascript">
+		jQuery(function(){
+			jQuery("#validPassword").validate({
+					expression: "if (VAL) return true; else return false;",
+					message: '<span class="alert alert-error fs11 mt5 pa5" style="display:block;">パスワードを入力してください。</span>'
+			});
+			jQuery("#validName1").validate({
+					expression: "if (VAL) return true; else return false;",
+					message: '<span class="alert alert-error fs11 mt5 pa5" style="display:block;">名字を入力してください。</span>'
+			});
+			jQuery("#validName2").validate({
+					expression: "if (VAL) return true; else return false;",
+					message: '<span class="alert alert-error fs11 mt5 pa5" style="display:block;">お名前を入力してください。</span>'
+			});
+			jQuery("#validCompany").validate({
+					expression: "if (VAL) return true; else return false;",
+					message: '<span class="alert alert-error fs11 mt5 pa5" style="display:block;">法人名を入力してください。</span>'
+			});
+		});
+</script>
   </div>
 </div>
 </body>

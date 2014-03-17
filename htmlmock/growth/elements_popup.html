@@ -345,8 +345,6 @@ function disp(){
             <span id="lastDialog" style="display:none;"></span>
             <div id="inputAndConfirmForm">
               <p class="mb20">プラン変更のご希望やご質問など、お気軽にご相談ください。<a href="https://app.testtotest.com/form/inquiry/" target="_blank">お問い合わせフォーム</a></p>
-              
-              
             </div>
             <div align="center" style="padding:0px 0px 0px 0px;" id="lastSubmitButtonDiv">
               <input id="closeButton" name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();">
@@ -1213,7 +1211,7 @@ function disp(){
         <div class="roundBlockContent">
           <table class="listTable wide">
             <tbody>
-            <tr>
+              <tr>
                 <td class="caption">アプリ名</td>
                 <td><a href="http://store.aipo.com/app/552" target="_blank">ストレージ</a></td>
               </tr>
@@ -1362,47 +1360,105 @@ function disp(){
           <p class="mb10">機能の改善と品質向上のため、アンケートを実施しております。大変お手数ではございますが、下記アンケートにご協力のほどよろしくお願いいたします。</p>
           <h3>今後も「Webデータベース」をご利用したいと思いますか？</h3>
           <table class="wide mb15">
-          <tbody><tr><td>
-            <label for="z01" class="mr20">
-              <input type="radio" name="zzz" value="" id="z01" />
-              利用したい </label>
-            <label for="z02" class="mr20">
-              <input type="radio" name="zzz" value="" id="z02" />
-              利用したくない</label>
-            <label for="z03">
-              <input type="radio" name="zzz" value="" id="z03" />
-              分からない</label>
-          </td></tr></tbody></table>
+            <tbody>
+              <tr>
+                <td><label for="z01" class="mr20">
+                    <input type="radio" name="zzz" value="" id="z01" />
+                    利用したい </label>
+                  <label for="z02" class="mr20">
+                    <input type="radio" name="zzz" value="" id="z02" />
+                    利用したくない</label>
+                  <label for="z03">
+                    <input type="radio" name="zzz" value="" id="z03" />
+                    分からない</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <h3>【利用したくない / 分からない】を選択された方は、その理由についてお聞かせください。</h3>
           <table class="wide mb5">
-          <tbody><tr><td>
-            <label for="a01" class="mr20">
-              <input type="checkbox" id="a01" value="1" name="" />
-              使い勝手が悪いから</label>
-            <label for="a02" class="mr20">
-              <input type="checkbox" id="a02" value="1" name="" />
-              使い方が分からないから</label>
-            <label for="a03" class="mr20">
-              <input type="checkbox" id="a03" value="1" name="" />
-              使う必要性がないから</label>
-          </td></tr></tbody></table>
-          <table class="wide mb15"><tbody>
-          <tr><td style="width:6em;">
-            <label for="a04" class="">
-              <input type="checkbox" id="a04" value="1" name="" />
-              その他</label></td>
-            <td><input type="text" name="" class="wide" /></td>
-            </tr></tbody>
+            <tbody>
+              <tr>
+                <td><label for="a01" class="mr20">
+                    <input type="checkbox" id="a01" value="1" name="" />
+                    使い勝手が悪いから</label>
+                  <label for="a02" class="mr20">
+                    <input type="checkbox" id="a02" value="1" name="" />
+                    使い方が分からないから</label>
+                  <label for="a03" class="mr20">
+                    <input type="checkbox" id="a03" value="1" name="" />
+                    使う必要性がないから</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="wide mb15">
+            <tbody>
+              <tr>
+                <td style="width:6em;"><label for="a04" class="">
+                    <input type="checkbox" id="a04" value="1" name="" />
+                    その他</label></td>
+                <td><input type="text" name="" class="wide" /></td>
+              </tr>
+            </tbody>
           </table>
           <h3>その他「Webデータベース」の改善点や今後へのご要望、ご意見などございましたらぜひお聞かせください。</h3>
-          <table class="wide mb20"><tbody><tr><td>
-            
-              <textarea onblur="aipo.saas_withdrawal.showGuidance();" onclick="aipo.saas_withdrawal.deleteGuidance();" rows="3" name="contents" cols="45" id="contentsForm" style="resize:none;width:100%;"></textarea>
-            
-          </td></tr></tbody></table>
+          <table class="wide mb20">
+            <tbody>
+              <tr>
+                <td><textarea onblur="aipo.saas_withdrawal.showGuidance();" onclick="aipo.saas_withdrawal.deleteGuidance();" rows="3" name="contents" cols="45" id="contentsForm" style="resize:none;width:100%;"></textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <div class="center auiPopupButtons">
             <input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="回答する" class="auiButtonAction" name="eventSubmit_doInvite_user">
             <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+          </div>
+        </div>
+      </div>
+      <!-- /Aipoアプリ汎用ポップアップ -->
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
+			
+			Aipo.comからのお知らせ単体表示
+			
+			################################################################################ -->
+      <a id="aipocominfo"></a>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a onclick="aipo.common.hideDialog();" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a> </div>
+          </div>
+          <div class="auiPopupTitle">Aipo.comからのお知らせ</div>
+        </div>
+        <div class="roundBlockContent">
+            <table class="listTable wide">
+              <caption>
+              アプリお試し機能リリースのお知らせ
+              </caption>
+              <tbody>
+                <tr>
+                  <td><div class="clearfix"> 2014年3月11日(火) </div></td>
+                </tr>
+                <tr>
+                  <td style="border-bottom:none;"><div class="clearfix">
+                      <div>
+                        <p>これまでM/Lプラン限定でご提供していたアプリを、本日より全プランでお試し利用していただけるようになりました。<br>
+                          お申し込みいただいた日から、無料で30日間ご利用いただけます。</p>
+                        <p>Lプラン限定アプリの「Webデータベース」では項目を自由に設定して、入力の簡単なオリジナルの表を作成することができます。この機会にぜひお試しください。</p>
+                        <p>■ご利用方法<br>
+                          管理者アカウントでログインの上、「サポート」＞「管理ガイド」＞「無料お試し利用を申し込む」よりご利用ください。</p>
+                      </div>
+                    </div></td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="mt20">最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。<br> <iframe scrolling="no" frameborder="0" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Faipocom.jp&width=380&layout=standard&action=like&show_faces=false&share=false&height=35&appId=207529679428894" style="border:none; overflow:hidden; width:100%; height:30px; margin-top:10px;" allowtransparency="true"></iframe></div>
+            
+          <div class="center auiPopupButtons">
+            <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
           </div>
         </div>
       </div>

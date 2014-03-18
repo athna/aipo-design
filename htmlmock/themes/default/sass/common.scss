@@ -479,6 +479,15 @@ table.outer td.f08 {
                 	border-top:none;
                 }
             }
+			td {
+				div {
+					display: block;
+					width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
         }
       > div {
         width:100%;
@@ -595,19 +604,22 @@ table.tableWrapper {
 	border:none;
 	width:100%;
 	word-break: break-all;
-}
-table.tableWrapper td.tableLeft {
-	padding-right:15px;
-	vertical-align:top;
-	width:200px;
-}
-table.tableWrapper td.tableLeft div.scroll {
-	width:200px;
-	overflow:auto;
-	overflow-y:hidden;
-}
-table.tableWrapper td.tableCenter {
-	vertical-align:top;
+
+	td {
+		&.tableLeft {
+			padding-right:15px;
+			vertical-align:top;
+			width:200px;
+			div.scroll {
+				width:200px;
+				overflow:auto;
+				overflow-y:hidden;
+			}
+		}
+		&.tableCenter {
+			vertical-align:top;
+		}
+	}
 }
 
 .popup {
@@ -2180,7 +2192,7 @@ margin:0 3px 0 0;
 	width
 --------------------------------------------------*/
 .thin {width:2%;}
-.wide, .w100 {width:100%; max-width:100%;}
+.wide, .w100 {width:100% !important; max-width:100% !important;}
 
 .w99 {width:99%  !important;}
 .w95 {width:95% !important;}
@@ -2328,6 +2340,15 @@ margin:0 3px 0 0;
 	padding-left: 4px;
 	color: $gray;
 	cursor: text;
+}
+
+/***************************************************
+	ellipsis
+--------------------------------------------------*/
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 /***************************************************

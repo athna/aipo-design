@@ -1,0 +1,2357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Aipo.com</title>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+<meta name="robots" content="noindex,follow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link type="image/x-icon" rel="shortcut icon" href="../../themes/default/images/favicon.ico?20130719"/>
+<link type="image/x-icon" rel="icon" href="../../themes/default/images/favicon.ico?20130719"/>
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/extend.css"/>
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/aui.css"/>
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/mobile.css"/>
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/print.css" media="print"/>
+<link rel="stylesheet" type="text/css" href="../../themes/default/css/font-awesome.min.css" />
+<!--link rel="stylesheet" type="text/css" href="../../themes/default/css/android.css" /-->
+<script language="JavaScript" type="text/javascript" src="../../javascript/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+</head>
+<body>
+<script type="text/javascript">
+	var ua = navigator.userAgent;
+	if(ua.indexOf('Android') > 0) {
+		document.write('<link rel="stylesheet" type="text/css" href="../themes/default/css/android.css" />');
+		if(ua.indexOf('Android 2') > 0) {
+			document.write('<link rel="stylesheet" type="text/css" href="../themes/default/css/android-2.x.css" />');
+		}
+	}
+    djConifg = {
+        xDomainBasePath: 'https://app.aipo.com/javascript'
+    };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+
+<!-- WRAPPER -->
+<div id="wrapper">
+
+<!-- HEADER -->
+<div id="header" class="clearfix"><div class="inner">
+
+	<div class="hdSign">
+		<div class="hdLogo"><img src="../../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
+	</div>
+
+	<script>
+	function popupToggle($this,$target) {
+		if(document.getElementById($target).style.display=='none'){
+			document.getElementById($target).style.display='block'
+		}else{
+			document.getElementById($target).style.display='none'
+		}
+		if($this.className.indexOf('active')>0){
+			$this.className = $this.className.replace(' active','');
+		}else{
+			$this.className += ' active'
+		};
+	}
+	</script>
+
+	<div class="hdNavi">
+
+		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+
+
+		<div class="hdActivity" title="お知らせ">
+			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="activitycheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="activitycheckerContainer_label"
+					id="activitycheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+						<span class="mb_hide">お知らせ</span>
+						<span class="pc_hide"><i class="icon-comment"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hdInformation" title="サポート">
+			<div
+				class="dijit dijitLeft dijitInline dijitDropDownButton"
+				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+				widgetid="supportcheckerContainer"
+				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+				<div type="button"
+					dojoattachpoint="focusNode,titleNode"
+					wairole="button"
+					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+					role="button"
+					aria-haspopup="true"
+					aria-labelledby="supportcheckerContainer_label"
+					id="supportcheckerContainer"
+					tabindex="0"
+					aria-valuenow=""
+					aria-disabled="false">
+					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+						<div id="supportchecker" class="counter zero">0</div>
+						<span class="mb_hide">サポート</span>
+						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hdUserName">
+			<a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')">
+				<img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a>		</div>
+	</div>
+
+	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+		<ul>
+		<li><a href="#">個人設定</a></li>
+		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+		</ul>
+	</div>
+
+</div></div>
+
+<!-- /HEADER -->
+
+
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+    	<li class="first">
+        	<div class="tab active">
+                <div class="title"><a href="#">マイページ</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+            </div>
+        </li>
+    	<li class="last">
+        	<div class="tab activeNext">
+                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+            </div>
+        </li>
+		<li class="addTab">
+			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>		</li>
+    </ul>
+</div>
+<!-- /MAIN TAB -->
+
+
+<!-- roundWrapper -->
+<div id="roundWrapper">
+	<div class="roundMainWrapper">
+
+		<!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
+
+		<!-- auiPortlet -->
+		<div class="dojoDndItem auiPortlet">
+
+		<div id="mobileHeader_v3" class="clearfix"><div class="inner">
+			<h1><span>プロジェクト管理</span></h1>
+			<div class="mhLeft">
+				<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
+			</div>
+			<div class="mhRight clearfix">
+
+				<script>
+					function popupToggle($this,$target) {
+						if(document.getElementById($target).style.display=='none'){
+							document.getElementById($target).style.display='block'
+						}else{
+							document.getElementById($target).style.display='none'
+						}
+						if($this.className.indexOf('active')>0){
+							$this.className = $this.className.replace(' active','');
+						}else{
+							$this.className += ' active'
+						};
+					}
+				</script>
+
+				<div class="hdActivity" title="メッセージ">
+					<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+						 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						 widgetid="activitycheckerContainer"
+						 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+						<div type="button"
+							 dojoattachpoint="focusNode,titleNode"
+							 wairole="button"
+							 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+							 role="button"
+							 aria-haspopup="true"
+							 aria-labelledby="activitycheckerContainer_label"
+							 id="activitycheckerContainer"
+							 tabindex="0"
+							 aria-valuenow=""
+							 aria-disabled="false">
+							<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+								<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+								<span class="mb_hide">メッセージ</span>
+								<span class="pc_hide"><i class="icon-comments"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hdActivity" title="お知らせ">
+					<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+						 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						 widgetid="activitycheckerContainer"
+						 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+						<div type="button"
+							 dojoattachpoint="focusNode,titleNode"
+							 wairole="button"
+							 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+							 role="button"
+							 aria-haspopup="true"
+							 aria-labelledby="activitycheckerContainer_label"
+							 id="activitycheckerContainer"
+							 tabindex="0"
+							 aria-valuenow=""
+							 aria-disabled="false">
+							<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+								<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+								<span class="mb_hide">お知らせ</span>
+								<span class="pc_hide"><i class="icon-bell-alt"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hdInformation" title="サポート">
+					<div
+							class="dijit dijitLeft dijitInline dijitDropDownButton"
+							dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+							widgetid="supportcheckerContainer"
+							onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+						<div type="button"
+							 dojoattachpoint="focusNode,titleNode"
+							 wairole="button"
+							 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+							 role="button"
+							 aria-haspopup="true"
+							 aria-labelledby="supportcheckerContainer_label"
+							 id="supportcheckerContainer"
+							 tabindex="0"
+							 aria-valuenow=""
+							 aria-disabled="false">
+							<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+								<div id="supportchecker" class="counter">1</div>
+								<span class="mb_hide">サポート</span>
+								<span class="pc_hide"><i class="icon-info-sign"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="auiPortletHead"><div class="inner">
+			<div class="auiPortletTitle">プロジェクト管理</div>
+			<div class="auiPortletTool"></div>
+		</div></div>
+
+		<!-- auiPortletBody -->
+		<div class="auiPortletBody">
+			<div class="inner">
+				<div dojotype="aimluck:Contentpane" widgetid="widget_P-" id="portlet_P-">
+					<div id="auiContentsArea">
+					<div id="auiContentsAreaInner">
+
+					<div class="auiSummaryMeta clearfix">
+						<div class="floatRight">
+							<div class="auiSelectButton">
+								<ul>
+									<li><a class="first" style="width:7em;" href="tasklist.html"><span>タスク一覧</span></a></li>
+									<li class="active"><a class="last" style="width:9em;" href="gantt.html"><span>ガントチャート</span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="auiSummaryMeta auiFilter clearfix">
+						<form class="auiSearch">
+							<div class="filterInputField">
+								<div class="filters"><span class="filterTip"><span>アーノルド シュワルツェネッガー</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span><span class="filterTip"><span>機能</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span></div>
+								<a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}" title="フィルタ" class="filterDropDrawer"><span><i class="auiIcon auiIconArwBottom"></i></span></a>
+								<input class="text" type="text" name="q" id="q" style="padding-left:423px;width:57px;"></div>
+							<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+						</form>
+					</div>
+					<div class="auiSummaryMeta clearfix">
+						<div class="floatLeft">
+							<select name="" id="">
+								<option value="">0%</option>
+								<option value="">10%</option>
+								<option value="">20%</option>
+								<option value="">30%</option>
+								<option value="">40%</option>
+								<option value="">50%</option>
+								<option value="">60%</option>
+								<option value="">70%</option>
+								<option value="">80%</option>
+								<option value="">90%</option>
+								<option value="">100%</option>
+							</select>
+							-
+							<select name="" id="">
+								<option value="">0%</option>
+								<option value="">10%</option>
+								<option value="">20%</option>
+								<option value="">30%</option>
+								<option value="">40%</option>
+								<option value="">50%</option>
+								<option value="">60%</option>
+								<option value="">70%</option>
+								<option value="">80%</option>
+								<option value="">90%</option>
+								<option value="" selected="selected">100%</option>
+							</select>
+							<label><input type="checkbox" />進捗遅れのみ表示</label>
+						</div>
+					</div>
+					<div class="auiSummaryMeta clearfix">
+						<select name="" id="">
+							<option value="">2012年</option>
+							<option value="">2013年</option>
+							<option value="">2014年</option>
+							<option value="">2015年</option>
+							<option value="">2016年</option>
+						</select>
+						<select name="" id="">
+							<option value="">1月</option>
+							<option value="">2月</option>
+							<option value="" selected>3月</option>
+							<option value="">4月</option>
+							<option value="">5月</option>
+							<option value="">6月</option>
+							<option value="">7月</option>
+							<option value="">8月</option>
+							<option value="">9月</option>
+							<option value="">10月</option>
+							<option value="">11月</option>
+							<option value="">12月</option>
+						</select>
+						-
+						<select name="" id="">
+							<option value="">2012年</option>
+							<option value="">2013年</option>
+							<option value="">2014年</option>
+							<option value="">2015年</option>
+							<option value="">2016年</option>
+						</select>
+						<select name="" id="">
+							<option value="">1月</option>
+							<option value="">2月</option>
+							<option value="">3月</option>
+							<option value="" selected>4月</option>
+							<option value="">5月</option>
+							<option value="">6月</option>
+							<option value="">7月</option>
+							<option value="">8月</option>
+							<option value="">9月</option>
+							<option value="">10月</option>
+							<option value="">11月</option>
+							<option value="">12月</option>
+						</select>
+					</div>
+
+					<div class="clearfix">
+					<!-- #gantt_task -->
+					<div id="gantt_task">
+						<table class="ganttTaskTable">
+							<tbody>
+							<tr>
+								<th>タスク</th>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能A開発</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能A：新規作成機能</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能A：一覧表示</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能A：編集機能</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能A：削除機能</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能B開発</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能B：新規作成機能</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能B：一覧表示</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能B：編集機能</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能B：削除機能</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能C開発</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能C：新規作成機能</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">機能C：一覧表示</a>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /#gantt_task -->
+
+					<!-- #gantt_area -->
+					<div id="gantt_area">
+					<div style="width:1220px;">
+					<table id="gantt_table" class="">
+					<tbody>
+					<tr class="gantt_area_month">
+						<td colspan="31"><div>2014年3月</div></td>
+						<td colspan="30"><div>2014年4月</div></td>
+					</tr>
+					<tr class="gantt_area_day">
+						<td class="saturday"><div>1</div></td>
+						<td class="sunday"><div>2</div></td>
+						<td><div>3</div></td>
+						<td><div>4</div></td>
+						<td><div>5</div></td>
+						<td id="today" class="today"><div>6</div></td>
+						<td><div>7</div></td>
+						<td class="saturday"><div>8</div></td>
+						<td class="sunday"><div>9</div></td>
+						<td><div>10</div></td>
+						<td><div>11</div></td>
+						<td><div>12</div></td>
+						<td><div>13</div></td>
+						<td><div>14</div></td>
+						<td class="saturday"><div>15</div></td>
+						<td class="sunday"><div>16</div></td>
+						<td><div>17</div></td>
+						<td><div>18</div></td>
+						<td><div>19</div></td>
+						<td><div>20</div></td>
+						<td class="holiday"><div>21</div></td>
+						<td class="saturday"><div>22</div></td>
+						<td class="sunday"><div>23</div></td>
+						<td><div>24</div></td>
+						<td><div>25</div></td>
+						<td><div>26</div></td>
+						<td><div>27</div></td>
+						<td><div>28</div></td>
+						<td class="saturday"><div>29</div></td>
+						<td class="sunday"><div>30</div></td>
+						<td><div>31</div></td>
+						<td><div>1</div></td>
+						<td><div>2</div></td>
+						<td><div>3</div></td>
+						<td><div>4</div></td>
+						<td class="saturday"><div>5</div></td>
+						<td class="sunday"><div>6</div></td>
+						<td><div>7</div></td>
+						<td><div>8</div></td>
+						<td><div>9</div></td>
+						<td><div>10</div></td>
+						<td><div>11</div></td>
+						<td class="saturday"><div>12</div></td>
+						<td class="sunday"><div>13</div></td>
+						<td><div>14</div></td>
+						<td><div>15</div></td>
+						<td><div>16</div></td>
+						<td><div>17</div></td>
+						<td><div>18</div></td>
+						<td class="saturday"><div>19</div></td>
+						<td class="sunday"><div>20</div></td>
+						<td><div>21</div></td>
+						<td><div>22</div></td>
+						<td><div>23</div></td>
+						<td><div>24</div></td>
+						<td><div>25</div></td>
+						<td class="saturday"><div>26</div></td>
+						<td class="sunday"><div>27</div></td>
+						<td><div>28</div></td>
+						<td class="holiday"><div>29</div></td>
+						<td><div>30</div></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					<tr class="gantt_area_cell">
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="today"></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="saturday"></td>
+						<td class="sunday"></td>
+						<td></td>
+						<td class="holiday"></td>
+						<td></td>
+					</tr>
+					</tbody>
+					</table>
+
+					<div id="plan1" class="gantt_tip" style="left:100px;top:50px;width:318px;"><div class="w40"></div></div>
+					<div id="link1" class="gantt_link" style="left:100px;top:50px;width:318px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="0%
+木村 一郎、田村 涼子、鈴木 太朗
+開始日：
+完了日："><span>40%</span></div>
+
+
+
+
+					<div id="plan2" class="gantt_tip" style="left:100px;top:80px;width:118px;"><div class="w20"></div></div>
+					<div id="link2" class="gantt_link" style="left:100px;top:80px;width:118px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="20%
+鈴木 太朗
+開始日：
+完了日："><span>20%</span></div>
+
+
+
+
+					<div id="plan3" class="gantt_tip" style="left:100px;top:110px;width:18px;"><div class="w100"></div></div>
+					<div id="link3" class="gantt_link" style="left:100px;top:110px;width:18px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="0%
+木村 一郎
+開始日：
+完了日："><span>100%</span></div>
+
+
+
+
+					<div id="plan4" class="gantt_tip" style="left:100px;top:140px;width:178px;"><div class="w60"></div></div>
+					<div id="link4" class="gantt_link" style="left:100px;top:140px;width:178px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="60%
+田村 涼子
+開始日：
+完了日："><span>60%</span></div>
+
+
+
+
+					<div id="plan5" class="gantt_tip" style="left:180px;top:170px;width:238px;"><div class="w80"></div></div>
+					<div id="link5" class="gantt_link" style="left:180px;top:170px;width:238px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="80%
+木村 一郎、鈴木 太朗
+開始日：
+完了日："><span>80%</span></div>
+
+
+					<div id="no_start5"></div>
+
+
+					<div id="plan6" class="gantt_tip" style="left:180px;top:200px;width:378px;"><div class="w50"></div></div>
+					<div id="link6" class="gantt_link" style="left:180px;top:200px;width:378px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="50%
+木村 一郎
+開始日：
+完了日："><span>50%</span></div>
+
+
+					<div id="no_start6"></div>
+
+
+					<div id="plan7" class="gantt_tip" style="left:320px;top:230px;width:98px;"><div class="w20"></div></div>
+					<div id="link7" class="gantt_link" style="left:320px;top:230px;width:98px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="20%
+鈴木 太朗
+開始日：
+完了日："><span>20%</span></div>
+
+
+					<div id="no_start7"></div>
+
+
+					<div id="plan8" class="gantt_tip" style="left:180px;top:260px;width:378px;"><div class="w80"></div></div>
+					<div id="link8" class="gantt_link" style="left:180px;top:260px;width:378px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="80%
+木村 一郎、田村 涼子、鈴木 太朗
+開始日：
+完了日："><span>80%</span></div>
+
+
+					<div id="no_start8"></div>
+
+
+					<div id="plan9" class="gantt_tip" style="left:180px;top:290px;width:98px;"><div class="w100"></div></div>
+					<div id="link9" class="gantt_link" style="left:180px;top:290px;width:98px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="100%
+鈴木 太朗
+開始日：
+完了日："><span>100%</span></div>
+
+
+					<div id="no_start9"></div>
+
+
+					<div id="plan10" class="gantt_tip" style="left:220px;top:320px;width:58px;"><div class="w30"></div></div>
+					<div id="link10" class="gantt_link" style="left:220px;top:320px;width:58px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="30%
+木村 一郎
+開始日：
+完了日："><span>30%</span></div>
+
+
+					<div id="no_start10"></div>
+
+
+					<div id="plan11" class="gantt_tip" style="left:220px;top:350px;width:58px;"></div>
+					<div id="link11" class="gantt_link" style="left:220px;top:350px;width:58px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="0%
+木村 一郎
+開始日：
+完了日："><span>0%</span></div>
+
+
+					<div id="no_start11"></div>
+
+
+					<div id="plan12" class="gantt_tip" style="left:220px;top:380px;width:58px;"></div>
+					<div id="link12" class="gantt_link" style="left:220px;top:380px;width:58px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="0%
+木村 一郎
+開始日：
+完了日："><span>0%</span></div>
+
+
+					<div id="no_start12"></div>
+
+
+					<div id="plan13" class="gantt_tip" style="left:320px;top:410px;width:238px;"></div>
+					<div id="link13" class="gantt_link" style="left:320px;top:410px;width:238px;" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" title="0%
+田村 涼子
+開始日：
+完了日："><span>0%</span></div>
+					</div>
+
+					</div>
+					<!-- /#gantt_area -->
+
+					</div>
+
+					</div>
+					</div>
+					<script language="javascript">
+						function widgetMenuSwitch() {
+							var subNavi = document.getElementById('subNavigation');
+							if (document.defaultView.getComputedStyle(subNavi, null).display == 'none') {
+								subNavi.style.display = 'block';
+							} else {
+								subNavi.style.display = 'none';
+							}
+						}
+					</script>
+					<div id="auiWidgetsArea">
+						<div class="auiWidget clearfix widgetButton">
+							<a title="" href="javascript:void(0)" class="auiButton" onclick="popupToggle(this,'modalDialog_addtask');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">タスクを追加する</a>
+						</div>
+						<div class="snDrawer">
+							<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-caret-up"></i></a>
+						</div>
+						<div id="subNavigation">
+							<div class="auiWidget clearfix">
+								<ul>
+									<li class="active"><a href="tasklist.html" onclick="">機能A開発プロジェクト</a></li>
+									<li><a href="tasklist.html" onclick="">機能B開発プロジェクト</a></li>
+									<li><a href="tasklist.html" onclick="">機能C開発プロジェクト</a></li>
+									<li><a href="tasklist.html" onclick="">受託：タナカ電機様</a></li>
+									<li><a href="tasklist.html" onclick="">受託：スイドウバシカメラ様</a></li>
+								</ul>
+								<div style="margin:0.5em 0;"><a href="project_mng.html">プロジェクトの管理</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /auiPortletBody -->
+
+		<div class="auiPortletFoot"><div class="inner"></div></div>
+		<!-- ###### ▲開発向け：ここまで改修コンテンツ（当コメントは反映しないで下さい） #####-->
+		</div>
+		<!-- /auiPortlet  -->
+
+	</div>
+	<!-- /roundMainWrapper -->
+</div>
+<!-- /roundWrapper -->
+</div>
+<!-- /wrapper -->
+
+
+
+<!-- appsNavigation2 -->
+<script language="javascript">
+function appsNaviSwitch() {
+	var navi = document.getElementById('appsNavigation_v2');
+	var wrapper = document.getElementById('wrapper');
+	var bk = document.getElementById('appsNavigationBack_v2');
+	var mh = document.getElementById('mobileHeader_v2');
+	var ua = navigator.userAgent;
+
+	if(navi.className!='anOpen'){
+		navi.style.display = 'block';
+		wrapper.style.overflow = 'hidden';
+		wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
+		bk.style.display = 'block';
+		bk.style.height = document.getElementById('anInner').clientHeight + 'px';
+		mh.style.position = 'absolute';
+		mh.style.top = '0';
+		if(ua.indexOf('Android') > 0) {
+			navi.className = 'anOpen';
+			bk.className = 'anOpen';
+
+		 	var content=dojo.query(".roundBlockContent")[0];
+		 	if(content){
+		 		content.style.display="none";
+		 	}
+
+			//クリック無効化
+		 	var f=function(e){
+            	e.preventDefault();
+            	//e.stopImmediatePropagation();
+            	return false;
+            };
+
+            var naviNodes=dojo.query("input,select,button,a",dojo.byId("appsNavigation_v2"));
+
+			//ナビゲーション外のクリックイベントを無効化
+            dojo.query("input,select,button,a").forEach(function(node){
+    			if(!aipo.arrayContains(naviNodes,node))
+    				if(node.addEventListener)navEventList.push(node.addEventListener('click',f,true));
+    				else navEventList.push(dojo.connect(node,'click',f));
+    		});
+
+			//ナビゲーション外のフォームオブジェクトの無効化
+    		dojo.query("input,select,button").forEach(function(node,index){
+        		if(!aipo.arrayContains(naviNodes,node) && !node.disabled){
+        			dojo.addClass(node,"disabled-by-navi");
+        			node.disabled=true;
+        		}
+        	});
+
+		} else {
+			setTimeout('setClassName("appsNavigation_v2","anOpen")',100);
+			setTimeout('setClassName("appsNavigationBack_v2","anOpen")',1);
+		}
+	}else{
+		wrapper.style.overflow = 'visible';
+		mh.style.position = 'fixed';
+		mh.style.top = '';
+		navi.className = '';
+		if(ua.indexOf('Android') > 0) {
+			bk.className = '';
+			bk.style.display = 'none';
+			wrapper.style.height = 'auto';
+			navi.style.display = 'none';
+
+		 	var content=dojo.query(".roundBlockContent")[0];
+		 	if(content){
+		 		content.style.display="";
+		 	}
+
+			//無効化していたクリックイベントの有効化
+		 	for(var i=0;i<navEventList.length;i++){
+        		dojo.disconnect(navEventList[i]);
+        	}
+        	navEventList=[];
+
+			//無効化していたフォームオブジェクトの有効化
+        	dojo.query("input.disabled-by-navi,select.disabled-by-navi,button.disabled-by-navi").forEach(function(node,index){
+        		dojo.removeClass(node,"disabled-by-navi");
+        		node.disabled=false;
+        	});
+
+		} else {
+			setTimeout('setWrapperHeight()',300);
+			setTimeout('setClassName("appsNavigationBack_v2","")',100);
+			setTimeout('setNaviDisp("appsNavigationBack_v2","none")',300);
+			setTimeout('setNaviDisp("appsNavigation_v2","none")',300);
+		}
+	}
+}
+function setClassName ($obj,$class) {
+	document.getElementById($obj).className = $class;
+}
+function setNaviDisp ($obj,$str){
+	document.getElementById($obj).style.display = $str;
+}
+function setWrapperHeight() {
+	document.getElementById("wrapper").style.height = "auto";
+}
+</script>
+<div id="appsNavigationBack_v2"><a class="backLayer" href="javascript:void(0)" onClick="appsNaviSwitch()">&nbsp;</a></div>
+<div id="appsNavigation_v2"><div id="anInner">
+	<!--div id="anDrawer" class="anDrawer"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="icon-remove"></i></a></div-->
+	<div class="anUser">
+		<div class="close"><a href="javascript:void(0)" onClick="appsNaviSwitch()"><i class="icon-remove"></i></a></div>
+		<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" alt="a a" width="20" height="20" /></div>
+		<div class="name">アーノルド シュワルツェネッガー</div>
+	</div>
+
+	<div class="anApps">
+		<h2>アプリ</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><i class="icon-comments"></i></span>タイムライン</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-calendar"></i></span>スケジュール</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-time"></i></span>タイムカード</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-volume-up"></i></span>更新情報</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-book"></i></span>ブログ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-picture"></i></span>掲示板</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-list-ul"></i></span>共有ToDo</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-open"></i></span>共有フォルダ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-inbox"></i></span>ワークフロー</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-phone"></i></span>伝言メモ</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-file-text"></i></span>報告書</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-envelope"></i></span>Webメール</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-compass"></i></span>アドレス帳</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-group"></i></span>ユーザー名簿</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-pencil"></i></span>メモ帳</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-comments"></i></span>メッセージ</a></li>
+		</ul>
+	</div>
+
+	<div class="anApps">
+		<h2>追加アプリ</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/twi-reader/img/icon/icon16-trans.png" alt="twiリーダー"></span><span>twiリーダー</span></a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-close"></i></span><span>安否確認</span></a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/shared-memo/img/icon/icon16-trans.png" alt="共有メモ"></span><span>共有メモ</span></a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/shared-link/img/icon/icon16-trans.png" alt="共有リンク"></span><span>共有リンク</span></a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-close"></i></span><span>美人時計改訂版</span></a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/chat-room/img/icon/icon16-trans.png" alt="チャットルーム"></span><span>チャットルーム</span></a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/chair-checker/img/icon/icon16-trans.png" alt="簡易在席確認"></span><span>簡易在席確認</span></a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-close"></i></span><span>フィードリーダー</span></a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/nomi-iko/img/icon/icon16-trans.png" alt="飲みイコ"></span><span>飲みイコ</span></a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-close"></i></span><span>美人時計 美人時計 (bijin-tokei ver.jp)</span></a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/excel-functions-dictionary/img/icon/icon16-trans.png" alt="エクセル関数辞典"></span><span>エクセル関数辞典</span></a></li>
+			<li><a href="#"><span class="icon"><img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/yahoo-topics/img/icon/icon16-trans.png" alt="Yahoo!ニュース"></span><span>Yahoo!ニュース</span></a></li>
+			<li><a href="#"><span class="icon"><i class="icon-folder-close"></i></span><span>天気予報</span></a></li>
+		</ul>
+	</div>
+
+	<div class="anSetting">
+		<h2>設定</h2>
+		<ul>
+			<li><a href="#"><span class="icon"><i class="icon-cog"></i></span>個人設定</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-cogs"></i></span>管理設定</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-desktop"></i></span>PC版表示へ変更</a></li>
+			<li><a href="#"><span class="icon"><i class="icon-power-off"></i></span>ログアウト</a></li>
+		</ul>
+	</div>
+
+	<div class="anFooter">
+		<div class="copyright">Aipo &copy; Aimluck,Inc</div>
+	</div>
+</div></div>
+<!-- /mobileNavigation -->
+
+
+<!-- ******************************
+
+■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+
+スマホ専用要素ここまで
+
+****************************** -->
+
+
+<div class="dijitPopup" style="z-index: 1000; visibility: visible; top: 45px; ">
+    <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
+    <div class="activityPopup">
+    <div class="clearfix">
+    <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
+
+
+    <h2>あなた宛のお知らせ</h2>
+    <div style="background:#ffffff;padding:2px;">
+
+		<div class="auiSummaryMeta clearfix">
+			<div class="floatRight">
+				<div class="count">1 - 5 / 20</div>
+				<div class="auiSelectButton floatLeft">
+				  <ul>
+					<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+					<li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+				  </ul>
+				</div>
+			</div>
+		</div>
+
+		<ul class="activityList">
+		<li class="unread">
+		<div class="meta">12月26日 &nbsp; 山本 次郎</div>
+		<a href="javascript:void(0);" onclick="">予定「お客様<wbr>訪問」を編<wbr>集しました。<wbr></a>		</li>
+		<li>
+		<div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+		<img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle">
+		<a href="javascript:void(0);" onclick="">あなたの投稿<wbr>にコメントし<wbr>ました。</a>		</li>
+		<li>
+		<div class="meta">12月22日 &nbsp; 山中 愛子</div>
+		<a href="javascript:void(0);" onclick="">山田様<wbr>より伝言「伝言をお願いします。」があ<wbr>りました。</a>		</li>
+		<li>
+		<div class="meta">12月21日 &nbsp; 山本 次郎</div>
+		<a href="javascript:void(0);" onclick="">予定「お客様<wbr>修正連絡<wbr>」を追加しました。</a>		</li>
+		<li>
+		<div class="meta">12月21日 &nbsp; 田村 三郎</div>
+		<a href="javascript:void(0);" onclick="">報告書「業務報告」<wbr>の確認依頼を<wbr>出しました。<wbr></a>		</li>
+		</ul>
+
+		<p class="rightBtn">
+		<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
+		</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+<div id="popup_77" class="dijitPopup" style="z-index: 1000; top:45px;">
+	<div id="aipo_widget_SupportList_0" widgetid="aipo_widget_SupportList_0" style="display:none;">
+		<div class="auiPopup supportPopup">
+			<div class="clearfix">
+				<div id="supportListPane" widgetid="supportListPane" class="dijitContentPane" title="">
+					<ul class="blockList">
+						<li><a href="javascript:void(0);" onClick="popupToggle(this,'aipo_widget_SupportList_0');popupToggle(this,'popupMask');popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');">スタートガイド</a></li>
+						<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+						<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
+					</ul>
+
+					<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">Aipo.comからのお知らせ</div>
+						<ul class="tipInfo">
+							<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+						</ul>
+						<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
+					</div>
+
+					<!-- ##################################################
+					●開発担当者へ
+
+					twitter設定後は下記を表示。
+					タイトルの（）内は削ってください。
+
+					################################################## -->
+					<div class="tipDivider"></div>
+					<div class="tipBox clearfix">
+						<div class="tipTitle">ご意見・ご要望</div>
+						<div class="tipBody">
+							<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+							<textarea></textarea>
+							<div class="clearfix mt5">
+								<div class="floatLeft fs11 fcGray">
+									これまでの獲得容量(全社)：5MB<br>
+									<a href="#" class="fcGray">twitter連携の設定を解除</a>								</div>
+								<div class="floatRight">
+									<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tipDivider"></div>
+					<div class="tipBox tipFoot clearfix">
+						<div class="capacity">
+							100MB(10%) / 1024MB を使用中						</div>
+						<div class="social">
+							<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+							<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- #modalDialog_addtask -->
+<div id="modalDialog_addtask" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top:50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+<div class="auiPopup clearfix">
+<div class="auiPopupHead clearfix">
+	<div class="auiPopupTool">
+		<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_addtask');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+		</div>
+	</div>
+	<div class="auiPopupTitle">タスク追加</div>
+</div>
+<div class="roundBlockContent">
+	<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
+	<div id="messageDiv"></div>
+	<form name="" id="formP" action="" method="post">
+		<table class="listTable wide">
+			<tbody>
+			<tr>
+				<td class="caption"><span class="required">プロジェクト</span></td>
+				<td>
+					<select name="" id="">
+						<option value="">機能A開発プロジェクト</option>
+						<option value="">機能B開発プロジェクト</option>
+						<option value="">機能C開発プロジェクト</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">分類</td>
+				<td>
+					<select name="" id="">
+						<option value="">機能</option>
+						<option value="">バグ</option>
+						<option value="">サポート</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption"><span class="required">タスク名</span>
+				</td>
+				<td><input class="text w100" type="text" name="field_241" id="field_241" value="" maxlength="50" style="ime-mode:">
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">説明</td>
+				<td>
+					<textarea class="text w100" name="field_261" rows="10" cols="40"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">ステータス<td>
+				<select name="" id="">
+					<option value="">新規</option>
+					<option value="">進行中</option>
+					<option value="">フィードバック</option>
+					<option value="">完了</option>
+					<option value="">却下</option>
+					<option value="">停止</option>
+				</select>
+			</td>
+			</tr>
+			<tr>
+				<td class="caption">優先度</td>
+				<td>
+					<select name="" id="">
+						<option value="">高</option>
+						<option value="" selected>中</option>
+						<option value="">低</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">担当者</td>
+				<td>
+					<table class="listTable wide">
+						<tbody>
+						<tr>
+							<td class="caption"><span class="required">プロジェクト</span></td>
+							<td>
+								<select name="" id="">
+									<option value="">機能A開発プロジェクト</option>
+									<option value="">機能B開発プロジェクト</option>
+									<option value="">機能C開発プロジェクト</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">分類</td>
+							<td>
+								<select name="" id="">
+									<option value="">機能</option>
+									<option value="">バグ</option>
+									<option value="">サポート</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption"><span class="required">タスク名</span>
+							</td>
+							<td><input class="text w100" type="text" name="field_241" id="field_241" value="" maxlength="50" style="ime-mode:">
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">説明</td>
+							<td>
+								<textarea class="text w100" name="field_261" rows="10" cols="40"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">ステータス<td>
+							<select name="" id="">
+								<option value="">新規</option>
+								<option value="">進行中</option>
+								<option value="">フィードバック</option>
+								<option value="">完了</option>
+								<option value="">却下</option>
+								<option value="">停止</option>
+							</select>
+						</td>
+						</tr>
+						<tr>
+							<td class="caption">優先度</td>
+							<td>
+								<select name="" id="">
+									<option value="">高</option>
+									<option value="" selected>中</option>
+									<option value="">低</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">担当者</td>
+							<td>
+								<table class="w100 auiMbCellTable">
+									<tr>
+										<td>
+											<select name="" id="" class="w100">
+												<option value="">木村 一郎</option>
+												<option value="">山田 太朗</option>
+												<option value="">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガーアーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</option>
+											</select>
+										</td>
+										<td class="pl5" nowrap>
+											作業時間
+											<input type="text" style="width:3em" />
+											時間
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select name="" id="" class="w100">
+												<option value="">木村 一郎</option>
+												<option value="">山田 太朗</option>
+												<option value="">アーノルド シュワルツェネッガー</option>
+											</select>
+										</td>
+										<td class="pl5" nowrap>
+											作業時間
+											<input type="text" style="width:3em" />
+											時間
+											<a href="javascript:void(0)" title="削除" onclick="this.parentNode.parentNode.style.display='none'"><i class="icon-remove"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select name="" id="" class="w100">
+												<option value="">木村 一郎</option>
+												<option value="">山田 太朗</option>
+												<option value="">アーノルド シュワルツェネッガー</option>
+											</select>
+										</td>
+										<td class="pl5" nowrap>
+											作業時間
+											<input type="text" style="width:3em" />
+											時間
+											<a href="javascript:void(0)" title="削除" onclick="this.parentNode.parentNode.style.display='none'"><i class="icon-remove"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<a href="#">担当者を追加</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">開始予定日</td>
+							<td>
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								2014年10月10日
+								&emsp;
+								<label><input type="checkbox"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">期日</td>
+							<td>
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								2014年10月10日
+								&emsp;
+								<label><input type="checkbox"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">実開始日</td>
+							<td>
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								---- 年 -- 月 -- 日
+								&emsp;
+								<label><input type="checkbox" checked="checked"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">完了日</td>
+							<td >
+								<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+								---- 年 -- 月 -- 日
+								&emsp;
+								<label><input type="checkbox" checked="checked"> 指定しない</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">予定工数</td>
+							<td>
+								<input type="text" style="width:3em" />
+								時間
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">進捗率</td>
+							<td>
+								<select name="" id="">
+									<option value="">0%</option>
+									<option value="">10%</option>
+									<option value="">20%</option>
+									<option value="">30%</option>
+									<option value="">40%</option>
+									<option value="">50%</option>
+									<option value="">60%</option>
+									<option value="">70%</option>
+									<option value="">80%</option>
+									<option value="">90%</option>
+									<option value="">100%</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">ファイル
+								<wbr></td>
+							<td>
+								<div class="clearfix">
+									<div>
+										<iframe name="field_341" id="field_341" allowtransparency="true" class="auiInputFileFrame" src="http://192.168.3.28:8080/aipo/portal/media-type/html/user/user1/page/default.psml/js_peid/P-1424f148b96-10000?template=FileuploadadvFormScreen&amp;mode=miniform&amp;msize=1&amp;keyid=341" frameborder="0" scrolling="no"></iframe>
+									</div>
+									<ul id="" class="attachments">
+									</ul>
+									<div id=""></div>
+									<input type="hidden" id="" name="folderName_341" value="">
+								</div>
+							</td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">開始予定日</td>
+				<td>
+					<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+					2014年10月10日
+					&emsp;
+					<label><input type="checkbox"> 指定しない</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">期日</td>
+				<td>
+					<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+					2014年10月10日
+					&emsp;
+					<label><input type="checkbox"> 指定しない</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">実開始日</td>
+				<td>
+					<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+					---- 年 -- 月 -- 日
+					&emsp;
+					<label><input type="checkbox" checked="checked"> 指定しない</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">完了日</td>
+				<td >
+					<a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a>
+					---- 年 -- 月 -- 日
+					&emsp;
+					<label><input type="checkbox" checked="checked"> 指定しない</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">予定工数</td>
+				<td>
+					<input type="text" style="width:3em" />
+					時間
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">進捗率</td>
+				<td>
+					<select name="" id="">
+						<option value="">0%</option>
+						<option value="">10%</option>
+						<option value="">20%</option>
+						<option value="">30%</option>
+						<option value="">40%</option>
+						<option value="">50%</option>
+						<option value="">60%</option>
+						<option value="">70%</option>
+						<option value="">80%</option>
+						<option value="">90%</option>
+						<option value="">100%</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="caption">ファイル
+					<wbr></td>
+				<td>
+					<div class="clearfix">
+						<div>
+							<iframe name="field_341" id="field_341" allowtransparency="true" class="auiInputFileFrame" src="http://192.168.3.28:8080/aipo/portal/media-type/html/user/user1/page/default.psml/js_peid/P-1424f148b96-10000?template=FileuploadadvFormScreen&amp;mode=miniform&amp;msize=1&amp;keyid=341" frameborder="0" scrolling="no"></iframe>
+						</div>
+						<ul id="" class="attachments">
+						</ul>
+						<div id=""></div>
+						<input type="hidden" id="" name="folderName_341" value="">
+					</div>
+				</td>
+			</tr>
+
+		</table>
+		<div class="center auiPopupButtons">
+			<input name="eventSubmit_doGpdb_insert" class="auiButtonAction" type="submit" id="al_submit_P-1424f148b96-10000" value="追加する" onclick="">
+			<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_addtask');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+		</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+<!-- /#modalDialog_addtask -->
+
+<!-- #modalDialog_taskdetail -->
+<div id="modalDialog_taskdetail" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top:50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">タスク詳細</div>
+			</div>
+			<div class="roundBlockContent">
+				<form onsubmit="return false;" method="post" action="#" id="" name="">
+					<table class="listTable wide mb0">
+						<!--caption>
+							<span class="floatRight" style="font-weight:normal">機能A開発プロジェクト</span>
+							タスク名タスク名
+						</caption-->
+						<tbody>
+						<tr>
+							<td colspan="4">
+								<div class="clearfix">
+									<div class="alignleft"><strong>機能開発タスク</strong>
+										<br>
+										新機能A開発プロジェクト
+									</div>
+									<div class="alignright">
+										<input name="ajaxbuttonEdit" class="button" type="button" value="子タスクを追加する" onclick="">
+										<input name="ajaxbuttonEdit" class="button" type="button" value="編集する" onclick="">
+										<input name="eventSubmit_doBlog_entry_delete" class="button" type="button" value="削除する " onclick="">
+									</div>
+								</div>
+
+							</td>
+						</tr>
+						</tbody>
+					</table>
+
+					<table class="listTable noBorder wide mb0 mt0">
+						<tbody>
+						<colgroup class="w15"></colgroup>
+						<colgroup></colgroup>
+						<colgroup class="w15"></colgroup>
+						<colgroup class="w15"></colgroup>
+						<tr>
+							<td class="caption">分類</td>
+							<td>機能</td>
+							<td class="caption">開始予定日</td>
+							<td>2014/10/10</td>
+						</tr>
+						<tr>
+							<td class="caption">ステータス</td>
+							<td>進行中</td>
+							<td class="caption">期日</td>
+							<td>2014/10/10</td>
+						</tr>
+						<tr>
+							<td class="caption">優先度</td>
+							<td>中</td>
+							<td class="caption">実開始日</td>
+							<td>2014/10/10</td>
+						</tr>
+						<tr>
+							<td class="caption">担当者</td>
+							<td><div>アーノルド シュワルツェネッガー</div></td>
+							<td class="caption">完了日</td>
+							<td>2014/10/10</td>
+						</tr>
+						<tr>
+							<td class="caption">予定工数</td>
+							<td>999</td>
+							<td class="caption">進捗率</td>
+							<td>99%</td>
+						</tr>
+						</tbody>
+					</table>
+					<table class="listTable wide mt0">
+						<tbody>
+						<tr>
+							<td>
+								<div class="caption mb10">説明</div>
+								ここは説明テキストです。<br/>
+								ここは説明テキストです。ここは説明テキストです。ここは説明テキストです。<br/>
+								ここは説明テキストです。ここは説明テキストです。ここは説明テキストです。<br/><br/>
+								ここは説明テキストです。ここは説明テキストです。ここは説明テキストです。<br/>
+								ここは説明テキストです。ここは説明テキストです。ここは説明テキストです。
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</form>
+
+				<table class="listTable wide mb0">
+					<caption>コメント</caption>
+					<tbody>
+					<tr>
+						<td>
+							<div class="clearfix mb10">
+								<div class="alignright"></div>
+								<div class="avatar floatLeft mr10"><img width="32" height="32" alt="山田 太朗" src="../../themes/default/images/common/avatar_default3.png"></div>
+								<div class="alignleft">
+									<strong>山田 太朗</strong><br />
+									2014年10月10日10時30分
+								</div>
+							</div>
+							<div>タスクへのコメントです。</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="clearfix mb10">
+								<div class="alignright"><input type="button" value="削除する" class="button" name="ajaxbuttonDelete"></div>
+								<div class="avatar floatLeft mr10"><img width="32" height="32" alt="山田 太朗" src="../../themes/default/images/common/avatar_default3.png"></div>
+								<div class="alignleft">
+									<strong>山田 太朗</strong><br />
+									2014年10月10日10時30分
+								</div>
+							</div>
+							<div>タスクへのコメントです。</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<form>
+					<table class="listTable wide mt0">
+						<tbody>
+						<tr class="noBorder">
+							<td class="caption"><span class="required">内容</span> </td>
+							<td><textarea cols="40" rows="5" name="note" class="text wide"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">添付ファイル</td>
+							<td><input type="button" name="add_attachment" class="button" value="ファイルの選択" onclick="aipo.fileupload.openAttachment('http://192.168.3.31:81/aipo/portal/media-type/html/user/sample2/page/default.psml/js_peid/P-137ba3a8c26-10075?template=FileuploadFormScreen&amp;mode=form', 'P-137ba3a8c26-10075');"><ul class="attachments" id="attachments_P-137ba3a8c26-10075"></ul>
+								<input type="hidden" value="" name="folderName" id="folderName_P-137ba3a8c26-10075">
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					<div align="center">
+						<input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="コメントする" class="auiButtonAction" name="eventSubmit_doMsgboard_update">
+						<input type="button" onclick="popupToggle(this,'modalDialog_taskdetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');" value="閉じる" class="button" name="ajaxbuttonClose">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /#modalDialog_taskdetail -->
+
+<!-- modalBackground-->
+<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+
+</body>
+</html>

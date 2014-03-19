@@ -1005,6 +1005,23 @@ $tabBackgroundImage:	"../images/tab.png";
     	padding-right:20px;
     	background:url($tabBackgroundImage) right -150px no-repeat;
     }
+	.single {
+		.tab {
+			padding-right:20px;
+			background:url($tabBackgroundImage) right -150px no-repeat;
+		}
+		.title {
+			background:url($tabBackgroundImage) left -120px no-repeat;
+		}
+		.active {
+			&.tab {
+				background:url($tabBackgroundImage) right -30px no-repeat;
+			}
+			.title {
+				background:url($tabBackgroundImage) left -0px no-repeat;
+			}
+		}
+	}
     
     li.selectedMenu {
     	height:25px;
@@ -4128,6 +4145,167 @@ html>/**/body .auiLoadWrapper .loader {
 	margin-top:10px;
 	padding-top:10px;
 }
+
+/***************************************************
+	Launcher
+--------------------------------------------------*/
+#auiLauncher_1 {
+	padding: 0 5px;
+	overflow: hidden;
+	@include transition(height .3s);
+	ul {
+		text-align: center;
+	}
+	li {
+		display: block;
+		float: left;
+		background: none;
+		width: 90px;
+		height: 60px;
+		padding: 10px 5px 0;
+		@include box-sizing(border-box);
+		a {
+			position: relative;
+			display: block;
+			text-align: center;
+			text-decoration:none;
+			width: 80px;
+			height: 50px;
+			background: $white;
+			border:solid 1px $grayBorderLight;
+			@include border-radius(4px);
+			@include box-sizing(border-box);
+			.icon {
+				display: block;
+				padding: 3px;
+				[class*=icon-] {
+					font-size: 24px;
+					color: $grayLight;
+				}
+			}
+			.name {
+				font-size: 11px;
+				display: block;
+				width: 78px;
+				height: 15px;
+				line-height: 15px;
+				padding: 0 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				@include box-sizing(border-box);
+			}
+			&:hover {
+				position: absolute;
+				height: auto;
+				z-index: 1;
+				.icon {
+					[class*=icon-] {
+						color: $gray;
+					}
+				}
+				.name {
+					height: auto;
+					white-space: normal;
+				}
+			}
+		}
+	}
+}
+
+#auiLauncher_2 {
+	position: fixed;
+	bottom:0;
+	padding: 5px;
+	background: $grayBackLight;
+	@include opacity(0.7);
+	overflow: visible;
+	border-top:solid 1px $grayBorder;
+	@include box-sizing(border-box);
+	@include transition(.3s);
+	&:hover {
+		@include opacity(1);
+	}
+
+	.toggle {
+		position: absolute;
+		right:10px;
+		top:-40px;
+		
+		a {
+			display: block;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			background: $grayBackLight;
+			text-align: center;
+			text-decoration: none;
+			border:solid 1px $grayBorder;
+			border-bottom:none;
+			@include border-radius(4px 4px 0 0);
+			@include box-sizing(border-box);
+			[class*=icon-] {
+				font-size: 16px;
+				line-height: 40px;
+			}
+		}
+	}
+	ul {
+		text-align: center;
+	}
+	li {
+		display: block;
+		float: left;
+		background: none;
+		width: 90px;
+		height: 60px;
+		padding: 5px;
+		@include box-sizing(border-box);
+		a {
+			position: relative;
+			display: block;
+			text-align: center;
+			text-decoration:none;
+			width: 80px;
+			height: 50px;
+			background: $white;
+			border:solid 1px $grayBorderLight;
+			@include border-radius(4px);
+			@include box-sizing(border-box);
+			.icon {
+				display: block;
+				padding: 3px;
+				[class*=icon-] {
+					font-size: 24px;
+					color: $grayLight;
+				}
+			}
+			.name {
+				font-size: 11px;
+				display: block;
+				width: 78px;
+				height: 15px;
+				line-height: 15px;
+				padding: 0 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				@include box-sizing(border-box);
+			}
+			&:hover {
+				position: absolute;
+				height: auto;
+				z-index: 1;
+				.icon {
+					[class*=icon-] {
+						color: $gray;
+					}
+				}
+				.name {
+					height: auto;
+					white-space: normal;
+				}
+			}
+		}
+	}}
 
 /***************************************************
 	externallink

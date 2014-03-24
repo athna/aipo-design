@@ -6,8 +6,8 @@
 
 @font-face{
 	font-family:'FontAwesome';
-	src:url('../../themes/default/font/fontawesome-webfont.eot?v=3.2.0');
-	src:url('../../themes/default/font/fontawesome-webfont.eot?#iefix&v=3.2.0') format('embedded-opentype'),url('../../themes/default/font/fontawesome-webfont.woff?v=3.2.0') format('woff'),url('../../themes/default/font/fontawesome-webfont.ttf?v=3.2.0') format('truetype'),url('../../themes/default/font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.0') format('svg');
+	src:url('../font/fontawesome-webfont.eot?v=3.2.0');
+	src:url('../font/fontawesome-webfont.eot?#iefix&v=3.2.0') format('embedded-opentype'),url('../font/fontawesome-webfont.woff?v=3.2.0') format('woff'),url('../font/fontawesome-webfont.ttf?v=3.2.0') format('truetype'),url('../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.0') format('svg');
 	font-weight:normal;
 	font-style:normal;
 }
@@ -27,8 +27,8 @@ body {
 	margin:0;
 	font-size:.75em;
 	line-height:1.4;
-	background:#fff;
-	color:#1b1b1b;
+	background:$white;
+	color:$black;
 }
 
 * html body {
@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 /*position:fixed;
 bottom:0;
 z-index:9000;*/
-background:#FFFFFF;
+background:$white;
 }
 .messageWindow_list,
 .messageWindow_chat{
@@ -68,11 +68,11 @@ width:300px;
 
 .messageWindow_list .header,
 .messageWindow_chat .header{
-height:20px;
-padding:5px;
-background:#FFFFFF;
-color:#313131;
-border-bottom:1px solid #EDEDED;
+padding:9px 10px;
+height:15px;
+background:$white;
+color:$black;
+border-bottom:1px solid $grayBorderLight;
 }
 
 .messageWindow_list .list,
@@ -80,8 +80,6 @@ border-bottom:1px solid #EDEDED;
 float:left;
 display:block;
 max-width:220px;
-height:20px;
-line-height:20px;
 border-radius:2px;
 cursor:pointer;
 }
@@ -95,7 +93,7 @@ float:left;
 max-width:195px;
 display:block;
 padding:0 2px;
-color:#1b1b1b;
+color:$black;
 overflow:hidden;
 white-space:nowrap;
 text-overflow:ellipsis;
@@ -104,19 +102,19 @@ text-decoration:underline;
 .messageWindow_list .header a:hover span,
 .messageWindow_chat .header a:hover span{
 text-decoration:none;
-color:#FF9900;
+color:$orange;
 }
 .messageWindow_list .list .icon-caret-down,
 .messageWindow_chat .list .icon-caret-down{
 display:none;
 float:right;
-color:#999999;
+color:$gray;
 margin:2px 5px 0;
 text-decoration:none;
 }
 .messageWindow_list .header a:hover .icon-caret-down,
 .messageWindow_chat .header a:hover .icon-caret-down{
-color:#FF9900;
+color:$orange;
 }
 
 .messageWindow_list .header .dropdown-menu,
@@ -124,16 +122,16 @@ color:#FF9900;
 top:20px;
 width:240px;
 padding:0;
-color:#1b1b1b;
-border:1px solid #C0C0C0;
+color:$black;
+border:1px solid $grayBorderDark;
 }
 .messageWindow_list .header .dropdown-menu a,
 .messageWindow_chat .header .dropdown-menu a{
-color:#1b1b1b;
+color:$black;
 }
 .messageWindow_list .header .dropdown-menu a.auiButtonAction,
 .messageWindow_chat .header .dropdown-menu a.auiButtonAction{
-color:#1b1b1b;
+color:$black;
 }
 
 .messageWindow_list .header .dropdown-menu .dropdown-header,
@@ -142,7 +140,7 @@ display:block;
 padding:7px;
 text-align:center;
 font-size:11px;
-border-bottom:1px solid #DCDCDC;
+border-bottom:1px solid $grayLighter;
 }
 .messageWindow_list .header .dropdown-menu .dropdown-footer,
 .messageWindow_chat .header .dropdown-menu .dropdown-footer{
@@ -150,7 +148,7 @@ display:block;
 padding:7px;
 text-align:center;
 font-size:11px;
-border-top:1px solid #DCDCDC;
+border-top:1px solid $grayLighter;
 }
 
 .messageWindow_list .header .dropdown-menu ul,
@@ -168,7 +166,7 @@ display:block;
 margin:0;
 padding:0;
 background:none;
-border-bottom:1px solid #DCDCDC;
+border-bottom:1px solid $grayLighter;
 }
 .messageWindow_chat .header .dropdown-menu ul li a{
 display:block;
@@ -179,10 +177,10 @@ margin:0;
 vertical-align:text-top;
 }
 .messageWindow_chat .header .dropdown-menu ul li a:hover{
-background:#EEEEEE;
+background:$grayHightLight;
 }
 .messageWindow_chat .header .dropdown-menu ul li a:hover{
-color:#1b1b1b;
+color:$black;
 }
 .messageWindow_chat .header .dropdown-menu ul li a .name{
 float:left;
@@ -197,10 +195,10 @@ float:right;
 margin:0;
 }
 .messageWindow_chat .header .dropdown-menu ul li a:hover .counter{
-color:#FFFFFF;
+color:$white;
 }
 .messageWindow_chat .header .dropdown-menu ul li.active a{
-background:#EEEEEE;
+background:$grayHightLight;
 font-weight:bold;
 }
 .messageWindow_chat .header .dropdown-menu ul li.active a .counter{
@@ -216,7 +214,7 @@ font-weight:normal;
 text-decoration:none;
 float:right;
 display:block;
-padding:2px 4px;
+padding:0px 4px;
 border-radius:2px;
 margin-left:3px;
 }
@@ -232,15 +230,14 @@ text-decoration:none;
 .btn_mini i,
 .btn_open i,
 .btn_list i{
-font-size:12px;
-color:#999999;
+color:$gray;
 cursor:pointer;
 }
 .btn_close:hover i,
 .btn_mini:hover i,
 .btn_open:hover i,
 .btn_list:hover i{
-color:#333333;
+color:$grayDark;
 }
 
 .messageWindow_list .inner,
@@ -260,7 +257,7 @@ display:block;
 margin:0;
 padding:0;
 background:none;
-border-bottom:1px solid #DCDCDC;
+border-bottom:1px solid $grayLighter;
 }
 .messageWindow_list .inner li{
 *width:183px;
@@ -274,10 +271,10 @@ margin:0;
 vertical-align:text-top;
 }
 .messageWindow_list .inner li a:hover{
-background:#EEEEEE;
+background:$grayHightLight;
 }
 .messageWindow_list .inner li a:hover{
-color:#1b1b1b;
+color:$black;
 }
 .messageWindow_list .inner li a .name{
 float:left;
@@ -292,10 +289,10 @@ float:right;
 margin:0;
 }
 .messageWindow_list .inner li a:hover .counter{
-color:#FFFFFF;
+color:$white;
 }
 .messageWindow_list .inner li.active a{
-background:#EEEEEE;
+background:$grayHightLight;
 font-weight:bold;
 }
 .messageWindow_list .inner li.active a .counter{
@@ -313,20 +310,20 @@ font-weight:bold;
 }
 .messageWindow_chat .inner li .date{
 display:inline-block;
-color:#666666;
+color:$gray;
 font-size:10px;
 }
 .messageWindow_chat .inner li .readList{
-color:#666666;
+color:$gray;
 text-decoration:none;
 }
 .messageWindow_chat .inner .invite_block{
 font-size:11px;
-background:#f0f0f0;
+background:$grayLighter;
 border:none;
 }
 .messageWindow_chat .inner .invite_block a{
-color:#1b1b1b;
+color:$black;
 text-shadow:none;
 }
 .messageWindow_chat .inner .invite_block .img,
@@ -343,8 +340,7 @@ border-radius:3px;
 .messageWindow_chat .footer{
 height:35px;
 padding:5px;
-border-top:1px solid #CCCCCC;
-background:#FFFFFF;
+border-top:1px solid $grayLight;
 }
 
 .messageWindow_list .footer{
@@ -356,36 +352,13 @@ line-height:33px;
 }
 
 .messageWindow_chat .footer{
-background:#EEEEEE;
+background:$grayLighter;
 }
 .messageWindow_chat .footer input.text{
 width:240px;
 *width:230px;
 height:30px;
 margin:0;
-}
-
-
-#messageWindow.active .messageWindow_list,
-#messageWindow.active .messageWindow_chat{
-border-top:1px solid #d11b20;
-border-left:1px solid #d11b20;
-border-right:1px solid #d11b20;
-}
-#messageWindow.active .header{
-background:#e63439;
-}
-#messageWindow.active .btn_close:hover,
-#messageWindow.active .btn_mini:hover,
-#messageWindow.active .btn_open:hover,
-#messageWindow.active .btn_list{
-background:#d11b20;
-}
-#messageWindow.active .btn_close i,
-#messageWindow.active .btn_mini i,
-#messageWindow.active .btn_open i,
-#messageWindow.active .btn_list i{
-color:#FFFFFF;
 }
 
 
@@ -442,7 +415,7 @@ padding:7px 10px;
 margin:0;
 }
 .modal-body .userList li label:hover{
-background:#EEEEEE;
+background:$grayHightLight;
 }
 .modal-body .userList li label .checkbox{
 margin:0 5px 0 0;

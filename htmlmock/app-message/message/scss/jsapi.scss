@@ -1,430 +1,426 @@
 @charset "utf-8";
 // Core variables and mixins
-@import "../../themes/default/sass/variables";
-@import "../../themes/default/sass/mixins";
+// 3/26 後藤コメント：Aipoモック内では参照パスにもう一段階「../」が必要だったため追記
+@import "../../../themes/default/sass/variables";
+@import "../../../themes/default/sass/mixins";
 @import "compass";
 
-@font-face{
-	font-family:'FontAwesome';
-	src:url('../font/fontawesome-webfont.eot?v=3.2.0');
-	src:url('../font/fontawesome-webfont.eot?#iefix&v=3.2.0') format('embedded-opentype'),url('../font/fontawesome-webfont.woff?v=3.2.0') format('woff'),url('../font/fontawesome-webfont.ttf?v=3.2.0') format('truetype'),url('../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.0') format('svg');
-	font-weight:normal;
-	font-style:normal;
-}
+// 3/26 後藤コメント：下記はfont-awsomeの二重定義では？コメントアウト対応
+//@font-face {
+//	font-family: 'FontAwesome';
+//	src: url('../font/fontawesome-webfont.eot?v=3.2.0');
+//	src: url('../font/fontawesome-webfont.eot?#iefix&v=3.2.0') format('embedded-opentype'), url('../font/fontawesome-webfont.woff?v=3.2.0') format('woff'), url('../font/fontawesome-webfont.ttf?v=3.2.0') format('truetype'), url('../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.0') format('svg');
+//	font-weight: normal;
+//	font-style: normal;
+//}
 
 * {
 	@include font-family-sans-serif();
 }
 
 html, body {
-	margin:0;
-	padding:0;
-	font-size:100%;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
 }
+
 body {
-	width:100%;
-	padding:0;
-	margin:0;
-	font-size:.75em;
-	line-height:1.4;
-	background:$white;
-	color:$black;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: .75em;
+	line-height: 1.4;
+	background: $white;
+	color: $black;
 }
 
 * html body {
-	font-size:.8em;
+	font-size: .8em;
 }
-*+html body {
-	font-size:.75em;
+
+* + html body {
+	font-size: .75em;
 }
 
 p {
-	margin:5px 0;
+	margin: 5px 0;
 }
 
 h1, h2, h3, h4, h5, h6, p, span {
-	outline:none;
+	outline: none;
 }
 
+#wrapper {
+	min-width: 0;
+}
 
 /***************************************************
 	messageWindow
 --------------------------------------------------*/
 
-#messageWindow{
+#messageWindow {
 }
 
-.messageWindow_list,
-.messageWindow_chat{
-/*position:fixed;
-bottom:0;
-z-index:9000;*/
-background:$white;
-}
-.messageWindow_list,
-.messageWindow_chat{
-width:300px;
+//.messageWindow_list,
+.messageWindow_chat {
+	//position:fixed;
+	//bottom:0;
+	//z-index:9000;
+	background: $white;
+	//width: 300px;
+
+	.header { //.messageWindow_chat .header
+		padding: 9px 10px;
+		height: 15px;
+		background: $white;
+		color: $black;
+		border-bottom: 1px solid $grayBorderLight;
+
+		a:hover { //.messageWindow_chat .header a:hover
+			span {
+				text-decoration: none;
+				color: $orange;
+			}
+			[class*=icon-] {
+				color: $orange;
+			}
+		}
+		// 3/26 後藤コメント：閉じるボタン用などのtools追加
+		.tools {
+			float: right;
+
+			a {
+				padding-left: 5px;
+			}
+			a:hover i {
+				color: $grayDark !important;
+			}
+		}
+	}
+
+	.list {
+		float: left;
+		display: block;
+		max-width: 220px;
+		border-radius: 2px;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		.title {
+			float: left;
+			max-width: 195px;
+			display: block;
+			padding: 0 2px;
+			color: $black;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-decoration: underline;
+		}
+
+		.icon-caret-down {
+			display: none;
+			float: right;
+			color: $gray;
+			margin: 2px 5px 0;
+			text-decoration: none;
+		}
+	}
+
+	.inner { //.messageWindow_chat .inner
+		overflow-y: scroll;
+		height: 250px;
+
+		ul { //.messageWindow_chat .inner ul
+			margin: 0;
+			padding: 0;
+		}
+
+		li { //.messageWindow_chat .inner li
+			display: block;
+			margin: 0;
+			//padding: 0; //二重定義だったためコメントアウト。後々削除
+			padding: 7px;
+			background: none;
+			border-bottom: 1px solid $grayLighter;
+			*width: 188px;
+
+			a { //.messageWindow_list .inner li a
+				//display: block; // 3/26 後藤コメント：ブロック状にする必要が無いため
+				//font-size: 11px;
+				//text-decoration: none;
+				//padding: 7px 7px 7px;
+				//margin: 0;
+				//vertical-align: text-top;
+
+				.name { //.messageWindow_list .inner li a .name
+					float: left;
+					display: inline-block;
+					width: 240px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+
+				.counter { //.messageWindow_list .inner li a .counter
+					float: right;
+					margin: 0;
+				}
+
+			}
+
+			a:hover { //.messageWindow_list .inner li a:hover
+				//background: $grayHightLight;
+				//color: $black;
+				text-decoration: underline;
+
+				.counter { //.messageWindow_list .inner li a:hover .counter
+					color: $white;
+				}
+
+			}
+
+			.name { //.messageWindow_chat .inner li .name
+				display: inline-block;
+				font-weight: bold;
+			}
+
+			.date { //.messageWindow_chat .inner li .date
+				display: inline-block;
+				color: $gray;
+				font-size: 10px;
+			}
+
+			.readList { //.messageWindow_chat .inner li .readList
+				color: $gray;
+				text-decoration: none;
+			}
+
+		}
+		li.active { //.messageWindow_list .inner li.active
+			a { //.messageWindow_list .inner li.active a
+				background: $grayHightLight;
+				font-weight: bold;
+
+				.counter { //.messageWindow_list .inner li.active a .counter
+					font-weight: normal;
+				}
+			}
+		}
+
+		.invite_block { //.messageWindow_chat .inner .invite_block
+			font-size: 11px;
+			background: $grayLighter;
+			border: none;
+
+			a { //.messageWindow_chat .inner .invite_block a
+				color: $black;
+				text-shadow: none;
+			}
+
+			.img,
+			.img img { //.messageWindow_chat .inner .invite_block .img, img
+				display: inline-block;
+				height: 24px;
+				width: 24px;
+				border-radius: 3px;
+			}
+
+		}
+
+	}
+
+	.footer { //.messageWindow_chat .footer
+		height: 35px;
+		padding: 5px;
+		border-top: 1px solid $grayLight;
+		background: $grayLighter;
+
+		input.text { //.messageWindow_chat .footer input.text
+			width: 240px;
+			width: 238 px\9;
+			height: 30px;
+			margin: 0;
+		}
+	}
+
 }
 
-.messageWindow_list .header,
-.messageWindow_chat .header{
-padding:9px 10px;
-height:15px;
-background:$white;
-color:$black;
-border-bottom:1px solid $grayBorderLight;
+.dropdown-menu {
+	top: 22px;
+	width: 240px;
+	padding: 0;
+	color: $black;
+	border: 1px solid $grayBorderDark;
+
+	a { // .dropdown-menu a
+		color: $black;
+
+		&.auiButtonAction { // .dropdown-menu a.auiButtonAction
+			color: $black;
+		}
+	}
+
+	.dropdown-header { // .dropdown-menu .dropdown-header
+		display: block;
+		padding: 7px;
+		text-align: center;
+		font-size: 11px;
+		border-bottom: 1px solid $grayLighter;
+	}
+
+	.dropdown-footer { // .dropdown-menu .dropdown-footer
+		display: block;
+		padding: 7px;
+		text-align: center;
+		font-size: 11px;
+		border-top: 1px solid $grayLighter;
+	}
+
+	ul { // .dropdown-menu ul
+		display: block;
+		max-height: 220px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 0;
+		margin: 0;
+
+		li { // .dropdown-menu ul li
+			display: block;
+			margin: 0;
+			padding: 0;
+			background: none;
+			//border-bottom: 1px solid $grayLighter; // 3/26 後藤コメント：従来のメッセージに罫線は無いためコメントアウト
+			@include box-sizing(border-box); // 3/26 後藤追記
+
+			a { // .dropdown-menu ul li a
+				display: block;
+				font-size: 11px;
+				text-decoration: none;
+				padding: 7px;
+				margin: 0;
+				vertical-align: text-top;
+				@include box-sizing(border-box);
+
+				.name { // .dropdown-menu ul li a .name
+					float: left;
+					display: inline-block;
+					width: 190px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+
+				.counter { //.dropdown-menu ul li a .counter
+					//float: right; // 3/26 後藤コメント：左詰めに修正
+					margin: 1px 5px 0 0;
+				}
+
+				&:hover { // .dropdown-menu ul li a:hover
+					background: $grayHightLight;
+					color: $black;
+					.counter { //.dropdown-menu ul li a:hover .counter
+						color: $white;
+					}
+				}
+			}
+		}
+		li.active { // .dropdown-menu ul li.active
+			a { // .dropdown-menu ul li.active a
+				background: $grayHightLight;
+				//font-weight: bold; // 3/26 後藤コメント：カウントを赤くするのみで充分で現メッセージ機能でも太字など行っていないため
+
+				.counter { //.dropdown-menu ul li.active a .counter
+					font-weight: normal;
+				}
+			}
+		}
+	}
 }
 
-.messageWindow_list .list,
-.messageWindow_chat .list{
-float:left;
-display:block;
-max-width:220px;
-border-radius:2px;
-cursor:pointer;
-}
-.messageWindow_list .list:hover,
-.messageWindow_chat .list:hover{
-text-decoration:none;
-}
-.messageWindow_list .list .title,
-.messageWindow_chat .list .title{
-float:left;
-max-width:195px;
-display:block;
-padding:0 2px;
-color:$black;
-overflow:hidden;
-white-space:nowrap;
-text-overflow:ellipsis;
-text-decoration:underline;
-}
-.messageWindow_list .header a:hover span,
-.messageWindow_chat .header a:hover span{
-text-decoration:none;
-color:$orange;
-}
-.messageWindow_list .list .icon-caret-down,
-.messageWindow_chat .list .icon-caret-down{
-display:none;
-float:right;
-color:$gray;
-margin:2px 5px 0;
-text-decoration:none;
-}
-.messageWindow_list .header a:hover .icon-caret-down,
-.messageWindow_chat .header a:hover .icon-caret-down{
-color:$orange;
-}
-
-.messageWindow_list .header .dropdown-menu,
-.messageWindow_chat .header .dropdown-menu{
-top:20px;
-width:240px;
-padding:0;
-color:$black;
-border:1px solid $grayBorderDark;
-}
-.messageWindow_list .header .dropdown-menu a,
-.messageWindow_chat .header .dropdown-menu a{
-color:$black;
-}
-.messageWindow_list .header .dropdown-menu a.auiButtonAction,
-.messageWindow_chat .header .dropdown-menu a.auiButtonAction{
-color:$black;
-}
-
-.messageWindow_list .header .dropdown-menu .dropdown-header,
-.messageWindow_chat .header .dropdown-menu .dropdown-header{
-display:block;
-padding:7px;
-text-align:center;
-font-size:11px;
-border-bottom:1px solid $grayLighter;
-}
-.messageWindow_list .header .dropdown-menu .dropdown-footer,
-.messageWindow_chat .header .dropdown-menu .dropdown-footer{
-display:block;
-padding:7px;
-text-align:center;
-font-size:11px;
-border-top:1px solid $grayLighter;
-}
-
-.messageWindow_list .header .dropdown-menu ul,
-.messageWindow_chat .header .dropdown-menu ul{
-display:block;
-max-height:220px;
-overflow-x:hidden;
-overflow-y:scroll;
-padding:0;
-margin:0;
-}
-.messageWindow_list .header .dropdown-menu ul li,
-.messageWindow_chat .header .dropdown-menu ul li{
-display:block;
-margin:0;
-padding:0;
-background:none;
-border-bottom:1px solid $grayLighter;
-}
-.messageWindow_chat .header .dropdown-menu ul li a{
-display:block;
-font-size:11px;
-text-decoration:none;
-padding:7px 7px 7px;
-margin:0;
-vertical-align:text-top;
-}
-.messageWindow_chat .header .dropdown-menu ul li a:hover{
-background:$grayHightLight;
-}
-.messageWindow_chat .header .dropdown-menu ul li a:hover{
-color:$black;
-}
-.messageWindow_chat .header .dropdown-menu ul li a .name{
-float:left;
-display:inline-block;
-width:185px;
-overflow:hidden;
-white-space:nowrap;
-text-overflow:ellipsis;
-}
-.messageWindow_chat .header .dropdown-menu ul li a .counter{
-float:right;
-margin:0;
-}
-.messageWindow_chat .header .dropdown-menu ul li a:hover .counter{
-color:$white;
-}
-.messageWindow_chat .header .dropdown-menu ul li.active a{
-background:$grayHightLight;
-font-weight:bold;
-}
-.messageWindow_chat .header .dropdown-menu ul li.active a .counter{
-font-weight:normal;
-}
+//.messageWindow_list .footer {
+//	text-align: center;
+//	font-size: 11px;
+//	line-height: 33px;
+//}
 
 
-
-.btn_close,
-.btn_mini,
-.btn_open,
-.btn_list{
-text-decoration:none;
-float:right;
-display:block;
-padding:0px 4px;
-border-radius:2px;
-margin-left:3px;
-}
-.btn_close:hover,
-.btn_mini:hover,
-.btn_open:hover,
-.btn_list:hover{
-cursor:pointer;
-text-decoration:none;
+.modal {
+	top: 35px;
+	*width: 278px;
+	*margin-left: -140px;
 }
 
-.btn_close i,
-.btn_mini i,
-.btn_open i,
-.btn_list i{
-color:$gray;
-cursor:pointer;
-}
-.btn_close:hover i,
-.btn_mini:hover i,
-.btn_open:hover i,
-.btn_list:hover i{
-color:$grayDark;
+.modal-header {
+	font-weight: bold;
+	padding: 10px 15px 10px 10px;
 }
 
-.messageWindow_list .inner,
-.messageWindow_chat .inner{
-overflow-y:scroll;
-height:250px;
+.modal-header .close {
+	margin-top: -7px;
+	padding: 0 5px;
 }
 
-.messageWindow_list .inner ul,
-.messageWindow_chat .inner ul{
-margin:0;
-padding:0;
-}
-.messageWindow_list .inner li,
-.messageWindow_chat .inner li{
-display:block;
-margin:0;
-padding:0;
-background:none;
-border-bottom:1px solid $grayLighter;
-}
-.messageWindow_list .inner li{
-*width:183px;
-}
-.messageWindow_list .inner li a{
-display:block;
-font-size:11px;
-text-decoration:none;
-padding:7px 7px 7px;
-margin:0;
-vertical-align:text-top;
-}
-.messageWindow_list .inner li a:hover{
-background:$grayHightLight;
-}
-.messageWindow_list .inner li a:hover{
-color:$black;
-}
-.messageWindow_list .inner li a .name{
-float:left;
-display:inline-block;
-width:240px;
-overflow:hidden;
-white-space:nowrap;
-text-overflow:ellipsis;
-}
-.messageWindow_list .inner li a .counter{
-float:right;
-margin:0;
-}
-.messageWindow_list .inner li a:hover .counter{
-color:$white;
-}
-.messageWindow_list .inner li.active a{
-background:$grayHightLight;
-font-weight:bold;
-}
-.messageWindow_list .inner li.active a .counter{
-font-weight:normal;
+.modal-body {
+	padding: 0;
+	max-height: 160px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	.img,
+	.img img {
+		display: inline-block;
+		height: 24px;
+		width: 24px;
+		border-radius: 3px;
+		margin-bottom: 5px;
+	}
+
+	.img64,
+	.img64 img {
+		height: 64px;
+		width: 64px;
+	}
+
+	h4 {
+		margin: 0;
+		padding: 5px 10px 5px;
+		font-size: 12px;
+	}
+
+	.userList {
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding: 0;
+			margin: 0;
+
+			label {
+				font-size: 12px;
+				padding: 7px 10px;
+				margin: 0;
+
+				.checkbox {
+					margin: 0 5px 0 0;
+				}
+
+				.img {
+					margin-bottom: 0;
+				}
+			}
+			label:hover {
+				background: $grayHightLight;
+			}
+		}
+	}
 }
 
-.messageWindow_chat .inner{
-}
-.messageWindow_chat .inner li{
-padding:7px;
-}
-.messageWindow_chat .inner li .name{
-display:inline-block;
-font-weight:bold;
-}
-.messageWindow_chat .inner li .date{
-display:inline-block;
-color:$gray;
-font-size:10px;
-}
-.messageWindow_chat .inner li .readList{
-color:$gray;
-text-decoration:none;
-}
-.messageWindow_chat .inner .invite_block{
-font-size:11px;
-background:$grayLighter;
-border:none;
-}
-.messageWindow_chat .inner .invite_block a{
-color:$black;
-text-shadow:none;
-}
-.messageWindow_chat .inner .invite_block .img,
-.messageWindow_chat .inner .invite_block .img img{
-display:inline-block;
-height:24px;
-width:24px;
-border-radius:3px;
-}
-
-
-
-.messageWindow_list .footer,
-.messageWindow_chat .footer{
-height:35px;
-padding:5px;
-border-top:1px solid $grayLight;
-}
-
-.messageWindow_list .footer{
-text-align:center;
-font-size:11px;
-line-height:33px;
-}
-.messageWindow_list .footer a{
-}
-
-.messageWindow_chat .footer{
-background:$grayLighter;
-}
-.messageWindow_chat .footer input.text{
-width:240px;
-width:238px\9;
-height:30px;
-margin:0;
-}
-
-
-.modal{
-top:35px;
-*width:278px;
-*margin-left:-140px;
-}
-.modal-header{
-font-weight:bold;
-padding:10px 15px 10px 10px;
-}
-.modal-header .close{
-margin-top:-7px;
-padding:0 5px;
-}
-.modal-body{
-padding:0;
-max-height:160px;
-overflow-x:hidden;
-overflow-y:scroll;
-}
-.modal-body .img,
-.modal-body .img img{
-display:inline-block;
-height:24px;
-width:24px;
-border-radius:3px;
-}
-.modal-body .img64,
-.modal-body .img64 img{
-height:64px;
-width:64px;
-}
-.modal-body h4{
-margin:0;
-padding:5px 10px 5px;
-font-size:12px;
-}
-.modal-body .img{
-margin-bottom:5px;
-}
-.modal-body .userList{
-padding:0;
-margin:0;
-}
-.modal-body .userList li{
-padding:0;
-margin:0;
-}
-.modal-body .userList li label{
-font-size:12px;
-padding:7px 10px;
-margin:0;
-}
-.modal-body .userList li label:hover{
-background:$grayHightLight;
-}
-.modal-body .userList li label .checkbox{
-margin:0 5px 0 0;
-}
-.modal-body .userList li label .img{
-margin-bottom:0;
-}
-.modal-footer{
-padding:10px;
+.modal-footer {
+	padding: 10px;
 }
 
 

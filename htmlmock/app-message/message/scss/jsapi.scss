@@ -264,20 +264,32 @@ h1, h2, h3, h4, h5, h6, p, span {
 		}
 	}
 
-	.dropdown-header { // .dropdown-menu .dropdown-header
+	.dropdown-header,
+	.dropdown-footer { // .dropdown-menu .dropdown-header
 		display: block;
-		padding: 7px;
-		text-align: center;
+		//padding: 7px;
+		//text-align: center;
 		font-size: 11px;
+		overflow: hidden;
+
+		a {
+			display: block;
+			padding: 7px;
+
+			&:hover {
+				background: $grayHightLight;
+				text-decoration: none;
+			}
+		}
+	}
+	.dropdown-header {
 		border-bottom: 1px solid $grayLighter;
+		@include border-radius(4px 4px 0 0);
 	}
 
-	.dropdown-footer { // .dropdown-menu .dropdown-footer
-		display: block;
-		padding: 7px;
-		text-align: center;
-		font-size: 11px;
+	.dropdown-footer {
 		border-top: 1px solid $grayLighter;
+		@include border-radius(0 0 4px 4px);
 	}
 
 	ul { // .dropdown-menu ul

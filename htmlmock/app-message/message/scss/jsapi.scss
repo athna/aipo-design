@@ -46,6 +46,10 @@ h1, h2, h3, h4, h5, h6, p, span {
 	outline:none;
 }
 
+#wrapper{
+min-width:100%;
+}
+
 
 /***************************************************
 	messageWindow
@@ -55,7 +59,8 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .messageWindow_list,
-.messageWindow_chat{
+.messageWindow_chat,
+.messageWindow_popout{
 /*position:fixed;
 bottom:0;
 z-index:9000;*/
@@ -65,9 +70,12 @@ background:$white;
 .messageWindow_chat{
 width:300px;
 }
+.messageWindow_popout{
+width:100%;
+}
 
-.messageWindow_list .header,
-.messageWindow_chat .header{
+
+#messageWindow .header{
 padding:9px 10px;
 height:15px;
 background:$white;
@@ -75,20 +83,17 @@ color:$black;
 border-bottom:1px solid $grayBorderLight;
 }
 
-.messageWindow_list .list,
-.messageWindow_chat .list{
+#messageWindow .list{
 float:left;
 display:block;
 max-width:220px;
 border-radius:2px;
 cursor:pointer;
 }
-.messageWindow_list .list:hover,
-.messageWindow_chat .list:hover{
+#messageWindow .list:hover{
 text-decoration:none;
 }
-.messageWindow_list .list .title,
-.messageWindow_chat .list .title{
+#messageWindow .title{
 float:left;
 max-width:195px;
 display:block;
@@ -99,51 +104,43 @@ white-space:nowrap;
 text-overflow:ellipsis;
 text-decoration:underline;
 }
-.messageWindow_list .header a:hover span,
-.messageWindow_chat .header a:hover span{
+#messageWindow .header a:hover span{
 text-decoration:none;
 color:$orange;
 }
-.messageWindow_list .list .icon-caret-down,
-.messageWindow_chat .list .icon-caret-down{
+#messageWindow .list .icon-caret-down{
 display:none;
 float:right;
 color:$gray;
 margin:2px 5px 0;
 text-decoration:none;
 }
-.messageWindow_list .header a:hover .icon-caret-down,
-.messageWindow_chat .header a:hover .icon-caret-down{
+#messageWindow .header a:hover .icon-caret-down{
 color:$orange;
 }
 
-.messageWindow_list .header .dropdown-menu,
-.messageWindow_chat .header .dropdown-menu{
+#messageWindow .header .dropdown-menu{
 top:20px;
 width:240px;
 padding:0;
 color:$black;
 border:1px solid $grayBorderDark;
 }
-.messageWindow_list .header .dropdown-menu a,
-.messageWindow_chat .header .dropdown-menu a{
+#messageWindow .header .dropdown-menu a{
 color:$black;
 }
-.messageWindow_list .header .dropdown-menu a.auiButtonAction,
-.messageWindow_chat .header .dropdown-menu a.auiButtonAction{
+#messageWindow .header .dropdown-menu a.auiButtonAction{
 color:$black;
 }
 
-.messageWindow_list .header .dropdown-menu .dropdown-header,
-.messageWindow_chat .header .dropdown-menu .dropdown-header{
+#messageWindow .header .dropdown-menu .dropdown-header{
 display:block;
 padding:7px;
 text-align:center;
 font-size:11px;
 border-bottom:1px solid $grayLighter;
 }
-.messageWindow_list .header .dropdown-menu .dropdown-footer,
-.messageWindow_chat .header .dropdown-menu .dropdown-footer{
+#messageWindow .header .dropdown-menu .dropdown-footer{
 display:block;
 padding:7px;
 text-align:center;
@@ -151,8 +148,7 @@ font-size:11px;
 border-top:1px solid $grayLighter;
 }
 
-.messageWindow_list .header .dropdown-menu ul,
-.messageWindow_chat .header .dropdown-menu ul{
+#messageWindow .header .dropdown-menu ul{
 display:block;
 max-height:220px;
 overflow-x:hidden;
@@ -160,15 +156,14 @@ overflow-y:scroll;
 padding:0;
 margin:0;
 }
-.messageWindow_list .header .dropdown-menu ul li,
-.messageWindow_chat .header .dropdown-menu ul li{
+#messageWindow .header .dropdown-menu ul li{
 display:block;
 margin:0;
 padding:0;
 background:none;
 border-bottom:1px solid $grayLighter;
 }
-.messageWindow_chat .header .dropdown-menu ul li a{
+#messageWindow .header .dropdown-menu ul li a{
 display:block;
 font-size:11px;
 text-decoration:none;
@@ -176,13 +171,13 @@ padding:7px 7px 7px;
 margin:0;
 vertical-align:text-top;
 }
-.messageWindow_chat .header .dropdown-menu ul li a:hover{
+#messageWindow .header .dropdown-menu ul li a:hover{
 background:$grayHightLight;
 }
-.messageWindow_chat .header .dropdown-menu ul li a:hover{
+#messageWindow .header .dropdown-menu ul li a:hover{
 color:$black;
 }
-.messageWindow_chat .header .dropdown-menu ul li a .name{
+#messageWindow .header .dropdown-menu ul li a .name{
 float:left;
 display:inline-block;
 width:185px;
@@ -190,18 +185,18 @@ overflow:hidden;
 white-space:nowrap;
 text-overflow:ellipsis;
 }
-.messageWindow_chat .header .dropdown-menu ul li a .counter{
+#messageWindow .header .dropdown-menu ul li a .counter{
 float:right;
 margin:0;
 }
-.messageWindow_chat .header .dropdown-menu ul li a:hover .counter{
+#messageWindow .header .dropdown-menu ul li a:hover .counter{
 color:$white;
 }
-.messageWindow_chat .header .dropdown-menu ul li.active a{
+#messageWindow .header .dropdown-menu ul li.active a{
 background:$grayHightLight;
 font-weight:bold;
 }
-.messageWindow_chat .header .dropdown-menu ul li.active a .counter{
+#messageWindow .header .dropdown-menu ul li.active a .counter{
 font-weight:normal;
 }
 
@@ -210,7 +205,8 @@ font-weight:normal;
 .btn_close,
 .btn_mini,
 .btn_open,
-.btn_list{
+.btn_list,
+.btn_popout{
 text-decoration:none;
 float:right;
 display:block;
@@ -221,7 +217,8 @@ margin-left:3px;
 .btn_close:hover,
 .btn_mini:hover,
 .btn_open:hover,
-.btn_list:hover{
+.btn_list:hover,
+.btn_popout:hover{
 cursor:pointer;
 text-decoration:none;
 }
@@ -229,40 +226,42 @@ text-decoration:none;
 .btn_close i,
 .btn_mini i,
 .btn_open i,
-.btn_list i{
+.btn_list i,
+.btn_popout i{
 color:$gray;
 cursor:pointer;
 }
 .btn_close:hover i,
 .btn_mini:hover i,
 .btn_open:hover i,
-.btn_list:hover i{
+.btn_list:hover i,
+.btn_popout:hover i{
 color:$grayDark;
 }
 
-.messageWindow_list .inner,
-.messageWindow_chat .inner{
+#messageWindow .inner{
 overflow-y:scroll;
-height:250px;
 }
 
-.messageWindow_list .inner ul,
-.messageWindow_chat .inner ul{
+#messageWindow .messageWindow_popout .inner{
+height:371px;
+}
+
+#messageWindow .inner ul{
 margin:0;
 padding:0;
 }
-.messageWindow_list .inner li,
-.messageWindow_chat .inner li{
+#messageWindow .inner li{
 display:block;
 margin:0;
 padding:0;
 background:none;
 border-bottom:1px solid $grayLighter;
 }
-.messageWindow_list .inner li{
+/*#messageWindow .inner li{
 *width:183px;
 }
-.messageWindow_list .inner li a{
+#messageWindow .inner li a{
 display:block;
 font-size:11px;
 text-decoration:none;
@@ -270,13 +269,13 @@ padding:7px 7px 7px;
 margin:0;
 vertical-align:text-top;
 }
-.messageWindow_list .inner li a:hover{
+#messageWindow .inner li a:hover{
 background:$grayHightLight;
 }
-.messageWindow_list .inner li a:hover{
+#messageWindow .inner li a:hover{
 color:$black;
-}
-.messageWindow_list .inner li a .name{
+}*/
+/*#messageWindow .inner li a .name{
 float:left;
 display:inline-block;
 width:240px;
@@ -284,50 +283,50 @@ overflow:hidden;
 white-space:nowrap;
 text-overflow:ellipsis;
 }
-.messageWindow_list .inner li a .counter{
+#messageWindow .inner li a .counter{
 float:right;
 margin:0;
 }
-.messageWindow_list .inner li a:hover .counter{
+#messageWindow .inner li a:hover .counter{
 color:$white;
 }
-.messageWindow_list .inner li.active a{
+#messageWindow .inner li.active a{
 background:$grayHightLight;
 font-weight:bold;
 }
-.messageWindow_list .inner li.active a .counter{
+#messageWindow .inner li.active a .counter{
 font-weight:normal;
-}
+}*/
 
-.messageWindow_chat .inner{
+#messageWindow .inner{
 }
-.messageWindow_chat .inner li{
+#messageWindow .inner li{
 padding:7px;
 }
-.messageWindow_chat .inner li .name{
+#messageWindow .inner li .name{
 display:inline-block;
 font-weight:bold;
 }
-.messageWindow_chat .inner li .date{
+#messageWindow .inner li .date{
 display:inline-block;
 color:$gray;
 font-size:10px;
 }
-.messageWindow_chat .inner li .readList{
+#messageWindow .inner li .readList{
 color:$gray;
 text-decoration:none;
 }
-.messageWindow_chat .inner .invite_block{
+#messageWindow .inner .invite_block{
 font-size:11px;
 background:$grayLighter;
 border:none;
 }
-.messageWindow_chat .inner .invite_block a{
+#messageWindow .inner .invite_block a{
 color:$black;
 text-shadow:none;
 }
-.messageWindow_chat .inner .invite_block .img,
-.messageWindow_chat .inner .invite_block .img img{
+#messageWindow .inner .invite_block .img,
+#messageWindow .inner .invite_block .img img{
 display:inline-block;
 height:24px;
 width:24px;
@@ -336,29 +335,36 @@ border-radius:3px;
 
 
 
-.messageWindow_list .footer,
-.messageWindow_chat .footer{
-height:35px;
+#messageWindow .footer{
+position:fixed;
+bottom:0;
+left:0;
+width:290px;
 padding:5px;
 border-top:1px solid $grayLight;
-}
-
-.messageWindow_list .footer{
 text-align:center;
 font-size:11px;
-line-height:33px;
-}
-.messageWindow_list .footer a{
-}
-
-.messageWindow_chat .footer{
 background:$grayLighter;
 }
-.messageWindow_chat .footer input.text{
+#messageWindow .footer form{
+margin-bottom:0;
+}
+#messageWindow .footer textarea.text{
 width:240px;
 width:238px\9;
-height:30px;
 margin:0;
+}
+#messageWindow .messageWindow_popout .footer{
+@include box-sizing(border-box);
+height:45px;
+}
+#messageWindow .messageWindow_popout .footer input.text{
+width:80%;
+float:left;
+}
+#messageWindow .messageWindow_popout .footer input.auiButtonAction{
+width:15%;
+float:right;
 }
 
 

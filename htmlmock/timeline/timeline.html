@@ -1,30 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" class="dj_khtml dj_safari">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta http-equiv="Content-Language" content="ja"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title></title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta http-equiv="Content-Style-Type" content="text/css"/>
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta name="robots" content="noindex,follow"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
-	<meta name="format-detection" content="telephone=no">
-    <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-    <!--link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css"/-->
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8"/>
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8,chrome=1"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css">
+	<![endif]-->
 </head>
 <body>
+
 <script type="text/javascript">
-    djConifg = {
-        xDomainBasePath: 'https://app.aipo.com/javascript'
-    };
+	djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
@@ -33,1366 +37,414 @@
 <div id="wrapper">
 
 <!-- HEADER -->
-<div id="header" class="clearfix"><div class="inner">
-
-	<div class="hdSign">
-		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-	</div>
-
-	<script>
-	function dispMenubar(obj,target) {
-		if(document.getElementById(target).style.display!='block') {
-			document.getElementById(target).style.display = 'block';
-		}else{
-			document.getElementById(target).style.display='none';
-		}
-	}
-	</script>
-
-	<div class="hdNavi">
-
-		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
-
-
-		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
-						<span class="mb_hide">お知らせ</span>
+<div id="header" class="clearfix">
+	<div class="inner">
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
+		</div>
+		<script>
+			function popupToggle($this, $target) {
+				if (document.getElementById($target).style.display == 'none') {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+				if ($this.className.indexOf('active') > 0) {
+					$this.className = $this.className.replace(' active', '');
+				} else {
+					$this.className += ' active'
+				}
+				;
+			}
+		</script>
+		<div class="hdNavi">
+			<div class="hdMessege"><a href="#">
+				<div id="messegechecker" class="zero counter">0</div>
+				メッセージ</a></div>
+			<div class="hdActivity" title="お知らせ">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+					 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+					 widgetid="activitycheckerContainer"
+					 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="activitycheckerContainer_label"
+						 id="activitycheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+							<span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span></div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="hdInformation">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="informationcheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-informationcheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="informationcheckerContainer_label" id="informationcheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="informationcheckerContainer_label" onclick="dispMenubar(this,'menubar_hdInformation')">
-						<div id="informationchecker" class="informationcheckerstyle counter">5</div>
-						<span class="mb_hide">サポート</span>
+			<div class="hdInformation" title="サポート">
+				<div
+						class="dijit dijitLeft dijitInline dijitDropDownButton"
+						dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						widgetid="supportcheckerContainer"
+						onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="supportcheckerContainer_label"
+						 id="supportcheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+							<div id="supportchecker" class="counter zero">0</div>
+							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
 					</div>
 				</div>
 			</div>
+			<div class="hdUserName"><a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
 		</div>
-
-		<div class="hdUserName">
-			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
-				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a>
-		</div>
-	</div>
-
-	<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
-		<ul>
-		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'popupMask');dispMenubar(this,'popupStartGuide')">スタートガイド</a></li>
-		<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
-		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
-		</ul>
-
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">Aipo.comからのお知らせ</div>
-			<ul class="tipInfo">
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+			<ul>
+				<li><a href="#">個人設定</a></li>
+				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
 			</ul>
-			<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
-		</div>
-
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定前は下記を表示。
-		タイトルの（）内は削ってください。
-
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
-			<div class="tipBody">
-				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
-				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
-			</div>
-		</div>
-
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定後は下記を表示。
-		タイトルの（）内は削ってください。
-
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
-			<div class="tipBody">
-				<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
-				<textarea></textarea>
-				<div class="clearfix mt5">
-					<div class="floatLeft fs11 fcGray">
-						これまでの獲得容量(全社)：5MB<br>
-						<a href="#" class="fcGray">twitter連携の設定を解除</a>
-					</div>
-					<div class="floatRight">
-						<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="tipDivider"></div>
-		<div class="tipBox tipFoot clearfix">
-			<div class="capacity">
-				100MB(10%) / 1024MB を使用中
-			</div>
-			<div class="social">
-				<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
-				<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
-			</div>
 		</div>
 	</div>
-
-	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
-		<ul>
-		<li><a href="#">個人設定</a></li>
-		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
-		</ul>
-	</div>
-
-
-</div></div>
-
+</div>
 <!-- /HEADER -->
-
 
 <!-- MAIN TAB -->
 <div id="auiTabs" class="clearfix">
 	<ul>
-    	<li class="first">
-        	<div class="tab active">
-                <div class="title"><a href="#">マイページ</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
-    	<li class="">
-        	<div class="tab activeNext">
-                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>iIconSetting"></a></div>
-            </div>
-        </li>
-    	<li class="">
-        	<div class="tab">
-                <div class="title"><a href="#">個人設定</a></div>
-                <div class="setting"></div>
-            </div>
-        </li>
-    	<li class="last">
-        	<div class="tab">
-                <div class="title"><a href="#">システム管理</a></div>
-                <div class="setting"></div>
-            </div>
-        </li>
-		<li class="addTab">
-			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
+		<li class="first">
+			<div class="tab active">
+				<div class="title"><a href="#">マイページ</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
 		</li>
-    </ul>
-    <div class="floatRight">
-    	<ul>
-    	<li class="first store">
-        	<div class="tab">
-                <div class="title"><a href="#" target="_blank">チャット</a></div>
-                <div class="setting"></div>
-            </div>
-        </li>
-        </ul>
-    </div>
+		<li class="">
+			<div class="tab activeNext">
+				<div class="title"><a href="#">タブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="">
+			<div class="tab">
+				<div class="title"><a href="#">タブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="last">
+			<div class="tab">
+				<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="addTab"><a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a></li>
+	</ul>
 </div>
 <!-- /MAIN TAB -->
 
-<!-- MAIN OUTER -->
+<!-- roundMainWrapper -->
 <div class="roundMainWrapper">
-<!-- LAYOUT -->
-
 
 <!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
 
-
 <table class="tableWrapper">
 <tbody>
-  <tr>
-<td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
+<tr>
+<td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer"></td>
+<td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer">
 
 <!-- auiPortlet -->
-<div class="dojoDndItem auiPortlet P-135e7e25490-10b77" id="dojoUnique1">
-	<div class="auiPortletHead"><div class="inner dojoDndHandle">
-			<div class="auiPortletTitle">
-			<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?action=controls.Maximize">タイムカード</a>
-		</div>
+<div class="dojoDndItem auiPortlet">
+<div class="auiPortletHead">
+	<div class="inner">
+		<div class="auiPortletTitle"><a href="#">タイムライン</a></div>
 		<div class="auiPortletTool">
-      			<div class="auiPortletSetting">
-														<a href="javascript:void(0);" id="menubar_button_P-135e7e25490-10b77" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135e7e25490-10b77');" title="カスタマイズ"></a>
-																    
-			    			</div>
 		</div>
-		</div></div>
-	<!-- auiPortletBody -->
-	<div class="auiPortletBody dndIdentifier">
-    <div class="inner" dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135e7e25490-10b77" id="portlet_P-135e7e25490-10b77">
-    
+	</div>
+</div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody">
+	<div class="inner">
+		<div id="timelineOuter">
+			<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+			<!-- inputField -->
+			<div id="inputField">
+				<form name="" id="" action="" method="post" onsubmit="">
+					<input type="hidden" name="_name" value="timelineForm">
+					<input type="hidden" name="secid" value="">
 
+					<div class="tlInputMention">
+						<textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+					</div>
+					<div class="tlInputAttachment">
+						<div class="floatRight"><a href="#"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
+						<div class="tlClipBoard clearfix">
+							<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="160" height="120"/></a></div>
+							<div class="tlClipContents">
+								<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+								<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+								<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+							</div>
+						</div>
+					</div>
+					<!-- tlInputControls -->
+					<div class="tlInputControls clearfix">
+						<div class="floatLeft">
+							<iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a" class="auiInputFileFrame"></iframe>
+						</div>
+						<!-- ##################################################
+		  ●開発担当者へ
 
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
+		  下記にある「スケジュールに追加する」ボタンの「onClick」処理はベタ書きの仮のものです。適切な内容に修正をお願いします。
 
-    ptConfig['P-135e7e25490-10b77'] = { group:"exttimecard", initUrl:'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardScreen', reloadFunction:aipo.reloadPage };
+		  「スケジュールに追加する」ボタンをクリックすることで、タイムラインからスケジュール登録が行えるショートコードを挿入してください。
+		  開いたカレンダーの時間・日付が変更されたタイミングでもショートコードを差し替えてください。
+		  ※ボタン周りに日付埋め込みのスペースが無いことと、書式を覚えてしまえば手入力でもできることからショートコードを採用しています。
 
-//]]>
-</script>
+		  ################################################## -->
+						<div class="floatRight">
+							<ul class="clearfix">
+								<!--li><a href="javascript:void(0)" class="auiButton" title="スケジュールに追加する" onclick="if(document.getElementById('popup_3').style.display!='none'){document.getElementById('popup_3').style.display='none'}else{bounds=this.getBoundingClientRect();document.getElementById('popup_3').style.top=bounds.top+30+'px';document.getElementById('popup_3').style.right=document.body.clientWidth-bounds.right+'px';document.getElementById('popup_3').style.display='block'; document.getElementById('timelineTextarea').value='[[2012/07/17 09:00-09:30]]';}"><span><i class="auiIcon auiIconCalendar"></i></span></a></li-->
+								<li>
+									<input type="submit" class="auiButtonAction" value="投稿する"/>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- /tlInputControls --> </form>
+			</div>
+			<!-- /inputField -->
+			<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>
+			<div class="tlDisplayChanger">
+				<!-- ##################################################
+	  ●開発担当者へ
 
+	  スイッチとなるリンクのJSをとりあえずベタ書きしています。適宜修正をお願いします。
+	  「tlDisplayGroup」の内容は選択中のグループ名を入れてください。
 
- <div class="indicator" id="indicator-list-P-135e7e25490-10b77" style="display:none;">データを送信しています...</div>
-<div id="exttimecardmessageDiv"></div>
-<form name="formP-135e7e25490-10b77" id="formP-135e7e25490-10b77" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b77?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, 'indicator-list-','P-135e7e25490-10b77',aipo.exttimecard.onListReceiveMessage);return false;">
-<input type="hidden" name="_name" value="exttimecardForm">
-<input type="hidden" name="secid" value="be8aca86d186e06fc1cba2617082d312">
-<table class="wide">
-  <tbody>
-<tr>
+	  ################################################## -->
+				<div class="btn"><i class="indicator"></i> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a></div>
+				<!-- ##################################################
+	  ●開発担当者へ
 
+	  「menubar」内の選択項目の<a>タグには「class="selected"」を付与させてください。
 
-    <td nowrap="nowrap" class="w25 center">
+	  ################################################## -->
+				<div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
+					<ul>
+						<li><a href="#" class="selected">すべてのグループ</a></li>
+						<li><a href="#">管理本部</a></li>
+						<li><a href="#">開発本部</a></li>
+						<li><a href="#">企画本部</a></li>
+						<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="timeline" class="timeline" style="min-height:750px;">
+				<div id="content_xxx">
+					<input id="readHidden_P-135e7e25490-10b76" type="hidden" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b76?template=TimelineContentScreen&amp;start=2', 'P-135e7e25490-10b76', '1', '82');"/>
+					<input type="hidden" id="last_timelineId_P-135e7e25490-10b76" value="4072"/>
 
-出勤<br>9:28
+					<div id="message21" class="message first">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body"> 画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。
+								<p class="more">...<br/>
+									<a href="#">続きを読む</a></p>
+								<!-- ############################################################
+								●開発担当者向けコメント
 
+								画像が複数投稿される場合も<br>を使わずそのまま羅列させてください。
+								ソース内改行も発生しないようお願いします。
 
-    </td>
+								############################################################ -->
+								<div class="tlImageBlock clearfix"><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a>
+							</div>
+						</div>
+					</div>
+					<div id="comments21" class="comments">
+						<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div id="message112" class="message">
+							<form name="" id="" action="">
+								<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+								<div class="messageContents">
+									<div class="name">ユーザー名</div>
+									<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
+										<p class="more">...<br/>
+											<a href="#">続きを読む</a></p>
+									</div>
+									<div class="time">16:51</div>
+								</div>
+							</form>
+						</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+						<div id="commentField175" class="commentField" style="">
+							<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+							<form name="" id="" action="" method="post" onsubmit="">
+								<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
 
-    <td nowrap="nowrap" class="w25 center">
+								<div class="outer">
+									<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
+								</div>
+								<div class="right"><a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a></div>
+							</form>
+						</div>
+					</div>
 
-                     <input type="button" value="退勤" class="auiButtonBold" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'mode', 'punchout');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'punchout', '退勤');dojo.byId('formP-135e7e25490-10b77').onsubmit();">
-                </td>
+					<div id="message21" class="message">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a></div>
+						</div>
+					</div>
+					<div id="comments21" class="comments">
+						<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div id="message112" class="message">
+							<form name="" id="" action="">
+								<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+								<div class="messageContents">
+									<div class="name">ユーザー名</div>
+									<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
+									<div class="time">16:51</div>
+								</div>
+							</form>
+						</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+					</div>
+					<div id="commentField21" class="commentField" style="display:none">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="secid" value="">
 
-    <td nowrap="nowrap" class="w25 center">
-<input type="button" value="外出" class="auiButtonBold" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'mode', 'outgoing');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135e7e25490-10b77'), 'outgoing', '外出');dojo.byId('formP-135e7e25490-10b77').onsubmit();">
-    </td>
+							<div class="outer">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+							</div>
+							<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
+						</form>
+					</div>
 
-    <td nowrap="nowrap" class="w25 center">
-<span class="auiButtonDisabled">復帰</span>
+					<div id="message22" class="message">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body">http://www.example.com （URLのみ貼り付け、画像が無かった場合）
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a></div>
+						</div>
+					</div>
+					<div id="comments22" class="comments">
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+					</div>
+					<div id="commentField22" class="commentField" style="display:none">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="secid" value="">
 
-    </td>
-</tr>
-  </tbody>
-</table>
-</form>
+							<div class="outer">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+							</div>
+							<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
+						</form>
+					</div>
 
-	  </div>
-  </div>
-	<!-- /auiPortletBody -->
-	<div class="auiPortletFoot"><div class="inner"></div></div>
+					<div id="message23" class="message">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body">http://www.example.com<br/>URLに加えて長いコメントもした場合。URLに加えて長いコメントもした場合。URLに加えて長いコメントもした場合。URLに加えて長いコメントもした場合。
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a></div>
+						</div>
+					</div>
+					<div id="comments23" class="comments">
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+					</div>
+					<div id="commentField23" class="commentField" style="display:none">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="secid" value="">
+
+							<div class="outer">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+							</div>
+							<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
+						</form>
+					</div>
+
+				</div>
+				<div class="readMore"><a href="javascript:void(0);" onclick="">もっと見る</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+	<div class="inner"></div>
+</div>
 </div>
 <!-- /auiPortlet -->
 
-
-
-
-<!-- auiPortlet -->
-<div class="dojoDndItem auiPortlet P-135f01020f6-100b9" id="dojoUnique2">
-	<div class="auiPortletHead"><div class="inner dojoDndHandle">
-			<div class="auiPortletTitle">
-			<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?action=controls.Maximize">共有フォルダ</a>
-		</div>
-		<div class="auiPortletTool">
-      			<div class="auiPortletAction">
-        				<a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetFileFormScreen&amp;entityid=new','P-135f01020f6-100b9',aipo.cabinet.onLoadCabinetFileDialog);">ファイル追加</a>
-        			</div>
-      			<div class="auiPortletSetting">
-														<a href="javascript:void(0);" id="menubar_button_P-135f01020f6-100b9" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135f01020f6-100b9');" title="カスタマイズ"></a>
-																    
-			    			</div>
-		</div>
-		</div></div>
-	<!-- auiPortletBody -->
-	<div class="auiPortletBody dndIdentifier">
-    <div class="inner" dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135f01020f6-100b9" id="portlet_P-135f01020f6-100b9">
-    
-
-
-<script language="JavaScript" type="text/javascript" src="/javascript/aipo/cabinet/form.js?1369879588000"></script>
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135f01020f6-100b9'] = { group:"cabinet", initUrl:'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-
-<div class="auiSummaryMeta clearfix">
-<div class="floatLeft">
-<div class="auiForm filters" id="filters_P-135f01020f6-100b9">
-		<a href="javascript:void(0);" id="filter_group_P-135f01020f6-100b9" class="customizeMenuIcon filterTip menubarOpenButton" onclick="aipo.cabinet.toggleMenu(dojo.byId('menubar_filter_P-135f01020f6-100b9'),dojo.byId('filters_P-135f01020f6-100b9'));"><span>すべてのグループ</span></a>
-		</div>
-<div class="menubar multi" id="menubar_filter_P-135f01020f6-100b9" style="width: 260px; display: none;">
-	<div>
-    	<p class="caption">グループ</p>
-		<ul class="filtertype_group_P-135f01020f6-100b9" data-type="post" data-defaultparam="0">
-						<li data-param="0"><a href="javascript:void(0)" class="selected" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=0','P-135f01020f6-100b9','')">すべてのグループ</a></li>
-
-						<li data-param="1331519412605_4"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1331519412605_4','P-135f01020f6-100b9','1331519412605_4')">Pickles</a></li>
-			
-						<li data-param="1309354049146_21"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309354049146_21','P-135f01020f6-100b9','1309354049146_21')">アルバイト</a></li>
-						<li data-param="1309256925795_4"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309256925795_4','P-135f01020f6-100b9','1309256925795_4')">企画本部</a></li>
-						<li data-param="1309256875124_4"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309256875124_4','P-135f01020f6-100b9','1309256875124_4')">営業本部</a></li>
-						<li data-param="1309256852208_4"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309256852208_4','P-135f01020f6-100b9','1309256852208_4')">管理本部</a></li>
-						<li data-param="1309354067571_21"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309354067571_21','P-135f01020f6-100b9','1309354067571_21')">開発1部</a></li>
-						<li data-param="1309354076422_21"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309354076422_21','P-135f01020f6-100b9','1309354076422_21')">開発2部</a></li>
-						<li data-param="1309354083123_21"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309354083123_21','P-135f01020f6-100b9','1309354083123_21')">開発3部</a></li>
-						<li data-param="1309256899203_4"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeGroup('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;post_name=1309256899203_4','P-135f01020f6-100b9','1309256899203_4')">開発本部</a></li>
-					</ul>
-	</div>
-	<div>
-    	<p class="caption">フォルダ</p>
-		<ul class="filtertype_folder_P-135f01020f6-100b9" data-type="folder" data-defaultparam="0">
-						<li data-param="0"><a href="javascript:void(0)" class="selected" onclick="aipo.cabinet.onChangeFolder('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;folder_id=0','P-135f01020f6-100b9','0')">すべてのフォルダ</a></li>
-												<li data-param="1"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeFolder('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;folder_id=1','P-135f01020f6-100b9','1')">ルートフォルダ</a></li>
-																								<li data-param="4"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeFolder('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;folder_id=4','P-135f01020f6-100b9','4')">&nbsp;&nbsp;&nbsp;企画本部</a></li>
-																								<li data-param="9"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeFolder('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;folder_id=9','P-135f01020f6-100b9','9')">&nbsp;&nbsp;&nbsp;個人フォルダ</a></li>
-																											<li data-param="11"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeFolder('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;folder_id=11','P-135f01020f6-100b9','11')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;別府</a></li>
-																														<li data-param="2"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeFolder('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;folder_id=2','P-135f01020f6-100b9','2')">&nbsp;&nbsp;&nbsp;営業本部</a></li>
-																																				<li data-param="5"><a href="javascript:void(0)" onclick="aipo.cabinet.onChangeFolder('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;folder_id=5','P-135f01020f6-100b9','5')">&nbsp;&nbsp;&nbsp;開発本部</a></li>
-																				</ul>
-	</div>
-</div>
-
-</div>
-
-<div class="floatRight">
-  <div class="count">1 - 5 / 12</div>
-    <div class="auiSelectButton floatLeft">
-      <ul class="floatLeft">
-	    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
-        <li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetScreen&amp;start=2', 'P-135f01020f6-100b9');" class="last arrow" title="次の 5 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
-      </ul>
-    </div>
-</div>
-</div>
-
-<form name="formP-135f01020f6-100b9" id="formP-135f01020f6-100b9" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-<input type="hidden" name="_name" value="Cabinet">
-<input type="hidden" name="secid" value="be8aca86d186e06fc1cba2617082d312">
-<table class="auiRowTable wide">
-<colgroup>
-</colgroup><colgroup style="width:20%;">
-</colgroup><colgroup style="width:20%;">
-</colgroup><colgroup style="width:6em;">
-</colgroup><tbody>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetFileDetailScreen&amp;entityid=33');">circle設定ファイル</a></div>
-    </td>
-      <td><div>開発本部</div></td>
-      <td><div>鈴木 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>2012年10月9日</div></td>
+</td>
+<td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer"></td>
 </tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetFileDetailScreen&amp;entityid=12');">AipoKiller.bat</a></div>
-    </td>
-      <td><div>開発本部</div></td>
-      <td><div>田村 涼子</div></td>
-      <td class="right" nowrap="nowrap"><div>2012年10月5日</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetFileDetailScreen&amp;entityid=32');">cosmico(cayenne.xml)</a></div>
-    </td>
-      <td><div>ルートフォルダ</div></td>
-      <td><div>木村 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>2012年10月3日</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetFileDetailScreen&amp;entityid=31');">develop48(saas)</a></div>
-    </td>
-      <td><div>開発本部</div></td>
-      <td><div>木村 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>2012年8月28日</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135f01020f6-100b9?template=CabinetFileDetailScreen&amp;entityid=29');">develop47(saas)</a></div>
-    </td>
-      <td><div>開発本部</div></td>
-      <td><div>木村 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>2012年8月23日</div></td>
-</tr>
-</tbody>
-</table>
-</form>
-
-	  </div>
-  </div>
-	<!-- /auiPortletBody -->
-	<div class="auiPortletFoot"><div class="inner"></div></div>
-</div>
-<!-<!-- /auiPortlet -->
-
-<!-- auiPortlet -->
-<div class="dojoDndItem auiPortlet P-135e7e25490-10b73" id="dojoUnique3">
-	<div class="auiPortletHead"><div class="inner dojoDndHandle">
-			<div class="auiPortletTitle">
-			<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?action=controls.Maximize">お知らせ</a>
-		</div>
-		<div class="auiPortletTool">
-      			<div class="auiPortletAction">
-        				<a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicFormScreen&amp;entityid=new','P-135e7e25490-10b73',aipo.msgboard.onLoadMsgboardDialog);">トピック追加</a>
-        			</div>
-      			<div class="auiPortletSetting">
-														<a href="javascript:void(0);" id="menubar_button_P-135e7e25490-10b73" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135e7e25490-10b73');" title="カスタマイズ"></a>
-																    
-			    			</div>
-		</div>
-		</div></div>
-	<!-- auiPortletBody -->
-	<div class="auiPortletBody dndIdentifier">
-    <div class="inner" dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135e7e25490-10b73" id="portlet_P-135e7e25490-10b73">
-    
-
-
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135e7e25490-10b73'] = { group:"msgboard", initUrl:'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-<div class="auiSummaryMeta auiFilter clearfix">
-	<input type="hidden" id="baseuri_P-135e7e25490-10b73" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicScreen">
-	<div class="filters floatLeft" id="filters_P-135e7e25490-10b73"><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" onclick="aipo.msgboard.toggleMenu(dojo.byId('menubar_auiFilter_P-135e7e25490-10b73'),dojo.byId('filters_P-135e7e25490-10b73'),event);"><span>すべてのグループ</span></a><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" style="display:none;" onclick="aipo.msgboard.toggleMenu(dojo.byId('menubar_auiFilter_P-135e7e25490-10b73'),dojo.byId('filters_P-135e7e25490-10b73'),event);"><span>すべてのカテゴリ</span></a></div>
-
-	<div class="floatRight">
-		
-<div class="floatRight">
-  <div class="count">1 - 5 / 133</div>
-    <div class="auiSelectButton floatLeft">
-      <ul class="floatLeft">
-	    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
-        <li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicScreen&amp;start=2', 'P-135e7e25490-10b73');" class="last arrow" title="次の 5 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
-      </ul>
-    </div>
-</div>
-		</div>
-</div>
-<div class="menubar multi " id="menubar_auiFilter_P-135e7e25490-10b73" style="width: 260px; display: none;">
-	<div>
-		<p class="caption">グループ</p>
-		<ul class="filtertype_P-135e7e25490-10b73" data-type="post" data-defaultparam="0">
-			<li data-param="0"><a href="javascript:void(0)" class="selected" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">すべてのグループ</a></li>
-
-						<li data-param="1331519412605_4"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">Pickles</a></li>
-									<li data-param="1309354049146_21"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">アルバイト</a></li>
-						<li data-param="1309256925795_4"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">企画本部</a></li>
-						<li data-param="1309256875124_4"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">営業本部</a></li>
-						<li data-param="1309256852208_4"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">管理本部</a></li>
-						<li data-param="1309354067571_21"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">開発1部</a></li>
-						<li data-param="1309354076422_21"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">開発2部</a></li>
-						<li data-param="1309354083123_21"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">開発3部</a></li>
-						<li data-param="1309256899203_4"><a href="javascript:void(0)" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">開発本部</a></li>
-					</ul>
-	</div>
-	<div>
-		<p class="caption">カテゴリ</p>
-		<ul class="filtertype_P-135e7e25490-10b73" data-type="category" data-defaultparam="0">
-			<li class="selected" data-param="0"><a href="javascript:void(0)" class="selected" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">すべてのカテゴリ</a></li>
-						<li data-param="5"><a href="javascript:void(0);" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">リリース</a></li>
-						<li data-param="2"><a href="javascript:void(0);" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">自由投稿</a></li>
-						<li data-param="1"><a href="javascript:void(0);" onclick="aipo.msgboard.filterClick(&quot;P-135e7e25490-10b73&quot;,this,event)">その他</a></li>
-					</ul>
-	</div>
-</div>
-
-<form name="formP-135e7e25490-10b73" id="formP-135e7e25490-10b73" action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-<input type="hidden" name="_name" value="Msgboard">
-<input type="hidden" name="secid" value="be8aca86d186e06fc1cba2617082d312">
-<table class="auiRowTable wide">
-<colgroup>
-</colgroup><colgroup style="width:6em;">
-</colgroup><tbody>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicDetailScreen&amp;entityid=312', 'P-135e7e25490-10b73', aipo.msgboard.onLoadMsgboardDetail);">伝言メモのバージョンアップ </a>
-</div>
-    </td>
-      <td class="right" nowrap="nowrap"><div>2012年11月19日</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicDetailScreen&amp;entityid=311', 'P-135e7e25490-10b73', aipo.msgboard.onLoadMsgboardDetail);">ページ設定のバージョンアップのお知らせ </a>
-</div>
-    </td>
-      <td class="right" nowrap="nowrap"><div>2012年11月16日</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicDetailScreen&amp;entityid=310', 'P-135e7e25490-10b73', aipo.msgboard.onLoadMsgboardDetail);">イベントログ管理のバージョンアップのお知らせ </a>
-</div>
-    </td>
-      <td class="right" nowrap="nowrap"><div>2012年11月2日</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicDetailScreen&amp;entityid=309', 'P-135e7e25490-10b73', aipo.msgboard.onLoadMsgboardDetail);">ユーザー名簿のバージョンアップのお知らせ </a>
-</div>
-    </td>
-      <td class="right" nowrap="nowrap"><div>2012年10月26日</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b73?template=MsgboardTopicDetailScreen&amp;entityid=308', 'P-135e7e25490-10b73', aipo.msgboard.onLoadMsgboardDetail);">タイムカードのバージョンアップのお知らせ </a>
-</div>
-    </td>
-      <td class="right" nowrap="nowrap"><div>2012年10月19日</div></td>
-</tr>
-</tbody>
-</table>
-</form>
-
-	  </div>
-  </div>
-	<!-- /auiPortletBody -->
-	<div class="auiPortletFoot"><div class="inner"></div></div>
-</div>
-<!-- /<!-- /auiPortlet -->/td>
-
-
-<td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-
-	<!-- auiPortlet -->
-	<div class="dojoDndItem auiPortlet">
-		<div class="auiPortletHead"><div class="inner">
-			<div class="auiPortletTitle">タイムライン</div>
-			<div class="auiPortletTool">
-			</div>
-		</div></div>
-	
-		<!-- auiPortlet -->
-		<div class="auiPortletBody"><div class="inner">
-	
-			<div class="dojoDndItem P-135ce1c560d-10224" id="dojoUnique5">
-				<div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1c560d-10224" id="portlet_P-135ce1c560d-10224">
-
-				<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/timeline/form.js"></script>
-				<script language="JavaScript" type="text/javascript">
-				//<![CDATA[
-				
-				ptConfig['P-135ce1c560d-10224'] = { group:"timeline", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?template=TimelineScreen&amp;rows=20&amp;scrolltop=0', reloadFunction:aipo.reloadPage };
-				
-				//]]>
-				</script>
-
-
-
-<!-- ##################################################
-#
-#
-●下記よりタイムライン
-#
-#
-################################################## -->
-<div id="timelineOuter">
-	<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
-	<div id="inputField">
-		<form name="" id="" action="" method="post" onsubmit="">
-		<input type="hidden" name="_name" value="timelineForm">
-		<input type="hidden" name="secid" value="">
-		<div class="tlInputMention">
-			<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
-		</div>
-		<div class="tlInputAttachment">
-			<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
-			<div class="tlClipBoard clearfix">
-				<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a></div>
-				<div class="tlClipContents">
-					<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-					<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-					<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-				</div>
-			</div>	
-		</div>
-		<div class="tlInputControls clearfix">
-		<div class="floatLeft"><iframe scrolling="no" frameborder="0" src="inner_form.html" style="height:32px; width:130px;" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a"></iframe></div>
-		<div class="floatRight">
-			<div class="indicatorglay" id="indicator-dlg-P-141100351cc-100ca">&nbsp;</div>
-			<input type="submit" class="auiButtonAction" value="投稿する" />
-		</div>
-		</div>
-		</form>
-	</div>
-	
-	<!--div id="newMessage">
-	<a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい発言があります</a>
-	</div-->
-	
-	<div id="timeline" class="timeline" style="min-height:750px;">
-	<div class="tlDisplayChanger">
-		<!-- ##################################################
-		●グループ切り替え：開発担当者へ
-		
-		スイッチとなるリンクのJSをとりあえずベタ書きしています。適宜修正をお願いします。
-		「tlDisplayGroup」の内容は選択中のグループ名を入れてください。
-	
-		################################################## -->
-		<div class="btn">
-			<i class="indicator"></i>
-			<a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">絞り込み</span></a>
-		</div>
-		<!-- ##################################################
-		●開発担当者へ
-	
-		「menubar」内の選択項目の<a>タグには「class="selected"」を付与させてください。
-		並び順、部署、ハッシュタグなど、1カラムごとの「menubar」の「width」は130pxです。
-	
-		################################################## -->
-		<div class="menubar multi" id="menubar_tlDisplayChanger" style="width: 390px; display: none;">
-			<div>
-				<p class="caption">並び順</p>
-				<ul>
-					<li><a href="#" class="selected">最新</a></li>
-					<li><a href="#">ハイライト</a></li>
-				</ul>
-			</div>
-			<div>
-				<p class="caption">部署</p>
-				<ul>
-					<li><a href="#">すべての部署</a></li>
-					<li><a href="#">営業本部</a></li>
-					<li><a href="#">開発本部本部</a></li>
-					<li><a href="#">企画本部</a></li>
-					<li><a href="#">長い部署名長い部署名長い部署名</a></li>
-				</ul>
-			</div>
-			<div>
-				<p class="caption">ハッシュタグ</p>
-				<ul>
-					<li><a href="#">ハッシュタグ名</a></li>
-					<li><a href="#">ハッシュタグ名</a></li>
-					<li><a href="#">ハッシュタグ名</a></li>
-					<li><a href="#">ハッシュタグ名</a></li>
-					<li><a href="#">長いタグ名長いタグ名長いタグ名</a></li>
-				</ul>
-			</div>
-		</div>
-
-
-		<!--div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
-			<ul>
-				<li>グループ</li>
-				<li><a href="#" class="selected">すべてのグループ</a></li>
-				<li><a href="#">管理本部</a></li>
-				<li><a href="#">開発本部</a></li>
-				<li><a href="#">企画本部</a></li>
-				<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
-			</ul>
-		</div-->
-	</div>
-	
-	
-	<div id="content_xxx">
-		
-		<div id="message21" class="message">
-			<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-			<div class="messageContents">
-				<div class="name">名前 名前</div>
-				<div class="body">
-					Youtubeなどの動画URLを貼りつけた場合「class="tlClipBoard clearfix"」とする。
-                    <div class="tlClipBoard clearfix">
-                        <div class="tlClipImage">
-                            <a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>		</div>
-                        <div class="tlClipContents">
-                            <div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-                            <div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-                            <div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-                        </div>
-                    </div>
-
-                    <!--div class="tlImageBlock clearfix">
-						<a href="timeline_videopopup.html"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" width="480" height="360" /></a>
-					</div-->
-				</div>
-				<div class="tlPostMeta">
-					<span class="date">20:52</span>&nbsp;
-					<span class="comment"><a href="javascript:void(0)">コメントする</a></span> ・ 
-					<form style="display:inline" class="like">
-					<input type="hidden" name="secid" value="">
-					<a href="javascript:void(0)" onclick="">いいね！</a> ・ 
-					</form>
-					<span class="delete"><a href="javascript:void(0)" onclick="">削除する</a></span>
-				</div>
-			</div>
-		</div>
-		<div id="comments21" class="comments">
-			<div id="commentCaption108" class="commentCaption">
-			<span class="iconComment"></span>
-			<a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a>		</div>
-			<div id="like_21" class="commentCaption">
-			<span class="iconLike"></span>
-			2人が「いいね！」と言っています。		</div>
-			<div id="message112" class="message">
-			<form name="" id="" action="">
-			<div class="avatar mr10">
-			<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">		</div>
-			<div class="messageContents">
-			<div class="name">ユーザー名</div>
-			<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-			<div class="tlPostMeta">
-				<span class="date">16:51</span>
-			</div>
-			</div>
-			</form>
-			</div>
-			<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146">
-			<span>コメントする</span>		</div>
-		</div>
-		<div id="commentField21" class="commentField" style="display:none">
-			<form name="" id="" action="" method="post" onsubmit="">
-			<input type="hidden" name="secid" value="">
-			<div class="outer">
-			<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a>		</div>
-			</form>
-		</div>
-		
-		
-		
-		<div id="message21" class="message">
-			<div class="avatar mr10">
-				<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
-			<div class="messageContents">
-				<div class="name">名前 名前</div>
-				<div class="body">
-					画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。
-					<p class="more">...<br /><a href="#">続きを読む</a></p>
-					<!-- ############################################################
-					●開発担当者向けコメント
-		
-					画像が複数投稿される場合も<br>を使わずそのまま羅列させてください。
-					ソース内改行も発生しないようお願いします。
-		
-					############################################################ -->
-					<div class="tlImageBlock clearfix">
-						<a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a>				</div>
-				</div>
-				<div class="time">
-					20:52&nbsp;
-					<a href="javascript:void(0)">コメントする</a> ・ 
-					<form style="display:inline">
-					<input type="hidden" name="secid" value="">
-					<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・ 
-					</form>
-					<a href="javascript:void(0)" onclick="">コメントする</a>			</div>
-			</div>
-		</div>
-		
-		<div id="comments21" class="comments">
-			<div id="commentCaption108" class="commentCaption">
-				<span class="iconComment"></span>
-				<a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a>		</div>
-			<div id="like_21" class="commentCaption">
-				<span class="iconLike"></span>
-				2人が「いいね！」と言っています。		</div>
-			<div id="message112" class="message">
-				<form name="" id="" action="">
-					<div class="avatar mr10">
-						<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">				</div>
-					<div class="messageContents">
-						<div class="name">ユーザー名</div>
-						<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
-						<p class="more">...<br /><a href="#">続きを読む</a></p>
-						</div>
-						<div class="time">16:51</div>
-					</div>
-				</form>
-			</div>
-			<div id="message112" class="message">
-				<form name="" id="" action="" method="post" onsubmit="">
-					<div class="floatLeft mr10">
-						<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">				</div>
-					<div class="messageContents">
-						<div class="name">ユーザー名</div>
-						<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-						<div class="time">16:51</div>
-					</div>
-				</form>
-			</div>
-			<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146">
-				<span>コメントする</span>		</div>
-			
-			<div id="commentField175" class="commentField" style="">
-				<div class="avatar mr10">
-					<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">			</div>
-				<form name="" id="" action="" method="post" onsubmit="">
-					<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
-					<div class="outer">
-						<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
-					</div>
-					<div class="right">
-						<a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a>				</div>
-				</form>
-			</div>
-		</div>
-		
-		
-		
-		
-		<!-- TLへの更新情報1 -->
-		<div id="message21" class="message">
-			<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-			
-			<div class="messageContents">
-			<div class="name"></div>
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			
-			<p class="more"><a onclick="aipo.timeline.ellipse_message(this)" href="javascript:void(0)" class="ellipsis_message">他の更新情報を見る</a></p>
-		</div>
-		
-		
-		<!-- TLへの更新情報2 -->
-		<div id="message21" class="message">
-			<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-			
-			<div class="messageContents">
-			<div class="name"></div>
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			
-			
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			
-			
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-		</div>
-		
-		
-		<!-- TLへの更新情報3 -->
-		<div id="message21" class="message">
-			<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-			
-			<div class="messageContents">
-			<div class="name"></div>
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			
-			<div id="comments21" class="comments">
-			<div id="commentCaption108" class="commentCaption"> <span class="iconComment"></span> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a> </div>
-			<div id="like_21" class="commentCaption"> <span class="iconLike"></span> 2人が「いいね！」と言っています。 </div>
-			<div id="message112" class="message">
-			<form name="" id="" action="">
-			<div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"> </div>
-			<div class="messageContents">
-			<div class="name">ユーザー名</div>
-			<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-			<div class="time">16:51</div>
-			</div>
-			</form>
-			</div>
-			<div id="message112" class="message">
-			<form name="" id="" action="" method="post" onsubmit="">
-			<div class="floatLeft mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"> </div>
-			<div class="messageContents">
-			<div class="name">ユーザー名</div>
-			<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-			<div class="time">16:51</div>
-			</div>
-			</form>
-			</div>
-			<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"> <span>コメントする</span> </div>
-			<div id="commentField175" class="commentField" style="">
-			<div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"> </div>
-			<form name="" id="" action="" method="post" onsubmit="">
-			<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
-			<div class="outer">
-			<textarea class="elastic" cols="10" name="note" rows="1" style="height: 39px;" ></textarea>
-			</div>
-			<div class="right"> <a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a> </div>
-			</form>
-			</div>
-			</div>
-			
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			<div id="comments21" class="comments">
-			<!--<div id="like_21" class="commentCaption"> <span class="iconLike"></span> 2人が「いいね！」と言っています。 </div>-->
-			</div>
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			<div id="comments21" class="comments">
-			<!--<div id="like_21" class="commentCaption"> <span class="iconLike"></span> 2人が「いいね！」と言っています。 </div>-->
-			</div>
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			<div id="comments21" class="comments">
-			<!--<div id="like_21" class="commentCaption"> <span class="iconLike"></span> 2人が「いいね！」と言っています。 </div>-->
-			</div>
-			
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			<div id="comments21" class="comments">
-			<div id="like_21" class="commentCaption"> <span class="iconLike"></span> 2人が「いいね！」と言っています。 </div>
-			</div>
-			
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			<div id="comments21" class="comments">
-			<div id="commentCaption108" class="commentCaption"> <span class="iconComment"></span> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a> </div>
-			<div id="like_21" class="commentCaption"> <span class="iconLike"></span> 2人が「いいね！」と言っています。 </div>
-			<div id="message112" class="message">
-			<form name="" id="" action="">
-			<div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"> </div>
-			<div class="messageContents">
-			<div class="name">ユーザー名</div>
-			<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-			<div class="time">16:51</div>
-			</div>
-			</form>
-			</div>
-			<div id="message112" class="message">
-			<form name="" id="" action="" method="post" onsubmit="">
-			<div class="floatLeft mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"> </div>
-			<div class="messageContents">
-			<div class="name">ユーザー名</div>
-			<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-			<div class="time">16:51</div>
-			</div>
-			</form>
-			</div>
-			<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"> <span>コメントする</span> </div>
-			<div id="commentField175" class="commentField" style="">
-			<div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"> </div>
-			<form name="" id="" action="" method="post" onsubmit="">
-			<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
-			<div class="outer">
-			<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
-			</div>
-			<div class="right"> <a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a> </div>
-			</form>
-			</div>
-			</div>
-			
-			<div class="messageContents">
-			<div class="body"><a href="#">予定「打ち合わせ」を追加しました。</a></div>
-			<div class="time"> 10:52
-			&nbsp;
-			<form onsubmit="" method="post" action="" id="likeForm_P-135e7e25b01-10c18_1000" name="likeForm_P-135e7e25b01-10c18_1000" style="display:inline">
-			<input type="hidden" value="4e534a88b4035afe4abe7e0560536656" name="secid">
-			<a href="javascript:void(0)">いいね！</a>
-			</form>
-			  <a href="javascript:void(0)">コメントする</a> </div>
-			</div>
-			<div id="comments21" class="comments">
-			<div id="like_21" class="commentCaption"> <span class="iconLike"></span> 2人が「いいね！」と言っています。 </div>
-			</div>
-		</div>
-		<div id="commentField21" class="commentField" style="display:none">
-			<form name="" id="" action="" method="post" onsubmit="">
-			<input type="hidden" name="secid" value="">
-			<div class="outer">
-			<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a>		</div>
-			</form>
-		</div>
-		
-		<div id="message21" class="message">
-			<div class="avatar mr10">
-			<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
-			<div class="messageContents">
-			<div class="name">名前 名前</div>
-			<div class="body">
-			URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
-			<div class="tlClipBoard clearfix">
-			<div class="tlClipImage">
-			<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a>		</div>
-			<div class="tlClipContents">
-			<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-			<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-			<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-			</div>
-			</div>
-			</div>
-			<div class="time">
-			20:52&nbsp;
-			<a href="javascript:void(0)">コメントする</a> ・ 
-			<form style="display:inline">
-			<input type="hidden" name="secid" value="">
-			<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・ 
-			</form>
-			<a href="javascript:void(0)" onclick="">コメントする</a>		</div>
-			</div>
-		</div>
-		<div id="comments21" class="comments">
-			<div id="commentCaption108" class="commentCaption">
-			<span class="iconComment"></span>
-			<a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a>		</div>
-			<div id="like_21" class="commentCaption">
-			<span class="iconLike"></span>
-			2人が「いいね！」と言っています。		</div>
-			<div id="message112" class="message">
-			<form name="" id="" action="">
-			<div class="avatar mr10">
-			<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">		</div>
-			<div class="messageContents">
-			<div class="name">ユーザー名</div>
-			<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-			<div class="time">16:51</div>
-			</div>
-			</form>
-			</div>
-			<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146">
-			<span>コメントする</span>		</div>
-		</div>
-		<div id="commentField21" class="commentField" style="display:none">
-			<form name="" id="" action="" method="post" onsubmit="">
-			<input type="hidden" name="secid" value="">
-			<div class="outer">
-			<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a>		</div>
-			</form>
-		</div>
-		
-		
-		
-		<div id="message21" class="message">
-			<div class="avatar mr10">
-			<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
-			<div class="messageContents">
-			<div class="name">名前 名前</div>
-			<div class="body">
-			つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。		</div>
-			<div class="time">
-			20:52&nbsp;
-			<a href="javascript:void(0)">コメントする</a> ・ 
-			<form style="display:inline">
-			<input type="hidden" name="secid" value="">
-			<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・ 
-			</form>
-			<a href="javascript:void(0)" onclick="">コメントする</a>		</div>
-			</div>
-		</div>
-		<div id="comments1" class="comments">
-			<div id="like_21" class="commentCaption">
-			<span class="iconLike"></span>
-			2人が「いいね！」と言っています。		</div>
-		</div>
-		<div id="commentField1" class="commentField" style="display:none">
-			<form name="commentForm_P-135ce1c560d-10224_1" id="commentForm_P-135ce1c560d-10224_1" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?template=TimelineJSONScreen&amp;entityid=1" method="post" onsubmit="aimluck.io.submit(this,'indicator-list-','P-135ce1c560d-10224',aipo.timeline.onReceiveMessage);return false;">
-			<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-			<div class="outer">
-			<textarea class="elastic" id="note_P-135ce1c560d-10224_1" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135ce1c560d-10224', 1)"></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135ce1c560d-10224_1'), 'mode', 'comment_1');dojo.byId('commentForm_P-135ce1c560d-10224_1').onsubmit();">コメントする</a>		</div>
-			</form>
-		</div>
-		
-		
-		
-		<div id="message21" class="message">
-			<div class="avatar mr10">
-			<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
-			<div class="messageContents">
-			<div class="name">名前 名前</div>
-			<div class="body">
-			つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。		</div>
-			<div class="time">
-			20:52&nbsp;
-			<a href="javascript:void(0)">コメントする</a> ・ 
-			<form style="display:inline">
-			<input type="hidden" name="secid" value="">
-			<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・ 
-			</form>
-			<a href="javascript:void(0)" onclick="">コメントする</a>		</div>
-			</div>
-		</div>
-		<div id="commentField1" class="commentField" style="display:none">
-			<form name="commentForm_P-135ce1c560d-10224_1" id="commentForm_P-135ce1c560d-10224_1" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?template=TimelineJSONScreen&amp;entityid=1" method="post" onsubmit="aimluck.io.submit(this,'indicator-list-','P-135ce1c560d-10224',aipo.timeline.onReceiveMessage);return false;">
-			<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-			<div class="outer">
-			<textarea class="elastic" id="note_P-135ce1c560d-10224_1" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135ce1c560d-10224', 1)"></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135ce1c560d-10224_1'), 'mode', 'comment_1');dojo.byId('commentForm_P-135ce1c560d-10224_1').onsubmit();">コメントする</a>		</div>
-			</form>
-		</div>
-	</div>
-	
-	<div class="readMore"><a href="javascript:void(0);" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135c96ce6ff-1009d?template=TimelineScreen&amp;rows=50', 'P-135c96ce6ff-1009d');">もっと見る</a></div>
-	</div>
-</div>
-<!-- ##################################################
-#
-#
-●上記までタイムライン
-#
-#
-################################################## -->
-
-			</div>
-		</div>
-	</div></div>
-	<div class="auiPortletFoot"><div class="inner"></div></div>
-	<!-- /POR<!-- /auiPortlet -->td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-
-<!-- auiPortlet -->
-<div class="dojoDndItem auiPortlet P-136c84761a7-106dd" id="dojoUnique12">
-	<div class="auiPortletHead"><div class="inner dojoDndHandle">
-			<div class="auiPortletTitle">
-			<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?action=controls.Maximize">ブログ</a>
-		</div>
-		<div class="auiPortletTool">
-      			<div class="auiPortletAction">
-        				<a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?template=BlogEntryFormScreen&amp;entityid=new','P-136c84761a7-106dd',aipo.blog.onLoadBlogDialog);">記事追加</a>
-        			</div>
-      			<div class="auiPortletSetting">
-														<a href="javascript:void(0);" id="menubar_button_P-136c84761a7-106dd" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-136c84761a7-106dd');" title="カスタマイズ"></a>
-																    
-			    			</div>
-		</div>
-		</div></div>
-	<!-- auiPortletBody -->
-	<div class="auiPortletBody dndIdentifier">
-    <div class="inner" dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-136c84761a7-106dd" id="portlet_P-136c84761a7-106dd">
-    
-
-
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-136c84761a7-106dd'] = { group:"blog", initUrl:'https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?template=BlogScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-<div class="auiSummaryMeta auiFilter clearfix">
-	<input type="hidden" id="baseuri_P-136c84761a7-106dd" value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?template=BlogScreen">
-		<div class="filters floatLeft" id="filters_P-136c84761a7-106dd"><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" onclick="aipo.blog.toggleMenu(dojo.byId('menubar_auiFilter_P-136c84761a7-106dd'),dojo.byId('filters_P-136c84761a7-106dd'),event);"><span>すべてのグループ</span></a><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" style="display:none;" onclick="aipo.blog.toggleMenu(dojo.byId('menubar_auiFilter_P-136c84761a7-106dd'),dojo.byId('filters_P-136c84761a7-106dd'),event);"><span>すべてのテーマ</span></a></div>
-	<div class="floatRight">
-		
-<div class="floatRight">
-  <div class="count">1 - 5 / 426</div>
-    <div class="auiSelectButton floatLeft">
-      <ul class="floatLeft">
-	    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
-        <li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?template=BlogScreen&amp;start=2', 'P-136c84761a7-106dd');" class="last arrow" title="次の 5 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
-      </ul>
-    </div>
-</div>
-		</div>
-</div>
-<div class="menubar multi " id="menubar_auiFilter_P-136c84761a7-106dd" style="width: 260px; display: none;">
-	<div>
-		<p class="caption">グループ</p>
-		<ul class="filtertype_P-136c84761a7-106dd" data-type="post" data-defaultparam="0">
-			<li data-param="0"><a href="javascript:void(0)" class="selected" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">すべてのグループ</a></li>
-
-						<li data-param="1331519412605_4"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">Pickles</a></li>
-									<li data-param="1309354049146_21"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">アルバイト</a></li>
-						<li data-param="1309256925795_4"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">企画本部</a></li>
-						<li data-param="1309256875124_4"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">営業本部</a></li>
-						<li data-param="1309256852208_4"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">管理本部</a></li>
-						<li data-param="1309354067571_21"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">開発1部</a></li>
-						<li data-param="1309354076422_21"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">開発2部</a></li>
-						<li data-param="1309354083123_21"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">開発3部</a></li>
-						<li data-param="1309256899203_4"><a href="javascript:void(0)" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">開発本部</a></li>
-					</ul>
-	</div>
-	<div>
-		<p class="caption">テーマ</p>
-		<ul class="filtertype_P-136c84761a7-106dd" data-type="thema" data-defaultparam="0">
-			<li class="selected" data-param="0"><a href="javascript:void(0)" class="selected" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">すべてのテーマ</a></li>
-						<li data-param="4"><a href="javascript:void(0);" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">Aipo+開発</a></li>
-						<li data-param="3"><a href="javascript:void(0);" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">Aipo開発</a></li>
-						<li data-param="5"><a href="javascript:void(0);" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">HTML/CSS</a></li>
-						<li data-param="6"><a href="javascript:void(0);" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">サービス開発</a></li>
-						<li data-param="2"><a href="javascript:void(0);" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">日報</a></li>
-						<li data-param="1"><a href="javascript:void(0);" onclick="aipo.blog.filterClick(&quot;P-136c84761a7-106dd&quot;,this,event)">未分類</a></li>
-					</ul>
-	</div>
-</div>
-
-
-<div id="auiBlogEntries">
-<div class="entry clearfix">
-<div class="avatar">
-<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?action=controls.Maximize&amp;eventsubmit_doblog_entry_list_user=1&amp;view_uid=4&amp;ownerid=4&amp;view_month=none">
-<img src="../themes/default/images/common/avatar_default3.png" alt="木村 一郎" width="32" height="32">
-</a>
-</div>
-<div class="entryBody">
-<div class="entryHeader"><a href="javascript:void(0);" onclick="">デザイナーも頭の片隅に、「Data URI」 </a></div>
-<div class="entryText">「Data URI」って何ぞやと思う人も多いと思いますが、説明するより見てもらった方が早いです。 下記のなが～いコードをブラウザのURL欄にコピーしてアクセスしてください。  data:image/p・・・</div>
-<div class="entryFooter floatRight">5月27日｜木村 一郎</div>
-</div>
-</div>
-<div class="entry clearfix">
-<div class="avatar">
-<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?action=controls.Maximize&amp;eventsubmit_doblog_entry_list_user=1&amp;view_uid=41&amp;ownerid=41&amp;view_month=none">
-<img src="../themes/default/images/common/avatar_default3.png" alt="佐藤 太郎" width="32" height="32">
-</a>
-</div>
-<div class="entryBody">
-<div class="entryHeader"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?template=BlogDetailScreen&amp;entityid=447', 'P-136c84761a7-106dd', aipo.blog.onLoadBlogDetailDialog );">Scala開発メモ </a></div>
-<div class="entryText">CloudDoctorの開発がはじまり、Scalaで開発を行う人も増えてきたと思います。いまいちScalaの何を覚えりゃいいのかわからんという人が多いと思うので、肝っぽい部分を以下にまとめておきます。・・・</div>
-<div class="entryFooter floatRight">5月15日｜佐藤 太郎</div>
-</div>
-</div>
-<div class="entry clearfix">
-<div class="avatar">
-<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?action=controls.Maximize&amp;eventsubmit_doblog_entry_list_user=1&amp;view_uid=4&amp;ownerid=4&amp;view_month=none">
-<img src="../themes/default/images/common/avatar_default3.png" alt="木村 一郎" width="32" height="32">
-</a>
-</div>
-<div class="entryBody">
-<div class="entryHeader"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?template=BlogDetailScreen&amp;entityid=446', 'P-136c84761a7-106dd', aipo.blog.onLoadBlogDetailDialog );">AipoのUX方針 </a></div>
-<div class="entryText">UXについて少し前にこちらのブログにも書きましたが、AipoのUX面を改善していくにあたりましてシンプル・・・</div>
-<div class="entryFooter floatRight">5月13日｜木村 一郎</div>
-</div>
-</div>
-<div class="entry clearfix">
-<div class="avatar">
-<a href="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?action=controls.Maximize&amp;eventsubmit_doblog_entry_list_user=1&amp;view_uid=4&amp;ownerid=4&amp;view_month=none">
-<img src="../themes/default/images/common/avatar_default3.png" alt="木村 一郎" width="32" height="32">
-</a>
-</div>
-<div class="entryBody">
-<div class="entryHeader"><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-136c84761a7-106dd?template=BlogDetailScreen&amp;entityid=445', 'P-136c84761a7-106dd', aipo.blog.onLoadBlogDetailDialog );">「エラー」という単語のNG提案 </a></div>
-<div class="entryText">案件開発などで「○○エラー」と機械的に返すだけで終わってしまうことを多々見るのですが、「エラー」という書き方だとユーザから見ると、ユーザ自身の操作には問題が無くシステム側のバグであると思われる可能性も・・・</div>
-<div class="entryFooter floatRight">4月9日｜木村 一郎</div>
-</div>
-</div>
-<div class="entry clearfix">
-<div class="avatar">
-<a href="#">
-<img src="../themes/default/images/common/avatar_default3.png" alt="木村 一郎" width="32" height="32">
-</a>
-</div>
-<div class="entryBody">
-<div class="entryHeader"><a href="javascript:void(0);" onclick="#">スマホサイト変遷 （1）</a></div>
-<div class="entryText">こちらの記事に関して、自分は最後のページあるNIKEやキヤノンのような「スマホで見ても違和感ないPCサイト」が現状の・・・</div>
-<div class="entryFooter floatRight">3月29日｜木村 一郎</div>
-</div>
-</div>
-</div>
-
-	  </div>
-  </div>
-	<!-- /auiPortletBody -->
-	<div class="auiPortletFoot"><div class="inner"></div></div>
-</div>
-<!-- /PORTLET OUTER -->
-
-
-	</td>
-	</tr>
 </tbody>
 </table>
 
@@ -1405,66 +457,66 @@
 
 
 <div class="dijitPopup" style="z-index: 1000; left:1090px; visibility: visible; top: 32px; ">
-    <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
-    <div class="activityPopup">
-    <div class="clearfix">
-    <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
-    
-    
-    <h2>あなた宛のお知らせ</h2>
-    <div style="background:#ffffff;padding:2px;">
-    <ul class="activityList">
-    <li class="unread">
-    <div class="meta">12月26日 &nbsp; 山本 次郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3088&amp;view_date=2012-01-10-00-00&amp;activityId=3563&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3563)">予定「PMI様訪問」を編集しました。</a>
-    </li>
-    <li>
-    <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
-    <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle">
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=GadgetsPopupScreen&amp;view=popup&amp;aid=61&amp;activityId=3518&amp;eid=804&amp;mid=487&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3518)">あなたの投稿にコメントしました。</a>
-    </li>
-    <li>
-    <div class="meta">12月22日 &nbsp; 山中 愛子</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=NoteDetailScreen&amp;entityid=356&amp;activityId=3505&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3505)">かねこさん様より伝言「伝言をお願いします。」がありました。</a>
-    </li>
-    <li>
-    <div class="meta">12月21日 &nbsp; 山本 次郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3037&amp;view_date=2011-12-22-00-00&amp;activityId=3467&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3467)">予定「ハイソル様修正連絡」を追加しました。</a>
-    </li>
-    <li>
-    <div class="meta">12月21日 &nbsp; 田村 三郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ReportDetailScreen&amp;entityid=4&amp;activityId=3441&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3441)">報告書「form.aipo.comのボタン画像にテキストが表示されます」の確認依頼を出しました。</a>
-    </li>
-    </ul>
-    
-    <div class="clearfix">
-      <div class="alignleft small">
-    
-        <div class="pagination">
-          <ul>
-            <li class="prev disabled"><a href="javascript:void(0);" class="small">前へ</a></li>
-            <li class="next"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">次へ</a></li>
-            <li class="selected"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=1');" class="small">1</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">2</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=3');" class="small">3</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=4');" class="small">4</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=5');" class="small">5</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <p class="rightBtn">
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
-    </p>
-    
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-</div>
+	<div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
+		<div class="activityPopup">
+			<div class="clearfix">
+				<div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
 
+
+					<h2>あなた宛のお知らせ</h2>
+
+					<div style="background:#ffffff;padding:2px;">
+						<ul class="activityList">
+							<li class="unread">
+								<div class="meta">12月26日 &nbsp; 山本 次郎</div>
+								<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3088&amp;view_date=2012-01-10-00-00&amp;activityId=3563&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3563)">予定「PMI様訪問」を編集しました。</a>
+							</li>
+							<li>
+								<div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+								<img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle">
+								<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=GadgetsPopupScreen&amp;view=popup&amp;aid=61&amp;activityId=3518&amp;eid=804&amp;mid=487&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3518)">あなたの投稿にコメントしました。</a>
+							</li>
+							<li>
+								<div class="meta">12月22日 &nbsp; 山中 愛子</div>
+								<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=NoteDetailScreen&amp;entityid=356&amp;activityId=3505&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3505)">かねこさん様より伝言「伝言をお願いします。」がありました。</a>
+							</li>
+							<li>
+								<div class="meta">12月21日 &nbsp; 山本 次郎</div>
+								<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3037&amp;view_date=2011-12-22-00-00&amp;activityId=3467&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3467)">予定「ハイソル様修正連絡」を追加しました。</a>
+							</li>
+							<li>
+								<div class="meta">12月21日 &nbsp; 田村 三郎</div>
+								<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ReportDetailScreen&amp;entityid=4&amp;activityId=3441&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3441)">報告書「form.aipo.comのボタン画像にテキストが表示されます」の確認依頼を出しました。</a>
+							</li>
+						</ul>
+
+						<div class="clearfix">
+							<div class="alignleft small">
+
+								<div class="pagination">
+									<ul>
+										<li class="prev disabled"><a href="javascript:void(0);" class="small">前へ</a></li>
+										<li class="next"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">次へ</a></li>
+										<li class="selected"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=1');" class="small">1</a></li>
+										<li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">2</a></li>
+										<li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=3');" class="small">3</a></li>
+										<li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=4');" class="small">4</a></li>
+										<li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=5');" class="small">5</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<p class="rightBtn">
+							<a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 </body>

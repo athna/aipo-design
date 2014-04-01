@@ -56,6 +56,11 @@ min-width:100%;
 --------------------------------------------------*/
 
 #messageWindow{
+@include box-sizing(border-box);
+position:relative;
+height:330px;
+padding-top:35px;
+padding-bottom:45px;
 }
 
 .messageWindow_list,
@@ -76,11 +81,17 @@ width:100%;
 
 
 #messageWindow .header{
+@include box-sizing(border-box);
+position:fixed;
+top:0;
+left:0;
+width:100%;
 padding:9px 10px;
-height:15px;
+height:35px;
 background:$white;
 color:$black;
 border-bottom:1px solid $grayBorderLight;
+z-index:1000;
 }
 
 #messageWindow .list{
@@ -240,6 +251,8 @@ color:$grayDark;
 }
 
 #messageWindow .inner{
+height:100%;
+max-height:249px;
 overflow-y:scroll;
 }
 
@@ -250,54 +263,9 @@ padding:0;
 #messageWindow .inner li{
 display:block;
 margin:0;
-padding:0;
+padding:7px;
 background:none;
 border-bottom:1px solid $grayLighter;
-}
-/*#messageWindow .inner li{
-*width:183px;
-}
-#messageWindow .inner li a{
-display:block;
-font-size:11px;
-text-decoration:none;
-padding:7px 7px 7px;
-margin:0;
-vertical-align:text-top;
-}
-#messageWindow .inner li a:hover{
-background:$grayHightLight;
-}
-#messageWindow .inner li a:hover{
-color:$black;
-}*/
-/*#messageWindow .inner li a .name{
-float:left;
-display:inline-block;
-width:240px;
-overflow:hidden;
-white-space:nowrap;
-text-overflow:ellipsis;
-}
-#messageWindow .inner li a .counter{
-float:right;
-margin:0;
-}
-#messageWindow .inner li a:hover .counter{
-color:$white;
-}
-#messageWindow .inner li.active a{
-background:$grayHightLight;
-font-weight:bold;
-}
-#messageWindow .inner li.active a .counter{
-font-weight:normal;
-}*/
-
-#messageWindow .inner{
-}
-#messageWindow .inner li{
-padding:7px;
 }
 #messageWindow .inner li .name{
 display:inline-block;
@@ -332,12 +300,14 @@ border-radius:3px;
 
 
 #messageWindow .footer{
+@include box-sizing(border-box);
 position:fixed;
 bottom:0;
 left:0;
-width:290px;
-min-height:35px;
-padding:5px;
+width:100%;
+min-height:45px;
+max-height:75px;
+padding:5px 5px 8px;
 border-top:1px solid $grayLight;
 text-align:center;
 font-size:11px;
@@ -350,6 +320,7 @@ position:relative;
 }
 #messageWindow .footer span.text{
 width:100%;
+display:block;
 height:32px;
 line-height:20px;
 padding:5px;
@@ -361,8 +332,9 @@ color:$gray;
 cursor:text;
 }
 #messageWindow .footer textarea.text{
-width:240px;
-width:238px\9;
+width:100%;
+display:none;
+height:61px;
 margin:0;
 font-size:12px;
 font-family:$sansFontFamily;
@@ -376,7 +348,6 @@ font-size:12px;
 font-family:$sansFontFamily;
 }
 #messageWindow .messageWindow_popout .footer{
-@include box-sizing(border-box);
 width:100%;
 }
 #messageWindow .messageWindow_popout .footer textarea.text{
@@ -388,8 +359,8 @@ width:100%;
 
 .modal{
 top:35px;
-*width:278px;
-*margin-left:-140px;
+width:278px\9;
+margin-left:-140px\9;
 }
 .modal-header{
 font-weight:bold;
@@ -397,6 +368,7 @@ padding:10px 15px 10px 10px;
 }
 .modal-header .close{
 margin-top:-7px;
+margin-right:-10px;
 padding:0 5px;
 }
 .modal-body{
@@ -451,4 +423,22 @@ margin-bottom:0;
 padding:10px;
 }
 
+
+
+
+/*表示切り替え*/
+#messageWindow.editon{
+padding-bottom:75px;
+}
+
+#messageWindow.editon .inner{
+max-height:224px;
+}
+
+#messageWindow.editon .footer span.text{
+display:none;
+}
+#messageWindow.editon .footer textarea.text{
+display:block;
+}
 

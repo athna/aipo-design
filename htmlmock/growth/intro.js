@@ -43,15 +43,15 @@
       /* Next CSS class for tooltip boxes */
       tooltipClass: '',
       /* Close introduction when pressing Escape button? */
-      exitOnEsc: true,
+      exitOnEsc: false,
       /* Close introduction when clicking on overlay layer? */
       exitOnOverlayClick: false,
       /* Show step numbers in introduction? */
       showStepNumbers: false,
       /* Let user use keyboard to navigate the tour? */
-      keyboardNavigation: true,
+      keyboardNavigation: false,
       /* Show tour control buttons? */
-      showButtons: true,
+      showButtons: false,
       /* Show tour bullets? */
       showBullets: false
     };
@@ -366,7 +366,8 @@
       case 'bottom':
       // Bottom going to follow the default behavior
       default:
-        tooltipLayer.style.bottom = '-' + (_getOffset(tooltipLayer).height + 20) + 'px';
+        //tooltipLayer.style.bottom = '-' + (_getOffset(tooltipLayer).height + 20) + 'px';　original
+				tooltipLayer.style.bottom = '-' + (_getOffset(tooltipLayer).height + 5) + 'px'; // カスタマイズ
         arrowLayer.className = 'introjs-arrow top';
         break;
     }
@@ -717,8 +718,10 @@
 
     //check if the target element is body, we should calculate the size of overlay layer in a better way
     if (targetElm.tagName.toLowerCase() === 'body') {
-      styleText += 'top: 0;bottom: 0; left: 0;right: 0;position: fixed;';
-      overlayLayer.setAttribute('style', styleText);
+//			
+//　オーバーレイ無効化のため以下の二行をコメントアウト
+// styleText += 'top: 0;bottom: 0; left: 0;right: 0;position: fixed;';
+//      overlayLayer.setAttribute('style', styleText);
     } else {
       //set overlay layer position
       var elementPosition = _getOffset(targetElm);

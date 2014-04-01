@@ -20,48 +20,44 @@
 <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
 <link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+<script src="intro.js"></script>
+<link rel="stylesheet" href="introjs.css" type="text/css">
 <style>
-.tutorial_tooltip_arrow {
-	background: url(../themes/default/images/bg_arrow.png) no-repeat 0 0;
-	height: 11px;
-	width: 14px;
+
+/* ガイドツールチップ */
+.tooltip{
+display:inline-block;
+position:relative;
+text-decoration:none;
+text-align:;
 }
-.tutorial_tooltip {
-	box-shadow: 1px 1px 2px rgba(204, 204, 204, 0.75);
-	display: none;
-	z-index: 501;
-	width:320px;
+.arrow_box {
+padding:8px 10px;
+width:240px;
+background:#000;
+color:#fff;
+z-index:10;
+white-space: normal;
+border-radius: 2px;
+line-height:1.4 !important;
 }
-.tutorial_tooltip .tutorial_tooltipBody {
-	background-color: #FFFFFF;
-	border: 2px solid #000;
-	position: relative;
-	width: 100%;
-	padding-bottom:10px;
+.tooltip .arrow_box{
+display:block;
+position:absolute;
+top:27px;
+left:-190px;
 }
-.tutorial_tooltip .tutorial_tooltipClose {
-	position: absolute;
-	right: 9px;
-	top: 9px;
-}
-.tutorial_tooltip .tutorial_tooltip_arrow {
-	left: 7px;
-	position: absolute;
-	top: -9px;
-}
-.tutorial_tooltip {
-	position: absolute;
-}
-.tutorial_tooltip .tutorial_tooltip_arrow {
-	left: 50%;
-	margin-left: -8px;
-}
-.tutorial_tooltip_inner {
-	padding: 15px 15px 5px;
-}
-.tutorial_tooltipText {
-	margin:0;
-}
+.arrow_box:after {
+bottom: 100%;
+left: 50%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+border-bottom-color: #000;
+border-width: 7px;
+margin-left: -7px; }
 </style>
 </head>
 <body>
@@ -83,9 +79,12 @@
       <script>
 	function popupToggle($this,$target) {
 		if(document.getElementById($target).style.display=='none'){
-			document.getElementById($target).style.display='block'
+			document.getElementById($target).style.display='block';
+			document.getElementById("toolInfoGuide").style.display = "none";
+			
 		}else{
-			document.getElementById($target).style.display='none'
+			document.getElementById($target).style.display='none';
+			document.getElementById("toolInfoGuide").style.display = "none";
 		}
 		if($this.className.indexOf('active')>0){
 			$this.className = $this.className.replace(' active','');
@@ -94,12 +93,19 @@
 		};
 	}
 	</script>
-      <div class="hdNavi">
+      <div class="hdNavi">            
+      <!--<div style="position: absolute; left: -28px; top: 30px;">
+      <div class="arrow_box">
+                あなた宛の新しいお知らせが届いています。<br>
+開いて確認しましょう。
+                </div>
+                </div>-->
+ 
         <div class="hdMessege"><a href="#">
           <div id="messegechecker" class="zero counter">0</div>
           メッセージ</a></div>
         <div class="hdActivity" title="お知らせ">
-          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+        <div class="dijit dijitLeft dijitInline dijitDropDownButton"
 				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
 				widgetid="activitycheckerContainer"
 				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
@@ -114,13 +120,19 @@
 					tabindex="0"
 					aria-valuenow=""
 					aria-disabled="false">
-              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" data-intro="まずはタイムラインに挨拶を投稿してみましょう。" data-step="1">
                 <div id="activitychecker" class="activitycheckerstyle counter">1</div>
                 <span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
-
+                
+                
+                
+                
+<!--<div class="introjs-tooltip" style="left: 80px;top: 20px;"><div class="introjs-tooltiptext">あなた宛のお知らせが届いています。まずはここをクリック。<div class="center pt10"><button onClick="introJs().start(),Display('no2')">はじめる</button></div></div>
+                  </div>-->
             </div>
           </div>
-        </div>
+          
+        </div><div id="toolInfoGuide" class="tooltip floatLeft" style="display:block;"><span class="arrow_box">お知らせにはあなた宛の通知が届きます。赤いアイコンがついていたら、リンクを押して確認してみましょう。</span></div>
         <div class="hdInformation" title="サポート">
           <div
 				class="dijit dijitLeft dijitInline dijitDropDownButton"
@@ -1175,7 +1187,7 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
 </div>
 <div id="dijitPopup" class="dijitPopup" style="z-index: 1000; visibility: visible; top:30px; right:340px; ">
   <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
-    <div class="activityPopup">
+    <div class="activityPopup" data-intro="新しいメッセージを確認しましょう。" data-step="2">
       <div class="clearfix">
         <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
           <h2>あなた宛のお知らせ</h2>

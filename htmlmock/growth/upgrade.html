@@ -33,8 +33,21 @@
 <script type="text/javascript" src="../Aipo_files/saas_003.js"></script>
 <script src="//ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3-https.js" charset="UTF-8"></script>
 <style>
-input:checked ~ span.setPrice {
-	font-weight:bold;
+/* aui.css に記述 */
+.contractPrice{
+float:right;
+}
+
+@media (max-width: 767px) {
+
+/* mobile.css に記述 */
+.contractPrice{
+clear: both;
+display: block;
+float: none;
+text-align: right;
+}
+
 }
 </style>
 </head>
@@ -95,6 +108,19 @@ document.getElementById('planMLBox02').style.display = "";
 document.getElementById('planMLBox03').style.display = "";
 }
 }
+function contractChange(){
+radio = document.getElementsByName('contractFlag')
+if(radio[0].checked) {
+//フォーム
+document.getElementById('contractMonth').style.fontWeight = "bold";
+document.getElementById('contractYear').style.fontWeight = "normal";
+}else if(radio[1].checked) {
+//フォーム
+document.getElementById('contractMonth').style.fontWeight = "normal";
+document.getElementById('contractYear').style.fontWeight = "bold";
+
+}
+}
 function payChange(){
 radio = document.getElementsByName('payChangeFlag')
 if(radio[0].checked) {
@@ -138,18 +164,22 @@ window.onload = entryChange1;
                   <tr id="planMLBox01" style="display:none;">
                     <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
                     <td>
-<table class="wide"><tbody><tr><td class="pa0">
-<input type="text" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="addCapacity">
-GB</td><td class="pa0 right">￥0</td></tr></tbody></table></td>
+                    
+
+<span class="floatLeft"><input type="text" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="addCapacity">
+GB</span>
+<span style="line-height: 32px;" class="floatRight">￥0</span>
+</td>
                   </tr>
                   
                   <tr id="planMLBox02" style="display:none;">
                     <td class="caption"><span class="required" id="contract">ご契約方法</span></td>
                     <td><div id="contractFlag">
-                        <p class="right"><label for="000contractFlag0">
-                          <input type="radio" id="000contractFlag0" value="月額" name="contractFlag" class="floatLeft" /><span class="floatLeft ml5">月額（ユーザー1人あたり月額 ￥210）</span><span class="setPrice">￥420</span></label></p>
-                        <p class="right"><label for="000contractFlag1">
-                          <input type="radio" id="000contractFlag1" value="年額" name="contractFlag" class="floatLeft" /><span class="floatLeft ml5">年額（ユーザー1人あたり月額 ￥175）</span><span class="setPrice">￥4,200</span></label></p>
+                        <p class="clearfix"><label for="000contractFlag0">
+												
+                          <span class="floatLeft"><input type="radio" id="000contractFlag0" value="月額" name="contractFlag" onclick="contractChange();" class="mr5" />月額（ユーザー1人あたり月額 ￥210）</span><span class="contractPrice" id="contractMonth">￥420</span></label></p>
+                        <p class="clearfix"><label for="000contractFlag1">
+                          <span class="floatLeft"><input type="radio" id="000contractFlag1" value="年額" name="contractFlag" onclick="contractChange();" class="mr5" />年額（ユーザー1人あたり月額 ￥175）</span><span class="contractPrice" id="contractYear">￥4,200</span></label></p>
                       </div>
                       <span id="payFlagSpan"></span> </td>
                   </tr>
@@ -158,9 +188,9 @@ GB</td><td class="pa0 right">￥0</td></tr></tbody></table></td>
                     <td class="caption"><span class="required" id="payFlagRequired">お支払い方法</span></td>
                     <td><div id="payFlag">
                         <p><label for="000payFlag0">
-                          <input type="radio" id="000payFlag0" value="銀行振込" name="payChangeFlag" onclick="payChange();" /><span class="ml5">銀行振込</span></label></p>
+                          <input type="radio" id="000payFlag0" value="銀行振込" name="payChangeFlag" onclick="payChange();" class="mr5" />銀行振込</label></p>
                         <p><label for="000payFlag1">
-                          <input type="radio" id="000payFlag1" value="クレジットカード払い" name="payChangeFlag" onclick="payChange();" /><span class="ml5">クレジットカード払い</span></label></p>
+                          <input type="radio" id="000payFlag1" value="クレジットカード払い" name="payChangeFlag" onclick="payChange();" class="mr5" />クレジットカード払い</label></p>
                       </div>
                       <span id="payFlagSpan"></span> </td>
                   </tr>
@@ -283,7 +313,7 @@ GB</td><td class="pa0 right">￥0</td></tr></tbody></table></td>
                   </tr>
                   <tr>
                     <td class="caption">セキュリティコード</td>
-                    <td><input type="text" style="width:4em;ime-mode:disabled;" maxlength="4" value="" id="userNum3" name="userNum3" class="text" placeholder="&#149;&#149;&#149;"><span class="fs11 ml5">クレジットカード裏面の3桁あるいは4桁の番号</span></td>
+                    <td><input type="text" style="width:4em;ime-mode:disabled;" maxlength="4" value="" id="userNum3" name="userNum3" class="text mr5" placeholder="&#149;&#149;&#149;" /><span class="fs11 pt5" style="display:inline-block;">クレジットカード本体に表記されている3桁あるいは4桁の番号</span></td>
                   </tr>
                 </tbody>
               </table>

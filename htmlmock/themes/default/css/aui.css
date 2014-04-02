@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 @font-face {
   font-family: 'FontAwesome';
   src: url("../font/fontawesome-webfont.eot?v=3.2.0");
@@ -12,6 +12,12 @@
 }
 
 html, body {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   margin: 0;
   padding: 0;
   font-size: 100%;
@@ -681,8 +687,8 @@ img.avatar,
   padding: 0 5px;
   border-left: solid 1px #d2d2d2;
   background: #ffffff;
-  box-shadow: -5px 0 3px white;
-  -webkit-box-shadow: -5px 0 3px white;
+  box-shadow: -5px 0 3px #ffffff;
+  -webkit-box-shadow: -5px 0 3px #fff;
   white-space: nowrap;
 }
 .auiPortlet_old .auiPortletSetting .menubar {
@@ -751,7 +757,7 @@ img.avatar,
   overflow: hidden;
 }
 .auiPortlet .auiPortletBody .auiPortletHead .inner {
-  padding: 0 !important;
+  padding: 9px 10px !important;
 }
 .auiPortlet .auiPortletTitle {
   float: left;
@@ -2994,6 +3000,12 @@ ul.attachments {
   margin-left: 60px;
   margin-bottom: 10px;
 }
+
+.timeline .messageContents .tlClipBoard {
+  border: solid 1px #ededed;
+  margin: 10px 0 5px;
+  padding: 10px;
+}
 .timeline .comments {
   margin: 0 0 10px 60px;
   background: #f6f6f6;
@@ -3616,7 +3628,7 @@ ul.attachments {
 .auiWLCover a {
   display: block;
   height: 100%;
-  background: #ffffff\9;
+  background: white \9;
   /*IE8*/
   -ms-filter: "alpha(opacity=0)";
   /*IE8*/
@@ -4033,19 +4045,6 @@ tr:first-child #gantt_task > table td {
 /***************************************************
 	auiIcon
 --------------------------------------------------*/
-/*
-auiIconは「class="auiIcon auiIconSetting"」と
-ベースクラスとサブクラスを同時に付与させること。
-
-基本形（リンク版）：<a href="#" class="auiIcon auiIconSetting"><span>設定</span></a>
-基本形（span版）：<span class="auiIcon auiIconSetting"><span>設定</span></span>
-
-auiIconでアイコンの形状全てを一元管理し
-サブクラスはあくまで背景位置の変更のみを行う。
-
-IE6は透過PNGが利用できないため透過GIFへ置き換えている。
-そのためバリを表示させないためhoverアクションを封じる。
-*/
 .auiIcon {
   display: block;
   display: inline-block;
@@ -4745,7 +4744,7 @@ a:hover .auiWFicon [class^="icon-"] {
 
 /*IE8Hack*/
 html > body .auiLoadWrapper .loader {
-  background-color/*\**/: #ffffff\9;
+  background-color/*\**/: white \9;
   filter: alpha(opacity=80);
   -ms-filter: "alpha(opacity=80)";
 }
@@ -5044,6 +5043,10 @@ iframe.iframe_messagelist {
   border-left: 1px solid #d2d2d2;
   border-right: 1px solid #d2d2d2;
   border-bottom: none;
-  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
   overflow: hidden;
 }

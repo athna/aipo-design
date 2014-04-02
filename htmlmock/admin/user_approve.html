@@ -1,428 +1,384 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Language" content="ja"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Aipo.com</title>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<meta http-equiv="Content-Style-Type" content="text/css"/>
-<meta http-equiv="Content-Script-Type" content="text/javascript"/>
-<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-<meta name="robots" content="noindex,follow"/>
-<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body>
 <script type="text/javascript">
-<!--
-function disp(){
-	if(window.confirm('選択したユーザーへ登録案内メールが送信されます。')){
-		location.href = "#";
+	<!--
+	function disp() {
+		if (window.confirm('選択したユーザーへ登録案内メールが送信されます。')) {
+			location.href = "#";
+		}
+		else {
+		}
 	}
-	else{
-	}
-}
-// -->
+	// -->
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+
 <!-- WRAPPER -->
 <div id="wrapper">
-  <!-- HEADER -->
-  <div id="header" class="clearfix">
-    <div class="inner">
-      <div class="hdSign">
-        <div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-      </div>
-      <script>
-	function popupToggle($this,$target) {
-		if(document.getElementById($target).style.display=='none'){
-			document.getElementById($target).style.display='block'
-		}else{
-			document.getElementById($target).style.display='none'
-		}
-		if($this.className.indexOf('active')>0){
-			$this.className = $this.className.replace(' active','');
-		}else{
-			$this.className += ' active'
-		};
-	}
-	</script>
-      <!--div class="hdNavi_v2">
-		<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
-		<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
-		<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
-		<div class="hdUserName">
-			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
-				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="icon-caret-down"></i></a>
+
+<!-- HEADER -->
+<div id="header" class="clearfix">
+	<div class="inner">
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
 		</div>
-	</div-->
-      <div class="hdNavi">
-        <div class="hdMessege"><a href="#">
-          <div id="messegechecker" class="zero counter">0</div>
-          メッセージ</a></div>
-        <div class="hdActivity" title="お知らせ">
-          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="activitycheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
-            <div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="activitycheckerContainer_label"
-					id="activitycheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-                <div id="activitychecker" class="activitycheckerstyle counter">5</div>
-                <span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
-            </div>
-          </div>
-        </div>
-        <div class="hdInformation" title="サポート">
-          <div
-				class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="supportcheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
-            <div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="supportcheckerContainer_label"
-					id="supportcheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-              <div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
-                <div id="supportchecker" class="counter zero">0</div>
-                <span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span> </div>
-            </div>
-          </div>
-        </div>
-        <!--div class="hdInformation">
-			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
-				<div class="counter zero">0</div>
-				<span>サポート</span>
-			</a>
+		<script>
+			function popupToggle($this, $target) {
+				if (document.getElementById($target).style.display == 'none') {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+				if ($this.className.indexOf('active') > 0) {
+					$this.className = $this.className.replace(' active', '');
+				} else {
+					$this.className += ' active'
+				}
+				;
+			}
+		</script>
+		<!--div class="hdNavi_v2">
+			<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
+			<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
+			<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
+			<div class="hdUserName">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+					<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="icon-caret-down"></i></a>
+			</div>
 		</div-->
-        <div class="hdUserName"> <a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a> </div>
-      </div>
-      <div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
-        <ul>
-          <li><a href="#">個人設定</a></li>
-          <li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!-- /HEADER -->
-  <script type="text/javascript">
-//<![CDATA[
+		<div class="hdNavi">
+			<div class="hdMessege"><a href="#">
+				<div id="messegechecker" class="zero counter">0</div>
+				メッセージ</a></div>
+			<div class="hdActivity" title="お知らせ">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+					 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+					 widgetid="activitycheckerContainer"
+					 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="activitycheckerContainer_label"
+						 id="activitycheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+							<span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="hdInformation" title="サポート">
+				<div
+						class="dijit dijitLeft dijitInline dijitDropDownButton"
+						dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						widgetid="supportcheckerContainer"
+						onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="supportcheckerContainer_label"
+						 id="supportcheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+							<div id="supportchecker" class="counter zero">0</div>
+							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<!--div class="hdInformation">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
+					<div class="counter zero">0</div>
+					<span>サポート</span>
+				</a>
+			</div-->
+			<div class="hdUserName"><a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a></div>
+		</div>
+		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+			<ul>
+				<li><a href="#">個人設定</a></li>
+				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- /HEADER -->
 
-dojo.require("aipo.widget.DropdownActivityChecker");
-dojo.require("aipo.widget.DropdownSupportChecker");
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+		<li class="first last">
+			<div class="tab">
+				<div class="title"><a href="#">マイページ</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="addTab"><a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a></li>
+	</ul>
+</div>
+<!-- /MAIN TAB -->
 
-dojo.addOnLoad(function () {
-    var acHtml = document.getElementById("activitycheckerContainer");
-    if(acHtml){
-       var params = {
-            widgetId: "activitychecker",
+<!-- roundMainWrapper -->
+<div class="roundMainWrapper">
+	<noscript>
+		<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
+	</noscript>
+	<!-- LAYOUT -->
+	<table class="tableWrapper">
+		<tbody>
+		<tr>
+			<td class="top mb_hide" width="200"><!-- SUBMENU -->
+				<div class="submenu_v2">
+					<ul>
+						<li><a href="javascript:void(0)">基本情報</a></li>
+						<li><a href="javascript:void(0)">インポート</a></li>
+						<li class="selected"><a href="javascript:void(0)">ユーザー管理</a></li>
+						<li><a href="javascript:void(0)">部署管理</a></li>
+						<li><a href="javascript:void(0)">役職管理</a></li>
+						<li><a href="javascript:void(0)">設備管理</a></li>
+						<li><a href="javascript:void(0)">アプリ管理</a></li>
+						<li><a href="javascript:void(0)">ワークフロー管理</a></li>
+						<li><a href="javascript:void(0)">タイムカード管理</a></li>
+						<li><a href="javascript:void(0)">アクセス権限管理</a></li>
+						<li><a href="javascript:void(0)">イベントログ管理</a></li>
+					</ul>
+				</div>
+				<!-- /SUBMENU -->
+			</td>
+			<td class="wide top"><!-- auiPortlet -->
+				<div class="dojoDndItem auiPortlet 121">
+					<div class="auiPortletHead">
+						<div class="inner dojoDndHandle">
+							<div class="auiPortletTitle"><a href="javascript:void(0)">&#12518;&#12540;&#12470;&#12540;&#31649;&#29702;</a></div>
+							<div class="auiPortletTool">
+								<div class="auiPortletAction"><span id="portletMenu"></span></div>
+								<div class="auiPortletSetting"><span id="portletMenu"></span></div>
+							</div>
+						</div>
+					</div>
+					<!-- auiPortletBody -->
+					<div class="auiPortletBody dndIdentifier">
+						<div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_121" id="portlet_121">
+							<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/account_user/form.js?1384741374000"></script>
+							<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js?1384741374000"></script>
+							<script type="text/javascript">
+								//<![CDATA[
 
-            iconURL: "themes/default/images/common/icon_message.gif",
-            iconWidth: "19",
-            iconHeight: "15",
-            extendClass: "counter",
-            iconAlt: "あなた宛のお知らせ"
-       };
-       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
-   }
-   acHtml = document.getElementById("supportcheckerContainer");
-    if(acHtml){
-       var params = {
-            widgetId: "supportchecker",
-            iconAlt: "サポート"
-       };
-       var ac = new aipo.widget.DropdownSupportChecker(params , acHtml);
-   }
-});
+								ptConfig['121'] = { group: "account_user", initUrl: 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen', reloadFunction: aipo.reloadPage };
 
-//]]>
-</script>
-  <!-- MAIN TAB -->
-  <div id="auiTabs" class="clearfix">
-    <ul>
-      <li class="first last ">
-        <div class="tab">
-          <div class="title"><a title="マイページ" href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/P-14268d4ceaf-100f7?action=controls.Restore">マイページ</a></div>
-          <div class="setting" style="position:relative;"> <a href="javascript:void(0);" id="menubar_button_tab_P-14268d4ceaf-100f7" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenuForTab('tab_P-14268d4ceaf-100f7');" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ"></a>
-            <div class="menubar body-child" id="menubar_tab_P-14268d4ceaf-100f7" style="position:absolute; width=16em; display:none;">
-              <ul>
-                <li> <a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/P-14268d4ceaf-100f7?action=controls.Maximize&amp;template=CustomizeFormScreen')">設定</a> </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="addTab"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/P-14268d4ceaf-10104?template=PageFormScreen&amp;entityid=new','P-14266cd5e71-10057',aipo.page.onLoadPageDialog);" title="メニュータブを追加"><span>+</span></a> </li>
-    </ul>
-  </div>
-  <input id="data-activecustomizeurl" type="hidden" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/?template=CustomizeFormErrorScreen" />
-  <input id="startguide-data-activecustomizeurl" type="hidden" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/?template=CustomizeFormErrorScreen" />
-  <!-- /MAIN TAB -->
-  <!-- MAIN OUTER -->
-  <div class="roundMainWrapper">
-    <noscript>
-    <div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
-    </noscript>
-    <!-- LAYOUT -->
-    <table class="tableWrapper">
-      <tbody>
-        <tr>
-          <td class="top mb_hide" width="200"><!-- SUBMENU -->
-            <div class="submenu_v2">
-              <ul>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/131?action=controls.Restore">基本情報</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/127?action=controls.Restore">インポート</a></li>
-                <li class="selected"><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/121?action=controls.Restore">ユーザー管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/122?action=controls.Restore">部署管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/133?action=controls.Restore">役職管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/123?action=controls.Restore">設備管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/138?action=controls.Restore">アプリ管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/124?action=controls.Restore">ワークフロー管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/137?action=controls.Restore">タイムカード管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/128?action=controls.Restore">アクセス権限管理</a></li>
-                <li><a href="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_pane/129?action=controls.Restore">イベントログ管理</a></li>
-              </ul>
-            </div>
-            <!-- /SUBMENU -->
-          </td>
-          <td class="wide top"><!-- auiPortlet -->
-            <div class="dojoDndItem auiPortlet 121">
-              <div class="auiPortletHead">
-                <div class="inner dojoDndHandle">
-                  <div class="auiPortletTitle"> <a href="javascript:void(0)">&#12518;&#12540;&#12470;&#12540;&#31649;&#29702;</a> </div>
-                  <div class="auiPortletTool">
-                    <div class="auiPortletAction"> <span id="portletMenu"></span> </div>
-                    <div class="auiPortletSetting"> <span id="portletMenu"></span> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- auiPortletBody -->
-              <div class="auiPortletBody dndIdentifier">
-                <div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_121" id="portlet_121">
-                  <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/account_user/form.js?1384741374000"></script>
-                  <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js?1384741374000"></script>
-                  <script type="text/javascript">
-//<![CDATA[
+								//]]>
+							</script>
+							<div id="auiWideArea">
+								<div id="auiWideAreaInner">
 
-    ptConfig['121'] = { group:"account_user", initUrl:'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen', reloadFunction:aipo.reloadPage };
+									<div class="auiSummaryMeta clearfix">
+										<div class="floatLeft"><a title="メンバーを追加する" href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormScreen&amp;entityid=new','121',aipo.account_user.onLoadUserDialog);" class="auiButtonAction">メンバーを追加する</a></div>
+										<div class="floatRight clearfix relative">
+											<div><a onclick="if(document.getElementById('dd_account_mng').style.display=='block'){document.getElementById('dd_account_mng').style.display='none'}else{document.getElementById('dd_account_mng').style.display='block'};" class="auiButtonBold" href="#"><span class="auiIcon auiIconSetting mr5"></span>設定</a></div>
+											<div class="menubar" style="right:0;display:none;" id="dd_account_mng">
+												<ul>
+													<li><a href="../admin/elements_popup.html#domain_none">メンバー設定を変更する</a></li>
+												</ul>
+											</div>
+										</div>
 
-//]]>
-</script>
-                  <div id="auiWideArea">
-                    <div id="auiWideAreaInner">
-                    
-                      <div class="auiSummaryMeta clearfix">
-                        <div class="floatLeft"> <a title="メンバーを追加する" href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormScreen&amp;entityid=new','121',aipo.account_user.onLoadUserDialog);" class="auiButtonAction">メンバーを追加する</a></div><div class="floatRight clearfix relative">
-                    <div> <a onclick="if(document.getElementById('dd_account_mng').style.display=='block'){document.getElementById('dd_account_mng').style.display='none'}else{document.getElementById('dd_account_mng').style.display='block'};" class="auiButtonBold" href="#"><span class="auiIcon auiIconSetting mr5"></span>設定</a> </div>
-                    <div class="menubar" style="right:0;display:none;" id="dd_account_mng">
-                      <ul>
-                        <li><a href="../admin/elements_popup.html#domain_none">メンバー設定を変更する</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                        
-                      </div>
-                      <div class="auiSummaryMeta clearfix">
-                        <form class="auiForm floatLeft" action="#" method="post" style="margin-right:1em;" onsubmit="return false;">
-                          <select onchange="aipo.viewPage(this.options[this.selectedIndex].value, '121')" style="width:180px;">
-                            <option value="" selected>すべての部署</option>
-                            <option value="">----------</option>
-                            <option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=admin&amp;filtertype=role" >管理者権限を持つユーザー</option>
-                            <option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=enabled&amp;filtertype=status" >有効のユーザー</option>
-                            <option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=disabled&amp;filtertype=status" >無効のユーザー</option>
-                            <option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=inviting&amp;filtertype=status" >招待中のユーザー</option>
-                          </select>
-                        </form>
-                        <div class="floatLeft ml10" style="padding-top: 0.4em;">
-                          <div class="indicator" id="indicator-list-121" style="display:none;">データを送信しています...</div>
-                        </div>
-                      </div>
-                      <div id="listMessageDiv"></div>
-                      <form name="form121" id="form121" action="#" method="post" onsubmit="return false;">
-                        <input type="hidden" name="_name" value="ユーザー" />
-                        <input type="hidden" name="secid" value="44c9945439bae07c1c0ab976be0cf159" />
-                        <div class="auiSummaryMeta clearfix">
-                          <div class="floatLeft"> <a name="ajaxbuttonCheckboxEnable" class="auiButtonAction" onclick="disp();">承認する</a>
-                          <a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="aimluck.io.ajaxCheckboxDeleteSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdelete121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_delete', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">削除する</a>
-                            <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete121" value="" />
-                            <a name="ajaxbuttonCheckboxEnable" class="auiButton" onclick="aimluck.io.ajaxCheckboxEnableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxenable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_enable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">有効にする</a>
-                            <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxenable121" value="" />
-                            <a name="ajaxbuttonCheckboxDisable" class="auiButton" onclick="aimluck.io.ajaxCheckboxDisableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdisable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_disable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">無効にする</a>
-                            <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdisable121" value="" />
-                            <a class="auiButton" title="ユーザーの順番を変更する" href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserChangeTurnFormScreen');" >ユーザーの順番を変更する</a> </div>
-                          <div class="floatRight">
-                            <div class="count">1 - 1 / 1</div>
-                          </div>
-                        </div>
-                        <table class="auiRowTable auiMbTable wide">
-                          <colgroup style="width:20px;">
-                          </colgroup>
-                          <colgroup style="width:4em;">
-                          </colgroup>
-                          <colgroup style="">
-                          </colgroup>
-                          <colgroup style="width:8em;">
-                          </colgroup>
-                          <colgroup style="width:10em;">
-                          </colgroup>
-                          <colgroup style="width:10em;">
-                          </colgroup>
-                          <tbody>
-                            <tr>
-                              <th class="thin"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);" />                              </th>
-                              <th class="thin">状態</th>
-                              <th class="w33"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;start=1&amp;sort=email&amp;sorttype=asc', '121');">メールアドレス</a> </th>
-                              <th class="w25"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;start=1&amp;sort=name_kana&amp;sorttype=asc', '121');">名前</a> </th>
-                              <th class="w25 mb_hide">部署名</th>
-                              <th class="w10 mb_hide">役職名</th>
-                            </tr>
-                            <tr style="background-color:#FFE5E5">
-                              <td class="center"><input name='check2' type='checkbox' value='0000007660'/></td>
-                              <td class="center" nowrap="nowrap">承認待ち</td>
-                              <td><div>yamada@aimluck.com</div></td>
-                              <td><div></div></td>
-                              <td><div> </div></td>
-                              <td><div></div></td>
-                            </tr>
-                            <tr style="background-color:#FFE5E5">
-                              <td class="center"><input name='check2' type='checkbox' value='0000007660'/></td>
-                              <td class="center" nowrap="nowrap">承認待ち</td>
-                              <td><div>suzuki@aimluck.com</div></td>
-                              <td>&nbsp;</td>
-                              <td><div></div></td>
-                              <td><div></div></td>
-                            </tr>
-                            <tr style="background-color:#FFE5E5">
-                              <td class="center"><input name='check0000007660' type='checkbox' value='0000007660'/></td>
-                              <td class="center" nowrap="nowrap">承認待ち</td>
-                              <td><div>okada@aimluck.com</div></td>
-                              <td>&nbsp;</td>
-                              <td><div> </div></td>
-                              <td><div></div></td>
-                            </tr>
-                            <tr>
-                              <td class="center"><input name='check' type='checkbox' value='0000007660'/></td>
-                              <td class="center" nowrap="nowrap">有効</td>
-                              <td><div>domoto@aimluck.com</div></td>
-                              <td><div> <a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserDetailScreen&amp;entityid=0000007660');">堂本 宣彦</a> </div></td>
-                              <td><div> </div></td>
-                              <td><div></div></td>
-                            </tr>
-                            <tr>
-                              <td class="center"><input name='check0000007660' type='checkbox' value='0000007660'/></td>
-                              <td class="center" nowrap="nowrap">招待中</td>
-                              <td><div>kanamoto@gmail.com</div></td>
-                              <td><div></div></td>
-                              <td><div> </div></td>
-                              <td><div></div></td>
-                            </tr>
-                        </table>
-                        <div class="auiSummaryMeta clearfix">
-                          <div class="floatLeft"> 
-                          <a name="ajaxbuttonCheckboxEnable" class="auiButtonAction" onclick="disp();">承認する</a>
-                          <a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="aimluck.io.ajaxCheckboxDeleteSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdelete121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_delete', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">削除する</a>
-                            <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete121" value="" />
-                            <a name="ajaxbuttonCheckboxEnable" class="auiButton" onclick="aimluck.io.ajaxCheckboxEnableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxenable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_enable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">有効にする</a>
-                            <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxenable121" value="" />
-                            <a name="ajaxbuttonCheckboxDisable" class="auiButton" onclick="aimluck.io.ajaxCheckboxDisableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdisable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_disable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">無効にする</a>
-                            <input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdisable121" value="" />
-                          </div>
-                          <div class="floatRight">
-                            <div class="count">1 - 1 / 1</div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /auiPortletBody -->
-              <div class="auiPortletFoot">
-                <div class="inner"></div>
-              </div>
-            </div>
-            <!-- /auiPortlet -->
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- /LAYOUT -->
-  </div>
-  <!-- MAIN OUTER -->
-  <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/saas_dialog/dialog.js?1384741374000"></script>
-  <!-- FOOTER -->
-  <div class="modalDialogUnderlayWrapper" id="guide1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none; opacity: 1;">
-    <div class="modalDialogUnderlay"></div>
-  </div>
-  <div id="guide2" class="modalDialog mb_dialog" widgetid="modalDialog" title="" style="display: none; opacity: 1; top: 50px;">
-    <div style="position: relative; z-index: 2;">
-      <div class="auiPopup clearfix">
-        <table class="roundBlockWrapperTop">
-          <tbody>
-            <tr>
-              <td class="roundBlockTitle wide">管理ガイド</td>
-              <td class="roundBlockIcon last"><div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onClick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')"><span><i class="icon-remove"></i></span></a> </div></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="roundBlockContent">
-          <h3>メンバーを招待しましょう</h3>
-          <div class="clearfix"> <i class="icon-group pull-left fcGrayLight mr20 ml10" style="font-size:60px;"></i>
-            <p>同僚やパートナーをAipo.comに招待しましょう！</p>
-            <p>Aipo.comにはメンバーと情報を共有してコミュニケーションを最適化する機能が備わっています。</p>
-          </div>
-          <p class="center mb15"><a href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=StartGuideFormScreen&amp;entityid=new');" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">ユーザーを追加する</a></p>
-          <div  class="mb_hide">
-            <h3>ページを設定しましょう</h3>
-            <div class="clearfix"> <i class="icon-cloud-download pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
-              <p>アプリの追加やレイアウトを変更して、ページを設定しましょう。</p>
-              <p>デフォルトアプリの他にも <a href="http://app.testtotest.com/store/" target="_blank">Aipoストア</a> から、新しいアプリを追加して利用することもできます。</p>
-            </div>
-            <p class="center mb15"><a href="javascript:aipo.saas_dialog.startGuideCustomizeDialog();" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">ページを設定する</a></p>
-          </div>
-          <h3>みんなの画面を同じにしましょう</h3>
-          <div class="clearfix"> <i class="icon-desktop pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
-            <p>すべてのユーザーの画面を、管理者と同じ状態に統一できます。</p>
-            <p>限られた機能だけで充分なときや、追加した機能を使ってほしいときなど、組織や用途に応じて自由に設定することができます。</p>
-          </div>
-          <p class="center mb15"><a href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSGadgetsPsmlFormScreen&amp;startguide=true');" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">画面を統一する</a></p>
-          <div  class="mb_hide">
-            <div   id="start_guide_agreement_div2">
-              <h3>本格的に導入しましょう</h3>
-              <div class="clearfix"> <i class="icon-building pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
-                <p>容量の充実したMプラン、Lプランへ変更することで、基本容量が1GBまで拡張されます。詳しくは&nbsp;<a href="http://www.aipo.com/price/" target="_blank">料金</a> をご覧ください。</p>
-              </div>
-              <p class="center mb15"><a href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SystemAgreementFormScreen&amp;isfromstartguide=true');" class="auiButton" onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">プラン変更を申し込む</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /FOOTER -->
+									</div>
+									<div class="auiSummaryMeta clearfix">
+										<form class="auiForm floatLeft" action="#" method="post" style="margin-right:1em;" onsubmit="return false;">
+											<select onchange="aipo.viewPage(this.options[this.selectedIndex].value, '121')" style="width:180px;">
+												<option value="" selected>すべての部署</option>
+												<option value="">----------</option>
+												<option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=admin&amp;filtertype=role">管理者権限を持つユーザー</option>
+												<option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=enabled&amp;filtertype=status">有効のユーザー</option>
+												<option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=disabled&amp;filtertype=status">無効のユーザー</option>
+												<option value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;filter=inviting&amp;filtertype=status">招待中のユーザー</option>
+											</select>
+										</form>
+										<div class="floatLeft ml10" style="padding-top: 0.4em;">
+											<div class="indicator" id="indicator-list-121" style="display:none;">データを送信しています...</div>
+										</div>
+									</div>
+									<div id="listMessageDiv"></div>
+									<form name="form121" id="form121" action="#" method="post" onsubmit="return false;">
+										<input type="hidden" name="_name" value="ユーザー"/>
+										<input type="hidden" name="secid" value="44c9945439bae07c1c0ab976be0cf159"/>
+
+										<div class="auiSummaryMeta clearfix">
+											<div class="floatLeft"><a name="ajaxbuttonCheckboxEnable" class="auiButtonAction" onclick="disp();">承認する</a>
+												<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="aimluck.io.ajaxCheckboxDeleteSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdelete121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_delete', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">削除する</a>
+												<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete121" value=""/>
+												<a name="ajaxbuttonCheckboxEnable" class="auiButton" onclick="aimluck.io.ajaxCheckboxEnableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxenable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_enable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">有効にする</a>
+												<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxenable121" value=""/>
+												<a name="ajaxbuttonCheckboxDisable" class="auiButton" onclick="aimluck.io.ajaxCheckboxDisableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdisable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_disable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">無効にする</a>
+												<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdisable121" value=""/>
+												<a class="auiButton" title="ユーザーの順番を変更する" href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserChangeTurnFormScreen');">ユーザーの順番を変更する</a></div>
+											<div class="floatRight">
+												<div class="count">1 - 1 / 1</div>
+											</div>
+										</div>
+										<table class="auiRowTable auiMbTable wide">
+											<colgroup style="width:20px;">
+											</colgroup>
+											<colgroup style="width:4em;">
+											</colgroup>
+											<colgroup style="">
+											</colgroup>
+											<colgroup style="width:8em;">
+											</colgroup>
+											<colgroup style="width:10em;">
+											</colgroup>
+											<colgroup style="width:10em;">
+											</colgroup>
+											<tbody>
+											<tr>
+												<th class="thin"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"/></th>
+												<th class="thin">状態</th>
+												<th class="w33"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;start=1&amp;sort=email&amp;sorttype=asc', '121');">メールアドレス</a></th>
+												<th class="w25"><a href="javascript:void(0);" onclick="aipo.viewPage('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserListScreen&amp;start=1&amp;sort=name_kana&amp;sorttype=asc', '121');">名前</a></th>
+												<th class="w25 mb_hide">部署名</th>
+												<th class="w10 mb_hide">役職名</th>
+											</tr>
+											<tr style="background-color:#FFE5E5">
+												<td class="center"><input name='check2' type='checkbox' value='0000007660'/></td>
+												<td class="center" nowrap="nowrap">承認待ち</td>
+												<td>
+													<div>yamada@aimluck.com</div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+											</tr>
+											<tr style="background-color:#FFE5E5">
+												<td class="center"><input name='check2' type='checkbox' value='0000007660'/></td>
+												<td class="center" nowrap="nowrap">承認待ち</td>
+												<td>
+													<div>suzuki@aimluck.com</div>
+												</td>
+												<td>&nbsp;</td>
+												<td>
+													<div></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+											</tr>
+											<tr style="background-color:#FFE5E5">
+												<td class="center"><input name='check0000007660' type='checkbox' value='0000007660'/></td>
+												<td class="center" nowrap="nowrap">承認待ち</td>
+												<td>
+													<div>okada@aimluck.com</div>
+												</td>
+												<td>&nbsp;</td>
+												<td>
+													<div></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+											</tr>
+											<tr>
+												<td class="center"><input name='check' type='checkbox' value='0000007660'/></td>
+												<td class="center" nowrap="nowrap">有効</td>
+												<td>
+													<div>domoto@aimluck.com</div>
+												</td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserDetailScreen&amp;entityid=0000007660');">堂本 宣彦</a></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+											</tr>
+											<tr>
+												<td class="center"><input name='check0000007660' type='checkbox' value='0000007660'/></td>
+												<td class="center" nowrap="nowrap">招待中</td>
+												<td>
+													<div>kanamoto@gmail.com</div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+												<td>
+													<div></div>
+												</td>
+											</tr>
+										</table>
+										<div class="auiSummaryMeta clearfix">
+											<div class="floatLeft">
+												<a name="ajaxbuttonCheckboxEnable" class="auiButtonAction" onclick="disp();">承認する</a>
+												<a name="ajaxbuttonCheckboxDelete" class="auiButton" onclick="aimluck.io.ajaxCheckboxDeleteSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdelete121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_delete', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">削除する</a>
+												<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdelete121" value=""/>
+												<a name="ajaxbuttonCheckboxEnable" class="auiButton" onclick="aimluck.io.ajaxCheckboxEnableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxenable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_enable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">有効にする</a>
+												<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxenable121" value=""/>
+												<a name="ajaxbuttonCheckboxDisable" class="auiButton" onclick="aimluck.io.ajaxCheckboxDisableSubmit(dojo.byId('dummy_btn_auiajaxbuttoncheckboxdisable121'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/121?template=SaaSAccountUserFormJSONScreen&amp;mode=multi_disable', 'indicator-list-', '121', aipo.account_user.onListReceiveMessage);">無効にする</a>
+												<input type="hidden" id="dummy_btn_auiajaxbuttoncheckboxdisable121" value=""/>
+											</div>
+											<div class="floatRight">
+												<div class="count">1 - 1 / 1</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /auiPortletBody -->
+					<div class="auiPortletFoot">
+						<div class="inner"></div>
+					</div>
+				</div>
+				<!-- /auiPortlet -->
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<!-- /LAYOUT -->
+</div>
+<!-- /roundMainWrapper -->
+
 </div>
 <!-- /WRAPPER -->
 </body>

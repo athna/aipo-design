@@ -1,415 +1,349 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Language" content="ja"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title></title>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<meta http-equiv="Content-Style-Type" content="text/css"/>
-<meta http-equiv="Content-Script-Type" content="text/javascript"/>
-<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-<meta name="robots" content="noindex,follow"/>
-<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body>
 <script type="text/javascript">
-    djConifg = {
-        xDomainBasePath: 'https://app.aipo.com/javascript'
-    };
+	djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
 <!-- WRAPPER -->
-<div id="wrapper" style="margin-bottom:170px;">
+<div id="wrapper">
+
 <!-- HEADER -->
 <div id="header" class="clearfix">
-<div class="inner">
-<div class="hdSign">
-<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-</div>
-<div class="hdNavi">
-<!--
-		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
-		-->
-<div class="hdActivity" title="あなた宛のお知らせ">
-<div class="activityField" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='activityField'}else{this.className='activityField active'};">
-<div class="dijitRight">
-<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="#" widgetid="activitycheckerContainer">
-<div class="dijitRight"> <span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><span class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" popupactive="true"><img src="../themes/default/images/icon/icon_message.png" alt="あなた宛のお知らせ"></span>
-<div style="display: block; " id="activitychecker"><span class="activitychecker-right"><span id="activitychecker-counter" class="activitychecker-left" style="display: block; ">99</span></span></div>
-<select name="" id="" size="10" multiple="multiple" style="display:none" dojoattachpoint="selectNode">
-</select>
-<input type="hidden" id="" name="" value="" dojoattachpoint="valueNode">
-<span name="" id="" dojoattachpoint="inputNode"></span></span> </div>
-</div>
-</div>
-</div>
-</div>
-<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
-<div class="hdLogout">
-<form>
-<input type="submit" value="ログアウト" />
-</form>
-</div>
-</div>
-</div>
+	<div class="inner">
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
+		</div>
+		<script>
+			function popupToggle($this, $target) {
+				if (document.getElementById($target).style.display == 'none') {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+				if ($this.className.indexOf('active') > 0) {
+					$this.className = $this.className.replace(' active', '');
+				} else {
+					$this.className += ' active'
+				}
+				;
+			}
+		</script>
+		<!--div class="hdNavi_v2">
+			<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
+			<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
+			<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
+			<div class="hdUserName">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+					<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="icon-caret-down"></i></a>
+			</div>
+		</div-->
+		<div class="hdNavi">
+			<div class="hdMessege"><a href="#">
+				<div id="messegechecker" class="zero counter">0</div>
+				メッセージ</a></div>
+			<div class="hdActivity" title="お知らせ">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+					 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+					 widgetid="activitycheckerContainer"
+					 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="activitycheckerContainer_label"
+						 id="activitycheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+							<span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="hdInformation" title="サポート">
+				<div
+						class="dijit dijitLeft dijitInline dijitDropDownButton"
+						dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						widgetid="supportcheckerContainer"
+						onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="supportcheckerContainer_label"
+						 id="supportcheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+							<div id="supportchecker" class="counter zero">0</div>
+							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<!--div class="hdInformation">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
+					<div class="counter zero">0</div>
+					<span>サポート</span>
+				</a>
+			</div-->
+			<div class="hdUserName"><a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a></div>
+		</div>
+		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+			<ul>
+				<li><a href="#">個人設定</a></li>
+				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
 <!-- /HEADER -->
-<div id="roundWrapper">
+
 <!-- MAIN TAB -->
 <div id="auiTabs" class="clearfix">
-<ul>
-<li class="first">
-<div class="tab">
-<div class="title"><a href="#">マイページ</a></div>
-<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-</div>
-</li>
-<li class="">
-<div class="tab">
-<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
-<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-</div>
-</li>
-<li class="">
-<div class="tab">
-<div class="title"><a href="#">個人設定</a></div>
-<div class="setting"></div>
-</div>
-</li>
-<li class="last">
-<div class="tab active">
-<div class="title"><a href="#">システム管理</a></div>
-<div class="setting"></div>
-</div>
-</li>
-</ul>
-<div class="floatRight">
-<ul>
-<li class="first store">
-<div class="tab">
-<div class="title"><a href="http://store.aipo.com" target="_blank">Aipo Store</a></div>
-<div class="setting"></div>
-</div>
-</li>
-</ul>
-</div>
+	<ul>
+		<li class="first last">
+			<div class="tab">
+				<div class="title"><a href="#">マイページ</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="addTab"><a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a></li>
+	</ul>
 </div>
 <!-- /MAIN TAB -->
-<!-- MAIN OUTER -->
-<table class="tableWrapper">
-  <tbody>
-    <tr>
-      <td width="200" class="top">
-        <!-- SUBMENU -->
-        <div class="submenu">
-          <ul>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/131?action=controls.Restore">基本情報</a></li>
-            <li class="selected"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/127?action=controls.Restore">インポート</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/121?action=controls.Restore">ユーザー管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/122?action=controls.Restore">部署管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/133?action=controls.Restore">役職管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/123?action=controls.Restore">設備管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/138?action=controls.Restore">アプリ管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/139?action=controls.Restore">スケジュール管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/124?action=controls.Restore">ワークフロー管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/137?action=controls.Restore">タイムカード管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/128?action=controls.Restore">アクセス権限管理</a></li>
-            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_pane/129?action=controls.Restore">イベントログ管理</a></li>
-          </ul>
-          <div class="endcap"></div>
-        </div>
-		<img height="1" width="200" alt="" src="images/common/dot.gif">
-        <!-- /SUBMENU -->
-      </td>
-      <td class="wide top">
+
+<!-- roundMainWrapper -->
+<div class="roundMainWrapper">
+	<!-- LAYOUT -->
+	<!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
+	<!-- LAYOUT -->
+	<table class="tableWrapper">
+		<tbody>
+		<tr>
+			<td class="top mb_hide" width="200"><!-- SUBMENU -->
+				<div class="submenu_v2">
+					<ul>
+						<li><a href="javascript:void(0)">基本情報</a></li>
+						<li class="selected"><a href="javascript:void(0)">インポート</a></li>
+						<li><a href="javascript:void(0)">ユーザー管理</a></li>
+						<li><a href="javascript:void(0)">部署管理</a></li>
+						<li><a href="javascript:void(0)">役職管理</a></li>
+						<li><a href="javascript:void(0)">設備管理</a></li>
+						<li><a href="javascript:void(0)">アプリ管理</a></li>
+						<li><a href="javascript:void(0)">ワークフロー管理</a></li>
+						<li><a href="javascript:void(0)">タイムカード管理</a></li>
+						<li><a href="javascript:void(0)">アクセス権限管理</a></li>
+						<li><a href="javascript:void(0)">イベントログ管理</a></li>
+					</ul>
+				</div>
+				<!-- /SUBMENU -->
+			</td>
+			<td class="wide top"><!-- auiPortlet -->
+				<div class="dojoDndItem auiPortlet 127">
+					<div class="auiPortletHead">
+						<div class="inner dojoDndHandle">
+							<div class="auiPortletTitle"><a href="javascript:void(0)">&#12452;&#12531;&#12509;&#12540;&#12488;</a></div>
+							<div class="auiPortletTool">
+								<div class="auiPortletAction"><span id="portletMenu"></span></div>
+								<div class="auiPortletSetting"><span id="portletMenu"></span></div>
+							</div>
+						</div>
+					</div>
+					<!-- auiPortletBody -->
+					<div class="auiPortletBody dndIdentifier">
+						<div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_127" id="portlet_127">
+							<script type="text/javascript">
+								<!--
+
+								function onClick_Select(button) {
+									disableButton(button.form);
+									var option = button.form.SelectMenu0.options[button.form.SelectMenu0.selectedIndex];
+									button.form.action = "https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127" + '?' + option.value + '=1';
+									button.form.submit();
+								}
+
+								function event_account_csv(button) {
+									disableButton(button.form);
+									button.form.action = "https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127" + '?' + button.name + '=1';
+									button.form.submit();
+								}
+
+								function event_account_csv_regist(button) {
+									if (confirm('ユーザー情報を上書き登録しますか？')) {
+										disableButton(button.form);
+										button.form.action = "https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127" + '?' + button.name + '=1';
+										button.form.submit();
+									}
+								}
+
+								function download_csv() {
+									var flag = 0;
+									for (i = 0; i < document.io_select.downloadcsv.length; i++) {
+										if (document.io_select.downloadcsv[i].checked) {
+											flag = 1;
+											window.location.href = document.io_select.downloadcsv[i].value;
+										}
+									}
+									if (flag == 0) {
+										alert('ダウンロードするテンプレートの種類を選択して下さい。');
+									}
+								}
 
 
+								function import_csv() {
+									var importflag = 0;
+									for (j = 0; j < document.readcsv.importcsv.length; j++) {
+										if (document.readcsv.importcsv[j].checked) {
+											importflag = 1;
+											document.readcsv.action = document.readcsv.importcsv[j].value;
+										}
+									}
+									if (importflag == 0) {
+										alert('読み込むcsvの種類を選択して下さい。');
+									}
+									document.readcsv.submit();
+								}
 
+								function show_Attention(divId, divClass) {
+									var divs = document.getElementsByTagName('div');
+									for (var i = 0; i < divs.length; i++) {
+										if (divs[i].className == divClass) {
+											if (divs[i].id == divId) {
+												divs[i].style.display = "block";
+											} else {
+												divs[i].style.display = "none";
+											}
+										}
+									}
+								}
 
+								function hide_Attention() {
+									var divs = document.getElementsByTagName('div');
+									for (var i = 0; i < divs.length; i++) {
+										if (divs[i].id == "Account_Attention" || divs[i].id == "Schedule_Attention") {
+											divs[i].style.display = "none";
+										}
+									}
+								}
 
+								//-->
+							</script>
+							<h3>テンプレートのダウンロード</h3>
 
-                                                              <!-- auiPortlet -->
-                                                              <div class="dojoDndItem 127">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle dojoDndHandle">インポート</td>
-                                                                                    <td class="roundBlockMenu dojoDndHandle"><span id="portletMenu"></span></td>
-                                                                                    <td class="endcap"></td>
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div id="portlet_127" widgetid="portlet_127" dojotype="aimluck.widget.Contentpane">
+							<form enctype="multipart/form-data" method="post" action="" name="io_select" class="auiForm">
+								<input type="hidden" value="44c9945439bae07c1c0ab976be0cf159" name="secid">
+								<table class="listTable wide">
+									<tbody>
+									<tr>
+										<td width="150" class="caption">種類</td>
+										<td>
+											<label><input type="radio" name="downloadcsv" class="mb5 mr5" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/template/SaaSFileIOAccountCsvFileScreen"/>ユーザーアカウント</label><br/>
+											<label><input type="radio" name="downloadcsv" class="mb5 mr5" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/template/FileIOAccountPostCsvFileScreen"/>部署</label><br/>
+											<label><input type="radio" name="downloadcsv" class="mb5 mr5" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/template/FileIOAddressBookCompanyCsvFileScreen"/>アドレス(会社)帳</label><br/>
+											<label><input type="radio" name="downloadcsv" class="mb5 mr5" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/template/FileIOAddressBookCsvFileScreen"/>アドレス帳</label><br/>
+											<label><input type="radio" name="downloadcsv" class="mb5 mr5" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/template/SaaSFileIOScheduleCsvFileScreen"/>スケジュール</label><br/>
 
+											<div class="alert">種類を1つチェックしてください。</div>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="center"><input type="button" onClick="download_csv()" value="ダウンロード" class="button" name="send"/></td>
+									</tr>
+									</tbody>
+								</table>
+							</form>
+							<h3 class="mt20">インポート</h3>
 
-<script type="text/JavaScript" language="JavaScript">
-&lt;!--
-function onClick_Select(button){
-  disableButton(button.form);
-  var option = button.form.SelectMenu0.options[button.form.SelectMenu0.selectedIndex];
-  button.form.action = "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127" + '?' + option.value + '=1';
-  button.form.submit();
+							<div class="alertSuccess">メンバーを追加していただくことで、10MBの容量をプレゼントいたします。</div>
+							<form enctype="multipart/form-data" method="post" action="" name="readcsv">
+								<input type="hidden" value="44c9945439bae07c1c0ab976be0cf159" name="secid">
+								<input type="hidden" value="$temp_folder" name="temp_folder">
+								<table class="listTable wide">
+									<tbody>
+									<tr>
+										<td width="150" class="caption">種類</td>
+										<td>
+											<label><input type="radio" name="importcsv" class="mb5 mr5" onClick="show_Attention('Account_Attention','AttentionGroup')" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127?eventsubmit_doaccount_upload_csv=1"/>ユーザーアカウント</label><br/>
+											<label><input type="radio" name="importcsv" class="mb5 mr5" onClick="hide_Attention()" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127?eventsubmit_doaccount_postcsv_upload=1"/>部署</label><br/>
+											<label><input type="radio" name="importcsv" class="mb5 mr5" onClick="hide_Attention()" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127?eventsubmit_doaddressbook_company_upload_csv=1"/>アドレス(会社)帳</label><br/>
+											<label><input type="radio" name="importcsv" class="mb5 mr5" onClick="hide_Attention()" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127?eventsubmit_doaddressbook_upload_csv=1"/>アドレス帳</label><br/>
+											<label><input type="radio" name="importcsv" class="mb5 mr5" onClick="show_Attention('Schedule_Attention','AttentionGroup')" value="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007660/page/default.psml/js_peid/127?eventsubmit_doschedule_upload_csv=1"/>スケジュール</label><br/>
 
-}
-function event_csv(button) {
-  disableButton(button.form);
-  button.form.action = "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127" + '?' + button.name + '=1';
-  button.form.submit();
-}
+											<div class="alert">種類を1つチェックしてください。</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="caption">CSVファイルの指定</td>
+										<td nowrap="nowrap">
+											<input type="file" style="ime-mode:disable" size="30" value="" name="attachment" class=""/>
 
-function event_csv_page(button,page) {
-    disableButton(button.form);
-    button.form.action = "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127" + '?' + button.name + '=1' + '&amp;csvpage=' + page;
-    button.form.submit();
-}
-
-function event_csv_regist(button) {
-  if(confirm('アドレス帳を一括登録しますか？')) {
-    disableButton(button.form);
-    button.form.action = "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127" + '?' + button.name + '=1';
-    button.form.submit();
-  }
-}
-
-var flag = 0;
-
-function onChg1(obj){
-
-    var n = document.readcsv.SelectMenu1.selectedIndex;
-
-  if(flag == 0){
-
-      switch (n) {
-      case 0:
-            break;
-        case 1:
-
-            break;
-        case 2:
-
-            break;
-        case 3:
-
-        break;
-        case 4:
-
-            break;
-      case 5:
-      flag = 1;
-            break;
-      case 6:
-
-            break;
-      case 7:
-
-            break;
-        default:
-            break;
-        }
-  }
-
-}
-
-function onChg2(obj){
-    flag = 1;
-}
-
-function download_csv(){
-    var flag = 0;
-    for(i=0; i&lt;document.io_select.downloadcsv.length; i++){
-        if(document.io_select.downloadcsv[i].checked){
-            flag = 1;
-            window.location.href = document.io_select.downloadcsv[i].value;
-        }
-    }
-	if(flag == 0){
-        alert('ダウンロードするテンプレートの種類を選択して下さい。');
-    }
-}
-
-
-function import_csv(){
-    var importflag = 0;
-	for(j=0; j&lt;document.readcsv.importcsv.length; j++){
-        if(document.readcsv.importcsv[j].checked){
-            importflag = 1;
-			document.readcsv.action = document.readcsv.importcsv[j].value;
-        }
-	}
-	if(importflag == 0){
-        alert('読み込むcsvの種類を選択して下さい。');
-    }
-	document.readcsv.submit();
-}
-
-function show_Attention(divId, divClass){
-	var divs = document.getElementsByTagName('div');
-	for(var i=0; i&lt;divs.length; i++){
-		if(divs[i].className == divClass){
-			if(divs[i].id == divId) {
-				divs[i].style.display = "block";
-				}else{
-				divs[i].style.display = "none";
-				}
-		}
-	}
-}
-
-function hide_Attention(){
-	var divs = document.getElementsByTagName('div');
-	for(var i=0; i&lt;divs.length; i++){
-		if(divs[i].id == "Account_Attention" || divs[i].id == "Schedule_Attention") {
-		divs[i].style.display = "none";
-		}
-	}
-}
-
-//--&gt;
-</script>
-
-<h3>テンプレートのダウンロード</h3>
-
-<form class="auiForm" name="io_select" action="" method="post" enctype="multipart/form-data">
-<input type="hidden" name="secid" value="895a257f39856e9e597a67ba1697223b">
-
-<table class="listTable wide">
-<tbody>
-
-<tr>
-<td width="150" class="caption">種類</td>
-<td>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/template/FileIOAccountCsvFileScreen" class="mb5 mr5" name="downloadcsv">ユーザーアカウント</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/template/FileIOAccountPostCsvFileScreen" class="mb5 mr5" name="downloadcsv">部署</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/template/FileIOAddressBookCompanyCsvFileScreen" class="mb5 mr5" name="downloadcsv">アドレス(会社)帳</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/template/FileIOAddressBookCsvFileScreen" class="mb5 mr5" name="downloadcsv">アドレス帳</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/template/FileIOScheduleCsvFileScreen" class="mb5 mr5" name="downloadcsv">スケジュール</label><br>
-<div class="alert">種類を1つチェックしてください。</div>
-</td>
-</tr>
-
-<tr>
-<td class="center" colspan="2"><input type="button" name="send" class="button" value="ダウンロード" onclick="download_csv()"></td>
-</tr>
-
-</tbody>
-</table>
-</form>
-
-
-<h3 class="mt20">インポート</h3>
-
-<form name="readcsv" action="" method="post" enctype="multipart/form-data">
-<input type="hidden" name="secid" value="895a257f39856e9e597a67ba1697223b">
-<input type="hidden" name="temp_folder" value="21595948283739787">
-
-<table class="listTable wide">
-<tbody>
-<tr>
-<td width="150" class="caption">種類</td>
-<td>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127?eventsubmit_doaccount_upload_csv=1" onclick="show_Attention('Account_Attention','AttentionGroup')" class="mb5 mr5" name="importcsv">ユーザーアカウント</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127?eventsubmit_doaccount_postcsv_upload=1" onclick="hide_Attention()" class="mb5 mr5" name="importcsv">部署</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127?eventsubmit_doaddressbook_company_upload_csv=1" onclick="hide_Attention()" class="mb5 mr5" name="importcsv">アドレス(会社)帳</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127?eventsubmit_doaddressbook_upload_csv=1" onclick="hide_Attention()" class="mb5 mr5" name="importcsv">アドレス帳</label><br>
-<label><input type="radio" value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/admin/page/default.psml/js_peid/127?eventsubmit_doschedule_upload_csv=1" onclick="show_Attention('Schedule_Attention','AttentionGroup')" class="mb5 mr5" name="importcsv">スケジュール</label><br>
-<div class="alert">種類を1つチェックしてください。</div>
-</td>
-</tr>
-
-<tr>
-<td class="caption">CSVファイルの指定</td>
-<td nowrap="nowrap"><input type="file" class="" name="attachment" value="" size="30" style="ime-mode:disable">
-<div class="alert">ファイルが見つかりません。</div>
-</td>
-</tr>
-
-<tr>
-<td class="center" colspan="2">
-		<input type="submit" name="send" class="auiButtonAction" value="読み込む" onclick="import_csv();aimluck.io.setHiddenValue(this);">
-	</td>
-</tr>
-
-</tbody>
-</table>
-
-<div style="display:none" class="AttentionGroup" id="Account_Attention">
-	<p>
-		ユーザー名、パスワード、名前（姓）、名前（名）、名前（姓・フリガナ）、名前（名・フリガナ）は必須項目です。
-		パスワードの値が「*」の場合、パスワードは変更されません。「*」以外の場合、その値にパスワードが設定されます。
-		登録されているユーザー名と同じユーザー名を指定した場合には、情報が上書きされます。
-		部署の項目は、「/」で区切ることにより、複数の部署に登録できます。
-	</p>
+											<div class="alert">ファイルが見つかりません。</div>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="center">
+											<input type="submit" onClick="import_csv();aimluck.io.setHiddenValue(this);" value="読み込む" class="auiButtonAction" name="send"/>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+								<div id="Account_Attention" class="AttentionGroup" style="display:none">
+									<p> ユーザー名、パスワード、名前（姓）、名前（名）、名前（姓・フリガナ）、名前（名・フリガナ）は必須項目です。
+										パスワードの値が「*」の場合、パスワードは変更されません。「*」以外の場合、その値にパスワードが設定されます。
+										登録されているユーザー名と同じユーザー名を指定した場合には、情報が上書きされます。
+										部署の項目は、「/」で区切ることにより、複数の部署に登録できます。 </p>
+								</div>
+								<div id="Schedule_Attention" class="AttentionGroup" style="display:none">
+									<p> メールアドレス と 名前 の両方が指定されている場合は、メールアドレスを優先してユーザーを検索し、登録します。 </p>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- /auiPortletBody -->
+					<div class="auiPortletFoot">
+						<div class="inner"></div>
+					</div>
+				</div>
+				<!-- /auiPortlet -->
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<!-- /LAYOUT -->
+	<!-- /LAYOUT -->
 </div>
-<div style="display:none" class="AttentionGroup" id="Schedule_Attention">
-	<p>
-		ユーザー名 と 名前 の両方が指定されている場合は、ユーザー名を優先してユーザーを検索し、登録します。
-	</p>
-</div>
+<!-- /roundMainWrapper  -->
 
-</form>
-
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-- /auiPortlet -->
-
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-<!-- /MAIN OUTER  -->
-<!-- FOOTER -->
-<div id="footer" class="clearfix">
-<!-- START GUIDE -->
-<div id="startGuide" style="display:none;">
-<div class="close"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='40px';document.getElementById('guide_on').style.display='inline'"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"> 閉じる</a></div>
-<div class="clearfix">
-<div class="guideContents">
-<p>ユーザーを追加しよう</p>
-<p><a href="#" class="auiButtonAction">ユーザー追加方法を見る</a></p>
-</div>
-<div class="guideContents">
-<p>画面レイアウトを変更しよう</p>
-<p><a href="#" class="auiButtonAction">レイアウト変更方法を見る</a></p>
-</div>
-</div>
-</div>
-<!-- /START GUIDE -->
-<div id="footText">
-<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
-<div id="guide_on" style="display:inline;"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='170px';document.getElementById('guide_on').style.display='none'">スタートガイド</a></div>
-</div>
-</div>
-<!-- /FOOTER -->
-</div>
-<!-- /roundWrapper -->
 </div>
 <!-- /WRAPPER -->
 </body>

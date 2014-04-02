@@ -1,348 +1,406 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Language" content="ja" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8,chrome=1" />
-<title>Aipo.com</title>
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
-<meta name="robots" content="noindex,follow" />
-<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
-<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
-<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
-<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body>
 <script type="text/javascript">
-    djConifg = {
-        xDomainBasePath: 'https://app.aipo.com/javascript'
-    };
+	djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
 
 <!-- WRAPPER -->
-<div id="wrapper" style="margin-bottom:170px;">
+<div id="wrapper">
 
 <!-- HEADER -->
-<div id="header" class="clearfix"><div class="inner">
-
-	<div class="hdSign">
-		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-	</div>
-
-	<div class="hdNavi">
-		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
-		<div class="hdActivity" title="お知らせ">
-			<div>
-				<div id="activitychecker" class="zero counter">0</div>
-				<span class="mb_hide">お知らせ</span>
-			</div>
+<div id="header" class="clearfix">
+	<div class="inner">
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
 		</div>
-		
-		<!-- /hdActivity -->
-
-		<div class="hdUserName"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</div>
-		<div class="hdSetting">
-			<a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="if(document.getElementById('menubar_hdSetting').style.display!='block') {document.getElementById('menubar_hdSetting').style.display='block'}else{document.getElementById('menubar_hdSetting').style.display='none'}" title="カスタマイズ"></a>
-			<div class="menubar" id="menubar_hdSetting" style="position: absolute; display: none; ">
+		<script>
+			function popupToggle($this, $target) {
+				if (document.getElementById($target).style.display == 'none') {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+				if ($this.className.indexOf('active') > 0) {
+					$this.className = $this.className.replace(' active', '');
+				} else {
+					$this.className += ' active'
+				}
+				;
+			}
+		</script>
+		<!--div class="hdNavi_v2">
+			<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
+			<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
+			<div class="hdInformation"><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')"><i class="icon-info-sign"></i></a></div>
+			<div class="hdUserName">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+					<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="icon-caret-down"></i></a>
+			</div>
+		</div-->
+		<div class="hdNavi">
+			<div class="hdMessege"><a href="#">
+				<div id="messegechecker" class="zero counter">0</div>
+				メッセージ</a></div>
+			<div class="hdActivity" title="お知らせ">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+					 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+					 widgetid="activitycheckerContainer"
+					 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="activitycheckerContainer_label"
+						 id="activitycheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+							<span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="hdInformation" title="サポート">
+				<div
+						class="dijit dijitLeft dijitInline dijitDropDownButton"
+						dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						widgetid="supportcheckerContainer"
+						onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="supportcheckerContainer_label"
+						 id="supportcheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+							<div id="supportchecker" class="counter zero">0</div>
+							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<!--div class="hdInformation">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation')">
+					<div class="counter zero">0</div>
+					<span>サポート</span>
+				</a>
+			</div-->
+			<div class="hdUserName"><a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a></div>
+		</div>
+		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
 			<ul>
-			<li><a href="#">個人設定</a></li>
-			<li class="last"><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+				<li><a href="#">個人設定</a></li>
+				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
 			</ul>
-			</div>
 		</div>
 	</div>
-
-</div></div>
+</div>
 <!-- /HEADER -->
-
-<div id="roundWrapper">
 
 <!-- MAIN TAB -->
 <div id="auiTabs" class="clearfix">
 	<ul>
-    	<li class="first">
-        	<div class="tab active">
-                <div class="title"><a href="#">マイページ</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
-    	<li class="last">
-        	<div class="tab activeNext">
-                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
-		<li class="addTab">
-			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
+		<li class="first last">
+			<div class="tab">
+				<div class="title"><a href="#">マイページ</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
 		</li>
-    </ul>
+		<li class="addTab"><a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a></li>
+	</ul>
 </div>
 <!-- /MAIN TAB -->
 
 <!-- roundMainWrapper -->
 <div class="roundMainWrapper">
 
-<table class="tableWrapper">
-	<tbody>
+	<table class="tableWrapper">
+		<tbody>
 		<tr>
 			<td class="top" width="200"><!-- SUBMENU -->
 				<!-- SUBMENU -->
-				<div class="submenu">
+				<div class="submenu_v2">
 					<ul>
-						<li class="selected"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_pane/P-13602b3e559-10017?action=controls.Restore">ユーザー情報</a></li>
-						<li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_pane/P-13602b3e559-10018?action=controls.Restore">Myグループ</a></li>
-						<li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_pane/P-13602b3e559-10019?action=controls.Restore">ページ設定</a></li>
-						<li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_pane/P-13602b3e55a-1001a?action=controls.Restore">携帯電話設定</a></li>
+						<li class="selected"><a href="javascript:void(0)">ユーザー情報</a></li>
+						<li><a href="javascript:void(0)">Myグループ</a></li>
+						<li><a href="javascript:void(0)">ページ設定</a></li>
+						<li><a href="javascript:void(0)">携帯電話設定</a></li>
 					</ul>
-					<div class="endcap"></div>
 				</div>
-			<img src="images/common/dot.gif" width="200" height="1" alt="" />
-			<!-- /SUBMENU -->
+				<!-- /SUBMENU -->
 			</td>
 			<td class="wide top">
 				<!-- auiPortlet -->
 				<div class="dojoDndItem auiPortlet">
-	
-					<div class="auiPortletHead"><div class="inner">
-						<div class="auiPortletTitle"><a href="#">Myグループ</a></div>
-						<div class="auiPortletTool">
+
+					<div class="auiPortletHead">
+						<div class="inner">
+							<div class="auiPortletTitle"><a href="#">Myグループ</a></div>
+							<div class="auiPortletTool">
+							</div>
 						</div>
-					</div></div>
-	
+					</div>
+
 					<!-- auiPortletBody -->
-					<div class="auiPortletBody"><div class="inner">
-						<div dojotype="aimluck.widget.Contentpane" widgetid="portlet_131" id="portlet_131">
-							<div class="auiSummaryMeta clearfix"> <a class="auiButtonAction" href="" title="グループを追加する">グループを追加する</a> </div>
-							<form onsubmit="return(aimluck.io.disableForm(this, true));" method="post" action="">
-								<input type="hidden" value="Myグループ" name="_name">
-								<input type="hidden" value="" name="secid">
-								<div class="auiSummaryMeta clearfix">
-									<div class="floatLeft"> <a onClick="" class="auiButton" name="ajaxbuttonCheckboxDelete">削除する</a></div>
-									<div class="floatRight">
-										<div class="count">1 ～ 1 / 1</div>
+					<div class="auiPortletBody">
+						<div class="inner">
+							<div dojotype="aimluck.widget.Contentpane" widgetid="portlet_131" id="portlet_131">
+								<div class="auiSummaryMeta clearfix"><a class="auiButtonAction" href="" title="グループを追加する">グループを追加する</a></div>
+								<form onsubmit="return(aimluck.io.disableForm(this, true));" method="post" action="">
+									<input type="hidden" value="Myグループ" name="_name">
+									<input type="hidden" value="" name="secid">
+
+									<div class="auiSummaryMeta clearfix">
+										<div class="floatLeft"><a onClick="" class="auiButton" name="ajaxbuttonCheckboxDelete">削除する</a></div>
+										<div class="floatRight">
+											<div class="count">1 ～ 1 / 1</div>
+										</div>
 									</div>
-								</div>
-								<table class="auiRowTable wide">
-									<col style="width:5%;"></col>
-									<col style="width:25%;"></col>
-									<col style="width:50%;"></col>
-									<col style="width:20%;"></col>
-									<tbody>
+									<table class="auiRowTable wide">
+										<col style="width:5%;"></col>
+										<col style="width:25%;"></col>
+										<col style="width:50%;"></col>
+										<col style="width:20%;"></col>
+										<tbody>
 										<tr>
-											<th class="center"><input type="checkbox" /></th>
-											<th> <a onclick="" href="javascript:void(0);" class="headDown">グループ名</a> </th>
+											<th class="center"><input type="checkbox"/></th>
+											<th><a onclick="" href="javascript:void(0);" class="headDown">グループ名</a></th>
 											<th>ユーザー</th>
 											<th>設備</th>
 										</tr>
 										<tr>
-											<td class="center"><input type="checkbox" /></td>
-											<td><div><a onclick="">全員</a></div></td>
-											<td><div> 木村 一郎、田村 涼子、山田 太郎、HTML Validator</div></td>
-											<td><div> </div></td>
+											<td class="center"><input type="checkbox"/></td>
+											<td>
+												<div><a onclick="">全員</a></div>
+											</td>
+											<td>
+												<div> 木村 一郎、田村 涼子、山田 太郎、HTML Validator</div>
+											</td>
+											<td>
+												<div></div>
+											</td>
 										</tr>
 										<tr>
-											<td class="center"><input type="checkbox" /></td>
-											<td><div><a onclick="">全員</a></div></td>
-											<td><div> 木村 一郎、田村 涼子、山田 太郎、HTML Validator</div></td>
-											<td><div> </div></td>
+											<td class="center"><input type="checkbox"/></td>
+											<td>
+												<div><a onclick="">全員</a></div>
+											</td>
+											<td>
+												<div> 木村 一郎、田村 涼子、山田 太郎、HTML Validator</div>
+											</td>
+											<td>
+												<div></div>
+											</td>
 										</tr>
 										<tr>
-											<td class="center"><input type="checkbox" /></td>
-											<td><div><a onclick="">全員</a></div></td>
-											<td><div> 木村 一郎、田村 涼子、山田 太郎、HTML Validator</div></td>
-											<td><div> </div></td>
+											<td class="center"><input type="checkbox"/></td>
+											<td>
+												<div><a onclick="">全員</a></div>
+											</td>
+											<td>
+												<div> 木村 一郎、田村 涼子、山田 太郎、HTML Validator</div>
+											</td>
+											<td>
+												<div></div>
+											</td>
 										</tr>
-									</tbody>
-								</table>
-								<div class="auiSummaryMeta clearfix">
-									<div class="floatRight">
-										<div class="count">1 ～ 1 / 1</div>
+										</tbody>
+									</table>
+									<div class="auiSummaryMeta clearfix">
+										<div class="floatRight">
+											<div class="count">1 ～ 1 / 1</div>
+										</div>
 									</div>
-								</div>
-							</form>
-							<script type="text/javascript" language="JavaScript">
-							//&lt;![CDATA[
-							dojo.require("aimluck.widget.Menu");
-							
-							//]]&gt;
-							</script>
+								</form>
+								<script type="text/javascript" language="JavaScript">
+									//&lt;![CDATA[
+									dojo.require("aimluck.widget.Menu");
+
+									//]]&gt;
+								</script>
+							</div>
 						</div>
-					</div></div>
+					</div>
 					<!-- /auiPortletBody -->
-					<div class="auiPortletFoot"><div class="inner"></div></div>
+					<div class="auiPortletFoot">
+						<div class="inner"></div>
+					</div>
 				</div>
-			<!-- /auiPortlet -->
+				<!-- /auiPortlet -->
 			</td>
 		</tr>
-	</tbody>
-</table>
-<!-- /LAYOUT -->
+		</tbody>
+	</table>
+	<!-- /LAYOUT -->
 </div>
 
-<!-- /MAIN OUTER  -->
-<!-- FOOTER -->
-<div id="footer" class="clearfix">
-<div id="footText">
-<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.3.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
-</div>
-</div>
-<!-- /FOOTER -->
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+<!-- /roundMainWrapper  -->
 </div>
 <!-- /WRAPPER -->
+
 <div id="modalDialog" class="modalDialog" style="display:none"></div>
 <script language="JavaScript" type="text/javascript">
-//<![CDATA[
+	//<![CDATA[
 
-dojo.require("aimluck.widget.Dialog");
+	dojo.require("aimluck.widget.Dialog");
 
-dojo.addOnLoad(function() {
-    var params = {
-        widgetId:'modalDialog'
-    };
-    new aimluck.widget.Dialog(params, "modalDialog");
-    //dojo.disconnect(dojo, "loaded", "_dialog");
-    gadgets.rpc.setRelayUrl("sharedStateIframe", "/gadgets/files/container/rpc_relay.html");
-    gadgets.rpc.setAuthToken("sharedStateIframe", "17968987521394787");
-    dojo.byId('sharedStateIframe').src='check.html?st=default:kSV_B6nhQAXgSQpvF1wLgnHsxvmJg3i4I2MivoQZ1x69K16KweuS2TqTqRH88xhba4jodkSKbxHzZ_UP7lB8StOE7DAnsWfKe63ahGM3wPWaHL9BL2s2p2n0KSR_sfoWKyTiPA&parent=http%3A%2F%2Fhudson.aipo.com%3A8080%2Faipo%2Fportal%2Fmedia-type%2Fhtml%2Fuser%2Fsample1%2Fpage%2Fdefault.psml%2Fjs_pane%2FP-13602b3e559-10016&interval=300#rpctoken=17968987521394787';
-    if(window.webkitNotifications) {
-    　　aipo.container.gadgetService.requestDesktopNotifyEnable();
-    }
-});
+	dojo.addOnLoad(function () {
+		var params = {
+			widgetId: 'modalDialog'
+		};
+		new aimluck.widget.Dialog(params, "modalDialog");
+		//dojo.disconnect(dojo, "loaded", "_dialog");
+		gadgets.rpc.setRelayUrl("sharedStateIframe", "/gadgets/files/container/rpc_relay.html");
+		gadgets.rpc.setAuthToken("sharedStateIframe", "17968987521394787");
+		dojo.byId('sharedStateIframe').src = 'check.html?st=default:kSV_B6nhQAXgSQpvF1wLgnHsxvmJg3i4I2MivoQZ1x69K16KweuS2TqTqRH88xhba4jodkSKbxHzZ_UP7lB8StOE7DAnsWfKe63ahGM3wPWaHL9BL2s2p2n0KSR_sfoWKyTiPA&parent=http%3A%2F%2Fhudson.aipo.com%3A8080%2Faipo%2Fportal%2Fmedia-type%2Fhtml%2Fuser%2Fsample1%2Fpage%2Fdefault.psml%2Fjs_pane%2FP-13602b3e559-10016&interval=300#rpctoken=17968987521394787';
+		if (window.webkitNotifications) {
+		　　aipo.container.gadgetService.requestDesktopNotifyEnable();
+		}
+	});
 
-scheduleTooltipEnable = true;
+	scheduleTooltipEnable = true;
 
-dojo.require("dojo.dnd.Source");
+	dojo.require("dojo.dnd.Source");
 
-dojo.addOnLoad(function() {
-    dojo.query('.customizeMenuIcon').forEach(function(element) {
-        dojo.connect(element, 'onmouseenter', null, function(){
-            dojo.addClass(this, 'customizeMenuIconMouseenter');
-        });
-        dojo.connect(element, 'onmouseleave', null, function(){
-            dojo.removeClass(this, 'customizeMenuIconMouseenter');
-        });
-    });
+	dojo.addOnLoad(function () {
+		dojo.query('.customizeMenuIcon').forEach(function (element) {
+			dojo.connect(element, 'onmouseenter', null, function () {
+				dojo.addClass(this, 'customizeMenuIconMouseenter');
+			});
+			dojo.connect(element, 'onmouseleave', null, function () {
+				dojo.removeClass(this, 'customizeMenuIconMouseenter');
+			});
+		});
 
-    var handle = dojo.connect(dojo.query('body')[0], 'onclick', null, function(){
-        if (dojo.query('.customizeMenuIconMouseenter').length == 0) {
-            aipo.customize.hideMenu();
-        }
-    });
+		var handle = dojo.connect(dojo.query('body')[0], 'onclick', null, function () {
+			if (dojo.query('.customizeMenuIconMouseenter').length == 0) {
+				aipo.customize.hideMenu();
+			}
+		});
 
-    var containers = dojo.query('.container');
-    var containerSources = [];
-    for(var c = 0; c < containers.length ; c++){
-        var container = new dojo.dnd.Source(containers[c], {
-            withHandles: true,
-            copyOnly: false
-        });
-        containerSources.push(container);
-    }
+		var containers = dojo.query('.container');
+		var containerSources = [];
+		for (var c = 0; c < containers.length; c++) {
+			var container = new dojo.dnd.Source(containers[c], {
+				withHandles: true,
+				copyOnly: false
+			});
+			containerSources.push(container);
+		}
 
 
-    for(var c = 0; c < containers.length ; c++){
-        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
-            dojo.addClass(this, 'dojoDndContainerItemOver');
-            aipo.customize.hideMenu();
-        });
+		for (var c = 0; c < containers.length; c++) {
+			dojo.connect(containerSources[c], "onDndStart", containers[c], function () {
+				dojo.addClass(this, 'dojoDndContainerItemOver');
+				aipo.customize.hideMenu();
+			});
 
-        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
-            dojo.removeClass(this, 'dojoDndContainerItemOver');
-        });
+			dojo.connect(containerSources[c], "onDndCancel", containers[c], function () {
+				dojo.removeClass(this, 'dojoDndContainerItemOver');
+			});
 
-        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
-            if (this == target) {
-                if (copy) {
-                    nodes.orphan();
-                }
-                var params = '';
-                var cols = dojo.query('.container');
-                for(var c = 0; c < cols.length ; c++){
-                    var rows = dojo.query('.dojoDndItem .roundBlockContent > div', cols[c]);
-                    var reverse = false;
-                    if (rows.length >= 2) {
-                        var top = rows[0];
-                        var bottom = rows[rows.length - 1];
+			dojo.connect(container, "onDndDrop", containerSources[c], function (source, nodes, copy, target) {
+				if (this == target) {
+					if (copy) {
+						nodes.orphan();
+					}
+					var params = '';
+					var cols = dojo.query('.container');
+					for (var c = 0; c < cols.length; c++) {
+						var rows = dojo.query('.dojoDndItem .roundBlockContent > div', cols[c]);
+						var reverse = false;
+						if (rows.length >= 2) {
+							var top = rows[0];
+							var bottom = rows[rows.length - 1];
 
-                        var _top = dojo._abs(top);
-                        var _bottom = dojo._abs(bottom);
+							var _top = dojo._abs(top);
+							var _bottom = dojo._abs(bottom);
 
-                        while (_top && _bottom && _top.y == _bottom.y) {
-                            top = top.offsetParent;
-                            bottom = bottom.offsetParent;
-                            _top = dojo._abs(top);
-                            _bottom = dojo._abs(bottom);
-                        }
+							while (_top && _bottom && _top.y == _bottom.y) {
+								top = top.offsetParent;
+								bottom = bottom.offsetParent;
+								_top = dojo._abs(top);
+								_bottom = dojo._abs(bottom);
+							}
 
-                        if (_top.y > _bottom.y) {
-                            reverse = true;
-                        }
+							if (_top.y > _bottom.y) {
+								reverse = true;
+							}
 
-                    }
-                    for (var r = 0 ; r < rows.length ; r++) {
-                        var pid = rows[r].id.split("portlet_")[1];
-                        if (reverse) {
-                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
-                        } else {
-                            params = params + '&' + pid + '_row=' + r;
-                        }
-                        params = params + '&' + pid + '_col=' + c;
-                    }
-                }
+						}
+						for (var r = 0; r < rows.length; r++) {
+							var pid = rows[r].id.split("portlet_")[1];
+							if (reverse) {
+								params = params + '&' + pid + '_row=' + (rows.length - r - 1);
+							} else {
+								params = params + '&' + pid + '_row=' + r;
+							}
+							params = params + '&' + pid + '_col=' + c;
+						}
+					}
 
-                url = "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1?template=CustomizeFormJSONScreen&mode=layout" + params;
-                aipo.customize.submit(url, '', function(){
-                });
+					url = "http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1?template=CustomizeFormJSONScreen&mode=layout" + params;
+					aipo.customize.submit(url, '', function () {
+					});
 
-                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
-                if(iframe && iframe.length == 1) {
-                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
-                  var gadgets_ = aipo.container.gadgets_;
-                  for(var i in gadgets_) {
-                     var gadget = gadgets_[i];
-                     if(gadget.portletId == pid) {
-                       aipo.container.renderGadget(gadget);
-                       break;
-                     }
-                  }
-                }
+					var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+					if (iframe && iframe.length == 1) {
+						var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+						var gadgets_ = aipo.container.gadgets_;
+						for (var i in gadgets_) {
+							var gadget = gadgets_[i];
+							if (gadget.portletId == pid) {
+								aipo.container.renderGadget(gadget);
+								break;
+							}
+						}
+					}
 
-                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
-            }
-        });
-    }
+					dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+				}
+			});
+		}
 
-    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='${id}_underlay'><div dojoAttachPoint='node'></div></div>" });
-    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
-        underlay.hide();
-    });
-    underlay.show();
-});
+		var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='${id}_underlay'><div dojoAttachPoint='node'></div></div>" });
+		dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function () {
+			underlay.hide();
+		});
+		underlay.show();
+	});
 
-//]]>
+	//]]>
 </script>
 <iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
 <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/common.js"></script>

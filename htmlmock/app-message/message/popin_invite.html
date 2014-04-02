@@ -28,8 +28,7 @@
 <!-- WRAPPER -->
 <div id="wrapper">
 
-
-<div id="messageWindow">
+<div id="messageWindow" class="editon">
 <div class="messageWindow_chat">
 <div class="header clearfix">
 
@@ -86,12 +85,17 @@
 <span class="counter zero">0</span>
 </a></li>
 </ul>
-<span class="dropdown-footer"><a href="#">デスクトップ通知を有効にする</a></span>
-</div>
+
+<span class="dropdown-footer"><a href="#">デスクトップ通知を有効にする</a></span></div>
 </div>
 <a title="閉じる" class="btn_close" href="#"><i class="icon-remove"></i></a><a class="btn_popout" href="popout_invite.html" onclick="window.open('popout_invite.html', '', 'width=450,height=450'); return false;"><i class="icon-arrow-up"></i></a><a title="最小化" class="btn_mini" href="#"><i class="icon-minus"></i></a></div>
 
-<div class="inner" style="height:250px;">
+<!--デフォルトの高さ-->
+<div class="inner">
+<!--<div class="inner" style="height:250px;">-->
+<!--フォーカス時の高さ-->
+<!--<div class="inner" style="height:228px;">-->
+
 
 <div class="invite_block alert pa5 ma5">
 <span class="img"><img src="avatar.png" alt="name" /></span>
@@ -128,13 +132,15 @@
 <li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li><li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
 <li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
 <li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
-
 </ul>
-
 </div>
-<div class="footer" style="min-height:35px;">
+<div class="footer">
 <Form>
-<textarea class="text" placeholder="メッセージを入力" style="height:32px;"></textarea>
+<!--デフォルトの高さ-->
+<span class="text">メッセージを入力</span>
+<!--フォーカス時の高さ-->
+<textarea class="text" placeholder="メッセージを入力" style="height:57px;"></textarea>
+
 <INPUT class="auiButtonAction" id="submitMessage" type="submit" value="送信" />
 </Form>
 </div>
@@ -142,8 +148,7 @@
 <!-- Modal -->
 <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>既読
-</div>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>既読</div>
 <div class="modal-body pa10">
 <span class="img"><img src="avatar.png" alt="name" /></span>
 <span class="img"><img src="avatar.png" alt="name" /></span>
@@ -160,15 +165,13 @@
 <span class="img"><img src="avatar.png" alt="name" /></span>
 <span class="img"><img src="avatar.png" alt="name" /></span>
 <span class="img"><img src="avatar.png" alt="name" /></span>
-<span class="img"><img src="avatar.png" alt="name" /></span>
-</div>
+<span class="img"><img src="avatar.png" alt="name" /></span></div>
 <div class="modal-footer"></div>
 </div>
 <!-- Modal -->
 <div id="message" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="messageLabel" aria-hidden="true">
 <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>送信先を選択する
-</div>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>送信先を選択する</div>
 <div class="modal-body">
 <h4>aimluck.com</h4>
 <ul class="userList">
@@ -222,32 +225,25 @@
 <span class="img"><img src="avatar.png" alt="name" /></span>
 木村 一郎
 </label></li>
-
-
 </ul>
 </div>
 <div class="modal-footer">
 <a href="javascript:void(0)" class=" auiButton" data-dismiss="modal">キャンセル</a>
-<a href="javascript:void(0)" class="auiButtonAction pl20 pr20">決定する</a>
-</div>
+<a href="javascript:void(0)" class="auiButtonAction pl20 pr20">決定する</a></div>
 </div>
 <!-- /Modal -->
 <div id="inviteUser01" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="inviteUser01Label" aria-hidden="true">
 <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>招待があります
-</div>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>招待があります</div>
 <div class="modal-body pa10 center">
 <p><span class="img img64"><img src="avatar.png" alt="name" /></span></p>
 <p>Takase Yusukeさんが招待しています</p>
 </div>
 <div class="modal-footer">
 <a href="javascript:void(0)" class=" auiButton" data-dismiss="modal">拒否する</a>
-<a href="javascript:void(0)" class="auiButtonAction">参加する</a>
-</div>
+<a href="javascript:void(0)" class="auiButtonAction">参加する</a></div>
 </div>
 <!-- /Modal -->
-
-
 </div>
 </div>
 
@@ -258,5 +254,21 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://www.aipo.com/common/source/js/bootstrap.js"></script>
+
+<!--<script type="text/javascript">
+$(function(){
+     $(".text").focus(function(){
+          if(this.value == "メッセージを入力"){
+               $(this).val("").css("display","none");
+          }
+     });
+     $(".text").blur(function(){
+          if(this.value == ""){
+               $(this).val("メッセージを入力").css("display","block");
+          }
+     });
+});
+</script>-->
+
 </body>
 </html>

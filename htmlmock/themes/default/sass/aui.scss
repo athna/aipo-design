@@ -17,6 +17,7 @@
 }
 
 html, body {
+	@include inline-block;
 	margin:0;
 	padding:0;
 	font-size:100%;
@@ -682,7 +683,7 @@ $portletBackground:	"../images/common/portlet_20140116.gif";
 		}
 	}
 	.auiPortletBody .auiPortletHead .inner {
-		padding:0 !important
+		padding:9px 10px !important
 	}
 	.auiPortletTitle {
 		float:left;
@@ -2830,6 +2831,12 @@ ul.attachments{
 	.messageContents {
 		margin-left:60px;
 		margin-bottom:10px;
+
+		.tlClipBoard {
+			border:solid 1px $grayBorderLight;
+			margin: 10px 0 5px;
+			padding: 10px;
+		}
 	}
 	.comments {
 		margin:0 0 10px 60px;
@@ -3806,19 +3813,19 @@ $wuiWLCaptionHeight: 24px;
 /***************************************************
 	auiIcon
 --------------------------------------------------*/
-/*
-auiIconは「class="auiIcon auiIconSetting"」と
-ベースクラスとサブクラスを同時に付与させること。
-
-基本形（リンク版）：<a href="#" class="auiIcon auiIconSetting"><span>設定</span></a>
-基本形（span版）：<span class="auiIcon auiIconSetting"><span>設定</span></span>
-
-auiIconでアイコンの形状全てを一元管理し
-サブクラスはあくまで背景位置の変更のみを行う。
-
-IE6は透過PNGが利用できないため透過GIFへ置き換えている。
-そのためバリを表示させないためhoverアクションを封じる。
-*/
+//
+//auiIconは「class="auiIcon auiIconSetting"」と
+//ベースクラスとサブクラスを同時に付与させること。
+//
+//基本形（リンク版）：<a href="#" class="auiIcon auiIconSetting"><span>設定</span></a>
+//基本形（span版）：<span class="auiIcon auiIconSetting"><span>設定</span></span>
+//
+//auiIconでアイコンの形状全てを一元管理し
+//サブクラスはあくまで背景位置の変更のみを行う。
+//
+//IE6は透過PNGが利用できないため透過GIFへ置き換えている。
+//そのためバリを表示させないためhoverアクションを封じる。
+//
 .auiIcon {
 	@include auiIconStyle();
 	@include border-radius(2px);
@@ -4334,16 +4341,17 @@ html>/**/body .auiLoadWrapper .loader {
 	iframe_messagelist
 --------------------------------------------------*/
 iframe.iframe_messagelist{
-position:fixed;
-bottom:0;
-right:10px;
-width:300px;
-z-index:9000;
-background:$white;
-border-top:1px solid $grayLight;
-border-left:1px solid $grayLight;
-border-right:1px solid $grayLight;
-border-bottom:none;
-border-radius:5px 5px 0 0;
-overflow:hidden;
+	position:fixed;
+	bottom:0;
+	right:10px;
+	height:330px;
+	width:300px;
+	z-index:9000;
+	background:$white;
+	border-top:1px solid $grayLight;
+	border-left:1px solid $grayLight;
+	border-right:1px solid $grayLight;
+	border-bottom:none;
+	@include border-radius(4px 4px 0 0);
+	overflow:hidden;
 }

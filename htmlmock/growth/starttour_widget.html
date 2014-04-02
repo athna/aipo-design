@@ -19,46 +19,17 @@
 <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css" />
 <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print" />
 <link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css" />
-<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 <script src="intro.js"></script>
 <link rel="stylesheet" href="introjs.css" type="text/css">
-<style>
 
-/* ガイドツールチップ */
-.tooltip{
-display:inline-block;
-position:relative;
-text-decoration:none;
-text-align:;
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+
+<script language="javascript" type="text/javascript">
+
+window.onload = function(){
+introJs().start();
 }
-.arrow_box {
-padding:8px 10px;
-width:240px;
-background:#000;
-color:#fff;
-z-index:10;
-white-space: normal;
-border-radius: 2px;
-line-height:1.4 !important;
-}
-.tooltip .arrow_box{
-display:block;
-position:absolute;
-top:27px;
-left:-190px;
-}
-.arrow_box:after {
-bottom: 100%;
-left: 50%;
-border: solid transparent;
-content: " ";
-height: 0;
-width: 0;
-position: absolute;
-border-bottom-color: #000;
-border-width: 7px;
-margin-left: -7px; }
-</style>
+</script>
 </head>
 <body>
 <script type="text/javascript">
@@ -66,8 +37,8 @@ margin-left: -7px; }
         xDomainBasePath: 'https://app.aipo.com/javascript'
     };
 </script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<!--<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>-->
 <!-- WRAPPER -->
 <div id="wrapper">
   <!-- HEADER -->
@@ -79,12 +50,9 @@ margin-left: -7px; }
       <script>
 	function popupToggle($this,$target) {
 		if(document.getElementById($target).style.display=='none'){
-			document.getElementById($target).style.display='block';
-			document.getElementById("toolInfoGuide").style.display = "none";
-			
+			document.getElementById($target).style.display='block'
 		}else{
-			document.getElementById($target).style.display='none';
-			document.getElementById("toolInfoGuide").style.display = "none";
+			document.getElementById($target).style.display='none'
 		}
 		if($this.className.indexOf('active')>0){
 			$this.className = $this.className.replace(' active','');
@@ -93,22 +61,15 @@ margin-left: -7px; }
 		};
 	}
 	</script>
-      <div class="hdNavi">            
-      <!--<div style="position: absolute; left: -28px; top: 30px;">
-      <div class="arrow_box">
-                あなた宛の新しいお知らせが届いています。<br>
-開いて確認しましょう。
-                </div>
-                </div>-->
- 
+      <div class="hdNavi">
         <div class="hdMessege"><a href="#">
           <div id="messegechecker" class="zero counter">0</div>
           メッセージ</a></div>
-        <div class="hdActivity" title="お知らせ">
-        <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+        <div class="hdActivity" title="お知らせ" data-intro="お知らせにはあなた宛の通知が届きます。赤いアイコンがついていたら、リンクを押して確認してみましょう。" data-step="1">
+          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
 				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
 				widgetid="activitycheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+				onClick="introJs().exit(),popupToggle(this,'aipo_widget_ActivityList_0');">
             <div type="button"
 					dojoattachpoint="focusNode,titleNode"
 					wairole="button"
@@ -120,19 +81,12 @@ margin-left: -7px; }
 					tabindex="0"
 					aria-valuenow=""
 					aria-disabled="false">
-              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" data-intro="まずはタイムラインに挨拶を投稿してみましょう。" data-step="1">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
                 <div id="activitychecker" class="activitycheckerstyle counter">1</div>
                 <span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
-                
-                
-                
-                
-<!--<div class="introjs-tooltip" style="left: 80px;top: 20px;"><div class="introjs-tooltiptext">あなた宛のお知らせが届いています。まずはここをクリック。<div class="center pt10"><button onClick="introJs().start(),Display('no2')">はじめる</button></div></div>
-                  </div>-->
             </div>
           </div>
-          
-        </div><div id="toolInfoGuide" class="tooltip floatLeft" style="display:block;"><span class="arrow_box">お知らせにはあなた宛の通知が届きます。赤いアイコンがついていたら、リンクを押して確認してみましょう。</span></div>
+        </div>
         <div class="hdInformation" title="サポート">
           <div
 				class="dijit dijitLeft dijitInline dijitDropDownButton"
@@ -156,7 +110,7 @@ margin-left: -7px; }
             </div>
           </div>
         </div>
-        <div class="hdUserName"> <a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <i class="auiIcon auiIconSetting"></i></a> </div>
+        <div class="hdUserName"> <a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a> </div>
       </div>
       <div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
         <ul>
@@ -173,7 +127,7 @@ margin-left: -7px; }
       <li class="first last">
         <div class="tab active">
           <div class="title"><a href="#">マイページ</a></div>
-          <div class="setting"><a href="javascript:void(0);" title="ページ設定" class="auiIcon auiIconSetting"></a></div>
+          <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
         </div>
       </li>
       <li class="addTab"> <a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a> </li>
@@ -182,13 +136,8 @@ margin-left: -7px; }
   <!-- /MAIN TAB -->
   <!-- MAIN OUTER -->
   <div class="roundMainWrapper">
-  
     <table class="tableWrapper">
       <tbody>
-      <tr><td colspan="3"><!--<div class="alertSuccess mr5 ml5 mb0">
-<div class="floatRight"><a onclick="" href="javascript:void(0);"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
-Mプラン、Lプランでご利用いただけるアプリを試してみましょう。<span style="display:inline-block;"><a href="elements_popup.html#try30">アプリを追加する</a>。</span>
-</div>--></td></tr>
         <tr>
           <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><!-- PORTLET OUTER -->
             <div class="dojoDndItem auiPortlet">
@@ -485,18 +434,7 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
             </div>
             <!-- /PORTLET OUTER -->
           </td>
-          <td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-          <!-- サポートアラート -->
-          <div class="alertSuccess mr5 ml5">
-<div class="floatRight"><a onclick="" href="javascript:void(0);"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
-チームのメンバーを追加して、情報を共有しましょう。<span style="display:inline-block;"><a href="">メンバーを追加する</a>。</span>
-</div>
-          <div class="alertSuccess mr5 ml5">
-<div class="floatRight"><a onclick="" href="javascript:void(0);"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
-作業効率をアップするために必要な機能を見つけてみましょう。<span style="display:inline-block;"><a href="elements_popup.html#try30">アプリを追加する</a>。</span>
-</div>
-          <!-- /サポートアラート -->
-          <!-- PORTLET OUTER -->
+          <td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><!-- PORTLET OUTER -->
             <div class="dojoDndItem auiPortlet">
               <div class="auiPortletHead">
                 <div class="inner">
@@ -516,14 +454,13 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
               <!-- auiPortletBody -->
               <div class="auiPortletBody">
                 <div class="inner">
-                <!--アクションを起こしたら表示される-->
-                <!--<div class="alertSuccess mt0">
-<div class="floatRight"><a onclick="" href="javascript:void(0);"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
-チームのメンバーを追加して、情報を共有しましょう。<span style="display:inline-block;"><a href="">メンバーを追加する</a>。</span>
-</div>-->
-								<!--/アクションを起こしたら表示される-->
-                
                   <div id="timelineOuter">
+                  <!--<div id="siteTour01" style="display:block;">
+                  <div class="introjs-tooltip" style="left: 80px;top: -120px;"><div class="introjs-tooltiptext"><h3>タイムライン（投稿編）</h3>はじめまして、木村さん。<br>タイムラインを使うことで簡単に情報共有ができます。まずは基本の投稿についてご案内します。<div class="center pt10"><button onClick="introJs().start(),Display('no2')">はじめる</button></div></div>
+                  </div>
+                  </div>-->
+                  
+
                     <input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
                     <!-- inputField -->
                     <div id="inputField">
@@ -532,23 +469,28 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
                         <input type="hidden" name="secid" value="">
                         <div class="tlInputMention">
                           <textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
-                          <span style="display: block; position:absolute; color: #999999; top:5px; left:5px" onclick="this.style.display='none';document.getElementById('note_P-142c126cd04-100c6').focus();" id="guide_P-142c126cd04-100c6" class="guide">近況を共有しましょう</span> </div>
+                          <span style="display: block; position:absolute; color: #999999; top:5px; left:5px" onclick="this.style.display='none';document.getElementById('note_P-142c126cd04-100c6').focus();" id="guide_P-142c126cd04-100c6" class="guide">近況を共有しましょう</span>
+                          <!--管理者自己紹介-->
+                          <span style="display: none; position:absolute;  top:5px; left:5px" onclick="" id="siteTour_adminText" class="guide">グループウェアAipo.comを導入しました！管理者の木村です。みんなで情報共有していきましょう。</span> </div>
                         <!-- tlInputControls -->
                         <div class="tlInputControls clearfix">
+                        
                           <div class="floatLeft">
                             <iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a" class="auiInputFileFrame"></iframe>
                           </div>
                           <div class="floatRight">
                             <ul class="clearfix">
                               <li>
-                                <input type="submit" class="auiButtonAction" value="投稿する" />
+                                <input type="button" onclick="Display('no3')" value="投稿する" class="auiButtonAction" name="" />
                               </li>
                             </ul>
                           </div>
                         </div>
+                        
                         <!-- /tlInputControls -->
                       </form>
                     </div>
+                    
                     <!-- /inputField -->
                     <div class="tlDisplayChanger">
                       <div class="btn"> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a> </div>
@@ -560,9 +502,27 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
                     </div>
                     <div id="timeline" class="timeline" style="min-height:100px;">
                       <div id="content_xxx">
-                        <input id="readHidden_P-135e7e25490-10b76" type="hidden" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b76?template=TimelineContentScreen&amp;start=2', 'P-135e7e25490-10b76', '1', '82');" />
+                        <input id="readHidden_P-135e7e25490-10b76" type="hidden" onclick="" />
                         <input type="hidden" id="last_timelineId_P-135e7e25490-10b76" value="4072" />
-                        <div id="message21" class="message first">
+                        <div id="message_admin" class="message first" style="display:none;">
+                          <div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"> </div>
+                          <div class="messageContents">
+                            <div class="name">木村 一郎</div>
+                            <div class="body"> グループウェアAipo.comを導入しました！管理者の木村です。みんなで情報共有していきましょう。&nbsp;
+                            </div>
+                            <div class="time"> 12月5日
+                              &nbsp;
+                              <form onsubmit="" method="post" action="" id="" name="likeForm_P-142c126cd04-100c6_1" style="display:inline">
+                                <input type="hidden" value="" name="secid">
+                                <a onclick="" href="javascript:void(0)">いいね！</a>
+                              </form>
+                              <a onclick="" href="javascript:void(0)">コメントする</a>                              
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <!--管理者投稿後表示-->
+                        <div id="message02" class="message" style="display:none;">
                           <div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"> </div>
                           <div class="messageContents">
                             <div class="name">木村 一郎</div>
@@ -583,47 +543,41 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
                               <form onsubmit="aimluck.io.disableForm(this, true);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen" id="deleteForm_P-142c126cd04-100c6_1" name="deleteForm_P-142c126cd04-100c6_1" style="display:inline">
                                 <input type="hidden" value="投稿" name="_name">
                                 <input type="hidden" value="2e1be78a82f9b5d3ba2f1bc606376ec8" name="secid">
-                                &nbsp; <a onclick="aimluck.io.ajaxDeleteSubmit(dojo.byId('dummy_P-142c126cd04-100c6_1'), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen&amp;entityid=1&amp;mode=delete', 'indicator-dlg2-', 'P-142c126cd04-100c6', aipo.timeline.onReceiveMessageToList);" href="javascript:void(0)">削除する</a>
-                                <input type="hidden" value="" id="dummy_P-142c126cd04-100c6_1">
+                                &nbsp; <a onclick="aimluck.io.ajaxDeleteSubmit(dojo.byId(''), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen&amp;entityid=1&amp;mode=delete', 'indicator-dlg2-', 'P-142c126cd04-100c6', aipo.timeline.onReceiveMessageToList);" href="javascript:void(0)">削除する</a>
+                                <input type="hidden" value="" id="">
+                              </form>
+                            </div>
+
+                          </div>
+                        </div>
+                        <!--最初表示-->
+                        <div id="message01" class="message first">
+                          <div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"> </div>
+                          <div class="messageContents">
+                            <div class="name">木村 一郎</div>
+                            <div class="body"> Aipo.comへようこそ！<br>
+                              <br>
+                              チームのアカウントが作成されました。<br>
+                              Aipo.comを使うことで、チームのメンバーとの情報共有や交流がより簡単になります。<br>
+                              画像の活用例を参考に、早速タイムラインを活用してみましょう！&nbsp;
+                              <div class="tlImageBlock clearfix"> <a href="javascript:aipo.fileupload.showImageDialog('#'"><img border="0" src="../themes/default/images/tour/guide1_thumb.jpg" title="1. 近況を書き込みましょう.png" alt="1. 近況を書き込みましょう.png"></a><a href="javascript:aipo.fileupload.showImageDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/template/FileuploadViewScreen?screen=TimelineFileRawScreen&amp;ownerid=4&amp;entryid=1&amp;attachmentindex=2')"><img border="0" src="../themes/default/images/tour/guide2_thumb.jpg" title="2. ニュースを書き込みましょう.png" alt="2. ニュースを書き込みましょう.png"></a><a href="javascript:aipo.fileupload.showImageDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/template/FileuploadViewScreen?screen=TimelineFileRawScreen&amp;ownerid=4&amp;entryid=1&amp;attachmentindex=3')"><img border="0" src="../themes/default/images/tour/guide3_thumb.jpg" title="3. 予定を書き込みましょう.png" alt="3. 予定を書き込みましょう.png"></a></div>
+                            </div>
+                            <div class="time"> 12月5日
+                              &nbsp;
+                              <form onsubmit="aimluck.io.submit(this,'','P-142c126cd04-100c6',aipo.timeline.onReceiveLikeMessage('P-142c126cd04-100c6', '1', 'like', false))" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen&amp;entityid=1&amp;secid=2e1be78a82f9b5d3ba2f1bc606376ec8" id="likeForm_P-142c126cd04-100c6_1" name="likeForm_P-142c126cd04-100c6_1" style="display:inline">
+                                <input type="hidden" value="2e1be78a82f9b5d3ba2f1bc606376ec8" name="secid">
+                                <a onclick="aipo.timeline.addHiddenValue(dojo.byId('likeForm_P-142c126cd04-100c6_1'), 'mode', 'like');dojo.byId('likeForm_P-142c126cd04-100c6_1').onsubmit();" href="javascript:void(0)">いいね！</a>
+                              </form>
+                              <a onclick="aipo.timeline.showCommentField('P-142c126cd04-100c6', 1)" href="javascript:void(0)">コメントする</a>
+                              <form onsubmit="aimluck.io.disableForm(this, true);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen" id="deleteForm_P-142c126cd04-100c6_1" name="deleteForm_P-142c126cd04-100c6_1" style="display:inline">
+                                <input type="hidden" value="投稿" name="_name">
+                                <input type="hidden" value="2e1be78a82f9b5d3ba2f1bc606376ec8" name="secid">
+                                &nbsp; <a onclick="aimluck.io.ajaxDeleteSubmit(dojo.byId(''), 'https://app.testtotest.com/aipo/portal/media-type/html/user/0000007877/page/default.psml/js_peid/P-142c126cd04-100c6?template=TimelineJSONScreen&amp;entityid=1&amp;mode=delete', 'indicator-dlg2-', 'P-142c126cd04-100c6', aipo.timeline.onReceiveMessageToList);" href="javascript:void(0)">削除する</a>
+                                <input type="hidden" value="" id="">
                               </form>
                             </div>
                           </div>
-                          <!--擬似体験用コメントといいね！-->
-                          <div class="comments " id="comments_sample" style="display:none;">
-                            <div class="commentCaption" id="like_1"> <span class="iconLike"></span> <a onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/P-1427d6d0686-100ed?template=TimelineLikeDetailScreen&amp;entityid=1','P-1427d6d0686-100ed');" href="javascript:void(0);">1人</a>が「いいね！」と言っています。 </div>
-                            <div id="message112" class="message">
-                              <form name="" id="" action="">
-                                <div class="avatar mr10"> <img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"> </div>
-                                <div class="messageContents">
-                                  <div class="name">田中 一郎</div>
-                                  <div class="body">ニュースのサムネイルや概要も表示されるんですね！<br>
-                                    情報共有が楽になりそうです。</div>
-                                  <div class="time">13:39</div>
-                                </div>
-                              </form>
-                            </div>
-                            <div id="commentInputDummy_P-1427d6d0686-100ed_1" class="commentInputDummy" onclick="aipo.timeline.showCommentField('P-1427d6d0686-100ed', 1);"> <span>コメントする</span> </div>
-                            <div style="display:none" class="commentField" id="commentField_P-1427d6d0686-100ed_1">
-                              <div class="avatar mr10" id="avatar_1"> <img width="32" height="32" alt="佐々木 洋平" src="../aipoUI/images/common/avatar_default3.png"> </div>
-                              <form onsubmit="dojo.byId('getTimelineOnClick').innerHTML='true';aimluck.io.submit(this,'indicator-dlg2-_1','P-1427d6d0686-100ed',aipo.timeline.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/P-1427d6d0686-100ed?template=TimelineJSONScreen&amp;entityid=1&amp;secid=0ee9f80f4a79a5bde3443be156216baf" id="commentForm_P-1427d6d0686-100ed_1" name="commentForm_P-1427d6d0686-100ed_1">
-                                <input type="hidden" value="0ee9f80f4a79a5bde3443be156216baf" name="secid">
-                                <div class="outer">
-                                  <textarea onblur="aipo.timeline.onBlurCommentField('P-1427d6d0686-100ed', 1)" onpaste="aipo.timeline.onPaste('P-1427d6d0686-100ed', 1, event)" onkeyup="aipo.timeline.onKeyUp('P-1427d6d0686-100ed', 1, event)" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px; " rows="1" name="note" cols="10" id="note_P-1427d6d0686-100ed_1" class="elastic"></textarea>
-                                </div>
-                                <div class="tlInputMention clearfix">
-                                  <div class="floatRight">
-                                    <input type="submit" value="コメントする" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-1427d6d0686-100ed_1'), 'mode', 'comment');" class="auiButton" href="javascript:void(0)">
-                                  </div>
-                                  <div class="floatRight">
-                                    <div class="tlInputMention">
-                                      <div style="display:none;" id="indicator-dlg2-_1P-1427d6d0686-100ed" class="indicatorglay">&nbsp;</div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                          <!--擬似体験用コメントといいね！　ここまで-->
+  
                         </div>
                       </div>
                     </div>
@@ -636,10 +590,6 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
               </div>
             </div>
             <!-- /PORTLET OUTER -->
-            <!--<div class="alertSuccess mr5 ml5">
-<div class="floatRight"><a onclick="" href="javascript:void(0);"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
-Mプラン、Lプランでご利用いただけるアプリを試してみましょう。<span style="display:inline-block;"><a href="elements_popup.html#try30">アプリを追加する</a>。</span>
-</div>-->
           </td>
           <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><div class="dojoDndItem auiPortlet P-142c126cd04-100c7" id="dojoUnique9">
               <div class="auiPortletHead">
@@ -805,7 +755,7 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
                         </div>
                       </div>
                     </div>
-                    <div id="indicator-P-142c126cd04-100c7" class="center loader" style="display: none;"><img width="24" height="24" alt="" src="../aipoUI/themes/default/images/common/loading_lg.gif">&nbsp;読み込み中...</div>
+                    <div id="indicator-P-142c126cd04-100c7" class="center loader" style="display: none;"><img width="24" height="24" alt="" src="themes/default/images/common/loading_lg.gif">&nbsp;読み込み中...</div>
                     <!-- WRAPPER -->
                     <table id="tableWrapper_P-142c126cd04-100c7" class="tableWrapper">
                       <tbody>
@@ -1187,14 +1137,14 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
 </div>
 <div id="dijitPopup" class="dijitPopup" style="z-index: 1000; visibility: visible; top:30px; right:340px; ">
   <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
-    <div class="activityPopup" data-intro="新しいメッセージを確認しましょう。" data-step="2">
+    <div class="activityPopup">
       <div class="clearfix">
         <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
           <h2>あなた宛のお知らせ</h2>
           <div style="background:#ffffff;padding:2px;">
             <div class="auiSummaryMeta clearfix">
               <div class="floatRight">
-                <div class="count">1 - 4 / 4</div>
+                <div class="count">1 - 5 / 20</div>
                 <div class="auiSelectButton floatLeft">
                   <ul>
                     <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
@@ -1204,22 +1154,33 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
               </div>
             </div>
             <ul class="activityList">
-            	<li class="unread">
-                <div class="meta">3月20日 &nbsp; Aipo.comサポート</div>
-                <a href="elements_popup.html#try30">Mプラン、Lプラン限定のアプリを試してみましょう。</a> </li>
-              <li>
-             <!-- <li class="unread">
-                <div class="meta">2月20日 &nbsp; Aipo.comサポート</div>
-                <a href="javascript:void(0);" onclick="">プロフィール写真を設定してタイムラインを見やすくしましょう。</a> </li>
-              <li>-->
+              <li class="unread">
                 <div class="meta">12月26日 &nbsp; 山本 次郎</div>
-                <a href="javascript:void(0);" onclick="">予定「お客様訪問」を編集しました。</a> </li>
-              <!--<li>
+                <a href="javascript:void(0);" onclick="">予定「お客様<wbr>
+                訪問」を編<wbr>
+                集しました。<wbr>
+                </a> </li>
+              <li>
                 <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
-                <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle"> <a href="javascript:void(0);" onclick="">あなたの投稿にコメントしました。</a> </li>-->
+                <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle"> <a href="javascript:void(0);" onclick="">あなたの投稿<wbr>
+                にコメントし<wbr>
+                ました。</a> </li>
+              <li>
+                <div class="meta">12月22日 &nbsp; 山中 愛子</div>
+                <a href="javascript:void(0);" onclick="">山田様<wbr>
+                より伝言「伝言をお願いします。」があ<wbr>
+                りました。</a> </li>
+              <li>
+                <div class="meta">12月21日 &nbsp; 山本 次郎</div>
+                <a href="javascript:void(0);" onclick="">予定「お客様<wbr>
+                修正連絡<wbr>
+                」を追加しました。</a> </li>
               <li>
                 <div class="meta">12月21日 &nbsp; 田村 三郎</div>
-                <a href="javascript:void(0);" onclick="">報告書「業務報告」の確認依頼を出しました。</a> </li>
+                <a href="javascript:void(0);" onclick="">報告書「業務報告」<wbr>
+                の確認依頼を<wbr>
+                出しました。<wbr>
+                </a> </li>
             </ul>
             <p class="rightBtn"> <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;
               <input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
@@ -1230,6 +1191,38 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
     </div>
   </div>
 </div>
+<!--疑似体験-->
+<div id="dijitPopupSample" class="dijitPopup" style="z-index: 1000; visibility: visible; left: 503px; top: 30px; display:none;">
+  <div style="width: 420px;" widgetid="aipo_widget_ActivityList_0" id="aipo_widget_ActivityList_0">
+    <div class="activityPopup">
+      <div class="clearfix">
+        <div widgetid="activityListPane" id="activityListPane" class="dijitContentPane" title="">
+          <h2>あなた宛のお知らせ</h2>
+          <div style="background:#ffffff;padding:2px;">
+            <div class="auiSummaryMeta clearfix">
+              <div class="floatRight">
+                <div class="count">1 - 2 / 2</div>
+              </div>
+            </div>
+            <ul class="activityList">
+              <li class="unread">
+                <div class="meta">13:39 &nbsp; 岡田 素子</div>
+                <a onclick="" href="javascript:void(0);">あなたの投稿にコメントしました。</a> </li>
+              <li class="unread">
+                <div class="meta">12月12日 &nbsp; 山田 太郎</div>
+                <a onclick="" href="javascript:void(0);">あなたの投稿に「いいね！」が押されました。</a> </li>
+            </ul>
+            <img width="1" height="1" style="display:none" onload="" src="images/common/dot.gif">
+            <p class="rightBtn">
+              <input type="button" onclick="" value="すべて既読にする" name="allread">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--疑似体験　ここまで-->
 <div class="menubar multi" id="menubar_auiFilter_1" style="width:390px;top:526px; left:33px;display:none;">
   <div>
     <p class="caption">部署</p>
@@ -1260,6 +1253,11 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
 <!-- /menubar_auiFilter_1 -->
 <!-- menubar_auiFilter_2 -->
 <!-- /menubar_auiFilter_2 -->
+</div>
+<div style="display: none; opacity: 1;" widgetid="aimluck_widget_DialogUnderlay_1" class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1">
+  <div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+<!--ここまでサイトツアー-->
 <!-- support popup -->
 <div id="popup_77" class="dijitPopup" style="z-index: 1000; top:30px; right:270px; width:320px;">
   <div id="aipo_widget_SupportList_0" widgetid="aipo_widget_SupportList_0" style="display:none;">
@@ -1336,7 +1334,7 @@ Mプラン、Lプランでご利用いただけるアプリを試してみまし
 </div>
 <!-- /popupMask -->
 <!-- startGuide -->
-<div id="popupStartGuide" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display:none; opacity: 1; left: 50%; top: 50px; margin-left:-275px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+<div id="popupStartGuide" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display:none; opacity: 1; top:50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
   <div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
     <div class="auiPopup clearfix">
       <div class="auiPopupHead clearfix">

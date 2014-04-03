@@ -99,6 +99,7 @@ if(radio[0].checked) {
 document.getElementById('planMLBox01').style.display = "none";
 document.getElementById('planMLBox02').style.display = "none";
 document.getElementById('planMLBox03').style.display = "none";
+document.getElementById('planMLBox04').style.display = "none";
 document.getElementById('select_bank').style.display = "none";
 document.getElementById('select_credit').style.display = "none";
 }else if(radio[1].checked || radio[2].checked) {
@@ -106,18 +107,20 @@ document.getElementById('select_credit').style.display = "none";
 document.getElementById('planMLBox01').style.display = "";
 document.getElementById('planMLBox02').style.display = "";
 document.getElementById('planMLBox03').style.display = "";
+document.getElementById('planMLBox04').style.display = "";
+document.getElementById('select_bank').style.display = "block";
 }
 }
 function contractChange(){
 radio = document.getElementsByName('contractFlag')
 if(radio[0].checked) {
 //フォーム
-document.getElementById('contractMonth').style.fontWeight = "bold";
-document.getElementById('contractYear').style.fontWeight = "normal";
+document.getElementById('contractMonth').style.display = "block";
+document.getElementById('contractYear').style.display = "none";
 }else if(radio[1].checked) {
 //フォーム
-document.getElementById('contractMonth').style.fontWeight = "normal";
-document.getElementById('contractYear').style.fontWeight = "bold";
+document.getElementById('contractMonth').style.display = "none";
+document.getElementById('contractYear').style.display = "block";
 
 }
 }
@@ -125,11 +128,9 @@ function payChange(){
 radio = document.getElementsByName('payChangeFlag')
 if(radio[0].checked) {
 //フォーム
-document.getElementById('select_bank').style.display = "";
 document.getElementById('select_credit').style.display = "none";
 }else if(radio[1].checked) {
 //フォーム
-document.getElementById('select_bank').style.display = "none";
 document.getElementById('select_credit').style.display = "";
 }
 }
@@ -142,13 +143,13 @@ window.onload = entryChange1;
                   <tr>
                     <td class="caption"><span id="planFlagRequired">プラン</span></td>
                     <td><div id="planFlag">
-                        <p><label for="000planFlag0">
+                        <label for="000planFlag0" class="mr15">
                           <input type="radio" onclick="planChange();" checked="checked" id="000planFlag0" value="S" name="planChangeFlag" class="">
-                          <span class="">Sプラン</span></label></p>
-                        <p><label for="000planFlag1">
+                          <span class="">Sプラン</span></label>
+                        <label for="000planFlag1" class="mr15">
                           <input type="radio" onclick="planChange();" id="000planFlag1" value="M" name="planChangeFlag" class="">
-                          <span class="">Mプラン</span></label></p>
-                        <p><label for="000planFlag2">
+                          <span class="">Mプラン</span></label>
+                        <label for="000planFlag2">
                           <input type="radio" onclick="planChange();" id="000planFlag2" value="L" name="planChangeFlag" class="">
                           <span class="">Lプラン</span></label></p>
                       </div>
@@ -156,50 +157,80 @@ window.onload = entryChange1;
                   </tr>
                   <tr>
                     <td class="caption"><span class="required" id="userNameRequired">ユーザー数</span></td>
-                    <td><input type="text" style="width:4em;ime-mode:inactive;" maxlength="20" value="2" id="userNum" name="userNum" class="text"> ユーザー
-                      <span id="userNumSpan"></span> </td>
-                  </tr>
-                  
-                  
-                  <tr id="planMLBox01" style="display:none;">
-                    <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
-                    <td>
-                    
-
-<span class="floatLeft"><input type="text" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="addCapacity">
-GB</span>
-<span style="line-height: 32px;" class="floatRight">￥0</span>
-</td>
+                    <td><input type="text" style="width:4em;ime-mode:inactive;" maxlength="20" value="5" id="userNum" name="userNum" class="text"> ユーザー
+                      <span id="userNumSpan"></span></td>
                   </tr>
                   
                   <tr id="planMLBox02" style="display:none;">
                     <td class="caption"><span class="required" id="contract">ご契約方法</span></td>
                     <td><div id="contractFlag">
-                        <p class="clearfix"><label for="000contractFlag0">
-												
-                          <span class="floatLeft"><input type="radio" id="000contractFlag0" value="月額" name="contractFlag" onclick="contractChange();" class="mr5" />月額（ユーザー1人あたり月額 ￥210）</span><span class="contractPrice" id="contractMonth">￥420</span></label></p>
-                        <p class="clearfix"><label for="000contractFlag1">
-                          <span class="floatLeft"><input type="radio" id="000contractFlag1" value="年額" name="contractFlag" onclick="contractChange();" class="mr5" />年額（ユーザー1人あたり月額 ￥175）</span><span class="contractPrice" id="contractYear">￥4,200</span></label></p>
-                      </div>
-                      <span id="payFlagSpan"></span> </td>
+                      <label for="000contractFlag0" class="mr15">
+                          <input type="radio" id="000contractFlag0" value="月額" name="contractFlag" onclick="contractChange();" checked="checked" /> 月額</label>
+                        <label for="000contractFlag1">												
+                          <input type="radio" id="000contractFlag1" value="年額" name="contractFlag" onclick="contractChange();" /> 年額</label>
+                     </div></td>
                   </tr>
+                  <tr id="planMLBox01" style="display:none;">
+                    <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
+                    <td>
+                    
+
+<span class="floatLeft"><input type="text" value="2" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="addCapacity">
+GB</span>
+
+</td>
+                  </tr>                  
                   
-                  <tr id="planMLBox03" style="display:none;">
-                    <td class="caption"><span class="required" id="payFlagRequired">お支払い方法</span></td>
-                    <td><div id="payFlag">
-                        <p><label for="000payFlag0">
-                          <input type="radio" id="000payFlag0" value="銀行振込" name="payChangeFlag" onclick="payChange();" class="mr5" />銀行振込</label></p>
-                        <p><label for="000payFlag1">
-                          <input type="radio" id="000payFlag1" value="クレジットカード払い" name="payChangeFlag" onclick="payChange();" class="mr5" />クレジットカード払い</label></p>
-                      </div>
-                      <span id="payFlagSpan"></span> </td>
-                  </tr>
                   </tbody>
               </table>
+              <div id="planMLBox04" class="clearfix pb5" style="border-bottom:1px solid #D2D2D2; display:none;">
+<div id="contractMonth" style="display:block;" class="floatRight">
+<table class="noBorder"><tbody>
+
+                    <tr>
+                      <td class="right" nowrap="nowrap">5ユーザー</td>
+                    <td style="width:130px;" class="right">￥1,050 /月</td></tr>
+                    <tr>
+                      <td class="right" nowrap="nowrap">2GB</td>
+                    <td class="right">￥2,000 /月</td class="right"></tr>
+                    </tbody></table>
+<div class="mt5 pt5">
+<table class="noBorder"><tbody>
+                    
+                    <tr>
+                      <td style="font-size:16px;" class="right" nowrap="nowrap">合計金額</td>
+                    <td class="right" style="width:130px; font-size:16px;"><strong>￥3,050 /月</strong></td class="right">
+                    </tr>
+                    </tbody></table></div>
+</div>
+<div id="contractYear" style="display:none;" class="floatRight">
+<table class="noBorder"><tbody>
+
+                    <tr>
+                      <td class="right" nowrap="nowrap">5ユーザー</td>
+                    <td style="width:130px;" class="right">￥10,500 /年</td></tr>
+                    <tr>
+                      <td class="right" nowrap="nowrap">2GB</td>
+                    <td class="right">￥20,000 /年</td class="right"></tr>
+                    </tbody></table>
+<div class="mt5 pt5">
+<table class="noBorder"><tbody>
+                    
+                    <tr>
+                      <td style="font-size:16px;" class="right" nowrap="nowrap">合計金額</td>
+                    <td class="right" style="width:130px; font-size:16px;"><strong>￥30,500 /年</strong></td class="right">
+                    </tr>
+                    </tbody></table></div>
+</div>
+</div>
               <div id="select_bank" style="display:none;">
               <p class="mt20">会社情報を入力してください。</p>
               <table class="listTable wide">
                 <tbody>
+                <tr>
+                    <td class="caption">会社名</td>
+                    <td>株式会社エイムラック</td>
+                  </tr>
                   <tr>
                     <td class="caption"><span class="required" id="addressRequired">郵便番号</span></td>
                     <td><input onkeyup="AjaxZip3.zip2addr(this,'','pref_id','addr');" name="zip2" size="10" type="text"  style="width:10em;ime-mode:inactive;" />
@@ -268,8 +299,24 @@ GB</span>
                 </tbody>
               </table>
               </div>
-              <div id="select_credit" style="display:none;">
-             <p class="mt20">クレジットカード情報を入力してください。</p>
+              <div id="planMLBox03" style="display:none;">
+             <p class="mt20">お支払い方法を選択してください。</p>
+             <table class="listTable wide">
+                <tbody>
+             <tr>
+                    <td class="caption"><span class="required" id="payFlagRequired">お支払い方法</span></td>
+                    <td><div id="payFlag">
+                        <p><label for="000payFlag0">
+                          <input type="radio" id="000payFlag0" value="銀行振込" name="payChangeFlag" onclick="payChange();" /> 銀行振込</label></p>
+                        <p><label for="000payFlag1">
+                          <input type="radio" id="000payFlag1" value="クレジットカード払い" name="payChangeFlag" onclick="payChange();" /> クレジットカード払い</label></p>
+                      </div>
+                      <span id="payFlagSpan"></span> </td>
+                  </tr>
+                  </tbody></table>
+                  </div>
+                  <div id="select_credit" style="display:none;">
+                  <p class="mt20">クレジットカード情報を入力してください。</p>
               <table class="listTable wide">
                 <tbody>
                   <tr>

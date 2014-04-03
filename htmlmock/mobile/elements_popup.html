@@ -25,18 +25,18 @@
 
 <style>
 /* aui.css に記述 */
-.contractPrice{
+.pcRight{
 float:right;
 }
 
 @media (max-width: 767px) {
 
 /* mobile.css に記述 */
-.contractPrice{
+.pcRight{
 clear: both;
-display: block;
+display: inline-block;
 float: none;
-text-align: right;
+text-align: left;
 }
 
 }
@@ -161,7 +161,7 @@ text-align: right;
           <div class="auiPopupTitle">プラン変更申し込み</div>
         </div>
         <div class="roundBlockContent">
-        <p>各プランの詳細につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
+          <p>各プランの詳細につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
           <div id="errorHidden">
             <div id="messageDiv"></div>
           </div>
@@ -177,7 +177,7 @@ text-align: right;
             <input type="hidden" value="" id="userEmail" name="userEmail">
             <span style="display:none;" id="lastDialog"></span>
             <div id="inputAndConfirmForm">
-            <script type="text/javascript">
+              <script type="text/javascript">
 function planChange(){
 radio = document.getElementsByName('planChangeFlag')
 if(radio[0].checked) {
@@ -185,6 +185,7 @@ if(radio[0].checked) {
 document.getElementById('planMLBox01').style.display = "none";
 document.getElementById('planMLBox02').style.display = "none";
 document.getElementById('planMLBox03').style.display = "none";
+document.getElementById('planMLBox04').style.display = "none";
 document.getElementById('select_bank').style.display = "none";
 document.getElementById('select_credit').style.display = "none";
 }else if(radio[1].checked || radio[2].checked) {
@@ -192,18 +193,20 @@ document.getElementById('select_credit').style.display = "none";
 document.getElementById('planMLBox01').style.display = "";
 document.getElementById('planMLBox02').style.display = "";
 document.getElementById('planMLBox03').style.display = "";
+document.getElementById('planMLBox04').style.display = "";
+document.getElementById('select_bank').style.display = "block";
 }
 }
 function contractChange(){
 radio = document.getElementsByName('contractFlag')
 if(radio[0].checked) {
 //フォーム
-document.getElementById('contractMonth').style.fontWeight = "bold";
-document.getElementById('contractYear').style.fontWeight = "normal";
+document.getElementById('contractMonth').style.display = "block";
+document.getElementById('contractYear').style.display = "none";
 }else if(radio[1].checked) {
 //フォーム
-document.getElementById('contractMonth').style.fontWeight = "normal";
-document.getElementById('contractYear').style.fontWeight = "bold";
+document.getElementById('contractMonth').style.display = "none";
+document.getElementById('contractYear').style.display = "block";
 
 }
 }
@@ -211,11 +214,9 @@ function payChange(){
 radio = document.getElementsByName('payChangeFlag')
 if(radio[0].checked) {
 //フォーム
-document.getElementById('select_bank').style.display = "";
 document.getElementById('select_credit').style.display = "none";
 }else if(radio[1].checked) {
 //フォーム
-document.getElementById('select_bank').style.display = "none";
 document.getElementById('select_credit').style.display = "";
 }
 }
@@ -228,193 +229,237 @@ window.onload = entryChange1;
                   <tr>
                     <td class="caption"><span id="planFlagRequired">プラン</span></td>
                     <td><div id="planFlag">
-                        <p><label for="000planFlag0">
+                        <label for="000planFlag0" class="mr15">
                           <input type="radio" onclick="planChange();" checked="checked" id="000planFlag0" value="S" name="planChangeFlag" class="">
-                          <span class="">Sプラン</span></label></p>
-                        <p><label for="000planFlag1">
+                          <span class="">Sプラン</span></label>
+                        <label for="000planFlag1" class="mr15">
                           <input type="radio" onclick="planChange();" id="000planFlag1" value="M" name="planChangeFlag" class="">
-                          <span class="">Mプラン</span></label></p>
-                        <p><label for="000planFlag2">
+                          <span class="">Mプラン</span></label>
+                        <label for="000planFlag2">
                           <input type="radio" onclick="planChange();" id="000planFlag2" value="L" name="planChangeFlag" class="">
-                          <span class="">Lプラン</span></label></p>
+                          <span class="">Lプラン</span></label>
+                        </p>
                       </div>
                       <span id="planFlagSpan"></span> </td>
                   </tr>
                   <tr>
                     <td class="caption"><span class="required" id="userNameRequired">ユーザー数</span></td>
-                    <td><input type="text" style="width:4em;ime-mode:inactive;" maxlength="20" value="2" id="userNum" name="userNum" class="text"> ユーザー
-                      <span id="userNumSpan"></span> </td>
+                    <td><input type="text" style="width:4em;ime-mode:inactive;" maxlength="20" value="5" id="userNum" name="userNum" class="text">
+                      ユーザー <span id="userNumSpan"></span></td>
                   </tr>
-                  
-                  
-                  <tr id="planMLBox01" style="display:none;">
-                    <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
-                    <td>
-                    
-
-<span class="floatLeft"><input type="text" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="addCapacity">
-GB</span>
-<span style="line-height: 32px;" class="floatRight">￥0</span>
-</td>
-                  </tr>
-                  
                   <tr id="planMLBox02" style="display:none;">
                     <td class="caption"><span class="required" id="contract">ご契約方法</span></td>
                     <td><div id="contractFlag">
-                        <p class="clearfix"><label for="000contractFlag0">
-												
-                          <span class="floatLeft"><input type="radio" id="000contractFlag0" value="月額" name="contractFlag" onclick="contractChange();" class="mr5" />月額（ユーザー1人あたり月額 ￥210）</span><span class="contractPrice" id="contractMonth">￥420</span></label></p>
-                        <p class="clearfix"><label for="000contractFlag1">
-                          <span class="floatLeft"><input type="radio" id="000contractFlag1" value="年額" name="contractFlag" onclick="contractChange();" class="mr5" />年額（ユーザー1人あたり月額 ￥175）</span><span class="contractPrice" id="contractYear">￥4,200</span></label></p>
-                      </div>
-                      <span id="payFlagSpan"></span> </td>
+                        <label for="000contractFlag0" class="mr15">
+                          <input type="radio" id="000contractFlag0" value="月額" name="contractFlag" onclick="contractChange();" checked="checked" />
+                          月額</label>
+                        <label for="000contractFlag1">
+                          <input type="radio" id="000contractFlag1" value="年額" name="contractFlag" onclick="contractChange();" />
+                          年額</label>
+                      </div></td>
                   </tr>
-                  
-                  <tr id="planMLBox03" style="display:none;">
-                    <td class="caption"><span class="required" id="payFlagRequired">お支払い方法</span></td>
-                    <td><div id="payFlag">
-                        <p><label for="000payFlag0">
-                          <input type="radio" id="000payFlag0" value="銀行振込" name="payChangeFlag" onclick="payChange();" class="mr5" />銀行振込</label></p>
-                        <p><label for="000payFlag1">
-                          <input type="radio" id="000payFlag1" value="クレジットカード払い" name="payChangeFlag" onclick="payChange();" class="mr5" />クレジットカード払い</label></p>
-                      </div>
-                      <span id="payFlagSpan"></span> </td>
-                  </tr>
-                  </tbody>
-              </table>
-              <div id="select_bank" style="display:none;">
-              <p class="mt20">会社情報を入力してください。</p>
-              <table class="listTable wide">
-                <tbody>
-                  <tr>
-                    <td class="caption"><span class="required" id="addressRequired">郵便番号</span></td>
-                    <td><input onkeyup="AjaxZip3.zip2addr(this,'','pref_id','addr');" name="zip2" size="10" type="text"  style="width:10em;ime-mode:inactive;" />
-                      <span id="addressSpan"></span> </td>
-                  </tr>
-                  <tr>
-                    <td class="caption"><span class="required" id="prefRequired">都道府県</span></td>
-                    <td><select name="pref_id">
-<option>選んでください</option>
-<option value="1">北海道</option>
-<option value="2">青森県</option>
-<option value="3">岩手県</option>
-<option value="4">宮城県</option>
-<option value="5">秋田県</option>
-<option value="6">山形県</option>
-<option value="7">福島県</option>
-<option value="8">茨城県</option>
-<option value="9">栃木県</option>
-<option value="10">群馬県</option>
-<option value="11">埼玉県</option>
-<option value="12">千葉県</option>
-<option value="13">東京都</option>
-<option value="14">神奈川県</option>
-<option value="15">新潟県</option>
-<option value="16">富山県</option>
-<option value="17">石川県</option>
-<option value="18">福井県</option>
-<option value="19">山梨県</option>
-<option value="20">長野県</option>
-<option value="21">岐阜県</option>
-<option value="22">静岡県</option>
-<option value="23">愛知県</option>
-<option value="24">三重県</option>
-<option value="25">滋賀県</option>
-<option value="26">京都府</option>
-<option value="27">大阪府</option>
-<option value="28">兵庫県</option>
-<option value="29">奈良県</option>
-<option value="30">和歌山県</option>
-<option value="31">鳥取県</option>
-<option value="32">島根県</option>
-<option value="33">岡山県</option>
-<option value="34">広島県</option>
-<option value="35">山口県</option>
-<option value="36">徳島県</option>
-<option value="37">香川県</option>
-<option value="38">愛媛県</option>
-<option value="39">高知県</option>
-<option value="40">福岡県</option>
-<option value="41">佐賀県</option>
-<option value="42">長崎県</option>
-<option value="43">熊本県</option>
-<option value="44">大分県</option>
-<option value="45">宮崎県</option>
-<option value="46">鹿児島県</option>
-<option value="47">沖縄県</option>
-</select>
-                      <span id="prefSpan"></span> </td>
-                  </tr>
-                  <tr>
-                    <td class="caption"><span class="required" id="addressRequired">住所</span></td>
-                    <td><input name="addr" style="width:99%;ime-mode:active" maxlength="40" value="" type="text" />
-                    
-                      <span id="addressSpan"></span> </td>
+                  <tr id="planMLBox01" style="display:none;">
+                    <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
+                    <td><span class="floatLeft">
+                      <input type="text" value="2" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="addCapacity">
+                      GB</span> </td>
                   </tr>
                 </tbody>
               </table>
+              <div id="planMLBox04" class="clearfix pb5" style="border-bottom:1px solid #D2D2D2; display:none;">
+                <div id="contractMonth" style="display:block;" class="floatRight">
+                  <table class="noBorder">
+                    <tbody>
+                      <tr>
+                        <td class="right" nowrap="nowrap">5ユーザー</td>
+                        <td style="width:130px;" class="right">￥1,050 /月</td>
+                      </tr>
+                      <tr>
+                        <td class="right" nowrap="nowrap">2GB</td>
+                        <td class="right">￥2,000 /月</td class="right">
+                      </tr>
+                      <tr>
+                        <td style="font-size:16px;" class="right pt10" nowrap="nowrap">合計金額 (税込)</td>
+                        <td class="right pt10" style="width:130px; font-size:16px;"><strong>￥3,050 /月</strong></td class="right">
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div id="contractYear" style="display:none;" class="floatRight">
+                  <table class="noBorder">
+                    <tbody>
+                      <tr>
+                        <td class="right" nowrap="nowrap">5ユーザー</td>
+                        <td style="width:130px;" class="right">￥10,500 /年</td>
+                      </tr>
+                      <tr>
+                        <td class="right" nowrap="nowrap">2GB</td>
+                        <td class="right">￥20,000 /年</td class="right">
+                      </tr>
+                      <tr>
+                        <td style="font-size:16px;" class="right pt10" nowrap="nowrap">合計金額 (税込)</td>
+                        <td class="right pt10" style="width:130px; font-size:16px;"><strong>￥30,500 /年</strong></td class="right">
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div id="select_bank" style="display:none;">
+                <p class="mt20">会社情報を入力してください。</p>
+                <table class="listTable wide">
+                  <tbody>
+                    <tr>
+                      <td class="caption">会社名</td>
+                      <td><input name="company" style="width:99%;ime-mode:active" maxlength="40" value="株式会社エイムラック" type="text" /></td>
+                    </tr>
+                    <tr>
+                      <td class="caption"><span class="required" id="addressRequired">郵便番号</span></td>
+                      <td><input onkeyup="AjaxZip3.zip2addr(this,'','pref_id','addr');" name="zip2" size="10" type="text"  style="width:10em;ime-mode:inactive;" />
+                        <span id="addressSpan"></span> </td>
+                    </tr>
+                    <tr>
+                      <td class="caption"><span class="required" id="prefRequired">都道府県</span></td>
+                      <td><select name="pref_id">
+                          <option>選んでください</option>
+                          <option value="1">北海道</option>
+                          <option value="2">青森県</option>
+                          <option value="3">岩手県</option>
+                          <option value="4">宮城県</option>
+                          <option value="5">秋田県</option>
+                          <option value="6">山形県</option>
+                          <option value="7">福島県</option>
+                          <option value="8">茨城県</option>
+                          <option value="9">栃木県</option>
+                          <option value="10">群馬県</option>
+                          <option value="11">埼玉県</option>
+                          <option value="12">千葉県</option>
+                          <option value="13">東京都</option>
+                          <option value="14">神奈川県</option>
+                          <option value="15">新潟県</option>
+                          <option value="16">富山県</option>
+                          <option value="17">石川県</option>
+                          <option value="18">福井県</option>
+                          <option value="19">山梨県</option>
+                          <option value="20">長野県</option>
+                          <option value="21">岐阜県</option>
+                          <option value="22">静岡県</option>
+                          <option value="23">愛知県</option>
+                          <option value="24">三重県</option>
+                          <option value="25">滋賀県</option>
+                          <option value="26">京都府</option>
+                          <option value="27">大阪府</option>
+                          <option value="28">兵庫県</option>
+                          <option value="29">奈良県</option>
+                          <option value="30">和歌山県</option>
+                          <option value="31">鳥取県</option>
+                          <option value="32">島根県</option>
+                          <option value="33">岡山県</option>
+                          <option value="34">広島県</option>
+                          <option value="35">山口県</option>
+                          <option value="36">徳島県</option>
+                          <option value="37">香川県</option>
+                          <option value="38">愛媛県</option>
+                          <option value="39">高知県</option>
+                          <option value="40">福岡県</option>
+                          <option value="41">佐賀県</option>
+                          <option value="42">長崎県</option>
+                          <option value="43">熊本県</option>
+                          <option value="44">大分県</option>
+                          <option value="45">宮崎県</option>
+                          <option value="46">鹿児島県</option>
+                          <option value="47">沖縄県</option>
+                        </select>
+                        <span id="prefSpan"></span> </td>
+                    </tr>
+                    <tr>
+                      <td class="caption"><span class="required" id="addressRequired">住所</span></td>
+                      <td><input name="addr" style="width:99%;ime-mode:active" maxlength="40" value="" type="text" />
+                        <span id="addressSpan"></span> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div id="planMLBox03" style="display:none;">
+                <p class="mt20">お支払い方法を選択してください。</p>
+                <table class="listTable wide">
+                  <tbody>
+                    <tr>
+                      <td class="caption"><span class="required" id="payFlagRequired">お支払い方法</span></td>
+                      <td><div id="payFlag">
+                          <p>
+                            <label for="000payFlag0">
+                              <input type="radio" id="000payFlag0" value="銀行振込" name="payChangeFlag" onclick="payChange();" checked="checked" />
+                              銀行振込</label>
+                          </p>
+                          <p>
+                            <label for="000payFlag1">
+                              <input type="radio" id="000payFlag1" value="クレジットカード払い" name="payChangeFlag" onclick="payChange();" />
+                              クレジットカード払い</label>
+                          </p>
+                        </div>
+                        <span id="payFlagSpan"></span> </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
               <div id="select_credit" style="display:none;">
-             <p class="mt20">クレジットカード情報を入力してください。</p>
-              <table class="listTable wide">
-                <tbody>
-                  <tr>
-                    <td class="caption w25"><span class="required">クレジットカード番号</span></td>
-                    <td>
-<div style="background:url(brands.png) right center no-repeat;"><input type="text" name="n1" style="width:14em;ime-mode:disabled;" onKeyUp="nextField(this, 'n2', 4)" placeholder="0000 1111 2222 3333" /></div>
-  
-                    
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="caption"><span class="required">カード名義</span></td>
-                    <td><input name="addr3" style="width:99%;ime-mode:disabled;" maxlength="40" value="" type="text" placeholder="TARO YAMADA" /></td>
-                  </tr>
-                  <tr>
-                    <td class="caption">有効期限（月/年）</td>
-                    <td><select name="secure_econ_registration[secure_expire_month]" id="secure_econ_registration_secure_expire_month"><option value="01">01</option>
-<option value="02">02</option>
-<option value="03">03</option>
-<option value="04">04</option>
-<option value="05">05</option>
-<option value="06">06</option>
-<option value="07">07</option>
-<option value="08">08</option>
-<option value="09">09</option>
-<option value="10">10</option>
-<option value="11">11</option>
-<option value="12">12</option></select> 
-                      / 
-                      <select name="secure_econ_registration[secure_expire_year]" id="secure_econ_registration_secure_expire_year"><option value="2014">2014</option>
-<option value="2015">2015</option>
-<option value="2016">2016</option>
-<option value="2017">2017</option>
-<option value="2018">2018</option>
-<option value="2019">2019</option>
-<option value="2020">2020</option>
-<option value="2021">2021</option>
-<option value="2022">2022</option>
-<option value="2023">2023</option>
-<option value="2024">2024</option></select></td>
-                  </tr>
-                  <tr>
-                    <td class="caption">セキュリティコード</td>
-                    <td><input type="text" style="width:4em;ime-mode:disabled;" maxlength="4" value="" id="userNum3" name="userNum3" class="text mr5" placeholder="&#149;&#149;&#149;" /><span class="fs11 pt5" style="display:inline-block;">クレジットカード本体に表記されている3桁あるいは4桁の番号</span></td>
-                  </tr>
-                </tbody>
-              </table>
+                <p class="mt20">クレジットカード情報を入力してください。</p>
+                <table class="listTable wide">
+                  <tbody>
+                    <tr>
+                      <td class="caption w25"><span class="required">クレジットカード番号</span></td>
+                      <td><input type="text" name="n1" style="width:14em;ime-mode:disabled;" onKeyUp="nextField(this, 'n2', 4)" placeholder="0000 1111 2222 3333" />
+                        <span class="pcRight pt5"><img src="../themes/default/images/tour/brands_visa.png" alt="Visaカード" class="mr5" /><img src="../themes/default/images/tour/brands_master.png" alt="マスターカード" class="mr5" /><img src="../themes/default/images/tour/brands_jcb.png" alt="JCBカード" class="mr5" /><img src="../themes/default/images/tour/brands_amex.png" alt="アメリカン・エキスプレス（アメックス）" class="mr5" /><img src="../themes/default/images/tour/brands_diners.png" alt="ダイナースクラブカード" /></span></td>
+                    </tr>
+                    <tr>
+                      <td class="caption"><span class="required">カード名義</span></td>
+                      <td><input name="addr3" style="width:99%;ime-mode:disabled;" maxlength="40" value="" type="text" placeholder="TARO YAMADA" /></td>
+                    </tr>
+                    <tr>
+                      <td class="caption">有効期限（月/年）</td>
+                      <td><select name="secure_econ_registration[secure_expire_month]" id="secure_econ_registration_secure_expire_month">
+                          <option value="01">01</option>
+                          <option value="02">02</option>
+                          <option value="03">03</option>
+                          <option value="04">04</option>
+                          <option value="05">05</option>
+                          <option value="06">06</option>
+                          <option value="07">07</option>
+                          <option value="08">08</option>
+                          <option value="09">09</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>
+                        /
+                        <select name="secure_econ_registration[secure_expire_year]" id="secure_econ_registration_secure_expire_year">
+                          <option value="2014">2014</option>
+                          <option value="2015">2015</option>
+                          <option value="2016">2016</option>
+                          <option value="2017">2017</option>
+                          <option value="2018">2018</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                      <td class="caption">セキュリティコード</td>
+                      <td><input type="text" style="width:4em;ime-mode:disabled;" maxlength="4" value="" id="userNum3" name="userNum3" class="text mr5" placeholder="&#149;&#149;&#149;" />
+                        <span class="fs11 pt5" style="display:inline-block;">クレジットカード本体に表記されている3桁あるいは4桁の番号</span></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             <div class="mt20 mb20 center" id="confirmLink">「入力を確認する」を押すことで、<a href="http://www.aipo.com/website/terms.html" onclick="window.open('http://www.aipo.com/website/terms.html','popup','width=800,height=760,scrollbars=yes') ; return false ;">ご利用規約</a>に同意するものとします。 </div>
             <div class="center auiPopupButtons" id="lastSubmitButtonDiv"> <span id="submitButtonDiv">
               <input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="入力を確認する" class="auiButtonAction" name="eventSubmit_doWebmail_mailaccount_update" id="eventSubmit_doWebmail_mailaccount_update">
               <input type="button" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose" id="closeButton">
-              </span> <span style="display:none;" id="finishButtonDiv">
-              <input type="button" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose" id="closeButton">
-              </span> <span style="display:none;" id="confirmButtonDiv">
-              <input type="submit" onclick="aimluck.io.setHiddenValue(this);aipo.saas_system.onReturnFlagChange();" value="この内容で送信する" class="auiButtonAction" name="eventSubmit" id="eventSubmit">
-              <input type="submit" onclick="aipo.saas_system.onReturnFlagChange(true);" value="&nbsp;&nbsp;戻る&nbsp;&nbsp;" class="button" name="returnButton" id="returnButton">
-              </span> </div>
+              </span></div>
           </form>
         </div>
       </div>

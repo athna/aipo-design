@@ -5,6 +5,7 @@
 @import "../../../themes/default/sass/mixins";
 @import "compass";
 
+
 // 3/26 後藤コメント：下記はfont-awsomeの二重定義では？コメントアウト対応
 //@font-face {
 //	font-family: 'FontAwesome';
@@ -59,6 +60,11 @@ h1, h2, h3, h4, h5, h6, p, span {
 --------------------------------------------------*/
 
 #messageWindow {
+@include box-sizing(border-box);
+position:relative;
+height:400px;
+padding-top:35px;
+padding-bottom:45px;
 }
 
 //.messageWindow_list,
@@ -70,11 +76,17 @@ h1, h2, h3, h4, h5, h6, p, span {
 	//width: 300px;
 
 	.header { //.messageWindow_chat .header
-		padding: 9px 10px;
-		height: 15px;
-		background: $white;
-		color: $black;
-		border-bottom: 1px solid $grayBorderLight;
+	@include box-sizing(border-box);
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	padding:9px 10px;
+	height:35px;
+	background:$white;
+	color:$black;
+	border-bottom:1px solid $grayBorderLight;
+	z-index:1000;
 
 		a:hover { //.messageWindow_chat .header a:hover
 			span {
@@ -101,7 +113,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 	.list {
 		float: left;
 		display: block;
-		max-width: 220px;
+		max-width:270px;
 		border-radius: 2px;
 		cursor: pointer;
 
@@ -111,7 +123,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 		.title {
 			float: left;
-			max-width: 195px;
+			max-width:290px;
 			display: block;
 			padding: 0 2px;
 			color: $black;
@@ -132,7 +144,8 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 	.inner { //.messageWindow_chat .inner
 		overflow-y: scroll;
-		height: 250px;
+		height:100%;
+		max-height:321px;
 
 		ul { //.messageWindow_chat .inner ul
 			margin: 0;
@@ -171,6 +184,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 				}
 
 			}
+
 
 			a:hover { //.messageWindow_list .inner li a:hover
 				//background: $grayHightLight;
@@ -251,7 +265,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 .dropdown-menu {
 	top: 22px;
-	width: 240px;
+	width:340px;
 	padding: 0;
 	color: $black;
 	border: 1px solid $grayBorderDark;
@@ -320,7 +334,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 				.name { // .dropdown-menu ul li a .name
 					float: left;
 					display: inline-block;
-					width: 190px;
+					width:270px;
 					overflow: hidden;
 					white-space: nowrap;
 					text-overflow: ellipsis;
@@ -360,10 +374,59 @@ h1, h2, h3, h4, h5, h6, p, span {
 //}
 
 
+#messageWindow .footer{
+@include box-sizing(border-box);
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:44px;
+padding:5px;
+border-top:1px solid $grayLight;
+text-align:center;
+font-size:11px;
+background:$grayLighter;
+
+	form{
+	margin-bottom:0;
+	padding-right:50px;
+	position:relative;
+	}
+	span.text{
+	width:100%;
+	display:block;
+	height:32px;
+	line-height:20px;
+	padding:5px;
+	border-radius:4px;
+	box-shadow:none;
+	text-align:left;
+	font-size:12px;
+	color:$gray;
+	cursor:text;
+	}
+	textarea.text{
+	width:100%;
+	display:none;
+	height:57px !important;
+	margin:0;
+	font-size:12px;
+	font-family:$sansFontFamily;
+	}
+	input.auiButtonAction{
+	position:absolute;
+	bottom:0;
+	right:0;
+	width:30px;
+	font-size:12px;
+	font-family:$sansFontFamily;
+	}
+}
+
 .modal {
 	top: 35px;
-	*width: 278px;
-	*margin-left: -140px;
+	width:378px\9;
+	margin-left:-190px\9;
 }
 
 .modal-header {
@@ -373,6 +436,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 .modal-header .close {
 	margin-top: -7px;
+	margin-right:-10px;
 	padding: 0 5px;
 }
 
@@ -436,3 +500,21 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 
+/*表示切り替え*/
+#messageWindow.editon{
+padding-bottom:75px;
+
+	.inner{
+	max-height:296px;
+	}
+	.footer{
+	height:69px;
+
+		span.text{
+		display:none;
+		}
+		textarea.text{
+		display:block;
+		}
+	}
+}

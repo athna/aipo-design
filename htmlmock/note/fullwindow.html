@@ -3,265 +3,452 @@
 <head>
 	<meta http-equiv="Content-Language" content="ja"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8"/>
+	<title>Aipo.com</title>
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1"/>
 	<meta name="robots" content="noindex,follow"/>
 	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
 	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-	<link rel="stylesheet" type="text/css" href="../themes/orange/css/extend.css"/>
-	<link rel="stylesheet" type="text/css" href="../themes/orange/css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="../themes/orange/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body>
+
 <script type="text/javascript">
-    djConifg = {
-        xDomainBasePath: 'https://app.aipo.com/javascript'
-    };
+	djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
-<table class="tableWrapper">
-    <tbody>
-    <tr>
-        <td width="100%" class="top container dojoDndSource dojoDndTarget dojoDndContainerOver">
 
-<div class="roundTopBlock clearfix">
-<div class="roundRightBlock">
-<div class="roundBottomBlock">
-<div class="roundLeftBlock">
-<div class="roundTopLeftBlock">
-<div class="roundTopRightBlock">
-<div class="roundBottomRightBlock">
-<div class="roundBottomLeftBlock">
-<table class="roundBlockWrapperTop">
-<tbody>
-<tr>
-<td class="roundBlockTitle">メモ帳</td>
-</tr>
-</tbody>
-</table>
-<div class="roundBlockWrapperBottom clearfix">
-<div class="roundBlockContent">
-<div dojotype="aimluck:Contentpane" widgetid="widget_P-132ce6ce6bf-10479" id="portlet_P-132ce6ce6bf-10479">
+<!-- WRAPPER -->
+<div id="wrapper">
 
-
-<!-- Start Contents Area -->
-<div id="auiContentsArea"><div id="auiContentsAreaInner">
-
-<div class="auiSummaryMeta clearfix">
-<form class="auiSearch floatLeft" style="margin-right:1em;">
-<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
-<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
-</form>
-</div>
-
-<div class="auiSummaryMeta clearfix">
-	<div class="floatLeft">
-	<a href="#" class="auiButton">削除する</a>
-	</div>
-	<div class="floatRight">
-		<div class="count">1 - 20 / 72</div>
-		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li title="前へ">
-		<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-		</li>
-		<li title="次へ" style="margin-right:5px;">
-		<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-		</li>
-		</ul>
+<!-- HEADER -->
+<div id="header" class="clearfix">
+	<div class="inner">
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
+		</div>
+		<script>
+			function popupToggle($this, $target) {
+				if (document.getElementById($target).style.display == 'none') {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+				if ($this.className.indexOf('active') > 0) {
+					$this.className = $this.className.replace(' active', '');
+				} else {
+					$this.className += ' active'
+				}
+				;
+			}
+			function selectToggle($this, $value, $target) {
+				if ($this.value == $value) {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+			}
+		</script>
+		<div class="hdNavi">
+			<div class="hdMessege"><a href="#">
+				<div id="messegechecker" class="zero counter">0</div>
+				メッセージ</a></div>
+			<div class="hdActivity" title="お知らせ">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+					 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+					 widgetid="activitycheckerContainer"
+					 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="activitycheckerContainer_label"
+						 id="activitycheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+							<span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="hdInformation" title="サポート">
+				<div
+						class="dijit dijitLeft dijitInline dijitDropDownButton"
+						dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						widgetid="supportcheckerContainer"
+						onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+					<div type="button"
+						 dojoattachpoint="focusNode,titleNode"
+						 wairole="button"
+						 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
+						 role="button"
+						 aria-haspopup="true"
+						 aria-labelledby="supportcheckerContainer_label"
+						 id="supportcheckerContainer"
+						 tabindex="0"
+						 aria-valuenow=""
+						 aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
+							<div id="supportchecker" class="counter zero">0</div>
+							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="hdUserName"><a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a></div>
+		</div>
+		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+			<ul>
+				<li><a href="#">個人設定</a></li>
+				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+			</ul>
 		</div>
 	</div>
 </div>
+<!-- /HEADER -->
 
-<div class="indicator" id="indicator-list-P-132ce6ce6bf-10479" style="display:none;">データを送信しています...</div>
-<form name="formP-132ce6ce6bf-10479" id="formP-132ce6ce6bf-10479" action="javascript:void(0)" method="post" onsubmit="return aipo.msgboard.onChangeSearch('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-132ce6ce6bf-10479','P-132ce6ce6bf-10479');">
-<input type="hidden" name="_name" value="トピック">
-<input type="hidden" name="secid" value="30d53eaf7347c6cd5e8142a8e642511d">
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+	<ul>
+		<li class="first">
+			<div class="tab active">
+				<div class="title"><a href="#">マイページ</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="">
+			<div class="tab activeNext">
+				<div class="title"><a href="#">タブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="">
+			<div class="tab">
+				<div class="title"><a href="#">タブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="last">
+			<div class="tab">
+				<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="addTab"><a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a></li>
+	</ul>
+</div>
+<!-- /MAIN TAB -->
 
-<table class="auiRowTable wide">
+<div class="roundMainWrapper">
 
-<colgroup style="width:20px" />
-<colgroup style="" />
-<colgroup style="width:6em" />
-
-<tbody>
-<tr>
-<th><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
-<th><div><a href="#">メモ名</a></div></th>
-<th><a href="#">更新日</a></th>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-<tr>
-<td class="center"><input type="checkbox"></td>
-<td><div><a href="#">メモ名</a></div></td>
-<td nowrap="nowrap" class="right">10:10</td>
-</tr>
-
-</tbody>
-</table>
-
-<div class="auiSummaryMeta clearfix">
-	<div class="floatLeft">
-	<a href="#" class="auiButton">削除する</a>
+<div class="dojoDndItem auiPortlet">
+<div class="auiPortletHead">
+	<div class="inner">
+		<div class="auiPortletTitle">メモ帳</div>
+		<div class="auiPortletTool"></div>
 	</div>
-	<div class="floatRight">
-		<div class="count">1 - 20 / 72</div>
-		<div class="auiSelectButton floatLeft">
-		<ul class="floatLeft">
-		<li title="前へ">
-		<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-		</li>
-		<li title="次へ" style="margin-right:5px;">
-		<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-		</li>
-		</ul>
+</div>
+<div class="auiPortletBody">
+	<div class="inner">
+		<div dojotype="aimluck:Contentpane" widgetid="widget_P-132ce6ce6bf-10479" id="portlet_P-132ce6ce6bf-10479">
+
+
+			<!-- Start Contents Area -->
+			<div id="auiContentsArea">
+				<div id="auiContentsAreaInner">
+
+					<div class="auiSummaryMeta clearfix">
+						<form class="auiSearch">
+							<input class="text floatLeft long" type="text" name="q" id="q" style="margin-right:5px;">
+							<a class="auiButtonSearch" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+						</form>
+					</div>
+
+					<div class="auiSummaryMeta clearfix">
+						<div class="floatLeft">
+							<input type="button" value="削除" />
+						</div>
+						<div class="floatRight">
+							<div class="count">1 - 20 / 72</div>
+							<div class="auiSelectButton floatLeft">
+								<ul class="floatLeft">
+									<li>
+										<a href="#" title="前へ" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+									</li>
+									<li>
+										<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="indicator" id="indicator-list-P-132ce6ce6bf-10479" style="display:none;">データを送信しています...</div>
+					<table class="auiRowTable wide">
+
+						<colgroup style="width:20px"/>
+						<colgroup style=""/>
+						<colgroup style="width:6em"/>
+
+						<tbody>
+						<tr>
+							<th><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
+							<th>
+								<div><a href="#">メモ名</a></div>
+							</th>
+							<th><a href="#">更新日</a></th>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。長いメモ名。</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						<tr>
+							<td class="center"><input type="checkbox"></td>
+							<td>
+								<div><a href="#">メモ名</a></div>
+							</td>
+							<td nowrap="nowrap" class="right">10:10</td>
+						</tr>
+
+						</tbody>
+					</table>
+
+					<div class="auiSummaryMeta clearfix">
+						<div class="floatLeft">
+							<input type="button" value="削除" />
+						</div>
+						<div class="floatRight">
+							<div class="count">1 - 20 / 72</div>
+							<div class="auiSelectButton floatLeft">
+								<ul class="floatLeft">
+									<li>
+										<a href="#" title="前へ" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+									</li>
+									<li>
+										<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END Contents Area -->
+
+
+			<!-- Start Widgets Area -->
+			<div id="auiWidgetsArea">
+
+				<div class="auiWidget">
+					<p><a href="#" class="auiButtonAction">メモを追加する</a></p>
+				</div>
+
+			</div>
+			<!-- END Widgets Area -->
+
+
 		</div>
 	</div>
 </div>
-</form>
-</div></div>
-<!-- END Contents Area -->
-
-
-<!-- Start Widgets Area -->
-<div id="auiWidgetsArea">
-
-<div class="auiWidget clearfix">
-	<a title="伝言メモを作成する" href="#" class="auiButtonAction">メモを作成する</a>
+<div class="auiPortletFoot">
+	<div class="inner"></div>
 </div>
+</div>
+<!-- /.auiPortlet -->
 
 </div>
-<!-- END Widgets Area -->
+<!-- /.roundMainWrapper -->
+</div>
+<!-- /#wrapper -->
 
 
+<!-- menubar_auiFilter_1 -->
+<div class="menubar multi" id="menubar_auiFilter_1" style="width:390px;display:none;top:163px;left:221px;">
+	<div>
+		<p class="caption">部署</p>
+		<ul>
+			<li><a href="#" class="selected">すべての部署</a></li>
+			<li><a href="#">営業本部</a></li>
+			<li><a href="#">開発本部本部</a></li>
+			<li><a href="#">企画本部</a></li>
+		</ul>
+	</div>
+	<div>
+		<p class="caption">カテゴリ</p>
+		<ul>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#" class="selected">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+		</ul>
+	</div>
+	<div>
+		<p class="caption">長いタイトル長いタイトル長いタイトル長いタイトル</p>
+		<ul>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#">カテゴリ名</a></li>
+			<li><a href="#">長いカテゴリ名長いカテゴリ名長いカテゴリ名</a></li>
+		</ul>
+	</div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-			</td>
-    </tr>
-    </tbody>
-</table>
+<!-- /menubar_auiFilter_1 -->
+
+
 </body>
 </html>

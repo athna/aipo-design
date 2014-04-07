@@ -50,6 +50,14 @@ p {
 h1, h2, h3, h4, h5, h6, p, span {
 	outline: none;
 }
+a{
+color: #1b1b1b;
+text-decoration:underline;
+}
+a:hover{
+color:$orange;
+text-decoration:none;
+}
 
 #wrapper {
 	min-width: 0;
@@ -93,6 +101,9 @@ padding-bottom:45px;
 				text-decoration: none;
 				color: $orange;
 			}
+			.counter{
+			color:$white;
+			}
 			[class*=icon-] {
 				color: $orange;
 			}
@@ -125,12 +136,16 @@ padding-bottom:45px;
 			float: left;
 			max-width:290px;
 			display: block;
-			padding: 0 2px;
+			padding: 0;
 			color: $black;
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			text-decoration: underline;
+			
+				.counter{
+				margin:1px 5px 0 0;
+				}
 		}
 
 		.icon-caret-down {
@@ -145,7 +160,7 @@ padding-bottom:45px;
 	.inner { //.messageWindow_chat .inner
 		overflow-y: scroll;
 		height:100%;
-		max-height:321px;
+		max-height:286px;
 
 		ul { //.messageWindow_chat .inner ul
 			margin: 0;
@@ -156,10 +171,27 @@ padding-bottom:45px;
 			display: block;
 			margin: 0;
 			//padding: 0; //二重定義だったためコメントアウト。後々削除
-			padding: 7px;
+			padding:7px 10px 7px 41px;
 			background: none;
 			border-bottom: 1px solid $grayLighter;
 			*width: 188px;
+			position:relative;
+			min-height:24px;
+			line-height:1.4;
+			
+				.avatar{
+				position:absolute;
+				top:7px;
+				left:10px;
+				width:24px;
+				height:24px;
+				float:left;
+				
+					img{
+					width:24px;
+					height:24px;
+					}
+				}
 
 			a { //.messageWindow_list .inner li a
 				//display: block; // 3/26 後藤コメント：ブロック状にする必要が無いため
@@ -200,6 +232,7 @@ padding-bottom:45px;
 			.name { //.messageWindow_chat .inner li .name
 				display: inline-block;
 				font-weight: bold;
+				margin:0 7px 0 0;
 			}
 
 			.date { //.messageWindow_chat .inner li .date
@@ -423,6 +456,32 @@ background:$grayLighter;
 	}
 }
 
+
+.iconList{
+@include clearfix;
+border-bottom:1px solid $grayBorderLight;
+padding:5px 0px 5px 10px;
+
+	.img{
+	float:left;
+	height:24px;
+	width:24px;
+	border-radius:3px;
+	overflow:hidden;
+	margin:0 2px 0 0;
+	}
+	.iconListLink{
+	float:left;
+	display:block;
+	height:24px;
+	width:18px;
+	line-height:24px;
+	text-align:center;
+	text-decoration:none;
+	}
+}
+
+
 .modal {
 	top: 35px;
 	width:378px\9;
@@ -505,7 +564,7 @@ background:$grayLighter;
 padding-bottom:75px;
 
 	.inner{
-	max-height:296px;
+	max-height:261px;
 	}
 	.footer{
 	height:69px;

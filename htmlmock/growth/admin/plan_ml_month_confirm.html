@@ -72,7 +72,7 @@ text-align: left;
           <div class="auiPopupTitle">ご契約内容変更申し込み</div>
         </div>
         <div class="roundBlockContent">
-          <p>各プランの詳細につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
+          <p style="display:none;">各プランの詳細につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
           <div id="errorHidden">
             <div id="messageDiv"></div>
           </div>
@@ -165,37 +165,22 @@ window.onload = entryChange1;
                 
                   <tr>
                     <td class="caption"><span id="planFlagRequired">プラン</span></td>
-                    <td><div id="planFlag">
-<label for="000planFlag1" class="mr15">
-                          <input type="radio" onclick="calc();" id="000planFlag1" value="M" name="rb_plan_unit" class="" checked="checked">
-                          <span class="">Mプラン</span></label>
-<label for="000planFlag2">
-                          <input type="radio" onclick="calc();" id="000planFlag2" value="L" name="rb_plan_unit" class="">
-                          <span class="">Lプラン</span></label></p>
-                      </div>
-                      <span id="planFlagSpan"></span> </td>
+                    <td>Mプラン</td>
                   </tr>
                   <tr>
                     <td class="caption"><span id="userNameRequired">ユーザー数</span></td>
-                    <td><input type="text" style="width:4em;ime-mode:inactive;" maxlength="20" value="6" id="userNum" name="tx_user" placeholder="0" class="text" onkeyup="calc();" />
+                    <td>6
                       ユーザー</td>
                   </tr>
                   <tr>
                     <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
                     <td>
-                      <input type="text" value="2" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="tx_option" onfocus="calc();" onkeyup="calc();">
+                      2
                       GB</td>
                   </tr>
                   <tr>
                     <td class="caption">ご契約方法</td>
-                    <td><div id="contractFlag">
-<label for="000contractFlag0" class="mr15">
-                          <input type="radio" id="000contractFlag0" value="月額" name="rb_contract_unit" onclick="calc();" checked="checked" />
-                          月額</label>
-<label for="000contractFlag1">
-                          <input type="radio" id="000contractFlag1" value="年額" name="rb_contract_unit" onclick="calc();" />
-                          年額</label>
-                      </div></td>
+                    <td>月額</td>
                   </tr>
                 </tbody>
               </table>
@@ -272,69 +257,12 @@ window.onload = entryChange1;
                 
                 
               </div>
-              
-              
-              
-              
-              
-              <div id="select_credit" style="display:none;">
-                <p class="mt20">クレジットカード情報を入力してください。</p>
-                <table class="listTable wide">
-                  <tbody>
-                    <tr>
-                      <td class="caption w25"><span class="required">クレジットカード番号</span></td>
-                      <td><input type="text" name="n1" style="width:14em;ime-mode:disabled;" onKeyUp="nextField(this, 'n2', 4)" placeholder="0000 1111 2222 3333" />
-                        <span class="pcRight pt5"><img src="../../themes/default/images/tour/brands_visa.png" alt="Visaカード" class="mr5" /><img src="../../themes/default/images/tour/brands_master.png" alt="マスターカード" class="mr5" /><img src="../../themes/default/images/tour/brands_jcb.png" alt="JCBカード" class="mr5" /><img src="../../themes/default/images/tour/brands_amex.png" alt="アメリカン・エキスプレス（アメックス）" class="mr5" /><img src="../../themes/default/images/tour/brands_diners.png" alt="ダイナースクラブカード" /></span></td>
-                    </tr>
-                    <tr>
-                      <td class="caption"><span class="required">カード名義</span></td>
-                      <td><input name="addr3" style="width:99%;ime-mode:disabled;" maxlength="40" value="" type="text" placeholder="TARO YAMADA" /></td>
-                    </tr>
-                    <tr>
-                      <td class="caption">有効期限（月/年）</td>
-                      <td><select name="secure_econ_registration[secure_expire_month]" id="secure_econ_registration_secure_expire_month">
-                          <option value="01">01</option>
-                          <option value="02">02</option>
-                          <option value="03">03</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                          <option value="07">07</option>
-                          <option value="08">08</option>
-                          <option value="09">09</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                        </select>
-                        /
-                        <select name="secure_econ_registration[secure_expire_year]" id="secure_econ_registration_secure_expire_year">
-                          <option value="2014">2014</option>
-                          <option value="2015">2015</option>
-                          <option value="2016">2016</option>
-                          <option value="2017">2017</option>
-                          <option value="2018">2018</option>
-                          <option value="2019">2019</option>
-                          <option value="2020">2020</option>
-                          <option value="2021">2021</option>
-                          <option value="2022">2022</option>
-                          <option value="2023">2023</option>
-                          <option value="2024">2024</option>
-                        </select></td>
-                    </tr>
-                    <tr>
-                      <td class="caption">セキュリティコード</td>
-                      <td><input type="text" style="width:4em;ime-mode:disabled;" maxlength="4" value="" id="userNum3" name="userNum3" class="text mr5" placeholder="&#149;&#149;&#149;" />
-                        <span class="fs11 pt5" style="display:inline-block;">クレジットカード本体に表記されている3桁あるいは4桁の番号</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
             </div>
-            <div class="mt20 center" id="confirmLink">「入力を確認する」を押すことで、<a href="http://www.aipo.com/website/terms.html" onclick="window.open('http://www.aipo.com/website/terms.html','popup','width=800,height=760,scrollbars=yes') ; return false ;">ご利用規約</a>に同意するものとします。 </div>
-            <div class="center auiPopupButtons mt20" id="lastSubmitButtonDiv"> <span id="submitButtonDiv">
-              <input type="button" onclick="location.href='plan_ml_month_confirm.html'" value="入力を確認する" class="auiButtonAction" name="eventSubmit_doWebmail_mailaccount_update" id="eventSubmit_doWebmail_mailaccount_update">
-              <input type="button" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose" id="closeButton">
-              </span></div>
+            <div class="mt20 center" id="confirmLink" style="display:none;">「入力を確認する」を押すことで、<a href="http://www.aipo.com/website/terms.html" onclick="window.open('http://www.aipo.com/website/terms.html','popup','width=800,height=760,scrollbars=yes') ; return false ;">ご利用規約</a>に同意するものとします。 </div>
+            <div class="center auiPopupButtons mt20" id="lastSubmitButtonDiv"> <span style="" id="confirmButtonDiv">
+<input type="button" onclick="location.href='plan_ml_success.html'" value="この内容で送信する" class="auiButtonAction" name="eventSubmit" id="eventSubmit" style="">
+<input type="submit" onclick="aipo.saas_system.onReturnFlagChange(true);" value="&nbsp;&nbsp;戻る&nbsp;&nbsp;" class="button" name="returnButton" id="returnButton" style="">
+</span></div>
           </form>
         </div>
       </div>

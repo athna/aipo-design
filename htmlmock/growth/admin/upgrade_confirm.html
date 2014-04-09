@@ -69,15 +69,15 @@ text-align: left;
           <div class="auiPopupTool">
             <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="dijit.byId('modalDialog').hide();"><span><i class="icon-remove"></i></span></a> </div>
           </div>
-          <div class="auiPopupTitle">ご契約内容変更申し込み</div>
+          <div class="auiPopupTitle">プラン変更申し込み</div>
         </div>
         <div class="roundBlockContent">
-          <p>各プランの詳細につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
+          <p style="display:none;">各プランの詳細につきましては、<a href="http://www.aipo.com/price/" target="_blank">料金</a>をご確認ください。</p>
           <div id="errorHidden">
             <div id="messageDiv"></div>
           </div>
           <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
-          <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.saas_system.onReceiveMessageForAgreement);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007533/page/default.psml/js_peid/131?template=SystemAgreementFormJSONScreen" id="form131" name="myform">
+          <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.saas_system.onReceiveMessageForAgreement);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007533/page/default.psml/js_peid/131?template=SystemAgreementFormJSONScreen" id="form131" name="form131">
             <input type="hidden" value="systemAgreementForm" name="_name">
             <input type="hidden" value="d25150886594a61dded73977af2d26b7" name="secid">
             <input type="hidden" value="update" id="mode" name="mode">
@@ -89,64 +89,38 @@ text-align: left;
             <span style="display:none;" id="lastDialog"></span>
             <div id="inputAndConfirmForm">
               <script type="text/javascript">
-/* フォームの表示変更 */
-    window.onload = function() {
-      document.myform.bt_calc.onclick = calc;
-    };
- 
-    function calc() {
-      var plan_unit = 0;
-      if ( document.myform.rb_plan_unit[ 0 ].checked == true ) {
-        plan_unit = 210;
-				plan_unit_text = 'M';
-      }
-      else if ( document.myform.rb_plan_unit[ 1 ].checked == true ) {
-          plan_unit = 840;
-					plan_unit_text = 'L';
-      }
-      var user = parseInt( document.myform.tx_user.value, 10 );
-      if ( ( user < 0 ) || ( document.myform.tx_user.value == "" ) ) {
-				document.getElementById('alertUser').innerHTML = "ユーザー数は1人以上入力してください。";
-        return;
-      }
-      var option = 0;
-      if ( document.myform.tx_option.value != "" ) {
-        option = parseInt( document.myform.tx_option.value, 10 );
-      }
+function planChange(){
+radio = document.getElementsByName('planChangeFlag')
+if(radio[0].checked) {
+//フォーム
+document.getElementById('planMLBox01').style.display = "none";
+document.getElementById('planMLBox02').style.display = "none";
+document.getElementById('planMLBox03').style.display = "none";
+document.getElementById('planMLBox04').style.display = "none";
+document.getElementById('select_bank').style.display = "none";
+document.getElementById('select_credit').style.display = "none";
+}else if(radio[1].checked || radio[2].checked) {
+//フォーム
+document.getElementById('planMLBox01').style.display = "";
+document.getElementById('planMLBox02').style.display = "";
+document.getElementById('planMLBox03').style.display = "";
+document.getElementById('planMLBox04').style.display = "";
+document.getElementById('select_bank').style.display = "block";
+}
+}
+function contractChange(){
+radio = document.getElementsByName('contractFlag')
+if(radio[0].checked) {
+//フォーム
+document.getElementById('contractMonth').style.display = "block";
+document.getElementById('contractYear').style.display = "none";
+}else if(radio[1].checked) {
+//フォーム
+document.getElementById('contractMonth').style.display = "none";
+document.getElementById('contractYear').style.display = "block";
 
-      var contract_unit = 0;
-      if ( document.myform.rb_contract_unit[ 0 ].checked == true ) {
-        contract_unit = 1;
-				contract_unit_text = '月';
-				contract_unit_text_time = '2014年5月3日(土)～2014年6月2日(月) ';
-      }
-      else {
-        if ( document.myform.rb_contract_unit[ 1 ].checked == true ) {
-          contract_unit = 10;
-					contract_unit_text = '年';
-					contract_unit_text_time = '2014年5月3日(土)～2015年5月2日(土) ';
-        }
-      }
-      var result = (plan_unit * user + option * 1000) * contract_unit;
-			document.getElementById('plan_unit_text').innerHTML = plan_unit_text;
-			document.getElementById('userText').innerHTML = user;
-			document.getElementById('userText2').innerHTML = user;
-			document.getElementById('priUser').innerHTML = (plan_unit * user) * contract_unit;
-			document.getElementById('optionText').innerHTML = option;
-			document.getElementById('optionText1').innerHTML = option;
-			document.getElementById('option_mb').innerHTML = option * 1025 + 1025;
-			document.getElementById('priOption').innerHTML = (option * 1000) * contract_unit;
-			document.getElementById('contractText0').innerHTML = contract_unit_text;
-			document.getElementById('contractText1').innerHTML = contract_unit_text;
-			document.getElementById('contractText2').innerHTML = contract_unit_text;
-			document.getElementById('contractText3').innerHTML = contract_unit_text;
-			document.getElementById('contractChangeTime').innerHTML = contract_unit_text_time;
-			document.getElementById('pri').innerHTML = result;
-      document.myform.tx_result.value = result;
-      return;
-    }
-/* リアルタイム計算表示 */
-
+}
+}
 function payChange(){
 radio = document.getElementsByName('payChangeFlag')
 if(radio[0].checked) {
@@ -157,126 +131,176 @@ document.getElementById('select_credit').style.display = "none";
 document.getElementById('select_credit').style.display = "";
 }
 }
+ 
 //オンロードさせ、リロード時に選択を保持
 window.onload = entryChange1;
 </script>
               <table class="listTable wide">
                 <tbody>
-                
                   <tr>
                     <td class="caption"><span id="planFlagRequired">プラン</span></td>
-                    <td><div id="planFlag">
-<label for="000planFlag1" class="mr15">
-                          <input type="radio" onclick="calc();" id="000planFlag1" value="M" name="rb_plan_unit" class="" checked="checked">
-                          <span class="">Mプラン</span></label>
-<label for="000planFlag2">
-                          <input type="radio" onclick="calc();" id="000planFlag2" value="L" name="rb_plan_unit" class="">
-                          <span class="">Lプラン</span></label></p>
-                      </div>
-                      <span id="planFlagSpan"></span> </td>
+                    <td>Sプラン</td>
                   </tr>
                   <tr>
                     <td class="caption"><span id="userNameRequired">ユーザー数</span></td>
-                    <td><input type="text" style="width:4em;ime-mode:inactive;" maxlength="20" value="6" id="userNum" name="tx_user" placeholder="0" class="text" onkeyup="calc();" />
-                      ユーザー</td>
+                    <td>5
+                      ユーザー <span id="userNumSpan"></span></td>
                   </tr>
-                  <tr>
-                    <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
-                    <td>
-                      <input type="text" value="2" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="tx_option" onfocus="calc();" onkeyup="calc();">
-                      GB</td>
-                  </tr>
-                  <tr>
-                    <td class="caption">ご契約方法</td>
+                  <tr id="planMLBox02" style="display:none;">
+                    <td class="caption"><span class="required" id="contract">ご契約方法</span></td>
                     <td><div id="contractFlag">
-<label for="000contractFlag0" class="mr15">
-                          <input type="radio" id="000contractFlag0" value="月額" name="rb_contract_unit" onclick="calc();" checked="checked" />
+                        <label for="000contractFlag0" class="mr15">
+                          <input type="radio" id="000contractFlag0" value="月額" name="contractFlag" onclick="contractChange();" checked="checked" />
                           月額</label>
-<label for="000contractFlag1">
-                          <input type="radio" id="000contractFlag1" value="年額" name="rb_contract_unit" onclick="calc();" />
+                        <label for="000contractFlag1">
+                          <input type="radio" id="000contractFlag1" value="年額" name="contractFlag" onclick="contractChange();" />
                           年額</label>
                       </div></td>
                   </tr>
+                  <tr id="planMLBox01" style="display:none;">
+                    <td class="caption"><span class="" id="addCapacityRequired">追加容量</span></td>
+                    <td><span class="floatLeft">
+                      <input type="text" value="2" style="width:4em;ime-mode:inactive;" placeholder="0" id="addCapacity" name="addCapacity">
+                      GB</span> </td>
+                  </tr>
                 </tbody>
               </table>
-              <div class="clearfix pb5" style="border-bottom:1px solid #D2D2D2;">
-              <div class="floatLeft w48">
-              <h3>現在のご契約内容</h3>
-              <p>ご契約期間:2014年5月3日～2014年6月2日</p>
-              <table class="noBorder wide">
-                    <tbody>
-                    <tr>
-                        <td nowrap="nowrap">プラン</td>
-                        <td>M</td>
-                      </tr>
-                      <tr>
-                        <td nowrap="nowrap">ユーザー数</td>
-                        <td>5ユーザー / 5ユーザー </td>
-                      </tr>
-                      <tr>
-                        <td nowrap="nowrap">容量</td>
-                        <td>900 MB / 1025 MB（1GB）</td>
-                      </tr>
-                      <tr>
-                        <td nowrap="nowrap">ご契約方法</td>
-                        <td>月額</td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-              <div class="floatRight w48">
-              <h3>変更する内容</h3>
-              <p>請求対象期間:2014年5月3日～2015年5月2日 </p>
-              <table class="noBorder wide">
-                    <tbody>
-                    <tr>
-                        <td nowrap="nowrap">プラン</td>
-                        <td><span id="plan_unit_text">M</span></td>
-                      </tr>
-                      <tr>
-                        <td nowrap="nowrap">ユーザー数</td>
-                        <td><span id="userText">6</span> ユーザー</td>
-                      </tr>
-                      <tr>
-                        <td nowrap="nowrap">容量</td>
-                        <td><span id="option_mb">3075</span> MB（<span id="optionText1">3</span>GB）</td>
-                      </tr>
-                      <tr>
-                        <td nowrap="nowrap">ご契約方法</td>
-                        <td><span id="contractText0">月</span>額</td>
-                      </tr>
-                    </tbody>
-                  </table> 
-              </div>  
-                
-              </div>
-              <div class="clearfix wide mt10">
-              <div id="planFlagStay" style="display:block;" class="floatRight">
+              <div id="planMLBox04" class="clearfix pb5" style="border-bottom:1px solid #D2D2D2; display:none;">
+                <div id="contractMonth" style="display:block;" class="floatRight">
                   <table class="noBorder">
                     <tbody>
                       <tr>
-                        <td class="right" nowrap="nowrap"><span id="userText2">6</span> ユーザー</td>
-                        <td class="right">￥<span id="priUser">1260</span> /<span id="contractText1">月</span></td>
+                        <td class="right" nowrap="nowrap">5ユーザー</td>
+                        <td style="width:130px;" class="right">￥1,050 /月</td>
                       </tr>
                       <tr>
-                        <td class="right" nowrap="nowrap"><span id="optionText">2</span> GB</td>
-                        <td class="right">￥<span id="priOption">2000</span> /<span id="contractText2">月</span></td>
+                        <td class="right" nowrap="nowrap">2GB</td>
+                        <td class="right">￥2,000 /月</td class="right">
                       </tr>
                       <tr>
                         <td style="font-size:16px;" class="right pt10" nowrap="nowrap">合計金額 (税込)</td>
-                        <td class="right pt10" style="width:200px; font-size:16px;"><strong>￥<span id="pri">3260</span> /<span id="contractText3">月</span></strong></td>
+                        <td class="right pt10" style="width:130px; font-size:16px;"><strong>￥3,050 /月</strong></td class="right">
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                
-                
+                <div id="contractYear" style="display:none;" class="floatRight">
+                  <table class="noBorder">
+                    <tbody>
+                      <tr>
+                        <td class="right" nowrap="nowrap">5ユーザー</td>
+                        <td style="width:130px;" class="right">￥10,500 /年</td>
+                      </tr>
+                      <tr>
+                        <td class="right" nowrap="nowrap">2GB</td>
+                        <td class="right">￥20,000 /年</td class="right">
+                      </tr>
+                      <tr>
+                        <td style="font-size:16px;" class="right pt10" nowrap="nowrap">合計金額 (税込)</td>
+                        <td class="right pt10" style="width:130px; font-size:16px;"><strong>￥30,500 /年</strong></td class="right">
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              
-              
-              
-              
-              
+              <div id="select_bank" style="display:none;">
+                <p class="mt20">会社情報を入力してください。</p>
+                <table class="listTable wide">
+                  <tbody>
+                    <tr>
+                      <td class="caption">会社名</td>
+                      <td><input name="company" style="ime-mode:active;" maxlength="40" value="株式会社エイムラック" type="text" class="text w100" /></td>
+                    </tr>
+                    <tr>
+                      <td class="caption"><span class="required" id="addressRequired">郵便番号</span></td>
+                      <td><input onkeyup="AjaxZip3.zip2addr(this,'','pref_id','addr');" name="zip2" size="10" type="text"  style="width:10em;ime-mode:inactive;" />
+                        <span id="addressSpan"></span> </td>
+                    </tr>
+                    <tr>
+                      <td class="caption"><span class="required" id="prefRequired">都道府県</span></td>
+                      <td><select name="pref_id">
+                          <option>選んでください</option>
+                          <option value="1">北海道</option>
+                          <option value="2">青森県</option>
+                          <option value="3">岩手県</option>
+                          <option value="4">宮城県</option>
+                          <option value="5">秋田県</option>
+                          <option value="6">山形県</option>
+                          <option value="7">福島県</option>
+                          <option value="8">茨城県</option>
+                          <option value="9">栃木県</option>
+                          <option value="10">群馬県</option>
+                          <option value="11">埼玉県</option>
+                          <option value="12">千葉県</option>
+                          <option value="13">東京都</option>
+                          <option value="14">神奈川県</option>
+                          <option value="15">新潟県</option>
+                          <option value="16">富山県</option>
+                          <option value="17">石川県</option>
+                          <option value="18">福井県</option>
+                          <option value="19">山梨県</option>
+                          <option value="20">長野県</option>
+                          <option value="21">岐阜県</option>
+                          <option value="22">静岡県</option>
+                          <option value="23">愛知県</option>
+                          <option value="24">三重県</option>
+                          <option value="25">滋賀県</option>
+                          <option value="26">京都府</option>
+                          <option value="27">大阪府</option>
+                          <option value="28">兵庫県</option>
+                          <option value="29">奈良県</option>
+                          <option value="30">和歌山県</option>
+                          <option value="31">鳥取県</option>
+                          <option value="32">島根県</option>
+                          <option value="33">岡山県</option>
+                          <option value="34">広島県</option>
+                          <option value="35">山口県</option>
+                          <option value="36">徳島県</option>
+                          <option value="37">香川県</option>
+                          <option value="38">愛媛県</option>
+                          <option value="39">高知県</option>
+                          <option value="40">福岡県</option>
+                          <option value="41">佐賀県</option>
+                          <option value="42">長崎県</option>
+                          <option value="43">熊本県</option>
+                          <option value="44">大分県</option>
+                          <option value="45">宮崎県</option>
+                          <option value="46">鹿児島県</option>
+                          <option value="47">沖縄県</option>
+                        </select>
+                        <span id="prefSpan"></span> </td>
+                    </tr>
+                    <tr>
+                      <td class="caption"><span class="required" id="addressRequired">住所</span></td>
+                      <td><input name="addr" style="ime-mode:active" maxlength="40" value="" type="text" class="text w100" />
+                        <span id="addressSpan"></span> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div id="planMLBox03" style="display:none;">
+                <p class="mt20">お支払い方法を選択してください。</p>
+                <table class="listTable wide">
+                  <tbody>
+                    <tr>
+                      <td class="caption"><span class="required" id="payFlagRequired">お支払い方法</span></td>
+                      <td><div id="payFlag">
+                          <p>
+                            <label for="000payFlag0">
+                              <input type="radio" id="000payFlag0" value="銀行振込" name="payChangeFlag" onclick="payChange();" checked="checked" />
+                              銀行振込</label>
+                          </p>
+                          <p>
+                            <label for="000payFlag1">
+                              <input type="radio" id="000payFlag1" value="クレジットカード払い" name="payChangeFlag" onclick="payChange();" />
+                              クレジットカード払い</label>
+                          </p>
+                        </div>
+                        <span id="payFlagSpan"></span> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <div id="select_credit" style="display:none;">
                 <p class="mt20">クレジットカード情報を入力してください。</p>
                 <table class="listTable wide">
@@ -330,11 +354,11 @@ window.onload = entryChange1;
                 </table>
               </div>
             </div>
-            <div class="mt20 center" id="confirmLink">「入力を確認する」を押すことで、<a href="http://www.aipo.com/website/terms.html" onclick="window.open('http://www.aipo.com/website/terms.html','popup','width=800,height=760,scrollbars=yes') ; return false ;">ご利用規約</a>に同意するものとします。 </div>
-            <div class="center auiPopupButtons mt20" id="lastSubmitButtonDiv"> <span id="submitButtonDiv">
-              <input type="button" onclick="location.href='plan_ml_month_confirm.html'" value="入力を確認する" class="auiButtonAction" name="eventSubmit_doWebmail_mailaccount_update" id="eventSubmit_doWebmail_mailaccount_update">
-              <input type="button" onclick="if(dojo.byId('lastDialog').style.display == '') {aipo.saas_system.onReceiveMessageForAgreement();}  aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose" id="closeButton">
-              </span></div>
+            <div class="mt20 center" id="confirmLink" style="display:none;">「入力を確認する」を押すことで、<a href="http://www.aipo.com/website/terms.html" onclick="window.open('http://www.aipo.com/website/terms.html','popup','width=800,height=760,scrollbars=yes') ; return false ;">ご利用規約</a>に同意するものとします。 </div>
+            <div class="center auiPopupButtons mt20" id="lastSubmitButtonDiv"> <span style="" id="confirmButtonDiv">
+<input type="button" onclick="location.href='upgrade_success.html'" value="この内容で送信する" class="auiButtonAction" name="eventSubmit" id="eventSubmit" style="">
+<input type="submit" onclick="aipo.saas_system.onReturnFlagChange(true);" value="&nbsp;&nbsp;戻る&nbsp;&nbsp;" class="button" name="returnButton" id="returnButton" style="">
+</span></div>
           </form>
         </div>
       </div>

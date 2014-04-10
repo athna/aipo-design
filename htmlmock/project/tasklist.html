@@ -1309,48 +1309,125 @@
 					</table>
 				</form>
 
-                    <table class="listTable wide mb0">
-                        <caption>コメント</caption>
+				<table class="listTable wide mb0">
+                        <caption>履歴</caption>
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="clearfix mb10">
-                                        <div class="alignright"></div>
                                         <div class="avatar floatLeft mr10"><img width="32" height="32" alt="山田 太朗" src="../themes/default/images/common/avatar_default3.png"></div>
                                         <div class="alignleft">
                                             <strong>山田 太朗</strong><br />
                                             2014年10月10日10時30分
                                         </div>
                                     </div>
-                                    <div>タスクへのコメントです。</div>
+                                    <div>
+										<ul class="fcGray mb10">
+											<li><strong>ステータス</strong> を 新規 から 進行中 に変更</li>
+											<li><strong>進捗率</strong> を 0% から 50% に変更</li>
+										</ul>
+										タスクへのコメントです。
+									</div>
                                 </td>
                             </tr>
-                            <tr>
+							<tr>
+								<td>
+									<div class="clearfix mb10">
+										<div class="avatar floatLeft mr10"><img width="32" height="32" alt="山田 太朗" src="../themes/default/images/common/avatar_default3.png"></div>
+										<div class="alignleft">
+											<strong>山田 太朗（一覧から直接進捗率を操作した履歴はコメント無し）</strong><br />
+											2014年10月10日10時30分
+										</div>
+									</div>
+									<div>
+										<ul class="fcGray mb10">
+											<li><strong>進捗率</strong> を 50% から 60% に変更</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+							<tr>
                                 <td>
                                     <div class="clearfix mb10">
-                                        <div class="alignright"><input type="button" value="削除する" class="button" name="ajaxbuttonDelete"></div>
                                         <div class="avatar floatLeft mr10"><img width="32" height="32" alt="山田 太朗" src="../themes/default/images/common/avatar_default3.png"></div>
                                         <div class="alignleft">
                                             <strong>山田 太朗</strong><br />
                                             2014年10月10日10時30分
                                         </div>
                                     </div>
-                                    <div>タスクへのコメントです。</div>
+									<div>
+										<ul class="fcGray mb10">
+											<li><strong>ステータス</strong> を 進行中 から 完了 に変更</li>
+											<li><strong>進捗率</strong> を 60% から 100% に変更</li>
+											<li><strong>担当者</strong> を 山田 太郎 から 木村 一郎 に変更</li>
+										</ul>
+										タスクへのコメントです。
+									</div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+
                 <form>
     	            <table class="listTable wide mt0">
-                        <tbody>
-                        <tr class="noBorder">
-                            <td class="caption"><span class="required">内容</span> </td>
-                            <td><textarea cols="40" rows="5" name="note" class="text wide"></textarea>
+						<caption>更新</caption>
+						<colgroup></colgroup>
+						<colgroup class="w30"></colgroup>
+						<colgroup></colgroup>
+						<colgroup class="w30"></colgroup>
+						<tbody>
+						<tr class="">
+							<td class="caption">ステータス</td>
+							<td>
+								<select name="" id="">
+									<option value="">新規</option>
+									<option value="">進行中</option>
+									<option value="">フィードバック</option>
+									<option value="">完了</option>
+									<option value="">却下</option>
+									<option value="">停止</option>
+								</select>
+							</td>
+							<td class="caption">進捗率</td>
+							<td>
+								<select name="" id="">
+									<option value="">0%</option>
+									<option value="">10%</option>
+									<option value="">20%</option>
+									<option value="">30%</option>
+									<option value="">40%</option>
+									<option value="">50%</option>
+									<option value="">60%</option>
+									<option value="">70%</option>
+									<option value="">80%</option>
+									<option value="">90%</option>
+									<option value="">100%</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">担当者</td>
+							<td>
+								<select name="" id="">
+									<option value="">&lt;自分&gt;</option>
+									<option value="">木村 一郎</option>
+									<option value="">鈴木 太朗</option>
+									<option value="">木下 藤吉郎</option>
+								</select>
+							</td>
+							<td class="caption">作業時間の記録</td>
+							<td>
+								<input type="text" style="width: 3em;"> h
+							</td>
+						</tr>
+                        <tr class="">
+                            <td class="caption">更新内容</td>
+                            <td colspan="3"><textarea cols="40" rows="5" name="note" class="text wide"></textarea>
                             </td>
                         </tr>
-                        <tr>
+						<tr>
                             <td class="caption">添付ファイル</td>
-                            <td><input type="button" name="add_attachment" class="button" value="ファイルの選択" onclick="aipo.fileupload.openAttachment('http://192.168.3.31:81/aipo/portal/media-type/html/user/sample2/page/default.psml/js_peid/P-137ba3a8c26-10075?template=FileuploadFormScreen&amp;mode=form', 'P-137ba3a8c26-10075');"><ul class="attachments" id="attachments_P-137ba3a8c26-10075"></ul>
+                            <td colspan="3"><input type="button" name="add_attachment" class="button" value="ファイルの選択" onclick="aipo.fileupload.openAttachment('http://192.168.3.31:81/aipo/portal/media-type/html/user/sample2/page/default.psml/js_peid/P-137ba3a8c26-10075?template=FileuploadFormScreen&amp;mode=form', 'P-137ba3a8c26-10075');"><ul class="attachments" id="attachments_P-137ba3a8c26-10075"></ul>
                             <input type="hidden" value="" name="folderName" id="folderName_P-137ba3a8c26-10075">
                         </td>
                         </tr>

@@ -209,7 +209,7 @@
 
 									</div>
                                     
-                                    <div class="auiSummaryMeta clearfix">
+                                    <!--<div class="auiSummaryMeta clearfix">
 <form class="auiSearch" id="" name="" action="" onsubmit="" method="post">
 <input class="text floatLeft long" type="text" id="" name="keyword" value="" style="margin-right:5px;">
 <a href="javascript:void(0)" class="auiButtonSearch floatLeft" onclick="">検索</a>
@@ -217,11 +217,21 @@
 <div class="indicator" id="" style="display:none;">&nbsp;</div>
 </div>
 </form>
-</div>
+</div>-->
+
+<div class="auiSummaryMeta auiFilter clearfix">
+								<form class="auiSearch">
+									<div class="filterInputField">
+										<div class="filters"><span class="filterTip"><span>有効のユーザー</span><a href="javascript:void()" onclick="this.parentNode.style.display='none'"><i class="auiIcon auiIconDelete"></i></a></span></div>
+										<a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}" title="フィルタ" class="filterDropDrawer"><span><i class="auiIcon auiIconArwBottom"></i></span></a>
+										<input class="text" type="text" name="q" id="q" style="padding-left:70px;width:410px;"></div>
+									<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+								</form>
+							</div>
 
                                     
                                     
-									<div class="auiSummaryMeta clearfix">
+									<!--<div class="auiSummaryMeta clearfix">
 										<form class="auiForm floatLeft" action="#" method="post" style="margin-right:1em;" onsubmit="return false;">
 											<select onchange="aipo.viewPage(this.options[this.selectedIndex].value, '121')" style="width:180px;">
 												<option value="" selected>すべての部署</option>
@@ -236,7 +246,7 @@
 										<div class="floatLeft ml10" style="padding-top: 0.4em;">
 											<div class="indicator" id="indicator-list-121" style="display:none;">データを送信しています...</div>
 										</div>
-									</div>
+									</div>-->
 									<div id="listMessageDiv"></div>
 									<form name="form121" id="form121" action="#" method="post" onsubmit="return false;">
 										<input type="hidden" name="_name" value="ユーザー"/>
@@ -329,5 +339,28 @@
 <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/saas_dialog/dialog.js?1384741374000"></script>
 </div>
 <!-- /WRAPPER -->
+<!-- menubar_auiFilter_1 -->
+<div class="menubar multi" id="menubar_auiFilter_1" style="top:206px; left:231px;display:none;">
+	<div>
+		<p class="caption">ユーザー</p>
+		<ul>
+			<li><a href="#">すべてのユーザー</a></li>
+			<li><a href="#">管理者ユーザー</a></li>
+			<li><a href="#" class="selected">有効のユーザー</a></li>
+			<li><a href="#">無効のユーザー</a></li>
+            <li><a href="#">招待中のユーザー</a></li>
+		</ul>
+	</div>
+	<div>
+		<p class="caption">部署</p>
+		<ul>
+			<li><a href="#" class="selected">すべての部署</a></li>
+			<li><a href="#">営業部</a></li>
+			<li><a href="#">総務部</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /menubar_auiFilter_1 -->
+
 </body>
 </html>

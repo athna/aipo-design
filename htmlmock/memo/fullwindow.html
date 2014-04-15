@@ -1,367 +1,652 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Language" content="ja"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title></title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta http-equiv="Content-Style-Type" content="text/css"/>
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta name="robots" content="noindex,follow"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
-	<meta name="format-detection" content="telephone=no">
-    <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8"/>
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8,chrome=1"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
 </head>
 <body>
 <script type="text/javascript">
-    djConifg = {
-        xDomainBasePath: 'https://app.aipo.com/javascript'
-    };
+	djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<script>
+	function popupToggle($this, $target) {
+		if (document.getElementById($target).style.display == 'none') {
+			document.getElementById($target).style.display = 'block'
+		} else {
+			document.getElementById($target).style.display = 'none'
+		}
+		if ($this.className.indexOf('active') > 0) {
+			$this.className = $this.className.replace(' active', '');
+		} else {
+			$this.className += ' active'
+		}
+		;
+	}
+</script>
 
 <!-- WRAPPER -->
 <div id="wrapper">
 
 <!-- HEADER -->
-<div id="header" class="clearfix"><div class="inner">
+<div id="header" class="clearfix">
+	<div class="inner">
 
-	<div class="hdSign">
-		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-	</div>
-
-	<script>
-	function dispMenubar(obj,target) {
-		if(document.getElementById(target).style.display!='block') {
-			document.getElementById(target).style.display = 'block';
-		}else{
-			document.getElementById(target).style.display='none';
-		}
-	}
-	</script>
-
-	<div class="hdNavi">
-
-		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
+		<div class="hdSign">
+			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
+		</div>
 
 
-		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
-						<span class="mb_hide">お知らせ</span>
+		<div class="hdNavi">
+
+			<div class="hdMessege"><a href="#">
+				<div id="messegechecker" class="zero counter">0</div>
+				メッセージ</a></div>
+
+
+			<div class="hdActivity" title="お知らせ">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="activitycheckerContainer">
+					<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
+							<span class="mb_hide">お知らせ</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="hdInformation">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="informationcheckerContainer">
-				<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-informationcheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="informationcheckerContainer_label" id="informationcheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="informationcheckerContainer_label" onclick="dispMenubar(this,'menubar_hdInformation')">
-						<div id="informationchecker" class="informationcheckerstyle counter">5</div>
-						<span class="mb_hide">サポート</span>
+			<div class="hdInformation">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" widgetid="informationcheckerContainer">
+					<div style="outline:0" class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-informationcheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="informationcheckerContainer_label" id="informationcheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false">
+						<div class="" dojoattachpoint="containerNode,popupStateNode" id="informationcheckerContainer_label" onclick="dispMenubar(this,'menubar_hdInformation')">
+							<div id="informationchecker" class="informationcheckerstyle counter">5</div>
+							<span class="mb_hide">サポート</span>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="hdUserName">
+				<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
+					<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a>
+			</div>
 		</div>
 
-		<div class="hdUserName">
-			<a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdSetting')">
-				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a>
-		</div>
-	</div>
-
-	<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
-		<ul>
-		<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'popupMask');dispMenubar(this,'popupStartGuide')">スタートガイド</a></li>
-		<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
-		<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
-		</ul>
-
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">Aipo.comからのお知らせ</div>
-			<ul class="tipInfo">
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
-				<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+		<div class="menubar" id="menubar_hdInformation" style="display: none; width:320px; top:31px; right:270px;">
+			<ul>
+				<li><a href="javascript:void(0);" onclick="dispMenubar(this,'menubar_hdInformation');dispMenubar(this,'popupMask');dispMenubar(this,'popupStartGuide')">スタートガイド</a></li>
+				<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
+				<li><a href="https://form.aipo.com/inquiry/" target="_blank">お問い合わせ</a></li>
 			</ul>
-			<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
-		</div>
 
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定前は下記を表示。
-		タイトルの（）内は削ってください。
-
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
-			<div class="tipBody">
-				<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
-				<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+			<div class="tipDivider"></div>
+			<div class="tipBox clearfix">
+				<div class="tipTitle">Aipo.comからのお知らせ</div>
+				<ul class="tipInfo">
+					<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+					<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+					<li>お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。お知らせ内容。<a href="#">リンク</a></li>
+				</ul>
+				<p class="rightBtn"><a href="#" class="auiButton">すべて既読にする</a></p>
 			</div>
-		</div>
 
-		<!-- ##################################################
-		●開発担当者へ
-				
-		twitter設定後は下記を表示。
-		タイトルの（）内は削ってください。
+			<!-- ##################################################
+			●開発担当者へ
 
-		################################################## -->
-		<div class="tipDivider"></div>
-		<div class="tipBox clearfix">
-			<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
-			<div class="tipBody">
-				<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
-				<textarea></textarea>
-				<div class="clearfix mt5">
-					<div class="floatLeft fs11 fcGray">
-						これまでの獲得容量(全社)：5MB<br>
-						<a href="#" class="fcGray">twitter連携の設定を解除</a>
+			twitter設定前は下記を表示。
+			タイトルの（）内は削ってください。
+
+			################################################## -->
+			<div class="tipDivider"></div>
+			<div class="tipBox clearfix">
+				<div class="tipTitle">ご意見・ご要望（設定前こちら表示）</div>
+				<div class="tipBody">
+					<p>twitterへご意見をツイートいただくことで、1回ごとに1MBの容量をプレゼントいたします。</p>
+
+					<p class="center"><a href="#" class="auiButton"><i class="icon-twitter colorTwitter"></i> twitter連携の設定</a></p>
+				</div>
+			</div>
+
+			<!-- ##################################################
+			●開発担当者へ
+
+			twitter設定後は下記を表示。
+			タイトルの（）内は削ってください。
+
+			################################################## -->
+			<div class="tipDivider"></div>
+			<div class="tipBox clearfix">
+				<div class="tipTitle">ご意見・ご要望（設定後こちら表示）</div>
+				<div class="tipBody">
+					<p class="fs11 fcGray">頂いたご意見・ご要望をもとにAipo.comの改善に励みます。</p>
+					<textarea></textarea>
+
+					<div class="clearfix mt5">
+						<div class="floatLeft fs11 fcGray">
+							これまでの獲得容量(全社)：5MB<br>
+							<a href="#" class="fcGray">twitter連携の設定を解除</a>
+						</div>
+						<div class="floatRight">
+							<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
+						</div>
 					</div>
-					<div class="floatRight">
-						<a href="#" class="auiButtonAction"><i class="icon-twitter"></i> ツイート</a>
-					</div>
+				</div>
+			</div>
+
+			<div class="tipDivider"></div>
+			<div class="tipBox tipFoot clearfix">
+				<div class="capacity">
+					100MB(10%) / 1024MB を使用中
+				</div>
+				<div class="social">
+					<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
+					<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
 				</div>
 			</div>
 		</div>
 
-		<div class="tipDivider"></div>
-		<div class="tipBox tipFoot clearfix">
-			<div class="capacity">
-				100MB(10%) / 1024MB を使用中
-			</div>
-			<div class="social">
-				<a href="https://twitter.com/aipocom" target="_blank"><i class="icon-twitter-sign"></i></a>
-				<a href="https://www.facebook.com/aipocom.jp" target="_blank"><i class="icon-facebook-sign"></i></a>
-			</div>
+		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
+			<ul>
+				<li><a href="#">個人設定</a></li>
+				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
+			</ul>
 		</div>
+
+
 	</div>
-
-	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
-		<ul>
-		<li><a href="#">個人設定</a></li>
-		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
-		</ul>
-	</div>
-
-
-</div></div>
+</div>
 
 <!-- /HEADER -->
 
 <!-- MAIN TAB -->
 <div id="auiTabs" class="clearfix">
 	<ul>
-    	<li class="first">
-        	<div class="tab active">
-                <div class="title"><a href="#">マイページ</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
-    	<li class="last">
-        	<div class="tab activeNext">
-                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
+		<li class="first">
+			<div class="tab active">
+				<div class="title"><a href="#">マイページ</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
+		<li class="last">
+			<div class="tab activeNext">
+				<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
+				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</li>
 		<li class="addTab">
 			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
 		</li>
-    </ul>
+	</ul>
 </div>
 <!-- /MAIN TAB -->
 
 <!-- roundWrapper -->
 <div id="roundWrapper">
-<!-- roundMainWrapper -->
+	<!-- roundMainWrapper -->
 	<div class="roundMainWrapper">
-	
+
 		<!-- auiPortlet -->
 		<div class="dojoDndItem auiPortlet">
-	
-			<div class="auiPortletHead"><div class="inner">
-				<div class="auiPortletTitle">伝言メモ</div>
-				<div class="auiPortletTool">
+
+			<div class="auiPortletHead">
+				<div class="inner">
+					<div class="auiPortletTitle">伝言メモ</div>
+					<div class="auiPortletTool">
+					</div>
 				</div>
-			</div></div>
+			</div>
 
 			<!-- auiPortletBody -->
-			<div class="auiPortletBody"><div class="inner">
-				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
-					
-					
-					<!-- Start Contents Area -->
-					<div id="auiContentsArea"><div id="auiContentsAreaInner">
+			<div class="auiPortletBody">
+				<div class="inner">
+					<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
 
-						<div class="auiSummaryMeta clearfix">
-						<form class="auiSearch floatLeft" style="margin-right:1em;">
-						<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
-						<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
-						</form>
-						</div>
-						
-						<div class="auiSummaryMeta clearfix">
-							<div class="floatLeft">
-							<a href="#" class="auiButton">既読にする</a> <a href="#" class="auiButton">削除する</a>
-							</div>
-							<div class="floatRight">
-								<div class="count">1 - 20 / 72</div>
-								<div class="auiSelectButton floatLeft">
-								<ul class="floatLeft">
-								<li title="前へ">
-								<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-								</li>
-								<li title="次へ" style="margin-right:5px;">
-								<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-								</li>
-								</ul>
+
+						<!-- Start Contents Area -->
+						<div id="auiContentsArea">
+							<div id="auiContentsAreaInner">
+
+								<div class="auiSummaryMeta clearfix">
+									<form class="auiSearch floatLeft" style="margin-right:1em;">
+										<input class="text floatLeft" type="text" name="q" id="q" style="margin-right:5px;">
+										<a class="auiButtonSearch floatLeft" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+									</form>
 								</div>
-							</div>
-						</div>
-						
-						<div class="indicator" id="indicator-list-P-132ce6ce6bf-10479" style="display:none;">データを送信しています...</div>
-						<form name="formP-132ce6ce6bf-10479" id="formP-132ce6ce6bf-10479" action="javascript:void(0)" method="post" onsubmit="return aipo.msgboard.onChangeSearch('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-132ce6ce6bf-10479','P-132ce6ce6bf-10479');">
-						<input type="hidden" name="_name" value="トピック">
-						<input type="hidden" name="secid" value="30d53eaf7347c6cd5e8142a8e642511d">
-						
-						<table class="auiRowTable auiMbTable wide">
-						<tbody>
-							<tr>
-								<th class="wCheckbox center"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
-								<th class="wName"><a href="#">依頼者</a></th>
-								<th style=""><a href="#">用件</a></th>
-								<th style="width:10em"><a class="headUp" href="#">受付日時</a></th>
-							</tr>
-							
-							<tr class="unread">
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-							<tr>
-								<td class="auiMTCheck"><input type="checkbox"></td>
-								<td class="auiMTCaption"><div><a href="#">山田 太郎</a></div></td>
-								<td><div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div></td>
-								<td nowrap="nowrap">9月16日19時12分</td>
-							</tr>
-							
-						</tbody>
-						</table>
-						
-						<div class="auiSummaryMeta clearfix">
-							<div class="floatLeft">
-							<a href="#" class="auiButton">既読にする</a> <a href="#" class="auiButton">削除する</a>
-							</div>
-							<div class="floatRight">
-								<div class="count">1 - 20 / 72</div>
-								<div class="auiSelectButton floatLeft">
-								<ul class="floatLeft">
-								<li title="前へ">
-								<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
-								</li>
-								<li title="次へ" style="margin-right:5px;">
-								<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
-								</li>
-								</ul>
+
+								<div class="auiSummaryMeta clearfix">
+									<div class="floatLeft">
+										<a href="#" class="auiButton">既読にする</a> <a href="#" class="auiButton">削除する</a>
+									</div>
+									<div class="floatRight">
+										<div class="count">1 - 20 / 72</div>
+										<div class="auiSelectButton floatLeft">
+											<ul class="floatLeft">
+												<li title="前へ">
+													<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+												</li>
+												<li title="次へ" style="margin-right:5px;">
+													<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
 								</div>
+
+								<div class="indicator" id="indicator-list-P-132ce6ce6bf-10479" style="display:none;">データを送信しています...</div>
+								<form name="formP-132ce6ce6bf-10479" id="formP-132ce6ce6bf-10479" action="javascript:void(0)" method="post" onsubmit="return aipo.msgboard.onChangeSearch('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-132ce6ce6bf-10479','P-132ce6ce6bf-10479');">
+									<input type="hidden" name="_name" value="トピック">
+									<input type="hidden" name="secid" value="30d53eaf7347c6cd5e8142a8e642511d">
+
+									<table class="auiRowTable auiMbTable wide">
+										<tbody>
+										<tr>
+											<th class="wCheckbox center"><input name="switchCheckbox" type="checkbox" onclick="aimluck.io.switchCheckbox(this);"></th>
+											<th><a href="#">依頼者</a></th>
+											<th style=""><a href="#">用件</a></th>
+											<th style="width:10em"><a class="headUp" href="#">受信日時</a></th>
+										</tr>
+
+										<tr class="unread">
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										<tr>
+											<td class="auiMTCheck center"><input type="checkbox"></td>
+											<td class="auiMTCaption">
+												<div><a href="#">山田 太郎</a></div>
+											</td>
+											<td>
+												<div>伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件伝言メモの用件...</div>
+											</td>
+											<td nowrap="nowrap">9月16日19時12分</td>
+										</tr>
+
+										</tbody>
+									</table>
+
+									<div class="auiSummaryMeta clearfix">
+										<div class="floatLeft">
+											<a href="#" class="auiButton">既読にする</a> <a href="#" class="auiButton">削除する</a>
+										</div>
+										<div class="floatRight">
+											<div class="count">1 - 20 / 72</div>
+											<div class="auiSelectButton floatLeft">
+												<ul class="floatLeft">
+													<li title="前へ">
+														<a href="#" title="前へ" class="first arrow" style="width:30px"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a>
+													</li>
+													<li title="次へ" style="margin-right:5px;">
+														<a href="#" title="次へ" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
-						</form>
-					</div></div>
-					<!-- END Contents Area -->
+						<!-- END Contents Area -->
 
 
-					<!-- Start Widgets Area -->
-					<div id="auiWidgetsArea">
+						<!-- Start Widgets Area -->
+						<div id="auiWidgetsArea">
 
-						<div class="auiWidget clearfix">
-							<a title="伝言メモを作成する" href="#" class="auiButtonAction">伝言メモを作成する</a>
+							<div class="auiWidget clearfix">
+								<a title="伝言メモを作成する" class="auiButtonAction" href="javascript:void(0)" class="auiButton" onclick="popupToggle(this,'modalDialog_addmemo');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">伝言メモを作成する</a>
+							</div>
+
+							<div class="auiWidget clearfix">
+								<ul>
+									<li class="active"><a href="fullwindow.html">受信履歴</a></li>
+									<li><a href="fullwindow_input.html">送信履歴</a></li>
+								</ul>
+							</div>
+
 						</div>
+						<!-- END Widgets Area -->
 
-						<div class="auiWidget clearfix">
-							<ul>
-								<li class="active"><a href="fullwindow.html">受信履歴</a></li>
-								<li><a href="fullwindow_input.html">送信履歴</a></li>
-							</ul>
-						</div>
 
 					</div>
-					<!-- END Widgets Area -->
-
-
 				</div>
-			</div></div>
+			</div>
 			<!-- /auiPortletBody -->
-			<div class="auiPortletFoot"><div class="inner"></div></div>
+			<div class="auiPortletFoot">
+				<div class="inner"></div>
+			</div>
 		</div>
 	</div>
 </div>
+
+
+<!-- #modalDialog_addmemo -->
+<div id="modalDialog_addmemo" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top:50px;">
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_addmemo');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"> <span><i class="icon-remove"></i></span> </a></div>
+				</div>
+				<div class="auiPopupTitle">伝言メモ追加</div>
+			</div>
+			<form name="" id="" action="">
+				<table class="listTable wide">
+					<tbody>
+					<tr>
+						<td class="caption">受付日時</td>
+						<td class="auiSetDate">
+							<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="acceptdatepicker">
+								<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
+									<div class="dijitRight">
+										<span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-acceptdatepicker_label" role="button" aria-haspopup="true" aria-labelledby="acceptdatepicker_label" id="acceptdatepicker" tabindex="0" aria-valuenow="" aria-disabled="false">
+											<span class="" dojoattachpoint="containerNode,popupStateNode" id="acceptdatepicker_label">
+												<a href="javascript:void(0)" class="auiButtonIcon">
+													<span><i class="icon-calendar"></i></span>
+												</a>
+											</span>
+										</span>
+									</div>
+								</div>
+								<div class="alignleft">
+									<span name="accept_date_view" id="accept_date_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly"> 2013年9月27日(金) </span>
+									<span style="display:none">
+										<input name="accept_date_check" type="checkbox" value="TRUE" id="accept_date_flag" dojoattachevent="onclick:onCheckBlank">
+										<label for="accept_date_flag"> 指定しない</label>
+									</span>
+									<input type="hidden" id="accept_date" name="accept_date" value="2013/9/27" dojoattachpoint="valueNode">
+									<input type="hidden" id="accept_date_year" name="accept_date_year" value="2013" dojoattachpoint="valueYearNode">
+									<input type="hidden" id="accept_date_month" name="accept_date_month" value="9" dojoattachpoint="valueMonthNode">
+									<input type="hidden" id="accept_date_day" name="accept_date_day" value="27" dojoattachpoint="valueDayNode">
+								</div>
+							</div>
+							<select name="accept_date_hour" size="1">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15" selected="">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+							</select>
+							:
+							<select name="accept_date_minute" size="1">
+								<option value="0">00</option>
+								<option value="1">01</option>
+								<option value="2">02</option>
+								<option value="3">03</option>
+								<option value="4">04</option>
+								<option value="5">05</option>
+								<option value="6">06</option>
+								<option value="7">07</option>
+								<option value="8">08</option>
+								<option value="9">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="50">50</option>
+								<option value="51">51</option>
+								<option value="52">52</option>
+								<option value="53" selected="">53</option>
+								<option value="54">54</option>
+								<option value="55">55</option>
+								<option value="56">56</option>
+								<option value="57">57</option>
+								<option value="58">58</option>
+								<option value="59">59</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="caption"><span class="required">宛先</span></td>
+						<td><select name="target_group_name" id="target_group_name" class="w49 floatLeft" onchange="">
+							<option value="LoginUser">すべてのグループ</option>
+							<option value="">ERP開発部</option>
+							<option value="">SCM開発部</option>
+							<option value="">ユーザー・エクスペリエンス・クリエイティブデザイン課</option>
+							<option value="">人事部</option>
+							<option value="">営業部</option>
+							<option value="">情報システム部</option>
+							<option value="">経営企画部</option>
+							<option value="">総務部</option>
+							<option value="">鎌倉開発センター</option>
+						</select>
+							<select name="dest_user_id" class="w49 floatRight">
+								<option value="">選択してください</option>
+								<option value="16">木村 一郎</option>
+								<option value="15">田村 涼子</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="caption"><span class="required">依頼者名</span></td>
+						<td><input class="text w100" type="text" name="client_name" id="client_name" value="" maxlength="50" style="ime-mode:active">
+						</td>
+					</tr>
+					<tr>
+						<td class="caption">依頼者所属</td>
+						<td><input class="text w100" type="text" name="company_name" id="company_name" value="" maxlength="50" style="ime-mode:active">
+						</td>
+					</tr>
+					<tr>
+						<td class="caption">依頼者電話番号</td>
+						<td><input class="text" type="text" name="telephone1" id="telephone1" value="" maxlength="5" style="width:50px;ime-mode:disabled">
+							-
+							<input class="text" type="text" name="telephone2" id="telephone2" value="" maxlength="4" style="width:50px;ime-mode:disabled">
+							-
+							<input class="text" type="text" name="telephone3" id="telephone3" value="" maxlength="4" style="width:50px;ime-mode:disabled">
+							<span class="caution">（半角数字）</span></td>
+					</tr>
+					<tr>
+						<td class="caption">依頼者メールアドレス</td>
+						<td><input class="text w100" type="text" name="email_address" id="email_address" value="" maxlength="50" style="ime-mode:disabled">
+						</td>
+					</tr>
+					<tr>
+						<td class="caption">メール通知先</td>
+						<td><input name="add_dest_type_pc" type="checkbox" value="1" id="P-135e7e25490-10b75add_dest_type_pc_id" checked="checked">
+							<label for="P-135e7e25490-10b75add_dest_type_pc_id">&nbsp;メールアドレス</label>
+							<input name="add_dest_type_cellphone" type="checkbox" value="1" id="P-135e7e25490-10b75add_dest_type_cellphone_id" checked="checked">
+							<label for="P-135e7e25490-10b75add_dest_type_cellphone_id">&nbsp;携帯メールアドレス</label>
+						</td>
+					</tr>
+					<tr>
+						<td class="caption"><span class="required">用件</span></td>
+						<td>
+							<input name="subject_type" id="subject_type2P-135e7e25490-10b75" type="radio" value="2" checked>
+							<label for="subject_type2P-135e7e25490-10b75">折返しお電話ください。</label>
+							<br>
+							<input name="subject_type" id="subject_type1P-135e7e25490-10b75" type="radio" value="1">
+							<label for="subject_type1P-135e7e25490-10b75">再度電話します。</label>
+							<br>
+							<input name="subject_type" id="subject_type4P-135e7e25490-10b75" type="radio" value="4">
+							<label for="subject_type4P-135e7e25490-10b75">伝言をお願いします。</label>
+							<br>
+							<input name="subject_type" id="subject_type0P-135e7e25490-10b75" type="radio" value="0">
+							<label onclick="aipo.note.oncheck0(&quot;subject_type0P-135e7e25490-10b75&quot;)">
+								<input class="text" type="text" name="custom_subject" id="custom_subject" value="" maxlength="50" style="width:50%;ime-mode:active">
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td class="caption">本文</td>
+						<td><textarea class="text wide" name="message" rows="10" cols="40"></textarea>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="center auiPopupButtons">
+					<input name="eventSubmit_doNote_insert" class="auiButtonAction" type="submit" value="追加する" onclick="aimluck.io.setHiddenValue(this);">
+					<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_addmemo');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- /#modalDialog_addmemo -->
+
+<!-- modalBackground-->
+<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+<!-- /modalBackground-->
 
 </body>
 </html>

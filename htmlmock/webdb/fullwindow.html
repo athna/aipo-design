@@ -31,6 +31,21 @@
 </script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<script>
+	function popupToggle($this, $target) {
+		if (document.getElementById($target).style.display == 'none') {
+			document.getElementById($target).style.display = 'block'
+		} else {
+			document.getElementById($target).style.display = 'none'
+		}
+		if ($this.className.indexOf('active') > 0) {
+			$this.className = $this.className.replace(' active', '');
+		} else {
+			$this.className += ' active'
+		}
+		;
+	}
+</script>
 <!-- WRAPPER -->
 <div id="wrapper">
 <!-- HEADER -->
@@ -39,21 +54,6 @@
 		<div class="hdSign">
 			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
 		</div>
-		<script>
-			function popupToggle($this, $target) {
-				if (document.getElementById($target).style.display == 'none') {
-					document.getElementById($target).style.display = 'block'
-				} else {
-					document.getElementById($target).style.display = 'none'
-				}
-				if ($this.className.indexOf('active') > 0) {
-					$this.className = $this.className.replace(' active', '');
-				} else {
-					$this.className += ' active'
-				}
-				;
-			}
-		</script>
 		<div class="hdNavi">
 			<div class="hdMessege"><a href="#">
 				<div id="messegechecker" class="zero counter">0</div>
@@ -169,6 +169,12 @@
 			<div id="auiContentsArea">
 				<div id="auiContentsAreaInner">
 
+					<div class="auiSummaryMeta clearfix">
+						<form class="auiSearch">
+							<input class="text floatLeft long" type="text" name="q" id="q" style="margin-right:5px;">
+							<a class="auiButtonSearch" onclick="aimluck.io.setHiddenValue(this);">検索</a>
+						</form>
+					</div>
 					<div class="auiSummaryMeta clearfix">
 						<div class="floatRight">
 							<div class="count">1 - 5 / 7</div>

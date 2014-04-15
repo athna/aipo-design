@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
 <meta name="robots" content="noindex,follow" />
-<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8,chrome=1"/>
 <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719" />
 <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719" />
 <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css" />
@@ -37,20 +37,33 @@
       <div class="hdSign">
         <div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
       </div>
-      <script>
-	function popupToggle($this,$target) {
-		if(document.getElementById($target).style.display=='none'){
-			document.getElementById($target).style.display='block'
-		}else{
-			document.getElementById($target).style.display='none'
-		}
-		if($this.className.indexOf('active')>0){
-			$this.className = $this.className.replace(' active','');
-		}else{
-			$this.className += ' active'
-		};
-	}
-	</script>
+		<script>
+			function popupToggle($this, $target) {
+				if (document.getElementById($target).style.display == 'none') {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+				if ($this.className.indexOf('active') > 0) {
+					$this.className = $this.className.replace(' active', '');
+				} else {
+					$this.className += ' active'
+				}
+				;
+			}
+			function tooltipToggle($this, $target) {
+				document.getElementById($target).style.left = $this.getBoundingClientRect().left + 'px';
+				document.getElementById($target).style.top = $this.getBoundingClientRect().top + $this.offsetHeight + 'px';
+				popupToggle($this, $target);
+			}
+			function selectToggle($this, $value, $target) {
+				if ($this.value == $value) {
+					document.getElementById($target).style.display = 'block'
+				} else {
+					document.getElementById($target).style.display = 'none'
+				}
+			}
+		</script>
       <!--div class="hdNavi_v2">
 		<div class="hdMessage"><a href="#" class="active"><i class="icon-comment"></i><span class="counter">1</span></a></div>
 		<div class="hdActivity"><a href="#"><i class="icon-rss"></i><span class="counter">0</span></a></div>
@@ -199,7 +212,8 @@
                     <div id="auiWideAreaInner">
                       <div class="clearfix"> </div>
                       <div class="auiSummaryMeta clearfix">
-                        <div class="floatLeft"> <a class="auiButtonAction" href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormScreen&amp;entityid=new','138',aipo.gadgets_admin.onLoadFormDialog);" title="アプリを追加する">アプリを追加する</a> </div>
+                        <div class="floatLeft"> <a class="auiButtonAction mr10" href="javascript:aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminFormScreen&amp;entityid=new','138',aipo.gadgets_admin.onLoadFormDialog);" title="アプリを追加する">アプリを追加する</a><a href="http://store.aipo.com/" target="_blank">Aipoストア</a>でアプリを探すことができます。
+                        </div>
                         <div class="floatRight clearfix relative">
                           <div><a onclick="aipo.customize.showMenu('138');" class="customizeMenuIcon auiButtonBold" id="menubar_button_138" href="javascript:void(0);"><i class="icon-cog mr5"></i>設定</a></div>
                         </div>
@@ -248,60 +262,60 @@
                           </colgroup>
                           <tbody>
                             <tr>
-                              <th class="auiMTCheck"><input type="checkbox" onclick="aimluck.io.switchCheckbox(this);" name="switchCheckbox">
+                              <th class="auiMTCheck center"><input type="checkbox" onclick="aimluck.io.switchCheckbox(this);" name="switchCheckbox">
                               </th>
-                              <th>状態</th>
+                              <th nowrap="nowrap" class="center">状態</th>
                               <th>アプリ名</th>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>ToDo</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">ToDo</a></div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>Webデータベース</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Webデータベース</a></div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>Webメール</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">Webメール</a></div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>アドレス帳</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">アドレス帳</a></div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>スケジュール</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">スケジュール</a></div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>タイムカード</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">タイムカード</a></div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>タイムライン</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">タイムライン</a></div></td>
                             </tr>
                             <tr>
-                              <td align="center" class="auiMTCheck"><input type="checkbox" value="33" name="check33"></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="33" name="check33" /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div> <a onclick="aipo.common.showDialog('https://app.testtotest.com/aipo/portal/media-type/html/user/0000007719/page/default.psml/js_peid/138?template=GadgetsAdminDetailScreen&amp;entityid=33');" href="javascript:void(0);">フィードリーダー</a> </div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">フィードリーダー</a> </div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center">有効</td>
-                              <td><div>フォルダ</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">フォルダ</a></div></td>
                             </tr>
                             <tr>
-                              <td></td>
+                              <td class="auiMTCheck center"><input type="checkbox" value="" name="" disabled /></td>
                               <td nowrap="nowrap" class="center"><a href="../growth/elements_popup.html#try30">試用中</a></td>
-                              <td><div>在席管理</div></td>
+                              <td><div><a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_AppDetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">在席管理</a></div></td>
                             </tr>
                           </tbody>
                         </table>
@@ -584,6 +598,150 @@ left = 「filters」の画面内X位置
   </div>
 </div>
 <!-- /support popup -->
+
+<!-- #modalDialog_AppDetail -->
+<div id="modalDialog_AppDetail" class="modalDialog mb_dialog" title="" style="display: none; left: 50%; top: 150px; margin-left:-350px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_AppDetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">アプリ詳細</div>
+			</div>
+			<div class="roundBlockContent">
+				<form name="formP-1424f148b96-10000" id="" action="#" method="post" onsubmit="return false;">
+					<table class="listTable wide">
+						<tbody>
+						<tr>
+							<td class="caption">ガジェットURL</td>
+							<td>http://gadgets.aipo.com/yahoo-topics.xml</td>
+						</tr>
+                        <tr>
+							<td class="caption">タイトル</td>
+							<td>
+<img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/yahoo-topics/img/icon/icon16-trans.png" width="16" height="16" alt="Yahoo!ニュース" align="absmiddle">
+Yahoo!ニュース
+    </td>
+						</tr>
+						<tr>
+							<td class="caption">アプリの説明</td>
+							<td>Yahoo!ニュースへ掲載されているトピックスをお知らせするアプリです。</td>
+						</tr>
+                        <tr>
+							<td class="caption">状態</td>
+							<td>有効</td>
+						</tr>
+                        <tr>
+							<td class="caption">使用容量</td>
+							<td>1MB</td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="center auiPopupButtons">
+                    <input name="ajaxbuttonEdit" class="button" type="button" value="編集する" onclick="popupToggle(this,'modalDialog_AppEdit');popupToggle(this,'modalDialog_AppDetail');">
+<input name="ajaxbuttonDelete" class="button" type="button" value="削除する" onclick="">
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_AppDetail');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /modalDialog_AppDetail -->
+<!-- #modalDialog_AppDetail -->
+<div id="modalDialog_AppDetail_default" class="modalDialog mb_dialog" title="" style="display: none; left: 50%; top: 150px; margin-left:-350px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">アプリ詳細</div>
+			</div>
+			<div class="roundBlockContent">
+				<form name="formP-1424f148b96-10000" id="" action="#" method="post" onsubmit="return false;">
+					<table class="listTable wide">
+						<tbody>
+                        <tr>
+							<td class="caption">タイトル</td>
+							<td>ToDo</td>
+						</tr>
+						<tr>
+							<td class="caption">アプリの説明</td>
+							<td>アプリの説明アプリの説明アプリの説明アプリの説明アプリの説明</td>
+						</tr>
+                        <tr>
+							<td class="caption">状態</td>
+							<td>有効（このアプリは無効や削除はできません）</td>
+						</tr>
+                        <tr>
+							<td class="caption">使用容量</td>
+							<td>1MB</td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="center auiPopupButtons">
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_AppDetail_default');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /modalDialog_AppDetail -->
+<!-- #modalDialog_AppEdit -->
+<div id="modalDialog_AppEdit" class="modalDialog mb_dialog" title="" style="display: none; left: 50%; top: 150px; margin-left:-350px"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_AppEdit');popupToggle(this,'aimluck_widget_DialogUnderlay_1');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">アプリ編集</div>
+			</div>
+			<div class="roundBlockContent">
+            
+            <p>タイトル、アプリの説明、アイコン画像を最新のガジェットURLより取得して更新を行います。</p>
+           
+				<form name="formP-1424f148b96-10000" id="" action="#" method="post" onsubmit="return false;">
+					<table class="listTable wide">
+						<tbody>
+						<tr>
+							<td class="caption">ガジェットURL</td>
+							<td>http://gadgets.aipo.com/yahoo-topics.xml</td>
+						</tr>
+                        <tr>
+							<td class="caption">タイトル</td>
+							<td>
+<img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/yahoo-topics/img/icon/icon16-trans.png" width="16" height="16" alt="Yahoo!ニュース" align="absmiddle">
+Yahoo!ニュース
+    </td>
+						</tr>
+						<tr>
+							<td class="caption">アプリの説明</td>
+							<td>Yahoo!ニュースへ掲載されているトピックスをお知らせするアプリです。</td>
+						</tr>
+						</tbody>
+					</table>
+                    
+					<div class="center auiPopupButtons">
+                    <input name="eventSubmit_doGadgets_admin_update" class="auiButtonAction" type="submit" value="更新する" onclick="popupToggle(this,'modalDialog_AppEdit');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_AppEdit');popupToggle(this,'aimluck_widget_DialogUnderlay_1');">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+<!-- /modalDialog_AppEdit -->
+
 <div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;">
   <div class="modalDialogUnderlay" dojoattachpoint="node"></div>
 </div>
@@ -626,5 +784,11 @@ left = 「filters」の画面内X位置
     </div>
   </div>
   <span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
+
+<!-- modalBackground-->
+<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_1" widgetid="aimluck_widget_DialogUnderlay_1" style="display: none;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+
 </body>
 </html>

@@ -115,18 +115,22 @@ cursor:pointer;
 input[type="text"],
 input[type="password"],
 .aipostyle input.text {
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	background-color:#FFF;
-	border:1px solid #C9C9C9;
-	padding:2px;
+	height:$inputHeight +2;
+	padding:4px 2px;
+	vertical-align:middle;
+	@include border-radius(3px);
+	border:1px solid $grayBorder;
+	@include box-sizing(border-box);
+	background-color:#ffffff;
+	-webkit-appearance: none;
 }
 textarea {
 	padding:2px;
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	background-color:#FFF;
-	border:1px solid #C9C9C9;
+	@include border-radius(3px);
+	border:1px solid $grayBorder;
+	@include box-sizing(border-box);
+	background-color:#ffffff;
+	-webkit-appearance: none;
 }
 select {
 	font-size:1em;
@@ -260,7 +264,7 @@ a img {
     	display:inline-block;
         *display:inline;
         *zoom:1;
-        margin:5px 0;
+        //margin:5px 0;
         padding:0;
         vertical-align:middle;
 
@@ -274,23 +278,18 @@ a img {
 
             a:link,
             a:visited {
-                display:block;
-                min-width:25px;
-                line-height:$inputHeight - 2;
+				@extend .button;
+                //display:block;
+                min-width:20px;
                 padding:0 2px;
-                margin:0;
-                color:$grayDark;
-                text-decoration:none;
-                font-size:.9em;
-                border-top:solid 1px $grayBorder;
-                border-bottom:solid 1px $grayBorder;
-                border-right:1px solid $grayBorder;
-                @include box-sizing(border-box);
+				@include border-radius(0);
+				border-left: none;
+                //@include box-sizing(border-box);
             }
             a:hover {
-                background-color:#fff5d8;
+                //background-color:#fff5d8;
                 //border:1px solid #f90;
-                color:#f90;
+                //color:#f90;
             }
         }
         li:first-child {
@@ -309,9 +308,9 @@ a img {
             a:visited,
             a:active,
             a:hover {
-                background-color:$grayBackDark;
-                color:$black;
-                cursor:default;
+                //background-color:$grayBackDark;
+                //color:$black;
+                //cursor:default;
                 font-weight:bold;
             }
         }

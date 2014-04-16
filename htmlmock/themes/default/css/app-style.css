@@ -140,19 +140,33 @@ input[type="button"] {
 input[type="text"],
 input[type="password"],
 .aipostyle input.text {
-  box-sizing: border-box;
+  height: 32px;
+  padding: 4px 2px;
+  vertical-align: middle;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #d2d2d2;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  background-color: #FFF;
-  border: 1px solid #C9C9C9;
-  padding: 2px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  -webkit-appearance: none;
 }
 
 textarea {
   padding: 2px;
-  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #d2d2d2;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  background-color: #FFF;
-  border: 1px solid #C9C9C9;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  -webkit-appearance: none;
 }
 
 select {
@@ -195,7 +209,9 @@ a img {
 .aipostyle input[type=submit],
 .aipostyle input[type=button],
 .aipostyle input[type=reset],
-.aipostyle a.button {
+.aipostyle a.button,
+.aipostyle .pagination li a:link,
+.aipostyle .pagination li a:visited {
   display: inline-block;
   *display: inline;
   margin-bottom: 0;
@@ -239,7 +255,11 @@ a img {
 .aipostyle button:hover,
 .aipostyle button:focus,
 .aipostyle a.button:hover,
-.aipostyle a.button:focus {
+.aipostyle .pagination li a:hover:link,
+.aipostyle .pagination li a:hover:visited,
+.aipostyle a.button:focus,
+.aipostyle .pagination li a:focus:link,
+.aipostyle .pagination li a:focus:visited {
   color: #333333;
   background-color: #e6e6e6;
   background-color: #cccccc \9;
@@ -250,7 +270,9 @@ a img {
 .aipostyle input[type=button]:focus,
 .aipostyle input[type=reset]:focus,
 .aipostyle button:focus,
-.aipostyle a.button:focus {
+.aipostyle a.button:focus,
+.aipostyle .pagination li a:focus:link,
+.aipostyle .pagination li a:focus:visited {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
@@ -259,7 +281,9 @@ a img {
 .aipostyle input[type=button]:active,
 .aipostyle input[type=reset]:active,
 .aipostyle button:active,
-.aipostyle a.button:active {
+.aipostyle a.button:active,
+.aipostyle .pagination li a:active:link,
+.aipostyle .pagination li a:active:visited {
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   outline: 0;
@@ -290,7 +314,6 @@ a img {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  margin: 5px 0;
   padding: 0;
   vertical-align: middle;
 }
@@ -304,24 +327,13 @@ a img {
 }
 .aipostyle .pagination li a:link,
 .aipostyle .pagination li a:visited {
-  display: block;
-  min-width: 25px;
-  line-height: 28px;
+  min-width: 20px;
   padding: 0 2px;
-  margin: 0;
-  color: #333333;
-  text-decoration: none;
-  font-size: .9em;
-  border-top: solid 1px #d2d2d2;
-  border-bottom: solid 1px #d2d2d2;
-  border-right: 1px solid #d2d2d2;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.aipostyle .pagination li a:hover {
-  background-color: #fff5d8;
-  color: #f90;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  border-left: none;
 }
 .aipostyle .pagination li:first-child a {
   border-left: 1px solid #d2d2d2;
@@ -334,9 +346,6 @@ a img {
 .aipostyle .pagination li.selected a:visited,
 .aipostyle .pagination li.selected a:active,
 .aipostyle .pagination li.selected a:hover {
-  background-color: #d2d2d2;
-  color: black;
-  cursor: default;
   font-weight: bold;
 }
 .aipostyle .pagination li.prev a {
@@ -460,24 +469,31 @@ a img {
   margin-left: 2px;
 }
 
-* html .aipostyle a.button:link,
+* html .aipostyle a.button:link, * html .aipostyle .pagination li a:link,
 * html .aipostyle a.button:visited,
-* html .aipostyle a.button:active {
+* html .aipostyle .pagination li a:visited,
+* html .aipostyle a.button:active,
+* html .aipostyle .pagination li a:active:link,
+* html .aipostyle .pagination li a:active:visited {
   padding: 2px;
   border: none;
   background-position: 1px 2px;
   background-repeat: no-repeat;
 }
-* html .aipostyle a.button:hover {
+* html .aipostyle a.button:hover, * html .aipostyle .pagination li a:hover:link,
+* html .aipostyle .pagination li a:hover:visited {
   padding: 1px;
   background-position: 1px 2px;
   background-repeat: no-repeat;
   border: 1px solid #F90;
 }
 
-* + html .aipostyle a.button:link,
+* + html .aipostyle a.button:link, * + html .aipostyle .pagination li a:link,
 * + html .aipostyle a.button:visited,
-* + html .aipostyle a.button:active {
+* + html .aipostyle .pagination li a:visited,
+* + html .aipostyle a.button:active,
+* + html .aipostyle .pagination li a:active:link,
+* + html .aipostyle .pagination li a:active:visited {
   padding: 2px;
   border: none;
   background-position: 1px 2px;
@@ -506,6 +522,7 @@ a img {
   line-height: 25px;
   padding: 0 2px;
 }
-*:first-child + html .aipostyle a.button {
+*:first-child + html .aipostyle a.button, *:first-child + html .aipostyle .pagination li a:link,
+*:first-child + html .aipostyle .pagination li a:visited {
   border: solid 1px #d2d2d2;
 }

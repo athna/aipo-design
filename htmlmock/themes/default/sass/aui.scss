@@ -1194,6 +1194,12 @@ $tabBackgroundImage:	"../images/tab.png";
 #auiWidgetsArea {
 	float:left;
 	width:180px;
+
+	div {
+		&:first-child {
+			padding-top: 0;
+		}
+	}
 }
 #auiWidgetsArea2 {
 	float:right;
@@ -1202,7 +1208,8 @@ $tabBackgroundImage:	"../images/tab.png";
 
 .auiWidget {
 	clear:both;
-	padding:0.8em 0;
+	//padding:0.8em 0;
+	padding: 10px 0;
 	border-bottom:solid 1px $grayBorderLight;
 
 	h2 {
@@ -1215,12 +1222,6 @@ $tabBackgroundImage:	"../images/tab.png";
 		padding:0;
 		background:none;
 
-		//span {
-		//    display:block;
-		//    line-height:1.8em;
-		//    padding:0.3em 0 0.3em 18px;
-		//    background:url("../images/common/li_icon.gif") no-repeat scroll 5px 1em;
-		//}
 		a {
 			display:block;
 			line-height:1.8em;
@@ -1987,6 +1988,9 @@ input.auiButtonSearch.active {
 	}
 	form {
 		line-height: 32px;
+	}
+	&:first-child {
+		margin-top: 0 !important;
 	}
 }
 *:first-child+html .auiSummaryMeta {
@@ -4345,6 +4349,10 @@ iframe.iframe_messagelist{
 	overflow:hidden;
 }
 
-.test {
-	@include ellipsis(no-wrap);
+$arrayPrefix: -webkit-, -moz-, -o-, null;
+
+box {
+	@each $prefix in $arrayPrefix {
+		#{$prefix}background-size: 100px 50px;
+	}
 }

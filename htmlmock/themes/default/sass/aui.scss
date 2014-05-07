@@ -1840,68 +1840,85 @@ input.auiButtonSearch.active {
 --------------------------------------------------*/
 .auiSelectButton {
 	background:#fff;
-}
-.auiSelectButton ul {
-	display:inline;
-}
-.auiSelectButton li,
-.auiSelectButton div {
-	float:left;
-	background:none;
-	padding:0;
-	line-height:1;
-}
-.auiSelectButton a,
-.auiWidget .auiSelectButton a {
-	display:block;
-	margin:0 -1px;
-	padding:0 !important;
-	line-height:$inputHeight;
-	min-width:$inputHeight - 3;
-	@include border-radius(0);
-	border-color: $grayBorder $grayBorder $grayBorderDark;
-}
-.auiSelectButton a.first,
-.auiSelectButton a.btn {
-	margin-left:0;
-	@include border-top-left-radius(4px);
-	@include border-bottom-left-radius(4px);
-}
-.auiSelectButton a.last,
-.auiSelectButton a.btn {
-	margin-right:0;
-	@include border-top-right-radius(4px);
-	@include border-bottom-right-radius(4px);
-}
-.auiSelectButton a:hover span {
-	color:#333333;
-}
-.auiSelectButton span i,
-.auiSelectButton span img {
-	margin:6px 0;
-}
-.auiSelectButton .active a {
-	background:$grayLight;
-	border-color:$grayLight $grayLight $grayBorderDark;
-	cursor:default;
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
-}
-.auiSelectButton .active a:focus,
-.auiSelectButton .active a:active {
-	@include box-shadow(none);
-}
-.auiSelectButton .active a:hover span {
-	cursor:default;
+
+	ul {
+		display:inline;
+	}
+	li,
+	div {
+		float:left;
+		background:none;
+		padding:0;
+		line-height:1;
+	}
+	a,
+	.auiWidget & a {
+		display:block;
+		margin:0 -1px;
+		padding:0 !important;
+		line-height:$inputHeight;
+		min-width:$inputHeight - 3;
+		@include border-radius(0);
+		border-color: $grayBorder $grayBorder $grayBorderDark;
+	}
+	a {
+		[class*=icon-] {
+			line-height: 30px;
+		}
+		.icon-backward,
+		.icon-forward {
+			font-size: 10px;
+		}
+		.icon-backward {
+			margin-right:2px;
+		}
+		.icon-forward {
+			margin-left:1px;
+		}
+	}
+	a.first,
+	a.btn {
+		margin-left:0;
+		@include border-top-left-radius(4px);
+		@include border-bottom-left-radius(4px);
+	}
+	a.last,
+	a.btn {
+		margin-right:0;
+		@include border-top-right-radius(4px);
+		@include border-bottom-right-radius(4px);
+	}
+	a:hover span {
+		color:#333333;
+	}
+	span i,
+	span img {
+		margin:6px 0;
+	}
+	.active {
+		a {
+			background:$grayLight;
+			border-color:$grayLight $grayLight $grayBorderDark;
+			cursor:default;
+			filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+		}
+		a:focus,
+		a:active {
+			@include box-shadow(none);
+		}
+		a:hover span {
+			cursor:default;
+		}
+	}
+	.auiIconArrowLeft {
+		margin-left:-4px !important;
+	}
+	.auiWidget & span {
+		padding:0;
+		background-image:none;
+	}
 }
 
-.auiSelectButton .auiIconArrowLeft {
-	margin-left:-4px !important;
-}
-
-.auiWidget .auiSelectButton span {
-	padding:0;
-	background-image:none;
-}
 /***************************************************
 	auiMultiSelector
 --------------------------------------------------*/
@@ -3191,6 +3208,12 @@ ul.attachments{
 	@include box-shadow(-3px 0 3px 0px #fff);
 	vertical-align:middle;
 	background:#ffffff;
+	text-decoration: none;
+
+	i[class*=icon-] {
+		line-height: 26px;
+		margin-left: 7px;
+	}
 }
 *:first-child+html .filterDropDrawer {
 	top:1px;

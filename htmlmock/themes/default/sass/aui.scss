@@ -619,6 +619,13 @@ $portletBackground:	"../images/common/portlet_20140116.gif";
 	}
 }
 
+.auiPortlet.important {
+	.auiPortletTitle {
+		font-weight: bold;
+		color:$red;
+	}
+}
+
 /***************************************************
 	auiListWrapper
 --------------------------------------------------*/
@@ -1008,20 +1015,50 @@ $tabBackgroundImage:	"../images/tab.png";
 #auiLoginBox input.button[disabled] {
 	background:url(../images/login_btn_back.png) 0px -100px no-repeat !important;
 }
+
+/***************************************************
+	alert
+--------------------------------------------------*/
 .loginAlert,
 .alert {
 	margin:10px 0;
 	padding:10px;
 	background:#ffcccc;
-	@include border-radius(2px);
+	@include border-radius(4px);
 	-webkit-animation-name: fadeIn;
 	-webkit-animation-duration: 1s;
+
+	.alertTool {
+		float: right;
+
+		a {
+			i {
+				@include inline-block;
+				text-decoration: none;
+				text-align: center;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+			}
+		}
+	}
+	.alertHead {
+		border-bottom: solid 1px $grayBorder;
+		padding-bottom:9px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		line-height: 20px;
+	}
+
+	.roundMainWrapper > & {
+		margin: 10px 5px 0 5px;
+	}
 }
 .alertSuccess {
 	margin:10px 0;
 	padding:10px;
 	background:$grayLighter;
-	@include border-radius(2px);
+	@include border-radius(4px);
 }
 /***************************************************
 	dialogTable

@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojox.storage"],["require","dojox.storage._common"]],defineResource:function(o){o._hasResource["dojox.storage"]||(o._hasResource["dojox.storage"]=!0,o.provide("dojox.storage"),o.require("dojox.storage._common"))}});

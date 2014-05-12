@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dijit.form.nls.it.validate"]],defineResource:function(e){e.provide("dijit.form.nls.it.validate"),e._xdLoadFlattenedBundle("dijit.form","validate","it",{rangeMessage:"* Questo valore non è compreso nell'intervallo.",invalidMessage:"* Il valore immesso non è valido.",missingMessage:"* Questo valore è obbligatorio."})}});

@@ -1,9 +1,15 @@
+@charset "utf-8";
 // Core variables and mixins
 @import "variables";
 @import "mixins";
 @import "compass";
 
-@charset "utf-8";
+//--------------------------------------------------
+// Sass extend class
+.bRadius4 {
+	@include border-radius(4px);
+}
+//--------------------------------------------------
 
 /***************************************************
 	style denial
@@ -97,7 +103,7 @@ input[type=password] {
 
 .roundMainWrapper {
     noscript .alert {
-    	@include border-radius(4px);
+    	@extend .bRadius4;
         margin:5px;
     }
 }
@@ -375,10 +381,7 @@ $auiMbCaptionHeight:	18px !default;
 		to(rgba(0,0,0,0.3))
 	);
 	padding:1px 2px;
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	-ms-border-radius:4px;
-	border-radius:4px;
+	@extend .bRadius4;
 	font-size:9px;
 	color:#fff !important;
 	text-shadow:0 -1px 0 rgba(0,0,0,0.2);
@@ -435,7 +438,7 @@ $auiMbCaptionHeight:	18px !default;
     .mhRight {
         position: absolute;
         top: 3px;
-        border-radius: 4px;
+		@extend .bRadius4;
     }
     .mhLeft {
         left: 5px;
@@ -453,11 +456,7 @@ $auiMbCaptionHeight:	18px !default;
         min-width: 35px;
         margin: 0;
         padding: 0 5px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        -ms-border-radius: 4px;
-        -o-border-radius: 4px;
-        border-radius: 4px;
+		@extend .bRadius4;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -643,7 +642,7 @@ $auiMbCaptionHeight:	18px !default;
         padding:0 5px;
         font-size:14px;
         color:$white !important;
-        @include border-radius(4px);
+        @extend .bRadius4;
         @include box-sizing(border-box);
         @include box-shadow(0 1px 0 #ffffff, inset 0 1px 2px rgba(0,0,0,0.3));
         text-decoration:none;
@@ -809,7 +808,7 @@ $auiMbCaptionHeight:	18px !default;
         padding:0 5px;
         font-size:14px;
         color:$white !important;
-        @include border-radius(4px);
+        @extend .bRadius4;
         @include box-sizing(border-box);
         @include box-shadow(0 1px 0 #ffffff, inset 0 1px 2px rgba(0,0,0,0.3));
         text-decoration:none;
@@ -886,11 +885,7 @@ $auiMbCaptionHeight:	18px !default;
             width: 30px;
             height: 30px;
             background: #505050;
-            -webkit-border-radius: 30px;
-            -moz-border-radius: 30px;
-            -ms-border-radius: 30px;
-            -o-border-radius: 30px;
-            border-radius: 30px;
+			@include border-radius(30px);
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
         img {

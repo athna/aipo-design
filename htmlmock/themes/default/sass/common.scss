@@ -1,6 +1,15 @@
+@charset "utf-8";
 // Core variables and mixins
 @import "variables";
 @import "mixins";
+@import "compass";
+
+//--------------------------------------------------
+// Sass extend class
+.bRadius3 {
+	@include border-radius(3px);
+}
+//--------------------------------------------------
 
 @charset "utf-8";
 h1, h2, h3, h4, h5, h6, p, pre, address, cite {
@@ -93,9 +102,6 @@ ul li {
 	display:block;
 	background:url(../images/common/li_icon.gif) 0 .5em no-repeat;
 	padding:0 0 0 1em;
-}
-strong {
-	font-weight:bold;
 }
 input {
 	line-height:1.5;
@@ -1627,10 +1633,7 @@ span.dispUser {
 	margin-top:3px;
 	font-size:0.9em;
 	color:#ffffff;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
+	@extend .bRadius3;
 }
 span.dispUser a {
 	color:$white;
@@ -1944,7 +1947,7 @@ ul.blockList li {
 	margin:0;
 	padding:0;
 	background:none;
-	@include border-radius(3px);
+	@extend .bRadius3;
 }
 .menubar ul li:first-child,
 ul.blockList li:first-child {
@@ -1961,7 +1964,7 @@ ul.blockList li a {
 	text-overflow:ellipsis;
 	white-space:nowrap;
 	overflow:hidden;
-	@include border-radius(3px);
+	@extend .bRadius3;
 }
 .menubar > ul li.last a,
 .menubar.multi ul li.last a,
@@ -2092,10 +2095,7 @@ ul.blockList li a.selected {
 	border-top:none;
 }
 .menubar.multi ul li a {
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	-ms-border-radius:3px;
-	border-radius:3px;
+	@extend .bRadius3;
 }
 
 

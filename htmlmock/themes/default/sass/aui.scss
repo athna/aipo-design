@@ -212,15 +212,28 @@ img.avatar,
 	top:0;
 }
 .auiPopupHead {
+	position: relative;
 	padding-left:20px;
 	margin-bottom:10px;
-	background:transparent url(../images/common/icon_p.gif) no-repeat left center;
-}
-.auiPopupHead .auiPopupTitle {
-	line-height:24px;
-	white-space:nowrap;
-	overflow:hidden;
-	text-overflow:ellipsis;
+	//background:transparent url(../images/common/icon_p.gif) no-repeat left center;
+	&:before {
+		display:block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-family:'FontAwesome';
+		font-size: 15px;
+		line-height: 24px;
+		content:"\f138";
+		color: $grayLight;
+	}
+
+	.auiPopupTitle {
+		line-height:24px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
 }
 .auiPopupTool {
 	float:right;

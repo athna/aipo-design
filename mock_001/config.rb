@@ -4,7 +4,7 @@ sass_dir = "themes/default/sass"
 images_dir = "themes/default/img"
 javascripts_dir = "themes/default/js"
 
-output_style = :compressed
+output_style = :expanded
 #expanded/nexted/compact/compressed
 relative_assets = true
 line_comments = false

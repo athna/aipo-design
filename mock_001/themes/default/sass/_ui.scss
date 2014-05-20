@@ -1,15 +1,306 @@
 @charset "utf-8";
 
-#header {
+//####################################################################################################
+// wrapper
+//----------------------------------------------------------------------------------------------------
+#wrapper {
+	min-width: $layoutMinWidth;
+}
 
+//####################################################################################################
+// header
+//----------------------------------------------------------------------------------------------------
+$headerHeight: 30px;
+#header {
+	@extend .clearfix;
+	padding: 10px;
+	border-bottom: solid 1px $grayLight;
+}
+.hdLogo {
+	@extend .floatLeft;
+	height: $headerHeight;
+	padding-left: 10px;
 }
 .hdNavi {
+	@extend .floatRight;
+	font-size: 11px;
+
+	ul {
+		@extend .clearfix;
+		float: left;
+	}
 	li {
-		display: inline-block;
+		display: block;
+		float: left;
 		list-style: none;
+		line-height: $headerHeight;
+
+		a {
+			display: block;
+			padding: 0 7px;
+
+			.fa {
+				color: $gray;
+			}
+
+			&:hover {
+				text-decoration: none;
+				background-color: $grayBack;
+
+				.fa {
+					color: $grayDark;
+				}
+			}
+		}
+	}
+}
+.hdSearch {
+	float: left;
+	padding-right: 10px;
+
+	form {
+		@extend .bRadius3;
+		border: solid 1px $grayBorder;
+		background-color: $white;
+
+		&:hover {
+			border: solid 1px $gray;
+		}
+	}
+
+	input[type=text], .submit {
+		border: none;
+	}
+	input[type=text] {
+		width: 160px;
+		margin: 0 3px;
+	}
+	.submit {
+		height: $headerHeight - 2;
+		margin: 0;
+		padding: 0;
+		background: none;
+		cursor: pointer;
+
+		&:hover {
+			.fa {
+				color: $grayDark;
+			}
+		}
+	}
+	.fa {
+		display: block;
+		width: 30px;
+		border-left: solid 1px $grayBorder;
+		color: $gray;
+	}
+}
+.hdCommunications {
+	.count {
+		display: block;
+		float: left;
+		min-width: 16px;
+		height: 16px;
+		line-height: 16px;
+		margin: ($headerHeight - 16) / 2 2px 0 0;
+		padding: 0 2px;
+		font-size: 10px;
+		background-color: $grayBack;
+		text-align: center;
+		color: $gray;
+		@extend .bRadius2;
+		@extend .border-box;
+	}
+	.valid {
+		.count {
+			background-color: $red;
+			color: $white;
+		}
+	}
+	.label {
+		text-wrap: nowrap;
+	}
+}
+.hdTools {
+	border-left: solid 1px $grayLighter;
+	margin-left: 5px !important;
+	padding-left: 5px !important;
+
+	li a {
+		padding-left: 4px;
+	}
+
+	.name {
+		margin: 0 5px;
+	}
+	.fa {
+		vertical-align: middle;
 	}
 }
 
-.uitest {
-	margin: 0;
+// avatar
+.avatar_s {
+	@extend .inline-block;
+	@extend .bRadius2;
+	width: 24px;
+	height: 24px;
+}
+
+//####################################################################################################
+// auiLauncher
+//----------------------------------------------------------------------------------------------------
+#auiLauncher {
+	padding: 0 8px 8px;
+	overflow: hidden;
+	background-color: $grayBackLight;
+	@extend transition02;
+
+	ul {
+		@extend .clearfix;
+		text-align: center;
+	}
+	li {
+		display: block;
+		float: left;
+		width: 95px;
+		height: 60px;
+		padding: 10px 5px 0;
+		@extend .border-box;
+
+		a {
+			position: relative;
+			display: block;
+			text-decoration: none;
+			width: 85px;
+			height: 50px;
+			background-color: $white;
+			border: solid 1px $grayBorderLight;
+			@extend .bRadius3;
+			@extend .border-box;
+
+			.icon {
+				display: block;
+				padding: 3px;
+			}
+			.name {
+				font-size: 11px;
+				display: block;
+				width: 83px;
+				height: 15px;
+				line-height: 15px;
+				padding: 0 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				@extend .border-box;
+			}
+			.fa {
+				font-size: 24px;
+				color: $grayLight;
+			}
+
+			&:hover {
+				.fa {
+					color: $grayDark;
+				}
+			}
+		}
+	}
+}
+//####################################################################################################
+// auiMainNavi
+//----------------------------------------------------------------------------------------------------
+#auiMainNavi {
+	background-color: $grayBackLight;
+
+	ul {
+		@extend .clearfix;
+		padding: 5px 15px;
+	}
+	li {
+		float: left;
+		@include box-sizing(border-box);
+
+		&:hover {
+			//background-color: $gray;
+		}
+	}
+	.launcher {
+		float: right;
+	}
+	.fa {
+		color: $gray;
+	}
+	a {
+		@extend .border-box;
+		display: block;
+		float: left;
+		padding: 5px;
+
+		&:hover {
+			text-decoration: none;
+
+			.fa {
+				color: $grayDark;
+			}
+		}
+	}
+	.active {
+		border-bottom: 30px solid $white;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		height: 0;
+	}
+}
+
+//####################################################################################################
+// auiContents
+//----------------------------------------------------------------------------------------------------
+#auiContents {
+	margin: 5px;
+
+	td {
+		vertical-align: top;
+	}
+}
+
+//####################################################################################################
+// alert
+//----------------------------------------------------------------------------------------------------
+.alert {
+	margin: 10px 5px;
+	padding: 10px;
+	background-color: $grayBack;
+	@extend .bRadius3;
+}
+//####################################################################################################
+// auiPortlet
+//----------------------------------------------------------------------------------------------------
+.auiPortlet {
+	margin: 0 5px 10px;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	@extend .border-box;
+	@extend .bRadius3;
+}
+.auiPortletHead {
+	border-bottom: solid 1px $grayBorderLight;
+	.inner {
+		padding: 10px;
+	}
+}
+.auiPortletBody {
+	.inner {
+		padding: 10px;
+	}
+}
+
+//####################################################################################################
+// popup
+//----------------------------------------------------------------------------------------------------
+.popup {
+	display: none;
+	position: absolute;
+}
+.auiTip {
+	@extend .auiPortlet;
 }

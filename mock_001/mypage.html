@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="themes/default/css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="themes/default/css/print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="themes/default/css/font-awesome.min.css"/>
+	<script src="themes/default/js/jquery.min.js"></script>
+	<script src="themes/default/js/scripts.js"></script>
 </head>
 <body>
 
@@ -17,36 +19,89 @@
 <div id="header">
 	<div class="hdLogo"><img src="themes/default/img/logo.png" width="100" height="30" alt="Aipo.com" /></div>
 	<div class="hdNavi">
-		<ul class="communications">
-			<li><a href="javascript:void(0)"><i class="fa fa-comments"></i><span>メッセージ</span></a></li>
-			<li><a href="javascript:void(0)"><i class="fa fa-info-circle"></i><span>お知らせ</span></a></li>
-			<li><a href="javascript:void(0)"><i class="fa fa-globe"></i><span>サポート</span></a></li>
+		<div class="hdSearch">
+			<form class=""><input type="text" placeholder="検索" /><button class="submit" title="検索"><i class="fa fa-search"></i></button></form>
+		</div>
+		<ul class="hdCommunications"
+				><li class="valid"><a href="javascript:void(0)"><span class="count">99+</span><span class="label">メッセージ</span></a></li
+				><li class="valid active"><a href="javascript:void(0)"><span class="count">10</span><span class="label">お知らせ</span></a></li
+				><li><a href="javascript:void(0)"><span class="count">0</span><span class="label">サポート</span></a></li>
 		</ul>
-		<ul class="tools">
-			<li><input type="text" /></li>
-			<li><a href="javascript:void(0)"><img src="themes/default/img/avatar_default.png" width="76" height="76" /><span>木村 一郎</span><i class="fa fa-caret-down"></i></a> </li>
+		<ul class="hdTools"
+				><li><a href="javascript:void(0)" id="toggle_settings" class="headerToggle" toggle-target="hdTool_settings" data-value=""><img src="themes/default/img/avatar_default.png" width="76" height="76" class="avatar_s" /><span class="name">木村 一郎</span><i class="fa fa-caret-down"></i></a></li>
 		</ul>
 	</div>
 </div>
 <!-- /#header -->
 
+<!-- #auiLauncher -->
+<div id="auiLauncher">
+	<ul>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-comment"></i></span><span class="name">タイムライン</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-calendar"></i></span><span class="name">スケジュール</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-clock-o"></i></span><span class="name">タイムカード</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-volume-up"></i></span><span class="name">更新情報</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-book"></i></span><span class="name">ブログ</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-photo"></i></span><span class="name">掲示板</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-list-ul"></i></span><span class="name">ToDo</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-folder-open"></i></span><span class="name">フォルダ</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-inbox"></i></span><span class="name">ワークフロー</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-phone"></i></span><span class="name">伝言メモ</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-file-text"></i></span><span class="name">報告書</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-envelope"></i></span><span class="name">Webメール</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-compass"></i></span><span class="name">アドレス帳</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-group"></i></span><span class="name">ユーザー名簿</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-pencil"></i></span><span class="name">メモ帳</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-hdd-o"></i></span><span class="name">Webデータベース</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-pencil-square"></i></span><span class="name">Wiki</span></a></li>
+		<li><a href="bbs/index.html"><span class="icon"><i class="fa fa-pencil-square"></i></span><span class="name">長い機能名長い機能名長い機能名</span></a></li>
+	</ul>
+</div>
+<!-- /#auiLauncher -->
+
 <!-- #auiMainNavi -->
-<div id="auiMainNavi"></div>
+<div id="auiMainNavi">
+	<ul>
+		<li class="launcher"><a href="javascript:void(0)">ランチャー</a></li>
+		<li class="active"><a href="javascript:void(0)" class="label">マイページ</a><a href="javascript:void(0)" class="tool" title="カスタマイズ"><i class="fa fa-cog"></i></a></li>
+		<li><a href="javascript:void(0)" class="label">マイページ</a><a href="javascript:void(0)" class="tool" title="カスタマイズ"><i class="fa fa-cog"></i></a></li>
+		<li><a href="javascript:void(0)" class="label">マイページ</a><a href="javascript:void(0)" class="tool" title="カスタマイズ"><i class="fa fa-cog"></i></a></li>
+		<li><a href="javascript:void(0)" class="label">マイページ</a><a href="javascript:void(0)" class="tool" title="カスタマイズ"><i class="fa fa-cog"></i></a></li>
+		<li><a href="javascript:void(0)" class="plus" title="メニュータブを追加"><i class="fa fa-plus"></i></a></li>
+	</ul>
+</div>
 <!-- /#auiMainNavi -->
 
 <!-- #auiContents -->
 <div id="auiContents">
+
+	<noscript>
+		<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
+	</noscript>
+
+	<div class="alert bgGray">
+		<div class="alertTool"><a href="javascript:void(0)"><i class="fa fa-remove"></i></a></div>
+		<div class="alertHead">
+		重要なお知らせ
+		</div>
+		<div class="alertBody">
+			<p>下記日程にてAipo.comのメンテナンスを行わせて頂きます。</p>
+			<p class="mt10 mb10"><strong>日程：</strong> 2014年6月10日　19:00～20:00</p>
+			<p>メンテナンス中はAipo.comをご利用いただくことができません。<br>大変ご迷惑をおかけいたしますがご了承のほど何卒宜しくお願い申し上げます。</p>
+		</div>
+	</div>
+
 	<table>
 		<tr>
 			<td width="25%">
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">タイムカード</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletSetting">
-									<a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+									<a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
@@ -83,13 +138,13 @@
 				<!-- /auiPortlet -->
 
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">アドレス帳</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletAction"><a href="#">アドレス追加</a></div>
-								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
@@ -121,13 +176,13 @@
 				<!-- /auiPortlet -->
 
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">掲示板</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletAction"><a href="#">トピック追加</a></div>
-								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
 											<li><a href="#">設定</a></li>
@@ -151,8 +206,8 @@
 									<div class="count">1 ～ 5 / 7</div>
 									<div class="auiSelectButton floatLeft">
 										<ul class="floatLeft">
-											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
-											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
+											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="fa fa-caret-left"></i></a></li>
+											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="fa fa-caret-right"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -236,13 +291,13 @@
 			</td>
 			<td width="50%">
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">タイムカード</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletSetting">
-									<a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+									<a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
@@ -279,13 +334,13 @@
 				<!-- /auiPortlet -->
 
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">アドレス帳</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletAction"><a href="#">アドレス追加</a></div>
-								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
@@ -317,13 +372,13 @@
 				<!-- /auiPortlet -->
 
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">掲示板</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletAction"><a href="#">トピック追加</a></div>
-								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
 											<li><a href="#">設定</a></li>
@@ -347,8 +402,8 @@
 									<div class="count">1 ～ 5 / 7</div>
 									<div class="auiSelectButton floatLeft">
 										<ul class="floatLeft">
-											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
-											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
+											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="fa fa-caret-left"></i></a></li>
+											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="fa fa-caret-right"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -432,13 +487,13 @@
 			</td>
 			<td width="25%">
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">タイムカード</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletSetting">
-									<a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+									<a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
@@ -475,13 +530,13 @@
 				<!-- /auiPortlet -->
 
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">アドレス帳</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletAction"><a href="#">アドレス追加</a></div>
-								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
@@ -513,13 +568,13 @@
 				<!-- /auiPortlet -->
 
 				<!-- auiPortlet -->
-				<div class="dojoDndItem auiPortlet">
+				<div class="auiPortlet">
 					<div class="auiPortletHead">
 						<div class="inner">
 							<div class="auiPortletTitle"><a href="#">掲示板</a></div>
 							<div class="auiPortletTool">
 								<div class="auiPortletAction"><a href="#">トピック追加</a></div>
-								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+								<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="fa fa-cog"></i></span></a>
 									<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
 										<ul>
 											<li><a href="#">設定</a></li>
@@ -543,8 +598,8 @@
 									<div class="count">1 ～ 5 / 7</div>
 									<div class="auiSelectButton floatLeft">
 										<ul class="floatLeft">
-											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
-											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
+											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="fa fa-caret-left"></i></a></li>
+											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="fa fa-caret-right"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -632,341 +687,27 @@
 </div>
 <!-- #auiContents -->
 
-<!-- HEADER -->
-<div id="header" class="clearfix">
-	<div class="inner">
-		<div class="hdSign">
-			<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
-		</div>
-
-		<div class="hdNavi">
-			<div class="hdMessege"><a href="#">
-				<div id="messegechecker" class="zero counter">0</div>
-				メッセージ</a></div>
-			<div class="hdActivity" title="お知らせ">
-				<div class="dijit dijitLeft dijitInline dijitDropDownButton"
-					 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-					 widgetid="activitycheckerContainer"
-					 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
-					<div type="button"
-						 dojoattachpoint="focusNode,titleNode"
-						 wairole="button"
-						 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
-						 role="button"
-						 aria-haspopup="true"
-						 aria-labelledby="activitycheckerContainer_label"
-						 id="activitycheckerContainer"
-						 tabindex="0"
-						 aria-valuenow=""
-						 aria-disabled="false">
-						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
-							<span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span></div>
-					</div>
-				</div>
-			</div>
-			<div class="hdInformation" title="サポート">
-				<div
-						class="dijit dijitLeft dijitInline dijitDropDownButton"
-						dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-						widgetid="supportcheckerContainer"
-						onClick="popupToggle(this,'aipo_widget_SupportList_0');">
-					<div type="button"
-						 dojoattachpoint="focusNode,titleNode"
-						 wairole="button"
-						 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
-						 role="button"
-						 aria-haspopup="true"
-						 aria-labelledby="supportcheckerContainer_label"
-						 id="supportcheckerContainer"
-						 tabindex="0"
-						 aria-valuenow=""
-						 aria-disabled="false">
-						<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
-							<div id="supportchecker" class="counter zero">0</div>
-							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
-					</div>
-				</div>
-			</div>
-			<div class="hdUserName"><a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')"> <img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt=""/>株式会社エイムラック 木村 一郎 さま <span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-		</div>
-		<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
-			<ul>
-				<li><a href="#">個人設定</a></li>
-				<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
-<!-- /HEADER -->
-
-<!-- MAIN TAB -->
-<div id="auiTabs" class="clearfix">
-	<ul>
-		<li class="first">
-			<div class="tab active">
-				<div class="title"><a href="#">マイページ</a></div>
-				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-			</div>
-		</li>
-		<li class="">
-			<div class="tab activeNext">
-				<div class="title"><a href="#">タブ名</a></div>
-				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-			</div>
-		</li>
-		<li class="">
-			<div class="tab">
-				<div class="title"><a href="#">タブ名</a></div>
-				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-			</div>
-		</li>
-		<li class="last">
-			<div class="tab">
-				<div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
-				<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-			</div>
-		</li>
-		<li class="addTab"><a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a></li>
-	</ul>
-</div>
-<!-- /MAIN TAB -->
-
-<!-- rowndMainWrapper -->
-<div class="roundMainWrapper">
-
-	<noscript>
-		<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
-	</noscript>
-
-	<div class="alert bgGray">
-		<div class="alertTool"><a href="javascript:void(0)"><i class="icon-remove"></i></a></div>
-		<div class="alertHead">
-		重要なお知らせ
-		</div>
-		<div class="alertBody">
-			<p>下記日程にてAipo.comのメンテナンスを行わせて頂きます。</p>
-			<p class="mt10 mb10"><strong>日程：</strong> 2014年6月10日　19:00～20:00</p>
-			<p>メンテナンス中はAipo.comをご利用いただくことができません。<br>大変ご迷惑をおかけいたしますがご了承のほど何卒宜しくお願い申し上げます。</p>
-		</div>
-	</div>
-
-	<!-- .tableWrapper -->
-	<table class="tableWrapper">
-	<tbody>
-	<tr>
-	<td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-		<!-- auiPortlet -->
-		<div class="dojoDndItem auiPortlet">
-			<div class="auiPortletHead">
-				<div class="inner">
-					<div class="auiPortletTitle"><a href="#">タイムカード</a></div>
-					<div class="auiPortletTool">
-						<div class="auiPortletSetting">
-							<a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
-
-							<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
-								<ul>
-									<li><a href="#">設定</a></li>
-									<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- auiPortletBody -->
-			<div class="auiPortletBody">
-				<div class="inner">
-					<form>
-						<table class="wide">
-							<tbody>
-							<tr>
-								<td nowrap="nowrap" class="w25 center"><input type="button" value="出勤" class="auiButtonAction"></td>
-								<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">退勤</span></td>
-								<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">外出</span></td>
-								<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">復帰</span></td>
-							</tr>
-							</tbody>
-						</table>
-					</form>
-				</div>
-			</div>
-			<!-- /auiPortletBody -->
-			<div class="auiPortletFoot">
-				<div class="inner"></div>
-			</div>
-		</div>
-		<!-- /auiPortlet -->
-
-		<!-- auiPortlet -->
-		<div class="dojoDndItem auiPortlet">
-			<div class="auiPortletHead">
-				<div class="inner">
-					<div class="auiPortletTitle"><a href="#">アドレス帳</a></div>
-					<div class="auiPortletTool">
-						<div class="auiPortletAction"><a href="#">アドレス追加</a></div>
-						<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
-
-							<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
-								<ul>
-									<li><a href="#">設定</a></li>
-									<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- auiPortletBody -->
-			<div class="auiPortletBody">
-				<div class="inner">
-					<div class="auiSummaryMeta clearfix">
-						<form>
-							<input class="text floatLeft" type="text" name="sword" id="sword" style="width:60%; margin-right:5px;" value="">
-							<a class="auiButtonSearch floatLeft" onclick="dojo.byId('addressbookP-135ce1a0d62-10011').onsubmit();">検索</a>
-							&nbsp;<i class="indicator"></i>
-						</form>
-					</div>
-					<input name="mode" type="hidden" value="ajaxsearch"></div>
-			</div>
-			<!-- /auiPortletBody -->
-			<div class="auiPortletFoot">
-				<div class="inner"></div>
-			</div>
-		</div>
-		<!-- /auiPortlet -->
-
-		<!-- auiPortlet -->
-		<div class="dojoDndItem auiPortlet">
-			<div class="auiPortletHead">
-				<div class="inner">
-					<div class="auiPortletTitle"><a href="#">掲示板</a></div>
-					<div class="auiPortletTool">
-						<div class="auiPortletAction"><a href="#">トピック追加</a></div>
-						<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
-							<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
-								<ul>
-									<li><a href="#">設定</a></li>
-									<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- auiPortletBody -->
-			<div class="auiPortletBody">
-				<div class="inner">
-					<!-- auiSummaryMeta.auiFilter -->
-					<div class="auiSummaryMeta auiFilter clearfix">
-						<div class="filters"><a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}"> <span class="filterTip"><span>すべての部署</span></span> <span class="filterTip"><span>カテゴリ名</span></span> <span class="filterTip"><span>長いカテゴリ名長いカテゴリ名長いカテゴリ名長いカテゴリ名長いカテゴリ名長いカテゴリ名</span></span> </a></div>
-					</div>
-					<!-- /auiSummaryMeta.auiFilter -->
-					<div class="auiSummaryMeta clearfix" style="">
-						<div class="floatRight">
-							<div class="count">1 ～ 5 / 7</div>
-							<div class="auiSelectButton floatLeft">
-								<ul class="floatLeft">
-									<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
-									<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<form name="formP-135ce1a0d64-10014" id="formP-135ce1a0d64-10014" action="" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-						<input type="hidden" name="_name" value="Msgboard">
-						<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-						<table class="auiRowTable wide">
-							<colgroup></colgroup>
-							<colgroup style="width:20%;"></colgroup>
-							<colgroup style="width:20%;"></colgroup>
-							<colgroup style="width:6em;"></colgroup>
-							<tbody>
-							<tr>
-								<td>
-									<div><a href="javascript:void(0);" onclick="">お花見のお知らせ （1）</a></div>
-								</td>
-								<td>
-									<div>お知らせ</div>
-								</td>
-								<td>
-									<div>木村 一郎</div>
-								</td>
-								<td class="right" nowrap="nowrap">
-									<div>20:51</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div><a href="javascript:void(0);" onclick="">歓迎会開催のお知らせ </a></div>
-								</td>
-								<td>
-									<div>お知らせ</div>
-								</td>
-								<td>
-									<div>木村 一郎</div>
-								</td>
-								<td class="right" nowrap="nowrap">
-									<div>20:51</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div><a href="javascript:void(0);" onclick="">お花見のお知らせ （1）</a></div>
-								</td>
-								<td>
-									<div>お知らせ</div>
-								</td>
-								<td>
-									<div>木村 一郎</div>
-								</td>
-								<td class="right" nowrap="nowrap">
-									<div>20:51</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div><a href="javascript:void(0);" onclick="">歓迎会開催のお知らせ </a></div>
-								</td>
-								<td>
-									<div>お知らせ</div>
-								</td>
-								<td>
-									<div>木村 一郎</div>
-								</td>
-								<td class="right" nowrap="nowrap">
-									<div>20:51</div>
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</form>
-				</div>
-			</div>
-			<!-- /auiPortletBody -->
-			<div class="auiPortletFoot">
-				<div class="inner"></div>
-			</div>
-		</div>
-		<!-- /auiPortlet -->
-	</td>
-	<td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-	</td>
-	<td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-	</td>
-	</tr>
-	</tbody>
-	</table>
-	<!-- /.tableWrapper -->
-
-</div>
-<!-- /rowndMainWrapper  -->
-
 </div>
 <!-- #wrapper -->
+
+<!-- ####################################################################################################
+POPUP WINDOWS START
+
+全てのポップアップにはクラス「popup」を付ける。
+これはスタイル用ではなくJS用のフックとして利用する。
+
+ポップアップを展開させるスイッチにはクラス「toggleSwitch」及び属性「toggle-target」を付ける。
+「toggle-target」
+-->
+
+<div class="popup auiTip pa10" id="hdTool_settings">
+<a href="javascript:void(0)">aaaaa</a>
+	<button>test</button>
+</div>
+
+<!--
+POPUP WINDOWS END
+##################################################################################################### -->
 
 </body>
 </html>

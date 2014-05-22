@@ -2,16 +2,17 @@
 $(function () {
 
 	// all popup hide
-	$(document).click(function(event) {
-		if (!$.contains($(".popup")[0], event.target)) {
-			//$(".popup").hide();
-		}
-	});
+	//$(document).click(function(event) {
+	//	if (!$.contains($(".popup")[0], event.target)) {
+	//		$(".popup").hide();
+	//	}
+	//});
 
 	// generic toggle
 	$(".toggle").click(function(){
 		var target = $("#" + $(this).attr("toggle-target"));
 		target.toggle();
+		$(this).toggleClass("active");
 	});
 
 	// position toggle
@@ -21,6 +22,7 @@ $(function () {
 		target.css("left",pos.left);
 		target.css("top",pos.top + $(this).height());
 		target.toggle();
+		$(this).toggleClass("active");
 	});
 
 	// fade toggle
@@ -31,12 +33,14 @@ $(function () {
 		} else {
 			target.fadeIn("200");
 		}
+		$(this).toggleClass("active");
 	});
 
 	// slide toggle
 	$(".slideToggle").click(function(){
 		var target = $("#" + $(this).attr("toggle-target"));
-		target.slideToggle();
+		target.slideToggle("fast");
+		$(this).toggleClass("active");
 	});
 
 	// header toggle
@@ -46,6 +50,7 @@ $(function () {
 		target.css("left",pos.left);
 		target.css("top",50);
 		target.toggle();
+		$(this).toggleClass("active");
 	});
 
 	// Launcher toggle

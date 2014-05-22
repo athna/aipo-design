@@ -27,7 +27,7 @@
   *display: inline;
 }
 
-.border-box, div, form, input, button, .hdCommunications .count, #auiLauncher ul, #auiLauncher li, #auiLauncher li a, #auiLauncher li a .icon, #auiLauncher li a .name, #auiMainNavi li, #auiMainNavi a, .auiPortlet, .auiTip, .auiPortletHead .inner, .buttonBase, input[type=submit],
+.border-box, form, input, button, .hdCommunications .count, #auiLauncher ul, #auiLauncher li, #auiLauncher li a, #auiLauncher li a .icon, #auiLauncher li a .name, #auiMainNavi li, #auiMainNavi li a, .auiPortlet, .auiTip, .auiPortletHead .inner, .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
 .auiButton,
@@ -212,13 +212,13 @@ textarea:hover {
 }
 
 #auiHeader {
-  padding: 10px;
+  padding: 0 10px;
   border-bottom: solid 1px #d2d2d2;
 }
 
 .hdLogo {
   height: 30px;
-  padding-left: 10px;
+  padding: 10px;
 }
 
 .hdNavi {
@@ -231,11 +231,11 @@ textarea:hover {
   display: block;
   float: left;
   list-style: none;
-  line-height: 30px;
+  line-height: 50px;
 }
 .hdNavi li a {
   display: block;
-  padding: 0 7px;
+  padding: 0 10px;
 }
 .hdNavi li a:hover {
   text-decoration: none;
@@ -247,7 +247,7 @@ textarea:hover {
 
 .hdSearch {
   float: left;
-  padding-right: 10px;
+  padding: 10px;
 }
 .hdSearch form {
   border: solid 1px #d2d2d2;
@@ -287,7 +287,7 @@ textarea:hover {
   min-width: 16px;
   height: 16px;
   line-height: 16px;
-  margin: 7px 2px 0 0;
+  margin: 17px 2px 0 0;
   padding: 0 2px;
   font-size: 10px;
   background-color: #f0f0f0;
@@ -304,11 +304,6 @@ textarea:hover {
 
 .hdTools {
   border-left: solid 1px #f0f0f0;
-  margin-left: 5px !important;
-  padding-left: 5px !important;
-}
-.hdTools li a {
-  padding-left: 4px;
 }
 .hdTools .name {
   margin: 0 5px;
@@ -380,6 +375,7 @@ textarea:hover {
 }
 
 #auiMainNavi {
+  position: relative;
   background-color: #f6f6f6;
   border-bottom: solid 1px #d2d2d2;
 }
@@ -404,35 +400,52 @@ textarea:hover {
   border: solid 1px #d2d2d2;
   border-bottom: none;
 }
-#auiMainNavi .launcher {
-  float: right;
-}
-#auiMainNavi a {
+#auiMainNavi li a {
   display: block;
   float: left;
   padding: 4px 5px;
   color: #999999;
 }
-#auiMainNavi a:hover {
+#auiMainNavi li a:hover {
   color: #333333;
   text-decoration: none;
 }
-#auiMainNavi a:hover .fa {
+#auiMainNavi li a:hover .fa {
   color: #333333;
 }
-#auiMainNavi .label {
+#auiMainNavi li .label {
   padding-left: 10px;
 }
-#auiMainNavi .tool {
+#auiMainNavi li .tool {
   padding-right: 10px;
 }
-#auiMainNavi .active {
+#auiMainNavi li.active {
   background-color: white;
   border: solid 1px #d2d2d2;
   border-bottom: solid 1px white !important;
 }
-#auiMainNavi .active .label {
+#auiMainNavi li.active .label {
   color: black;
+}
+#auiMainNavi .launcher {
+  position: absolute;
+  right: 10px;
+}
+#auiMainNavi .launcher a {
+  display: block;
+  line-height: 30px;
+  padding: 3px 10px 0;
+  color: #999999;
+}
+#auiMainNavi .launcher a:hover {
+  color: black;
+  text-decoration: none;
+}
+#auiMainNavi .launcher a:hover .fa {
+  color: black;
+}
+#auiMainNavi .launcher a .fa {
+  margin-left: 5px;
 }
 
 #auiContents {
@@ -526,6 +539,13 @@ textarea:hover {
 .popup {
   display: none;
   position: absolute;
+}
+
+.auiTip {
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
 }
 
 .buttonBase, input[type=submit],

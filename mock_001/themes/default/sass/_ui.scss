@@ -1,15 +1,395 @@
 @charset "utf-8";
 
-#header {
+//####################################################################################################
+// wrapper
+//----------------------------------------------------------------------------------------------------
+#wrapper {
+	min-width: $layoutMinWidth;
+}
 
+//####################################################################################################
+// auiHeader
+//----------------------------------------------------------------------------------------------------
+$headerHeight: 30px;
+#auiHeader {
+	@extend .clearfix;
+	padding: 10px;
+	border-bottom: solid 1px $grayLight;
+}
+.hdLogo {
+	@extend .floatLeft;
+	height: $headerHeight;
+	padding-left: 10px;
 }
 .hdNavi {
+	@extend .floatRight;
+	font-size: 11px;
+
+	ul {
+		@extend .clearfix;
+		float: left;
+	}
 	li {
-		display: inline-block;
+		display: block;
+		float: left;
 		list-style: none;
+		line-height: $headerHeight;
+
+		a {
+			display: block;
+			padding: 0 7px;
+
+			&:hover {
+				text-decoration: none;
+				background-color: $grayBack;
+
+				.fa {
+					color: $grayDark;
+				}
+			}
+		}
+	}
+}
+.hdSearch {
+	float: left;
+	padding-right: 10px;
+
+	form {
+		@extend .bRadius3;
+		border: solid 1px $grayBorder;
+		background-color: $white;
+
+		&:hover {
+			border: solid 1px $gray;
+		}
+	}
+
+	input[type=text], .submit {
+		border: none;
+		vertical-align: middle;
+	}
+	input[type=text] {
+		width: 160px;
+		margin: 0 3px;
+	}
+	.submit {
+		height: $headerHeight - 2;
+		margin: 0;
+		padding: 0;
+		background: none;
+		filter: none;
+		cursor: pointer;
+
+		&:hover {
+			.fa {
+				color: $grayDark;
+			}
+		}
+	}
+	.fa {
+		display: block;
+		width: 30px;
+		border-left: solid 1px $grayBorder;
+	}
+}
+.hdCommunications {
+	.count {
+		display: block;
+		float: left;
+		min-width: 16px;
+		height: 16px;
+		line-height: 16px;
+		margin: ($headerHeight - 16) / 2 2px 0 0;
+		padding: 0 2px;
+		font-size: 10px;
+		background-color: $grayBack;
+		text-align: center;
+		color: $gray;
+		@extend .bRadius2;
+		@extend .border-box;
+	}
+	.valid {
+		.count {
+			background-color: $red;
+			color: $white;
+		}
+	}
+	.label {
+		text-wrap: nowrap;
+	}
+}
+.hdTools {
+	border-left: solid 1px $grayLighter;
+	margin-left: 5px !important;
+	padding-left: 5px !important;
+
+	li a {
+		padding-left: 4px;
+	}
+
+	.name {
+		margin: 0 5px;
+	}
+	.fa {
+		vertical-align: middle;
 	}
 }
 
-.uitest {
-	margin: 0;
+// avatar
+.avatar_s {
+	@extend .inline-block;
+	@extend .bRadius2;
+	width: 24px;
+	height: 24px;
+}
+
+//####################################################################################################
+// auiLauncher
+//----------------------------------------------------------------------------------------------------
+#auiLauncher {
+	display: none;
+	overflow: hidden;
+	background-color: $grayBackLight;
+
+	ul {
+		padding: 0 8px 8px;
+		text-align: center;
+		@extend .clearfix;
+		@extend .border-box;
+	}
+	li {
+		display: block;
+		float: left;
+		width: 95px;
+		height: 62px;
+		padding: 10px 5px 0;
+		@extend .border-box;
+
+		a {
+			position: relative;
+			display: block;
+			text-decoration: none;
+			width: 85px;
+			height: 52px;
+			background-color: $white;
+			border: solid 1px $grayBorderLight;
+			@extend .bRadius3;
+			@extend .border-box;
+
+			.icon {
+				display: block;
+				height: 30px;
+				padding: 3px;
+				@extend .border-box;
+			}
+			.name {
+				font-size: 11px;
+				display: block;
+				width: 83px;
+				height: 20px;
+				line-height: 20px;
+				padding: 0 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				@extend .border-box;
+				@extend .ellipsis;
+			}
+			.fa {
+				font-size: 24px;
+				color: $grayLight;
+			}
+
+			&:hover {
+				position: absolute;
+				height: auto;
+				z-index: 1;
+
+				.fa {
+					color: $grayDark;
+				}
+				.name {
+					height: auto;
+					white-space: normal;
+				}
+			}
+		}
+	}
+}
+//####################################################################################################
+// auiMainNavi
+//----------------------------------------------------------------------------------------------------
+#auiMainNavi {
+	background-color: $grayBackLight;
+	//@include box-shadow(inset 0 -1px 0 $grayBorder);
+	border-bottom: solid 1px $grayBorder;
+
+	ul {
+		@extend .clearfix;
+		margin-bottom: -1px;
+		padding: 5px 8px 0 ;
+	}
+	li {
+		float: left;
+		margin: 0 2px;
+		border: solid 1px transparent;
+		@include box-sizing(border-box);
+		@include border-radius(3px 3px 0 0);
+		@extend .border-box;
+
+		&:hover {
+			border: solid 1px $grayBorder;
+			border-bottom: none;
+		}
+	}
+	.launcher {
+		float: right;
+	}
+	a {
+		@extend .border-box;
+		display: block;
+		float: left;
+		padding: 4px 5px;
+		color: $gray;
+
+		&:hover {
+			color: $grayDark;
+			text-decoration: none;
+
+			.fa {
+				color: $grayDark;
+			}
+		}
+	}
+	.label {
+		padding-left: 10px;
+	}
+	.tool {
+		padding-right: 10px;
+	}
+	.active {
+		background-color: $white;
+		border: solid 1px $grayBorder;
+		border-bottom: solid 1px $white !important;
+
+		.label {
+			color: $black;
+		}
+	}
+}
+
+//####################################################################################################
+// auiContents
+//----------------------------------------------------------------------------------------------------
+#auiContents {
+	margin: 0 5px;
+
+	td {
+		vertical-align: top;
+	}
+}
+
+//####################################################################################################
+// alert
+//----------------------------------------------------------------------------------------------------
+.alert {
+	margin: 10px 0;
+	padding: 10px;
+	background-color: $grayBack;
+	@extend .bRadius3;
+
+	.alertTool {
+		float: right;
+
+		a {
+			i {
+				@include inline-block;
+				text-decoration: none;
+				text-align: center;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+			}
+		}
+	}
+	.alertHead {
+		border-bottom: solid 1px $grayBorder;
+		padding-bottom:9px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		line-height: 20px;
+	}
+}
+#auiContents > .alert {
+	margin: 10px 5px 0;
+}
+
+//####################################################################################################
+// auiPortlet
+//----------------------------------------------------------------------------------------------------
+.auiPortlet {
+	margin: 10px 5px;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	@extend .border-box;
+	@extend .bRadius3;
+}
+
+// auiPortletHead
+.auiPortletHead {
+	position: relative;
+	border-bottom: solid 1px $grayBorderLight;
+	//@extend .clearfix;
+
+	.inner {
+		height: 35px;
+		line-height: 35px;
+		padding: 0 10px;
+		@extend .clearfix;
+		@extend .border-box;
+	}
+	.handle {
+		cursor: pointer;
+	}
+}
+.auiPortletTitle {
+	float: left;
+	white-space:nowrap;
+}
+.auiPortletTool {
+	position: absolute;
+	top: 0;
+	right: 5px;
+
+	> div {
+		float:left;
+		padding:0 5px;
+		background:#ffffff;
+		white-space:nowrap;
+	}
+	a {
+		@include box-shadow(-5px 0 3px #ffffff);
+		&:hover {
+			.fa {
+				color: $grayDark;
+			}
+		}
+	}
+}
+
+//auiPotletBody
+.auiPortletBody {
+	.inner {
+		padding: 10px;
+	}
+}
+
+//####################################################################################################
+// popup
+//----------------------------------------------------------------------------------------------------
+.popup {
+	display: none;
+	position: absolute;
+}
+.auiTip {
+	@extend .auiPortlet;
 }

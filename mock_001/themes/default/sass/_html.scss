@@ -1,8 +1,11 @@
 @charset "utf-8";
+
+// HTML reset style
+
 body {
 	margin: 0;
 	font-family: $baseFontFamily;
-	font-size: 13px;
+	font-size: 12px;
 }
 
 a {
@@ -11,5 +14,50 @@ a {
 
 	&:hover {
 		text-decoration: underline;
+	}
+}
+
+img {
+	border: none;
+}
+
+// box
+div {
+	@extend .border-box;
+}
+
+// List
+ul,ol {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+
+// table
+table, th, td {
+	border-collapse: collapse;
+	border-spacing: 0;
+	padding: 0;
+}
+
+// form
+form, input, button {
+	font-size: 12px;
+	@extend .border-box;
+	outline: none;
+}
+input, button {
+	font-family: $baseFontFamily;
+	margin: 0;
+}
+input[type=text],
+textarea {
+	@extend .bRadius3;
+	border: solid 1px $grayBorder;
+
+	&:hover {
+		border: solid 1px $gray;
 	}
 }

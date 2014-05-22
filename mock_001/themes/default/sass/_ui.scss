@@ -10,16 +10,16 @@
 //####################################################################################################
 // auiHeader
 //----------------------------------------------------------------------------------------------------
-$headerHeight: 30px;
+$headerHeight: 50px;
 #auiHeader {
 	@extend .clearfix;
-	padding: 10px;
+	padding: 0 10px;
 	border-bottom: solid 1px $grayLight;
 }
 .hdLogo {
 	@extend .floatLeft;
-	height: $headerHeight;
-	padding-left: 10px;
+	height: 30px;
+	padding: 10px;
 }
 .hdNavi {
 	@extend .floatRight;
@@ -37,7 +37,7 @@ $headerHeight: 30px;
 
 		a {
 			display: block;
-			padding: 0 7px;
+			padding: 0 10px;
 
 			&:hover {
 				text-decoration: none;
@@ -52,7 +52,7 @@ $headerHeight: 30px;
 }
 .hdSearch {
 	float: left;
-	padding-right: 10px;
+	padding: 10px;
 
 	form {
 		@extend .bRadius3;
@@ -73,7 +73,7 @@ $headerHeight: 30px;
 		margin: 0 3px;
 	}
 	.submit {
-		height: $headerHeight - 2;
+		height: $headerHeight - 20 - 2;
 		margin: 0;
 		padding: 0;
 		background: none;
@@ -120,11 +120,11 @@ $headerHeight: 30px;
 }
 .hdTools {
 	border-left: solid 1px $grayLighter;
-	margin-left: 5px !important;
-	padding-left: 5px !important;
+	//margin-left: 5px !important;
+	//padding-left: 5px !important;
 
 	li a {
-		padding-left: 4px;
+		//padding-left: 4px;
 	}
 
 	.name {
@@ -219,8 +219,9 @@ $headerHeight: 30px;
 // auiMainNavi
 //----------------------------------------------------------------------------------------------------
 #auiMainNavi {
-	background-color: $grayBackLight;
+	position: relative;
 	//@include box-shadow(inset 0 -1px 0 $grayBorder);
+	background-color: $grayBackLight;
 	border-bottom: solid 1px $grayBorder;
 
 	ul {
@@ -240,39 +241,58 @@ $headerHeight: 30px;
 			border: solid 1px $grayBorder;
 			border-bottom: none;
 		}
-	}
-	.launcher {
-		float: right;
-	}
-	a {
-		@extend .border-box;
-		display: block;
-		float: left;
-		padding: 4px 5px;
-		color: $gray;
+		a {
+			@extend .border-box;
+			display: block;
+			float: left;
+			padding: 4px 5px;
+			color: $gray;
 
-		&:hover {
-			color: $grayDark;
-			text-decoration: none;
-
-			.fa {
+			&:hover {
 				color: $grayDark;
+				text-decoration: none;
+
+				.fa {
+					color: $grayDark;
+				}
+			}
+		}
+		.label {
+			padding-left: 10px;
+		}
+		.tool {
+			padding-right: 10px;
+		}
+		&.active {
+			background-color: $white;
+			border: solid 1px $grayBorder;
+			border-bottom: solid 1px $white !important;
+
+			.label {
+				color: $black;
 			}
 		}
 	}
-	.label {
-		padding-left: 10px;
-	}
-	.tool {
-		padding-right: 10px;
-	}
-	.active {
-		background-color: $white;
-		border: solid 1px $grayBorder;
-		border-bottom: solid 1px $white !important;
+	.launcher {
+		position: absolute;
+		right: 10px;
 
-		.label {
-			color: $black;
+		a {
+			display: block;
+			line-height: 30px;
+			padding: 3px 10px 0;
+			color: $gray;
+			&:hover {
+				color: $black;
+				text-decoration: none;
+
+				.fa {
+					color: $black;
+				}
+			}
+			.fa {
+				margin-left: 5px;
+			}
 		}
 	}
 }
@@ -392,4 +412,6 @@ $headerHeight: 30px;
 }
 .auiTip {
 	@extend .auiPortlet;
+	@include box-shadow(0 1px 4px rgba(#000,.1));
+	margin: 0;
 }

@@ -7,9 +7,9 @@
 	@extend .border-box;
 	@extend .bRadius3;
 	@include inline-block;
-	height: 32px;
-	line-height: 32px;
-	padding: 0 5px;
+	height: $inputHeight;
+	line-height: $inputHeight;
+	padding: 0 8px;
 	border: solid 1px $grayBorder;
 	cursor: pointer;
 
@@ -18,9 +18,12 @@
 		text-decoration: none;
 	}
 	&:active {
-		@include background-image(none);
-		@include filter(none);
-		@include box-shadow(inset 0 1px 3px rgba(#000,.2));
+		@include background-image(none !important);
+		@include filter(none !important);
+		@include box-shadow(inset 0 1px 3px rgba(#000,.2) !important);
+	}
+	.fa {
+		color: $grayDark;
 	}
 }
 input[type=submit],
@@ -29,9 +32,9 @@ input[type=reset],
 button,
 .auiButton {
 	@extend .buttonBase;
-	@include background-image(linear-gradient(top, $white, $grayLight));
-	@include filter-gradient($white, $grayLight, vertical);
-	@include text-shadow(0 1px 0 rgba($white,1));
+	@include background-image(linear-gradient(top, $white, $grayBack));
+	@include filter-gradient($white, $grayBack, vertical);
+	@include text-shadow(0 1px 0 rgba($white,.5));
 	@include box-shadow(inset 0 1px 3px rgba($white,.5));
 
 	&:active {
@@ -57,7 +60,7 @@ button.auiButtonAction {
 		border: solid 1px $red !important;
 	}
 	&:active {
-		background-color: adjust-hue($orange, -10deg);
+		background-color: adjust-hue($orange, -10deg) !important;
 		border: solid 1px $red !important;
 	}
 }
@@ -76,6 +79,9 @@ input[type=button].auiButtonSmall,
 input[type=reset].auiButtonSmall,
 button.auiButtonSmall {
 	@extend .buttonBase;
+	font-size: 10px;
+	height: 24px;
+	line-height: 24px;
 }
 
 .auiButtonDisabled,
@@ -90,7 +96,7 @@ button.auiButtonDisabled {
 
 	&:hover, &:focus, &:active {
 		border: solid 1px $grayBorder;
-		@include box-shadow(none);
+		@include box-shadow(none !important);
 	}
 }
 
@@ -123,3 +129,98 @@ button.auiButtonIconDummy {
 	@extend .auiButton;
 }
 
+/***************************************************
+	auiSelectButton
+--------------------------------------------------*/
+.auiSelectButton {
+	background:#fff;
+
+	ul {
+		@extend .inline-block;
+	}
+	li,
+	div {
+		float:left;
+		background:none;
+		padding:0;
+		line-height:1;
+	}
+	a,
+	.auiWidget & a {
+		display:block;
+		margin:0 -1px 0 0;
+		padding:0 !important;
+		line-height:$inputHeight;
+		min-width:$inputHeight - 3;
+		@include border-radius(0);
+		border-color: $grayBorder $grayBorder $grayBorderDark;
+	}
+	a {
+		text-align: center;
+
+		[class*=icon-] {
+			line-height: $inputHeight;
+		}
+		.icon-backward,
+		.icon-forward {
+			font-size: 10px;
+		}
+		.icon-backward {
+			margin-right:2px;
+		}
+		.icon-forward {
+			margin-left:1px;
+		}
+	}
+	a:hover, a:active, a:focus {
+		position: relative;
+
+		span {
+			color:$textColor;
+		}
+	}
+	a.first,
+	a.btn {
+		margin-left:0;
+		@include border-top-left-radius(3px);
+		@include border-bottom-left-radius(3px);
+	}
+	a.last {
+		margin:0;
+		&:hover:after {
+			display: none;
+		}
+	}
+	a.last,
+	a.btn {
+		margin-right:0;
+		@include border-top-right-radius(3px);
+		@include border-bottom-right-radius(3px);
+	}
+	span i,
+	span img {
+		margin:6px 0;
+	}
+	.active {
+		a {
+			background:$grayLight;
+			border-color:$grayLight $grayLight $grayBorderDark;
+			cursor:default;
+			filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+		}
+		a:focus,
+		a:active {
+			@include box-shadow(none);
+		}
+		a:hover span {
+			cursor:default;
+		}
+	}
+	.auiIconArrowLeft {
+		margin-left:-4px !important;
+	}
+	.auiWidget & span {
+		padding:0;
+		background-image:none;
+	}
+}

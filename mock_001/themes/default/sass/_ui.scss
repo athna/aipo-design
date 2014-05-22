@@ -14,6 +14,7 @@ $headerHeight: 50px;
 #auiHeader {
 	@extend .clearfix;
 	padding: 0 10px;
+	background-color: $white;
 	border-bottom: solid 1px $grayLight;
 }
 .hdLogo {
@@ -21,30 +22,73 @@ $headerHeight: 50px;
 	height: 30px;
 	padding: 10px;
 }
+.dropdown {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	line-height: 2;
+	@include box-shadow(0 6px 8px rgba(#000,.15));
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=0, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=90, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=180, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=270, strength=3, enabled=true);
+	@include border-radius(0 0 3px 3px);
+
+	#auiHeader & {
+		right: 0;
+	}
+	.title {
+		@extend .clearfix;
+		padding: 10px;
+		line-height: 24px;
+		//background-color: $grayBack;
+		font-weight: bold;
+		border-bottom: solid 1px $grayBorderLight;
+	}
+	.contents {
+		@extend .clearfix;
+		padding: 10px;
+	}
+	.divider {
+		border-bottom: solid 1px $grayBorderLight;
+	}
+}
+.dropdown_menu {
+	a {
+		display: block;
+		padding: 6px 10px;
+		min-width: 10em;
+
+		&:hover {
+			text-decoration: none;
+			background-color: $grayBackLight;
+		}
+	}
+}
 .hdNavi {
 	@extend .floatRight;
 	font-size: 11px;
 
-	ul {
+	> ul {
 		@extend .clearfix;
 		float: left;
-	}
-	li {
-		display: block;
-		float: left;
-		list-style: none;
-		line-height: $headerHeight;
-
-		a {
+		> li {
 			display: block;
-			padding: 0 10px;
+			position: relative;
+			float: left;
+			list-style: none;
+			line-height: $headerHeight;
 
-			&:hover {
-				text-decoration: none;
-				background-color: $grayBack;
+			> a {
+				display: block;
+				padding: 0 10px;
 
-				.fa {
-					color: $grayDark;
+				&:hover, &.active {
+					text-decoration: none;
+					background-color: $grayBack;
+
+					.fa {
+						color: $grayDark;
+					}
 				}
 			}
 		}
@@ -65,6 +109,7 @@ $headerHeight: 50px;
 	}
 
 	input[type=text], .submit {
+		height: 20px;
 		border: none;
 		vertical-align: middle;
 	}
@@ -108,14 +153,15 @@ $headerHeight: 50px;
 		@extend .bRadius2;
 		@extend .border-box;
 	}
-	.valid {
-		.count {
+		.count.valid {
 			background-color: $red;
 			color: $white;
 		}
-	}
 	.label {
 		text-wrap: nowrap;
+	}
+	.dropdown {
+		width: 320px;
 	}
 }
 .hdTools {
@@ -126,7 +172,6 @@ $headerHeight: 50px;
 	li a {
 		//padding-left: 4px;
 	}
-
 	.name {
 		margin: 0 5px;
 	}
@@ -136,8 +181,15 @@ $headerHeight: 50px;
 }
 
 // avatar
-.avatar_s {
+[class*=avatar_] {
 	@extend .inline-block;
+}
+.avatar_s {
+	@extend .bRadius2;
+	width: 16px;
+	height: 16px;
+}
+.avatar_m {
 	@extend .bRadius2;
 	width: 24px;
 	height: 24px;
@@ -269,7 +321,7 @@ $headerHeight: 50px;
 			border-bottom: solid 1px $white !important;
 
 			.label {
-				color: $black;
+				color: $textColor;
 			}
 		}
 	}
@@ -283,15 +335,18 @@ $headerHeight: 50px;
 			padding: 3px 10px 0;
 			color: $gray;
 			&:hover {
-				color: $black;
+				color: $textColor;
 				text-decoration: none;
 
 				.fa {
-					color: $black;
+					color: $textColor;
 				}
 			}
 			.fa {
 				margin-left: 5px;
+			}
+			&.active, &.active .fa {
+				color: $textColor;
 			}
 		}
 	}
@@ -347,11 +402,14 @@ $headerHeight: 50px;
 // auiPortlet
 //----------------------------------------------------------------------------------------------------
 .auiPortlet {
-	margin: 10px 5px;
-	border: solid 1px $grayBorder;
-	background-color: $white;
 	@extend .border-box;
 	@extend .bRadius3;
+	margin: 10px 5px;
+	//border: solid 1px $grayBorderLight;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	//@include box-shadow(0 0 2px rgba(#000,.2))
+	//@include filter-shadow();
 }
 
 // auiPortletHead
@@ -414,4 +472,23 @@ $headerHeight: 50px;
 	@extend .auiPortlet;
 	@include box-shadow(0 1px 4px rgba(#000,.1));
 	margin: 0;
+}
+
+//####################################################################################################
+// list
+//----------------------------------------------------------------------------------------------------
+.list {
+	a {
+	}
+	.body {
+		@extend .ellipsis;
+		width: 100%;
+	}
+	.date {
+		float: right;
+		color: $gray;
+	}
+	[class*=avatar_] {
+		margin-right: 5px;
+	}
 }

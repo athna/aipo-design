@@ -1,8 +1,10 @@
 @charset "UTF-8";
-.clearfix:before, #auiHeader:before, .hdNavi ul:before, #auiLauncher ul:before, #auiMainNavi ul:before, .auiPortletHead .inner:before,
+.clearfix:before, #auiHeader:before, .dropdown .title:before, .dropdown .contents:before, .hdNavi > ul:before, #auiLauncher ul:before, #auiMainNavi ul:before, .auiPortletHead .inner:before,
 .clearfix:after,
 #auiHeader:after,
-.hdNavi ul:after,
+.dropdown .title:after,
+.dropdown .contents:after,
+.hdNavi > ul:after,
 #auiLauncher ul:after,
 #auiMainNavi ul:after,
 .auiPortletHead .inner:after {
@@ -10,15 +12,15 @@
   display: table;
 }
 
-.clearfix:after, #auiHeader:after, .hdNavi ul:after, #auiLauncher ul:after, #auiMainNavi ul:after, .auiPortletHead .inner:after {
+.clearfix:after, #auiHeader:after, .dropdown .title:after, .dropdown .contents:after, .hdNavi > ul:after, #auiLauncher ul:after, #auiMainNavi ul:after, .auiPortletHead .inner:after {
   clear: both;
 }
 
-.clearfix, #auiHeader, .hdNavi ul, #auiLauncher ul, #auiMainNavi ul, .auiPortletHead .inner {
+.clearfix, #auiHeader, .dropdown .title, .dropdown .contents, .hdNavi > ul, #auiLauncher ul, #auiMainNavi ul, .auiPortletHead .inner {
   *zoom: 1;
 }
 
-.inline-block, .avatar_s {
+.inline-block, [class*=avatar_], .auiSelectButton ul {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -66,7 +68,7 @@ button.auiButtonIconDummy {
   box-sizing: border-box;
 }
 
-.bRadius2, .hdCommunications .count, .avatar_s {
+.bRadius2, .hdCommunications .count, .avatar_s, .avatar_m {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -133,7 +135,7 @@ button.auiButtonIconDummy {
   float: right;
 }
 
-.ellipsis, #auiLauncher li a .name {
+.ellipsis, #auiLauncher li a .name, .list .body {
   white-space: nowrap;
   overflow: hidden;
   -ms-text-overflow: ellipsis;
@@ -159,6 +161,11 @@ body {
   margin: 0;
   font-family: "メイリオ", Meiryo, Verdana, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", sans-serif;
   font-size: 12px;
+  background-color: white;
+}
+
+p {
+  margin: 5px 0;
 }
 
 a {
@@ -207,12 +214,18 @@ textarea:hover {
   border: solid 1px #999999;
 }
 
+input[type=text],
+input[type=password] {
+  height: 30px;
+}
+
 #wrapper {
   min-width: 960px;
 }
 
 #auiHeader {
   padding: 0 10px;
+  background-color: white;
   border-bottom: solid 1px #d2d2d2;
 }
 
@@ -221,27 +234,71 @@ textarea:hover {
   padding: 10px;
 }
 
+.dropdown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  border: solid 1px #d2d2d2;
+  background-color: white;
+  line-height: 2;
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=0, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=90, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=180, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=270, strength=3, enabled=true);
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  -ms-border-radius: 0 0 3px 3px;
+  -o-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+#auiHeader .dropdown {
+  right: 0;
+}
+.dropdown .title {
+  padding: 10px;
+  line-height: 24px;
+  font-weight: bold;
+  border-bottom: solid 1px #ededed;
+}
+.dropdown .contents {
+  padding: 10px;
+}
+.dropdown .divider {
+  border-bottom: solid 1px #ededed;
+}
+
+.dropdown_menu a {
+  display: block;
+  padding: 6px 10px;
+  min-width: 10em;
+}
+.dropdown_menu a:hover {
+  text-decoration: none;
+  background-color: #f6f6f6;
+}
+
 .hdNavi {
   font-size: 11px;
 }
-.hdNavi ul {
+.hdNavi > ul {
   float: left;
 }
-.hdNavi li {
+.hdNavi > ul > li {
   display: block;
+  position: relative;
   float: left;
   list-style: none;
   line-height: 50px;
 }
-.hdNavi li a {
+.hdNavi > ul > li > a {
   display: block;
   padding: 0 10px;
 }
-.hdNavi li a:hover {
+.hdNavi > ul > li > a:hover, .hdNavi > ul > li > a.active {
   text-decoration: none;
   background-color: #f0f0f0;
 }
-.hdNavi li a:hover .fa {
+.hdNavi > ul > li > a:hover .fa, .hdNavi > ul > li > a.active .fa {
   color: #333333;
 }
 
@@ -257,6 +314,7 @@ textarea:hover {
   border: solid 1px #999999;
 }
 .hdSearch input[type=text], .hdSearch .submit {
+  height: 20px;
   border: none;
   vertical-align: middle;
 }
@@ -294,12 +352,15 @@ textarea:hover {
   text-align: center;
   color: #999999;
 }
-.hdCommunications .valid .count {
+.hdCommunications .count.valid {
   background-color: #e63439;
   color: white;
 }
 .hdCommunications .label {
   text-wrap: nowrap;
+}
+.hdCommunications .dropdown {
+  width: 320px;
 }
 
 .hdTools {
@@ -313,6 +374,11 @@ textarea:hover {
 }
 
 .avatar_s {
+  width: 16px;
+  height: 16px;
+}
+
+.avatar_m {
   width: 24px;
   height: 24px;
 }
@@ -425,7 +491,7 @@ textarea:hover {
   border-bottom: solid 1px white !important;
 }
 #auiMainNavi li.active .label {
-  color: black;
+  color: #333333;
 }
 #auiMainNavi .launcher {
   position: absolute;
@@ -438,14 +504,17 @@ textarea:hover {
   color: #999999;
 }
 #auiMainNavi .launcher a:hover {
-  color: black;
+  color: #333333;
   text-decoration: none;
 }
 #auiMainNavi .launcher a:hover .fa {
-  color: black;
+  color: #333333;
 }
 #auiMainNavi .launcher a .fa {
   margin-left: 5px;
+}
+#auiMainNavi .launcher a.active, #auiMainNavi .launcher a.active .fa {
+  color: #333333;
 }
 
 #auiContents {
@@ -548,6 +617,17 @@ textarea:hover {
   margin: 0;
 }
 
+.list .body {
+  width: 100%;
+}
+.list .date {
+  float: right;
+  color: #999999;
+}
+.list [class*=avatar_] {
+  margin-right: 5px;
+}
+
 .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
@@ -589,9 +669,9 @@ button.auiButtonIconDummy {
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
-  height: 32px;
-  line-height: 32px;
-  padding: 0 5px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 8px;
   border: solid 1px #d2d2d2;
   cursor: pointer;
 }
@@ -615,13 +695,21 @@ input[type=reset]:active,
 button:active,
 .auiButton:active,
 .auiSelectButton a:active, .auiButtonAction:active, .auiButtonBold:active, .auiButtonSmall:active, .auiButtonDisabled:active, .auiButtonIcon:active, .auiButtonDummy:active, .auiButtonIconDummy:active {
-  background-image: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  filter: none;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  background-image: none !important;
+  -webkit-filter: none !important;
+  -moz-filter: none !important;
+  filter: none !important;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+.buttonBase .fa, input[type=submit] .fa,
+input[type=button] .fa,
+input[type=reset] .fa,
+button .fa,
+.auiButton .fa,
+.auiSelectButton a .fa, .auiButtonAction .fa, .auiButtonBold .fa, .auiButtonSmall .fa, .auiButtonDisabled .fa, .auiButtonIcon .fa, .auiButtonDummy .fa, .auiButtonIconDummy .fa {
+  color: #333333;
 }
 
 input[type=submit],
@@ -631,16 +719,16 @@ button,
 .auiButton,
 .auiSelectButton a,
 .auiWidget .auiSelectButton a {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2QyZDJkMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2YwZjBmMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #d2d2d2));
-  background-image: -webkit-linear-gradient(top, #ffffff, #d2d2d2);
-  background-image: -moz-linear-gradient(top, #ffffff, #d2d2d2);
-  background-image: -o-linear-gradient(top, #ffffff, #d2d2d2);
-  background-image: linear-gradient(top, #ffffff, #d2d2d2);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f0f0f0));
+  background-image: -webkit-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: -moz-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: -o-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: linear-gradient(top, #ffffff, #f0f0f0);
   *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFD2D2D2');
-  text-shadow: 0 1px 0 white;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFF0F0F0');
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
   -moz-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
@@ -692,8 +780,18 @@ input[type=submit].auiButtonAction:active,
 input[type=button].auiButtonAction:active,
 input[type=reset].auiButtonAction:active,
 button.auiButtonAction:active {
-  background-color: #ff6e00;
+  background-color: #ff6e00 !important;
   border: solid 1px #e63439 !important;
+}
+
+.auiButtonSmall,
+input[type=submit].auiButtonSmall,
+input[type=button].auiButtonSmall,
+input[type=reset].auiButtonSmall,
+button.auiButtonSmall {
+  font-size: 10px;
+  height: 24px;
+  line-height: 24px;
 }
 
 .auiButtonDisabled,
@@ -719,9 +817,110 @@ button.auiButtonDisabled:hover,
 button.auiButtonDisabled:focus,
 button.auiButtonDisabled:active {
   border: solid 1px #d2d2d2;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/***************************************************
+	auiSelectButton
+--------------------------------------------------*/
+.auiSelectButton {
+  background: #fff;
+}
+.auiSelectButton li,
+.auiSelectButton div {
+  float: left;
+  background: none;
+  padding: 0;
+  line-height: 1;
+}
+.auiSelectButton a, .auiWidget .auiSelectButton a {
+  display: block;
+  margin: 0 -1px 0 0;
+  padding: 0 !important;
+  line-height: 30px;
+  min-width: 27px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border-color: #d2d2d2 #d2d2d2 silver;
+}
+.auiSelectButton a {
+  text-align: center;
+}
+.auiSelectButton a [class*=icon-] {
+  line-height: 30px;
+}
+.auiSelectButton a .icon-backward,
+.auiSelectButton a .icon-forward {
+  font-size: 10px;
+}
+.auiSelectButton a .icon-backward {
+  margin-right: 2px;
+}
+.auiSelectButton a .icon-forward {
+  margin-left: 1px;
+}
+.auiSelectButton a:hover, .auiSelectButton a:active, .auiSelectButton a:focus {
+  position: relative;
+}
+.auiSelectButton a:hover span, .auiSelectButton a:active span, .auiSelectButton a:focus span {
+  color: #333333;
+}
+.auiSelectButton a.first,
+.auiSelectButton a.btn {
+  margin-left: 0;
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.auiSelectButton a.last {
+  margin: 0;
+}
+.auiSelectButton a.last:hover:after {
+  display: none;
+}
+.auiSelectButton a.last,
+.auiSelectButton a.btn {
+  margin-right: 0;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.auiSelectButton span i,
+.auiSelectButton span img {
+  margin: 6px 0;
+}
+.auiSelectButton .active a {
+  background: #d2d2d2;
+  border-color: #d2d2d2 #d2d2d2 silver;
+  cursor: default;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+}
+.auiSelectButton .active a:focus,
+.auiSelectButton .active a:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+.auiSelectButton .active a:hover span {
+  cursor: default;
+}
+.auiSelectButton .auiIconArrowLeft {
+  margin-left: -4px !important;
+}
+.auiWidget .auiSelectButton span {
+  padding: 0;
+  background-image: none;
 }
 
 .bbstest {
@@ -2065,28 +2264,6 @@ button.auiButtonDisabled:active {
 
 .colorFacebook {
   color: #4862a3 !important;
-}
-
-/***************************************************
-	clearfix
---------------------------------------------------*/
-.clearfix:before, #auiHeader:before, .hdNavi ul:before, #auiLauncher ul:before, #auiMainNavi ul:before, .auiPortletHead .inner:before,
-.clearfix:after,
-#auiHeader:after,
-.hdNavi ul:after,
-#auiLauncher ul:after,
-#auiMainNavi ul:after,
-.auiPortletHead .inner:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after, #auiHeader:after, .hdNavi ul:after, #auiLauncher ul:after, #auiMainNavi ul:after, .auiPortletHead .inner:after {
-  clear: both;
-}
-
-.clearfix, #auiHeader, .hdNavi ul, #auiLauncher ul, #auiMainNavi ul, .auiPortletHead .inner {
-  *zoom: 1;
 }
 
 /***************************************************

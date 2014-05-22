@@ -22,13 +22,111 @@
 		<div class="hdSearch">
 			<form class=""><input type="text" placeholder="検索" /><button class="submit" title="検索"><i class="fa fa-search"></i></button></form>
 		</div>
-		<ul class="hdCommunications"
-				><li class="valid"><a href="javascript:void(0)"><span class="count">99+</span><span class="label">メッセージ</span></a></li
-				><li class="valid active"><a href="javascript:void(0)"><span class="count">10</span><span class="label">お知らせ</span></a></li
-				><li><a href="javascript:void(0)"><span class="count">0</span><span class="label">サポート</span></a></li>
+		<ul class="hdCommunications">
+			<li>
+				<a href="javascript:void(0)" class="toggle" toggle-target="dd_message"><span class="count valid">99+</span><span class="label">メッセージ</span></a>
+				<div class="dropdown" id="dd_message">
+					<div class="title">メッセージ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
+					<ul class="dropdown_menu list divider">
+						<li><a href="#">
+							<div class="date">10:05</div>
+							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />木村 一郎</div>
+							<div class="body">	下記日程にてAipo.comのメンテナンスを行わせて頂きます。メンテナンス中はAipo.comをご利用いただくことができません。</div>
+						</a></li>
+						<li><a href="#">
+							<div class="date">10月12日 10:05</div>
+							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />木村 一郎</div>
+							<div class="body">	下記日程にてAipo.comのメンテナンスを行わせて頂きます。メンテナンス中はAipo.comをご利用いただくことができません。</div>
+						</a></li>
+						<li><a href="#">
+							<div class="date">2014年1月20日 10:05</div>
+							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />木村 一郎</div>
+							<div class="body">	下記日程にてAipo.comのメンテナンスを行わせて頂きます。メンテナンス中はAipo.comをご利用いただくことができません。</div>
+						</a></li>
+					</ul>
+					<div class="contents">
+						<div class="auiSelectButton floatRight">
+							<ul>
+								<li><a href="javascript:void(0);" class="first" title="前へ"><i class="fa fa-caret-left"></i></a></li>
+								<li><a href="javascript:void(0);">1</a></li>
+								<li><a href="javascript:void(0);">2</a></li>
+								<li><a href="javascript:void(0);">3</a></li>
+								<li><a href="javascript:void(0);" class="last" title="次へ"><i class="fa fa-caret-right"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="toggle" toggle-target="dd_information"><span class="count valid">10</span><span class="label">お知らせ</span></a>
+				<div class="dropdown" id="dd_information">
+					<div class="title">あなた宛てのお知らせ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
+					<ul class="dropdown_menu list">
+						<li><a href="#">
+							<div class="date">10:05</div>
+							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />木村 一郎とその他3人</div>
+							<div class="body">	あなたの投稿に「いいね！」が押されました。</div>
+						</a></li>
+						<li><a href="#">
+							<div class="date">10月12日 10:05</div>
+							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />山田 太朗</div>
+							<div class="body">	予定「定例会議」を編集しました。</div>
+						</a></li>
+						<li><a href="#">
+							<div class="date">2014年1月20日 10:05</div>
+							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />田村 涼子</div>
+							<div class="body">	申請「【稟議書】 タイムカード報告」を承認しました。</div>
+						</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="toggle" toggle-target="dd_support"><span class="count">0</span><span class="label">サポート</span></a>
+				<div class="dropdown" id="dd_support">
+					<div class="title">Aipoからのお知らせ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
+					<ul class="dropdown_menu">
+						<li><a href="#">お知らせ内容</a></li>
+						<li><a href="#">お知らせ内容</a></li>
+						<li><a href="#">お知らせ内容</a></li>
+						<li class="divider"></li>
+					</ul>
+					<div class="title">ご意見・ご要望</div>
+					<div class="contents divider">
+						<p>頂いたご意見やご要望をもとに改善に励みます。</p>
+						<div class="clearfix mb5">
+							<div class="fs11 floatRight"><a href="javascript:void(0)">Twitter連携を解除</a></div>
+							<div class="floatLeft fs11 fcGray">獲得容量：<span id="get-capacity-size">3</span> MB</div>
+							<textarea></textarea>
+							<div class="clearfix mt5">
+								<div class="floatRight">
+									<span class="fcGray mr10"><span id="count">0</span>/117</span><input type="submit" name="eventSubmit_doTwitter_insert" class="auiButtonAction" onclick="aimluck.io.setHiddenValue(this);aipo.saas_support.setTweetTabStatus(1);" onkeypress="aimluck.io.setHiddenValue(this);aipo.saas_support.setTweetTabStatus(1);" value="ツイート" id="support-tweet-submit">
+								</div>
+							</div>
+						</div>
+					</div>
+					<ul class="dropdown_menu">
+						<li><a href="#">管理ガイド</a></li>
+						<li><a href="#">ヘルプ</a></li>
+						<li><a href="#">facebook</a></li>
+						<li><a href="#">twitter</a></li>
+						<li><a href="#">お問い合わせ</a></li>
+						<li class="divider"></li>
+					</ul>
+				</div>
+			</li>
 		</ul>
-		<ul class="hdTools"
-				><li><a href="javascript:void(0)" id="toggle_settings" class="headerToggle" toggle-target="hdTool_settings" data-value=""><img src="themes/default/img/avatar_default.png" width="76" height="76" class="avatar_s" /><span class="name">木村 一郎</span><i class="fa fa-caret-down"></i></a></li>
+		<ul class="hdTools">
+			<li>
+				<a href="javascript:void(0)" id="toggle_settings" class="toggle last" toggle-target="dd_settings" data-value=""><img src="themes/default/img/avatar_default.png" width="76" height="76" class="avatar_m" /><span class="name">木村 一郎</span><i class="fa fa-caret-down"></i></a>
+				<div class="dropdown" id="dd_settings">
+					<ul class="dropdown_menu">
+						<li><a href="#">個人設定</a></li>
+						<li><a href="#">管理設定</a></li>
+						<li class="divider"></li>
+						<li><a href="#">ログアウト</a></li>
+					</ul>
+				</div>
+			</li>
 		</ul>
 	</div>
 </div>
@@ -121,8 +219,8 @@
 									<tbody>
 									<tr>
 										<td nowrap="nowrap" class="w25 center"><input type="button" value="出勤" class="auiButtonAction"></td>
-										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">退勤</span></td>
-										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">外出</span></td>
+										<td nowrap="nowrap" class="w25 center"><span class="auiButton">退勤</span></td>
+										<td nowrap="nowrap" class="w25 center"><span class="auiButton">外出</span></td>
 										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">復帰</span></td>
 									</tr>
 									</tbody>
@@ -201,8 +299,11 @@
 									<div class="count">1 ～ 5 / 7</div>
 									<div class="auiSelectButton floatLeft">
 										<ul class="floatLeft">
-											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="fa fa-caret-left"></i></a></li>
-											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="fa fa-caret-right"></i></a></li>
+											<li><a href="javascript:void(0);" class="first" title="前へ"><i class="fa fa-caret-left"></i></a></li>
+											<li><a href="javascript:void(0);">1</a></li>
+											<li><a href="javascript:void(0);">2</a></li>
+											<li><a href="javascript:void(0);">3</a></li>
+											<li><a href="javascript:void(0);" class="last" title="次へ"><i class="fa fa-caret-right"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -309,8 +410,8 @@
 									<tbody>
 									<tr>
 										<td nowrap="nowrap" class="w25 center"><input type="button" value="出勤" class="auiButtonAction"></td>
-										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">退勤</span></td>
-										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">外出</span></td>
+										<td nowrap="nowrap" class="w25 center"><span class="auiButton">退勤</span></td>
+										<td nowrap="nowrap" class="w25 center"><span class="auiButton">外出</span></td>
 										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">復帰</span></td>
 									</tr>
 									</tbody>
@@ -388,8 +489,8 @@
 									<div class="count">1 ～ 5 / 7</div>
 									<div class="auiSelectButton floatLeft">
 										<ul class="floatLeft">
-											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="fa fa-caret-left"></i></a></li>
-											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="fa fa-caret-right"></i></a></li>
+											<li><a href="javascript:void(0);" class="first" title="前へ"><i class="fa fa-caret-left"></i></a></li>
+											<li><a href="javascript:void(0);" class="last" title="次へ"><i class="fa fa-caret-right"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -496,8 +597,8 @@
 									<tbody>
 									<tr>
 										<td nowrap="nowrap" class="w25 center"><input type="button" value="出勤" class="auiButtonAction"></td>
-										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">退勤</span></td>
-										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">外出</span></td>
+										<td nowrap="nowrap" class="w25 center"><span class="auiButton">退勤</span></td>
+										<td nowrap="nowrap" class="w25 center"><span class="auiButton">外出</span></td>
 										<td nowrap="nowrap" class="w25 center"><span class="auiButtonDisabled">復帰</span></td>
 									</tr>
 									</tbody>
@@ -575,8 +676,8 @@
 									<div class="count">1 ～ 5 / 7</div>
 									<div class="auiSelectButton floatLeft">
 										<ul class="floatLeft">
-											<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="fa fa-caret-left"></i></a></li>
-											<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="fa fa-caret-right"></i></a></li>
+											<li><a href="javascript:void(0);" class="first" title="前へ"><i class="fa fa-caret-left"></i></a></li>
+											<li><a href="javascript:void(0);" class="last" title="次へ"><i class="fa fa-caret-right"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -673,11 +774,6 @@ POPUP WINDOWS START
 ポップアップを展開させるスイッチにはクラス「toggle」及び属性「toggle-target」を付ける。
 「toggle-target」
 -->
-
-<div class="popup auiTip pa10" id="hdTool_settings">
-<a href="javascript:void(0)">aaaaa</a>
-	<button>test</button>
-</div>
 
 <!--
 POPUP WINDOWS END

@@ -15,6 +15,19 @@ $(function () {
 		$(this).toggleClass("active");
 	});
 
+	// focus toggle
+	$(".focusToggle").focus(function(){
+		var target = $("#" + $(this).attr("toggle-target"));
+		target.show();
+		$(this).addClass("active");
+	});
+	$(".focusToggle").blur(function(){
+		var target = $("#" + $(this).attr("toggle-target"));
+		target.hide();
+		$(this).removeClass("active");
+	});
+
+
 	// position toggle
 	$(".posToggle").click(function(){
 		var target = $("#" + $(this).attr("toggle-target"));

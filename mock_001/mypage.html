@@ -20,15 +20,39 @@
 	<div class="hdLogo"><a href="mypage.html"><img src="themes/default/img/logo.png" width="100" height="30" alt="Aipo.com" /></a></div>
 	<div class="hdNavi">
 		<div class="hdSearch">
-			<form class=""><input type="text" placeholder="検索" /><button class="submit" title="検索"><i class="fa fa-search"></i></button></form>
+			<form class=""><input type="text" placeholder="検索" class="focusToggle" toggle-target="preSearch" /><button class="submit" title="検索"><i class="fa fa-search"></i></button></form>
+			<div class="dropdown" id="preSearch">
+				<h2>スケジュール</h2>
+				<ul class="dropdown_menu">
+					<li><a href="#">
+						<div class="date"></div>
+						<div class="body">11:30 定例会議</div></a>
+					</li>
+					<li><a href="#">
+						<div class="date"></div>
+						<div class="body">15:30 エイムラック訪問</div></a>
+					</li>
+				</ul>
+				<h2>ToDo</h2>
+				<ul class="dropdown_menu">
+					<li><a href="#">
+						<div class="date"></div>
+						<div class="body">5月20日 - 5月22日 エイムラックへ電話</div></a>
+					</li>
+					<li><a href="#">
+						<div class="date"></div>
+						<div class="body">5月20日 - 5月22日 エイムラックへ電話</div></a>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<ul class="hdCommunications">
 			<li>
 				<a href="javascript:void(0)" class="toggle" toggle-target="dd_message"><span class="count valid">99+</span><span class="label">メッセージ</span></a>
 				<div class="dropdown" id="dd_message">
 					<div class="title">メッセージ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
-					<ul class="dropdown_menu list divider">
-						<li><a href="#">
+					<ul class="dropdown_list divider">
+						<li class="new"><a href="#">
 							<div class="date">10:05</div>
 							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />木村 一郎</div>
 							<div class="body">	下記日程にてAipo.comのメンテナンスを行わせて頂きます。メンテナンス中はAipo.comをご利用いただくことができません。</div>
@@ -61,13 +85,13 @@
 				<a href="javascript:void(0)" class="toggle" toggle-target="dd_information"><span class="count valid">10</span><span class="label">お知らせ</span></a>
 				<div class="dropdown" id="dd_information">
 					<div class="title">あなた宛てのお知らせ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
-					<ul class="dropdown_menu list">
-						<li><a href="#">
+					<ul class="dropdown_list divider">
+						<li class="new"><a href="#">
 							<div class="date">10:05</div>
 							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />木村 一郎とその他3人</div>
 							<div class="body">	あなたの投稿に「いいね！」が押されました。</div>
 						</a></li>
-						<li><a href="#">
+						<li class="new"><a href="#">
 							<div class="date">10月12日 10:05</div>
 							<div class="name"><img src="themes/default/img/avatar_default.png" class="avatar_s" />山田 太朗</div>
 							<div class="body">	予定「定例会議」を編集しました。</div>
@@ -78,29 +102,46 @@
 							<div class="body">	申請「【稟議書】 タイムカード報告」を承認しました。</div>
 						</a></li>
 					</ul>
+					<div class="contents">
+						<div class="auiSelectButton floatRight">
+							<ul>
+								<li><a href="javascript:void(0);" class="first" title="前へ"><i class="fa fa-caret-left"></i></a></li>
+								<li><a href="javascript:void(0);">1</a></li>
+								<li><a href="javascript:void(0);">2</a></li>
+								<li><a href="javascript:void(0);">3</a></li>
+								<li><a href="javascript:void(0);" class="last" title="次へ"><i class="fa fa-caret-right"></i></a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</li>
 			<li>
 				<a href="javascript:void(0)" class="toggle" toggle-target="dd_support"><span class="count">0</span><span class="label">サポート</span></a>
 				<div class="dropdown" id="dd_support">
 					<div class="title">Aipoからのお知らせ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
-					<ul class="dropdown_menu">
-						<li><a href="#">お知らせ内容</a></li>
-						<li><a href="#">お知らせ内容</a></li>
-						<li><a href="#">お知らせ内容</a></li>
-						<li class="divider"></li>
+					<ul class="contentList divider">
+						<li>
+							<div class="date">10月12日 10:05</div>
+							<div class="body">10月30日18時よりサーバーメンテナンスを行わせていただきます。ご不便をおかけしまして大変申し訳ございませんが、何卒ご了承のほど宜しくお願い申し上げます。<br>詳しいメンテナンス内容については<a href="#">こちら</a>をご覧ください。</div>
+						</li>
+						<li>
+							<div class="date">10月12日 10:05</div>
+							<div class="body">	予定「定例会議」を編集しました。</div>
+						</a></li>
+						<li>
+							<div class="date">2014年1月20日 10:05</div>
+							<div class="body">	申請「【稟議書】 タイムカード報告」を承認しました。</div>
+						</li>
 					</ul>
-					<div class="title">ご意見・ご要望</div>
-					<div class="contents divider">
-						<p>頂いたご意見やご要望をもとに改善に励みます。</p>
+					<div class="contents tweet divider">
+						<strong>ご意見・ご要望</strong>
+						<div>頂いたご意見やご要望をもとに改善に励みます。</div>
 						<div class="clearfix mb5">
 							<div class="fs11 floatRight"><a href="javascript:void(0)">Twitter連携を解除</a></div>
 							<div class="floatLeft fs11 fcGray">獲得容量：<span id="get-capacity-size">3</span> MB</div>
 							<textarea></textarea>
-							<div class="clearfix mt5">
-								<div class="floatRight">
-									<span class="fcGray mr10"><span id="count">0</span>/117</span><input type="submit" name="eventSubmit_doTwitter_insert" class="auiButtonAction" onclick="aimluck.io.setHiddenValue(this);aipo.saas_support.setTweetTabStatus(1);" onkeypress="aimluck.io.setHiddenValue(this);aipo.saas_support.setTweetTabStatus(1);" value="ツイート" id="support-tweet-submit">
-								</div>
+							<div class="clearfix right">
+								<span class="fcGray mr5"><span id="count">0</span>/117</span><input type="submit" class="auiButtonAction"  value="ツイート">
 							</div>
 						</div>
 					</div>

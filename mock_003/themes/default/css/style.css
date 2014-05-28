@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.clearfix:before, #auiHeader:before, .hdNavi > ul:before, .dropdown .title:before, .dropdown .contents:before, #auiContents:before, #auiNavigation:before, #auiApps:before, .auiPortlet .head .inner:before, .auiTip .head .inner:before, .naviPortlet .head .inner:before, .auiTopics .head:before,
+.clearfix:before, #auiHeader:before, .hdNavi > ul:before, .dropdown .title:before, .dropdown .contents:before, #auiContents:before, #auiNavigation:before, #auiApps > .inner:before, .auiPortlet .portletHead .inner:before, .auiTip .portletHead .inner:before, .auiPortlet .portletBody .inner:before, .auiTip .portletBody .inner:before, .auiPortlet .portletFoot .inner:before, .auiTip .portletFoot .inner:before, .naviPortlet .portletHead .inner:before, .naviPortlet .portletBody .inner:before, .naviPortlet .portletFoot .inner:before, .auiTopics .head:before, .auiSummaryMeta:before,
 .clearfix:after,
 #auiHeader:after,
 .hdNavi > ul:after,
@@ -7,20 +7,27 @@
 .dropdown .contents:after,
 #auiContents:after,
 #auiNavigation:after,
-#auiApps:after,
-.auiPortlet .head .inner:after,
-.auiTip .head .inner:after,
-.naviPortlet .head .inner:after,
-.auiTopics .head:after {
+#auiApps > .inner:after,
+.auiPortlet .portletHead .inner:after,
+.auiTip .portletHead .inner:after,
+.auiPortlet .portletBody .inner:after,
+.auiTip .portletBody .inner:after,
+.auiPortlet .portletFoot .inner:after,
+.auiTip .portletFoot .inner:after,
+.naviPortlet .portletHead .inner:after,
+.naviPortlet .portletBody .inner:after,
+.naviPortlet .portletFoot .inner:after,
+.auiTopics .head:after,
+.auiSummaryMeta:after {
   content: " ";
   display: table;
 }
 
-.clearfix:after, #auiHeader:after, .hdNavi > ul:after, .dropdown .title:after, .dropdown .contents:after, #auiContents:after, #auiNavigation:after, #auiApps:after, .auiPortlet .head .inner:after, .auiTip .head .inner:after, .naviPortlet .head .inner:after, .auiTopics .head:after {
+.clearfix:after, #auiHeader:after, .hdNavi > ul:after, .dropdown .title:after, .dropdown .contents:after, #auiContents:after, #auiNavigation:after, #auiApps > .inner:after, .auiPortlet .portletHead .inner:after, .auiTip .portletHead .inner:after, .auiPortlet .portletBody .inner:after, .auiTip .portletBody .inner:after, .auiPortlet .portletFoot .inner:after, .auiTip .portletFoot .inner:after, .naviPortlet .portletHead .inner:after, .naviPortlet .portletBody .inner:after, .naviPortlet .portletFoot .inner:after, .auiTopics .head:after, .auiSummaryMeta:after {
   clear: both;
 }
 
-.clearfix, #auiHeader, .hdNavi > ul, .dropdown .title, .dropdown .contents, #auiContents, #auiNavigation, #auiApps, .auiPortlet .head .inner, .auiTip .head .inner, .naviPortlet .head .inner, .auiTopics .head {
+.clearfix, #auiHeader, .hdNavi > ul, .dropdown .title, .dropdown .contents, #auiContents, #auiNavigation, #auiApps > .inner, .auiPortlet .portletHead .inner, .auiTip .portletHead .inner, .auiPortlet .portletBody .inner, .auiTip .portletBody .inner, .auiPortlet .portletFoot .inner, .auiTip .portletFoot .inner, .naviPortlet .portletHead .inner, .naviPortlet .portletBody .inner, .naviPortlet .portletFoot .inner, .auiTopics .head, .auiSummaryMeta {
   *zoom: 1;
 }
 
@@ -33,7 +40,7 @@
   *display: inline;
 }
 
-.border-box, form, input, button, textarea, input[type=text], .hdCommunications .count, #auiNavigation, #auiApps, .auiPortlet, .auiTip, .naviPortlet, .auiPortlet .head .inner, .auiTip .head .inner, .naviPortlet .head .inner, .searchBar .text, .buttonBase, input[type=submit],
+.border-box, form, input, button, textarea, input[type=text], .hdCommunications .count, #auiNavigation, #auiApps, .auiPortlet, .auiTip, .naviPortlet, .auiPortlet .portletHead, .auiTip .portletHead, .auiPortlet .portletBody, .auiTip .portletBody, .auiPortlet .portletFoot, .auiTip .portletFoot, .naviPortlet .portletHead, .naviPortlet .portletBody, .naviPortlet .portletFoot, .auiPortlet .portletHead .inner, .auiTip .portletHead .inner, .auiPortlet .portletBody .inner, .auiTip .portletBody .inner, .auiPortlet .portletFoot .inner, .auiTip .portletFoot .inner, .naviPortlet .portletHead .inner, .naviPortlet .portletBody .inner, .naviPortlet .portletFoot .inner, .searchBar .text, .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
 .auiButton,
@@ -81,7 +88,7 @@ button.auiButtonIconDummy {
 }
 
 .bRadiusM, input[type=text],
-textarea, .hdSearch form, .dropdown, .avatar_l, .avatar_xl, #auiNavigation .addApp a, .auiPortlet, .auiTip, .alert, .searchBar, .buttonBase, input[type=submit],
+textarea, .hdSearch form, .dropdown, .avatar_l, .avatar_xl, .addApp a, .auiPortlet, .auiTip, .alert, .searchBar, .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
 button,
@@ -153,8 +160,27 @@ button.auiButtonIconDummy, #timelineOuter #inputField, #timelineOuter .outer, #t
   transition: 0.2s;
 }
 
+.scrollDecoration, .auiPortlet .portletBody, .auiTip .portletBody, .naviPortlet .portletBody, .timeline {
+  scrollbar-face-color: #d6d6d6;
+  scrollbar-track-color: #f6f6f6;
+  scrollbar-arrow-color: #d6d6d6;
+  scrollbar-shadow-color: #d6d6d6;
+}
+.scrollDecoration::-webkit-scrollbar, .auiPortlet .portletBody::-webkit-scrollbar, .auiTip .portletBody::-webkit-scrollbar, .naviPortlet .portletBody::-webkit-scrollbar, .timeline::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #f6f6f6;
+}
+.scrollDecoration::-webkit-scrollbar-piece, .auiPortlet .portletBody::-webkit-scrollbar-piece, .auiTip .portletBody::-webkit-scrollbar-piece, .naviPortlet .portletBody::-webkit-scrollbar-piece, .timeline::-webkit-scrollbar-piece {
+  background: #f0f0f0;
+}
+.scrollDecoration::-webkit-scrollbar-thumb, .auiPortlet .portletBody::-webkit-scrollbar-thumb, .auiTip .portletBody::-webkit-scrollbar-thumb, .naviPortlet .portletBody::-webkit-scrollbar-thumb, .timeline::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+}
+
 html, body {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -169,7 +195,7 @@ p {
 }
 
 a {
-  color: #1b1b1b;
+  color: black;
   text-decoration: none;
 }
 a:hover {
@@ -204,6 +230,7 @@ input, button {
   font-size: 12px;
   font-family: "メイリオ", Meiryo, Verdana, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", sans-serif;
   margin: 0;
+  vertical-align: middle;
 }
 
 input[type=text],
@@ -551,24 +578,30 @@ input[type=password] {
   padding: 0 10px;
   text-align: center;
 }
-#auiNavigation .addApp a {
+
+.addApp a {
   display: block;
   padding: 10px;
   text-align: center;
   color: #999999;
+  font-size: 11px;
 }
-#auiNavigation .addApp a:hover {
+.addApp a .fa {
+  vertical-align: middle;
+}
+.addApp a:hover {
   text-decoration: none;
   background-color: #f0f0f0;
   color: #333333;
 }
-#auiNavigation .addApp a:hover .fa {
+.addApp a:hover .fa {
   color: #333333;
 }
 
 #auiApps {
   float: right;
   width: 100%;
+  height: 100%;
   margin-left: -240px;
   padding: 0 5px;
   background-color: white;
@@ -577,12 +610,24 @@ input[type=password] {
   margin-left: 240px;
 }
 
-.auiPortlet .head, .auiTip .head, .naviPortlet .head {
+.appsCol {
+  float: left;
+  width: 50%;
+  overflow: auto;
+}
+
+.auiPortlet .portletHead, .auiTip .portletHead, .naviPortlet .portletHead {
   position: relative;
+  height: 35px;
 }
 .auiPortlet .title, .auiTip .title, .naviPortlet .title {
   float: left;
   white-space: nowrap;
+}
+.auiPortlet .title .fa, .auiTip .title .fa, .naviPortlet .title .fa {
+  width: 20px;
+  margin-right: 5px;
+  text-align: center;
 }
 .auiPortlet .tools, .auiTip .tools, .naviPortlet .tools {
   position: absolute;
@@ -605,19 +650,33 @@ input[type=password] {
 .auiPortlet .tools .active .fa, .auiTip .tools .active .fa, .naviPortlet .tools .active .fa {
   color: #333333;
 }
-.auiPortlet .body .inner, .auiTip .body .inner, .naviPortlet .body .inner {
+.auiPortlet .portletBody, .auiTip .portletBody, .naviPortlet .portletBody {
+  overflow: auto;
+}
+.auiPortlet .portletBody .inner, .auiTip .portletBody .inner, .naviPortlet .portletBody .inner {
   padding: 10px;
+}
+.auiPortlet .portletFoot, .auiTip .portletFoot, .naviPortlet .portletFoot {
+  height: 40px;
+  overflow: hidden;
+  border-top: solid 1px #ededed;
+}
+.auiPortlet .portletFoot .inner, .auiTip .portletFoot .inner, .naviPortlet .portletFoot .inner {
+  padding: 8px;
+}
+.auiPortlet .portletFoot a, .auiTip .portletFoot a, .naviPortlet .portletFoot a {
+  height: 24px;
+  line-height: 24px;
 }
 
 .auiPortlet, .auiTip {
-  margin: 10px 5px;
-  border: solid 1px #d6d6d6;
+  margin: 10px;
   background-color: white;
 }
-.auiPortlet .head, .auiTip .head {
+.auiPortlet .portletHead, .auiTip .portletHead {
   border-bottom: solid 1px #ededed;
 }
-.auiPortlet .head .inner, .auiTip .head .inner {
+.auiPortlet .portletHead .inner, .auiTip .portletHead .inner {
   padding: 0 10px;
 }
 .auiPortlet .title, .auiTip .title {
@@ -790,6 +849,42 @@ input[type=password] {
   margin: 0;
 }
 
+.auiSummaryMeta {
+  margin: 10px 0;
+}
+.auiSummaryMeta:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+
+.auiRowTable th, .auiRowTable td {
+  padding: 8px 5px;
+  border-bottom: solid 1px #ededed;
+}
+
+#auiFooter .inner {
+  height: 25px;
+  font-size: 10px;
+  color: #999999;
+}
+#auiFooter .inner a {
+  color: #999999;
+}
+#auiFooter .inner a:hover {
+  text-decoration: none;
+  color: #333333;
+}
+#auiFooter .inner a:hover .fa {
+  color: #333333;
+}
+#auiFooter .menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+#auiFooter .menu .fa {
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
 .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
@@ -954,6 +1049,19 @@ button.auiButtonSmall {
   font-size: 10px;
   height: 24px;
   line-height: 24px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2YwZjBmMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f0f0f0));
+  background-image: -webkit-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: -moz-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: -o-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: linear-gradient(top, #ffffff, #f0f0f0);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFF0F0F0');
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
 }
 
 .auiButtonDisabled,
@@ -1083,6 +1191,11 @@ button.auiButtonDisabled:active {
 .auiWidget .auiSelectButton span {
   padding: 0;
   background-image: none;
+}
+
+.selectCount {
+  display: inline-block;
+  line-height: 100%;
 }
 
 .bbstest {
@@ -1225,6 +1338,9 @@ button.auiButtonDisabled:active {
   /*IE7*/
 }
 
+.timeline {
+  overflow: auto;
+}
 .timeline .avatar {
   float: left;
   margin: 0 10px 0 0;
@@ -2720,6 +2836,10 @@ button.auiButtonDisabled:active {
 
 .right {
   text-align: right;
+}
+
+.center {
+  text-align: center;
 }
 
 .floatLeft {

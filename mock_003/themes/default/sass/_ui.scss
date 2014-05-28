@@ -386,22 +386,28 @@ $auiNaviWidth: 240px;
 			text-align: center;
 		}
 	}
-	.addApp {
-		a {
-			@extend .bRadiusM;
-			display: block;
-			padding: 10px;
-			//background-color: $grayBackLight;
-			text-align: center;
-			color: $gray;
+}
 
-			&:hover {
-				text-decoration: none;
-				background-color: $grayBack;
+.addApp {
+	a {
+		@extend .bRadiusM;
+		display: block;
+		padding: 10px;
+		//background-color: $grayBackLight;
+		text-align: center;
+		color: $gray;
+		font-size: $fontSizeSmall;
+
+		.fa {
+			vertical-align: middle;
+		}
+
+		&:hover {
+			text-decoration: none;
+			background-color: $grayBack;
+			color: $textColor;
+			.fa {
 				color: $textColor;
-				.fa {
-					color: $textColor;
-				}
 			}
 		}
 	}
@@ -411,17 +417,23 @@ $auiNaviWidth: 240px;
 // auiApps
 //----------------------------------------------------------------------------------------------------
 #auiApps {
-	@extend .clearfix;
 	@extend .border-box;
 	float: right;
 	width: 100%;
+	height: 100%;
 	margin-left: -$auiNaviWidth;
 	padding: 0 5px;
 	background-color: $white;
 
 	> .inner {
+		@extend .clearfix;
 		margin-left: $auiNaviWidth;
 	}
+}
+.appsCol {
+	float: left;
+	width: 50%;
+	overflow: auto;
 }
 
 //####################################################################################################
@@ -429,11 +441,17 @@ $auiNaviWidth: 240px;
 //----------------------------------------------------------------------------------------------------
 .auiPortlet, .naviPortlet {
 	@extend .border-box;
-	.head {
-		position: relative;
+	.portletHead, .portletBody, .portletFoot {
+		@extend .border-box;
 		.inner {
 			@extend .clearfix;
 			@extend .border-box;
+		}
+	}
+	.portletHead {
+		position: relative;
+		height: 35px;
+		.inner {
 		}
 		.handle {
 			//cursor: pointer;
@@ -442,6 +460,11 @@ $auiNaviWidth: 240px;
 	.title {
 		float: left;
 		white-space:nowrap;
+		.fa {
+			width: 20px;
+			margin-right: 5px;
+			text-align: center;
+		}
 	}
 	.tools {
 		position: absolute;
@@ -469,18 +492,34 @@ $auiNaviWidth: 240px;
 			}
 		}
 	}
-	.body {
+	.portletBody {
+		@extend .scrollDecoration;
+		overflow: auto;
+
 		.inner {
 			padding: 10px;
+		}
+	}
+	.portletFoot {
+		height: 40px;
+		overflow: hidden;
+		border-top: solid 1px $grayBorderLight;
+		.inner {
+			padding: 8px;
+		}
+		a {
+			height: 24px;
+			line-height: 24px;
 		}
 	}
 }
 .auiPortlet {
 	@extend .bRadiusM;
-	margin: 10px 5px;
-	border: solid 1px $grayBorder;
+	//margin: 10px 5px;
+	margin: 10px;
+	//border: solid 1px $grayBorder;
 	background-color: $white;
-	.head {
+	.portletHead {
 		border-bottom: solid 1px $grayBorderLight;
 		.inner {
 			//height: 35px;
@@ -692,3 +731,56 @@ $auiNaviWidth: 240px;
 	margin: 0;
 }
 
+//####################################################################################################
+// auiSummaryMeta
+//----------------------------------------------------------------------------------------------------
+.auiSummaryMeta {
+	@extend .clearfix;
+	margin: 10px 0;
+
+	&:nth-last-of-type(1) {
+		margin-bottom: 0;
+	}
+}
+
+//####################################################################################################
+// auiRowTable
+//----------------------------------------------------------------------------------------------------
+.auiRowTable {
+	//margin: 10px 0;
+	th, td {
+		padding: 8px 5px;
+		border-bottom: solid 1px $grayBorderLight;
+	}
+}
+
+//####################################################################################################
+// auiFooter
+//----------------------------------------------------------------------------------------------------
+#auiFooter {
+	.inner {
+		height: 25px;
+		font-size: $fontSizeMini;
+		color: $gray;
+		a {
+			color: $gray;
+			&:hover {
+				text-decoration: none;
+				color: $textColor;
+				.fa {
+					color: $textColor;
+				}
+			}
+		}
+	}
+	.menu {
+		li {
+			display: inline-block;
+			margin: 0 10px;
+		}
+		.fa {
+			vertical-align: middle;
+			margin-right: 3px;
+		}
+	}
+}

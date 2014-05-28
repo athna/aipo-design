@@ -82,6 +82,10 @@ button.auiButtonSmall {
 	font-size: 10px;
 	height: 24px;
 	line-height: 24px;
+	@include background-image(linear-gradient(top, $white, $grayBack));
+	@include filter-gradient($white, $grayBack, vertical);
+	@include text-shadow(0 1px 0 rgba($white,.5));
+	@include box-shadow(inset 0 1px 3px rgba($white,.5));
 }
 
 .auiButtonDisabled,
@@ -223,4 +227,8 @@ button.auiButtonIconDummy {
 		padding:0;
 		background-image:none;
 	}
+}
+.selectCount {
+	display: inline-block;
+	line-height: 100%;
 }

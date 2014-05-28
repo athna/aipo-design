@@ -1,7 +1,6 @@
 //jQuery Events
 $(function () {
 
-
 	//alert($(document).outerHeight());
 	//$("#auiNavigation").css("height", $(document).outerHeight() - $("#auiHeader").outerHeight());
 
@@ -11,6 +10,26 @@ $(function () {
 	//		$(".popup").hide();
 	//	}
 	//});
+
+	// halfRow & fullRow Height Setting
+	// 35 : portletHead / 40 : portletFoot / 15 : 2margin-half / 2 : border
+	var hrow = ($(window).outerHeight() - $("#auiHeader").outerHeight()) /2 - 35 - 40 - 15 - 2 - $("#auiFooter").outerHeight() /2;
+	var frow = ($(window).outerHeight() - $("#auiHeader").outerHeight()) - 35 - 40 - 20 - 2  - $("#auiFooter").outerHeight();
+	var trow = frow  - 20 - $("#inputField").outerHeight() - 15 - 26 - 15 - 15 - 2;
+	$(".halfRow .portletBody").css("height", hrow);
+	$(".fullRow .portletBody").css("height", frow);
+	$("#timeline").css("height", trow);
+	$(window).resize(function(){
+		//halfRow
+		var hrow = ($(window).outerHeight() - $("#auiHeader").outerHeight()) /2 - 35 - 40 - 15 - 2 - $("#auiFooter").outerHeight() /2;
+		$(".halfRow .portletBody").css("height", hrow);
+		//fullRow
+		var frow = ($(window).outerHeight() - $("#auiHeader").outerHeight()) - 35 - 40 - 20 - 2  - $("#auiFooter").outerHeight();
+		$(".fullRow .portletBody").css("height", frow);
+
+		var trow = frow  - 20 - $("#inputField").outerHeight() - 15 - 26 - 15 - 15 - 2;
+		$("#timeline").css("height", trow);
+	});
 
 	// generic toggle
 	$(".toggle").click(function(){

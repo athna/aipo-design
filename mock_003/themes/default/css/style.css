@@ -40,7 +40,7 @@
   *display: inline;
 }
 
-.border-box, form, input, button, textarea, input[type=text], .hdCommunications .count, #auiNavigation, #auiApps, .auiPortlet, .auiTip, .naviPortlet, .auiPortlet .portletHead, .auiTip .portletHead, .auiPortlet .portletBody, .auiTip .portletBody, .auiPortlet .portletFoot, .auiTip .portletFoot, .naviPortlet .portletHead, .naviPortlet .portletBody, .naviPortlet .portletFoot, .auiPortlet .portletHead .inner, .auiTip .portletHead .inner, .auiPortlet .portletBody .inner, .auiTip .portletBody .inner, .auiPortlet .portletFoot .inner, .auiTip .portletFoot .inner, .naviPortlet .portletHead .inner, .naviPortlet .portletBody .inner, .naviPortlet .portletFoot .inner, .searchBar .text, .buttonBase, input[type=submit],
+.border-box, form, input, button, textarea, input[type=text], .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body, .hdCommunications .count, #auiNavigation, #auiApps, .auiPortlet, .auiTip, .naviPortlet, .auiPortlet .portletHead, .auiTip .portletHead, .auiPortlet .portletBody, .auiTip .portletBody, .auiPortlet .portletFoot, .auiTip .portletFoot, .naviPortlet .portletHead, .naviPortlet .portletBody, .naviPortlet .portletFoot, .auiPortlet .portletHead .inner, .auiTip .portletHead .inner, .auiPortlet .portletBody .inner, .auiTip .portletBody .inner, .auiPortlet .portletFoot .inner, .auiTip .portletFoot .inner, .naviPortlet .portletHead .inner, .naviPortlet .portletBody .inner, .naviPortlet .portletFoot .inner, .searchBar .text, .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
 .auiButton,
@@ -138,7 +138,7 @@ button.auiButtonIconDummy, #timelineOuter #inputField, #timelineOuter .outer, #t
   border-radius: 50%;
 }
 
-.ellipsis, .dropdown_menu a, .dropdown_list a, .dropdown_list .body, #auiNavigation .launcher a {
+.ellipsis, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body, .dropdown_menu a, .dropdown_list a, .dropdown_list .body, #auiNavigation .launcher a, .auiRowTable a {
   white-space: nowrap;
   overflow: hidden;
   -ms-text-overflow: ellipsis;
@@ -344,6 +344,18 @@ input[type=password] {
 }
 .hdSearch .submit:hover .fa {
   color: #333333;
+}
+.hdSearch .dropdown_menu li, .hdSearch .dropdown_list li {
+  border-top: solid 1px #ededed;
+}
+.hdSearch .dropdown_menu a, .hdSearch .dropdown_list a {
+  line-height: 1.5;
+}
+.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body {
+  width: 100%;
+}
+.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date {
+  color: #999999;
 }
 
 .searchCategory {
@@ -840,6 +852,7 @@ input[type=password] {
 .popup {
   display: none;
   position: absolute;
+  z-index: 10;
 }
 
 .auiTip {
@@ -859,6 +872,11 @@ input[type=password] {
 .auiRowTable th, .auiRowTable td {
   padding: 8px 5px;
   border-bottom: solid 1px #ededed;
+  white-space: nowrap;
+}
+.auiRowTable a {
+  display: block;
+  width: 100%;
 }
 
 #auiFooter .inner {
@@ -1306,7 +1324,6 @@ button.auiButtonDisabled:active {
   height: 15px;
   line-height: 15px;
   border-top: 1px solid #ededed;
-  z-index: 1;
 }
 .tlDisplayChanger .btn {
   background: #fff;
@@ -1508,7 +1525,7 @@ button.auiButtonDisabled:active {
   margin: 0 0 10px 60px;
 }
 
-.timeline .text_exposed_show.ellipsis, .timeline .dropdown_menu a.text_exposed_show, .dropdown_menu .timeline a.text_exposed_show, .timeline .dropdown_list a.text_exposed_show, .dropdown_list .timeline a.text_exposed_show, .timeline .dropdown_list .text_exposed_show.body, .dropdown_list .timeline .text_exposed_show.body, .timeline #auiNavigation .launcher a.text_exposed_show, #auiNavigation .launcher .timeline a.text_exposed_show,
+.timeline .text_exposed_show.ellipsis, .timeline .hdSearch .dropdown_menu .text_exposed_show.date, .hdSearch .dropdown_menu .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_list .text_exposed_show.date, .hdSearch .dropdown_list .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_menu .text_exposed_show.body, .hdSearch .dropdown_menu .timeline .text_exposed_show.body, .timeline .dropdown_menu a.text_exposed_show, .dropdown_menu .timeline a.text_exposed_show, .timeline .dropdown_list a.text_exposed_show, .dropdown_list .timeline a.text_exposed_show, .timeline .dropdown_list .text_exposed_show.body, .dropdown_list .timeline .text_exposed_show.body, .timeline #auiNavigation .launcher a.text_exposed_show, #auiNavigation .launcher .timeline a.text_exposed_show, .timeline .auiRowTable a.text_exposed_show, .auiRowTable .timeline a.text_exposed_show,
 .timeline .message .more.opened {
   display: none;
 }

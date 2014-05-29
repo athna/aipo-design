@@ -110,6 +110,24 @@ $headerHeight: 50px;
 			}
 		}
 	}
+	.dropdown_menu {
+		li {
+			border-top: solid 1px $grayBorderLight;
+		}
+		a {
+			line-height: 1.5;
+		}
+		.date, .body {
+			@extend .ellipsis;
+			@extend .border-box;
+			width: 100%;
+		}
+		.date {
+			color: $gray;
+			//line-height: 1;
+			//padding-top: .5em;
+		}
+	}
 }
 .searchCategory {
 	display: inline-block;
@@ -724,6 +742,7 @@ $auiNaviWidth: 240px;
 .popup {
 	display: none;
 	position: absolute;
+	z-index: 10;
 }
 .auiTip {
 	@extend .auiPortlet;
@@ -751,6 +770,12 @@ $auiNaviWidth: 240px;
 	th, td {
 		padding: 8px 5px;
 		border-bottom: solid 1px $grayBorderLight;
+		white-space: nowrap;
+	}
+	a {
+		@extend .ellipsis;
+		display: block;
+		width: 100%;
 	}
 }
 

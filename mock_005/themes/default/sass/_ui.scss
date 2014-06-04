@@ -1,0 +1,1118 @@
+@charset "utf-8";
+
+//####################################################################################################
+// wrapper
+//----------------------------------------------------------------------------------------------------
+#wrapper {
+	min-width: $layoutMinWidth;
+}
+
+//####################################################################################################
+// auiHeader
+//----------------------------------------------------------------------------------------------------
+$headerHeight: 50px;
+#auiHeader {
+	@extend .clearfix;
+	@extend .border-box;
+	padding: 0 10px;
+	background-color: $white;
+	border-bottom: solid 1px $grayLight;
+
+	.fa {
+		vertical-align: middle;
+	}
+}
+.hdLogo {
+	float: left;
+	height: 30px;
+	padding: 10px;
+}
+.hdNavi {
+	float: right;
+	font-size: $fontSizeSmall;
+
+	> ul {
+		@extend .clearfix;
+		float: left;
+		> li {
+			display: block;
+			position: relative;
+			float: left;
+			list-style: none;
+			line-height: $headerHeight;
+
+			&:hover {
+				background-color: $grayBack;
+				.dropdown {
+					display: block;
+				}
+			}
+
+			> a {
+				display: block;
+				padding: 0 10px;
+				color: $textColor;
+
+				&:hover, &.active {
+					text-decoration: none;
+					.fa {
+						color: $grayDark;
+					}
+				}
+			}
+		}
+	}
+	.fa-caret-down {
+		font-size: 10px;
+	}
+}
+.hdSearch {
+	position: relative;
+	float: left;
+	padding: 10px;
+
+	form {
+		@extend .bRadiusM;
+		border: solid 1px $grayBorder;
+		background-color: $white;
+
+		&:hover {
+			border: solid 1px $gray;
+		}
+	}
+
+	input[type=text], .submit {
+		height: 20px;
+		border: none;
+		vertical-align: middle;
+	}
+	input[type=text] {
+		width: 160px;
+		margin: 0 3px;
+
+		&:focus {
+			width: 216px;
+		}
+	}
+	.submit {
+		height: $headerHeight - 20 - 2;
+		margin: 0;
+		padding: 0;
+		background: none;
+		filter: none;
+		cursor: pointer;
+		border-left: solid 1px $grayBorderLight;
+		@include border-left-radius(0);
+
+		.fa {
+			display: block;
+			width: 30px;
+			color: $gray;
+		}
+
+		&:hover {
+			background-color: $grayBackLight;
+			.fa {
+				color: $textColor;
+			}
+		}
+	}
+	.dropdown_menu {
+		a {
+			line-height: 1.5;
+		}
+		.date, .body {
+			@extend .ellipsis;
+			@extend .border-box;
+			width: 100%;
+		}
+		.date {
+			color: $gray;
+			//line-height: 1;
+			//padding-top: .5em;
+		}
+	}
+	#preSearch {
+		li {
+			border-top: solid 1px $grayBorderLight;
+		}
+	}
+}
+.searchCategory {
+	display: inline-block;
+	float: left;
+	width: 60px;
+	border-right: solid 1px $grayBorderLight;
+	color: $gray;
+	cursor: pointer;
+	overflow: hidden;
+	@include border-radius(3px 0 0 3px);
+
+	.name {
+		line-height: $headerHeight - 20 - 2;
+		text-align: center;
+	}
+	.fa {
+		margin-left: 5px;
+	}
+
+	&:hover, .active {
+		color: $textColor;
+		background-color: $grayBackLight;
+		.dropdown {
+			display: block;
+		}
+		.fa {
+			color: $textColor;
+		}
+	}
+}
+
+.hdCommunications {
+	.count {
+		display: block;
+		float: left;
+		min-width: 16px;
+		height: 16px;
+		line-height: 16px;
+		margin: ($headerHeight - 16) / 2 2px 0 0;
+		padding: 0 2px;
+		font-size: 10px;
+		background-color: $grayBack;
+		text-align: center;
+		color: $gray;
+		@extend .bRadiusS;
+		@extend .border-box;
+	}
+		.count.valid {
+			background-color: $grayDark;
+			color: $white;
+		}
+	.label {
+		text-wrap: nowrap;
+	}
+}
+.tweet {
+	textarea {
+		width: 100%;
+	}
+}
+
+.hdTools {
+	border-left: solid 1px $grayLighter;
+
+	li a {
+	}
+	.name {
+		margin: 0 5px;
+	}
+}
+
+//####################################################################################################
+// dropdown
+//----------------------------------------------------------------------------------------------------
+.dropdown {
+	@extend .bRadiusM;
+	@extend .popupShadow;
+	display: none;
+	position: absolute;
+	z-index: 1;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	line-height: 2;
+	font-size: $fontSizeSmall;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=0, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=90, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=180, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=270, strength=3, enabled=true);
+
+	#auiHeader & {
+		@include border-radius(0 0 3px 3px);
+	}
+	.hdCommunications &, .hdTools &, .tools & {
+		right: 0;
+	}
+	.hdCommunications & {
+		width: 320px;
+	}
+	&#preSearch {
+		width: 320px;
+		margin-top: 1px;
+	}
+	.title {
+		@extend .clearfix;
+		padding: 10px;
+		line-height: 24px;
+		//background-color: $grayBack;
+		font-weight: bold;
+		border-bottom: solid 1px $grayBorderLight;
+	}
+	.contents {
+		@extend .clearfix;
+		padding: 10px;
+	}
+	.divider {
+		border-bottom: solid 1px $grayBorderLight;
+	}
+	h2 {
+		margin: 0;
+		padding: 2px 10px;
+		font-size: 1em;
+		background-color: $grayBack;
+		border-top: solid 1px $grayBorder;
+
+		&:first-child {
+			border-top: none;
+		}
+	}
+}
+.dropdown_menu {
+	a {
+		@extend .ellipsis;
+		display: block;
+		padding: 6px 10px;
+		color: $textColor;
+
+		#auiHeader & {
+			min-width: 10em;
+		}
+
+		&:hover {
+			text-decoration: none;
+			background-color: $grayBackLight;
+		}
+	}
+	.active {
+		a {
+			background-color: $grayBackLight;
+		}
+	}
+}
+.dropdown_list {
+	@extend .dropdown_menu;
+
+	.body {
+		@extend .ellipsis;
+		width: 100%;
+	}
+	.date {
+		float: right;
+		color: $gray;
+	}
+	[class*=avatar_] {
+		margin-right: 5px;
+	}
+	.body {
+		//line-height: 1.5;
+	}
+}
+.contentList {
+	li {
+		padding: 6px 10px;
+		line-height: 1.5;
+	}
+	.date {
+		margin-bottom: 3px;
+		color: $gray;
+	}
+}
+
+//####################################################################################################
+// avatar
+//----------------------------------------------------------------------------------------------------
+[class*=avatar_] {
+	@extend .inline-block;
+}
+.avatar_s {
+	@extend .bRadiusS;
+	width: 16px;
+	height: 16px;
+}
+.avatar_m {
+	@extend .bRadiusS;
+	width: 24px;
+	height: 24px;
+}
+.avatar_l {
+	@extend .bRadiusM;
+	width: 32px;
+	height: 32px;
+}
+.avatar_xl {
+	@extend .bRadiusM;
+	width: 48px;
+	height: 48px;
+}
+
+
+//####################################################################################################
+// auiContents
+//----------------------------------------------------------------------------------------------------
+#auiContents {
+	@extend .clearfix;
+	//margin: 0 5px;
+
+	td {
+		vertical-align: top;
+	}
+}
+
+//####################################################################################################
+// auiNavigation
+//----------------------------------------------------------------------------------------------------
+$auiNaviWidth: 320px;
+#auiNavigation {
+	@extend .clearfix;
+	@extend .border-box;
+	@extend .scrollDecoration;
+	float: right;
+	width: $auiNaviWidth;
+	//padding: 10px 20px;
+	padding: 0 15px;
+	//border-left: solid 1px $grayBorder;
+	overflow: auto;
+	background-color: $grayBackLight;
+
+	h2 {
+		line-height: 20px;
+		margin: 0 0 10px;
+		font-size: $baseFontSize;
+		font-weight: normal;
+	}
+
+	.launcher {
+		position: relative;
+		height: 105px;
+		margin: 10px 0;
+		overflow: hidden;
+		//border-bottom: solid 1px rgba($grayBorder, .5);
+		@include transition(.2s .2s);
+		border-bottom: solid 1px $grayBorderLight;
+
+		&:after {
+			position: absolute;
+			//left: 10px;
+			bottom: -4px;
+			content: "";
+			width: 100%;
+			height: 4px;
+			@include box-shadow(0 -2px 2px rgba(#000, .075));
+			@include transition(.2s .2s);
+		}
+
+		&:hover {
+			height: 510px;
+
+			&:after {
+				@include box-shadow(0 -1px 0 rgba(#000, 0));
+			}
+		}
+
+		a {
+			@extend .ellipsis;
+			display: block;
+			line-height: 30px;
+			color: $textColor;
+
+			&:hover {
+				text-decoration: none;
+				background-color: $grayBack;
+
+				.fa {
+					color: $textColor;
+				}
+			}
+		}
+		.fa {
+			width: 20px;
+			padding: 0 10px;
+			text-align: center;
+		}
+	}
+}
+
+.addApp {
+	a {
+		@extend .bRadiusM;
+		display: block;
+		padding: 10px;
+		//background-color: $grayBackLight;
+		text-align: center;
+		color: $gray;
+		font-size: $fontSizeSmall;
+
+		.fa {
+			vertical-align: middle;
+		}
+
+		&:hover {
+			text-decoration: none;
+			background-color: $grayBack;
+			color: $textColor;
+			.fa {
+				color: $textColor;
+			}
+		}
+	}
+}
+
+//####################################################################################################
+// auiApps
+//----------------------------------------------------------------------------------------------------
+#auiApps {
+	@extend .border-box;
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin-left: -$auiNaviWidth;
+	//padding: 0 5px;
+	background-color: $white;
+
+	> .inner {
+		@extend .clearfix;
+		margin-left: $auiNaviWidth;
+	}
+}
+.appsRow {
+	@extend .clearfix;
+	padding: 0 5px;
+}
+.appsCol {
+	float: left;
+	//width: 50%;
+	overflow: auto;
+}
+
+//####################################################################################################
+// auiTab
+//----------------------------------------------------------------------------------------------------
+.auiTabs {
+	background-color: $grayBackLight;
+
+	> ul {
+		@extend .clearfix;
+		> li {
+			display: block;
+			float: left;
+			border-right: solid 1px $white;
+			&:hover {
+				background-color: $grayBackLight;
+			}
+			a {
+				display: block;
+				float: left;
+				line-height: 35px;
+				color: $gray;
+				&:hover {
+					text-decoration: none;
+					color: $textColor;
+					.fa {
+						color: $textColor;
+					}
+				}
+			}
+			.name {
+				padding: 0 10px 0 20px;
+			}
+			.setting {
+				padding: 0 20px 0 0;
+			}
+			&.selected {
+				a {
+					background-color: $white;
+					color: $textColor;
+				}
+			}
+			&.apps, &.add {
+				> a {
+					position: relative;
+					z-index: 5;
+					padding: 0 20px;
+				}
+			}
+			&.apps:hover {
+				border-color: $grayBorder;
+				> a {
+					background-color: $white;
+				}
+				#auiLauncher {
+					display: block;
+					//@include opacity(1);
+					//z-index: 1;
+				}
+			}
+		}
+	}
+}
+
+//####################################################################################################
+// auiLauncher
+//----------------------------------------------------------------------------------------------------
+$appWidth: 95px;
+$appNum: 18;
+#auiLauncher {
+	@extend .clearfix;
+	@extend .bRadiusM;
+	@extend .popupShadow;
+	display: none;
+	position: absolute;
+	z-index: 1;
+	top: 85px;
+	left: -1px;
+	width: 100%;
+	max-width: $appWidth * ($appNum / 2);
+	//margin: 0 20px;
+	//display: none;
+	overflow: hidden;
+	background-color: $white;
+	border: solid 1px $grayBorder;
+	@include border-top-left-radius(0);
+	//@include opacity(0);
+	//@include transition(.2s .2s);
+
+	ul {
+		//padding: 0 8px 8px;
+		text-align: center;
+		@extend .clearfix;
+		@extend .border-box;
+	}
+	li {
+		display: block;
+		float: left;
+		//width: 95px;
+		//height: 62px;
+		//padding: 10px 5px 0;
+		@extend .border-box;
+
+		a {
+			position: relative;
+			display: block;
+			text-decoration: none;
+			width: $appWidth;
+			//height: 52px;
+			background-color: $white;
+			//border: solid 1px $grayBorderLight;
+			@extend .bRadiusM;
+			@extend .border-box;
+
+			.icon {
+				display: block;
+				//height: 30px;
+				//padding: 3px;
+				height: 35px;
+				padding-top: 10px;
+				@extend .border-box;
+			}
+			.name {
+				font-size: 11px;
+				display: block;
+				width: 83px;
+				//height: 20px;
+				line-height: 20px;
+				//padding: 0 5px;
+				padding: 0 5px 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				@extend .border-box;
+				@extend .ellipsis;
+			}
+			.fa {
+				font-size: 24px;
+				color: $grayLight;
+			}
+
+			&:hover {
+				//position: absolute;
+				//height: auto;
+				//z-index: 1;
+				background-color: $grayBackLight;
+
+				.fa {
+					color: $grayDark;
+				}
+				//.name {
+				//	height: auto;
+				//	white-space: normal;
+				//}
+			}
+		}
+	}
+}
+
+//####################################################################################################
+// auiPortlet & naviPortlet
+//----------------------------------------------------------------------------------------------------
+.auiPortlet, .naviPortlet {
+	@extend .border-box;
+	.portletHead, .portletBody, .portletFoot {
+		@extend .border-box;
+		.inner {
+			@extend .clearfix;
+			@extend .border-box;
+		}
+	}
+	.portletHead {
+		position: relative;
+		height: 35px;
+		.inner {
+		}
+		.handle {
+			//cursor: pointer;
+		}
+	}
+	.title {
+		float: left;
+		white-space:nowrap;
+		a {
+			color: $textColor;
+		}
+		.fa {
+			width: 20px;
+			margin-right: 5px;
+			text-align: center;
+		}
+	}
+	.tools {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		> div {
+			float:left;
+			white-space:nowrap;
+			> a {
+				display: block;
+				line-height: 34px;
+				//padding:0 5px;
+				text-align: center;
+				color: $textColor;
+				&:hover {
+					.fa {
+						color: $grayDark;
+					}
+				}
+			}
+		}
+		.active {
+			.fa {
+				color: $textColor;
+			}
+		}
+	}
+	.portletBody {
+		@extend .scrollDecoration;
+		overflow: auto;
+
+		.inner {
+			padding: 10px;
+		}
+	}
+	.portletFoot {
+		height: 40px;
+		overflow: hidden;
+		border-top: solid 1px $grayBorderLight;
+		.inner {
+			padding: 8px;
+		}
+		a {
+			height: 24px;
+			line-height: 24px;
+		}
+	}
+}
+.auiPortlet {
+	@extend .bRadiusM;
+	//margin: 10px 5px;
+	margin: 10px;
+	//border: solid 1px $grayBorder;
+	background-color: $white;
+	.portletHead {
+		border-bottom: solid 1px $grayBorderLight;
+		.inner {
+			//height: 35px;
+			padding: 0 10px;
+		}
+	}
+	.title {
+		line-height: 34px;
+		a {
+			color: $textColor;
+		}
+	}
+	.tools {
+		> div {
+			> a {
+				min-width: 30px;
+				line-height: 34px;
+			}
+		}
+		.dropdown {
+			margin-right: -1px;
+			@include border-top-left-radius(0);
+			@include border-top-right-radius(0);
+		}
+	}
+}
+
+.naviPortlet {
+	//margin: 10px 0;
+	margin-bottom: 10px;
+	//border-bottom: solid 1px $grayBorderLight;
+	.portletHead {
+		//height: 25px;
+		.inner {
+			//height: 35px;
+			//padding: 0 10px;
+		}
+	}
+	.title {
+		line-height: 35px;
+		a {
+			color: $textColor;
+		}
+	}
+	.tools {
+		> div {
+			> a {
+				line-height: 35px;
+			}
+		}
+	}
+}
+
+//####################################################################################################
+// alert
+//----------------------------------------------------------------------------------------------------
+.alert {
+	margin: 10px 5px;
+	padding: 10px;
+	background-color: $grayBack;
+	@extend .bRadiusM;
+
+	.alertTool {
+		float: right;
+
+		a {
+			i {
+				@include inline-block;
+				text-decoration: none;
+				text-align: center;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+			}
+		}
+	}
+	.alertHead {
+		border-bottom: solid 1px $grayBorder;
+		padding-bottom:9px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		line-height: 20px;
+	}
+}
+#auiContents > .alert {
+	margin: 10px 5px 0;
+}
+
+//####################################################################################################
+// auiTopics
+//----------------------------------------------------------------------------------------------------
+.auiTopics {
+	//@extend .clearfix;
+	margin: 10px 0;
+	border-bottom: solid 1px $grayBorderLight;
+
+	.head {
+		@extend .clearfix;
+		li {
+			float: left;
+			width: 50%;
+			span {
+				display: block;
+				line-height: 30px;
+				padding: 0 10px;
+				text-align: center;
+				background-color: $grayBackLight;
+				border-top: solid 1px $grayBackLight;
+				border-bottom: solid 1px $grayBorder;
+				cursor: pointer;
+				&:hover {
+					text-decoration: none;
+					background-color: $grayBack;
+				}
+			}
+			&.today span {
+				@include border-top-left-radius(3px);
+			}
+			&.tomorrow span {
+				@include border-top-right-radius(3px);
+			}
+			&.active span {
+				border: solid 1px $grayBorder;
+				border-bottom-color: $white;
+				background-color: $white;
+			}
+		}
+	}
+	.body{
+		//@extend .bRadiusM;
+		//padding: 5px 10px;
+		//border: solid 1px $grayBorder;
+		//border-top: none;
+		//@include border-top-radius(0);
+		
+		h2 {
+		}
+		li {
+			margin: 5px 0;
+
+			> a {
+				display: block;
+				padding: 5px 10px;
+				&:hover {
+					text-decoration: none;
+					background-color: $grayBackLight;
+				}
+			}
+		}
+	}
+}
+
+//####################################################################################################
+// searchBar
+//----------------------------------------------------------------------------------------------------
+.searchBar {
+	@extend .bRadiusM;
+	position: relative;
+	//padding: 10px;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	&:hover {
+		border: solid 1px $gray;
+	}
+	input[type=text], .submit {
+		//height: 20px;
+		border: none;
+		vertical-align: middle;
+	}
+	.text {
+		@extend .border-box;
+		display: inline-block;
+		width: 100%;
+		padding: 0 33px 0 3px;
+		input {
+			width: 100%;
+		}
+	}
+	.submit {
+		position: absolute;
+		right: 0;
+		top: 0;
+		//height: $headerHeight - 20 - 2;
+		margin: 0;
+		padding: 0;
+		background: none;
+		filter: none;
+		//cursor: pointer;
+		border-left: solid 1px $grayBorderLight;
+		@include border-left-radius(0);
+
+		.fa {
+			display: block;
+			width: 30px;
+			color: $gray;
+		}
+
+		&:hover {
+			background-color: $grayBackLight;
+			.fa {
+				color: $textColor;
+			}
+		}
+	}
+}
+
+//####################################################################################################
+// popup
+//----------------------------------------------------------------------------------------------------
+.ui-dialog {
+	@extend .border-box;
+	@extend .bRadiusM;
+	@extend .popupShadow;
+	display: none;
+	position: fixed;
+	z-index: 10;
+	outline: none;
+	background-color: $white;
+	border: solid 1px $grayBorderDark;
+}
+.ui-dialog-titlebar {
+	border-bottom: solid 1px $grayBorder;
+	button {
+		float: right;
+		background-color: transparent;
+		background-image: none;
+		border: none;
+		width: 50px;
+		height: 45px;
+		line-height: 45px;
+		padding: 0;
+		&:hover, &:active, &:focus {
+			background-color: transparent;
+			background-image: none;
+			border: none;
+			@include box-shadow(none !important);
+		}
+		&:before {
+			display: block;
+			font-family: fontawesome;
+			content: "\f00d";
+			font-size: 14px;
+			color: $gray;
+		}
+		&:hover {
+			&:before {
+				color: $textColor;
+			}
+		}
+		.ui-button-text {
+			display: none;
+		}
+	}
+}
+.ui-dialog-title {
+	line-height: 45px;
+	padding: 0 10px;
+	font-weight: bold;
+}
+.ui-dialog-content {
+	@extend .clearfix;
+	padding: 5px 10px;
+	//width: 800px;
+}
+.ui-dialog-buttonpane {
+	@extend .clearfix;
+	border-top: solid 1px $grayBorder;
+	padding: 10px;
+	.ui-dialog-buttonset {
+		float: right;
+		button {
+			margin-left: 5px;
+		}
+	}
+}
+
+//.auiTip {
+//	@extend .auiPortlet;
+//	@include box-shadow(0 1px 4px rgba(#000,.1));
+//	margin: 0;
+//}
+
+.ui-widget-overlay,
+#modalLayer {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: rgba(#000, .1);
+	z-index: 9;
+}
+
+//####################################################################################################
+// auiSummaryMeta
+//----------------------------------------------------------------------------------------------------
+.auiSummaryMeta {
+	@extend .clearfix;
+	margin: 10px 0;
+
+	&:nth-last-of-type(1) {
+		margin-bottom: 0;
+	}
+}
+
+//####################################################################################################
+// auiRowTable
+//----------------------------------------------------------------------------------------------------
+.auiRowTable {
+	//margin: 10px 0;
+	th, td {
+		padding: 8px 5px;
+		border-bottom: solid 1px $grayBorderLight;
+		white-space: nowrap;
+	}
+	td > div {
+		width: 100%;
+	}
+	a {
+		@extend .ellipsis;
+		display: block;
+		width: 100%;
+	}
+}
+
+//####################################################################################################
+// inputTable
+//----------------------------------------------------------------------------------------------------
+.inputTable {
+	width: 100%;
+	th, td {
+		border-top: solid 1px $grayBorderLight;
+		padding: 5px 0;
+	}
+	th {
+		text-align: left;
+		padding-right: 10px;
+		font-weight: normal;
+	}
+	tr:first-child {
+		th, td {
+			border-top: none;
+		}
+	}
+}
+
+//####################################################################################################
+// placeholder
+//----------------------------------------------------------------------------------------------------
+.placeholder {
+	position: absolute;
+	color: $grayLight;
+}
+input[type=text] + .placeholder {
+	top: 6px;
+	left: 4px;
+}
+textarea + .placeholder {
+	top: 5px;
+	left: 4px;
+}
+
+//####################################################################################################
+// auiFooter
+//----------------------------------------------------------------------------------------------------
+#auiFooter {
+	.inner {
+		height: 25px;
+		font-size: $fontSizeMini;
+		color: $gray;
+		a {
+			color: $gray;
+			&:hover {
+				text-decoration: none;
+				color: $textColor;
+				.fa {
+					color: $textColor;
+				}
+			}
+		}
+	}
+	.menu {
+		li {
+			display: inline-block;
+			margin: 0 10px;
+		}
+		.fa {
+			vertical-align: middle;
+			margin-right: 3px;
+		}
+	}
+}

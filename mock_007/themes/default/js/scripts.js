@@ -156,4 +156,60 @@ $(function () {
 	$(".jq-alert").click(function(){
 		alert($(this).attr("title"));
 	});
+
+	// Fixed Launcher
+	$(function(){
+		var launcher    = $("#auiLauncher");
+		var launcherTop = launcher.offset().top;
+		$(window).scroll(function () {
+			if($(window).scrollTop() >= launcherTop) {
+				launcher.css("position","fixed");
+				launcher.css("top","0");
+			} else {
+				launcher.css("position","");
+				launcher.css("top","");
+			}
+		});
+	});
+
+	// Toggle Launcher
+	$(".toggleLauncher").click(function(){
+		$("#auiLauncher").toggleClass("narrow");
+		$("#auiContents").toggleClass("narrow");
+		$(this).children(".fa").toggleClass("rotate180");
+	});
+
+	// Timecard Clock
+	/*
+	$.extend({
+		clock: function clock(target){
+			var d = new Date();
+			var month = d.getMonth() + 1;
+			var day = d.getDate();
+			var week = d.getDay();
+			switch (week){
+				case 0: week = "日"; break;
+				case 1: week = "月"; break;
+				case 2: week = "火"; break;
+				case 3: week = "水"; break;
+				case 4: week = "木"; break;
+				case 5: week = "金"; break;
+				case 6: week = "土"; break;
+			}
+			var h = d.getHours();
+			var m = d.getMinutes();
+			var s = d.getSeconds();
+			h = h<10?"0"+h:h;
+			m = m<10?"0"+m:m;
+			var time_str = month + "月" + day + "日（" + week + "）" + h + ":" + m;
+			target.html(time_str);
+			setTimeout(function(){
+				clock(target)
+			},1000);
+		}
+	});
+	$(function(){
+		$.clock($("#tcClock"));
+	});
+	*/
 });

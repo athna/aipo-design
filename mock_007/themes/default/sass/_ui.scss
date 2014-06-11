@@ -316,7 +316,8 @@ $headerHeight: 50px;
 .hdTools {
 	border-left: solid 1px $grayLighter;
 
-	li a {
+	> li > a {
+		width: 130px;
 	}
 	.name {
 		margin: 0 5px;
@@ -454,12 +455,94 @@ $headerHeight: 50px;
 
 
 //####################################################################################################
+// auiLauncher
+//----------------------------------------------------------------------------------------------------
+$lcWidth: 50px;
+$lcHeight: 40px;
+#auiLauncher {
+	@extend .clearfix;
+	@extend .transitionS;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	//float: left;
+	width: $lcWidth * 3 - 10;
+	padding: 10px;
+
+	.start {
+		position: relative;
+		> a {
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+	}
+	&.narrow {
+		width: $lcWidth - 10;
+		.name {
+			display: none;
+		}
+	}
+
+	ul.launcher,
+	ul.setting {
+		position: relative;
+		li {
+			position: relative;
+			height: $lcHeight;
+			a {
+				@extend .clearfix;
+				@extend .border-box;
+				@extend .ellipsis;
+				display: block;
+				line-height: $lcHeight;
+				color: $gray;
+				.fa {
+					@extend .transitionS;
+					color: $gray;
+				}
+				&:hover {
+					color: $textColor;
+					text-decoration: none;
+					.fa {
+						color: $textColor;
+					}
+				}
+			}
+			.icon, .fa {
+				display: block;
+				float: left;
+				width: $lcWidth - 10;
+				line-height: $lcHeight;
+				text-align: center;
+			}
+		}
+	}
+	ul.setting {
+		border-top: solid 1px $grayBorder;
+	}
+}
+
+//####################################################################################################
 // auiContents
 //----------------------------------------------------------------------------------------------------
+#auiContentsWrapper {
+	@extend .clearfix;
+	position: relative;
+}
 #auiContents {
 	@extend .clearfix;
 	//margin: 0 5px;
 
+	> .inner {
+		@extend .clearfix;
+		@extend .transitionS;
+		margin-left: $lcWidth * 3;
+	}
+	&.narrow > .inner {
+		margin-left: $lcWidth;
+	}
 	td {
 		vertical-align: top;
 	}
@@ -468,14 +551,14 @@ $headerHeight: 50px;
 //####################################################################################################
 // auiNavigation
 //----------------------------------------------------------------------------------------------------
-$auiNaviWidth: 300px;
+$auiNaviWidth: 290px;
 #auiNavigation {
 	@extend .clearfix;
 	@extend .border-box;
 	@extend .scrollDecoration;
 	float: left;
 	width: $auiNaviWidth;
-	padding: 10px;
+	padding: 10px 20px 10px 10px;
 	//padding: 0 15px;
 	//border-left: solid 1px $grayBorder;
 	overflow: auto;
@@ -572,13 +655,13 @@ $auiNaviWidth: 300px;
 	float: left;
 	width: 100%;
 	height: 100%;
-	margin-left: -$auiNaviWidth;
+	margin-right: -$auiNaviWidth;
 	//padding: 0 5px;
 	//background-color: $white;
 
 	> .inner {
 		@extend .clearfix;
-		margin-left: $auiNaviWidth;
+		margin-right: $auiNaviWidth;
 	}
 }
 .appsRow {
@@ -654,100 +737,6 @@ $auiNaviWidth: 300px;
 }
 
 //####################################################################################################
-// auiLauncher
-//----------------------------------------------------------------------------------------------------
-$appWidth: 95px;
-$appNum: 18;
-#auiLauncher {
-	@extend .clearfix;
-	@extend .bRadiusM;
-	@extend .popupShadow;
-	display: none;
-	position: absolute;
-	z-index: 1;
-	top: 85px;
-	left: -1px;
-	width: 100%;
-	max-width: $appWidth * ($appNum / 2);
-	//margin: 0 20px;
-	//display: none;
-	overflow: hidden;
-	background-color: $white;
-	border: solid 1px $grayBorder;
-	@include border-top-left-radius(0);
-	//@include opacity(0);
-	//@include transition(.2s .2s);
-
-	ul {
-		//padding: 0 8px 8px;
-		text-align: center;
-		@extend .clearfix;
-		@extend .border-box;
-	}
-	li {
-		display: block;
-		float: left;
-		//width: 95px;
-		//height: 62px;
-		//padding: 10px 5px 0;
-		@extend .border-box;
-
-		a {
-			position: relative;
-			display: block;
-			text-decoration: none;
-			width: $appWidth;
-			//height: 52px;
-			background-color: $white;
-			//border: solid 1px $grayBorderLight;
-			@extend .bRadiusM;
-			@extend .border-box;
-
-			.icon {
-				display: block;
-				//height: 30px;
-				//padding: 3px;
-				height: 35px;
-				padding-top: 10px;
-				@extend .border-box;
-			}
-			.name {
-				font-size: 11px;
-				display: block;
-				width: 83px;
-				//height: 20px;
-				line-height: 20px;
-				//padding: 0 5px;
-				padding: 0 5px 5px;
-				overflow: hidden;
-				white-space: nowrap;
-				@extend .border-box;
-				@extend .ellipsis;
-			}
-			.fa {
-				font-size: 24px;
-				color: $grayLight;
-			}
-
-			&:hover {
-				//position: absolute;
-				//height: auto;
-				//z-index: 1;
-				background-color: $grayBackLight;
-
-				.fa {
-					color: $grayDark;
-				}
-				//.name {
-				//	height: auto;
-				//	white-space: normal;
-				//}
-			}
-		}
-	}
-}
-
-//####################################################################################################
 // auiPortlet & naviPortlet
 //----------------------------------------------------------------------------------------------------
 .auiPortlet, .naviPortlet {
@@ -781,10 +770,10 @@ $appNum: 18;
 		}
 	}
 	.tools {
+		@extend .transitionS;
 		position: absolute;
 		top: 0;
 		right: 0;
-		@include transition(.2s);
 		@include opacity(0);
 
 		> div {
@@ -938,8 +927,8 @@ $appNum: 18;
 //----------------------------------------------------------------------------------------------------
 .auiTopics {
 	//@extend .clearfix;
-	margin: 10px 0;
-	border-bottom: solid 1px $grayBorderLight;
+	margin: 10px 0 0 0;
+	//border-bottom: solid 1px $grayBorderLight;
 
 	.head {
 		@extend .clearfix;
@@ -948,7 +937,7 @@ $appNum: 18;
 			width: 50%;
 			span {
 				display: block;
-				line-height: 30px;
+				line-height: 25px;
 				padding: 0 10px;
 				text-align: center;
 				background-color: $grayBackLight;
@@ -960,16 +949,16 @@ $appNum: 18;
 					background-color: $grayBack;
 				}
 			}
-			&.today span {
-				@include border-top-left-radius(3px);
-			}
-			&.tomorrow span {
-				@include border-top-right-radius(3px);
-			}
 			&.active span {
 				border: solid 1px $grayBorder;
 				border-bottom-color: $white;
 				background-color: $white;
+			}
+			&.today span {
+				border-left: none;
+			}
+			&.tomorrow span {
+				border-right: none;
 			}
 		}
 	}
@@ -981,13 +970,17 @@ $appNum: 18;
 		//@include border-top-radius(0);
 		
 		h2 {
+			font-size: $baseFontSize;
+			font-weight: normal;
+			margin-top: 5px;
 		}
 		li {
-			margin: 5px 0;
+			//margin: 5px 0;
 
 			> a {
 				display: block;
 				padding: 5px 10px;
+				color: $textColor;
 				&:hover {
 					text-decoration: none;
 					background-color: $grayBackLight;
@@ -1064,17 +1057,24 @@ $appNum: 18;
 	outline: none;
 	background-color: $white;
 	border: solid 1px $grayBorderDark;
+
+	div {
+		@extend .border-box;
+	}
 }
 .ui-dialog-titlebar {
 	border-bottom: solid 1px $grayBorder;
+	height: 40px;
+	line-height: 40px;
+
 	button {
 		float: right;
 		background-color: transparent;
 		background-image: none;
 		border: none;
-		width: 50px;
-		height: 45px;
-		line-height: 45px;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
 		padding: 0;
 		&:hover, &:active, &:focus {
 			background-color: transparent;
@@ -1100,7 +1100,6 @@ $appNum: 18;
 	}
 }
 .ui-dialog-title {
-	line-height: 45px;
 	padding: 0 10px;
 	font-weight: bold;
 }

@@ -19,10 +19,18 @@
 <!-- #auiHeader -->
 <div id="auiHeader">
 	<div class="hdLogo"><a href="../mypage.html"><img src="../themes/default/img/logo.png" width="100" height="30" alt="Aipo.com"/></a></div>
+	<div class="hdPages">
+		<ul>
+			<li class="current"><a href="javascript:void(0)" class="name">マイページ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定"><i class="fa fa-cog"></i></a></li>
+			<li><a href="javascript:void(0)" class="name">連絡用</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定"><i class="fa fa-cog"></i></a></li>
+			<li><a href="javascript:void(0)" class="name">その他アプリ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定"><i class="fa fa-cog"></i></a></li>
+			<li><a href="javascript:void(0)" class="plus" title="ページを追加"><i class="fa fa-plus"></i></a></li>
+		</ul>
+	</div>
 	<div class="hdNavi">
 		<div class="hdSearch">
 			<form class="">
-				<span class="searchCategory">
+				<!--span class="searchCategory">
 					<div class="name">すべて<i class="fa fa-caret-down"></i></div>
 					<div class="dropdown" id="dd_searchcategory">
 						<ul class="dropdown_menu">
@@ -34,8 +42,8 @@
 							<li><a href="#">アドレス帳</a></li>
 						</ul>
 					</div>
-				</span>
-				<input type="text" placeholder="検索" class="focusToggle" jq-target="preSearch"/>
+				</span-->
+				<input type="text" class="focusToggle placeholderCheck" jq-target="preSearch" jq-placeholder="検索"/>
 				<button class="submit" title="検索"><i class="fa fa-search"></i></button>
 			</form>
 			<div class="dropdown" id="preSearch">
@@ -76,7 +84,7 @@
 		</div>
 		<ul class="hdCommunications">
 			<li>
-				<a href="javascript:void(0)"><span class="count valid">99+</span><span class="label">メッセージ</span></a>
+				<a href="javascript:void(0)" class="valid"><i class="fa fa-comments"></i><span class="count">99+</span></a>
 				<div class="dropdown" id="dd_message">
 					<div class="title">メッセージ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
 					<ul class="dropdown_list divider">
@@ -110,7 +118,7 @@
 				</div>
 			</li>
 			<li>
-				<a href="javascript:void(0)"><span class="count valid">10</span><span class="label">お知らせ</span></a>
+				<a href="javascript:void(0)" class="valid"><i class="fa fa-bell"></i><span class="count">9</span></a>
 				<div class="dropdown" id="dd_information">
 					<div class="title">あなた宛てのお知らせ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
 					<ul class="dropdown_list divider">
@@ -144,7 +152,7 @@
 				</div>
 			</li>
 			<li>
-				<a href="javascript:void(0)"><span class="count">0</span><span class="label">サポート</span></a>
+				<a href="javascript:void(0)"><i class="fa fa-info-circle"></i><span class="count">0</span></a>
 				<div class="dropdown" id="dd_support">
 					<div class="title">Aipoからのお知らせ<button class="auiButtonSmall floatRight">すべて既読に</button></div>
 					<ul class="contentList divider">
@@ -174,12 +182,6 @@
 						</div>
 					</div>
 					<ul class="dropdown_menu">
-						<li><a href="#">管理ガイド</a></li>
-						<li><a href="#">ヘルプ</a></li>
-						<li><a href="#">facebook</a></li>
-						<li><a href="#">twitter</a></li>
-						<li><a href="#">お問い合わせ</a></li>
-						<li class="divider"></li>
 					</ul>
 				</div>
 			</li>
@@ -193,6 +195,12 @@
 						<li><a href="#">管理設定</a></li>
 						<li class="divider"></li>
 						<li><a href="#">ログアウト</a></li>
+						<li class="divider"></li>
+						<li><a href="#">管理ガイド</a></li>
+						<li><a href="#">ヘルプ</a></li>
+						<li><a href="#">facebook</a></li>
+						<li><a href="#">twitter</a></li>
+						<li><a href="#">お問い合わせ</a></li>
 					</ul>
 				</div>
 			</li>
@@ -202,458 +210,361 @@
 <!-- /#auiHeader -->
 
 <!-- #auiContents -->
-<div id="auiContents">
-
-	<div id="auiApps">
-		<div class="inner">
-
-			<div class="auiTabs">
-				<ul>
-					<li class="apps">
-						<a href="javascript:void(0)">アプリ&nbsp;<i class="fa fa-caret-down"></i></a>
-						<!-- #auiLauncher -->
-						<div id="auiLauncher">
-							<ul>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-comment"></i></span><span class="name">タイムライン</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-calendar"></i></span><span class="name">スケジュール</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-clock-o"></i></span><span class="name">タイムカード</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-volume-up"></i></span><span class="name">更新情報</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-book"></i></span><span class="name">ブログ</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-photo"></i></span><span class="name">掲示板</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-list-ul"></i></span><span class="name">ToDo</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-folder-open"></i></span><span class="name">フォルダ</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-inbox"></i></span><span class="name">ワークフロー</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-phone"></i></span><span class="name">伝言メモ</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-file-text"></i></span><span class="name">報告書</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-envelope"></i></span><span class="name">Webメール</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-compass"></i></span><span class="name">アドレス帳</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-group"></i></span><span class="name">ユーザー名簿</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-pencil"></i></span><span class="name">メモ帳</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-hdd-o"></i></span><span class="name">Webデータベース</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-pencil-square"></i></span><span class="name">Wiki</span></a></li>
-								<li><a href="javascript:void(0)"><span class="icon"><i class="fa fa-pencil-square"></i></span><span class="name">長い機能名長い機能名長い機能名</span></a></li>
-							</ul>
-						</div>
-						<!-- /#auiLauncher -->
-					</li>
-					<li class="selected">
-						<a href="javascript:void(0)" class="name">マイページ</a>
-						<a href="javascript:void(0)" class="setting toggle" jq-target="" title="設定"><i class="fa fa-cog"></i></a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" class="name">連絡用</a>
-						<a href="javascript:void(0)" class="setting toggle" jq-target="" title="設定"><i class="fa fa-cog"></i></a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" class="name">その他アプリ</a>
-						<a href="javascript:void(0)" class="setting toggle" jq-target="" title="設定"><i class="fa fa-cog"></i></a>
-					</li>
-					<li class="add">
-						<a href="javascript:void(0)" title="ページを追加"><i class="fa fa-plus"></i></a>
-					</li>
+<div id="auiContentsWrapper">
+	<div id="auiLauncher" class="narrow">
+		<div class="start">
+			<a class="auiButtonAction toggle" jq-target="startMenu" title="はじめる"><i class="fa fa-plus"></i><span class="name ml5">はじめる</span></a>
+			<div class="dropdown" id="startMenu">
+				<ul class="dropdown_menu">
+					<li><a href="#"><i class="fa fa-calendar mr5"></i>スケジュール</a></li>
+					<li><a href="#"><i class="fa fa-image mr5"></i>掲示板</a></li>
+					<li><a href="#"><i class="fa fa-envelope-o mr5"></i>Webメール</a></li>
+					<li><a href="#"><i class="fa fa-phone mr5"></i>伝言メモ</a></li>
+					<li><a href="#"><i class="fa fa-list-ul mr5"></i>ToDo</a></li>
+					<li class="divider"></li>
+					<li><a href="#">ランチャーの表示順に応じて作成リンクを表示</a></li>
 				</ul>
 			</div>
+		</div>
+		<ul class="launcher">
+			<li><a href="javascript:void(0)" title="スケジュール"><i class="fa fa-calendar"></i><span class="name">スケジュール</span></a></li>
+			<li><a href="javascript:void(0)" title="Webメール"><i class="fa fa-envelope-o"></i><span class="name">Webメール</span></a></li>
+			<li><a href="javascript:void(0)" title="掲示板"><i class="fa fa-image"></i><span class="name">掲示板</span></a></li>
+			<li><a href="javascript:void(0)" title="ブログ"><i class="fa fa-book"></i><span class="name">ブログ</span></a></li>
+			<li><a href="javascript:void(0)" title="伝言メモ"><i class="fa fa-phone"></i><span class="name">伝言メモ</span></a></li>
+			<li><a href="javascript:void(0)" title="ToDo"><i class="fa fa-list-ul"></i><span class="name">ToDo</span></a></li>
+			<li><a href="javascript:void(0)" title="フォルダ"><i class="fa fa-folder-open"></i><span class="name">フォルダ</span></a></li>
+			<li><a href="javascript:void(0)" title="報告書"><i class="fa fa-file-text-o"></i><span class="name">報告書</span></a></li>
+			<li><a href="javascript:void(0)" title="ワークフロー"><i class="fa fa-inbox"></i><span class="name">ワークフロー</span></a></li>
+		</ul>
+		<ul class="setting">
+			<li><a href="javascript:void(0)" title="ランチャー設定" class="jq-alert"><i class="fa fa-cogs"></i><span class="name">ランチャー設定</span></a></li>
+			<li><a href="javascript:void(0)" title="" class="toggleLauncher"><i class="fa fa-angle-right"></i><span class="name">たたむ</span></a></li>
+		</ul>
+	</div>
 
-			<noscript>
-				<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
-			</noscript>
+	<div id="auiContents" class="narrow">
+		<div class="inner">
+			<div id="auiApps">
+				<div class="inner">
 
-			<!--div class="alert bgGray" id="alertInfo">
-				<div class="alertTool"><a href="javascript:void(0)" class="fadeToggle" jq-target="alertInfo"><i class="fa fa-times"></i></a></div>
-				<div class="alertHead">
-				重要なお知らせ
-				</div>
-				<div class="alertBody">
-					<p>下記日程にてAipo.comのメンテナンスを行わせて頂きます。</p>
-					<p class="mt10 mb10"><strong>日程：</strong> 2014年6月10日　19:00～20:00</p>
-					<p>メンテナンス中はAipo.comをご利用いただくことができません。<br>大変ご迷惑をおかけいたしますがご了承のほど何卒宜しくお願い申し上げます。</p>
-				</div>
-			</div-->
+					<noscript>
+						<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
+					</noscript>
 
-			<div class="appsRow">
+					<!--div class="alert bgGray" id="alertInfo">
+						<div class="alertTool"><a href="javascript:void(0)" class="fadeToggle" jq-target="alertInfo"><i class="fa fa-times"></i></a></div>
+						<div class="alertHead">
+						重要なお知らせ
+						</div>
+						<div class="alertBody">
+							<p>下記日程にてAipo.comのメンテナンスを行わせて頂きます。</p>
+							<p class="mt10 mb10"><strong>日程：</strong> 2014年6月10日　19:00～20:00</p>
+							<p>メンテナンス中はAipo.comをご利用いただくことができません。<br>大変ご迷惑をおかけいたしますがご了承のほど何卒宜しくお願い申し上げます。</p>
+						</div>
+					</div-->
 
-				<div class="appsCol" style="width: 100%;">
+					<div class="appsRow">
 
-					<!-- auiPortlet -->
-					<div class="auiPortlet halfRow">
-						<div class="portletHead">
-							<div class="inner handle">
-								<div class="title"><i class="fa fa-list-ul"></i><a href="#">ToDo</a></div>
-								<div class="tools">
-									<div class="action"><a href="javascript:void(0)" class="dialogOpen" jq-target="dialog1" title="ToDo追加"><i class="fa fa-plus"></i></a></div>
-									<div class="setting">
-										<a href="javascript:void(0);" title="設定"><i class="fa fa-cog"></i></a>
-										<div class="dropdown" id="menubar_test1">
-											<ul class="dropdown_menu">
-												<li><a href="#">設定</a></li>
-												<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+						<div class="appsCol" style="width: 100%;">
+
+							<!-- auiPortlet -->
+							<div class="auiPortlet">
+								<div class="portletHead">
+									<div class="inner handle">
+										<div class="title"><a href="todo/index.html">ToDo</a></div>
+										<div class="tools">
+											<div class="action"><a href="javascript:void(0)" class="dialogOpen" jq-target="dialog1" title="ToDo追加"><i class="fa fa-plus"></i></a></div>
+											<div class="setting">
+												<a href="javascript:void(0);" title="設定"><i class="fa fa-cog"></i></a>
+												<div class="dropdown" id="menubar_test1">
+													<ul class="dropdown_menu">
+														<li><a href="#">設定</a></li>
+														<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- body -->
+								<div class="portletBody halfRow">
+									<div class="inner">
+										<ul class="clickableList">
+											<li>
+												<div class="function"><a href="javascript:void(0)" class="jq-alert" title="このToDoを完了"><i class="fa fa-check-circle-o fs16"></i></a></div>
+												<a href="javascript:void(0)">
+													<span class="title">ヨドバシデンキ山田様へ電話</span>
+													<ul class="meta">
+														<li>5月20日-5月22日</li><li><img src="../themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s" /> 木村 一郎</li>
+													</ul>
+												</a>
+											</li>
+											<li>
+												<div class="function"><a href="javascript:void(0)" class="jq-alert" title="このToDoを完了"><i class="fa fa-check-circle-o fs16"></i></a></div>
+												<a href="javascript:void(0)">
+													<span class="title">山川商事 磯野様へ電話</span>
+													<ul class="meta">
+														<li>5月20日-5月22日</li><li><img src="../themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s" /> 木村 一郎</li>
+													</ul>
+												</a>
+											</li>
+											<li>
+												<div class="function"><a href="javascript:void(0)" class="jq-alert" title="このToDoを完了"><i class="fa fa-check-circle-o fs16"></i></a></div>
+												<a href="javascript:void(0)">
+													<span class="title">海山商事 河豚田様へ電話</span>
+													<ul class="meta">
+														<li>5月20日-5月22日</li><li><img src="../themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s" /> 木村 一郎</li>
+													</ul>
+												</a>
+											</li>
+											<li>
+												<div class="function"><a href="javascript:void(0)" class="jq-alert" title="このToDoを完了"><i class="fa fa-check-circle-o fs16"></i></a></div>
+												<a href="javascript:void(0)">
+													<span class="title">企画書提出</span>
+													<ul class="meta">
+														<li>5月20日-5月22日</li><li><img src="../themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s" /> 木村 一郎</li>
+													</ul>
+												</a>
+											</li>
+											<li>
+												<div class="function"><a href="javascript:void(0)" class="jq-alert" title="このToDoを完了"><i class="fa fa-check-circle-o fs16"></i></a></div>
+												<a href="javascript:void(0)">
+													<span class="title">稟議申請</span>
+													<ul class="meta">
+														<li>5月20日-5月22日</li><li><img src="../themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s" /> 木村 一郎</li>
+													</ul>
+												</a>
+											</li>
+											<li>
+												<div class="function"><a href="javascript:void(0)" class="jq-alert" title="このToDoを完了"><i class="fa fa-check-circle-o fs16"></i></a></div>
+												<a href="javascript:void(0)">
+													<span class="title">タイトルが長い場合タイトルが長い場合タイトルが長い場合</span>
+													<ul class="meta">
+														<li>5月20日-5月22日</li><li><img src="../themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s" /> 木村 一郎</li>
+													</ul>
+												</a>
+											</li>
+										</ul>
+										<!--
+										<table class="auiRowTable wide">
+											<colgroup style="width: 20px;"></colgroup>
+											<colgroup></colgroup>
+											<colgroup style="width:8em;"></colgroup>
+											<colgroup style="width:8em;"></colgroup>
+											<colgroup style="width:10em;"></colgroup>
+											<tbody>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">ヨドバシデンキ山田様へ電話</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">山川商事 磯野様へ電話</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">海山商事 河豚田様へ電話</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">企画書提出</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">稟議申請</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">ヨドバシデンキ山田様へ電話</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">山川商事 磯野様へ電話</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">海山商事 河豚田様へ電話</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">企画書提出</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											<tr>
+												<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
+												<td>
+													<div><a href="javascript:void(0);" onclick="">稟議申請</a></div>
+												</td>
+												<td>
+													<div>タスク</div>
+												</td>
+												<td>
+													<div><img src="themes/default/img/avatar_default.png" width="16" height="16" class="avatar_s mr5"/>木村 一郎</div>
+												</td>
+												<td class="right" nowrap="nowrap">
+													<div>5月20日 - 5月22日</div>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+										-->
+									</div>
+								</div>
+								<!-- /body -->
+								<!-- foot -->
+								<div class="portletFoot">
+									<div class="inner right">
+										<div class="selectCount">1 - 5 / 7</div>
+										<div class="auiSelectButton inline-block">
+											<ul class="floatLeft">
+												<li><a href="javascript:void(0);" class="first" title="前へ"><i class="fa fa-caret-left"></i></a></li>
+												<li><a href="javascript:void(0);" class="last" title="次へ"><i class="fa fa-caret-right"></i></a></li>
 											</ul>
 										</div>
 									</div>
 								</div>
+								<!-- /foot -->
 							</div>
+							<!-- /auiPortlet -->
+
 						</div>
-						<!-- body -->
-						<div class="portletBody halfRow">
-							<div class="inner">
-								<table class="auiRowTable wide">
-									<colgroup style="width: 20px;"></colgroup>
-									<colgroup></colgroup>
-									<colgroup style="width:8em;"></colgroup>
-									<colgroup style="width:8em;"></colgroup>
-									<colgroup style="width:10em;"></colgroup>
-									<tbody>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">ヨドバシデンキ山田様へ電話</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">山川商事 磯野様へ電話</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">海山商事 河豚田様へ電話</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">企画書提出</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">稟議申請</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">ヨドバシデンキ山田様へ電話</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">山川商事 磯野様へ電話</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">海山商事 河豚田様へ電話</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">企画書提出</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									<tr>
-										<td><a href="javascript:void(0)" title="完了する"><i class="fa fa-check-circle-o"></i></a></td>
-										<td>
-											<div><a href="javascript:void(0);" onclick="">稟議申請</a></div>
-										</td>
-										<td>
-											<div>タスク</div>
-										</td>
-										<td>
-											<div>木村 一郎</div>
-										</td>
-										<td class="right" nowrap="nowrap">
-											<div>5月20日 - 5月22日</div>
-										</td>
-									</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- /body -->
-						<!-- foot -->
-						<div class="portletFoot">
-							<div class="inner right">
-								<div class="selectCount">1 ～ 5 / 7</div>
-								<div class="auiSelectButton inline-block">
-									<ul class="floatLeft">
-										<li><a href="javascript:void(0);" class="first" title="前へ"><i class="fa fa-caret-left"></i></a></li>
-										<li><a href="javascript:void(0);" class="last" title="次へ"><i class="fa fa-caret-right"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /foot -->
+
 					</div>
-					<!-- /auiPortlet -->
-
 				</div>
-
 			</div>
-		</div>
-	</div>
 
-	<!-- #auiNavigation -->
-	<div id="auiNavigation">
-
-		<!-- launcher
-		<div class="launcher setHeight" jq-target="lcList">
-			<h2>アプリ</h2>
-			<ul id="lcList">
-				<li><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span class="name">スケジュール</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-clock-o"></i></span><span class="name">タイムカード</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-volume-up"></i></span><span class="name">更新情報</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-image"></i></span><span class="name">掲示板</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-phone"></i></span><span class="name">伝言メモ</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-list-ul"></i></span><span class="name">ToDo</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-folder-open"></i></span><span class="name">共有フォルダ</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-file-text-o"></i></span><span class="name">報告書</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-inbox"></i></span><span class="name">ワークフロー</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-book"></i></span><span class="name">ブログ</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-envelope-o"></i></span><span class="name">Webメール</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span class="name">アドレス帳</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-users"></i></span><span class="name">ユーザー名簿</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-hdd-o"></i></span><span class="name">Webデータベース</span></a></li>
-				<li><a href="#"><span class="icon"><i class="fa fa-pencil-square"></i></span><span class="name">Wiki</span></a></li>
-			</ul>
-		</div>
-		<!-- /launcher -->
-
-		<!--div class="auiTopics">
-			<ul class="head tab">
-				<li class="today active"><span>今日</span></li>
-				<li class="tomorrow"><span>明日</span></li>
-			</ul>
-			<ul class="body tabContent">
-				<li>
-					<a href="javascript:alert('スケジュール機能へ飛ぶ想定');">
-						<h2>2014年6月10日（火）</h2>
-						<p>次の予定は 17:00 の「<strong>定例会議</strong>」です。</p>
-						<p>本日はあと <strong>2件</strong> の予定があります。</p>
-					</a>
-				</li>
-				<li style="display:none;">
-					<a href="javascript:alert('スケジュール機能へ飛ぶ想定');">
-					<h2>2014年6月11日（水）</h2>
-						<p>最初の予定は 9:30 の「<strong>朝礼</strong>」です。</p>
-						<p>明日は <strong>5件</strong> の予定があります。</p>
-					</a>
-				</li>
-			</ul>
-		</div-->
+			<!-- #auiNavigation -->
+			<div id="auiNavigation">
 
 				<!-- naviPortlet -->
-		<div class="naviPortlet">
-			<div class="portletHead">
-				<div class="inner handle">
-					<div class="title"><i class="fa fa-comments"></i><a href="#">タイムライン</a></div>
-					<div class="tools">
-						<div class="setting">
-							<a href="javascript:void(0);" title="絞り込み"><i class="fa fa-search mr5"></i>すべて</a>
-							<div class="dropdown" id="menubar_test1">
-								<ul class="dropdown_menu">
-									<li class="active"><a href="javascript:void(0)">すべてのグループ</a></li>
-									<li><a href="javascript:void(0)">管理本部</a></li>
-									<li><a href="javascript:void(0)">開発本部</a></li>
-									<li><a href="javascript:void(0)">企画本部</a></li>
-								</ul>
+				<div class="naviPortlet">
+					<div class="portletHead">
+						<div class="inner handle">
+							<div class="title"><a href="#">タイムライン</a></div>
+							<div class="tools">
+								<div class="setting">
+									<a href="javascript:void(0);" title="絞り込み"><i class="fa fa-search mr5"></i>すべて</a>
+									<div class="dropdown" id="menubar_test1">
+										<ul class="dropdown_menu">
+											<li class="active"><a href="javascript:void(0)">すべてのグループ</a></li>
+											<li><a href="javascript:void(0)">管理本部</a></li>
+											<li><a href="javascript:void(0)">開発本部</a></li>
+											<li><a href="javascript:void(0)">企画本部</a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<!-- body -->
-			<div class="portletBody">
-				<div class="inner pa0">
-					<!-- .timeline_v2 -->
-					<div class="timeline_v2">
-						<!-- .post -->
-						<form class="timelinePost">
-							<div class="text"><textarea id="tlPostText" class="placeholderCheck" jq-placeholder="近況を共有しましょう。"></textarea></div>
-							<div class="attachment" id="tlAttachment" style="display:none;">
-								<div class="floatRight mt5 mr5"><a href="javascript:void(0)" class="toggle" jq-target="tlAttachment"><i class="fa fa-times"></i></a></div>
-								<div class="clipBoard">
-									<div class="clearfix">
-										<div class="clipImage"><img src="http://www.aipo.com/img/plus/future01_05.png" width="160" height="120"></div>
-										<div class="clipHead">
-											<div class="clipTitle"><a href="http://www.google.com" target="_blank">長いブログタイトルなどの場合はこうなる。長いブログタイトルなどの場合はこうなる。</a></div>
-											<div class="clipUrl"><a href="http://www.google.com" target="_blank">http://www.nagaiurl.com/example/example/example/example/</a></div>
-										</div>
-									</div>
-									<div class="clipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。…</div>
-								</div>
-							</div>
-							<div class="controls">
-								<div class="floatLeft">
-									<a href="javascript:void(0)" class="auiButton toggle" jq-target="tlAttachment">ファイルを添付</a>
-								</div>
-								<div class="floatRight">
-									<input type="button" class="auiButtonAction toggle" value="投稿する" jq-target="newMessage">
-								</div>
-							</div>
-						</form>
-						<!-- /.post -->
-						<div class="newMessage toggle" id="newMessage" jq-target="newMessage" style="display:none;"><a href="javascript:void(0)">新しい投稿があります</a></div>
-
-						<!-- .timelineContents -->
-						<div class="timelineContents">
-							<div id="content_***">
-
-								<!-- .message -->
-								<div id="message_***" class="message first">
-									<div class="head">
-										<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="木村 一郎" width="32" height="32" class="avatar_l"></div>
-										<div class="date">
-											<div class="name">木村 一郎</div>
-											<div class="time">20:52</div>
-										</div>
-									</div>
-
-									<div class="body">
-										<div> 画像を投稿した場合の拡張ブロックは「class="imgBlock"」とする。
-											<p class="more">...<br>
-												<a href="#">続きを読む</a></p>
-											<div class="imgBlock">
-												<a href="javascript:void(0)" class="popupToggle" jq-target=""><img src="http://www.aipo.com/img/plus/future01_05.png"></a>
-												<a href="javascript:void(0)" class="popupToggle" jq-target=""><img src="http://www.aipo.com/img/plus/future01_05.png"></a>
-											</div>
-										</div>
-									</div>
-									<div class="meta">
-										<form style="display:inline">
-											<input type="hidden" name="secid" value="">
-											<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
-										</form>
-										<a href="javascript:void(0)" onclick="">コメントする</a>
-									</div>
-									<div class="comments">
-										<div id="commentCaption_***" class="commentCaption"><i class="fa fa-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
-										<div id="like_***" class="commentCaption"><i class="fa fa-thumbs-o-up"></i> 2人が「いいね！」と言っています。</div>
-										<div id="message_***" class="message">
-											<form name="" id="" action="">
-												<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="田中 一郎" width="32" height="32" class="avatar_l"></div>
-												<div class="messageContents">
-													<div class="name">ユーザー名</div>
-													<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
-														<p class="more">...<br><a href="#">続きを読む</a></p>
-													</div>
-													<div class="meta">
-														16:51・<a href="javascript:void(0)" onclick="">いいね！</a>・<a href="javascript:void(0)" onclick="">コメントする</a>
-													</div>
-												</div>
-											</form>
-										</div>
-										<div class="commentInputDummy" id="commentInputDummy_***"><span>コメントする</span></div>
-										<div id="commentField_***" class="commentField" style="">
-											<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="田中 一郎" width="32" height="32" class="avatar_l"></div>
-											<form name="" id="" action="" method="post" onsubmit="">
-												<div class="text">
-													<textarea class="elastic placeholderCheck" id="" rows="1" style="height: 39px;" jq-placeholder="コメントする"></textarea>
-												</div>
-												<!--div class="right"><a class="auiButton" href="javascript:void(0)">コメントする</a></div-->
-											</form>
-										</div>
-									</div>
-								</div>
-								<!-- /.message -->
-
-								<!-- .message -->
-								<div id="message_***" class="message">
-									<div class="head">
-										<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="木村 一郎" width="32" height="32" class="avatar_l"></div>
-										<div class="date">
-											<div class="name">木村 一郎</div>
-											<div class="time">20:52</div>
-										</div>
-									</div>
-									<div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard"」とする。
+					<!-- body -->
+					<div class="portletBody">
+						<div class="inner pa0">
+							<!-- .timeline_v2 -->
+							<div class="timeline_v2">
+								<!-- .post -->
+								<form class="timelinePost">
+									<div class="text"><textarea id="tlPostText" class="placeholderCheck" jq-placeholder="近況を共有しましょう。"></textarea></div>
+									<div class="attachment" id="tlAttachment" style="display:none;">
+										<div class="floatRight mt5 mr5"><a href="javascript:void(0)" class="toggle" jq-target="tlAttachment"><i class="fa fa-times"></i></a></div>
 										<div class="clipBoard">
 											<div class="clearfix">
 												<div class="clipImage"><img src="http://www.aipo.com/img/plus/future01_05.png" width="160" height="120"></div>
@@ -665,56 +576,149 @@
 											<div class="clipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。…</div>
 										</div>
 									</div>
-									<div class="meta"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
-										<form style="display:inline">
-											<input type="hidden" name="secid" value="">
-											<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
-										</form>
-										<a href="javascript:void(0)" onclick="">コメントする</a>
+									<div class="controls">
+										<div class="floatLeft">
+											<a href="javascript:void(0)" class="auiButton toggle" jq-target="tlAttachment" title="ファイル添付"><i class="fa fa-clipboard fcGray"></i></a>
+										</div>
+										<div class="floatRight">
+											<input type="button" class="auiButtonAction toggle" value="投稿する" jq-target="newMessage">
+										</div>
 									</div>
-									<div class="comments">
-										<div id="commentCaption108" class="commentCaption"><i class="fa fa-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
-										<div id="like_21" class="commentCaption"><i class="fa fa-thumbs-o-up"></i> 2人が「いいね！」と言っています。</div>
-										<div id="message112" class="message">
-											<form name="" id="" action="">
-												<div class="avatar mr10"><img src="../themes/default/img/avatar_default.png" alt="田中 一郎" width="32" height="32"></div>
-												<div class="messageContents">
-													<div class="name">ユーザー名</div>
-													<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-													<div class="time">16:51</div>
+								</form>
+								<!-- /.post -->
+								<div class="newMessage toggle" id="newMessage" jq-target="newMessage" style="display:none;"><a href="javascript:void(0)">新しい投稿があります</a></div>
+
+								<!-- .timelineContents -->
+								<div class="timelineContents">
+									<div id="content_***">
+
+										<!-- .message -->
+										<div id="message_***" class="message first">
+											<div class="head">
+												<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="木村 一郎" width="32" height="32" class="avatar_l"></div>
+												<div class="date">
+													<div class="name">木村 一郎</div>
+													<div class="time">20:52</div>
 												</div>
-											</form>
+											</div>
+
+											<div class="body">
+												<div> 画像を投稿した場合の拡張ブロックは「class="imgBlock"」とする。
+													<p class="more">...<br>
+														<a href="#">続きを読む</a></p>
+													<div class="imgBlock">
+														<a href="javascript:void(0)" class="popupToggle" jq-target=""><img src="http://www.aipo.com/img/plus/future01_05.png"></a>
+														<a href="javascript:void(0)" class="popupToggle" jq-target=""><img src="http://www.aipo.com/img/plus/future01_05.png"></a>
+													</div>
+												</div>
+											</div>
+											<div class="meta">
+												<i class="fa fa-thumbs-o-up"></i> <a href="javascript:void(0)" onclick="">いいね！</a> <a href="javascript:void(0)" onclick="">(5人)</a> ・
+												<i class="fa fa-comment"></i> <a href="javascript:void(0)" onclick="">コメントする</a> <a href="javascript:void(0)" onclick="">(3件)</a> ・
+												<a href="javascript:void(0)" onclick="">削除する</a>
+											</div>
+											<div class="comments">
+												<!--div id="like_***" class="commentCaption"><i class="fa fa-thumbs-o-up"></i> 2人が「いいね！」と言っています。</div-->
+												<!--div id="commentCaption_***" class="commentCaption"><i class="fa fa-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div-->
+												<div id="message_***" class="message">
+													<form name="" id="" action="">
+														<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="田中 一郎" width="32" height="32" class="avatar_l"></div>
+														<div class="messageContents">
+															<div class="name">ユーザー名</div>
+															<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
+																<p class="more">...<br><a href="#">続きを読む</a></p>
+															</div>
+															<div class="meta">
+																16:51・<a href="javascript:void(0)" onclick="">いいね！</a>・<a href="javascript:void(0)" onclick="">コメントする</a>
+															</div>
+														</div>
+													</form>
+												</div>
+												<div class="commentInputDummy" id="commentInputDummy_***"><span>コメントする</span></div>
+												<div id="commentField_***" class="commentField" style="">
+													<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="田中 一郎" width="32" height="32" class="avatar_l"></div>
+													<form name="" id="" action="" method="post" onsubmit="">
+														<div class="text">
+															<textarea class="elastic placeholderCheck" id="" rows="1" style="height: 39px;" jq-placeholder="コメントする"></textarea>
+														</div>
+														<!--div class="right"><a class="auiButton" href="javascript:void(0)">コメントする</a></div-->
+													</form>
+												</div>
+											</div>
 										</div>
-										<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
-										<div id="commentField_**" class="commentField" style="display:none">
-											<form name="" id="" action="" method="post" onsubmit="">
-												<input type="hidden" name="secid" value="">
-												<div class="outer">
-													<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>														</div>
-												<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
-											</form>
+										<!-- /.message -->
+
+										<!-- .message -->
+										<div id="message_***" class="message">
+											<div class="head">
+												<div class="avatar"><img src="../themes/default/img/avatar_default.png" alt="木村 一郎" width="32" height="32" class="avatar_l"></div>
+												<div class="date">
+													<div class="name">木村 一郎</div>
+													<div class="time">20:52</div>
+												</div>
+											</div>
+											<div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard"」とする。
+												<div class="clipBoard">
+													<div class="clearfix">
+														<div class="clipImage"><img src="http://www.aipo.com/img/plus/future01_05.png" width="160" height="120"></div>
+														<div class="clipHead">
+															<div class="clipTitle"><a href="http://www.google.com" target="_blank">長いブログタイトルなどの場合はこうなる。長いブログタイトルなどの場合はこうなる。</a></div>
+															<div class="clipUrl"><a href="http://www.google.com" target="_blank">http://www.nagaiurl.com/example/example/example/example/</a></div>
+														</div>
+													</div>
+													<div class="clipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。…</div>
+												</div>
+											</div>
+											<div class="meta">
+												<i class="fa fa-thumbs-o-up"></i> <a href="javascript:void(0)" onclick="">いいね！を取り消す</a> <a href="javascript:void(0)" onclick="">(5人)</a> ・
+												<i class="fa fa-comment"></i> <a href="javascript:void(0)" onclick="">コメントする</a> <a href="javascript:void(0)" onclick="">(3件)</a> ・
+												<a href="javascript:void(0)" onclick="">削除する</a>
+											</div>
+											<div class="comments">
+												<!--div id="like_21" class="commentCaption"><i class="fa fa-thumbs-o-up"></i> 2人が「いいね！」と言っています。</div-->
+												<!--div id="commentCaption108" class="commentCaption"><i class="fa fa-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div-->
+												<div id="message112" class="message">
+													<form name="" id="" action="">
+														<div class="avatar mr10"><img src="../themes/default/img/avatar_default.png" alt="田中 一郎" width="32" height="32"></div>
+														<div class="messageContents">
+															<div class="name">ユーザー名</div>
+															<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
+															<div class="time">16:51</div>
+														</div>
+													</form>
+												</div>
+												<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+												<div id="commentField_**" class="commentField" style="display:none">
+													<form name="" id="" action="" method="post" onsubmit="">
+														<input type="hidden" name="secid" value="">
+														<div class="outer">
+															<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>														</div>
+														<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
+													</form>
+												</div>
+											</div>
 										</div>
+										<!-- /.message -->
 									</div>
 								</div>
-								<!-- /.message -->
+								<!-- /.timelineContents -->
 							</div>
+							<!-- /.timeline_v2 -->
 						</div>
-						<!-- /.timelineContents -->
 					</div>
-					<!-- /.timeline_v2 -->
+					<!-- /body -->
 				</div>
-			</div>
-			<!-- /body -->
-		</div>
-		<!-- /naviPortlet -->
+				<!-- /naviPortlet -->
 
-		<!-- addApp -->
-		<!--div class="addApp">
-			<a href="javascript:void(0)"><i class="fa fa-plus mr5"></i>サイドバーを編集</a>
-		</div-->
-		<!-- /addApp -->
+				<!-- addApp -->
+				<!--div class="addApp">
+					<a href="javascript:void(0)"><i class="fa fa-plus mr5"></i>サイドバーを編集</a>
+				</div-->
+				<!-- /addApp -->
+			</div>
+			<!-- /#auiNavigation -->
+		</div>
 	</div>
-	<!-- /#auiNavigation -->
 
 </div>
 <!-- #auiContents -->

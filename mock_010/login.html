@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="favicon.ico">
+<title>Aipo.com</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="themes/default/css/font-awesome.min.css">
+<link rel="stylesheet" href="themes/default/css/jquery.pageslide.css">
+<link rel="stylesheet" href="themes/default/css/jquery.jscrollpane.css">
+<!-- Custom styles for this template -->
+<link href="themes/default/css/style.css" rel="stylesheet" type="text/css">
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body id="login">
+<!-- wrapper SRT ------------------------------------------------------- -->
+<div id="wrapper">
+<!-- menu SRT ------------------------------------------------------- -->
+<div id="header">
+
+</div>
+
+
+<!-- main SRT ------------------------------------------------------- -->
+<div class="container-fluid">
+<div class="row">
+  
+
+<div class="loginBox">
+<div class="logo"><a href="#"><img src="themes/default/img/logo_l.png" alt=""></a></div>
+<div class="logoText"><img src="themes/default/img/logo_text_l.png" alt=""></div>
+
+<form action="mypage.html">
+<input type="text" class="text" placeholder="メールアドレス" />
+<input type="password" class="text" placeholder="パスワード" />
+<div class="btnBox"><input type="submit" class="btn btn-primary action" value="ログイン"></div>
+</form>
+</div>
+
+<div class="pw"><a href="#">パスワードを忘れた方</a><span>|</span><a href="#">新規登録</a></div>
+
+
+</div>
+</div>
+
+
+<!-- wrapper END ------------------------------------------------------- -->
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="themes/default/js/jquery.pageslide.min.js"></script>
+<script src="themes/default/js/jquery.jscrollpane.min.js"></script>
+<script src="themes/default/js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript">
+$( "#messageClick" ).click(function() {
+$( "#messageOpen" ).slideToggle();
+});
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#newtitle').focus();
+});
+
+
+$("[data-toggle=tooltip]").tooltip();
+
+$(function(){
+	$('.scroll_area').jScrollPane();
+});
+$(".leftSlide").pageslide({ modal: true });
+$(".rightSlide").pageslide({ direction: "left", modal: true });
+
+$("[data-toggle=popover]").popover({
+    trigger: 'manual',
+    animate: false,
+    html: true,
+    template: '<div class="popover" onmouseover="$(this).mouseleave(function() {$(this).hide();});" style="display:block;"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
+}).mouseenter(function(e) {
+    $(this).popover('show');
+});
+</script>
+</body>
+</html>

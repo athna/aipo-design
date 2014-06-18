@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+.appDataTable {
+	width: 100%;
+	tr:not(.head) {
+		&:hover {
+			background-color: $grayBackLight;
+		}
+	}
+	th, td {
+		position: relative;
+		line-height: 20px;
+		padding: 10px;
+	}
+	th {
+		padding: 5px 10px;
+		text-align: left;
+		font-weight: normal;
+		color: $gray;
+	}
+	td {
+		@extend .border-box;
+		cursor: pointer;
+		border-top: solid 1px $grayBorderLight;
+		max-width: 50%;
+		padding: 10px;
+
+		&[class*=date-] {
+			white-space: nowrap;
+		}
+		> div {
+			@extend .ellipsis;
+			width: 100%;
+		}
+	}
+	.function {
+		padding: 0;
+		min-width: 30px;
+		a {
+			position: absolute;
+			display: block;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			.fa {
+				position: absolute;
+				top: 50%;
+				width: 100%;
+				line-height: 20px;
+				margin-top: -10px;
+				text-align: center;
+			}
+		}
+	}
+	.main {
+		color: $linkColor;
+		div {
+			@extend .ellipsis;
+			max-width: 500px;
+		}
+	}
+}

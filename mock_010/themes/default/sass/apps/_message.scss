@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+.messageForm {
+	position: relative;
+	padding: 5px 60px 5px 5px;
+	color: $grayDarker;
+	text-align: right;
+	background: $white;
+	border-top: 1px solid $grayLight;
+
+	.text {
+		border: none;
+		width: 100%;
+		padding: 7px;
+		margin: 0;
+		text-align: left;
+		//	border:1px solid $grayLighter;
+	}
+	.action {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+}
+
+.messageBody {
+	height: 100%;
+	padding: 150px 5px 5px;
+
+	iframe {
+		border: none;
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.massageBlock {
+}
+
+.messageList {
+	padding: 0 !important;
+
+	li {
+		display: block;
+		position: relative;
+		//color: #1b1b1b;
+		//background:rgba($white, 0.8);
+
+		.thumb {
+			position: absolute;
+			top: 5px;
+			//width: 24px;
+			//height: 24px;
+			//line-height: 24px;
+			//border-radius: 24px;
+			//text-align: center;
+			//box-shadow:0px 0px 1px rgba($black, 0.1);
+
+			img {
+				//width: 24px;
+				//height: 24px;
+				//border-radius: 24px;
+			}
+		}
+		.body {
+			display: block;
+			background: rgba($white, 1.0);
+			padding: 7px 10px;
+			box-shadow: 0px 0px 1px rgba($black, 0.1);
+
+			.name {
+				display: block;
+				font-size: 11px;
+				color: $grayDark;
+				margin: 0 0 3px;
+			}
+			.date {
+				display: block;
+				font-size: 10px;
+				color: rgba($black, 0.3);
+				margin: 3px 0 0;
+			}
+			.readList {
+				display: inline !important;
+			}
+		}
+	}
+	.left {
+		padding: 5px 10px 5px 42px !important;
+
+		.thumb {
+			left: 7px;
+		}
+	}
+	.right {
+		padding: 5px 42px 5px 10px !important;
+
+		.thumb {
+			right: 7px;
+		}
+	}
+	.left > .body,
+	.right > .body {
+		position: relative;
+	}
+	.left > .body:before {
+		content: "";
+		position: absolute;
+		top: 15px;
+		left: -6px;
+		margin-top: -6px;
+		display: block;
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 6px 6px 6px 0;
+		border-color: transparent rgba($black, 0.3) transparent transparent;
+		z-index: 0;
+	}
+	.left > .body:after {
+		content: "";
+		position: absolute;
+		top: 15px;
+		left: -6px;
+		margin-top: -9px;
+		display: block;
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 9px 9px 9px 0;
+		border-color: transparent $white transparent transparent;
+		z-index: 0;
+	}
+	.right > .body:before {
+		content: "";
+		position: absolute;
+		top: 15px;
+		right: -6px;
+		margin-top: -6px;
+		display: block;
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 6px 0 6px 6px;
+		border-color: transparent transparent transparent rgba($black, 0.3);
+		z-index: 0;
+	}
+	.right > .body:after {
+		content: "";
+		position: absolute;
+		top: 15px;
+		right: -6px;
+		margin-top: -9px;
+		display: block;
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 9px 0 9px 9px;
+		border-color: transparent transparent transparent $white;
+		z-index: 0;
+	}
+}
+

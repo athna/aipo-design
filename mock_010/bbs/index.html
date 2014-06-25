@@ -26,8 +26,15 @@
 <div id="wrapper">
 <!-- menu SRT ------------------------------------------------------- -->
 <div id="header">
-<div class="logo"><a href="#"><img src="../themes/default/img/logo.png" alt=""></a></div>
+<div class="logo"><a href="../mypage.html"><img src="../themes/default/img/logo.png" alt=""></a></div>
 <div class="appBtn"><a href="#modalLeft" class="leftSlide btn"><i class="fa fa-th"></i></a></div>
+		<div class="search">
+		<form action="">
+			<button type="submit" class="btn"><i class="fa fa-search"></i></button>
+			<input type="text" class="searchText"/>
+		</form>
+	</div>
+
 <div class="messageBtn"><a id="messageClick" href="#" class="btn"><i class="fa fa-comment-o"></i></a></div>
 <div class="alertBtn dropdown"><a href="#" class="dropdown-toggle btn" data-toggle="dropdown"><i class="fa fa-bell-o"></i></a><ul class="dropdown-menu notice dropdown-menu-right">
 <li role="presentation" class="dropdown-header">お知らせ</li>
@@ -63,10 +70,6 @@
 <li><a href="../login.html">ログアウト</a></li>
 </ul></div>
 
-<ul class="nav nav-tabs">
-<li class=""><a href="../mypage.html">マイページ</a></li>
-<li class="plus"><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a></li>
-</ul>
 </div>
 
 
@@ -92,12 +95,6 @@
 <button type="button" class="btn btn-primary" href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus mr5"></i>新規作成</button>
 </div>
 
-<div class="app search">
-<form action="">
-<i class="fa fa-search"></i>
-<input type="search" />
-</form>
-</div>
 
 <div class="app">
 
@@ -375,15 +372,11 @@
 </ul>
 
 
-<ul class="pagination pagination-sm pull-right">
-  <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-</ul>
 
 </div>
+
+	<div class="road"><i class="fa fa-spinner fa-spin"></i>読み込み中</div>
+
 
 </div>
 
@@ -532,6 +525,13 @@ $('#myModal').on('shown.bs.modal', function () {
     $('#newtitle').focus();
 });
 
+$(function(){
+	$('.searchText').focus(function(){
+		$('.search').addClass('focus');
+	}).blur(function(){
+		$('.search').removeClass('focus');
+	});
+});
 
 $("[data-toggle=tooltip]").tooltip();
 

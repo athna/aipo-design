@@ -344,6 +344,10 @@ a {
 	border: 1px solid rgba($black, 0.1);
 	//border-top:1px solid rgba($black, 0.2);
 
+	> .inner {
+		padding: 10px;
+	}
+
 	.appTitle {
 		/*margin-bottom:5px;*/
 
@@ -832,6 +836,72 @@ a {
 	}
 }
 
+.selectApp {
+	@extend .clearfix;
+	margin: 10px 0;
+	padding: 0;
+	li {
+		float: left;
+		list-style: none;
+	}
+	input[type=checkbox] {
+		display: none;
+
+		&:checked + label {
+			//background-color: $linkColor;
+			border-color: $linkColor;
+			background-color: $grayHightLight;
+		}
+	}
+	a,
+	label {
+		@extend .border-box;
+		@extend .clearfix;
+		position: relative;
+		display: block;
+		min-height: 100px;
+		margin: 10px;
+		padding: 10px;
+		border: solid 1px $grayLight;
+		color: $textColor;
+		font-weight: normal;
+		cursor: pointer;
+		&:hover {
+			background-color: $grayHightLight;
+		}
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+		.icon {
+			position: absolute;
+			width: 60px;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			.fa {
+				position: absolute;
+				top: 50px;
+				margin-top: -30px;
+				width: 100%;
+				height: 60px;
+				line-height: 60px;
+				font-size: 3em;
+				text-align: center;
+			}
+		}
+		.body {
+			padding-left: 60px;
+			color: $gray;
+		}
+	}
+	.title {
+		margin: 0 0 10px 0;
+		font-size: $fontSizeLarge;
+		color: $textColor;
+	}
+}
+
 .search {
 	position: relative;
 	padding: 10px 10px 10px 10px;
@@ -1088,10 +1158,10 @@ a {
 			.icon {
 				@extend .bRadiusCircle;
 				display: block;
-				font-size: 22px;
+				font-size: 24px;
 				width: 45px;
 				height: 45px;
-				line-height: 43px;
+				line-height: 43px !important;
 				//border-radius: 45px;
 				border: 1px solid $gray;
 				margin: 0 auto 5px;

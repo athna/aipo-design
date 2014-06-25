@@ -78,7 +78,7 @@ a {
 }
 
 .btn {
-	font-size: 12px;
+	font-size: $baseFontSize;
 	border: 1px solid $linkColor;
 	background: $white;
 	color: $linkColor;
@@ -104,7 +104,7 @@ a {
 }
 
 .btn-sm, .btn-group-sm > .btn {
-	font-size: 11px;
+	font-size: $fontSizeSmall;
 }
 
 
@@ -244,7 +244,7 @@ a {
 		}
 	}
 	.fa {
-		font-size: 14px;
+		font-size: $fontSizeLarge;
 	}
 	.nav-tabs {
 		background: $white;
@@ -265,7 +265,7 @@ a {
 			}
 		}
 		.fa {
-			font-size: 14px;
+			font-size: $fontSizeLarge;
 		}
 		li.active {
 
@@ -366,144 +366,17 @@ a {
 		padding: 10px;
 	}
 
-	.appTitle {
-		/*margin-bottom:5px;*/
-
-		a {
-			color: $grayLight; //#ccc
-			//text-shadow:0 -1px 0px rgba($black, 0.1);
-			background: rgba($black, 0.8);
-			display: inline-block;
-			padding: 2px 15px 2px 7px;
-			font-size: 11px;
-		}
-		a:hover {
-			color: $white;
-			text-decoration: none;
-			//background:$linkColor;
-		}
-		.fa {
-			margin-right: 7px;
-		}
-		.plus, .setting {
-			padding: 2px 6px;
-			margin-left: 1px;
-			background: none;
-			color: $grayLight; //#ccc
-
-			.fa {
-				margin-right: 0;
-			}
-		}
-		.plus:hover, .setting:hover, .setting:focus {
-			background: $linkColor;
-			color: $white;
-		}
-		.pager{
-			float: right;
-			display: inline-block;
-			margin: 0;
-			padding:0;
-
-			.fa{
-				margin-right: 0;
-				font-size: 14px;
-			}
-			a {
-				background: none;
-				padding: 2px 8px;
-				color: $linkColor;
-				text-align: center;
-			}
-			a:hover{
-				background: $linkColor;
-				color: $white;
-			}
-			span{
-				display: inline-block;
-				padding: 2px 2px;
-				color: $gray;
-
-					.fa{
-						margin-right: 0;
-					}
-			}
-			.off{
-				padding: 2px 8px;
-			}
-		}
-		.dropdown {
-			display: inline-block;
-
-			a{
-				background: none;
-
-			}
-			.dropdown-menu {
-				padding: 0;
-				margin-right: 0;
-				overflow: hidden;
-				box-shadow: 0 1px 4px rgba($black, 0.1);
-				border-radius: 0;
-				min-width: 100px;
-
-				li {
-					padding: 0;
-					margin-right: 0;
-					a {
-						display: block;
-						padding: 5px 7px !important;
-						color: $grayDarker !important;
-
-					}
-					a:hover {
-						background: $grayLighter !important;
-					}
-				}
-				.divider {
-					margin: 0;
-				}
-				.active {
-					background: $grayLighter;
-				}
-			}
-		}
-		.displayGroup{
-			float: right;
-			margin-right: -1px;
-
-			a{
-				background: none;
-				color: $linkColor;
-				padding: 2px 7px;
-			}
-			a:hover{
-				background: $linkColor;
-				color: $white;
-			}
-			a:focus,a:active{
-				text-decoration: none;
-				background: $linkColor;
-				color: $white;
-			}
-			.fa{
-				margin-left: 7px;
-				margin-right: 3px;
-				font-size: 14px;
-			}
-		}
-	}
 	.pager{
 		padding: 5px;
 		margin: 0;
 		border-top:1px solid $grayLighter;
 		display: block;
 		text-align: right;
-		font-size: 11px;
+		font-size: $fontSizeSmall;
 
 		.fa{
 			margin-right: 0;
-			font-size: 14px;
+			font-size: $fontSizeLarge;
 		}
 		a {
 			display: inline-block;
@@ -533,6 +406,134 @@ a {
 			padding: 0;
 			height: 18px;
 			width: 18px;
+		}
+	}
+}
+.appTitle {
+	/*margin-bottom:5px;*/
+	a {
+		color: $grayLight; //#ccc
+		//text-shadow:0 -1px 0px rgba($black, 0.1);
+		background: rgba($black, 0.8);
+		display: inline-block;
+		padding: 2px 15px 2px 7px;
+		//font-size: $fontSizeSmall;
+	}
+	a:hover {
+		color: $white;
+		text-decoration: none;
+		//background:$linkColor;
+	}
+	.fa {
+		margin-right: 7px;
+		font-size: $fontSizeLarge;
+	}
+	.plus, .setting {
+		padding: 2px 6px;
+		margin-left: 1px;
+		background: none;
+		color: $gray;
+
+		.fa {
+			margin-right: 0;
+		}
+	}
+	.plus:hover, .setting:hover, .setting:focus {
+		background: $linkColor;
+		color: $white;
+	}
+	.pager{
+		float: right;
+		display: inline-block;
+		margin: 0;
+		padding:0;
+
+		.fa{
+			margin-right: 0;
+			font-size: $fontSizeLarge;
+		}
+		a {
+			background: none;
+			padding: 2px 8px;
+			color: $linkColor;
+			text-align: center;
+		}
+		a:hover{
+			background: $linkColor;
+			color: $white;
+		}
+		span{
+			display: inline-block;
+			padding: 2px 2px;
+			color: $gray;
+
+			.fa{
+				margin-right: 0;
+			}
+		}
+		.off{
+			padding: 2px 8px;
+		}
+	}
+	.dropdown {
+		display: inline-block;
+
+		a{
+			background: none;
+
+		}
+		.dropdown-menu {
+			padding: 0;
+			margin-right: 0;
+			overflow: hidden;
+			box-shadow: 0 1px 4px rgba($black, 0.1);
+			border-radius: 0;
+			min-width: 100px;
+			font-size: $baseFontSize;
+
+			li {
+				padding: 0;
+				margin-right: 0;
+				a {
+					display: block;
+					padding: 5px 7px !important;
+					color: $grayDarker !important;
+
+				}
+				a:hover {
+					background: $grayLighter !important;
+				}
+			}
+			.divider {
+				margin: 0;
+			}
+			.active {
+				background: $grayLighter;
+			}
+		}
+	}
+	.displayGroup{
+		float: right;
+		margin-right: -1px;
+
+		a{
+			background: none;
+			color: $linkColor;
+			padding: 2px 7px;
+		}
+		a:hover{
+			background: $linkColor;
+			color: $white;
+		}
+		a:focus,a:active{
+			text-decoration: none;
+			background: $linkColor;
+			color: $white;
+		}
+		.fa{
+			margin-left: 7px;
+			margin-right: 3px;
+			font-size: $fontSizeLarge;
 		}
 	}
 }
@@ -603,17 +604,17 @@ a {
 		}
 		.name {
 			display: block;
-			font-size: 10px;
+			font-size: $fontSizeSmall;
 			color: rgba($black, 0.6);
 		}
 		.cat {
 			display: block;
-			font-size: 10px;
+			font-size: $fontSizeSmall;
 			color: rgba($black, 0.6);
 		}
 		.cat_b {
 			display: inline-block;
-			font-size: 10px;
+			font-size: $fontSizeSmall;
 			color: rgba($black, 0.6);
 		}
 		.date {
@@ -622,7 +623,7 @@ a {
 			right: 10px;
 			color: $gray;
 			//color: rgba($black, 0.3);
-			font-size: 11px;
+			font-size: $fontSizeSmall;
 		}
 		.title {
 			@extend .ellipsis;
@@ -638,7 +639,7 @@ a {
 		}
 		.disc {
 			color: rgba($black, 0.3);
-			font-size: 11px;
+			font-size: $fontSizeSmall;
 			margin-left: 15px;
 		}
 		.thumb {
@@ -869,7 +870,7 @@ a {
 
 			.fa{
 				margin: 0;
-				font-size: 14px;
+				font-size: $fontSizeLarge;
 			}
 		}
 		a:hover{
@@ -990,7 +991,7 @@ a {
 	.popover-title {
 		background: none;
 		padding: 3px 7px;
-		font-size: 11px;
+		font-size: $fontSizeSmall;
 	}
 	.popover-content {
 		padding: 7px;
@@ -1056,7 +1057,7 @@ a {
 }
 
 .tooltip {
-	font-size: 11px;
+	font-size: $fontSizeSmall;
 
 	.tooltip-inner {
 		padding: 7px 10px;
@@ -1067,7 +1068,7 @@ a {
 	width: 300px;
 	color: $grayDarker;
 	text-align: left;
-	font-size: 12px;
+	font-size: $baseFontSize;
 	@extend .bRadiusNone;
 	//border-radius: 0;
 	box-shadow: 0px 1px 4px rgba($black, 0.1);
@@ -1090,16 +1091,16 @@ a {
 				right: 10px;
 				top: 18px;
 				color: $gray;
-				font-size: 11px;
+				font-size: $fontSizeSmall;
 			}
 			.n_name {
-				font-size: 11px;
+				font-size: $fontSizeSmall;
 				color: $linkColor;
 			}
 			.n_body {
 				display: block;
 				@extend .ellipsis;
-				font-size: 11px;
+				font-size: $fontSizeSmall;
 				//color: $grayDark;
 			}
 			.thumb{
@@ -1173,7 +1174,7 @@ a {
 
 	h2 {
 		display: inline-block;
-		font-size: 12px;
+		font-size: $baseFontSize;
 		line-height: 18px;
 		margin: 0;
 		padding: 2px 15px 2px 7px;
@@ -1182,7 +1183,7 @@ a {
 
 		.fa {
 			margin-right: 7px;
-			font-size: 10px;
+			font-size: $fontSizeSmall;
 		}
 	}
 	ul {
@@ -1210,7 +1211,7 @@ a {
 
 		a {
 			text-align: center;
-			font-size: 10px;
+			font-size: $fontSizeSmall;
 			padding: 10px 0;
 			color: $grayDark;
 			//text-shadow:0 1px 0px rgba($white, 0.3);
@@ -1268,77 +1269,7 @@ a {
 	iframe {
 		width: 100%;
 	}
-	.appTitle {
-		margin-bottom: 5px;
 
-		a {
-			color: $grayLight; //#ccc
-			//text-shadow:0 -1px 0px rgba($black, 0.1);
-			background: rgba($black, 0.8);
-			display: inline-block;
-			padding: 2px 15px 2px 7px;
-			font-size: 11px;
-		}
-		a:hover {
-			color: $white;
-			text-decoration: none;
-			//background:$linkColor;
-		}
-		.fa {
-			margin-right: 7px;
-		}
-		.dropdown {
-			display: inline-block;
-
-			a{
-				background: none;
-
-			}
-			.dropdown-menu {
-				padding: 0;
-				margin-right: 0;
-				overflow: hidden;
-				box-shadow: 0 1px 4px rgba($black, 0.1);
-				border-radius: 0;
-				min-width: 100px;
-
-				li {
-					padding: 0;
-					margin-right: 0;
-					a {
-						display: block;
-						padding: 5px 7px !important;
-						color: $grayDarker !important;
-
-					}
-					a:hover {
-						background: $grayLighter !important;
-					}
-				}
-				.divider {
-					margin: 0;
-				}
-				.active {
-					background: $grayLighter;
-				}
-			}
-		}
-		.plus, .setting {
-			padding: 2px 6px;
-			margin-left: 1px;
-			background: none;
-			color: $grayLight; //#ccc
-
-			.fa {
-				margin-right: 0;
-			}
-		}
-		.plus:hover, .setting:hover, .setting:focus {
-			background: $linkColor;
-			color: $white;
-		}
-
-	}
 	h3 {
 		position: relative;
 		margin: 0;
@@ -1346,7 +1277,7 @@ a {
 		line-height: 35px;
 		overflow: hidden;
 		background: $white;
-		font-size: 12px;
+		font-size: $baseFontSize;
 		text-align: center;
 		border-bottom: 1px solid $grayLight;
 		color: $grayDark;
@@ -1375,6 +1306,7 @@ a {
 	}
 	.nav-tabs {
 		height: 28px;
+		margin-top: 10px;
 		padding: 0 10px;
 
 		li {
@@ -1417,7 +1349,7 @@ body.modal-open #messageOpen {
 		line-height: 35px;
 		//overflow:hidden;
 		background: $white;
-		font-size: 12px;
+		font-size: $baseFontSize;
 		text-align: center;
 		border-bottom: 1px solid $grayLight;
 		color: $grayDark;
@@ -1539,7 +1471,7 @@ body.modal-open #messageOpen {
 							width: 18px;
 							text-align: center;
 							margin-right: 5px;
-							font-size: 14px;
+							font-size: $fontSizeLarge;
 						}
 					}
 				}

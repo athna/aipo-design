@@ -1758,157 +1758,265 @@ function setWrapperHeight() {
 	</tr>
 	<tr>
 		<td class="caption">参加ユーザー</td>
-		<td>
-			<div id="memberFieldButton">
-				<table style="width:98%;">
+		<td><div id="memberFieldButton">
+			<table style="width:98%;">
+				<tbody>
+				<tr>
+					<td style="width:80%; border:none">
+						<span>木村 一郎</span>,
+						<span>田村 涼子</span>,
+						<span>山本 太朗</span>,
+						<span>アーノルド シュワルツェネッガー</span>
+					</td>
+					<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す" onclick="aipo.schedule.shrinkMember();"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+			<div id="memberField" style="display: block; ">
+				<table class="none">
 					<tbody>
 					<tr>
-						<td style="width:80%; border:none">
-							<span>木村 一郎</span>,
-							<span>田村 涼子</span>,
-							<span>山本 太朗</span>,
-							<span>アーノルド シュワルツェネッガー</span>
+						<td>
+							<select>
+								<option value="">（グループ全体）</option>
+								<option value="">アルバイト・インターン</option>
+								<option value="">企画本部</option>
+								<option value="">営業本部</option>
+								<option value="">管理本部</option>
+								<option value="">開発1部</option>
+								<option value="">開発2部</option>
+								<option value="">開発3部</option>
+								<option value="">開発本部</option>
+							</select>
+							<!--
+							<div class="auiCheckList auiCL2">
+								<ul class="clearfix">
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label></li>
+									<li><label><input type="checkbox"><img class="avatar" src="../../themes/default/images/common/avatar_default3.png" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+								</ul>
+							</div>
+							-->
+							<div class="spaceTop spaceLeft small">左側に参加ユーザーを追加してください。</div>
+							<div id="membernormalselect" widgetid="membernormalselect">
+								<table class="none">
+									<tbody>
+										<tr>
+											<td><div id="memberPopupDiv">
+													<div class="outer">
+														<div class="popup">
+															<div class="clearfix">
+																<div class="memberlistToTop">参加ユーザー一覧</div>
+																<div class="memberlistFromTop">
+																	<select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
+																		<option value="LoginUser">（グループ全体）</option>
+																		<option value="1331519412605_4">Pickles</option>
+																		<option value="1309354049146_21">アルバイト・インターン</option>
+																		<option value="1309256925795_4">企画本部</option>
+																		<option value="1309256875124_4">営業本部</option>
+																		<option value="1309256852208_4">管理本部</option>
+																		<option value="1309354067571_21">開発1部</option>
+																		<option value="1309354076422_21">開発2部</option>
+																		<option value="1309354083123_21">開発3部</option>
+																		<option value="1309256899203_4">開発本部</option>
+																	</select>
+																</div>
+															</div>
+															<div class="clearfix">
+																<div class="memberlistToBody">
+																	<select size="5" multiple="multiple" style="width:100%" name="member_to" id="member_to">
+																		<option value="0000000007">木村 一郎</option>
+																	</select>
+																</div>
+																<div class="memberlistFromBody">
+																	<select size="5" multiple="multiple" style="width:100%" name="tmp_member_from" id="tmp_member_from">
+																		<option value="0000000019">山田 太郎</option>
+																		<option value="0000000018">田中 一郎</option>
+																		<option value="0000000022">山本 次郎</option>
+																		<option value="0000000021">別所 優一</option>
+																		<option value="0000000007">木村 一郎</option>
+																		<option value="0000000020">鈴木 花子</option>
+																		<option value="0000000024">田村 三郎</option>
+																		<option value="0000000025">高橋 四郎</option>
+																		<option value="0000000026">越後 太一</option>
+																		<option value="0000000027">佐藤 涼子</option>
+																		<option value="0000000079">山中 愛子</option>
+																	</select>
+																</div>
+															</div>
+															<div class="clearfix">
+																<div class="memberlistToBottom">
+																	<div class="alignright">
+																		<input id="button_member_remove" name="button_member_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+																	</div>
+																</div>
+																<div class="memberlistFromBottom">
+																	<div style="display: none; " id="membernormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+																	<div class="alignright">
+																		<input id="button_member_add" name="button_member_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<select size="5" multiple="multiple" style="display:none;" name="init_memberlist" id="init_memberlist">
+								<option value="0000000007">木村 一郎</option>
+							</select>
+							<!--
+							-->
 						</td>
-						<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す" onclick="aipo.schedule.shrinkMember();"></td>
+					</tr>
+					<tr>
+						<td><div class="p">
+							<div id="edit_control_title_P-135ea887364-10654" style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">参加ユーザーによる予定の編集権限を設定する</div>
+						</div>
+							<div id="edit_control_context_P-135ea887364-10654" style="display:block;">
+								<div class="p">
+									<input name="edit_flag" type="radio" value="T" id="edit_control_flagT_P-135ea887364-10654" checked="checked">
+									<label for="edit_control_flagT_P-135ea887364-10654">可（参加ユーザーは、この予定を編集／削除できます）</label>
+								</div>
+								<div class="p">
+									<input name="edit_flag" type="radio" value="F" id="edit_control_flagF_P-135ea887364-10654">
+									<label for="edit_control_flagF_P-135ea887364-10654">不可（参加ユーザーは、この予定を編集／削除できません）</label>
+								</div>
+							</div>
+							<div class="p">
+								<div id="mail_title_P-135ea887364-10654" style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">参加ユーザーへのメール通知を設定する</div>
+							</div>
+							<div id="mail_context_P-135ea887364-10654" style="display:block;">
+								<div class="p">
+									<input name="mail_flag" type="radio" value="A" id="mail_flag_A" checked="checked">
+									<label for="mail_flag_A">通知する</label>
+									<p></p>
+									<div class="p">
+										<input name="mail_flag" type="radio" value="N" id="mail_flag_N">
+										<label for="mail_flag_N">通知しない</label>
+									</div>
+								</div>
+							</div>
+						</td>
 					</tr>
 					</tbody>
 				</table>
 			</div>
-
-			<div class="spaceTop spaceLeft small">左側に参加ユーザーを追加してください。</div>
-
-			<div class="multiSelectBox">
-				<div class="head clearfix">
-					<div class="floatLeft">参加ユーザー一覧</div>
-					<div class="floatRight">
-						<select>
-							<option>（グループ全体）</option>
-							<option>Pickles</option>
-							<option>アルバイト・インターン</option>
-							<option>企画本部</option>
-							<option>営業本部</option>
-							<option>管理本部</option>
-							<option>開発1部</option>
-							<option>開発2部</option>
-							<option>開発3部</option>
-							<option>開発本部</option>
-						</select>
-					</div>
-				</div>
-				<div class="body clearfix">
-					<div class="floatLeft">
-						<select size="5" multiple="multiple">
-							<option>木村 一郎</option>
-						</select>
-					</div>
-					<div class="floatRight">
-						<select size="5" multiple="multiple">
-							<option>パブロ・ディエゴ・ホセ・フランシスコ・デ・パウラ・ファン・ネポムセーノ・マリーア・デ・ロス・レメディオス・クリスピアーノ・デ・ラ・サンティシマ・トリニダード</option>
-							<option>山田 太郎</option>
-							<option>田中 一郎</option>
-							<option>山本 次郎</option>
-							<option>別所 優一</option>
-							<option>木村 一郎</option>
-							<option>鈴木 花子</option>
-							<option>田村 三郎</option>
-							<option>高橋 四郎</option>
-							<option>越後 太一</option>
-							<option>佐藤 涼子</option>
-						</select>
-					</div>
-				</div>
-				<div class="foot clearfix">
-					<div class="floatLeft">
-						<input type="button" class="button" value="削除">
-					</div>
-					<div class="floatRight">
-						<input type="button" class="button" value="＜ 追加">
-					</div>
-				</div>
-			</div>
-
-			<div class="p">
-				<div id="edit_control_title_P-135ea887364-10654" style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">参加ユーザーによる予定の編集権限を設定する</div>
-			</div>
-			<div id="edit_control_context_P-135ea887364-10654" style="display:block;">
-				<div class="p">
-					<input name="edit_flag" type="radio" value="T" id="edit_control_flagT_P-135ea887364-10654" checked="checked">
-					<label for="edit_control_flagT_P-135ea887364-10654">可（参加ユーザーは、この予定を編集／削除できます）</label>
-				</div>
-				<div class="p">
-					<input name="edit_flag" type="radio" value="F" id="edit_control_flagF_P-135ea887364-10654">
-					<label for="edit_control_flagF_P-135ea887364-10654">不可（参加ユーザーは、この予定を編集／削除できません）</label>
-				</div>
-			</div>
-			<div class="p">
-				<div id="mail_title_P-135ea887364-10654" style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">参加ユーザーへのメール通知を設定する</div>
-			</div>
-			<div id="mail_context_P-135ea887364-10654" style="display:block;">
-				<div class="p">
-					<input name="mail_flag" type="radio" value="A" id="mail_flag_A" checked="checked">
-					<label for="mail_flag_A">通知する</label>
-					<p></p>
-					<div class="p">
-						<input name="mail_flag" type="radio" value="N" id="mail_flag_N">
-						<label for="mail_flag_N">通知しない</label>
-					</div>
-				</div>
-			</div>
-
 		</td>
 	</tr>
 	<tr>
 		<td class="caption">設備</td>
-		<td>
-			<div id="facilityFieldButton" style="display:">
-				<table style="width:98%;">
-					<tbody>
-					<tr>
-						<td style="width:80%; border:none">
-							<span>会議室A</span>,
-							<span>会議室B</span>
-						</td>
-						<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す" onclick="aipo.schedule.shrinkFacility();">
-						</td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
+		<td><div id="facilityFieldButton" style="display:">
+			<table style="width:98%;">
+				<tbody>
+				<tr>
+					<td style="width:80%; border:none">
+						<span>会議室A</span>,
+						<span>会議室B</span>
+					</td>
+					<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す" onclick="aipo.schedule.shrinkFacility();">
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+			<select>
+				<option value="">（グループ全体）</option>
+				<option value="">備品</option>
+				<option value="">施設</option>
+			</select>
+			<!--div class="auiCheckList auiCL2">
+				<ul class="clearfix">
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室A</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室B</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室C</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室A</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室B</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室C</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室A</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室B</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室C</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室A</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室B</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室C</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室A</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室B</span></label></li>
+					<li><label><input type="checkbox"><span class="auiUCLname">会議室C</span></label></li>
+				</ul>
+			</div-->
 
-			<div class="multiSelectBox">
-				<div class="head clearfix">
-					<div class="floatLeft">参加ユーザー一覧</div>
-					<div class="floatRight">
-						<select>
-							<option>（グループ全体）</option>
-							<option>備品</option>
-							<option>施設</option>
-						</select>
-					</div>
+			<div id="facilityField" style="display: block; ">
+				<div class="spaceTop spaceLeft small">左側に設備を追加してください。</div>
+				<div id="facilityselect" widgetid="facilityselect">
+					<table class="none">
+						<tbody>
+							<tr>
+								<td>
+									<div id="memberPopupDiv">
+										<div class="outer">
+											<div class="popup">
+												<div class="clearfix">
+													<div class="memberlistToTop">設備一覧</div>
+													<div class="memberlistFromTop">
+														<select size="1" style="width:100%" name="tmp_facility_group" id="tmp_facility_group" dojoattachevent="onchange:changeGroup">
+															<option value="all">（グループ全体）</option>
+															<option value="1">備品</option>
+															<option value="2">施設</option>
+														</select>
+													</div>
+												</div>
+												<div class="clearfix">
+													<div class="memberlistToBody">
+														<select size="5" multiple="multiple" style="width:100%" name="facility_to" id="facility_to">
+														</select>
+													</div>
+													<div class="memberlistFromBody">
+														<select size="5" multiple="multiple" style="width:100%" name="tmp_facility_from" id="tmp_facility_from">
+															<option value="1">会議室(3F)</option>
+															<option value="2">外付けHDD</option>
+															<option value="3">持ち出し用ノートPC</option>
+														</select>
+													</div>
+												</div>
+												<div class="clearfix">
+													<div class="memberlistToBottom">
+														<div class="alignright">
+															<input id="button_facility_remove" name="button_facility_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+														</div>
+													</div>
+													<div class="memberlistFromBottom">
+														<div style="display: none; " id="facilityselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+														<div class="alignright">
+															<input id="button_facility_add" name="button_facility_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<div class="body clearfix">
-					<div class="floatLeft">
-						<select size="5" multiple="multiple">
-						</select>
-					</div>
-					<div class="floatRight">
-						<select size="5" multiple="multiple">
-							<option>会議室(3F)</option>
-							<option>外付けHDD</option>
-							<option>持ち出し用ノートPC</option>
-						</select>
-					</div>
-				</div>
-				<div class="foot clearfix">
-					<div class="floatLeft">
-						<input type="button" class="button" value="削除">
-					</div>
-					<div class="floatRight">
-						<input type="button" class="button" value="＜ 追加">
-					</div>
-				</div>
+				<select size="5" multiple="multiple" style="display:none;" name="init_facilitylist" id="init_facilitylist">
+				</select>
 			</div>
-
 		</td>
 	</tr>
 	</tbody>

@@ -1,0 +1,2500 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title></title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css"><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+	djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
+	function selectTimeStart(ss,es) {
+		var startSelect = document.getElementById(ss);
+		var endSelect = document.getElementById(es);
+		var sLength = startSelect.length;
+		var startIndex = startSelect.selectedIndex;
+		if(startIndex+12 < sLength) {
+			endSelect[startIndex+12].selected = true;
+		} else {
+			endSelect[(startIndex+12) - sLength].selected = true;
+		}
+	}
+	function selectTimeEnd(ss,es) {
+		var startSelect = document.getElementById(ss);
+		var endSelect = document.getElementById(es);
+		var sLength = startSelect.length;
+		var startIndex = startSelect.selectedIndex;
+		var endIndex = endSelect.selectedIndex;
+		if(endIndex < startIndex) {
+			startSelect[endIndex].selected = true;
+		}
+	}
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<div id="modalDialog" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog"
+	 title="" style="display: block; opacity: 1; left:50%; top: 10px; margin-left:-275px ">
+<span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+<span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+<span id="schedule_val_category1" style="display:none;">（未分類）</span>
+<span id="schedule_val_repeat1" style="display:none">繰り返す</span>
+<span id="schedule_val_repeat2" style="display:none">繰り返さない</span>
+<span id="schedule_val_span1" style="display:none">期間で指定する</span>
+<span id="schedule_val_span2" style="display:none">時間で指定する</span>
+<span id="schedule_val_confirm1" style="display:none">既に同じ時間帯に設備が予約されています。スケジュールを登録しますか？</span>
+<span id="schedule_val_member1" style="display:none">参加ユーザー選択</span>
+<span id="schedule_val_member2" style="display:none">選択画面を隠す</span>
+<span id="schedule_val_facility1" style="display:none">設備選択</span>
+
+
+<div class="auiPopup clearfix">
+	<div class="auiPopupHead clearfix">
+		<div class="auiPopupTool">
+			<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる"><span><i class="icon-remove"></i></span></a>
+			</div>
+		</div>
+		<div class="auiPopupTitle">スケジュール追加</div>
+	</div>
+
+	<div class="roundBlockContent">
+		<div class="indicator" id="indicator-dlg-P-135ea887364-10654" style="display:none;">データを送信しています...</div>
+		<div id="messageDiv"></div>
+		<form id="_scheduleForm" name="scheduleForm"
+			  action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135ea887364-10654?template=ScheduleFormJSONScreen"
+			  method="post"
+			  onsubmit="aimluck.io.selectAllOptions(this.member_to);aimluck.io.selectAllOptions(this.facility_to);aipo.schedule.onSubmit(this); aimluck.io.submit(this,'indicator-dlg-','P-135ea887364-10654',aipo.schedule.onReceiveMessage);return false;">
+		<input type="hidden" name="ignore_duplicate_facility" value="false">
+		<input type="hidden" name="secid" value="30f4c71af7c12cde0eb3ea63a0bd08bd">
+		<input type="hidden" name="mode" value="insert">
+		<input type="hidden" name="is_repeat" value="TRUE">
+		<input type="hidden" name="is_span" value="FALSE">
+		<input type="hidden" name="is_member" value="TRUE">
+		<input name="is_facility" type="hidden" value="TRUE">
+		<input type="hidden" name="view_date" value="2012-04-25">
+		<input type="hidden" name="all_day_flag" value="OFF">
+		<!-- ##########################################################################################################################
+		ここからモーダルダイアログの内容
+		########################################################################################################################### -->
+		<table class="listTable wide">
+		<tbody>
+		<tr>
+		<td class="caption">日時</td>
+		<td><!-- 通常日付設定表示 ################################################################################ -->
+		<div id="normalField" style="display: none; ">
+			<div class="p">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="startDateSpan">
+					<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						 style="float:left;">
+						<div class="dijitRight">
+							<span class="" type="button" dojoattachpoint="focusNode,titleNode"
+								  wairole="button"
+								  waistate="haspopup-true,labelledby-startDateSpan_label"
+								  role="button" aria-haspopup="true"
+								  aria-labelledby="startDateSpan_label" id="startDateSpan"
+								  tabindex="0" aria-valuenow="" aria-disabled="false">
+							<span class="" dojoattachpoint="containerNode,popupStateNode"
+								  id="startDateSpan_label"><img src="images/icon/icon_date.gif"
+																alt="開始日"
+																style="cursor:pointer;cursor:hand;padding-right:2px"
+																align="top"> </span>
+							</span>
+						</div>
+					</div>
+					<div class="alignleft">
+						<span name="start_date_view" id="start_date_view" dojoattachpoint="inputNode"
+							  style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off"
+							  readonly="readonly">2012年4月25日（水）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<span style="display:none">
+						<input name="start_date_check" type="checkbox" value="TRUE"
+							   id="start_date_flag" dojoattachevent="onclick:onCheckBlank">
+						<label for="start_date_flag"> 指定しない</label>
+						</span>
+						<input type="hidden" id="start_date" name="start_date" value="2012/4/25" dojoattachpoint="valueNode">
+						<input type="hidden" id="start_date_year" name="start_date_year" value="2012"
+							   dojoattachpoint="valueYearNode">
+						<input type="hidden" id="start_date_month" name="start_date_month" value="4"
+							   dojoattachpoint="valueMonthNode">
+						<input type="hidden" id="start_date_day" name="start_date_day" value="25"
+							   dojoattachpoint="valueDayNode">
+					</div>
+				</div>
+												<span id="spanField" style="display: none; ">～
+												<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+													 widgetid="endDateSpan">
+													<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+														 style="float:left;">
+														<div class="dijitRight">
+															<span class="" type="button" dojoattachpoint="focusNode,titleNode"
+																  wairole="button"
+																  waistate="haspopup-true,labelledby-endDateSpan_label"
+																  role="button" aria-haspopup="true"
+																  aria-labelledby="endDateSpan_label" id="endDateSpan"
+																  tabindex="0" aria-valuenow="" aria-disabled="false">
+															<span class="" dojoattachpoint="containerNode,popupStateNode"
+																  id="endDateSpan_label"><img src="images/icon/icon_date.gif"
+																							  alt="終了日"
+																							  style="cursor:pointer;cursor:hand;padding-right:2px"
+																							  align="top"> </span>
+															</span>
+														</div>
+													</div>
+													<div class="alignleft">
+														<span name="end_date_view" id="end_date_view"
+															  dojoattachpoint="inputNode"
+															  style="vertical-align:middle;background:#ffffff ;border:0px;"
+															  autocomplete="off" readonly="readonly">2012年4月25日（水）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+														<span style="display:none">
+														<input name="end_date_check" type="checkbox" value="TRUE"
+															   id="end_date_flag" dojoattachevent="onclick:onCheckBlank">
+														<label for="end_date_flag"> 指定しない</label>
+														</span>
+														<input type="hidden" id="end_date" name="end_date" value="2012/4/25"
+															   dojoattachpoint="valueNode">
+														<input type="hidden" id="end_date_year" name="end_date_year"
+															   value="2012" dojoattachpoint="valueYearNode">
+														<input type="hidden" id="end_date_month" name="end_date_month" value="4"
+															   dojoattachpoint="valueMonthNode">
+														<input type="hidden" id="end_date_day" name="end_date_day" value="25"
+															   dojoattachpoint="valueDayNode">
+													</div>
+												</div>
+												</span>
+												<span id="allDayField" style="">
+												<input id="all_day_flag_checkbox" type="checkbox" value="ON"
+													   name="all_day_flag_checkbox"
+													   onclick="aipo.schedule.formSwitchAllDay(this)">
+												<label for="all_day_flag_checkbox">終日</label>
+												</span>
+			</div>
+		</div>
+		<!-- /通常日付設定表示 ################################################################################ -->
+		<!-- 繰り返し日付設定表示 ################################################################################ -->
+		<div id="repeatField" style="">
+			<h3>繰り返しパターン</h3>
+
+			<div class="p">
+				<input id="repeat_typeD" type="radio" value="D" checked="checked" name="repeat_type">
+				<label for="repeat_typeD">毎日</label>
+			</div>
+			<div class="p">
+				<input id="repeat_typeW" type="radio" value="W" name="repeat_type">
+				<label for"repeat_typeW">毎週</label>
+				<input id="week_0_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_0">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_0_id">日</label>
+				<input id="week_1_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_1">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_1_id">月</label>
+				<input id="week_2_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_2">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_2_id">火</label>
+				<input id="week_3_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_3">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_3_id">水</label>
+				<input id="week_4_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_4">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_4_id">木</label>
+				<input id="week_5_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_5">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_5_id">金</label>
+				<input id="week_6_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_6">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_6_id">土</label>
+			</div>
+			<div class="p">
+				<input id="repeat_typeM" type="radio" value="M" name="repeat_type">
+				<label for="repeat_typeM">毎月</label>
+				<select onchange="aipo.schedule.enableMonth(this.form)" name="month_day">
+					<option value="1">1日</option>
+					<option value="2">2日</option>
+					<option value="3">3日</option>
+					<option value="4">4日</option>
+					<option value="5">5日</option>
+					<option value="6">6日</option>
+					<option value="7">7日</option>
+					<option value="8">8日</option>
+					<option value="9">9日</option>
+					<option value="10">10日</option>
+					<option value="11">11日</option>
+					<option value="12">12日</option>
+					<option value="13">13日</option>
+					<option value="14">14日</option>
+					<option value="15">15日</option>
+					<option value="16">16日</option>
+					<option value="17">17日</option>
+					<option value="18">18日</option>
+					<option value="19">19日</option>
+					<option value="20">20日</option>
+					<option value="21">21日</option>
+					<option value="22">22日</option>
+					<option value="23">23日</option>
+					<option value="24">24日</option>
+					<option value="25">25日</option>
+					<option value="26">26日</option>
+					<option value="27">27日</option>
+					<option value="28">28日</option>
+					<option value="29">29日</option>
+					<option value="30">30日</option>
+					<option value="31">31日</option>
+				</select>
+			</div>
+			<h3>繰り返し期間</h3>
+
+			<div class="p">
+				<input id="limit_flagOFF" type="radio" checked="checked" value="OFF" name="limit_flag">
+				<label for="limit_flagOFF">繰り返し期間を指定しない</label>
+			</div>
+			<div class="p">
+				<input id="limit_flagON" type="radio" value="ON" name="limit_flag">
+				<label for="limit_flagON">繰り返し期間を指定する</label>
+			</div>
+			<div class="p">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitStartDateSpan">
+					<a href="javascript:void(0)" class="auiButtonIcon mr5">
+						<span><i class="icon-calendar"></i></span>
+					</a>2012年4月25日（水）
+													<span style="display:none">
+													<input name="limit_start_date_check" type="checkbox" value="TRUE"
+														   id="limit_start_date_flag" dojoattachevent="onclick:onCheckBlank">
+													<label for="limit_start_date_flag"> 指定しない</label>
+													</span>
+					<input type="hidden" id="limit_start_date" name="limit_start_date" value="2012/4/25"
+						   dojoattachpoint="valueNode">
+					<input type="hidden" id="limit_start_date_year" name="limit_start_date_year" value="2012"
+						   dojoattachpoint="valueYearNode">
+					<input type="hidden" id="limit_start_date_month" name="limit_start_date_month" value="4"
+						   dojoattachpoint="valueMonthNode">
+					<input type="hidden" id="limit_start_date_day" name="limit_start_date_day" value="25"
+						   dojoattachpoint="valueDayNode">
+				</div>
+				-
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitEndDateSpan">
+					<a href="javascript:void(0)" class="auiButtonIcon mr5">
+						<span><i class="icon-calendar"></i></span>
+					</a>
+					2012年4月25日（水）
+													<span style="display:none">
+													<input name="limit_end_date_check" type="checkbox" value="TRUE"
+														   id="limit_end_date_flag" dojoattachevent="onclick:onCheckBlank">
+													<label for="limit_end_date_flag"> 指定しない</label>
+													</span>
+					<input type="hidden" id="limit_end_date" name="limit_end_date" value="2012/4/25"
+						   dojoattachpoint="valueNode">
+					<input type="hidden" id="limit_end_date_year" name="limit_end_date_year" value="2012"
+						   dojoattachpoint="valueYearNode">
+					<input type="hidden" id="limit_end_date_month" name="limit_end_date_month" value="4"
+						   dojoattachpoint="valueMonthNode">
+					<input type="hidden" id="limit_end_date_day" name="limit_end_date_day" value="25"
+						   dojoattachpoint="valueDayNode">
+				</div>
+			</div>
+		</div>
+		<!-- /繰り返し日付設定表示 ################################################################################ -->
+		<h3 id="timeLabelField" style="">時間</h3>
+
+		<div id="timeField" style="">
+			<div class="p">
+				<span id="startTimeSpan">
+					<select name="start_date_hour" id="startTimeSelect1" onchange="selectTimeStart('startTimeSelect1','endTimeSelect1')">
+						<option value="">0:00</option>
+						<option value="">0:05</option>
+						<option value="">0:10</option>
+						<option value="">0:15</option>
+						<option value="">0:20</option>
+						<option value="">0:25</option>
+						<option value="">0:30</option>
+						<option value="">0:35</option>
+						<option value="">0:40</option>
+						<option value="">0:45</option>
+						<option value="">0:50</option>
+						<option value="">0:55</option>
+						<option value="">1:00</option>
+						<option value="">1:05</option>
+						<option value="">1:10</option>
+						<option value="">1:15</option>
+						<option value="">1:20</option>
+						<option value="">1:25</option>
+						<option value="">1:30</option>
+						<option value="">1:35</option>
+						<option value="">1:40</option>
+						<option value="">1:45</option>
+						<option value="">1:50</option>
+						<option value="">1:55</option>
+						<option value="">2:00</option>
+						<option value="">2:05</option>
+						<option value="">2:10</option>
+						<option value="">2:15</option>
+						<option value="">2:20</option>
+						<option value="">2:25</option>
+						<option value="">2:30</option>
+						<option value="">2:35</option>
+						<option value="">2:40</option>
+						<option value="">2:45</option>
+						<option value="">2:50</option>
+						<option value="">2:55</option>
+						<option value="">3:00</option>
+						<option value="">3:05</option>
+						<option value="">3:10</option>
+						<option value="">3:15</option>
+						<option value="">3:20</option>
+						<option value="">3:25</option>
+						<option value="">3:30</option>
+						<option value="">3:35</option>
+						<option value="">3:40</option>
+						<option value="">3:45</option>
+						<option value="">3:50</option>
+						<option value="">3:55</option>
+						<option value="">4:00</option>
+						<option value="">4:05</option>
+						<option value="">4:10</option>
+						<option value="">4:15</option>
+						<option value="">4:20</option>
+						<option value="">4:25</option>
+						<option value="">4:30</option>
+						<option value="">4:35</option>
+						<option value="">4:40</option>
+						<option value="">4:45</option>
+						<option value="">4:50</option>
+						<option value="">4:55</option>
+						<option value="">5:00</option>
+						<option value="">5:05</option>
+						<option value="">5:10</option>
+						<option value="">5:15</option>
+						<option value="">5:20</option>
+						<option value="">5:25</option>
+						<option value="">5:30</option>
+						<option value="">5:35</option>
+						<option value="">5:40</option>
+						<option value="">5:45</option>
+						<option value="">5:50</option>
+						<option value="">5:55</option>
+						<option value="">6:00</option>
+						<option value="">6:05</option>
+						<option value="">6:10</option>
+						<option value="">6:15</option>
+						<option value="">6:20</option>
+						<option value="">6:25</option>
+						<option value="">6:30</option>
+						<option value="">6:35</option>
+						<option value="">6:40</option>
+						<option value="">6:45</option>
+						<option value="">6:50</option>
+						<option value="">6:55</option>
+						<option value="">7:00</option>
+						<option value="">7:05</option>
+						<option value="">7:10</option>
+						<option value="">7:15</option>
+						<option value="">7:20</option>
+						<option value="">7:25</option>
+						<option value="">7:30</option>
+						<option value="">7:35</option>
+						<option value="">7:40</option>
+						<option value="">7:45</option>
+						<option value="">7:50</option>
+						<option value="">7:55</option>
+						<option value="">8:00</option>
+						<option value="">8:05</option>
+						<option value="">8:10</option>
+						<option value="">8:15</option>
+						<option value="">8:20</option>
+						<option value="">8:25</option>
+						<option value="">8:30</option>
+						<option value="">8:35</option>
+						<option value="">8:40</option>
+						<option value="">8:45</option>
+						<option value="">8:50</option>
+						<option value="">8:55</option>
+						<option value="">9:00</option>
+						<option value="">9:05</option>
+						<option value="">9:10</option>
+						<option value="">9:15</option>
+						<option value="">9:20</option>
+						<option value="">9:25</option>
+						<option value="">9:30</option>
+						<option value="">9:35</option>
+						<option value="">9:40</option>
+						<option value="">9:45</option>
+						<option value="">9:50</option>
+						<option value="">9:55</option>
+						<option value="">10:00</option>
+						<option value="">10:05</option>
+						<option value="">10:10</option>
+						<option value="">10:15</option>
+						<option value="">10:20</option>
+						<option value="">10:25</option>
+						<option value="">10:30</option>
+						<option value="">10:35</option>
+						<option value="">10:40</option>
+						<option value="">10:45</option>
+						<option value="">10:50</option>
+						<option value="">10:55</option>
+						<option value="">11:00</option>
+						<option value="">11:05</option>
+						<option value="">11:10</option>
+						<option value="">11:15</option>
+						<option value="">11:20</option>
+						<option value="">11:25</option>
+						<option value="">11:30</option>
+						<option value="">11:35</option>
+						<option value="">11:40</option>
+						<option value="">11:45</option>
+						<option value="">11:50</option>
+						<option value="">11:55</option>
+						<option value="">12:00</option>
+						<option value="">12:05</option>
+						<option value="">12:10</option>
+						<option value="">12:15</option>
+						<option value="">12:20</option>
+						<option value="">12:25</option>
+						<option value="">12:30</option>
+						<option value="">12:35</option>
+						<option value="">12:40</option>
+						<option value="">12:45</option>
+						<option value="">12:50</option>
+						<option value="">12:55</option>
+						<option value="">13:00</option>
+						<option value="">13:05</option>
+						<option value="">13:10</option>
+						<option value="">13:15</option>
+						<option value="">13:20</option>
+						<option value="">13:25</option>
+						<option value="">13:30</option>
+						<option value="">13:35</option>
+						<option value="">13:40</option>
+						<option value="">13:45</option>
+						<option value="">13:50</option>
+						<option value="">13:55</option>
+						<option value="" selected>14:00</option>
+						<option value="">14:05</option>
+						<option value="">14:10</option>
+						<option value="">14:15</option>
+						<option value="">14:20</option>
+						<option value="">14:25</option>
+						<option value="">14:30</option>
+						<option value="">14:35</option>
+						<option value="">14:40</option>
+						<option value="">14:45</option>
+						<option value="">14:50</option>
+						<option value="">14:55</option>
+						<option value="">15:00</option>
+						<option value="">15:05</option>
+						<option value="">15:10</option>
+						<option value="">15:15</option>
+						<option value="">15:20</option>
+						<option value="">15:25</option>
+						<option value="">15:30</option>
+						<option value="">15:35</option>
+						<option value="">15:40</option>
+						<option value="">15:45</option>
+						<option value="">15:50</option>
+						<option value="">15:55</option>
+						<option value="">16:00</option>
+						<option value="">16:05</option>
+						<option value="">16:10</option>
+						<option value="">16:15</option>
+						<option value="">16:20</option>
+						<option value="">16:25</option>
+						<option value="">16:30</option>
+						<option value="">16:35</option>
+						<option value="">16:40</option>
+						<option value="">16:45</option>
+						<option value="">16:50</option>
+						<option value="">16:55</option>
+						<option value="">17:00</option>
+						<option value="">17:05</option>
+						<option value="">17:10</option>
+						<option value="">17:15</option>
+						<option value="">17:20</option>
+						<option value="">17:25</option>
+						<option value="">17:30</option>
+						<option value="">17:35</option>
+						<option value="">17:40</option>
+						<option value="">17:45</option>
+						<option value="">17:50</option>
+						<option value="">17:55</option>
+						<option value="">18:00</option>
+						<option value="">18:05</option>
+						<option value="">18:10</option>
+						<option value="">18:15</option>
+						<option value="">18:20</option>
+						<option value="">18:25</option>
+						<option value="">18:30</option>
+						<option value="">18:35</option>
+						<option value="">18:40</option>
+						<option value="">18:45</option>
+						<option value="">18:50</option>
+						<option value="">18:55</option>
+						<option value="">19:00</option>
+						<option value="">19:05</option>
+						<option value="">19:10</option>
+						<option value="">19:15</option>
+						<option value="">19:20</option>
+						<option value="">19:25</option>
+						<option value="">19:30</option>
+						<option value="">19:35</option>
+						<option value="">19:40</option>
+						<option value="">19:45</option>
+						<option value="">19:50</option>
+						<option value="">19:55</option>
+						<option value="">20:00</option>
+						<option value="">20:05</option>
+						<option value="">20:10</option>
+						<option value="">20:15</option>
+						<option value="">20:20</option>
+						<option value="">20:25</option>
+						<option value="">20:30</option>
+						<option value="">20:35</option>
+						<option value="">20:40</option>
+						<option value="">20:45</option>
+						<option value="">20:50</option>
+						<option value="">20:55</option>
+						<option value="">21:00</option>
+						<option value="">21:05</option>
+						<option value="">21:10</option>
+						<option value="">21:15</option>
+						<option value="">21:20</option>
+						<option value="">21:25</option>
+						<option value="">21:30</option>
+						<option value="">21:35</option>
+						<option value="">21:40</option>
+						<option value="">21:45</option>
+						<option value="">21:50</option>
+						<option value="">21:55</option>
+						<option value="">22:00</option>
+						<option value="">22:05</option>
+						<option value="">22:10</option>
+						<option value="">22:15</option>
+						<option value="">22:20</option>
+						<option value="">22:25</option>
+						<option value="">22:30</option>
+						<option value="">22:35</option>
+						<option value="">22:40</option>
+						<option value="">22:45</option>
+						<option value="">22:50</option>
+						<option value="">22:55</option>
+						<option value="">23:00</option>
+						<option value="">23:05</option>
+						<option value="">23:10</option>
+						<option value="">23:15</option>
+						<option value="">23:20</option>
+						<option value="">23:25</option>
+						<option value="">23:30</option>
+						<option value="">23:35</option>
+						<option value="">23:40</option>
+						<option value="">23:45</option>
+						<option value="">23:50</option>
+						<option value="">23:55</option>
+					</select>
+				</span>
+				&nbsp;-&nbsp;
+				<span id="endTimeSpan">
+					<select name="" id="endTimeSelect1" onchange="selectTimeEnd('startTimeSelect1','endTimeSelect1')">
+						<option value="">0:00</option>
+						<option value="">0:05</option>
+						<option value="">0:10</option>
+						<option value="">0:15</option>
+						<option value="">0:20</option>
+						<option value="">0:25</option>
+						<option value="">0:30</option>
+						<option value="">0:35</option>
+						<option value="">0:40</option>
+						<option value="">0:45</option>
+						<option value="">0:50</option>
+						<option value="">0:55</option>
+						<option value="">1:00</option>
+						<option value="">1:05</option>
+						<option value="">1:10</option>
+						<option value="">1:15</option>
+						<option value="">1:20</option>
+						<option value="">1:25</option>
+						<option value="">1:30</option>
+						<option value="">1:35</option>
+						<option value="">1:40</option>
+						<option value="">1:45</option>
+						<option value="">1:50</option>
+						<option value="">1:55</option>
+						<option value="">2:00</option>
+						<option value="">2:05</option>
+						<option value="">2:10</option>
+						<option value="">2:15</option>
+						<option value="">2:20</option>
+						<option value="">2:25</option>
+						<option value="">2:30</option>
+						<option value="">2:35</option>
+						<option value="">2:40</option>
+						<option value="">2:45</option>
+						<option value="">2:50</option>
+						<option value="">2:55</option>
+						<option value="">3:00</option>
+						<option value="">3:05</option>
+						<option value="">3:10</option>
+						<option value="">3:15</option>
+						<option value="">3:20</option>
+						<option value="">3:25</option>
+						<option value="">3:30</option>
+						<option value="">3:35</option>
+						<option value="">3:40</option>
+						<option value="">3:45</option>
+						<option value="">3:50</option>
+						<option value="">3:55</option>
+						<option value="">4:00</option>
+						<option value="">4:05</option>
+						<option value="">4:10</option>
+						<option value="">4:15</option>
+						<option value="">4:20</option>
+						<option value="">4:25</option>
+						<option value="">4:30</option>
+						<option value="">4:35</option>
+						<option value="">4:40</option>
+						<option value="">4:45</option>
+						<option value="">4:50</option>
+						<option value="">4:55</option>
+						<option value="">5:00</option>
+						<option value="">5:05</option>
+						<option value="">5:10</option>
+						<option value="">5:15</option>
+						<option value="">5:20</option>
+						<option value="">5:25</option>
+						<option value="">5:30</option>
+						<option value="">5:35</option>
+						<option value="">5:40</option>
+						<option value="">5:45</option>
+						<option value="">5:50</option>
+						<option value="">5:55</option>
+						<option value="">6:00</option>
+						<option value="">6:05</option>
+						<option value="">6:10</option>
+						<option value="">6:15</option>
+						<option value="">6:20</option>
+						<option value="">6:25</option>
+						<option value="">6:30</option>
+						<option value="">6:35</option>
+						<option value="">6:40</option>
+						<option value="">6:45</option>
+						<option value="">6:50</option>
+						<option value="">6:55</option>
+						<option value="">7:00</option>
+						<option value="">7:05</option>
+						<option value="">7:10</option>
+						<option value="">7:15</option>
+						<option value="">7:20</option>
+						<option value="">7:25</option>
+						<option value="">7:30</option>
+						<option value="">7:35</option>
+						<option value="">7:40</option>
+						<option value="">7:45</option>
+						<option value="">7:50</option>
+						<option value="">7:55</option>
+						<option value="">8:00</option>
+						<option value="">8:05</option>
+						<option value="">8:10</option>
+						<option value="">8:15</option>
+						<option value="">8:20</option>
+						<option value="">8:25</option>
+						<option value="">8:30</option>
+						<option value="">8:35</option>
+						<option value="">8:40</option>
+						<option value="">8:45</option>
+						<option value="">8:50</option>
+						<option value="">8:55</option>
+						<option value="">9:00</option>
+						<option value="">9:05</option>
+						<option value="">9:10</option>
+						<option value="">9:15</option>
+						<option value="">9:20</option>
+						<option value="">9:25</option>
+						<option value="">9:30</option>
+						<option value="">9:35</option>
+						<option value="">9:40</option>
+						<option value="">9:45</option>
+						<option value="">9:50</option>
+						<option value="">9:55</option>
+						<option value="">10:00</option>
+						<option value="">10:05</option>
+						<option value="">10:10</option>
+						<option value="">10:15</option>
+						<option value="">10:20</option>
+						<option value="">10:25</option>
+						<option value="">10:30</option>
+						<option value="">10:35</option>
+						<option value="">10:40</option>
+						<option value="">10:45</option>
+						<option value="">10:50</option>
+						<option value="">10:55</option>
+						<option value="">11:00</option>
+						<option value="">11:05</option>
+						<option value="">11:10</option>
+						<option value="">11:15</option>
+						<option value="">11:20</option>
+						<option value="">11:25</option>
+						<option value="">11:30</option>
+						<option value="">11:35</option>
+						<option value="">11:40</option>
+						<option value="">11:45</option>
+						<option value="">11:50</option>
+						<option value="">11:55</option>
+						<option value="">12:00</option>
+						<option value="">12:05</option>
+						<option value="">12:10</option>
+						<option value="">12:15</option>
+						<option value="">12:20</option>
+						<option value="">12:25</option>
+						<option value="">12:30</option>
+						<option value="">12:35</option>
+						<option value="">12:40</option>
+						<option value="">12:45</option>
+						<option value="">12:50</option>
+						<option value="">12:55</option>
+						<option value="">13:00</option>
+						<option value="">13:05</option>
+						<option value="">13:10</option>
+						<option value="">13:15</option>
+						<option value="">13:20</option>
+						<option value="">13:25</option>
+						<option value="">13:30</option>
+						<option value="">13:35</option>
+						<option value="">13:40</option>
+						<option value="">13:45</option>
+						<option value="">13:50</option>
+						<option value="">13:55</option>
+						<option value="">14:00</option>
+						<option value="">14:05</option>
+						<option value="">14:10</option>
+						<option value="">14:15</option>
+						<option value="">14:20</option>
+						<option value="">14:25</option>
+						<option value="">14:30</option>
+						<option value="">14:35</option>
+						<option value="">14:40</option>
+						<option value="">14:45</option>
+						<option value="">14:50</option>
+						<option value="">14:55</option>
+						<option value="" selected>15:00</option>
+						<option value="">15:05</option>
+						<option value="">15:10</option>
+						<option value="">15:15</option>
+						<option value="">15:20</option>
+						<option value="">15:25</option>
+						<option value="">15:30</option>
+						<option value="">15:35</option>
+						<option value="">15:40</option>
+						<option value="">15:45</option>
+						<option value="">15:50</option>
+						<option value="">15:55</option>
+						<option value="">16:00</option>
+						<option value="">16:05</option>
+						<option value="">16:10</option>
+						<option value="">16:15</option>
+						<option value="">16:20</option>
+						<option value="">16:25</option>
+						<option value="">16:30</option>
+						<option value="">16:35</option>
+						<option value="">16:40</option>
+						<option value="">16:45</option>
+						<option value="">16:50</option>
+						<option value="">16:55</option>
+						<option value="">17:00</option>
+						<option value="">17:05</option>
+						<option value="">17:10</option>
+						<option value="">17:15</option>
+						<option value="">17:20</option>
+						<option value="">17:25</option>
+						<option value="">17:30</option>
+						<option value="">17:35</option>
+						<option value="">17:40</option>
+						<option value="">17:45</option>
+						<option value="">17:50</option>
+						<option value="">17:55</option>
+						<option value="">18:00</option>
+						<option value="">18:05</option>
+						<option value="">18:10</option>
+						<option value="">18:15</option>
+						<option value="">18:20</option>
+						<option value="">18:25</option>
+						<option value="">18:30</option>
+						<option value="">18:35</option>
+						<option value="">18:40</option>
+						<option value="">18:45</option>
+						<option value="">18:50</option>
+						<option value="">18:55</option>
+						<option value="">19:00</option>
+						<option value="">19:05</option>
+						<option value="">19:10</option>
+						<option value="">19:15</option>
+						<option value="">19:20</option>
+						<option value="">19:25</option>
+						<option value="">19:30</option>
+						<option value="">19:35</option>
+						<option value="">19:40</option>
+						<option value="">19:45</option>
+						<option value="">19:50</option>
+						<option value="">19:55</option>
+						<option value="">20:00</option>
+						<option value="">20:05</option>
+						<option value="">20:10</option>
+						<option value="">20:15</option>
+						<option value="">20:20</option>
+						<option value="">20:25</option>
+						<option value="">20:30</option>
+						<option value="">20:35</option>
+						<option value="">20:40</option>
+						<option value="">20:45</option>
+						<option value="">20:50</option>
+						<option value="">20:55</option>
+						<option value="">21:00</option>
+						<option value="">21:05</option>
+						<option value="">21:10</option>
+						<option value="">21:15</option>
+						<option value="">21:20</option>
+						<option value="">21:25</option>
+						<option value="">21:30</option>
+						<option value="">21:35</option>
+						<option value="">21:40</option>
+						<option value="">21:45</option>
+						<option value="">21:50</option>
+						<option value="">21:55</option>
+						<option value="">22:00</option>
+						<option value="">22:05</option>
+						<option value="">22:10</option>
+						<option value="">22:15</option>
+						<option value="">22:20</option>
+						<option value="">22:25</option>
+						<option value="">22:30</option>
+						<option value="">22:35</option>
+						<option value="">22:40</option>
+						<option value="">22:45</option>
+						<option value="">22:50</option>
+						<option value="">22:55</option>
+						<option value="">23:00</option>
+						<option value="">23:05</option>
+						<option value="">23:10</option>
+						<option value="">23:15</option>
+						<option value="">23:20</option>
+						<option value="">23:25</option>
+						<option value="">23:30</option>
+						<option value="">23:35</option>
+						<option value="">23:40</option>
+						<option value="">23:45</option>
+						<option value="">23:50</option>
+						<option value="">23:55</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		<div class="p">
+			<span id="repeatButtonField" style="">
+			<input name="repeat_button" type="button" class="button" value="繰り返さない"
+				   onclick="aipo.schedule.formSwitchRepeat(this)">
+			</span>
+			<span id="spanButtonField" style="display: none; ">
+			<input name="span_button" type="button" class="button" value="期間で指定する"
+				   onclick="aipo.schedule.formSwitchSpan(this)">
+			</span>
+		</div>
+		</td>
+		</tr>
+		<tr>
+			<td class="caption"><span class="required">タイトル</span></td>
+			<td><input class="text" type="text" name="name" id="name" value="" maxlength="50"
+					   style="width:100%;ime-mode:active"></td>
+		</tr>
+		<tr>
+			<td class="caption">場所</td>
+			<td><input class="text" type="text" name="place" id="place" value="" maxlength="50"
+					   style="width:100%;ime-mode:active"></td>
+		</tr>
+		<tr>
+			<td class="caption">内容</td>
+			<td><textarea class="text wide" name="note" rows="5" cols="50"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="caption">公開区分</td>
+			<td>
+				<div class="p">
+					<input name="public_flag" type="radio" value="O" id="public_flagO_P-135ea887364-10654" checked="checked"
+						   onclick="aipo.schedule.formPublicOn(this.form)">
+					<label for="public_flagO_P-135ea887364-10654" onclick="aipo.schedule.formPublicOn(this.form)">公開（スケジュールを全員に公開します）</label>
+				</div>
+				<div class="p">
+					<input name="public_flag" type="radio" value="C" id="public_flagC_P-135ea887364-10654"
+						   onclick="aipo.schedule.formPublicOn(this.form)">
+					<label for="public_flagC_P-135ea887364-10654" onclick="aipo.schedule.formPublicOff(this.form)">非公開（スケジュールの日時のみを全員に公開します）</label>
+				</div>
+				<div class="p">
+					<input name="public_flag" type="radio" value="P" id="public_flagP_P-135ea887364-10654"
+						   onclick="aipo.schedule.formPublicOff(this.form)">
+					<label for="public_flagP_P-135ea887364-10654" onclick="aipo.schedule.formPublicOff(this.form)">完全に隠す（スケジュールをすべて非公開とします）</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="caption">参加ユーザー</td>
+			<td>
+				<div id="memberFieldButton">
+					<table style="width:98%;">
+						<tbody>
+						<tr>
+							<td style="width:80%; border:none">
+								<span>木村 一郎</span>,
+								<span>田村 涼子</span>,
+								<span>山本 太朗</span>,
+								<span>アーノルド シュワルツェネッガー</span>
+							</td>
+							<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す"
+															onclick="aipo.schedule.shrinkMember();"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="memberField" style="display: block; ">
+					<table class="none">
+						<tbody>
+						<tr>
+							<td>
+								<select>
+									<option value="">（グループ全体）</option>
+									<option value="">アルバイト・インターン</option>
+									<option value="">企画本部</option>
+									<option value="">営業本部</option>
+									<option value="">管理本部</option>
+									<option value="">開発1部</option>
+									<option value="">開発2部</option>
+									<option value="">開発3部</option>
+									<option value="">開発本部</option>
+								</select>
+
+								<div class="auiCheckList auiCL2">
+									<ul class="clearfix">
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+									</ul>
+								</div>
+								<!--
+								<div class="spaceTop spaceLeft small">左側に参加ユーザーを追加してください。</div>
+								<div id="membernormalselect" widgetid="membernormalselect">
+									<table class="none">
+										<tbody>
+											<tr>
+												<td><div id="memberPopupDiv">
+														<div class="outer">
+															<div class="popup">
+																<div class="clearfix">
+																	<div class="memberlistToTop">参加ユーザー一覧</div>
+																	<div class="memberlistFromTop">
+																		<select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
+																			<option value="LoginUser">（グループ全体）</option>
+																			<option value="1331519412605_4">Pickles</option>
+																			<option value="1309354049146_21">アルバイト・インターン</option>
+																			<option value="1309256925795_4">企画本部</option>
+																			<option value="1309256875124_4">営業本部</option>
+																			<option value="1309256852208_4">管理本部</option>
+																			<option value="1309354067571_21">開発1部</option>
+																			<option value="1309354076422_21">開発2部</option>
+																			<option value="1309354083123_21">開発3部</option>
+																			<option value="1309256899203_4">開発本部</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="clearfix">
+																	<div class="memberlistToBody">
+																		<select size="5" multiple="multiple" style="width:100%" name="member_to" id="member_to">
+																			<option value="0000000007">木村 一郎</option>
+																		</select>
+																	</div>
+																	<div class="memberlistFromBody">
+																		<select size="5" multiple="multiple" style="width:100%" name="tmp_member_from" id="tmp_member_from">
+																			<option value="0000000019">山田 太郎</option>
+																			<option value="0000000018">田中 一郎</option>
+																			<option value="0000000022">山本 次郎</option>
+																			<option value="0000000021">別所 優一</option>
+																			<option value="0000000007">木村 一郎</option>
+																			<option value="0000000020">鈴木 花子</option>
+																			<option value="0000000024">田村 三郎</option>
+																			<option value="0000000025">高橋 四郎</option>
+																			<option value="0000000026">越後 太一</option>
+																			<option value="0000000027">佐藤 涼子</option>
+																			<option value="0000000079">山中 愛子</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="clearfix">
+																	<div class="memberlistToBottom">
+																		<div class="alignright">
+																			<input id="button_member_remove" name="button_member_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+																		</div>
+																	</div>
+																	<div class="memberlistFromBottom">
+																		<div style="display: none; " id="membernormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+																		<div class="alignright">
+																			<input id="button_member_add" name="button_member_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<select size="5" multiple="multiple" style="display:none;" name="init_memberlist" id="init_memberlist">
+									<option value="0000000007">木村 一郎</option>
+								</select>
+								-->
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="p">
+									<div id="edit_control_title_P-135ea887364-10654"
+										 style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">
+										参加ユーザーによる予定の編集権限を設定する
+									</div>
+								</div>
+								<div id="edit_control_context_P-135ea887364-10654" style="display:block;">
+									<div class="p">
+										<input name="edit_flag" type="radio" value="T"
+											   id="edit_control_flagT_P-135ea887364-10654" checked="checked">
+										<label for="edit_control_flagT_P-135ea887364-10654">可（参加ユーザーは、この予定を編集／削除できます）</label>
+									</div>
+									<div class="p">
+										<input name="edit_flag" type="radio" value="F"
+											   id="edit_control_flagF_P-135ea887364-10654">
+										<label for="edit_control_flagF_P-135ea887364-10654">不可（参加ユーザーは、この予定を編集／削除できません）</label>
+									</div>
+								</div>
+								<div class="p">
+									<div id="mail_title_P-135ea887364-10654"
+										 style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">
+										参加ユーザーへのメール通知を設定する
+									</div>
+								</div>
+								<div id="mail_context_P-135ea887364-10654" style="display:block;">
+									<div class="p">
+										<input name="mail_flag" type="radio" value="A" id="mail_flag_A" checked="checked">
+										<label for="mail_flag_A">通知する</label>
+										</p>
+										<div class="p">
+											<input name="mail_flag" type="radio" value="N" id="mail_flag_N">
+											<label for="mail_flag_N">通知しない</label>
+										</div>
+									</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="caption">設備</td>
+			<td>
+				<div id="facilityFieldButton" style="display:">
+					<table style="width:98%;">
+						<tbody>
+						<tr>
+							<td style="width:80%; border:none">
+								<span>会議室A</span>,
+								<span>会議室B</span>
+							</td>
+							<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す"
+															onclick="aipo.schedule.shrinkFacility();">
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<select>
+					<option value="">（グループ全体）</option>
+					<option value="">備品</option>
+					<option value="">施設</option>
+				</select>
+
+				<div class="auiCheckList auiCL2">
+					<ul class="clearfix">
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+					</ul>
+				</div>
+
+				<!--div id="facilityField" style="display: block; ">
+					<div class="spaceTop spaceLeft small">左側に設備を追加してください。</div>
+					<div id="facilityselect" widgetid="facilityselect">
+						<table class="none">
+							<tbody>
+								<tr>
+									<td><div id="memberPopupDiv">
+											<div class="outer">
+												<div class="popup">
+													<div class="clearfix">
+														<div class="memberlistToTop">設備一覧</div>
+														<div class="memberlistFromTop">
+															<select size="1" style="width:100%" name="tmp_facility_group" id="tmp_facility_group" dojoattachevent="onchange:changeGroup">
+																<option value="all">（グループ全体）</option>
+																<option value="1">備品</option>
+																<option value="2">施設</option>
+															</select>
+														</div>
+													</div>
+													<div class="clearfix">
+														<div class="memberlistToBody">
+															<select size="5" multiple="multiple" style="width:100%" name="facility_to" id="facility_to">
+															</select>
+														</div>
+														<div class="memberlistFromBody">
+															<select size="5" multiple="multiple" style="width:100%" name="tmp_facility_from" id="tmp_facility_from">
+																<option value="1">会議室(3F)</option>
+																<option value="2">外付けHDD</option>
+																<option value="3">持ち出し用ノートPC</option>
+															</select>
+														</div>
+													</div>
+													<div class="clearfix">
+														<div class="memberlistToBottom">
+															<div class="alignright">
+																<input id="button_facility_remove" name="button_facility_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+															</div>
+														</div>
+														<div class="memberlistFromBottom">
+															<div style="display: none; " id="facilityselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+															<div class="alignright">
+																<input id="button_facility_add" name="button_facility_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<select size="5" multiple="multiple" style="display:none;" name="init_facilitylist" id="init_facilitylist">
+					</select>
+				</div-->
+			</td>
+		</tr>
+		</tbody>
+		</table>
+		<div align="center">
+			<input name="eventSubmit_doSchedule_insert" class="auiButtonAction" type="submit" value="追加する"
+				   onclick="aimluck.io.setHiddenValue(this);">
+			<input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="aipo.common.hideDialog();">
+		</div>
+		<input type="hidden" id="commonUrlP-135ea887364-10654" name="commonUrlP-135ea887364-10654"
+			   value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135ea887364-10654/template/CommonCategoryLiteJSONScreen">
+		<input type="hidden" id="commonCategoryidP-135ea887364-10654" name="commonCategoryidP-135ea887364-10654" value="1">
+		</form>
+	</div>
+</div>
+
+
+<hr class="mt50 mb50"/>
+
+
+<div class="auiPopup clearfix">
+	<div class="auiPopupHead clearfix">
+		<div class="auiPopupTool">
+			<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる"><span><i class="icon-remove"></i></span></a>
+			</div>
+		</div>
+		<div class="auiPopupTitle">スケジュール編集</div>
+	</div>
+	<div class="roundBlockContent">
+		<div class="indicator" id="indicator-dlg-P-135ea887364-10654" style="display:none;">データを送信しています...</div>
+		<div id="messageDiv"></div>
+		<form id="_scheduleForm" name="scheduleForm"
+			  action="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135ea887364-10654?template=ScheduleFormJSONScreen"
+			  method="post"
+			  onsubmit="aimluck.io.selectAllOptions(this.member_to);aimluck.io.selectAllOptions(this.facility_to);aipo.schedule.onSubmit(this); aimluck.io.submit(this,'indicator-dlg-','P-135ea887364-10654',aipo.schedule.onReceiveMessage);return false;">
+		<input type="hidden" name="ignore_duplicate_facility" value="false">
+		<input type="hidden" name="secid" value="30f4c71af7c12cde0eb3ea63a0bd08bd">
+		<input type="hidden" name="mode" value="insert">
+		<input type="hidden" name="is_repeat" value="TRUE">
+		<input type="hidden" name="is_span" value="FALSE">
+		<input type="hidden" name="is_member" value="TRUE">
+		<input name="is_facility" type="hidden" value="TRUE">
+		<input type="hidden" name="view_date" value="2012-04-25">
+		<input type="hidden" name="all_day_flag" value="OFF">
+		<!-- ##########################################################################################################################
+		ここからモーダルダイアログの内容
+		########################################################################################################################### -->
+		<table class="listTable wide">
+		<tbody>
+		<tr>
+		<td class="caption">日時</td>
+		<td><!-- 通常日付設定表示 ################################################################################ -->
+		<div id="normalField" style="display: none; ">
+			<div class="p">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="startDateSpan">
+					<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+						 style="float:left;">
+						<div class="dijitRight">
+							<span class="" type="button" dojoattachpoint="focusNode,titleNode"
+								  wairole="button"
+								  waistate="haspopup-true,labelledby-startDateSpan_label"
+								  role="button" aria-haspopup="true"
+								  aria-labelledby="startDateSpan_label" id="startDateSpan"
+								  tabindex="0" aria-valuenow="" aria-disabled="false">
+							<span class="" dojoattachpoint="containerNode,popupStateNode"
+								  id="startDateSpan_label"><img src="images/icon/icon_date.gif"
+																alt="開始日"
+																style="cursor:pointer;cursor:hand;padding-right:2px"
+																align="top"> </span>
+							</span>
+						</div>
+					</div>
+					<div class="alignleft">
+						<span name="start_date_view" id="start_date_view" dojoattachpoint="inputNode"
+							  style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off"
+							  readonly="readonly">2012年4月25日（水）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+														<span style="display:none">
+														<input name="start_date_check" type="checkbox" value="TRUE"
+															   id="start_date_flag" dojoattachevent="onclick:onCheckBlank">
+														<label for="start_date_flag"> 指定しない</label>
+														</span>
+						<input type="hidden" id="start_date" name="start_date" value="2012/4/25" dojoattachpoint="valueNode">
+						<input type="hidden" id="start_date_year" name="start_date_year" value="2012"
+							   dojoattachpoint="valueYearNode">
+						<input type="hidden" id="start_date_month" name="start_date_month" value="4"
+							   dojoattachpoint="valueMonthNode">
+						<input type="hidden" id="start_date_day" name="start_date_day" value="25"
+							   dojoattachpoint="valueDayNode">
+					</div>
+				</div>
+				<span id="spanField" style="display: none; ">～
+					<div class="dijit dijitLeft dijitInline dijitDropDownButton"
+						 widgetid="endDateSpan">
+						<div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+							 style="float:left;">
+							<div class="dijitRight">
+								<span class="" type="button" dojoattachpoint="focusNode,titleNode"
+									  wairole="button"
+									  waistate="haspopup-true,labelledby-endDateSpan_label"
+									  role="button" aria-haspopup="true"
+									  aria-labelledby="endDateSpan_label" id="endDateSpan"
+									  tabindex="0" aria-valuenow="" aria-disabled="false">
+								<span class="" dojoattachpoint="containerNode,popupStateNode"
+									  id="endDateSpan_label"><img src="images/icon/icon_date.gif"
+																  alt="終了日"
+																  style="cursor:pointer;cursor:hand;padding-right:2px"
+																  align="top"> </span>
+								</span>
+							</div>
+						</div>
+						<div class="alignleft">
+							<span name="end_date_view" id="end_date_view"
+								  dojoattachpoint="inputNode"
+								  style="vertical-align:middle;background:#ffffff ;border:0px;"
+								  autocomplete="off" readonly="readonly">2012年4月25日（水）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span style="display:none">
+							<input name="end_date_check" type="checkbox" value="TRUE"
+								   id="end_date_flag" dojoattachevent="onclick:onCheckBlank">
+							<label for="end_date_flag"> 指定しない</label>
+							</span>
+							<input type="hidden" id="end_date" name="end_date" value="2012/4/25"
+								   dojoattachpoint="valueNode">
+							<input type="hidden" id="end_date_year" name="end_date_year"
+								   value="2012" dojoattachpoint="valueYearNode">
+							<input type="hidden" id="end_date_month" name="end_date_month" value="4"
+								   dojoattachpoint="valueMonthNode">
+							<input type="hidden" id="end_date_day" name="end_date_day" value="25"
+								   dojoattachpoint="valueDayNode">
+						</div>
+					</div>
+				</span>
+				<span id="allDayField" style="">
+				<input id="all_day_flag_checkbox" type="checkbox" value="ON"
+					   name="all_day_flag_checkbox"
+					   onclick="aipo.schedule.formSwitchAllDay(this)">
+				<label for="all_day_flag_checkbox">終日</label>
+				</span>
+			</div>
+		</div>
+		<!-- /通常日付設定表示 ################################################################################ -->
+		<!-- 繰り返し日付設定表示 ################################################################################ -->
+		<div id="repeatField" style="">
+			<h3>繰り返しパターン</h3>
+
+			<div class="p">
+				<input id="repeat_typeD" type="radio" value="D" checked="checked" name="repeat_type">
+				<label for="repeat_typeD">毎日</label>
+			</div>
+			<div class="p">
+				<input id="repeat_typeW" type="radio" value="W" name="repeat_type">
+				<label for"repeat_typeW">毎週</label>
+				<input id="week_0_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_0">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_0_id">日</label>
+				<input id="week_1_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_1">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_1_id">月</label>
+				<input id="week_2_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_2">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_2_id">火</label>
+				<input id="week_3_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_3">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_3_id">水</label>
+				<input id="week_4_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_4">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_4_id">木</label>
+				<input id="week_5_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_5">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_5_id">金</label>
+				<input id="week_6_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE"
+					   name="week_6">
+				<label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_6_id">土</label>
+			</div>
+			<div class="p">
+				<input id="repeat_typeM" type="radio" value="M" name="repeat_type">
+				<label for="repeat_typeM">毎月</label>
+				<select onchange="aipo.schedule.enableMonth(this.form)" name="month_day">
+					<option value="1">1日</option>
+					<option value="2">2日</option>
+					<option value="3">3日</option>
+					<option value="4">4日</option>
+					<option value="5">5日</option>
+					<option value="6">6日</option>
+					<option value="7">7日</option>
+					<option value="8">8日</option>
+					<option value="9">9日</option>
+					<option value="10">10日</option>
+					<option value="11">11日</option>
+					<option value="12">12日</option>
+					<option value="13">13日</option>
+					<option value="14">14日</option>
+					<option value="15">15日</option>
+					<option value="16">16日</option>
+					<option value="17">17日</option>
+					<option value="18">18日</option>
+					<option value="19">19日</option>
+					<option value="20">20日</option>
+					<option value="21">21日</option>
+					<option value="22">22日</option>
+					<option value="23">23日</option>
+					<option value="24">24日</option>
+					<option value="25">25日</option>
+					<option value="26">26日</option>
+					<option value="27">27日</option>
+					<option value="28">28日</option>
+					<option value="29">29日</option>
+					<option value="30">30日</option>
+					<option value="31">31日</option>
+				</select>
+			</div>
+			<h3>繰り返し期間</h3>
+
+			<div class="p">
+				<input id="limit_flagOFF" type="radio" checked="checked" value="OFF" name="limit_flag">
+				<label for="limit_flagOFF">繰り返し期間を指定しない</label>
+			</div>
+			<div class="p">
+				<input id="limit_flagON" type="radio" value="ON" name="limit_flag">
+				<label for="limit_flagON">繰り返し期間を指定する</label>
+			</div>
+			<div class="p">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitStartDateSpan">
+					<a href="javascript:void(0)" class="auiButtonIcon mr5">
+						<span><i class="icon-calendar"></i></span>
+					</a>2012年4月25日（水）
+					<span style="display:none">
+					<input name="limit_start_date_check" type="checkbox" value="TRUE"
+						   id="limit_start_date_flag" dojoattachevent="onclick:onCheckBlank">
+					<label for="limit_start_date_flag"> 指定しない</label>
+					</span>
+					<input type="hidden" id="limit_start_date" name="limit_start_date" value="2012/4/25"
+						   dojoattachpoint="valueNode">
+					<input type="hidden" id="limit_start_date_year" name="limit_start_date_year" value="2012"
+						   dojoattachpoint="valueYearNode">
+					<input type="hidden" id="limit_start_date_month" name="limit_start_date_month" value="4"
+						   dojoattachpoint="valueMonthNode">
+					<input type="hidden" id="limit_start_date_day" name="limit_start_date_day" value="25"
+						   dojoattachpoint="valueDayNode">
+				</div>
+				-
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitEndDateSpan">
+					<a href="javascript:void(0)" class="auiButtonIcon mr5">
+						<span><i class="icon-calendar"></i></span>
+					</a>
+					2012年4月25日（水）
+					<span style="display:none">
+					<input name="limit_end_date_check" type="checkbox" value="TRUE"
+						   id="limit_end_date_flag" dojoattachevent="onclick:onCheckBlank">
+					<label for="limit_end_date_flag"> 指定しない</label>
+					</span>
+					<input type="hidden" id="limit_end_date" name="limit_end_date" value="2012/4/25"
+						   dojoattachpoint="valueNode">
+					<input type="hidden" id="limit_end_date_year" name="limit_end_date_year" value="2012"
+						   dojoattachpoint="valueYearNode">
+					<input type="hidden" id="limit_end_date_month" name="limit_end_date_month" value="4"
+						   dojoattachpoint="valueMonthNode">
+					<input type="hidden" id="limit_end_date_day" name="limit_end_date_day" value="25"
+						   dojoattachpoint="valueDayNode">
+				</div>
+			</div>
+		</div>
+		<!-- /繰り返し日付設定表示 ################################################################################ -->
+		<h3 id="timeLabelField" style="">時間</h3>
+
+		<div id="timeField" style="">
+			<div class="p">
+			<span id="startTimeSpan">
+					<select name="start_date_hour" id="startTimeSelect2" onchange="selectTimeStart('startTimeSelect2','endTimeSelect2')">
+					<option value="">0:00</option>
+					<option value="">0:05</option>
+					<option value="">0:10</option>
+					<option value="">0:15</option>
+					<option value="">0:20</option>
+					<option value="">0:25</option>
+					<option value="">0:30</option>
+					<option value="">0:35</option>
+					<option value="">0:40</option>
+					<option value="">0:45</option>
+					<option value="">0:50</option>
+					<option value="">0:55</option>
+					<option value="">1:00</option>
+					<option value="">1:05</option>
+					<option value="">1:10</option>
+					<option value="">1:15</option>
+					<option value="">1:20</option>
+					<option value="">1:25</option>
+					<option value="">1:30</option>
+					<option value="">1:35</option>
+					<option value="">1:40</option>
+					<option value="">1:45</option>
+					<option value="">1:50</option>
+					<option value="">1:55</option>
+					<option value="">2:00</option>
+					<option value="">2:05</option>
+					<option value="">2:10</option>
+					<option value="">2:15</option>
+					<option value="">2:20</option>
+					<option value="">2:25</option>
+					<option value="">2:30</option>
+					<option value="">2:35</option>
+					<option value="">2:40</option>
+					<option value="">2:45</option>
+					<option value="">2:50</option>
+					<option value="">2:55</option>
+					<option value="">3:00</option>
+					<option value="">3:05</option>
+					<option value="">3:10</option>
+					<option value="">3:15</option>
+					<option value="">3:20</option>
+					<option value="">3:25</option>
+					<option value="">3:30</option>
+					<option value="">3:35</option>
+					<option value="">3:40</option>
+					<option value="">3:45</option>
+					<option value="">3:50</option>
+					<option value="">3:55</option>
+					<option value="">4:00</option>
+					<option value="">4:05</option>
+					<option value="">4:10</option>
+					<option value="">4:15</option>
+					<option value="">4:20</option>
+					<option value="">4:25</option>
+					<option value="">4:30</option>
+					<option value="">4:35</option>
+					<option value="">4:40</option>
+					<option value="">4:45</option>
+					<option value="">4:50</option>
+					<option value="">4:55</option>
+					<option value="">5:00</option>
+					<option value="">5:05</option>
+					<option value="">5:10</option>
+					<option value="">5:15</option>
+					<option value="">5:20</option>
+					<option value="">5:25</option>
+					<option value="">5:30</option>
+					<option value="">5:35</option>
+					<option value="">5:40</option>
+					<option value="">5:45</option>
+					<option value="">5:50</option>
+					<option value="">5:55</option>
+					<option value="">6:00</option>
+					<option value="">6:05</option>
+					<option value="">6:10</option>
+					<option value="">6:15</option>
+					<option value="">6:20</option>
+					<option value="">6:25</option>
+					<option value="">6:30</option>
+					<option value="">6:35</option>
+					<option value="">6:40</option>
+					<option value="">6:45</option>
+					<option value="">6:50</option>
+					<option value="">6:55</option>
+					<option value="">7:00</option>
+					<option value="">7:05</option>
+					<option value="">7:10</option>
+					<option value="">7:15</option>
+					<option value="">7:20</option>
+					<option value="">7:25</option>
+					<option value="">7:30</option>
+					<option value="">7:35</option>
+					<option value="">7:40</option>
+					<option value="">7:45</option>
+					<option value="">7:50</option>
+					<option value="">7:55</option>
+					<option value="">8:00</option>
+					<option value="">8:05</option>
+					<option value="">8:10</option>
+					<option value="">8:15</option>
+					<option value="">8:20</option>
+					<option value="">8:25</option>
+					<option value="">8:30</option>
+					<option value="">8:35</option>
+					<option value="">8:40</option>
+					<option value="">8:45</option>
+					<option value="">8:50</option>
+					<option value="">8:55</option>
+					<option value="">9:00</option>
+					<option value="">9:05</option>
+					<option value="">9:10</option>
+					<option value="">9:15</option>
+					<option value="">9:20</option>
+					<option value="">9:25</option>
+					<option value="">9:30</option>
+					<option value="">9:35</option>
+					<option value="">9:40</option>
+					<option value="">9:45</option>
+					<option value="">9:50</option>
+					<option value="">9:55</option>
+					<option value="">10:00</option>
+					<option value="">10:05</option>
+					<option value="">10:10</option>
+					<option value="">10:15</option>
+					<option value="">10:20</option>
+					<option value="">10:25</option>
+					<option value="">10:30</option>
+					<option value="">10:35</option>
+					<option value="">10:40</option>
+					<option value="">10:45</option>
+					<option value="">10:50</option>
+					<option value="">10:55</option>
+					<option value="">11:00</option>
+					<option value="">11:05</option>
+					<option value="">11:10</option>
+					<option value="">11:15</option>
+					<option value="">11:20</option>
+					<option value="">11:25</option>
+					<option value="">11:30</option>
+					<option value="">11:35</option>
+					<option value="">11:40</option>
+					<option value="">11:45</option>
+					<option value="">11:50</option>
+					<option value="">11:55</option>
+					<option value="">12:00</option>
+					<option value="">12:05</option>
+					<option value="">12:10</option>
+					<option value="">12:15</option>
+					<option value="">12:20</option>
+					<option value="">12:25</option>
+					<option value="">12:30</option>
+					<option value="">12:35</option>
+					<option value="">12:40</option>
+					<option value="">12:45</option>
+					<option value="">12:50</option>
+					<option value="">12:55</option>
+					<option value="">13:00</option>
+					<option value="">13:05</option>
+					<option value="">13:10</option>
+					<option value="">13:15</option>
+					<option value="">13:20</option>
+					<option value="">13:25</option>
+					<option value="">13:30</option>
+					<option value="">13:35</option>
+					<option value="">13:40</option>
+					<option value="">13:45</option>
+					<option value="">13:50</option>
+					<option value="">13:55</option>
+					<option value="">14:00</option>
+					<option value="">14:05</option>
+					<option value="" selected>14:10</option>
+					<option value="">14:15</option>
+					<option value="">14:20</option>
+					<option value="">14:25</option>
+					<option value="">14:30</option>
+					<option value="">14:35</option>
+					<option value="">14:40</option>
+					<option value="">14:45</option>
+					<option value="">14:50</option>
+					<option value="">14:55</option>
+					<option value="">15:00</option>
+					<option value="">15:05</option>
+					<option value="">15:10</option>
+					<option value="">15:15</option>
+					<option value="">15:20</option>
+					<option value="">15:25</option>
+					<option value="">15:30</option>
+					<option value="">15:35</option>
+					<option value="">15:40</option>
+					<option value="">15:45</option>
+					<option value="">15:50</option>
+					<option value="">15:55</option>
+					<option value="">16:00</option>
+					<option value="">16:05</option>
+					<option value="">16:10</option>
+					<option value="">16:15</option>
+					<option value="">16:20</option>
+					<option value="">16:25</option>
+					<option value="">16:30</option>
+					<option value="">16:35</option>
+					<option value="">16:40</option>
+					<option value="">16:45</option>
+					<option value="">16:50</option>
+					<option value="">16:55</option>
+					<option value="">17:00</option>
+					<option value="">17:05</option>
+					<option value="">17:10</option>
+					<option value="">17:15</option>
+					<option value="">17:20</option>
+					<option value="">17:25</option>
+					<option value="">17:30</option>
+					<option value="">17:35</option>
+					<option value="">17:40</option>
+					<option value="">17:45</option>
+					<option value="">17:50</option>
+					<option value="">17:55</option>
+					<option value="">18:00</option>
+					<option value="">18:05</option>
+					<option value="">18:10</option>
+					<option value="">18:15</option>
+					<option value="">18:20</option>
+					<option value="">18:25</option>
+					<option value="">18:30</option>
+					<option value="">18:35</option>
+					<option value="">18:40</option>
+					<option value="">18:45</option>
+					<option value="">18:50</option>
+					<option value="">18:55</option>
+					<option value="">19:00</option>
+					<option value="">19:05</option>
+					<option value="">19:10</option>
+					<option value="">19:15</option>
+					<option value="">19:20</option>
+					<option value="">19:25</option>
+					<option value="">19:30</option>
+					<option value="">19:35</option>
+					<option value="">19:40</option>
+					<option value="">19:45</option>
+					<option value="">19:50</option>
+					<option value="">19:55</option>
+					<option value="">20:00</option>
+					<option value="">20:05</option>
+					<option value="">20:10</option>
+					<option value="">20:15</option>
+					<option value="">20:20</option>
+					<option value="">20:25</option>
+					<option value="">20:30</option>
+					<option value="">20:35</option>
+					<option value="">20:40</option>
+					<option value="">20:45</option>
+					<option value="">20:50</option>
+					<option value="">20:55</option>
+					<option value="">21:00</option>
+					<option value="">21:05</option>
+					<option value="">21:10</option>
+					<option value="">21:15</option>
+					<option value="">21:20</option>
+					<option value="">21:25</option>
+					<option value="">21:30</option>
+					<option value="">21:35</option>
+					<option value="">21:40</option>
+					<option value="">21:45</option>
+					<option value="">21:50</option>
+					<option value="">21:55</option>
+					<option value="">22:00</option>
+					<option value="">22:05</option>
+					<option value="">22:10</option>
+					<option value="">22:15</option>
+					<option value="">22:20</option>
+					<option value="">22:25</option>
+					<option value="">22:30</option>
+					<option value="">22:35</option>
+					<option value="">22:40</option>
+					<option value="">22:45</option>
+					<option value="">22:50</option>
+					<option value="">22:55</option>
+					<option value="">23:00</option>
+					<option value="">23:05</option>
+					<option value="">23:10</option>
+					<option value="">23:15</option>
+					<option value="">23:20</option>
+					<option value="">23:25</option>
+					<option value="">23:30</option>
+					<option value="">23:35</option>
+					<option value="">23:40</option>
+					<option value="">23:45</option>
+					<option value="">23:50</option>
+					<option value="">23:55</option>
+					</select>
+				</span>
+			&nbsp;-&nbsp;
+				<span id="endTimeSpan">
+					<select name="" id="endTimeSelect2" onchange="selectTimeEnd('startTimeSelect2','endTimeSelect2')">
+					<option value="">0:00</option>
+					<option value="">0:05</option>
+					<option value="">0:10</option>
+					<option value="">0:15</option>
+					<option value="">0:20</option>
+					<option value="">0:25</option>
+					<option value="">0:30</option>
+					<option value="">0:35</option>
+					<option value="">0:40</option>
+					<option value="">0:45</option>
+					<option value="">0:50</option>
+					<option value="">0:55</option>
+					<option value="">1:00</option>
+					<option value="">1:05</option>
+					<option value="">1:10</option>
+					<option value="">1:15</option>
+					<option value="">1:20</option>
+					<option value="">1:25</option>
+					<option value="">1:30</option>
+					<option value="">1:35</option>
+					<option value="">1:40</option>
+					<option value="">1:45</option>
+					<option value="">1:50</option>
+					<option value="">1:55</option>
+					<option value="">2:00</option>
+					<option value="">2:05</option>
+					<option value="">2:10</option>
+					<option value="">2:15</option>
+					<option value="">2:20</option>
+					<option value="">2:25</option>
+					<option value="">2:30</option>
+					<option value="">2:35</option>
+					<option value="">2:40</option>
+					<option value="">2:45</option>
+					<option value="">2:50</option>
+					<option value="">2:55</option>
+					<option value="">3:00</option>
+					<option value="">3:05</option>
+					<option value="">3:10</option>
+					<option value="">3:15</option>
+					<option value="">3:20</option>
+					<option value="">3:25</option>
+					<option value="">3:30</option>
+					<option value="">3:35</option>
+					<option value="">3:40</option>
+					<option value="">3:45</option>
+					<option value="">3:50</option>
+					<option value="">3:55</option>
+					<option value="">4:00</option>
+					<option value="">4:05</option>
+					<option value="">4:10</option>
+					<option value="">4:15</option>
+					<option value="">4:20</option>
+					<option value="">4:25</option>
+					<option value="">4:30</option>
+					<option value="">4:35</option>
+					<option value="">4:40</option>
+					<option value="">4:45</option>
+					<option value="">4:50</option>
+					<option value="">4:55</option>
+					<option value="">5:00</option>
+					<option value="">5:05</option>
+					<option value="">5:10</option>
+					<option value="">5:15</option>
+					<option value="">5:20</option>
+					<option value="">5:25</option>
+					<option value="">5:30</option>
+					<option value="">5:35</option>
+					<option value="">5:40</option>
+					<option value="">5:45</option>
+					<option value="">5:50</option>
+					<option value="">5:55</option>
+					<option value="">6:00</option>
+					<option value="">6:05</option>
+					<option value="">6:10</option>
+					<option value="">6:15</option>
+					<option value="">6:20</option>
+					<option value="">6:25</option>
+					<option value="">6:30</option>
+					<option value="">6:35</option>
+					<option value="">6:40</option>
+					<option value="">6:45</option>
+					<option value="">6:50</option>
+					<option value="">6:55</option>
+					<option value="">7:00</option>
+					<option value="">7:05</option>
+					<option value="">7:10</option>
+					<option value="">7:15</option>
+					<option value="">7:20</option>
+					<option value="">7:25</option>
+					<option value="">7:30</option>
+					<option value="">7:35</option>
+					<option value="">7:40</option>
+					<option value="">7:45</option>
+					<option value="">7:50</option>
+					<option value="">7:55</option>
+					<option value="">8:00</option>
+					<option value="">8:05</option>
+					<option value="">8:10</option>
+					<option value="">8:15</option>
+					<option value="">8:20</option>
+					<option value="">8:25</option>
+					<option value="">8:30</option>
+					<option value="">8:35</option>
+					<option value="">8:40</option>
+					<option value="">8:45</option>
+					<option value="">8:50</option>
+					<option value="">8:55</option>
+					<option value="">9:00</option>
+					<option value="">9:05</option>
+					<option value="">9:10</option>
+					<option value="">9:15</option>
+					<option value="">9:20</option>
+					<option value="">9:25</option>
+					<option value="">9:30</option>
+					<option value="">9:35</option>
+					<option value="">9:40</option>
+					<option value="">9:45</option>
+					<option value="">9:50</option>
+					<option value="">9:55</option>
+					<option value="">10:00</option>
+					<option value="">10:05</option>
+					<option value="">10:10</option>
+					<option value="">10:15</option>
+					<option value="">10:20</option>
+					<option value="">10:25</option>
+					<option value="">10:30</option>
+					<option value="">10:35</option>
+					<option value="">10:40</option>
+					<option value="">10:45</option>
+					<option value="">10:50</option>
+					<option value="">10:55</option>
+					<option value="">11:00</option>
+					<option value="">11:05</option>
+					<option value="">11:10</option>
+					<option value="">11:15</option>
+					<option value="">11:20</option>
+					<option value="">11:25</option>
+					<option value="">11:30</option>
+					<option value="">11:35</option>
+					<option value="">11:40</option>
+					<option value="">11:45</option>
+					<option value="">11:50</option>
+					<option value="">11:55</option>
+					<option value="">12:00</option>
+					<option value="">12:05</option>
+					<option value="">12:10</option>
+					<option value="">12:15</option>
+					<option value="">12:20</option>
+					<option value="">12:25</option>
+					<option value="">12:30</option>
+					<option value="">12:35</option>
+					<option value="">12:40</option>
+					<option value="">12:45</option>
+					<option value="">12:50</option>
+					<option value="">12:55</option>
+					<option value="">13:00</option>
+					<option value="">13:05</option>
+					<option value="">13:10</option>
+					<option value="">13:15</option>
+					<option value="">13:20</option>
+					<option value="">13:25</option>
+					<option value="">13:30</option>
+					<option value="">13:35</option>
+					<option value="">13:40</option>
+					<option value="">13:45</option>
+					<option value="">13:50</option>
+					<option value="">13:55</option>
+					<option value="">14:00</option>
+					<option value="">14:05</option>
+					<option value="">14:10</option>
+					<option value="">14:15</option>
+					<option value="">14:20</option>
+					<option value="">14:25</option>
+					<option value="">14:30</option>
+					<option value="">14:35</option>
+					<option value="">14:40</option>
+					<option value="">14:45</option>
+					<option value="">14:50</option>
+					<option value="">14:55</option>
+					<option value="">15:00</option>
+					<option value="">15:05</option>
+					<option value="" selected>15:10</option>
+					<option value="">15:15</option>
+					<option value="">15:20</option>
+					<option value="">15:25</option>
+					<option value="">15:30</option>
+					<option value="">15:35</option>
+					<option value="">15:40</option>
+					<option value="">15:45</option>
+					<option value="">15:50</option>
+					<option value="">15:55</option>
+					<option value="">16:00</option>
+					<option value="">16:05</option>
+					<option value="">16:10</option>
+					<option value="">16:15</option>
+					<option value="">16:20</option>
+					<option value="">16:25</option>
+					<option value="">16:30</option>
+					<option value="">16:35</option>
+					<option value="">16:40</option>
+					<option value="">16:45</option>
+					<option value="">16:50</option>
+					<option value="">16:55</option>
+					<option value="">17:00</option>
+					<option value="">17:05</option>
+					<option value="">17:10</option>
+					<option value="">17:15</option>
+					<option value="">17:20</option>
+					<option value="">17:25</option>
+					<option value="">17:30</option>
+					<option value="">17:35</option>
+					<option value="">17:40</option>
+					<option value="">17:45</option>
+					<option value="">17:50</option>
+					<option value="">17:55</option>
+					<option value="">18:00</option>
+					<option value="">18:05</option>
+					<option value="">18:10</option>
+					<option value="">18:15</option>
+					<option value="">18:20</option>
+					<option value="">18:25</option>
+					<option value="">18:30</option>
+					<option value="">18:35</option>
+					<option value="">18:40</option>
+					<option value="">18:45</option>
+					<option value="">18:50</option>
+					<option value="">18:55</option>
+					<option value="">19:00</option>
+					<option value="">19:05</option>
+					<option value="">19:10</option>
+					<option value="">19:15</option>
+					<option value="">19:20</option>
+					<option value="">19:25</option>
+					<option value="">19:30</option>
+					<option value="">19:35</option>
+					<option value="">19:40</option>
+					<option value="">19:45</option>
+					<option value="">19:50</option>
+					<option value="">19:55</option>
+					<option value="">20:00</option>
+					<option value="">20:05</option>
+					<option value="">20:10</option>
+					<option value="">20:15</option>
+					<option value="">20:20</option>
+					<option value="">20:25</option>
+					<option value="">20:30</option>
+					<option value="">20:35</option>
+					<option value="">20:40</option>
+					<option value="">20:45</option>
+					<option value="">20:50</option>
+					<option value="">20:55</option>
+					<option value="">21:00</option>
+					<option value="">21:05</option>
+					<option value="">21:10</option>
+					<option value="">21:15</option>
+					<option value="">21:20</option>
+					<option value="">21:25</option>
+					<option value="">21:30</option>
+					<option value="">21:35</option>
+					<option value="">21:40</option>
+					<option value="">21:45</option>
+					<option value="">21:50</option>
+					<option value="">21:55</option>
+					<option value="">22:00</option>
+					<option value="">22:05</option>
+					<option value="">22:10</option>
+					<option value="">22:15</option>
+					<option value="">22:20</option>
+					<option value="">22:25</option>
+					<option value="">22:30</option>
+					<option value="">22:35</option>
+					<option value="">22:40</option>
+					<option value="">22:45</option>
+					<option value="">22:50</option>
+					<option value="">22:55</option>
+					<option value="">23:00</option>
+					<option value="">23:05</option>
+					<option value="">23:10</option>
+					<option value="">23:15</option>
+					<option value="">23:20</option>
+					<option value="">23:25</option>
+					<option value="">23:30</option>
+					<option value="">23:35</option>
+					<option value="">23:40</option>
+					<option value="">23:45</option>
+					<option value="">23:50</option>
+					<option value="">23:55</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		<div class="p">
+			<span id="repeatButtonField" style="">
+			<input name="repeat_button" type="button" class="button" value="繰り返さない"
+				   onclick="aipo.schedule.formSwitchRepeat(this)">
+			</span>
+			<span id="spanButtonField" style="display: none; ">
+			<input name="span_button" type="button" class="button" value="期間で指定する"
+				   onclick="aipo.schedule.formSwitchSpan(this)">
+			</span>
+		</div>
+		</td>
+		</tr>
+		<tr>
+			<td class="caption"><span class="required">タイトル</span></td>
+			<td><input class="text" type="text" name="name" id="name" value="" maxlength="50"
+					   style="width:100%;ime-mode:active"></td>
+		</tr>
+		<!--tr>
+			<td class="caption">場所</td>
+			<td><input class="text" type="text" name="place" id="place" value="" maxlength="50"
+					   style="width:100%;ime-mode:active"></td>
+		</tr-->
+		<tr>
+			<td class="caption">内容</td>
+			<td><textarea class="text wide" name="note" rows="5" cols="50"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="caption">公開区分</td>
+			<td>
+				<div class="p">
+					<input name="public_flag" type="radio" value="O" id="public_flagO_P-135ea887364-10654" checked="checked"
+						   onclick="aipo.schedule.formPublicOn(this.form)">
+					<label for="public_flagO_P-135ea887364-10654" onclick="aipo.schedule.formPublicOn(this.form)">公開（スケジュールを全員に公開します）</label>
+				</div>
+				<div class="p">
+					<input name="public_flag" type="radio" value="C" id="public_flagC_P-135ea887364-10654"
+						   onclick="aipo.schedule.formPublicOn(this.form)">
+					<label for="public_flagC_P-135ea887364-10654" onclick="aipo.schedule.formPublicOff(this.form)">非公開（スケジュールの日時のみを全員に公開します）</label>
+				</div>
+				<div class="p">
+					<input name="public_flag" type="radio" value="P" id="public_flagP_P-135ea887364-10654"
+						   onclick="aipo.schedule.formPublicOff(this.form)">
+					<label for="public_flagP_P-135ea887364-10654" onclick="aipo.schedule.formPublicOff(this.form)">完全に隠す（スケジュールをすべて非公開とします）</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="caption">参加ユーザー</td>
+			<td>
+				<div id="memberFieldButton">
+					<table style="width:98%;">
+						<tbody>
+						<tr>
+							<td style="width:80%; border:none">
+								<span>木村 一郎</span>,
+								<span>田村 涼子</span>,
+								<span>山本 太朗</span>,
+								<span>アーノルド シュワルツェネッガー</span>
+							</td>
+							<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す"
+															onclick="aipo.schedule.shrinkMember();"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="memberField" style="display: block; ">
+					<table class="none">
+						<tbody>
+						<tr>
+							<td>
+								<select>
+									<option value="">（グループ全体）</option>
+									<option value="">アルバイト・インターン</option>
+									<option value="">企画本部</option>
+									<option value="">営業本部</option>
+									<option value="">管理本部</option>
+									<option value="">開発1部</option>
+									<option value="">開発2部</option>
+									<option value="">開発3部</option>
+									<option value="">開発本部</option>
+								</select>
+
+								<div class="auiCheckList auiCL2">
+									<ul class="clearfix">
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span
+												class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">アーノルド シュワルツェネッガー</span></label>
+										</li>
+										<li><label><input type="checkbox"/><img class="avatar"
+																				src="../themes/default/images/common/avatar_default3.png"
+																				alt=""/><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label>
+										</li>
+									</ul>
+								</div>
+								<!--
+								<div class="spaceTop spaceLeft small">左側に参加ユーザーを追加してください。</div>
+								<div id="membernormalselect" widgetid="membernormalselect">
+									<table class="none">
+										<tbody>
+											<tr>
+												<td><div id="memberPopupDiv">
+														<div class="outer">
+															<div class="popup">
+																<div class="clearfix">
+																	<div class="memberlistToTop">参加ユーザー一覧</div>
+																	<div class="memberlistFromTop">
+																		<select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
+																			<option value="LoginUser">（グループ全体）</option>
+																			<option value="1331519412605_4">Pickles</option>
+																			<option value="1309354049146_21">アルバイト・インターン</option>
+																			<option value="1309256925795_4">企画本部</option>
+																			<option value="1309256875124_4">営業本部</option>
+																			<option value="1309256852208_4">管理本部</option>
+																			<option value="1309354067571_21">開発1部</option>
+																			<option value="1309354076422_21">開発2部</option>
+																			<option value="1309354083123_21">開発3部</option>
+																			<option value="1309256899203_4">開発本部</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="clearfix">
+																	<div class="memberlistToBody">
+																		<select size="5" multiple="multiple" style="width:100%" name="member_to" id="member_to">
+																			<option value="0000000007">木村 一郎</option>
+																		</select>
+																	</div>
+																	<div class="memberlistFromBody">
+																		<select size="5" multiple="multiple" style="width:100%" name="tmp_member_from" id="tmp_member_from">
+																			<option value="0000000019">山田 太郎</option>
+																			<option value="0000000018">田中 一郎</option>
+																			<option value="0000000022">山本 次郎</option>
+																			<option value="0000000021">別所 優一</option>
+																			<option value="0000000007">木村 一郎</option>
+																			<option value="0000000020">鈴木 花子</option>
+																			<option value="0000000024">田村 三郎</option>
+																			<option value="0000000025">高橋 四郎</option>
+																			<option value="0000000026">越後 太一</option>
+																			<option value="0000000027">佐藤 涼子</option>
+																			<option value="0000000079">山中 愛子</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="clearfix">
+																	<div class="memberlistToBottom">
+																		<div class="alignright">
+																			<input id="button_member_remove" name="button_member_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+																		</div>
+																	</div>
+																	<div class="memberlistFromBottom">
+																		<div style="display: none; " id="membernormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+																		<div class="alignright">
+																			<input id="button_member_add" name="button_member_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<select size="5" multiple="multiple" style="display:none;" name="init_memberlist" id="init_memberlist">
+									<option value="0000000007">木村 一郎</option>
+								</select>
+								-->
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="p">
+									<div id="edit_control_title_P-135ea887364-10654"
+										 style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">
+										参加ユーザーによる予定の編集権限を設定する
+									</div>
+								</div>
+								<div id="edit_control_context_P-135ea887364-10654" style="display:block;">
+									<div class="p">
+										<input name="edit_flag" type="radio" value="T"
+											   id="edit_control_flagT_P-135ea887364-10654" checked="checked">
+										<label for="edit_control_flagT_P-135ea887364-10654">可（参加ユーザーは、この予定を編集／削除できます）</label>
+									</div>
+									<div class="p">
+										<input name="edit_flag" type="radio" value="F"
+											   id="edit_control_flagF_P-135ea887364-10654">
+										<label for="edit_control_flagF_P-135ea887364-10654">不可（参加ユーザーは、この予定を編集／削除できません）</label>
+									</div>
+								</div>
+								<div class="p">
+									<div id="mail_title_P-135ea887364-10654"
+										 style="background:inherit;cursor: pointer;text-decoration:underline;border:inherit;">
+										参加ユーザーへのメール通知を設定する
+									</div>
+								</div>
+								<div id="mail_context_P-135ea887364-10654" style="display:block;">
+									<div class="p">
+										<input name="mail_flag" type="radio" value="A" id="mail_flag_A" checked="checked">
+										<label for="mail_flag_A">通知する</label>
+										</p>
+										<div class="p">
+											<input name="mail_flag" type="radio" value="N" id="mail_flag_N">
+											<label for="mail_flag_N">通知しない</label>
+										</div>
+									</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="caption">設備</td>
+			<td>
+				<div id="facilityFieldButton" style="display:">
+					<table style="width:98%;">
+						<tbody>
+						<tr>
+							<td style="width:80%; border:none">
+								<span>会議室A</span>,
+								<span>会議室B</span>
+							</td>
+							<td style="border:none;"><input type="button" class="alignright" value="選択画面を隠す"
+															onclick="aipo.schedule.shrinkFacility();">
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<select>
+					<option value="">（グループ全体）</option>
+					<option value="">備品</option>
+					<option value="">施設</option>
+				</select>
+
+				<div class="auiCheckList auiCL2">
+					<ul class="clearfix">
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室A</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室B</span></label></li>
+						<li><label><input type="checkbox"/><span class="auiUCLname">会議室C</span></label></li>
+					</ul>
+				</div>
+
+				<!--div id="facilityField" style="display: block; ">
+					<div class="spaceTop spaceLeft small">左側に設備を追加してください。</div>
+					<div id="facilityselect" widgetid="facilityselect">
+						<table class="none">
+							<tbody>
+								<tr>
+									<td><div id="memberPopupDiv">
+											<div class="outer">
+												<div class="popup">
+													<div class="clearfix">
+														<div class="memberlistToTop">設備一覧</div>
+														<div class="memberlistFromTop">
+															<select size="1" style="width:100%" name="tmp_facility_group" id="tmp_facility_group" dojoattachevent="onchange:changeGroup">
+																<option value="all">（グループ全体）</option>
+																<option value="1">備品</option>
+																<option value="2">施設</option>
+															</select>
+														</div>
+													</div>
+													<div class="clearfix">
+														<div class="memberlistToBody">
+															<select size="5" multiple="multiple" style="width:100%" name="facility_to" id="facility_to">
+															</select>
+														</div>
+														<div class="memberlistFromBody">
+															<select size="5" multiple="multiple" style="width:100%" name="tmp_facility_from" id="tmp_facility_from">
+																<option value="1">会議室(3F)</option>
+																<option value="2">外付けHDD</option>
+																<option value="3">持ち出し用ノートPC</option>
+															</select>
+														</div>
+													</div>
+													<div class="clearfix">
+														<div class="memberlistToBottom">
+															<div class="alignright">
+																<input id="button_facility_remove" name="button_facility_remove" type="button" class="button" value="　削除　" dojoattachevent="onclick:onMemberRemoveClick">
+															</div>
+														</div>
+														<div class="memberlistFromBottom">
+															<div style="display: none; " id="facilityselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+															<div class="alignright">
+																<input id="button_facility_add" name="button_facility_add" type="button" class="button" value="　＜ 追加　" dojoattachevent="onclick:onMemberAddClick">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<select size="5" multiple="multiple" style="display:none;" name="init_facilitylist" id="init_facilitylist">
+					</select>
+				</div-->
+			</td>
+		</tr>
+		</tbody>
+		</table>
+		<div align="center">
+			<input name="eventSubmit_doSchedule_insert" class="auiButtonAction" type="submit" value="追加する"
+				   onclick="aimluck.io.setHiddenValue(this);">
+			<input name="ajaxbuttonClose" class="button" type="button" value="　閉じる　" onclick="aipo.common.hideDialog();">
+		</div>
+		<input type="hidden" id="commonUrlP-135ea887364-10654" name="commonUrlP-135ea887364-10654"
+			   value="https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135ea887364-10654/template/CommonCategoryLiteJSONScreen">
+		<input type="hidden" id="commonCategoryidP-135ea887364-10654" name="commonCategoryidP-135ea887364-10654" value="1">
+		</form>
+	</div>
+</div>
+
+
+</body>
+</html>

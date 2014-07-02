@@ -3,13 +3,13 @@
 #timeline {
 	background: $white;
 	border: 1px solid rgba($black, 0.2);
-	border-top: 1px solid $linkColor;
+	//border-top: 1px solid $linkColorHover;
 	margin: 15px 0;
 
 	.appTitle {
 
 		a {
-			background: $linkColor;
+			//background: $linkColorHover;
 			color: $white;
 		}
 		.displayGroup{
@@ -75,15 +75,21 @@
 				a {
 					display: block;
 					padding: 7px 7px;
+					color: $gray;
 
 					.fa {
 						font-size: 16px;
 					}
 				}
+				a:hover{
+					color: $linkColor;
+				}
 			}
 			li.active {
 
 				a {
+					color: $linkColor;
+					background: none;
 
 					.fa {
 					}
@@ -132,14 +138,37 @@
 			padding: 7px 0;
 		}
 		.foot {
+			font-size: $fontSizeSmall;
 
 			a {
 				display: inline-block;
 				margin-right: 10px;
-				color: $grayLight; //#ccc
+				color: $gray; //#ccc
+
+					.fa{
+						font-size: $baseFontSize;
+					}
+			}
+			a:hover{
+				color: $linkColor;
 			}
 			a.active {
 				color: $linkColor;
+			}
+			.like{
+				margin-right: 10px;
+
+				a{
+					margin-right: 5px;
+				}
+			}
+			.delete{
+				float: right;
+
+				a{
+					margin-right: 0;
+					margin-left: 10px;
+				}
 			}
 		}
 		.comment {

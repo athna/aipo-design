@@ -79,20 +79,20 @@ a {
 
 .btn {
 	font-size: $baseFontSize;
-	border: 1px solid $linkColor;
+	border: 1px solid $linkColorHover;
 	background: $white;
-	color: $linkColor;
+	color: $linkColorHover;
 
 	.fa.mr5 {
 		margin-right: 5px;
 	}
 	&:hover, &:focus {
-		color: $linkColor;
+		color: $linkColorHover;
 	}
 
 	&:hover {
-		border: 1px solid $linkColor;
-		background: $linkColor;
+		border: 1px solid $linkColorHover;
+		background: $linkColorHover;
 		color: $white;
 	}
 
@@ -110,7 +110,7 @@ a {
 
 #wrapper {
 	position: relative;
-	padding: 0px 0px 0px 0px;
+	padding: 65px 0px 0px 0px;
 	overflow: hidden;
 }
 
@@ -120,6 +120,11 @@ a {
 	border-bottom:1px solid $grayLight;
 	background: $white;
 	height: 65px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
 
 	.logo {
 		position: absolute;
@@ -150,10 +155,12 @@ a {
 			//border-radius: 35px;
 			//text-align: center;
 			//padding: 0;
-			border: 1px solid $linkColor;
+			border: 1px solid $gray;
+			color: $gray;
 		}
 		a:hover {
 			background: $linkColor;
+			border-color: $linkColor;
 			color: $white;
 		}
 	}
@@ -200,16 +207,20 @@ a {
 			//text-align: center;
 			//padding: 0;
 			box-shadow: none;
+			border: 1px solid $gray;
+			color: $gray;
 			&:hover {
 				background: $linkColor;
+				border-color: $linkColor;
 				color: $white;
 			}
 		}
 		a.btn.active {
-			border: 1px solid $red;
-			color: $red;
+			border: 1px solid $linkColorHover;
+			background: $linkColorHover;
+			color: $white;
 			&:hover {
-				background: $red;
+				background: $linkColorHover;
 				color: $white;
 			}
 		}
@@ -235,10 +246,11 @@ a {
 			}
 		}
 		a.btn.active {
-			border: 1px solid $red;
-			color: $red;
+			border: 1px solid $linkColorHover;
+			background: $linkColorHover;
+			color: $white;
 			&:hover {
-				background: $red;
+				background: $linkColorHover;
 				color: $white;
 			}
 		}
@@ -391,6 +403,24 @@ a {
 		margin-right: 10px;
 	}
 }
+.appPlus{
+
+	a{
+		display: block;
+		padding: 50px 0;
+		text-align: center;
+		border: 3px dashed $grayLight;
+		color: $gray;
+
+		.fa{
+			font-size: 28px;
+			margin-bottom: 10px;
+		}
+	}
+	a:hover{
+		border-color: $gray;
+	}
+}
 .app {
 	background: rgba($white, 1);
 	padding: 0;
@@ -483,8 +513,8 @@ a {
 			text-decoration: none;
 
 			&:hover {
-				background: $linkColor;
-				color: $white;
+				//background: $linkColor;
+				color: $linkColor;
 			}
 		}
 		&.open {
@@ -676,7 +706,7 @@ a {
 		}
 		a:focus,a:active{
 			text-decoration: none;
-			background: $linkColor;
+			background: $linkColorHover;
 			color: $white;
 		}
 		.fa{
@@ -858,9 +888,10 @@ a {
 	li.active {
 
 		a {
+			//color: $linkColorHover;
 
 			.circle {
-				display: block;
+				//display: block;
 			}
 		}
 	}
@@ -922,13 +953,13 @@ a {
 	.todo-8 .todo {
 		width: 80%;
 		background: rgba($white, 0.0);
-		border-bottom: 2px solid $linkColor;
+		border-bottom: 2px solid $blue;
 	}
 	/*.todo-8 .title{color:#16a085;}*/
 	.todo-9 .todo {
 		width: 90%;
 		background: rgba($white, 0.0);
-		border-bottom: 2px solid $linkColor;
+		border-bottom: 2px solid $blue;
 	}
 	/*.todo-9 .title{color:#16a085;}*/
 	.todo-10 .todo {
@@ -1244,13 +1275,12 @@ a {
 			}
 			.n_name {
 				font-size: $fontSizeSmall;
-				color: $linkColor;
+				color: $grayDark;
 			}
 			.n_body {
 				display: block;
 				@extend .ellipsis;
-				font-size: $fontSizeSmall;
-				//color: $grayDark;
+				//font-size: $fontSizeSmall;
 			}
 			.thumb{
 				display: inline-block;
@@ -1270,7 +1300,7 @@ a {
 	.manage {
 
 		.n_name{
-			color:$orange;
+			color:$linkColorHover;
 		}
 	}
 	.active{
@@ -1319,7 +1349,8 @@ a {
 	border-right:1px solid $grayLight; //#ccc*/
 	background: $grayLight;
 	box-shadow: inset 0px 0px 2px rgba($black, 0.1);
-	padding: 0;
+	padding: 65px 0 0;
+	z-index: 99;
 
 	h2 {
 		display: inline-block;
@@ -1404,7 +1435,7 @@ a {
 
 #messageOpen {
 	width: 300px;
-	height: 500px;
+	height: 508px;
 	background: $white;
 	border-top: 1px solid rgba($black, 0.2);
 	border-left: 1px solid rgba($black, 0.2);
@@ -1549,7 +1580,7 @@ body.modal-open #messageOpen {
 			a {
 
 				.circle {
-					display: block;
+					//display: block;
 				}
 			}
 		}
@@ -1566,10 +1597,11 @@ body.modal-open #messageOpen {
 		li.offline {
 
 			a {
+				background: $grayLighter;
 
 				.circle {
 					display: block;
-					background: $grayLight; //#ccc
+					background: $gray; //#ccc
 				}
 			}
 		}
@@ -1692,36 +1724,26 @@ body.modal-open #messageOpen {
 #login {
 
 	#header {
-		display: none;
+		//display: none;
 
 		.logo {
-			margin: 0 auto;
-			margin-bottom: 15px;
+			//margin: 0 auto;
+			//margin-bottom: 15px;
 		}
 	}
 	.loginBox {
 		position: relative;
-		width: 650px;
+		width: 300px;
 		//background: $white;
 		//padding: 30px 20px 20px;
-		margin: 15% auto 0;
+		margin: 10% auto 50px;
 		//@include border-radius(3px);
 		//border-radius: 3px;
 		//box-shadow: 0px 0px 1px rgba($black, 0.1);
 
-		.logo{
-			width:300px;
-			padding: 40px 50px 0 0;
-			float: left;
-
-				img {
-					width: 100%;
-				}
-
-		}
-		.loginForm{
-			width: 300px;
-			float: right;
+		.loginForm {
+			//width: 300px;
+			//float: right;
 		}
 		.text {
 			width: 100%;
@@ -1732,19 +1754,53 @@ body.modal-open #messageOpen {
 			background: $white;
 			border: 1px solid $white;
 		}
+		.text.password{
+			//width: 50%;
+		}
 		.text:focus {
 			background: $white;
 			border: 1px solid $linkColor;
 		}
-		.checkbox{
+		.checkbox {
 			color: $grayDark;
 			margin: 0 0 10px;
+			padding-left: 65px;
+			font-size: 11px;
 		}
 		.btnBox {
 			padding: 10px 0;
 
 			.btn {
 				width: 100%;
+				//background: none;
+			}
+			.btn:hover{
+				//background: $linkColorHover;
+			}
+		}
+		.mailBox, .passBox{
+			position: relative;
+			padding-left: 45px;
+			margin-bottom: 5px;
+
+			label{
+				position: absolute;
+				top: 0;
+				left: 0;
+				//background: $grayLight;
+				color: $gray;
+				height: 34px;
+				width: 34px;
+				line-height: 34px;
+				border-radius: 34px;
+				text-align: center;
+				border: 1px solid rgba($black, 0.2);
+				font-size: 14px;
+			}
+			label:hover{
+				background: $linkColor;
+				color: $white;
+				border-color: $linkColor;
 			}
 		}
 	}
@@ -1768,7 +1824,7 @@ body.modal-open #messageOpen {
 		}
 	}
 	.update-info{
-		width: 650px;
+		width: 500px;
 		margin: 0 auto;
 
 		h3{
@@ -1776,12 +1832,28 @@ body.modal-open #messageOpen {
 			color: $grayDark;
 			font-size: 12px;
 			padding:7px 10px;
+			//border-bottom: 1px solid $grayLight;
+		}
+		.table {
+
+			td{
+				border: none;
+			}
+			th{
+				border: none;
+			}
+			.date{
+				text-align: right;
+				font-size: 10px;
+				color: $grayDark;
+			}
 		}
 	}
 }
 
 .active a {
 	background: $silver;
+	color: $linkColorHover;
 }
 
 /* 全体 */

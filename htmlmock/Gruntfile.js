@@ -11,23 +11,23 @@ module.exports = function (grunt) {
 		cssmin: {
 			compress: {
 				files: {
-					'./css/style-min.css': ['css/style.css']
+					'./themes/default/css/style-min.css': ['themes/default/css/style.css']
 				}
 			}
 		},
-		coffee: {
-			compile: {
-				files: {
-					'js/index.js': ['src/coffee/*.coffee']
-				}
-			}
-		},
-		jshint: {
-			files: ['js/index.js']
-		},
+		//coffee: {
+		//	compile: {
+		//		files: {
+		//			'themes/default/js/index.js': ['themes/default/coffee/*.coffee']
+		//		}
+		//	}
+		//},
+		//jshint: {
+		//	files: ['js/index.js']
+		//},
 		watch: {
-			files: ['src/sass/*.scss', 'src/coffee/*.coffee'],
-			tasks: ['compass', 'coffee', 'jshint']
+			files: ['themes/default/sass/*.scss'],
+			tasks: ['compass']
 		}
 	});
 	//grunt.loadNpmTasks('grunt-contrib-compass');

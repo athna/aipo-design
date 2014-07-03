@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dijit.form.nls.ru.Textarea"]],defineResource:function(e){e.provide("dijit.form.nls.ru.Textarea"),e._xdLoadFlattenedBundle("dijit.form","Textarea","ru",{iframeTitle1:"область редактирования",iframeTitle2:"фрейм области редактирования"})}});

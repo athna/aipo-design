@@ -1,0 +1,2206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<!--<base href="https://app.aipo.com/"></base>-->
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,chrome=1" />
+<meta name="robots" content="noindex,follow" />
+<link type="image/x-icon" rel="shortcut icon" href="/images/favicon.ico?1370480496000" />
+<link type="image/x-icon" rel="icon" href="/images/favicon.ico?1370480496000" />
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/aipo/themes/default/css/font-awesome-ie7.min.css" /><![endif]-->
+</head>
+<body onload="aipo.container.renderGadgets()">
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+<script type="text/javascript">
+  djConfig = {
+    cacheBust: '1370480496000',
+    siteTitle: 'Aipo+'
+  };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.js?1370480496000"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo/saas.js?1370480496000"></script>
+<!-- WRAPPER -->
+<div id="wrapper"  style="margin-bottom : 15px">
+<!-- HEADER -->
+<div id="header" class="clearfix">
+<div class="inner">
+<div class="hdSign">
+<div class="hdLogo"><img alt="Aipo.com" src="../img/logo_aipoplus_20130613.png" /></div>
+</div>
+
+<div class="hdNavi">
+<div class="hdMessege"><a target="_blank" href="https://message.aipo.com">
+<div class="zero counter" id="messagechecker">0</div>メッセージ</a></div>
+<div title="お知らせ" class="hdActivity">
+<div class="dijit dijitLeft dijitInline dijitDropDownButton">
+<div id="activitycheckerContainer" tabindex="0">
+<div id="activitycheckerContainer_label">
+<div class="counter" id="supportchecker">1</div><span class="mb_hide">お知らせ</span><span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
+</div>
+</div>
+</div>
+<div title="サポート" class="hdInformation">
+<div class="dijit dijitLeft dijitInline dijitDropDownButton">
+<div id="supportcheckerContainer" tabindex="0">
+<div id="supportcheckerContainer_label">
+<div class="zero activitycheckerstyle counter" id="activitychecker">0</div><span class="mb_hide">サポート</span><span class="pc_hide"><i class="icon-info-sign"></i></span></div>
+</div>
+</div>
+</div>
+<div class="hdUserName">
+<a title="カスタマイズ" onclick="aipo.customize.showMenu('hdSetting');" class="arrow_bottom" href="javascript:void(0);"><img alt="顔写真" class="avatar" src="message/img/icon_user01.png" />
+<span class="useraccount"> 木村 一郎 </span>
+<span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+</div>
+</div>
+</div>
+<!-- /HEADER -->
+
+<script type="text/javascript">
+//<![CDATA[
+
+dojo.require("aipo.widget.DropdownActivityChecker");
+
+dojo.addOnLoad(function () {
+    var acHtml = document.getElementById("activitycheckerContainer");
+    if(acHtml){
+       var params = {
+            widgetId: "activitychecker",
+
+            iconURL: "themes/default/images/common/icon_message.gif",
+            iconWidth: "19",
+            iconHeight: "15",
+            iconAlt: "あなた宛のお知らせ"
+       };
+       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
+   }
+});
+
+//]]>
+</script>
+
+<!-- MAIN TAB -->
+<div id="auiTabs" class="clearfix">
+<ul>
+<li class="first last">
+<div class="tab active">
+<div class="title"><a title="マイページ" href="user/0000000027/page/default.psml/js_pane/P-135e7e25b01-10c0f?action=controls.Restore">マイページ</a></div>
+<div class="setting" style="position:relative;"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+<div class="menubar body-child" id="menubar_tab_P-135e7e25b01-10c0f" style="position:absolute; width=16em; display:none;">
+<ul>
+<li> <a href="javascript:void(0);" onclick="aipo.common.showDialog('user/0000000027/page/default.psml/js_pane/P-135e7e25b01-10c0f?action=controls.Restore&amp;template=CustomizeFormScreen')">設定</a> </li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<!--<li class=" last ">
+<div class="tab activeNext">
+<div class="title"><a title="個人設定" href="user/0000000027/page/default.psml/js_pane/P-135e7e25b01-10c1b?action=controls.Restore">個人設定</a></div>
+<div class="setting" style="position:relative;"> </div>
+</div>
+</li>-->
+<li class="addTab"> <a href="javascript:void(0);" onclick="aipo.common.showDialog('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c1c?template=PageFormScreen&amp;entityid=new','P-135e7e25b01-10c1f',aipo.page.onLoadPageDialog);" title="メニュータブを追加"><span>+</span></a> </li>
+</ul>
+</div>
+
+<input id="data-activecustomizeurl" type="hidden" value="user/0000000027/page/default.psml/js_pane/P-135e7e25b01-10c0f?action=controls.Restore&amp;template=CustomizeFormScreen" />
+<!-- /MAIN TAB -->
+<!-- MAIN OUTER -->
+<div class="roundMainWrapper">
+<!-- LAYOUT -->
+<table class="tableWrapper">
+<tbody>
+<tr>
+<td  width="25%"  class="top container" dojoType="dojo.dnd.Source" withHandles="true">
+
+
+<!-- PORTLET OUTER　共有メモ -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">共有メモ</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/memo.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 170px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+<!-- PORTLET OUTER　在席管理 -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">在席管理</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/zaiseki.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 300px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　備品管理 -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">備品管理</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/bihin.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 300px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+<!-- PORTLET OUTER　ストレージ -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">Storage</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/storage.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 123px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+<!-- PORTLET OUTER　タイムカード -->
+<div class="dojoDndItem auiPortlet P-135e7e25b01-10c19">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c19?action=controls.Maximize">&#12479;&#12452;&#12512;&#12459;&#12540;&#12489;</a></div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"><a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+<div class="menubar body-child" id="menubar_P-135e7e25b01-10c19" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c19?action=controls.Customize">設定</a></li>
+<li class="last" id="accessControlDelete_P-135e7e25b01-10c19"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c19?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135e7e25b01-10c19', function(){ dojo.query('.dojoDndItem.P-135e7e25b01-10c19').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody dndIdentifier">
+<div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_P-135e7e25b01-10c19" id="portlet_P-135e7e25b01-10c19">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135e7e25b01-10c19'] = { group:"exttimecard", initUrl:'user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c19?template=ExtTimecardScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+<div class="indicator" id="indicator-list-P-135e7e25b01-10c19" style="display:none;">データを送信しています...</div>
+<div id="exttimecardmessageDiv"></div>
+<form name="formP-135e7e25b01-10c19" id="formP-135e7e25b01-10c19" action="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c19?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, 'indicator-list-','P-135e7e25b01-10c19',aipo.exttimecard.onListReceiveMessage);return false;">
+<input type="hidden" name="_name" value="exttimecardForm" />
+<input type="hidden" name="secid" value="adcfedf37f09de9c2c36a4509feac30c" />
+<table class="wide">
+<tbody>
+<tr>
+<td nowrap='nowrap' class='w25 center'><input type="button" value="出勤" class="auiButtonAction"/></td>
+<td nowrap='nowrap' class='w25 center'><span class="auiButtonDisabled">退勤</span><!--<input type="button" value="退勤" class="auiButtonBold"/>--></td>
+<td nowrap='nowrap' class='w25 center'><span class="auiButtonDisabled">外出</span><!--<input type="button" value="外出" class="auiButtonBold"/>--></td>
+<td nowrap='nowrap' class='w25 center'><span class="auiButtonDisabled">復帰</span></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　掲示板 -->
+<div class="dojoDndItem auiPortlet P-13632e137ac-100d8">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"><a href="#">掲示板</a></div>
+<div class="auiPortletTool">
+<div class="auiPortletAction"><a  href="javascript:void(0);"  onclick="aipo.common.showDialog('user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?template=MsgboardTopicFormScreen&amp;entityid=new','P-13632e137ac-100d8',aipo.msgboard.onLoadMsgboardDialog);"  >トピック追加</a> </div>
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+<div class="menubar body-child" id="menubar_P-13632e137ac-100d8" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?action=controls.Customize">設定</a></li>
+<li class="last" id="accessControlDelete_P-13632e137ac-100d8"><a href="javascript:void(0);" onClick="aipo.customize.deletesubmit('user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-13632e137ac-100d8', function(){ dojo.query('.dojoDndItem.P-13632e137ac-100d8').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody dndIdentifier">
+<div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_P-13632e137ac-100d8" id="portlet_P-13632e137ac-100d8">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-13632e137ac-100d8'] = { group:"msgboard", initUrl:'user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?template=MsgboardTopicScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+<div class="auiSummaryMeta auiFilter clearfix">
+<input type="hidden" id="baseuri_P-13632e137ac-100d8" value='user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?template=MsgboardTopicScreen' />
+<div class="filters floatLeft" id="filters_P-13632e137ac-100d8"><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" onClick="aipo.msgboard.toggleMenu(dojo.byId('menubar_auiFilter_P-13632e137ac-100d8'),dojo.byId('filters_P-13632e137ac-100d8'),event);"><span>すべてのグループ</span></a><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" style="display:none;" onClick="aipo.msgboard.toggleMenu(dojo.byId('menubar_auiFilter_P-13632e137ac-100d8'),dojo.byId('filters_P-13632e137ac-100d8'),event);"><span>すべてのカテゴリ</span></a></div>
+<div class="floatRight">
+<div class="floatRight">
+<div class="count">1 - 2 / 2</div>
+<div class="auiSelectButton floatLeft">
+<ul class="floatLeft">
+<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+<li title="次へ"><a href="javascript:void(0);" onClick="aipo.viewPage('user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?template=MsgboardTopicScreen&amp;start=2', 'P-13632e137ac-100d8');" class="last arrow" title="次の 5 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="menubar multi " id="menubar_auiFilter_P-13632e137ac-100d8" style="width:260px;display:none;">
+<div>
+<p class="caption">グループ</p>
+<ul class="filtertype_P-13632e137ac-100d8"data-type="post" data-defaultparam="0">
+<li data-param="0"><a href="javascript:void(0)"   class="selected"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>すべてのグループ</a></li>
+<li   data-param="1309483207573_24"><a href="javascript:void(0)"   onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)' >会議室</a></li>
+<li   data-param="1310704064730_24"><a href="javascript:void(0)"   onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)' >社員在席確認用</a></li>
+<li  data-param="1309354049146_21" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>アルバイト</a></li>
+<li  data-param="1309256925795_4" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>企画本部</a></li>
+<li  data-param="1309256875124_4" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>営業本部</a></li>
+<li  data-param="1309256852208_4" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>管理本部</a></li>
+<li  data-param="1309354067571_21" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>開発1部</a></li>
+<li  data-param="1309354076422_21" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>開発2部</a></li>
+<li  data-param="1309354083123_21" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>開発3部</a></li>
+<li  data-param="1309256899203_4" ><a href="javascript:void(0)"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>開発本部</a></li>
+</ul>
+</div>
+<div>
+<p class="caption">カテゴリ</p>
+<ul class="filtertype_P-13632e137ac-100d8"data-type="category" data-defaultparam="0">
+<li  class="selected"  data-param="0"><a href="javascript:void(0)"   class="selected"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>すべてのカテゴリ</a></li>
+<li   data-param="5" ><a href="javascript:void(0);"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>リリース</a></li>
+<li   data-param="2" ><a href="javascript:void(0);"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>自由投稿</a></li>
+<li   data-param="1" ><a href="javascript:void(0);"  onclick='aipo.msgboard.filterClick("P-13632e137ac-100d8",this,event)'>その他</a></li>
+</ul>
+</div>
+</div>
+<form name="formP-13632e137ac-100d8" id="formP-13632e137ac-100d8" action="user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8" method="post" onSubmit="return(aimluck.io.disableForm(this, true));">
+<input type="hidden" name="_name" value="Msgboard" />
+<input type="hidden" name="secid" value="adcfedf37f09de9c2c36a4509feac30c" />
+<table class="auiRowTable wide">
+<colgroup />
+
+<colgroup style="width:20%;" />
+
+<colgroup style="width:20%;" />
+
+<colgroup style="width:2em;" />
+
+<tbody>
+<tr>
+<td><div><a href="javascript:void(0);" onClick="aipo.common.showDialog('user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?template=MsgboardTopicDetailScreen&amp;entityid=312', 'P-13632e137ac-100d8', aipo.msgboard.onLoadMsgboardDetail);">お花見のお知らせ</a></div></td>
+<td ><div>お知らせ</div></td>
+<td ><div>木村 一郎</div></td>
+<td class="right" nowrap="nowrap"><div>15:29</div></td>
+</tr>
+
+<tr>
+<td><div><a href="javascript:void(0);" onClick="aipo.common.showDialog('user/0000000027/page/default.psml/js_peid/P-13632e137ac-100d8?template=MsgboardTopicDetailScreen&amp;entityid=312', 'P-13632e137ac-100d8', aipo.msgboard.onLoadMsgboardDetail);">歓迎会開催のお知らせ</a></div></td>
+<td ><div>お知らせ</div></td>
+<td ><div>田村 涼子</div></td>
+<td class="right" nowrap="nowrap"><div>15:28</div></td>
+</tr>
+
+
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　伝言メモ -->
+<div class="dojoDndItem auiPortlet P-135e7e25b01-10c17">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c17?action=controls.Maximize">伝言メモ</a></div>
+<div class="auiPortletTool">
+<div class="auiPortletAction"> <a  href="javascript:void(0);"  onclick="aipo.common.showDialog('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c17?template=NoteFormScreen&amp;entityid=new','P-135e7e25b01-10c17',aipo.note.afterFunction);"  >伝言メモ追加</a> </div>
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+<div class="menubar body-child" id="menubar_P-135e7e25b01-10c17" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c17?action=controls.Customize">設定</a></li>
+<li class="last" id="accessControlDelete_P-135e7e25b01-10c17"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c17?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135e7e25b01-10c17', function(){ dojo.query('.dojoDndItem.P-135e7e25b01-10c17').orphan(); window.location.reload(); } );">削除</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody dndIdentifier">
+<div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_P-135e7e25b01-10c17" id="portlet_P-135e7e25b01-10c17">
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135e7e25b01-10c17'] = { group:"note", initUrl:'user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c17?template=NoteScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+<form name="formP-135e7e25b01-10c17" id="formP-135e7e25b01-10c17" action="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c17" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
+<input type="hidden" name="_name" value="noteForm" />
+<input type="hidden" name="secid" value="adcfedf37f09de9c2c36a4509feac30c" />
+<div class="auiSummaryMeta clearfix">
+<div class="floatRight">
+<div class="count">1 - 3 / 3</div>
+<div class="auiSelectButton floatLeft">
+<ul class="floatLeft">
+<li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+<li title="次へ"><a href="javascript:void(0);" onclick="aipo.viewPage('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c17?template=NoteScreen&amp;start=2', 'P-135e7e25b01-10c17');" class="last arrow" title="次の 5 件"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+<table class="activityTable">
+<tbody>
+<tr>
+<td><span class="date">12:03 &nbsp; 田村 涼子</span>
+<a href="#">A商事佐藤 様より伝言 「再度電話します」 がありました。</a></td>
+</tr>
+
+<tr>
+<td><span class="date">11:47 &nbsp; 山田 太郎</span>
+<a href="#">B株式会社竹内 様より伝言 「電話をしてください」 がありました。</a></td>
+</tr>
+
+<tr>
+<td><span class="date">10:35 &nbsp; 山田 太郎</span>
+<a href="#">有限会社C坂本 様より伝言 「メールします。」 がありました。</a></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　アドレス帳 -->
+<div class="dojoDndItem auiPortlet P-135e7e25b01-10c1a">
+	<div class="auiPortletHead"><div class="inner dojoDndHandle">
+			<div class="auiPortletTitle">
+			<a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c1a?action=controls.Maximize">&#12450;&#12489;&#12524;&#12473;&#24115;</a>
+		</div>
+		<div class="auiPortletTool">
+      			<div class="auiPortletAction">
+        				<a  href="javascript:void(0);"  onclick="aipo.common.showDialog('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c1a?template=AddressBookFormScreen&amp;entityid=new','P-135e7e25b01-10c1a',aipo.addressbook.onLoadAddressbookDialog);"  >アドレス追加</a>
+        			</div>
+      			<div class="auiPortletSetting">
+														<a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+																    <div class="menubar body-child" id="menubar_P-135e7e25b01-10c1a" style="position:absolute;left:-5;top:5;display:none;">
+					<ul>
+											<li><a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c1a?action=controls.Customize">設定</a></li>
+																<li class="last" id="accessControlDelete_P-135e7e25b01-10c1a"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c1a?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135e7e25b01-10c1a', function(){ dojo.query('.dojoDndItem.P-135e7e25b01-10c1a').orphan(); window.location.reload(); } );">削除</a></li>
+										</ul>
+			    </div>
+			    			</div>
+		</div>
+		</div></div>
+	<!-- auiPortletBody -->
+	<div class="auiPortletBody dndIdentifier">
+    <div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_P-135e7e25b01-10c1a" id="portlet_P-135e7e25b01-10c1a">
+    
+
+
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/addressbook/form.js?1370480496000"></script>
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135e7e25b01-10c1a'] = { group:"addressbook", initUrl:'user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c1a?template=AddressBookScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+
+
+<form class="auiSearch auiForm" name="addressbookP-135e7e25b01-10c1a" id="addressbookP-135e7e25b01-10c1a" action="#" method="post" onsubmit="aipo.addressbook.onSubmitSerchButton(this,'user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c1a?template=AddressBookScreen','P-135e7e25b01-10c1a','','indicator-dlg-'); return false;">
+
+<div class="auiSummaryMeta clearfix">
+<input class="text floatLeft" type="text" name="sword" id="sword" style="width:60%; margin-right:5px;" value="" />
+<input type="button" class="auiButtonSearch floatLeft" value="検索"/>
+<div class="floatLeft"><div class="indicator" id="indicator-dlg-P-135e7e25b01-10c1a" style="display:none;">&nbsp;</div></div>
+</div>
+
+<input name="mode" type="hidden" value="ajaxsearch" />
+</form>
+
+	  </div>
+  </div>
+	<!-- /auiPortletBody -->
+	<div class="auiPortletFoot"><div class="inner"></div></div>
+</div>
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　ユーザー名簿 -->
+<div class="dojoDndItem auiPortlet P-135e7e25b01-10c14">
+	<div class="auiPortletHead"><div class="inner dojoDndHandle">
+			<div class="auiPortletTitle">
+			<a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c14?action=controls.Maximize">&#12518;&#12540;&#12470;&#12540;&#21517;&#31807;</a>
+		</div>
+		<div class="auiPortletTool">
+      			<div class="auiPortletSetting">
+														<a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+																    <div class="menubar body-child" id="menubar_P-135e7e25b01-10c14" style="position:absolute;left:-5;top:5;display:none;">
+					<ul>
+											<li><a href="user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c14?action=controls.Customize">設定</a></li>
+																<li class="last" id="accessControlDelete_P-135e7e25b01-10c14"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c14?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135e7e25b01-10c14', function(){ dojo.query('.dojoDndItem.P-135e7e25b01-10c14').orphan(); window.location.reload(); } );">削除</a></li>
+										</ul>
+			    </div>
+			    			</div>
+		</div>
+		</div></div>
+	<!-- auiPortletBody -->
+	<div class="auiPortletBody dndIdentifier">
+    <div class="inner" dojoType="aimluck.widget.Contentpane" widgetId="portlet_P-135e7e25b01-10c14" id="portlet_P-135e7e25b01-10c14">
+    
+
+
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/userlist/form.js?1370480496000"></script>
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+    ptConfig['P-135e7e25b01-10c14'] = { group:"userlist", initUrl:'user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c14?template=UserListScreen', reloadFunction:aipo.reloadPage };
+
+//]]>
+</script>
+
+
+<div class="auiSummaryMeta clearfix">
+<form class="auiSearch auiForm" name="userlistP-135e7e25b01-10c14" id="userlistP-135e7e25b01-10c14" action="#" method="post" onsubmit="aipo.userlist.onSubmitSearchButton(this,'user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c14?template=UserListScreen','P-135e7e25b01-10c14','', 'indicator-dlg-'); return false;">
+<input class="text floatLeft" type="text" name="sword" id="sword" style="width:60%; margin-right:5px;" value="" />
+<input type="button" class="auiButtonSearch floatLeft" value="検索"/>
+<input name="mode" type="hidden" value="ajaxsearch" />
+<div class="floatLeft"><div class="indicator" id="indicator-dlg-P-135e7e25b01-10c14" style="display:none;">&nbsp;</div></div>
+</form>
+</div>
+
+
+	  </div>
+  </div>
+	<!-- /auiPortletBody -->
+	<div class="auiPortletFoot"><div class="inner"></div></div>
+</div>
+<!-- /PORTLET OUTER -->
+
+
+
+</td>
+<td  width="50%"  class="top container" dojoType="dojo.dnd.Source" withHandles="true">
+
+
+<!-- PORTLET OUTER　飲みイコ -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">飲みイコ</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/nomiiko.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 180px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　つぶやき -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">つぶやき</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/tsubuyaki.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 555px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　Gmail Checker -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">Gmail Checker</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/gmail.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 245px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　共有リンク -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">共有リンク</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/link.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 245px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+
+<!-- PORTLET OUTER　安否確認 -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">安否確認</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/anpi.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 450px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+
+
+<!-- PORTLET OUTER　チャットルーム -->
+<!--<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">チャットルーム</a> </div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div id="portlet_47486" widgetid="portlet_47486" dojotype="aimluck.widget.Contentpane" class="inner">
+<div id="gadget-chrome-47486">
+<div class="gadgets-gadget-content">
+<iframe width="100%" scrolling="no" height="35" frameborder="no" src="app/chat.html" class="gadgets-gadget" name="remote_iframe_47486_NN_3" id="remote_iframe_47486_NN_3" style="height: 240px;"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>-->
+<!-- /PORTLET OUTER -->
+
+
+
+<!-- PORTLET OUTER　タイムライン -->
+<div class="dojoDndItem auiPortlet">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"><a href="#">タイムライン</a></div>
+<div class="auiPortletTool">
+<div class="auiPortletSetting"><a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+<div class="menubar body-child" id="menubar" style="position:absolute;left:-5;top:5;display:none;">
+<ul>
+<li><a href="#">設定</a></li>
+<li class="last" id="accessControlDelete_P"><a href="#">削除</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody dndIdentifier">
+<div class="inner" id="portlet">
+
+
+<div id="timelineOuter">
+<div id="inputField">
+<form name="formP" id="formP" action="">
+<div class="tlInputMention" style="position:relative">
+<textarea class="elastic" id="note" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;" ></textarea>
+<span class="guide" id="guide_P" style="display: block; position:absolute; color: #999999; top:5px; left:5px">近況を共有しましょう</span>
+</div>
+<div class="clearfix tlInputClip" id="tlInputClip_P"></div>
+<div class="tlInputAttachment" style="display: none">
+<p class="tlInputAttachmentTitle">添付ファイル</p>
+<ul id="attachments_P" class="attachments"></ul>
+</div>
+<div class="tlInputControls clearfix">
+<div id="messageDiv"></div>
+<div class="floatRight">
+<span id="getTimelinePortletId" style="display:none;">P-135e7e25b01-10c18</span>
+<span id="getTimelineOnClick" style="display:none;"></span>
+<input href="#" type="submit"  id="al_submit_P" class="auiButtonAction" value="投稿する" />
+</div>
+<div class="floatRight">
+<div class="tlInputMention">
+<div class="indicatorglay" id="indicator-dlg-P" style="display:none;">&nbsp;</div>
+</div>
+</div>
+<div class="floatLeft mr10"><input type="button" class="auiButtonBold" value="ファイルを追加する"></div>
+<input type="hidden" id="folderName_P-135e7e25b01-10c18" name="folderName" value="" /></div>
+</form>
+</div>
+<div class="newMessage" id="newMessage" style="display:none; clear:both">
+<a href="#">新しい投稿があります</a></div>
+<div class="tlDisplayChanger">
+<div class="btn"><a href="#"><span class="tlDisplayGroup" id="tlDisplayGroup_P"> すべてのグループ </span></a></div>
+<div class="menubar" id="menubar_tlDisplayChanger_P" style="display: none;">
+<ul>
+<li><a href="#" class="PostName_P selected" id="PostName_P">すべてのグループ</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">会議室</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">社員在席確認用</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">アルバイト</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">企画本部</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">営業本部</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">管理本部</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">開発1部</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">開発2部</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">開発3部</a></li>
+<li><a href="#" class="PostName_P selected" id="PostName_P">開発本部</a></li>
+</ul>
+</div>
+</div>
+<div id="timeline_P" class="timeline">
+<div id="content_P">
+
+<div id="message" class="message first">
+<div class="avatar mr10"><img src="message/img/icon_user01.png" alt="木村 一郎" width="50" height="50" /></div>
+<div class="messageContents text_exposed_show">
+<div class="name">木村 一郎</div>
+<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br />
+提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+<div class="time"> 11:10&nbsp;
+<form style="display:inline" name="" id="" action="" method="post"><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">コメントする</a>&nbsp;&nbsp;
+<a href="#">削除する</a></div>
+</div>
+<div id="comments_P" class="comments">
+<div id="like" class="commentCaption"><span class="iconLike"></span><a href="#">10人</a>が「いいね！」と言っています。</div>
+<div id="message_P" class="message" style="padding-top:5px !important;">
+<div class="avatar mr10"><img src="message/img/icon_user03.png" alt="山田 太郎" width="32" height="32" /></div>
+<div class="messageContents">
+<div class="name">山田 太郎</div>
+<div class="body">すごい！<br />
+次回の打ち合わせに同行しますので、予定の調整をお願いします。</div>
+<div class="time">11:24&nbsp;
+<form style="display:inline" name="likeForm_P" id="likeForm_P" action=""><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#" id="likeCount"><span class="iconLike"></span>1</a></div>
+</div>
+</div>
+<div class="commentInputDummy" id="commentInputDummy_P"><span>コメントする</span></div>
+<div id="commentField_P" class="commentField" style="display:none">
+<div id="avatar" class="avatar mr10"><img src="message/img/icon_user01.png" alt="木村 一郎" width="32" height="32" /></div>
+<form name="commentForm_P" id="commentForm_P" action="">
+<div class="outer">
+<textarea class="elastic" id="note_P" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;"></textarea>
+</div>
+<div class="tlInputMention clearfix">
+<div class="floatRight"><input href="#" type="submit" class="auiButton" value="コメントする" /></div>
+</div>
+</form>
+</div>
+</div>
+
+<!--<p class="more"><a href="#" class="ellipsis_message">他の更新情報を見る</a></p>-->
+</div>
+<div id="popc_timeline" class="auiPopup imgPopup hide" style="max-width:800px;"></div>
+
+<div id="message" class="message">
+<div class="avatar mr10"><img src="message/img/icon_user02.png" alt="田村 涼子" width="50" height="50" /></div>
+<div class="messageContents text_exposed_show">
+<div class="name">田村 涼子</div>
+<div class="body"><a href="#">予定「企画会議」を編集しました。</a></div>
+<div class="time"> 11:02&nbsp;
+<form style="display:inline" name="" id="" action="" method="post"><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">コメントする</a></div>
+</div>
+<div id="comments_P" class="comments">
+<!--<div id="like" class="commentCaption"><span class="iconLike"></span><a href="#">3人</a>が「いいね！」と言っています。</div>-->
+<div id="message_P" class="message" style="padding-top:5px !important;">
+<div class="avatar mr10"><img src="message/img/icon_user01.png" alt="木村 一郎" width="32" height="32" /></div>
+<div class="messageContents">
+<div class="name">木村 一郎</div>
+<div class="body">日時変更ありがとうございます！</div>
+<div class="time">11:04&nbsp;
+<form style="display:inline" name="likeForm_P" id="likeForm_P" action=""><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">削除する</a>&nbsp;&nbsp;
+<a href="#" id="likeCount"><span class="iconLike"></span>1</a></div>
+</div>
+</div>
+<div class="commentInputDummy" id="commentInputDummy_P"><span>コメントする</span></div>
+<div id="commentField_P" class="commentField" style="display:none">
+<div id="avatar" class="avatar mr10"><img src="message/img/icon_user01.png" alt="木村 一郎" width="32" height="32" /></div>
+<form name="commentForm_P" id="commentForm_P" action="">
+<div class="outer">
+<textarea class="elastic" id="note_P" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;"></textarea>
+</div>
+<div class="tlInputMention clearfix">
+<div class="floatRight"><input href="#" type="submit" class="auiButton" value="コメントする" /></div>
+</div>
+</form>
+</div>
+</div>
+
+<!--<p class="more"><a href="#" class="ellipsis_message">他の更新情報を見る</a></p>-->
+</div>
+<div id="popc_timeline" class="auiPopup imgPopup hide" style="max-width:800px;"></div>
+
+
+<div id="message" class="message">
+<div class="avatar mr10"><img src="message/img/icon_user01.png" alt="木村 一郎" width="50" height="50" /></div>
+<div class="messageContents text_exposed_show">
+<div class="name">木村 一郎</div>
+<div class="body"><a href="#">ToDo「提案書作成」を編集しました。</a></div>
+<div class="time"> 11:02&nbsp;
+<form style="display:inline" name="" id="" action="" method="post"><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">コメントする</a>&nbsp;&nbsp;
+<a href="#">削除する</a></div>
+</div>
+<div id="comments_P" class="comments">
+<div id="like" class="commentCaption"><span class="iconLike"></span><a href="#">1人</a>が「いいね！」と言っています。</div>
+<!--<div id="message_P" class="message" style="padding-top:5px !important;">
+<div class="avatar mr10"><img src="" alt="木村 一郎" width="32" height="32" /></div>
+<div class="messageContents">
+<div class="name">木村 一郎</div>
+<div class="body">日時変更ありがとうございます！</div>
+<div class="time">11:04&nbsp;
+<form style="display:inline" name="likeForm_P" id="likeForm_P" action=""><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">削除する</a>&nbsp;&nbsp;
+<a href="#" id="likeCount"><span class="iconLike"></span>1</a></div>
+</div>
+</div>
+<div class="commentInputDummy" id="commentInputDummy_P"><span>コメントする</span></div>
+<div id="commentField_P" class="commentField" style="display:none">
+<div id="avatar" class="avatar mr10"><img src="" alt="木村 一郎" width="32" height="32" /></div>
+<form name="commentForm_P" id="commentForm_P" action="">
+<div class="outer">
+<textarea class="elastic" id="note_P" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;"></textarea>
+</div>
+<div class="tlInputMention clearfix">
+<div class="floatRight"><input href="#" type="submit" class="auiButton" value="コメントする" /></div>
+</div>
+</form>
+</div>-->
+</div>
+
+<!--<p class="more"><a href="#" class="ellipsis_message">他の更新情報を見る</a></p>-->
+</div>
+<div id="popc_timeline" class="auiPopup imgPopup hide" style="max-width:800px;"></div>
+
+
+<div id="message" class="message">
+<div class="avatar mr10"><img src="message/img/icon_user03.png" alt="山田 太郎" width="50" height="50" /></div>
+<div class="messageContents text_exposed_show">
+<div class="name">山田 太郎</div>
+<div class="body">本日出張のため終日外出します。何かありましたら携帯まで連絡をお願いいたします。</div>
+<div class="time"> 09:15&nbsp;
+<form style="display:inline" name="" id="" action="" method="post"><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">コメントする</a>&nbsp;&nbsp;
+<!--<a href="#">削除する</a>--></div>
+</div>
+<div id="comments_P" class="comments">
+<div id="like" class="commentCaption"><span class="iconLike"></span><a href="#">2人</a>が「いいね！」と言っています。</div>
+<!--<div id="message_P" class="message" style="padding-top:5px !important;">
+<div class="avatar mr10"><img src="" alt="木村 一郎" width="32" height="32" /></div>
+<div class="messageContents">
+<div class="name">木村 一郎</div>
+<div class="body">日時変更ありがとうございます！</div>
+<div class="time">11:04&nbsp;
+<form style="display:inline" name="likeForm_P" id="likeForm_P" action=""><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">削除する</a>&nbsp;&nbsp;
+<a href="#" id="likeCount"><span class="iconLike"></span>1</a></div>
+</div>
+</div>
+<div class="commentInputDummy" id="commentInputDummy_P"><span>コメントする</span></div>
+<div id="commentField_P" class="commentField" style="display:none">
+<div id="avatar" class="avatar mr10"><img src="" alt="木村 一郎" width="32" height="32" /></div>
+<form name="commentForm_P" id="commentForm_P" action="">
+<div class="outer">
+<textarea class="elastic" id="note_P" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;"></textarea>
+</div>
+<div class="tlInputMention clearfix">
+<div class="floatRight"><input href="#" type="submit" class="auiButton" value="コメントする" /></div>
+</div>
+</form>
+</div>-->
+</div>
+
+<!--<p class="more"><a href="#" class="ellipsis_message">他の更新情報を見る</a></p>-->
+</div>
+<div id="popc_timeline" class="auiPopup imgPopup hide" style="max-width:800px;"></div>
+
+
+<div id="message" class="message">
+<div class="avatar mr10"><img src="message/img/icon_user03.png" alt="山田 太郎" width="50" height="50" /></div>
+<div class="messageContents text_exposed_show">
+<div class="name">山田 太郎</div>
+<div class="body"><a href="#">予定「出張」を追加しました。</a></div>
+<div class="time"> 09:04&nbsp;
+<form style="display:inline" name="" id="" action="" method="post"><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">コメントする</a>&nbsp;&nbsp;
+<!--<a href="#">削除する</a>--></div>
+</div>
+<div id="comments_P" class="comments">
+<!--<div id="like" class="commentCaption"><span class="iconLike"></span><a href="#">1人</a>が「いいね！」と言っています。</div>-->
+<!--<div id="message_P" class="message" style="padding-top:5px !important;">
+<div class="avatar mr10"><img src="" alt="木村 一郎" width="32" height="32" /></div>
+<div class="messageContents">
+<div class="name">木村 一郎</div>
+<div class="body">日時変更ありがとうございます！</div>
+<div class="time">11:04&nbsp;
+<form style="display:inline" name="likeForm_P" id="likeForm_P" action=""><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">削除する</a>&nbsp;&nbsp;
+<a href="#" id="likeCount"><span class="iconLike"></span>1</a></div>
+</div>
+</div>
+<div class="commentInputDummy" id="commentInputDummy_P"><span>コメントする</span></div>
+<div id="commentField_P" class="commentField" style="display:none">
+<div id="avatar" class="avatar mr10"><img src="" alt="木村 一郎" width="32" height="32" /></div>
+<form name="commentForm_P" id="commentForm_P" action="">
+<div class="outer">
+<textarea class="elastic" id="note_P" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;"></textarea>
+</div>
+<div class="tlInputMention clearfix">
+<div class="floatRight"><input href="#" type="submit" class="auiButton" value="コメントする" /></div>
+</div>
+</form>
+</div>-->
+</div>
+
+<!--<p class="more"><a href="#" class="ellipsis_message">他の更新情報を見る</a></p>-->
+</div>
+<div id="popc_timeline" class="auiPopup imgPopup hide" style="max-width:800px;"></div>
+
+<div id="message" class="message">
+<div class="avatar mr10"><img src="message/img/icon_user02.png" alt="田村 涼子" width="50" height="50" /></div>
+<div class="messageContents text_exposed_show">
+<div class="name">田村 涼子</div>
+<div class="body"><a href="#">掲示板「歓迎会開催のお知らせ」を追加しました。</a></div>
+<div class="time"> 15:28&nbsp;
+<form style="display:inline" name="" id="" action="" method="post"><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">コメントする</a></div>
+</div>
+<div id="comments_P" class="comments">
+<div id="like" class="commentCaption"><span class="iconLike"></span><a href="#">5人</a>が「いいね！」と言っています。</div>
+<div id="message_P" class="message" style="padding-top:5px !important;">
+<div class="avatar mr10"><img src="message/img/icon_user02.png" alt="田村 涼子" width="32" height="32" /></div>
+<div class="messageContents">
+<div class="name">田村 涼子</div>
+<div class="body">歓迎会を開催しますので、掲示板に詳細投稿しました。<br>
+各自確認をお願いいたします。</div>
+<div class="time">15:33&nbsp;
+<form style="display:inline" name="likeForm_P" id="likeForm_P" action=""><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<!--<a href="#">削除する</a>&nbsp;&nbsp;-->
+<a href="#" id="likeCount"><span class="iconLike"></span>2</a></div>
+</div>
+</div>
+<div id="message_P" class="message" style="padding-top:5px !important;">
+<div class="avatar mr10"><img src="message/img/icon_user01.png" alt="木村 一郎" width="32" height="32" /></div>
+<div class="messageContents">
+<div class="name">木村 一郎</div>
+<div class="body">確認します。</div>
+<div class="time">18:04&nbsp;
+<form style="display:inline" name="likeForm_P" id="likeForm_P" action=""><a href="#">いいね！</a></form>&nbsp;&nbsp;
+<a href="#">削除する</a>&nbsp;&nbsp;
+<!--<a href="#" id="likeCount"><span class="iconLike"></span>1</a>--></div>
+</div>
+</div>
+<div class="commentInputDummy" id="commentInputDummy_P"><span>コメントする</span></div>
+<div id="commentField_P" class="commentField" style="display:none">
+<div id="avatar" class="avatar mr10"><img src="message/img/icon_user01.png" alt="木村 一郎" width="32" height="32" /></div>
+<form name="commentForm_P" id="commentForm_P" action="">
+<div class="outer">
+<textarea class="elastic" id="note_P" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px;"></textarea>
+</div>
+<div class="tlInputMention clearfix">
+<div class="floatRight"><input href="#" type="submit" class="auiButton" value="コメントする" /></div>
+</div>
+</form>
+</div>
+</div>
+
+<!--<p class="more"><a href="#" class="ellipsis_message">他の更新情報を見る</a></p>-->
+</div>
+<div id="popc_timeline" class="auiPopup imgPopup hide" style="max-width:800px;"></div>
+
+</div>
+
+<div id="more_P">
+<div class="readMore"><a href="#" style="display:block;">もっと見る</a></div>
+<div id="more_end_P"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+
+</td>
+<td  width="25%"  class="top container" dojoType="dojo.dnd.Source" withHandles="true">
+
+
+<!-- PORTLET OUTER　スケジュール -->
+<div class="dojoDndItem auiPortlet" id="dojoUnique7">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"><a href="#">スケジュール</a></div>
+<div class="auiPortletTool">
+<div class="auiPortletAction"><a href="#">予定追加</a></div>
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+</div>
+</div>
+</div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody dndIdentifier">
+<div class="inner">
+<div class="spaceBoth">
+<div class="relativeBlock">
+<div class="absoluteRight">
+<div class="auiSelectButton"></div>
+</div>
+<div class="clearfix">
+<div class="auiSelectButton">
+<ul>
+<li title="今日へ" style="width:4em;margin-right:3px;"><a class="btn" href="#"><span>今日</span></a></li>
+<li title="前の週へ" style="margin-right:3px;"><a title="前の週へ" class="btn arrow" href="#"><span><i class="auiIconArrow auiIconArrowLeftW"></i></span></a></li>
+<li title="前の日へ"><a title="前の日へ" class="first arrow" href="#"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+<li title="次の日へ" style="margin-right:3px;"><a title="次の日へ" class="last arrow" href="#"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+<li title="次の週へ" style="margin-right:3px;"><a title="次の週へ" class="btn arrow" href="#"><span><i class="auiIconArrow auiIconArrowRightW"></i></span></a></li>
+<li title="1日" style="width: 3em;"><a class="btn" href="#"><span>1日</span></a></li>
+</ul>
+</div>
+</div>
+<div class="count"><span style="font-weight:bold">2014年2月7日（金）</span></div>
+</div>
+<!-- WRAPPER -->
+<table id="tableWrapper" class="tableWrapper">
+<tbody>
+<tr>
+<td class="wide top">
+<select id="groupselect">
+<option value="">設備一覧</option>
+<option value="">----------</option>
+<option selected="selected" value="">ユーザー選択</option>
+</select>
+<input type="hidden" value="" id="groupselect">
+<div class="dijit dijitLeft dijitInline dijitDropDownButton">
+<div class="dijitRight">
+<span class="dispUser color0">木村 一郎</span> 
+<span class="dispUser color1">田村 涼子</span> 
+<span class="dispUser color2">山田 太郎</span> 
+<span class="small addUser" id="adduser">ユーザー追加</span></div>
+</div>
+
+<div style="width: 100%; overflow: hidden; height: 92px;" id="weeklyTableHeadWrapper">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" id="weeklyTableHead" class="weeklyTableHead" style="margin-top: 5px;">
+<tbody>
+<tr>
+<td width="50"><div class="weeklyHeadLeft">
+<div class="weeklyHeadLeftTop">&nbsp;</div>
+<div class="weeklyHeadLeftBottom">&nbsp;</div>
+</div></td>
+<td width="100%" valign="top" nowrap="nowrap"><div class="weeklyHeadRights" id="weeklyHeadRights">
+<div style="left: 0%;width: 100%; border-right: block;" class="weeklyHeadRightR weeklyHeadRightborder0" id="weeklyHeadRightborder">
+<div id="weeklyDay0" class="weeklyHeadRightTop today"> <a href="#" id="weeklyDay0_element_a">7（金）</a></div>
+<div id="weeklyHoliday0" class="weeklyHeadRightBottom today"></div>
+</div>
+</div></td>
+<td width="18px" style="display:block;" id="weeklySpan"><div style="width:16px" class="weeklySpan">&nbsp;</div>
+<div style="width:16px" class="weeklySpan">&nbsp;</div></td>
+</tr>
+<tr>
+<td width="50"><div id="weeklyTermLeft" class="weeklyTermLeft">
+<div class="weeklyTermLeftTop">&nbsp;</div>
+</div></td>
+<td width="100%" valign="top" nowrap="nowrap"><div class="weeklyTermRights" id="weeklyTermRights">
+<div style="left: 0%;width: 100%; border-right: block;" id="termDay0" class="weeklyHeadRightborder0 weeklyTermRight weeklyTermRightL weeklyTermRightR today">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 14.2857%;width: 0%;display: none;" id="termDay1" class="weeklyHeadRightborder1 weeklyTermRight saturday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 28.5714%;width: 0%;display: none;" id="termDay2" class="weeklyHeadRightborder2 weeklyTermRight sunday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 42.8571%;width: 0%;display: none;" id="termDay3" class="weeklyHeadRightborder3 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 57.1429%;width: 0%;display: none;" id="termDay4" class="weeklyHeadRightborder4 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 71.4286%;width: 0%;display: none;" id="termDay5" class="weeklyHeadRightborder5 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 85.7143%;width: 0%;display: none;" id="termDay6" class="weeklyHeadRightborder6 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+</div></td>
+<td width="18" class="weeklyTermTailTd"><div class="weeklyTermTail" style="width: 18px;">&nbsp;</div></td>
+</tr>
+<tr id="weeklyTermTr">
+<td width="50"><div id="weeklyTermLeft" class="weeklyTermLeft">
+<div id="weeklyTermLeftTopTall" class="weeklyTermLeftTop" style="height: 34px;">&nbsp;</div>
+</div></td>
+<td width="100%" valign="top" nowrap="nowrap"><div style="z-index: -1;" class="termScheduleGarage" id="termScheduleGarage">
+<table cellspacing="0" cellpadding="0" border="0" style="width:100%;" id="termTable">
+<tbody>
+<tr>
+<td width="100%" valign="top" nowrap="nowrap" height="17px"><div class="weeklyTermRights">
+<div style="left: 0%;width: 100%;" id="termDay0-0" class="_weeklyHeadRightborder0 weeklyTermRight weeklyTermRightL weeklyTermRightR today">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 14.2857%;width: 0%;display: none;" id="termDay1-0" class="_weeklyHeadRightborder1 weeklyTermRight saturday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 28.5714%;width: 0%;display: none;" id="termDay2-0" class="_weeklyHeadRightborder2 weeklyTermRight sunday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 42.8571%;width: 0%;display: none;" id="termDay3-0" class="_weeklyHeadRightborder3 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 57.1429%;width: 0%;display: none;" id="termDay4-0" class="_weeklyHeadRightborder4 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 71.4286%;width: 0%;display: none;" id="termDay5-0" class="_weeklyHeadRightborder5 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 85.7143%;width: 0%;display: none;" id="termDay6-0" class="_weeklyHeadRightborder6 weeklyTermRight weeklyTermRightR">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+</div></td>
+</tr>
+<tr>
+<td width="100%" valign="top" nowrap="nowrap" height="17px"><div class="weeklyTermRights">
+<div style="left: 0%;width: 100%;" id="termDay0-1" class="_weeklyHeadRightborder0 weeklyTermRight weeklyTermRightL weeklyTermRightR today">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 14.2857%; width: 0%; display: none; height: 95%;" id="termDay1-1" class="_weeklyHeadRightborder1 weeklyTermRight saturday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 28.5714%; width: 0%; display: none; height: 95%;" id="termDay2-1" class="_weeklyHeadRightborder2 weeklyTermRight sunday">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 42.8571%;width: 0%;display: none;" id="termDay3-1" class="_weeklyHeadRightborder3 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 57.1429%;width: 0%;display: none;" id="termDay4-1" class="_weeklyHeadRightborder4 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 71.4286%;width: 0%;display: none;" id="termDay5-1" class="_weeklyHeadRightborder5 weeklyTermRight">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+<div style="left: 85.7143%;width: 0%;display: none;" id="termDay6-1" class="_weeklyHeadRightborder6 weeklyTermRight weeklyTermRightR">
+<div class="weeklyTermRightTop">&nbsp;</div>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="weeklyTermRights" id="weeklyTermRights">
+<div style="left: 0%; z-index: 1; opacity: 0; height: 51px; top: -51px;" class="termScheduleDivAdd" id="termScheduleDivAdd">&nbsp;</div>
+</div>
+<div id="termScheduleContainer" style="height: 0px;">
+<div style="top:-17px" class="weeklyTermRights" id="termScheduleItemGarage-0">
+<div style="left: 0%; width: 100%; z-index: 1;" class="termScheduleDiv termColor2" id="termSchedule-0">
+<div id="termScheduleDivHandleLeft-0" class="termScheduleDivHandleLeft">&nbsp;</div>
+<div class="termScheduleDivNameDiv">社内プロジェクト</div>
+<div id="termScheduleDivHandleRight-0" class="termScheduleDivHandleRight">&nbsp;</div>
+</div>
+</div>
+<div style="top:-34px" class="weeklyTermRights" id="termScheduleItemGarage-1">
+<div style="left: 0%; width: 100%; z-index: 1;" class="termScheduleDiv termColor0" id="termSchedule-1">
+<div id="termScheduleDivHandleLeft-1" class="termScheduleDivHandleLeft">&nbsp;</div>
+<div class="termScheduleDivNameDiv">市場調査</div>
+<div id="termScheduleDivHandleRight-1" class="termScheduleDivHandleRight">&nbsp;</div>
+</div>
+</div>
+</div></td>
+<td width="18" style="display: none" class="weeklyTermTailTd"><div class="weeklyTermTail" style="width: 18px;">&nbsp;</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tableBorderM">&nbsp;</div>
+<div style="height: 468px;" id="weeklyScrollPane" class="weeklyScrollPane">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+<tr valign="top">
+<td width="50"><div class="weeklyLeft">
+<div class="leftMinute">00:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">01:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">02:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">03:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">04:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">05:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">06:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">07:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">08:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">09:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">10:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">11:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">12:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">13:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">14:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">15:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">16:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">17:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">18:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">19:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">20:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">21:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">22:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+<div class="leftMinute">23:00</div>
+<div class="leftMinuteBottom">&nbsp;</div>
+</div></td>
+<td width="100%"><div class="weeklyRights" id="weeklyRights">
+<div id="weeklyRight0" style="left: 0%;width: 100%;" class="weeklyRight today">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight1" style="left: 14.2857%;width: 0%;display: none;" class="weeklyRight saturday">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight2" style="left: 28.5714%;width: 0%;display: none;" class="weeklyRight sunday">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight3" style="left: 42.8571%;width: 0%;display: none;" class="weeklyRight">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight4" style="left:57.1429%;width: 0%;display: none;" class="weeklyRight">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight5" style="left: 71.4286%;width: 0%;display: none;" class="weeklyRight">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div id="weeklyRight6" style="left: 85.7143%;width: 0%;display: none;" class="weeklyRight">
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+<div class="rightMinute">&nbsp;</div>
+<div class="rightMinuteBottom">&nbsp;</div>
+</div>
+<div style="left: 0%; width: 100%; opacity: 0; position: absolute; top: 0px; height: 864px;" class="scheduleDivAdd" id="scheduleDivAdd00">&nbsp;</div>
+<div style="left: 14.2857%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd01">&nbsp;</div>
+<div style="left: 28.5714%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd02">&nbsp;</div>
+<div style="left: 42.8571%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd03">&nbsp;</div>
+<div style="left: 57.1429%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd04">&nbsp;</div>
+<div style="left: 71.4286%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd05">&nbsp;</div>
+<div style="left: 85.7143%; width: 0%; display: none; opacity: 0;" class="scheduleDivAdd" id="scheduleDivAdd06">&nbsp;</div>
+<div class="scheduleGarage" id="scheduleGarage">
+<div style="top: 324px; left: 0%; height: 71px; width: 81.4629%; z-index: 1; visibility: visible; border-right-style: none;" class="scheduleDiv color2" id="schedule-0">
+<div class="scheduleDivFirstLine color2"><span class="scheduleDivTime color2" id="scheduleDivStartTime-0">[設備]09:00</span><span class="scheduleDivSepalater color2" id="scheduleDivSepalater-0">-</span><span class="scheduleDivTime color2" id="scheduleDivEndTime-0">11:00</span></div>
+<div class="scheduleDivRightLine color2"></div>
+<div class="scheduleDivName color2" style="overflow: hidden;">会議<i class="auiIcon auiIconOverlap" title="重複スケジュール"></i><i class="auiIcon auiIconTmpreserve" title="仮スケジュール"></i></div>
+<div class="scheduleDivLastLine color2">
+<div class="scheduleDivRightLine color2"></div>
+<center>
+<div align="center" class="handleDiv color2">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 360px; left: 51.4286%; height: 17px; width: 48.5714%; z-index: 2; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-1">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-1">全体朝礼</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-1"></span><span class="scheduleDivTime color0" id="scheduleDivEndTime-1"></span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">全体朝礼<i class="auiIcon auiIconOverlap" title="重複スケジュール"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 396px; left: 0%; height: 179px; width: 81.4629%; z-index: 3; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-2">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-2">11:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-2">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-2">16:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">リクルート活動<i class="auiIcon auiIconOverlap" title="重複スケジュール"></i><i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 468px; left: 51.4286%; height: 89px; width: 48.5714%; z-index: 4; visibility: visible; border-right-style: none;" class="scheduleDiv color1" id="schedule-3">
+<div class="scheduleDivFirstLine color1"><span class="scheduleDivTime color1" id="scheduleDivStartTime-3">[設備]13:00</span><span class="scheduleDivSepalater color1" id="scheduleDivSepalater-3">-</span><span class="scheduleDivTime color1" id="scheduleDivEndTime-3">15:30</span></div>
+<div class="scheduleDivRightLine color1"></div>
+<div class="scheduleDivName color1" style="overflow: hidden;">定例会議<i class="auiIcon auiIconOverlap" title="重複スケジュール"></i></div>
+<div class="scheduleDivLastLine color1">
+<div class="scheduleDivRightLine color1"></div>
+<center>
+<div align="center" class="handleDiv color1">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 576px; left: 0%; height: 35px; width: 100%; z-index: 5; visibility: visible; border-right-style: none;" class="scheduleDiv color1" id="schedule-4">
+<div class="scheduleDivFirstLine color1"><span class="scheduleDivTime color1" id="scheduleDivStartTime-4">[設備]16:00</span><span class="scheduleDivSepalater color1" id="scheduleDivSepalater-4">-</span><span class="scheduleDivTime color1" id="scheduleDivEndTime-4">17:00</span></div>
+<div class="scheduleDivRightLine color1"></div>
+<div class="scheduleDivName color1" style="overflow: hidden;">A社◯◯様ご来社</div>
+<div class="scheduleDivLastLine color1">
+<div class="scheduleDivRightLine color1"></div>
+<center>
+<div align="center" class="handleDiv color1">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 612px; left: 0%; height: 35px; width: 100%; z-index: 6; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-5">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-5">17:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-5">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-5">18:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">レポート作成・提出<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 396px; left: 102.857%; height: 179px; width: 0%; z-index: 1; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-6">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-6">11:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-6">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-6">16:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">リクルート活動<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 612px; left: 102.857%; height: 35px; width: 0%; z-index: 2; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-7">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-7">17:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-7">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-7">18:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">レポート作成・提出<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 396px; left: 205.714%; height: 179px; width: 0%; z-index: 1; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-8">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-8">11:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-8">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-8">16:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">リクルート活動<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 612px; left: 205.714%; height: 35px; width: 0%; z-index: 2; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-9">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-9">17:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-9">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-9">18:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">レポート作成・提出<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 396px; left: 308.571%; height: 179px; width: 0%; z-index: 1; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-10">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-10">11:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-10">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-10">16:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">リクルート活動<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 612px; left: 308.571%; height: 35px; width: 0%; z-index: 2; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-11">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-11">17:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-11">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-11">18:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">レポート作成・提出<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 396px; left: 411.429%; height: 179px; width: 0%; z-index: 1; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-12">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-12">11:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-12">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-12">16:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">リクルート活動<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 612px; left: 411.429%; height: 35px; width: 0%; z-index: 2; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-13">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-13">17:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-13">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-13">18:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">レポート作成・提出<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 396px; left: 514.286%; height: 179px; width: 0%; z-index: 1; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-14">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-14">11:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-14">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-14">16:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">リクルート活動<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+
+<div style="top: 612px; left: 514.286%; height: 35px; width: 0%; z-index: 2; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-15">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-15">17:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-15">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-15">18:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">レポート作成・提出<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 396px; left: 617.143%; height: 179px; width: 0%; z-index: 1; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-16">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-16">11:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-16">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-16">16:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">リクルート活動<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style="top: 612px; left: 617.143%; height: 35px; width: 0%; z-index: 2; visibility: visible; border-right-style: none;" class="scheduleDiv color0" id="schedule-17">
+<div class="scheduleDivFirstLine color0"><span class="scheduleDivTime color0" id="scheduleDivStartTime-17">17:00</span><span class="scheduleDivSepalater color0" id="scheduleDivSepalater-17">-</span><span class="scheduleDivTime color0" id="scheduleDivEndTime-17">18:00</span></div>
+<div class="scheduleDivRightLine color0"></div>
+<div class="scheduleDivName color0" style="overflow: hidden;">レポート作成・提出<i class="auiIcon auiIconRepeat" title="繰り返し"></i></div>
+<div class="scheduleDivLastLine color0">
+<div class="scheduleDivRightLine color0"></div>
+<center>
+<div align="center" class="handleDiv color0">&nbsp;</div>
+</center>
+</div>
+</div>
+<div style=" position:absolute; width: 0px; height : 0px; left: 0px; top: -10000px; Filter: Alpha(Opacity=10);opacity:.10; background-color:#FFFFFF; " class="scheduleDivAdd dummy_div" id="dummy_div">&nbsp;</div>
+</div>
+</div></td>
+<td class="scrollRight"><div class="scroll_width"></div></td>
+</tr>
+</tbody>
+</table>
+</div></td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript" language="JavaScript">
+//&lt;![CDATA[
+
+dojo.require("aipo.calendar.weekly");
+
+dojo.addOnLoad(function () {
+  initCalendar['P-13ef84e95ae-102a3'](false);
+      aipo.calendar.changeDisypayPeriod('1', 'P-13ef84e95ae-102a3');
+   //aipo.calendar.populateWeeklySchedule('P-13ef84e95ae-102a3');
+});
+
+//]]&gt;
+</script>
+<div style="display:none" class="modalDialog" id="modalDialog2"></div>
+<input type="hidden" value="33d03fc8c7306f243f3deb9c7715fd4d" name="secid" id="secid">
+<input type="checkbox" value="f" id="showAll" style="display:none">
+</div>
+</div>
+</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
+
+
+
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /LAYOUT -->
+</div>
+<!-- MAIN OUTER -->
+<iframe class="iframe_messagelist" src="message/iframe_invite.html" scrolling="no" frameborder="no" height="330"></iframe>
+<!--<iframe class="iframe_messagelist" src="message/iframe_chat.html" scrolling="no" frameborder="no"></iframe>-->
+<!--<iframe class="iframe_messagechat" src="message/iframe_chat.html" scrolling="no" frameborder="no"></iframe>-->
+
+<!--<div id="messageWindow">
+
+<div class="messageWindow_list">
+<div class="header clearfix"><span class="title">メッセージ（1）</span><a class="btn_close" href="#"><i class="icon-remove"></i></a><a class="btn_mini" href="#"><i class="icon-chevron-down"></i></a><a class="btn_open" href="#" style="display:none;"><i class="icon-chevron-up"></i></a></div>
+<div class="inner">
+<ul>
+<li class="active"><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter">1</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+<li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li><li class=""><a class="clearfix" href="#">
+<span class="name">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span>
+<span class="counter zero">0</span>
+</a></li>
+</ul>
+</div>
+<div class="footer"><a href="#">メッセージを送る</a></div>
+</div>
+<div class="messageWindow_chat">
+<div class="header clearfix"><span class="title">木村 一郎, 田村 涼子,山田 太郎, 田村 涼子,山田 太郎</span><a class="btn_close" href="#"><i class="icon-remove"></i></a><a class="btn_mini" href="#"><i class="icon-chevron-down"></i></a><a class="btn_open" href="#" style="display:none;"><i class="icon-chevron-up"></i></a></div>
+<div class="inner">
+<ul>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+<li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li><li><span class="name">木村 一郎：</span>来週月曜日、ちょっと贅沢にコースランチしませんか？&nbsp;<span class="date">17:30 全員が既読</span></li>
+<li><span class="name">田村 涼子：</span>17日にお花見に行きましょー&nbsp;<span class="date">17:30</span></li>
+<li><span class="name">山田 太郎：</span>京都出張のおみやげ買ってきたので休憩室に置いておきました。&nbsp;<span class="date">3月6日 17:30</span></li>
+
+</ul>
+</div>
+<div class="footer">
+<Form>
+<input type="text" class="text" />
+<input type="button" class="auiButtonAction" value="送信">
+</Form>
+</div>
+</div>
+
+</div>-->
+
+<!-- FOOTER -->
+<!--<div id="footer" class="clearfix">
+<div id="footText">
+<div class="copyright">&copy; Aimluck</div>
+</div>
+</div>-->
+<!-- /FOOTER -->
+</div>
+<!-- /WRAPPER -->
+
+<iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+
+<!-- SSO for messenger -->
+<iframe id="messengerIframe"  name="messengerIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+<form id="messengerForm" name="messengerForm" action="" target="messengerIframe" method="post">
+<input type="hidden" name="st" value="default:flGAQsJawLT1_yE-G3g_ielFk-8im8Nx3-e_VJ6tZBjHTm76m72Srl_Uhd0gw2QCVaNuYGMMbmc-RxX3G-UdrK9SISzqGCVxhE1YWI3tlFqME4bl7PmxiNedSnw63SR1KhxmLvQr4ggiadVojzcRLN4AVFo" />
+</form>
+<!-- /SSO for messenger -->
+
+  <script language="JavaScript" type="text/javascript" src="/javascript/aipo/common.js?1370480496000" defer="defer"></script>
+<script language="JavaScript" type="text/javascript" src="/javascript/aipo/saas-common.js?1370480496000" defer="defer"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+dojo.require("aimluck.widget.Dialog");
+
+dojo.addOnLoad(function() {
+    aipo.customize.positionInitialize();
+    gadgets.rpc.setRelayUrl("sharedStateIframe", "https://message.aipo.com/gadgets/files/container/rpc_relay.html");
+    gadgets.rpc.setAuthToken("sharedStateIframe", "75221669778502");
+    dojo.byId('sharedStateIframe').src='https://message.aipo.com/state/?st=default:jUapgizv-DfXUnwpkeFxwr80O0NxkYfXhPxP98UG6Ab1w8YUhzSmIxQ4Mr3mQ-CPjek3fDuvMnBnGHgZMbqRttrvKRm2m0PuOSdbQqT-XyfUdprVBg3aO0HZ8NzW_7txeISFwmMh3vlLVVAZfQVsA3cWKbk&parent=https%3A%2F%2Fapp.aipo.com%2Fportal%2F&interval=300#rpctoken=75221669778502';
+    if(window.webkitNotifications) {
+      aipo.container.gadgetService.requestDesktopNotifyEnable();
+    }
+});
+
+scheduleTooltipEnable = true;
+
+dojo.require("dojo.dnd.Source");
+dojo.require("aipo.customize.form");
+
+dojo.addOnLoad(function() {
+
+	aipo.customize.addAutoHideMenuTrigger();
+
+    var containers = dojo.query('.container');
+    var containerSources = [];
+    for(var c = 0; c < containers.length ; c++){
+        var container = new dojo.dnd.Source(containers[c], {
+            withHandles: true,
+            copyOnly: false
+        });
+        container.onSelectStart = function(e){
+		    if(this.isDragging){
+			    dojo.stopEvent(e);
+		    }
+        };
+        containerSources.push(container);
+    }
+
+    for(var c = 0; c < containers.length ; c++){
+        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
+            dojo.addClass(this, 'dojoDndContainerItemOver');
+            aipo.customize.hideMenu();
+        });
+
+        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
+            dojo.removeClass(this, 'dojoDndContainerItemOver');
+        });
+
+        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
+            if (this == target) {
+                if (copy) {
+                    nodes.orphan();
+                }
+                var params = '';
+                var cols = dojo.query('.container');
+                for(var c = 0; c < cols.length ; c++){
+                    var rows = dojo.query('.dojoDndItem .dndIdentifier > div', cols[c]);
+                    var reverse = false;
+                    if (rows.length >= 2) {
+                        var top = rows[0];
+                        var bottom = rows[rows.length - 1];
+
+                        var _top = dojo._abs(top);
+                        var _bottom = dojo._abs(bottom);
+
+                        while (_top && _bottom && _top.y == _bottom.y) {
+                            top = top.offsetParent;
+                            bottom = bottom.offsetParent;
+                            _top = dojo._abs(top);
+                            _bottom = dojo._abs(bottom);
+                        }
+
+                        if (_top.y > _bottom.y) {
+                            reverse = true;
+                        }
+
+                    }
+                    for (var r = 0 ; r < rows.length ; r++) {
+                        var pid = rows[r].id.split("portlet_")[1];
+                        if (reverse) {
+                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
+                        } else {
+                            params = params + '&' + pid + '_row=' + r;
+                        }
+                        params = params + '&' + pid + '_col=' + c;
+                    }
+                }
+
+                url = "user/0000000027?template=CustomizeFormJSONScreen&mode=layout" + params;
+                aipo.customize.submit(url, '', function(){
+                });
+
+                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+                if(iframe && iframe.length == 1) {
+                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+                  var gadgets_ = aipo.container.gadgets_;
+                  for(var i in gadgets_) {
+                     var gadget = gadgets_[i];
+                     if(gadget.portletId == pid) {
+                       aipo.container.renderGadget(gadget);
+                       break;
+                     }
+                  }
+                }
+
+                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+            }
+        });
+    }
+
+    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='${id}_underlay'><div dojoAttachPoint='node'></div></div>" });
+    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
+        underlay.hide();
+    });
+    underlay.show();
+});
+
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+  var messenger_url ="https://message.aipo.com/sso";
+(function() {
+  var messenger = document.createElement('script'); messenger.type = 'text/javascript'; messenger.async = true;
+  messenger.src = '/javascript/aipo/messenger.js?1370480496000';
+  document.getElementsByTagName("head")[0].appendChild(messenger);
+})();
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-11008420-14']);
+_gaq.push(['_setDomainName', '.aipo.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+//]]>
+</script>
+</body>
+</html>

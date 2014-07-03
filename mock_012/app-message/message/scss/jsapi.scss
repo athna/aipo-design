@@ -1,0 +1,579 @@
+@charset "utf-8";
+// Core variables and mixins
+// 3/26 後藤コメント：Aipoモック内では参照パスにもう一段階「../」が必要だったため追記
+@import "../../../themes/default/sass/variables";
+@import "../../../themes/default/sass/mixins";
+@import "compass";
+
+
+// 3/26 後藤コメント：下記はfont-awsomeの二重定義では？コメントアウト対応
+//@font-face {
+//	font-family: 'FontAwesome';
+//	src: url('../font/fontawesome-webfont.eot?v=3.2.0');
+//	src: url('../font/fontawesome-webfont.eot?#iefix&v=3.2.0') format('embedded-opentype'), url('../font/fontawesome-webfont.woff?v=3.2.0') format('woff'), url('../font/fontawesome-webfont.ttf?v=3.2.0') format('truetype'), url('../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.0') format('svg');
+//	font-weight: normal;
+//	font-style: normal;
+//}
+
+* {
+	@include font-family-sans-serif();
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+}
+
+body {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: .75em;
+	line-height: 1.4;
+	background: $white;
+	color: $black;
+}
+
+* html body {
+	font-size: .8em;
+}
+
+* + html body {
+	font-size: .75em;
+}
+
+p {
+	margin: 5px 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+	outline: none;
+}
+a{
+color: #1b1b1b;
+text-decoration:underline;
+}
+a:hover{
+color:$orange;
+text-decoration:none;
+}
+
+#wrapper {
+	min-width: 0;
+}
+
+/***************************************************
+	messageWindow
+--------------------------------------------------*/
+
+#messageWindow {
+@include box-sizing(border-box);
+position:relative;
+height:400px;
+padding-top:35px;
+padding-bottom:45px;
+}
+
+//.messageWindow_list,
+.messageWindow_chat {
+	//position:fixed;
+	//bottom:0;
+	//z-index:9000;
+	background: $white;
+	//width: 300px;
+
+	.header { //.messageWindow_chat .header
+	@include box-sizing(border-box);
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	padding:9px 10px;
+	height:35px;
+	background:$white;
+	color:$black;
+	border-bottom:1px solid $grayBorderLight;
+	z-index:1000;
+
+		a:hover { //.messageWindow_chat .header a:hover
+			span {
+				text-decoration: none;
+				color: $orange;
+			}
+			.counter{
+			color:$white;
+			}
+			[class*=icon-] {
+				color: $orange;
+			}
+		}
+		// 3/26 後藤コメント：閉じるボタン用などのtools追加
+		.tools {
+			float: right;
+
+			a {
+				padding-left: 5px;
+			}
+			a:hover i {
+				color: $grayDark !important;
+			}
+		}
+	}
+
+	.list {
+		float: left;
+		display: block;
+		max-width:270px;
+		border-radius: 2px;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		.title {
+			float: left;
+			max-width:290px;
+			display: block;
+			padding: 0;
+			color: $black;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-decoration: underline;
+			
+				.counter{
+				margin:1px 5px 0 0;
+				}
+		}
+
+		.icon-caret-down {
+			display: none;
+			float: right;
+			color: $gray;
+			margin: 2px 5px 0;
+			text-decoration: none;
+		}
+	}
+
+	.inner { //.messageWindow_chat .inner
+		overflow-y: scroll;
+		height:100%;
+		max-height:286px;
+
+		ul { //.messageWindow_chat .inner ul
+			margin: 0;
+			padding: 0;
+		}
+
+		li { //.messageWindow_chat .inner li
+			display: block;
+			margin: 0;
+			//padding: 0; //二重定義だったためコメントアウト。後々削除
+			padding:7px 10px 7px 41px;
+			background: none;
+			border-bottom: 1px solid $grayLighter;
+			*width: 188px;
+			position:relative;
+			min-height:24px;
+			line-height:1.4;
+			
+				.avatar{
+				position:absolute;
+				top:7px;
+				left:10px;
+				width:24px;
+				height:24px;
+				float:left;
+				
+					img{
+					width:24px;
+					height:24px;
+					}
+				}
+
+			a { //.messageWindow_list .inner li a
+				//display: block; // 3/26 後藤コメント：ブロック状にする必要が無いため
+				//font-size: 11px;
+				//text-decoration: none;
+				//padding: 7px 7px 7px;
+				//margin: 0;
+				//vertical-align: text-top;
+
+				.name { //.messageWindow_list .inner li a .name
+					float: left;
+					display: inline-block;
+					width: 240px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+
+				.counter { //.messageWindow_list .inner li a .counter
+					float: right;
+					margin: 0;
+				}
+
+			}
+
+
+			a:hover { //.messageWindow_list .inner li a:hover
+				//background: $grayHightLight;
+				//color: $black;
+				text-decoration: underline;
+
+				.counter { //.messageWindow_list .inner li a:hover .counter
+					color: $white;
+				}
+
+			}
+
+			.name { //.messageWindow_chat .inner li .name
+				display: inline-block;
+				font-weight: bold;
+				margin:0 7px 0 0;
+			}
+
+			.date { //.messageWindow_chat .inner li .date
+				display: inline-block;
+				color: $gray;
+				font-size: 10px;
+			}
+
+			.readList { //.messageWindow_chat .inner li .readList
+				color: $gray;
+				text-decoration: none;
+			}
+
+		}
+		li.active { //.messageWindow_list .inner li.active
+			a { //.messageWindow_list .inner li.active a
+				background: $grayHightLight;
+				font-weight: bold;
+
+				.counter { //.messageWindow_list .inner li.active a .counter
+					font-weight: normal;
+				}
+			}
+		}
+
+		.invite_block { //.messageWindow_chat .inner .invite_block
+			font-size: 11px;
+			background: $grayLighter;
+			border: none;
+
+			a { //.messageWindow_chat .inner .invite_block a
+				color: $black;
+				text-shadow: none;
+			}
+
+			.img,
+			.img img { //.messageWindow_chat .inner .invite_block .img, img
+				display: inline-block;
+				height: 24px;
+				width: 24px;
+				border-radius: 3px;
+			}
+
+		}
+
+	}
+
+	.footer { //.messageWindow_chat .footer
+		height: 35px;
+		padding: 5px;
+		border-top: 1px solid $grayLight;
+		background: $grayLighter;
+
+		input.text { //.messageWindow_chat .footer input.text
+			width: 240px;
+			width: 238 px\9;
+			height: 30px;
+			margin: 0;
+		}
+	}
+
+}
+
+.dropdown-menu {
+	top: 22px;
+	width:340px;
+	padding: 0;
+	color: $black;
+	border: 1px solid $grayBorderDark;
+
+	a { // .dropdown-menu a
+		color: $black;
+
+		&.auiButtonAction { // .dropdown-menu a.auiButtonAction
+			color: $black;
+		}
+	}
+
+	.dropdown-header,
+	.dropdown-footer { // .dropdown-menu .dropdown-header
+		display: block;
+		//padding: 7px;
+		//text-align: center;
+		font-size: 11px;
+		overflow: hidden;
+
+		a {
+			display: block;
+			padding: 7px;
+
+			&:hover {
+				background: $grayHightLight;
+				text-decoration: none;
+			}
+		}
+	}
+	.dropdown-header {
+		border-bottom: 1px solid $grayLighter;
+		@include border-radius(4px 4px 0 0);
+	}
+
+	.dropdown-footer {
+		border-top: 1px solid $grayLighter;
+		@include border-radius(0 0 4px 4px);
+	}
+
+	ul { // .dropdown-menu ul
+		display: block;
+		max-height: 220px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 0;
+		margin: 0;
+
+		li { // .dropdown-menu ul li
+			display: block;
+			margin: 0;
+			padding: 0;
+			background: none;
+			//border-bottom: 1px solid $grayLighter; // 3/26 後藤コメント：従来のメッセージに罫線は無いためコメントアウト
+			@include box-sizing(border-box); // 3/26 後藤追記
+
+			a { // .dropdown-menu ul li a
+				display: block;
+				font-size: 11px;
+				text-decoration: none;
+				padding: 7px;
+				margin: 0;
+				vertical-align: text-top;
+				@include box-sizing(border-box);
+
+				.name { // .dropdown-menu ul li a .name
+					float: left;
+					display: inline-block;
+					width:270px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+
+				.counter { //.dropdown-menu ul li a .counter
+					//float: right; // 3/26 後藤コメント：左詰めに修正
+					margin: 1px 5px 0 0;
+				}
+
+				&:hover { // .dropdown-menu ul li a:hover
+					background: $grayHightLight;
+					color: $black;
+					.counter { //.dropdown-menu ul li a:hover .counter
+						color: $white;
+					}
+				}
+			}
+		}
+		li.active { // .dropdown-menu ul li.active
+			a { // .dropdown-menu ul li.active a
+				background: $grayHightLight;
+				//font-weight: bold; // 3/26 後藤コメント：カウントを赤くするのみで充分で現メッセージ機能でも太字など行っていないため
+
+				.counter { //.dropdown-menu ul li.active a .counter
+					font-weight: normal;
+				}
+			}
+		}
+	}
+}
+
+//.messageWindow_list .footer {
+//	text-align: center;
+//	font-size: 11px;
+//	line-height: 33px;
+//}
+
+
+#messageWindow .footer{
+@include box-sizing(border-box);
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:44px;
+padding:5px;
+border-top:1px solid $grayLight;
+text-align:center;
+font-size:11px;
+background:$grayLighter;
+
+	form{
+	margin-bottom:0;
+	padding-right:50px;
+	position:relative;
+	}
+	span.text{
+	width:100%;
+	display:block;
+	height:32px;
+	line-height:20px;
+	padding:5px;
+	border-radius:4px;
+	box-shadow:none;
+	text-align:left;
+	font-size:12px;
+	color:$gray;
+	cursor:text;
+	}
+	textarea.text{
+	width:100%;
+	display:none;
+	height:57px !important;
+	margin:0;
+	font-size:12px;
+	font-family:$sansFontFamily;
+	}
+	input.auiButtonAction{
+	position:absolute;
+	bottom:0;
+	right:0;
+	width:30px;
+	font-size:12px;
+	font-family:$sansFontFamily;
+	}
+}
+
+
+.iconList{
+@include clearfix;
+border-bottom:1px solid $grayBorderLight;
+padding:5px 0px 5px 10px;
+
+	.img{
+	float:left;
+	height:24px;
+	width:24px;
+	border-radius:3px;
+	overflow:hidden;
+	margin:0 2px 0 0;
+	}
+	.iconListLink{
+	float:left;
+	display:block;
+	height:24px;
+	width:18px;
+	line-height:24px;
+	text-align:center;
+	text-decoration:none;
+	}
+}
+
+
+.modal {
+	top: 35px;
+	width:378px\9;
+	margin-left:-190px\9;
+}
+
+.modal-header {
+	font-weight: bold;
+	padding: 10px 15px 10px 10px;
+}
+
+.modal-header .close {
+	margin-top: -7px;
+	margin-right:-10px;
+	padding: 0 5px;
+}
+
+.modal-body {
+	padding: 0;
+	max-height: 160px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	.img,
+	.img img {
+		display: inline-block;
+		height: 24px;
+		width: 24px;
+		border-radius: 3px;
+		margin-bottom: 5px;
+	}
+
+	.img64,
+	.img64 img {
+		height: 64px;
+		width: 64px;
+	}
+
+	h4 {
+		margin: 0;
+		padding: 5px 10px 5px;
+		font-size: 12px;
+	}
+
+	.userList {
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding: 0;
+			margin: 0;
+
+			label {
+				font-size: 12px;
+				padding: 7px 10px;
+				margin: 0;
+
+				.checkbox {
+					margin: 0 5px 0 0;
+				}
+
+				.img {
+					margin-bottom: 0;
+				}
+			}
+			label:hover {
+				background: $grayHightLight;
+			}
+		}
+	}
+}
+
+.modal-footer {
+	padding: 10px;
+}
+
+
+/*表示切り替え*/
+#messageWindow.editon{
+padding-bottom:75px;
+
+	.inner{
+	max-height:261px;
+	}
+	.footer{
+	height:69px;
+
+		span.text{
+		display:none;
+		}
+		textarea.text{
+		display:block;
+		}
+	}
+}

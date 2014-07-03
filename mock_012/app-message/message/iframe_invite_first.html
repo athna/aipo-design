@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<!--<base href="https://app.aipo.com/"></base>-->
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<meta name="robots" content="noindex,follow" />
+<link type="image/x-icon" rel="shortcut icon" href="/images/favicon.ico?1370480496000" />
+<link type="image/x-icon" rel="icon" href="/images/favicon.ico?1370480496000" />
+<link rel="stylesheet" type="text/css" href="https://app.aipo.com/themes/default/css/aui-all.css?1370480496000" media="screen,tv,print"/>
+<link rel="stylesheet" type="text/css" href="https://app.aipo.com/themes/default/css/print.css?1370480496000" media="print" />
+<link rel="apple-touch-icon-precomposed" href="https://app.aipo.com/themes/iphone/img/apple-touch-icon-precomposed.png" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" href="css/jsapi.css" />
+</head>
+<body onload="aipo.container.renderGadgets()">
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+<!-- WRAPPER -->
+<div id="wrapper">
+
+
+<div id="messageWindow">
+<div class="messageWindow_chat">
+<div class="header clearfix">
+メッセージ
+<a title="閉じる" class="btn_close" href="#"><i class="icon-remove"></i></a><a title="最小化" class="btn_mini" href="#"><i class="icon-minus"></i></a><a class="btn_open" href="#" style="display:none;"><i class="icon-chevron-up"></i></a><!--<a class="btn_list" href="#"><i class="icon-list-ul"></i></a>--></div>
+<div class="inner">
+
+
+
+
+
+
+<div class="alert pa15 ma5">
+<p class="center">メッセージを送りましょう</p>
+<p class="center mb0"><a href="#message" role="button" data-toggle="modal" class="auiButtonAction">メッセージを送る</a></p>
+
+
+</div>
+
+
+
+</div>
+<div class="footer">
+<!--<Form>
+<input type="text" class="text" placeholder="メッセージを入力" />
+<input type="button" class="auiButtonAction" value="送信">
+</Form>-->
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>既読
+</div>
+<div class="modal-body pa10">
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+<span class="img"><img src="avatar.png" alt="name" /></span>
+</div>
+<div class="modal-footer"></div>
+</div>
+<!-- Modal -->
+<div id="message" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="messageLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>送信先を選択する
+</div>
+<div class="modal-body">
+<h4>aimluck.com</h4>
+<ul class="userList">
+<li><label for="user01">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user01" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user02">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user02" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user03">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user03" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user04">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user04" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user05">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user05" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user06">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user06" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user07">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user07" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user08">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user08" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user09">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user09" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+<li><label for="user10">
+<input type="checkbox" class="checkbox" name="targetUserId[]" id="user10" value="" />
+<span class="img"><img src="avatar.png" alt="name" /></span>
+木村 一郎
+</label></li>
+
+
+</ul>
+</div>
+<div class="modal-footer">
+<a href="javascript:void(0)" class=" auiButton" data-dismiss="modal">キャンセル</a>
+<a href="javascript:void(0)" class="auiButtonAction pl20 pr20">決定する</a>
+</div>
+</div>
+<!-- /Modal -->
+<div id="inviteUser01" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="inviteUser01Label" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>招待があります
+</div>
+<div class="modal-body pa10 center">
+<p><span class="img img64"><img src="avatar.png" alt="name" /></span></p>
+<p>Takase Yusukeさんが招待しています</p>
+</div>
+<div class="modal-footer">
+<a href="javascript:void(0)" class=" auiButton" data-dismiss="modal">拒否する</a>
+<a href="javascript:void(0)" class="auiButtonAction">参加する</a>
+</div>
+</div>
+<!-- /Modal -->
+
+
+</div>
+</div>
+
+
+</div>
+<!-- /WRAPPER -->
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://www.aipo.com/common/source/js/bootstrap.js"></script>
+</body>
+</html>

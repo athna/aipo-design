@@ -1,0 +1,1 @@
+dojo._hasResource["dojox.uuid"]||(dojo._hasResource["dojox.uuid"]=!0,dojo.provide("dojox.uuid"),dojo.require("dojox.uuid._base"));

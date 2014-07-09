@@ -25,34 +25,79 @@
 <div id="modalDialog" class="modalDialog" style="display:none"></div>
 <div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
 <script type="text/javascript">
-  djConfig = {
-    cacheBust: '1370480496000',
-    siteTitle: 'Aipo+'
-  };
+    djConifg = {
+		xDomainBasePath: 'https://app.aipo.com/javascript'
+	};
 </script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.js"></script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.js?1370480496000"></script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo/saas.js?1370480496000"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
 <!-- WRAPPER -->
 <div id="wrapper"  style="margin-bottom : 15px">
 <!-- HEADER -->
 <div id="header" class="clearfix">
 <div class="inner">
 <div class="hdSign">
-<div class="hdLogo"><img alt="Aipo.com" src="../img/logo_aipoplus_20130613.png" /></div>
+<div class="hdLogo"><img alt="Aipo.com" src="../themes/default/images/logo_com_20130613.png" /></div>
 </div>
-
+<script>
+    function popupToggle($this,$target) {
+		if(document.getElementById($target).style.display=='none'){
+			document.getElementById($target).style.display='block'
+		}else{
+			document.getElementById($target).style.display='none'
+		}
+		if($this.className.indexOf('active')>0){
+			$this.className = $this.className.replace(' active','');
+		}else{
+			$this.className += ' active'
+		};
+	}
+</script>
 <div class="hdNavi">
-<div class="hdMessege"><a target="_blank" href="https://message.aipo.com">
-<div class="zero counter" id="messagechecker">0</div>メッセージ</a></div>
-<div title="お知らせ" class="hdActivity">
-<div class="dijit dijitLeft dijitInline dijitDropDownButton">
-<div id="activitycheckerContainer" tabindex="0">
-<div id="activitycheckerContainer_label">
-<div class="counter" id="supportchecker">1</div><span class="mb_hide">お知らせ</span><span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
-</div>
-</div>
-</div>
+<div class="hdMessege" title="メッセージ">
+          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+			   dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+			   widgetid="activitycheckerContainer"
+			   onClick="popupToggle(this,'aipo_widget_ActivityList_1');">
+            <div type="button"
+				 dojoattachpoint="focusNode,titleNode"
+				 wairole="button"
+				 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+				 role="button"
+				 aria-haspopup="true"
+				 aria-labelledby="activitycheckerContainer_label"
+				 id="activitycheckerContainer"
+				 tabindex="0"
+				 aria-valuenow=""
+				 aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                <div id="messagechecker" class="activitycheckerstyle counter">5</div>
+                <span class="mb_hide">メッセージ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
+            </div>
+          </div>
+        </div>
+<div class="hdActivity" title="お知らせ">
+          <div class="dijit dijitLeft dijitInline dijitDropDownButton"
+			   dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
+			   widgetid="activitycheckerContainer"
+			   onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+            <div type="button"
+				 dojoattachpoint="focusNode,titleNode"
+				 wairole="button"
+				 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
+				 role="button"
+				 aria-haspopup="true"
+				 aria-labelledby="activitycheckerContainer_label"
+				 id="activitycheckerContainer"
+				 tabindex="0"
+				 aria-valuenow=""
+				 aria-disabled="false">
+              <div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
+                <div id="activitychecker" class="activitycheckerstyle counter">5</div>
+                <span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span> </div>
+            </div>
+          </div>
+        </div>
 <div title="サポート" class="hdInformation">
 <div class="dijit dijitLeft dijitInline dijitDropDownButton">
 <div id="supportcheckerContainer" tabindex="0">
@@ -734,6 +779,111 @@ dojo.addOnLoad(function () {
 </div>-->
 <!-- /PORTLET OUTER -->
 
+<!-- PORTLET OUTER　メッセージ -->
+<div class="dojoDndItem auiPortlet 47486 dojoDndItemAnchor" id="dojoUnique10">
+<div class="auiPortletHead">
+<div class="inner dojoDndHandle">
+<div class="auiPortletTitle"> <a href="">メッセージ</a> </div>
+<div class="auiPortletTool">
+	<div class="auiPortletAction">
+     <a  href="javascript:void(0);"  onclick="" >メッセージを送る</a>
+     </div>
+<div class="auiPortletSetting"> <a href="javascript:void(0);" id="" onclick="" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="カスタマイズ" class=""><span class="auiWFicon"><i class="icon-cog"></i></span></a> </div>
+</div>
+</div>
+</div>
+<div class="auiPortletBody dndIdentifier">
+<div class="inner" id="portlet">
+
+	<div class="clearfix">
+		<div class="floatLeft"><img class="mr5 avatar" width="24" height="24" alt="山田 太郎" src="message/img/icon_user01.png"><img class="mr5 avatar" width="24" height="24" alt="山田 太郎" src="message/img/icon_user02.png"><img class="mr5 avatar" width="24" height="24" alt="山田 太郎" src="message/img/icon_user01.png"><img class="mr5 avatar" width="24" height="24" alt="山田 太郎" src="message/img/icon_user03.png"><!--<span id="adduser" class="small addUser">ユーザー追加</span>--></div>
+
+		<div class="tlDisplayChanger floatRight w30 mt10 mb5 noBorder">
+<div class="btn">
+<a href="javascript:void(0)" onClick="popupToggle(this,'aipo_message_changeDisplay');">
+<span class="tlDisplayGroup"> (1) メッセージ一覧 </span></a></div>
+<div id="aipo_message_changeDisplay" class="menubar" style="display:none; width: 200px;">
+<ul>
+<li><a href="javascript:void(0)" class="selected">(0)&nbsp;木村一郎, 田中一郎, 山田華子, 田村涼子</a></li>
+<li><a href="javascript:void(0)">(0)&nbsp;木村一郎, 田中一郎</a></li>
+<li><a href="javascript:void(0)"><strong>(1)&nbsp;木村一郎, 田中一郎</strong></a></li>
+<li><a href="javascript:void(0)">(0)&nbsp;木村一郎, 田中一郎</a></li>
+</ul>
+</div>
+</div>
+
+		<!--<div class="filters floatRight" id="filters_P-1375e974ca6-11a91"><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" onclick="aipo.blog.toggleMenu(dojo.byId('menubar_auiFilter_P-1375e974ca6-11a91'),dojo.byId('filters_P-1375e974ca6-11a91'),event);" title="木村一郎, 田中一郎, 山田華子, 田村涼子"><span>(1) メッセージ一覧</span></a><a href="javascript:void(0);" class="customizeMenuIcon filterTip menubarOpenButton" style="display:none;" onclick="aipo.blog.toggleMenu(dojo.byId('menubar_auiFilter_P-1375e974ca6-11a91'),dojo.byId('filters_P-1375e974ca6-11a91'),event);"><span>すべてのテーマ</span></a></div>-->
+</div>
+
+
+<form class="messageForm">
+	<textarea rows="" cols="" placeholder="メッセージ"></textarea>
+	<div class="btnArea"><input type="submit" class="auiButtonAction" value="送信する"/></div>
+</form>
+
+<div class="messengerContents">
+	<ul class="messengerList">
+		<li>
+			<div class="avatar mr10"><img width="32" height="32" alt="木村 一郎" src="message/img/icon_user01.png"></div>
+
+			<div class="name">木村 一郎</div>
+			<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br>
+			提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+			<div class="time">11:10&nbsp;
+			<a href="#">1人が既読</a></div>
+
+		</li>
+		<li>
+			<div class="avatar mr10"><img width="32" height="32" alt="木村 一郎" src="message/img/icon_user01.png"></div>
+
+			<div class="name">木村 一郎</div>
+			<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br>
+			提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+			<div class="time">11:10&nbsp;
+			<a href="#">1人が既読</a></div>
+
+		</li>
+		<li>
+			<div class="avatar mr10"><img width="32" height="32" alt="木村 一郎" src="message/img/icon_user01.png"></div>
+
+			<div class="name">木村 一郎</div>
+			<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br>
+			提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+			<div class="time">11:10&nbsp;
+			<a href="#">1人が既読</a></div>
+
+		</li>
+		<li>
+			<div class="avatar mr10"><img width="32" height="32" alt="木村 一郎" src="message/img/icon_user01.png"></div>
+
+			<div class="name">木村 一郎</div>
+			<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br>
+			提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+			<div class="time">11:10&nbsp;
+			<a href="#">1人が既読</a></div>
+
+		</li>
+		<li>
+			<div class="avatar mr10"><img width="32" height="32" alt="木村 一郎" src="message/img/icon_user01.png"></div>
+
+			<div class="name">木村 一郎</div>
+			<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br>
+			提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+			<div class="time">11:10&nbsp;
+			<a href="#">1人が既読</a></div>
+
+		</li>
+
+	</ul>
+</div>
+
+
+</div></div>
+<div class="auiPortletFoot">
+<div class="inner"></div>
+</div>
+</div>
+<!-- /PORTLET OUTER -->
 
 
 <!-- PORTLET OUTER　タイムライン -->
@@ -1933,7 +2083,7 @@ dojo.addOnLoad(function () {
 <!-- /LAYOUT -->
 </div>
 <!-- MAIN OUTER -->
-<iframe class="iframe_messagelist" src="message/iframe_invite.html" scrolling="no" frameborder="no" height="330"></iframe>
+<!--<iframe class="iframe_messagelist" src="message/iframe_invite.html" scrolling="no" frameborder="no" height="330"></iframe>-->
 <!--<iframe class="iframe_messagelist" src="message/iframe_chat.html" scrolling="no" frameborder="no"></iframe>-->
 <!--<iframe class="iframe_messagechat" src="message/iframe_chat.html" scrolling="no" frameborder="no"></iframe>-->
 
@@ -2046,6 +2196,113 @@ dojo.addOnLoad(function () {
 <!-- /FOOTER -->
 </div>
 <!-- /WRAPPER -->
+
+<div class="dijitPopup" style="z-index: 1000; visibility: visible; top:30px; right:200px; ">
+  <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
+    <div class="activityPopup">
+      <div class="clearfix">
+        <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
+          <h2>あなた宛のお知らせ</h2>
+          <div style="background:#ffffff;padding:2px;">
+            <div class="auiSummaryMeta clearfix">
+              <div class="floatRight">
+                <div class="count">1 - 5 / 20</div>
+                <div class="auiSelectButton floatLeft">
+                  <ul>
+                    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+                    <li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <ul class="activityList">
+              <li class="unread">
+                <div class="meta">12月26日 &nbsp; 山本 次郎</div>
+                <a href="javascript:void(0);" onclick="">予定「お客様<wbr>
+                訪問」を編<wbr>
+                集しました。<wbr>
+                </a> </li>
+              <li>
+                <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+                <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle"> <a href="javascript:void(0);" onclick="">あなたの投稿<wbr>
+                にコメントし<wbr>
+                ました。</a> </li>
+              <li>
+                <div class="meta">12月22日 &nbsp; 山中 愛子</div>
+                <a href="javascript:void(0);" onclick="">山田様<wbr>
+                より伝言「伝言をお願いします。」があ<wbr>
+                りました。</a> </li>
+              <li>
+                <div class="meta">12月21日 &nbsp; 山本 次郎</div>
+                <a href="javascript:void(0);" onclick="">予定「お客様<wbr>
+                修正連絡<wbr>
+                」を追加しました。</a> </li>
+              <li>
+                <div class="meta">12月21日 &nbsp; 田村 三郎</div>
+                <a href="javascript:void(0);" onclick="">報告書「業務報告」<wbr>
+                の確認依頼を<wbr>
+                出しました。<wbr>
+                </a> </li>
+            </ul>
+            <p class="rightBtn"> <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;
+              <input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dijitPopup" style="z-index: 1000; visibility: visible; top:30px; right:280px; ">
+  <div id="aipo_widget_ActivityList_1" widgetid="aipo_widget_ActivityList_1" style="display: none; ">
+    <div class="activityPopup">
+      <div class="clearfix">
+        <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
+          <h2>メッセージ</h2>
+          <div style="background:#ffffff;padding:2px;">
+            <div class="auiSummaryMeta clearfix">
+              <div class="floatRight">
+                <div class="count">1 - 5 / 20</div>
+                <div class="auiSelectButton floatLeft">
+                  <ul>
+                    <li title="前へ"><a href="javascript:void(0);" class="first arrow"><span><i class="auiIconArrow auiIconArrowLeft"></i></span></a></li>
+                    <li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow"><span><i class="auiIconArrow auiIconArrowRight"></i></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <ul class="activityList messageList">
+              <li class="unread ellipsis">
+                <div class="meta">12月26日 &nbsp; 山本 次郎</div>
+                <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');popupToggle(this,'aipo_widget_ActivityList_1');" class="ellipsis">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</a>
+			  </li>
+              <li class="ellipsis">
+                <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+                 <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');popupToggle(this,'aipo_widget_ActivityList_1');" class="ellipsis">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</a>
+			  </li>
+              <li class="ellipsis">
+                <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+                 <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');popupToggle(this,'aipo_widget_ActivityList_1');" class="ellipsis">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</a>
+			  </li>
+              <li class="ellipsis">
+                <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+                 <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');popupToggle(this,'aipo_widget_ActivityList_1');" class="ellipsis">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</a>
+			  </li>
+              <li class="ellipsis">
+                <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+                <a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');popupToggle(this,'aipo_widget_ActivityList_1');" class="ellipsis">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</a>
+			  </li>
+            </ul>
+            <p class="rightBtn"> <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;
+              <input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
 
@@ -2202,5 +2459,50 @@ _gaq.push(['_trackPageview']);
 })();
 //]]>
 </script>
+
+<!-- popupMask -->
+<div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;">
+  <div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+<!-- /popupMask -->
+
+<!-- #modalDialog_sendmessage -->
+<div id="modalDialog_sendmessage" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top:50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+	<div class="auiPopup clearfix">
+		<div class="auiPopupHead clearfix">
+			<div class="auiPopupTool">
+				<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
+				</div>
+			</div>
+			<div class="auiPopupTitle">メッセージ詳細</div>
+		</div>
+		<div class="roundBlockContent">
+			<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
+			<div id="messageDiv"></div>
+			<form name="" id="" action="" method="post">
+<ul class="messengerList">
+		<li>
+			<div class="avatar mr10"><img width="32" height="32" alt="木村 一郎" src="message/img/icon_user01.png"></div>
+
+			<div class="name">木村 一郎</div>
+			<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br>
+			提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+			<div class="time">11:10&nbsp;
+			<a href="#">1人が既読</a></div>
+
+		</li>
+	</ul>
+				<div class="center auiPopupButtons pt10">
+					<input name="" class="auiButtonAction" type="submit" id="" value="返信する" onclick="">
+					<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+<!-- /#modalDialog_sendmessage -->
+
 </body>
 </html>

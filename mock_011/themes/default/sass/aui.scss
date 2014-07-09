@@ -12,6 +12,25 @@
 .bRadius4 {
 	@include border-radius(4px);
 }
+
+.scrollDecoration {
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		background: $grayHightLight;
+	}
+	&::-webkit-scrollbar-piece {
+		background:$grayLighter;
+	}
+	&::-webkit-scrollbar-thumb {
+		background:$grayLight;
+	}
+
+	scrollbar-face-color: $grayLight;
+	scrollbar-track-color: $grayHightLight;
+	scrollbar-arrow-color: $grayLight;
+	scrollbar-shadow-color: $grayLight;
+}
 //--------------------------------------------------
 
 @font-face{
@@ -552,7 +571,7 @@ $portletBackground:	"../images/common/portlet_20140116.png";
 
 		.inner {
 			background: url($portletBackground) no-repeat left -100px;
-			padding: 9px 10px;
+			padding: 10px;
 			position:relative;
 			overflow: hidden;
 		}
@@ -563,6 +582,7 @@ $portletBackground:	"../images/common/portlet_20140116.png";
 	.auiPortletTitle {
 		float:left;
 		white-space:nowrap;
+		line-height: 15px;
 	}
 	.auiPortletTool {
 		background: url($portletBackground) no-repeat right -200px;
@@ -630,6 +650,64 @@ $portletBackground:	"../images/common/portlet_20140116.png";
 		padding:0 !important;
 	}
 }
+
+/***************************************************
+	floatPortlet
+--------------------------------------------------*/
+.floatPortlet {
+	@extend .auiPortlet;
+	@extend .bRadius4;
+	position: fixed;
+	top: 100%;
+	margin: -35px 0 0 0;
+	background-image: none;
+	@include box-shadow(0 0 10px rgba(#000, .5));
+
+	&.open {
+		top: auto;
+		bottom: 0;
+		.icon-chevron-up:before {
+			content: "\f078";
+		}
+	}
+
+	//.auiPortletHead {
+	//	border-bottom: none;
+	//	background: $grayBackDark;
+	//	@include border-radius(4px 4px 0 0);
+	//	.inner {
+	//		background-image: none;
+	//	}
+	//	a:hover {
+	//		color: $textColor;
+	//	}
+	//}
+	//.auiPortletTool {
+	//	background-image: none;
+	//	> div {
+	//		background: none;
+	//		@include box-shadow(none);
+	//	}
+	//}
+	.auiPortletBody {
+		@extend .scrollDecoration;
+		overflow: auto;
+		.inner {
+			padding: 10px;
+		}
+	}
+}
+#floatPortlet_Message {
+	right: 10px;
+	width: 300px;
+	.auiPortletBody {
+		max-height: 400px;
+		.inner {
+			padding: 0;
+		}
+	}
+}
+
 
 /***************************************************
 	auiListWrapper
@@ -2825,6 +2903,87 @@ ul.attachments{
 }
 
 /***************************************************
+	message
+--------------------------------------------------*/
+.nrCount {
+	@extend .counter;
+	margin: 0;
+}
+.auiMessageRooms {
+	width: 100%;
+	li {
+		position: relative;
+		padding: 0;
+		background-image: none;
+		border-bottom: solid 1px $grayBorderLight;
+		a {
+			@include clearfix();
+			display: block;
+			text-decoration: none;
+			padding: 5px 5px 5px 45px;
+			&:hover {
+				color: $textColor;
+				background-color: $grayBackLight;
+			}
+		}
+		span {
+			display: block;
+		}
+	}
+	.avatar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 5px;
+		img, .icon-group {
+			display: block;
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			@extend .bRadius3;
+		}
+		.icon-group {
+			background-color: $grayBackDark;
+			color: $white;
+			font-size: 22px;
+		}
+	}
+	.contents {
+	}
+	.date {
+		float: right;
+		color: $gray;
+		white-space: nowrap;
+		margin-left: 5px;
+	}
+	.date, .name, .latest {
+		line-height: 16px;
+		height: 16px;
+		overflow: hidden;
+		//@include ellipsis;
+	}
+	.latest {
+		color: $gray;
+	}
+	.nrCount {
+		display: none;
+		//position: absolute;
+		//top: 5px;
+		//left: 5px;
+		margin: 0 3px 0 0;
+	}
+	.noread {
+		.nrCount {
+			display: block;
+		}
+		.name, .date {
+			font-weight: bold;
+			color: $textColor;
+		}
+	}
+}
+/***************************************************
 	.menubarSearch
 --------------------------------------------------*/
 .menubarSearch {
@@ -3246,13 +3405,12 @@ $wuiWLCaptionHeight: 24px;
 .auiCheckList {
 	margin:5px 0;
 	overflow:auto !important;
-	max-height:200px;
-	border-top:solid 1px $grayBorder;
-	border-bottom:solid 1px $grayBorder;
+	//border-top:solid 1px $grayBorder;
+	//border-bottom:solid 1px $grayBorder;
 
 	ul {
-		border-left:solid 1px $grayBorder;
-		border-right:solid 1px $grayBorder;
+		//border-left:solid 1px $grayBorder;
+		//border-right:solid 1px $grayBorder;
 	}
 
 	li {

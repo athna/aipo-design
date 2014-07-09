@@ -22,16 +22,33 @@
 	<!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="themes/default/css/font-awesome-ie7.min.css">
 	<![endif]-->
+	<script>
+		function popupToggle($this, $target) {
+			if (document.getElementById($target).style.display == 'none') {
+				document.getElementById($target).style.display = 'block'
+			} else {
+				document.getElementById($target).style.display = 'none'
+			}
+			if ($this.className.indexOf('active') > 0) {
+				$this.className = $this.className.replace(' active', '');
+			} else {
+				$this.className += ' active'
+			}
+			;
+		}
+		function floatPortletToggle($this, $target) {
+			var t = document.getElementById($target);
+			var i = t.className.indexOf(" open");
+			if (i > 0) {
+				t.className = t.className.replace(" open","")
+				//document.getElementById($target).className += " open";
+			} else {
+				t.className += " open";
+			}
+		}
+	</script>
 </head>
 <body>
-
-<script type="text/javascript">
-	djConifg = {
-		xDomainBasePath: 'https://app.aipo.com/javascript'
-	};
-</script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
 
 <!-- WRAPPER -->
 <div id="wrapper">
@@ -42,41 +59,13 @@
 		<div class="hdSign">
 			<div class="hdLogo"><img src="themes/default/images/logo_com_20130613.png" alt="Aipo.com"/></div>
 		</div>
-		<script>
-			function popupToggle($this, $target) {
-				if (document.getElementById($target).style.display == 'none') {
-					document.getElementById($target).style.display = 'block'
-				} else {
-					document.getElementById($target).style.display = 'none'
-				}
-				if ($this.className.indexOf('active') > 0) {
-					$this.className = $this.className.replace(' active', '');
-				} else {
-					$this.className += ' active'
-				}
-				;
-			}
-		</script>
 		<div class="hdNavi">
-			<div class="hdMessege"><a href="#">
-				<div id="messegechecker" class="zero counter">0</div>
-				メッセージ</a></div>
+			<div class="hdMessege">
+				<a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a>
+			</div>
 			<div class="hdActivity" title="お知らせ">
-				<div class="dijit dijitLeft dijitInline dijitDropDownButton"
-					 dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-					 widgetid="activitycheckerContainer"
-					 onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
-					<div type="button"
-						 dojoattachpoint="focusNode,titleNode"
-						 wairole="button"
-						 waistate="haspopup-true,labelledby-activitycheckerContainer_label"
-						 role="button"
-						 aria-haspopup="true"
-						 aria-labelledby="activitycheckerContainer_label"
-						 id="activitycheckerContainer"
-						 tabindex="0"
-						 aria-valuenow=""
-						 aria-disabled="false">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
+					<div type="button" id="activitycheckerContainer">
 						<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
 							<div id="activitychecker" class="activitycheckerstyle counter">5</div>
 							<span class="mb_hide">お知らせ</span> <span class="pc_hide"><i class="icon-comment"></i></span></div>
@@ -84,25 +73,12 @@
 				</div>
 			</div>
 			<div class="hdInformation" title="サポート">
-				<div
-						class="dijit dijitLeft dijitInline dijitDropDownButton"
-						dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-						widgetid="supportcheckerContainer"
-						onClick="popupToggle(this,'aipo_widget_SupportList_0');">
-					<div type="button"
-						 dojoattachpoint="focusNode,titleNode"
-						 wairole="button"
-						 waistate="haspopup-true,labelledby-supportcheckerContainer_label"
-						 role="button"
-						 aria-haspopup="true"
-						 aria-labelledby="supportcheckerContainer_label"
-						 id="supportcheckerContainer"
-						 tabindex="0"
-						 aria-valuenow=""
-						 aria-disabled="false">
+				<div class="dijit dijitLeft dijitInline dijitDropDownButton" onClick="popupToggle(this,'aipo_widget_SupportList_0');">
+					<div type="button" id="supportcheckerContainer">
 						<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
 							<div id="supportchecker" class="counter zero">0</div>
-							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span></div>
+							<span class="mb_hide">サポート</span> <span class="pc_hide"><i class="icon-bell-alt"></i></span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -151,7 +127,7 @@
 	<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
 </noscript>
 
-<div class="alert bgGray">
+<!--div class="alert bgGray">
 	<div class="alertTool"><a href="javascript:void(0)"><i class="icon-remove"></i></a></div>
 	<div class="alertHead">
 		重要なお知らせ
@@ -161,7 +137,7 @@
 		<p class="mt10 mb10"><strong>日程：</strong> 2014年6月10日　19:00～20:00</p>
 		<p>メンテナンス中はAipo.comをご利用いただくことができません。<br>大変ご迷惑をおかけいたしますがご了承のほど何卒宜しくお願い申し上げます。</p>
 	</div>
-</div>
+</div-->
 
 <!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
 <!-- .tableWrapper -->
@@ -278,13 +254,6 @@
 	<!-- auiPortletBody -->
 	<div class="auiPortletBody">
 		<div class="inner">
-			<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js"></script>
-			<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/msgboard/form.js"></script>
-			<script language="JavaScript" type="text/javascript">
-				//<![CDATA[
-				ptConfig['P-135ce1a0d64-10014'] = { group: "msgboard", initUrl: 'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen', reloadFunction: aipo.reloadPage };
-				//]]>
-			</script>
 			<!-- auiSummaryMeta.auiFilter -->
 			<div class="auiSummaryMeta auiFilter clearfix">
 				<div class="filters"><a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}"> <span class="filterTip"><span>すべての部署</span></span> <span class="filterTip"><span>カテゴリ名</span></span> <span class="filterTip"><span>長いカテゴリ名長いカテゴリ名長いカテゴリ名長いカテゴリ名長いカテゴリ名長いカテゴリ名</span></span> </a></div>
@@ -400,12 +369,6 @@
 	<!-- auiPortletBody -->
 	<div class="auiPortletBody">
 		<div class="inner">
-			<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js"></script>
-			<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/msgboard/form.js"></script>
-			<script language="JavaScript" type="text/javascript">
-				//<![CDATA[
-				ptConfig['P-135ce1a0d64-10014'] = { group: "msgboard", initUrl: 'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen', reloadFunction: aipo.reloadPage };
-				//]]> </script>
 			<!-- auiSummaryMeta.auiFilter -->
 			<div class="auiSummaryMeta auiFilter clearfix">
 				<div class="filters"><a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}"> <span class="filterTip"><span>すべての部署</span></span></a></div>
@@ -424,9 +387,7 @@
 			</div>
 			<div class="auiLoadWrapper">
 				<div class="loader"></div>
-				<form name="formP-135ce1a0d64-10014" id="formP-135ce1a0d64-10014" action="" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-					<input type="hidden" name="_name" value="Msgboard">
-					<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
+				<form>
 					<table class="auiRowTable wide">
 						<colgroup></colgroup>
 						<colgroup style="width:20%;"></colgroup>
@@ -500,7 +461,8 @@
 		<div class="inner"></div>
 	</div>
 </div>
-<!-- /auiPortlet --> </td>
+<!-- /auiPortlet -->
+</td>
 <td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><!-- auiPortlet -->
 <div class="dojoDndItem auiPortlet">
 <div class="auiPortletHead">
@@ -548,7 +510,7 @@
 					<!-- tlInputControls -->
 					<div class="tlInputControls clearfix">
 						<div class="floatLeft">
-							<iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" allowtransparency="true" class="auiInputFileFrame"></iframe>
+							<a href="javascript:void(0)" class="auiButton">ファイルを追加する</a>
 						</div>
 						<div class="floatRight">
 							<ul class="clearfix">
@@ -686,114 +648,135 @@
 </div>
 <!-- /auiPortlet --> </td>
 <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-<div class="dojoDndItem auiPortlet P-13fe4f1e48c-108e3 dojoDndItemOver" id="dojoUnique12">
+<div class="dojoDndItem auiPortlet dojoDndItemOver" id="">
 	<div class="auiPortletHead">
 		<div class="inner dojoDndHandle">
-			<div class="auiPortletTitle"><a href="#">スケジュール</a></div>
+			<div class="auiPortletTitle"><a href="message/fullwindow.html">メッセージ</a></div>
 			<div class="auiPortletTool">
-				<div class="auiPortletAction"><a href="javascript:void(0);" onclick="">予定追加</a></div>
+				<div class="auiPortletAction"><a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">送信先追加</a></div>
 				<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
 			</div>
 		</div>
 	</div>
 	<!-- auiPortletBody -->
-	<div class="auiPortletBody dndIdentifier">
-		<div class="inner" dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-13fe4f1e48c-108e3" id="portlet_P-13fe4f1e48c-108e3"><span id="schedule_val_tooltip1" style="display:none;">読み込み中...</span> <span id="schedule_val_tooltip2" style="display:none;">場所</span> <span id="schedule_val_tooltip3" style="display:none;">参加者</span> <span id="schedule_val_tooltip4" style="display:none;">設備</span>
-
-			<div class="spaceBoth">
-				<input type="hidden" id="isMac" value="0">
-				<input type="hidden" id="top_form_P-13fe4f1e48c-108e3" value="detail">
-				<input type="hidden" id="view_type_P-13fe4f1e48c-108e3" value="7">
-
-				<div class="auiSummaryMeta auiMultiSelector clearfix">
-					<div class="floatRight mb_hide clearfix">
-						<div class="auiSelectButton">
-							<ul>
-								<li class="active"><a class="first" style="width:6em;" href="javascript:void(0);" onclick=""><span>ブロック</span></a></li>
-								<li><a style="width:3em;" href="javascript:void(0);" onclick=""><span>日</span></a></li>
-								<li><a style="width:3em;" href="javascript:void(0);" onclick=";"><span>週</span></a></li>
-								<li><a style="width:3em;" href="javascript:void(0);" onclick=""><span>月</span></a></li>
-								<li><a class="last" style="width:4em;" href="javascript:void(0);" onclick=""><span>一覧</span></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="floatLeft clearfix">
-						<div class="auiSelectButton">
-							<ul>
-								<li style="width:4em;" class="mr5" title="今日へ"><a href="javascript:void(0);" class="btn" onclick=""><span>今日</span></a></li>
-								<li class="mr5" title="前の週へ"><a href="javascript:void(0);" class="btn arrow" onclick="" title="前の週へ"><i class="icon-backward"></i></a></li>
-								<li title="前の日へ"><a href="javascript:void(0);" class="first arrow" onclick="" title="前の日へ"><i class="icon-caret-left"></i></a></li>
-								<li class="mr5" title="次の日へ"><a href="javascript:void(0);" class="last arrow" onclick="" title="次の日へ"><i class="icon-caret-right"></i></a></li>
-								<li title="次の週へ"><a href="javascript:void(0);" class="btn arrow" onclick="" title="次の週へ"><i class="icon-forward"></i></a></li>
-							</ul>
-							<div class="count"><strong id="viewWeekly-P-13fe4f1e48c-108e3">2013年7月31日(水)</strong></div>
-						</div>
-					</div>
-				</div>
-				<div class="indicator" id="indicator-P-13fe4f1e48c-108e3" style="display: none;">読み込み中...</div>
-				<!-- WRAPPER -->
-				<script language="JavaScript" type="text/javascript">
-					//<![CDATA[
-
-					dojo.require("aipo.calendar.weekly");
-
-					dojo.addOnLoad(function () {
-						initCalendar['P-13fe4f1e48c-108e3'](false);
-						aipo.calendar.changeDisypayPeriod('7', 'P-13fe4f1e48c-108e3');
-						//aipo.calendar.populateWeeklySchedule('P-13fe4f1e48c-108e3');
-					});
-
-					//]]>
-				</script>
-				<div id="modalDialog2" class="modalDialog" style="display:none"></div>
-				<input type="hidden" id="secid-P-13fe4f1e48c-108e3" name="secid-P-13fe4f1e48c-108e3" value="1973f2ea50f1a2d1f2179f98d14a1731">
-				<input style="display:none" type="checkbox" id="showAll-P-13fe4f1e48c-108e3" value="f"></div>
-		</div>
-	</div>
-	<!-- /auiPortletBody -->
-	<div class="auiPortletFoot">
-		<div class="inner"></div>
-	</div>
-</div>
-<!-- auiPortlet -->
-<div class="dojoDndItem auiPortlet">
-	<div class="auiPortletHead">
-		<div class="inner">
-			<div class="auiPortletTitle"><a href="#">掲示板</a></div>
-			<div class="auiPortletTool">
-				<div class="auiPortletAction"><a href="#">トピック追加</a></div>
-				<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
-
-					<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
-						<ul>
-							<li><a href="#">設定</a></li>
-							<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- auiPortletBody -->
 	<div class="auiPortletBody">
 		<div class="inner">
-			<div class="auiSummaryMeta clearfix">
-				<div class="floatLeft w30">
-					<form class="auiForm">
-						<select name="topic" id="topic" style="width:100%;" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135ce1a0d64-10014')">
-							<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen&amp;filter=0&amp;filtertype=category">すべてのカテゴリ</option>
-							<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen&amp;filter=2&amp;filtertype=category">お知らせ</option>
-							<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen&amp;filter=1&amp;filtertype=category">その他</option>
-						</select>
-					</form>
-				</div>
-				<div class="floatRight">
-					<div class="count">1 ～ 2 / 2</div>
-				</div>
-			</div>
+
+			<ul class="auiMessageRooms">
+				<li>
+					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar1.jpg">
+						</span>
+						<div class="nrCount">5</div>
+						<span class="date">15:05</span>
+						<span class="name">木村 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar2.jpg">
+						</span>
+						<div class="nrCount">99+</div>
+						<span class="date">9:50</span>
+						<span class="name">田村 涼子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<i class="icon-group"></i>
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">6/30</span>
+						<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar3.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">6/29</span>
+						<span class="name">山田 花子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/common/avatar_default3.png">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">5/2</span>
+						<span class="name">鈴木 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar1.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">4/8</span>
+						<span class="name">木村 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar2.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">3/15</span>
+						<span class="name">田村 涼子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar3.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">2/12</span>
+						<span class="name">山田 花子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/common/avatar_default3.png">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">2013/12/20</span>
+						<span class="name">鈴木 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<i class="icon-group"></i>
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">2013/12/5</span>
+						<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+			</ul>
 			<div class="auiSummaryMeta clearfix" style="">
 				<div class="floatRight">
-					<div class="count">1 ～ 5 / 7</div>
+					<div class="count">1 ～ 10 / 30</div>
 					<div class="auiSelectButton floatLeft">
 						<ul class="floatLeft">
 							<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
@@ -802,46 +785,6 @@
 					</div>
 				</div>
 			</div>
-			<form name="formP-135ce1a0d64-10014" id="formP-135ce1a0d64-10014" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-				<input type="hidden" name="_name" value="Msgboard">
-				<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-				<table class="auiRowTable wide">
-					<colgroup></colgroup>
-					<colgroup style="width:20%;"></colgroup>
-					<colgroup style="width:20%;"></colgroup>
-					<colgroup style="width:6em;"></colgroup>
-					<tbody>
-					<tr>
-						<td>
-							<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicDetailScreen&amp;entityid=2', 'P-135ce1a0d64-10014', aipo.msgboard.onLoadMsgboardDetail);">お花見のお知らせ （1）</a></div>
-						</td>
-						<td>
-							<div>お知らせ</div>
-						</td>
-						<td>
-							<div>木村 一郎</div>
-						</td>
-						<td class="right" nowrap="nowrap">
-							<div>20:51</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicDetailScreen&amp;entityid=1', 'P-135ce1a0d64-10014', aipo.msgboard.onLoadMsgboardDetail);">歓迎会開催のお知らせ </a></div>
-						</td>
-						<td>
-							<div>お知らせ</div>
-						</td>
-						<td>
-							<div>木村 一郎</div>
-						</td>
-						<td class="right" nowrap="nowrap">
-							<div>20:51</div>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-			</form>
 		</div>
 	</div>
 	<!-- /auiPortletBody -->
@@ -849,98 +792,7 @@
 		<div class="inner"></div>
 	</div>
 </div>
-<!-- /auiPortlet -->
-<!-- auiPortlet -->
-<div class="dojoDndItem auiPortlet">
-	<div class="auiPortletHead">
-		<div class="inner">
-			<div class="auiPortletTitle"><a href="#">共有フォルダ</a></div>
-			<div class="auiPortletTool">
-				<div class="auiPortletAction"><a href="#">ファイル追加</a></div>
-				<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
-
-					<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
-						<ul>
-							<li><a href="#">設定</a></li>
-							<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- auiPortletBody -->
-	<div class="auiPortletBody">
-		<div class="inner">
-			<div class="auiSummaryMeta clearfix">
-				<div class="floatLeft w30">
-					<form class="auiForm">
-						<select name="folder_id" id="folder_id" style="width:100%;" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135ce1a0d64-10015')">
-							<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=0">すべてのフォルダ</option>
-							<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=1">ルートフォルダ</option>
-							<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=2">&nbsp;&nbsp;&nbsp;商品開発部</option>
-							<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=3">&nbsp;&nbsp;&nbsp;営業部</option>
-						</select>
-					</form>
-				</div>
-				<div class="floatRight">
-					<div class="count">1 ～ 5 / 7</div>
-					<div class="auiSelectButton floatLeft">
-						<ul class="floatLeft">
-							<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
-							<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<form name="formP-135ce1a0d64-10015" id="formP-135ce1a0d64-10015" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-				<input type="hidden" name="_name" value="Cabinet">
-				<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-				<table class="auiRowTable wide">
-					<colgroup></colgroup>
-					<colgroup style="width:20%;"></colgroup>
-					<colgroup style="width:20%;"></colgroup>
-					<colgroup style="width:6em;"></colgroup>
-					<tbody>
-					<tr>
-						<td>
-							<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetFileDetailScreen&amp;entityid=1');">メンバー一覧</a></div>
-						</td>
-						<td>
-							<div>商品開発部</div>
-						</td>
-						<td>
-							<div>木村 一郎</div>
-						</td>
-						<td class="right" nowrap="nowrap">
-							<div>20:51</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetFileDetailScreen&amp;entityid=2');">営業部メンバーリスト</a></div>
-						</td>
-						<td>
-							<div>営業部</div>
-						</td>
-						<td>
-							<div>木村 一郎</div>
-						</td>
-						<td class="right" nowrap="nowrap">
-							<div>20:51</div>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-			</form>
-		</div>
-	</div>
-	<!-- /auiPortletBody -->
-	<div class="auiPortletFoot">
-		<div class="inner"></div>
-	</div>
-</div>
-<!-- /auiPortlet --> </td>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1002,25 +854,6 @@
 <!-- /activityPopup -->
 
 <!-- menubar_auiFilter_1 -->
-<!--
-***************************************************
-●開発担当者へコメント
-
-「.menubar.multi」は「menubar」の複数列版です。
-必ず同じ「class」内で「class="menubar multi"」としてください。
-
-
-クリック元となる「filters」の直下に表示されるように「top」「left」をJSでベタで入れる必要があります。
-top = 「filters」の画面内Y位置+28
-left = 「filters」の画面内X位置
-
-またウィンドウサイズの変更による位置ズレに常時対応するため、クリックイベントではなく常時イベントとしてください。
-
-そのため「部署」「カテゴリ」といったフィルタ要素1件ごとに、130pxをかけた値を入れてください。
-下記の場合は「部署・カテゴリ・長い～」の3点のため390pxを入れています。
-
-***************************************************
--->
 <div class="menubar multi" id="menubar_auiFilter_1" style="width:390px;top:526px; left:33px;display:none;">
 	<div>
 		<p class="caption">部署</p>
@@ -1086,7 +919,6 @@ left = 「filters」の画面内X位置
 				<div id="supportListPane" widgetid="supportListPane" class="dijitContentPane" title="">
 					<ul class="blockList">
 						<li><a href="javascript:void(0);" onClick="popupToggle(this,'aipo_widget_SupportList_0');popupToggle(this,'popupMask');popupToggle(this,'popupStartGuide');">管理ガイド</a></li>
-						<!--<li><a href="javascript:void(0);">スタートツアー</a></li>-->
 						<li><a href="http://www.aipo.com/support/" target="_blank">ヘルプ</a></li>
 						<li><a href="https://www.facebook.com/aipocom.jp" target="_blank">Facebook</a></li>
 						<li><a href="https://twitter.com/aipocom" target="_blank">Twitter</a></li>
@@ -1202,11 +1034,13 @@ Lプラン限定アプリの「Webデータベース」では項目を自由に�
 	</div>
 </div>
 <!-- /support popup -->
+
 <!-- popupMask -->
 <div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;">
 	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
 </div>
 <!-- /popupMask -->
+
 <!-- startGuide -->
 <div id="popupStartGuide" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display:none; opacity: 1; top:50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
 
@@ -1317,6 +1151,371 @@ Lプラン限定アプリの「Webデータベース」では項目を自由に�
 <div style="display: none;position: absolute;top:200px;left:50%;width:500px;margin-left:-250px;">
 	<div class="auiPopup indicatorDialog center"><i class="auiIcon auiIconIndicator"></i> 読み込み中...</div>
 </div>
+
+
+<div id="modalDialog_sendmessage" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top: 50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">メッセージ送信先の追加</div>
+			</div>
+			<div class="roundBlockContent">
+				<div class="auiSummaryMeta">
+					<select class="w100">
+						<option>すべてのグループ</option>
+						<option>管理部</option>
+						<option>営業部</option>
+						<option>開発部</option>
+					</select>
+				</div>
+				<div class="auiCheckList auiCL2" style="max-height:300px">
+					<ul class="clearfix">
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー/span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+					</ul>
+				</div>
+				<form>
+					<div class="center auiPopupButtons">
+						<a href="message/fullwindow.html" class="auiButtonAction">追加する</a>
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="modalDialog_messageroom" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top: 50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a></div>
+				</div>
+				<div class="auiPopupTitle">メッセージ</div>
+			</div>
+			<div class="roundBlockContent">
+				<div id="timelineOuter">
+					<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+					<!-- memberList -->
+					<div id="memberListWrapper clearfix">
+						<div class="floatRight"><a href="javascript:void(0)" class="auiButtonIcon" title="メンバー追加" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'modalDialog_sendmessage');"><span><i class="icon-user"></i></span></a></div>
+						<ul class="userListIcon clearfix">
+							<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+							<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+							<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+							<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+							<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+							<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+						</ul>
+					</div>
+					<!-- /memberList -->
+					<div id="inputField">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="_name" value="timelineForm">
+							<input type="hidden" name="secid" value="">
+							<div class="tlInputMention">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+							</div>
+							<!--div class="tlInputAttachment">
+								<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a></div>
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div-->
+							<div class="tlInputControls clearfix">
+								<div class="floatLeft"><a href="javascript:void(0)" class="auiButton">ファイルを追加する</a></div>
+								<div class="floatRight">
+									<div class="indicatorglay">&nbsp;</div>
+									<input type="submit" class="auiButtonAction" value="投稿する" />
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div id="timeline" class="timeline">
+
+						<div id="message***" class="message">
+							<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+							<div class="messageContents">
+								<div class="name">名前 名前</div>
+								<div class="body">
+									メッセージ内容です。メッセージ内容です。<br />
+									自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
+									タイムラインのHTML構造を踏襲しますが、コメント、いいね、ファイル添付は無く、メッセージの既読の機能がある想定です。
+								</div>
+								<div class="time">
+									10月10日 20:52&nbsp;
+									<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+									<a href="javascript:void(0)" onclick="">削除する</a>
+								</div>
+							</div>
+						</div>
+
+						<div id="message***" class="message">
+							<div class="avatar mr10">
+								<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
+							<div class="messageContents">
+								<div class="name">名前 名前</div>
+								<div class="body">
+									現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+									URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+									<div class="tlClipBoard clearfix">
+										<div class="tlClipImage">
+											<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a>		</div>
+										<div class="tlClipContents">
+											<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+											<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+											<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+										</div>
+									</div>
+								</div>
+								<div class="time">
+									10月10日 20:52&nbsp;
+								</div>
+							</div>
+						</div>
+
+						<div id="message***" class="message">
+							<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+							<div class="messageContents">
+								<div class="name">名前 名前</div>
+								<div class="body">
+									Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+									<div class="tlClipBoard clearfix">
+										<div class="tlClipImage">
+											<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
+										</div>
+										<div class="tlClipContents">
+											<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+											<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+											<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+										</div>
+									</div>
+								</div>
+								<div class="time">
+									10月10日 20:52&nbsp;
+									<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a> ・
+									<a href="javascript:void(0)" onclick="">削除する</a>
+								</div>
+							</div>
+						</div>
+
+						<div id="message***" class="message">
+							<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+							<div class="messageContents">
+								<div class="name">名前 名前</div>
+								<div class="body">
+									メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
+								</div>
+								<div class="time">
+									10月10日 20:52&nbsp;
+								</div>
+							</div>
+						</div>
+
+						<div id="message***" class="message">
+							<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+							<div class="messageContents">
+								<div class="name">名前 名前</div>
+								<div class="body">
+									メッセージ内容です。メッセージ内容です。<br />
+									自分の投稿には「＊人が既読」「削除する」が付きます。
+								</div>
+								<div class="time">
+									10月10日 20:52&nbsp;
+									<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+									<a href="javascript:void(0)" onclick="">削除する</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="readMore"><a href="javascript:void(0);" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135c96ce6ff-1009d?template=TimelineScreen&amp;rows=50', 'P-135c96ce6ff-1009d');">もっと見る</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- floatPortlet - Message -->
+<div class="floatPortlet" id="floatPortlet_Message">
+	<div class="auiPortletHead">
+		<div class="inner">
+			<div class="auiPortletTitle"><span class="nrCount">99+</span> <a href="javascript:void(0)" onClick="floatPortletToggle(this,'floatPortlet_Message')">メッセージ</a></div>
+			<div class="auiPortletTool">
+				<div class="auiPortletAction"><a href="javascript:void(0);" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">送信先追加</a></div>
+				<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
+			</div>
+		</div>
+	</div>
+	<!-- auiPortletBody -->
+	<div class="auiPortletBody">
+		<div class="inner">
+			<ul class="auiMessageRooms">
+				<li>
+					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar1.jpg">
+						</span>
+						<div class="nrCount">5</div>
+						<span class="date">15:05</span>
+						<span class="name">木村 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar2.jpg">
+						</span>
+						<div class="nrCount">99+</div>
+						<span class="date">9:50</span>
+						<span class="name">田村 涼子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<i class="icon-group"></i>
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">6/30</span>
+						<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar3.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">6/29</span>
+						<span class="name">山田 花子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/common/avatar_default3.png">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">5/2</span>
+						<span class="name">鈴木 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar1.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">4/8</span>
+						<span class="name">木村 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar2.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">3/15</span>
+						<span class="name">田村 涼子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/_mock/avatar3.jpg">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">2/12</span>
+						<span class="name">山田 花子</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<img src="themes/default/images/common/avatar_default3.png">
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">2013/12/20</span>
+						<span class="name">鈴木 一郎</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
+						<span class="avatar">
+							<i class="icon-group"></i>
+						</span>
+						<div class="nrCount">0</div>
+						<span class="date">2013/12/5</span>
+						<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+						<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+					</a>
+				</li>
+				<li>
+					<div class="loader"></div>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	<!-- /auiPortletBody -->
+</div>
+<!-- /auiPortlet -->
+
 
 </body>
 </html>

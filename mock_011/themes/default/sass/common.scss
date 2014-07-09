@@ -9,6 +9,20 @@
 .bRadius3 {
 	@include border-radius(3px);
 }
+.clearfix {
+	@include clearfix();
+}
+.clearfix, .inner {
+	zoom:1;
+	display:block;
+}
+
+.clearfix:after, .inner:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
 //--------------------------------------------------
 
 @charset "utf-8";
@@ -164,17 +178,6 @@ div.outer {
 	border-right:1px solid $grayBorderDark;
 	margin-bottom:2px;
 	margin-top:2px;
-}
-
-.clearfix, .inner {
-	zoom:1;
-	display:block;
-}
-
-.clearfix:after, .inner:after{
-	content: "";
-	display: block;
-	clear: both;
 }
 
 .clear {clear:both;}
@@ -2351,4 +2354,33 @@ margin:0 3px 0 0;
 		width: 100%;
 		text-align: right;
 	}
+}
+
+/***************************************************
+	display
+--------------------------------------------------*/
+.inlineBlock {
+	display: inline-block;
+}
+.displayNone {
+	display: none;
+}
+
+/***************************************************
+	avatar
+--------------------------------------------------*/
+.avatar_l {
+	width: 50px;
+	height: 50px;
+	@extend .bRadius3;
+}
+.avatar_m {
+	width: 32px;
+	height: 32px;
+	@extend .bRadius3;
+}
+.avatar_s {
+	width: 24px;
+	height: 24px;
+	@extend .bRadius3;
 }

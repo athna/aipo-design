@@ -661,7 +661,8 @@ $portletBackground:	"../images/common/portlet_20140116.png";
 	top: 100%;
 	margin: -35px 0 0 0;
 	background-image: none;
-	@include box-shadow(0 0 10px rgba(#000, .5));
+	//@include box-shadow(0 0 10px rgba(#000, .2));
+	@include border-radius(4px 4px 0 0);
 
 	&.open {
 		top: auto;
@@ -669,6 +670,20 @@ $portletBackground:	"../images/common/portlet_20140116.png";
 		.icon-chevron-up:before {
 			content: "\f078";
 		}
+	}
+	.auiPortletHead {
+		@include border-radius(4px 4px 0 0);
+		overflow: hidden;
+		background-image: none;
+		border: solid 1px $grayBorder;
+		background-color: $grayBack;
+		.inner, .auiPortletTool {
+			background-image: none;
+		}
+	}
+	.auiPortletTool > div{
+		background-color: $grayBack;
+		@include box-shadow(none);
 	}
 
 	//.auiPortletHead {

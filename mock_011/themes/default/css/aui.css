@@ -3,7 +3,7 @@
 .avatar img, .activityField, .auiSearchOption, .auiAvatarList li a img, textarea,
 select, input[type=text],
 input[type=password], #timelineOuter #inputField,
-#timelineOuter .outer, .timeline .commentInputDummy span, .name .avatar, #timelineOuter .newMessage, .timeline .readMore, .filterTip, .auiAbsLayer {
+#timelineOuter .outer, .timeline .commentInputDummy span, .name .avatar, #timelineOuter .newMessage, .timeline .readMore, .auiMessageRooms .avatar img, .auiMessageRooms .avatar .icon-group, .filterTip, .auiAbsLayer {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -11,8 +11,8 @@ input[type=password], #timelineOuter #inputField,
   border-radius: 3px;
 }
 
-.bRadius4, .counter, .auiPopup,
-.activityPopup, .loginAlert,
+.bRadius4, .counter, .nrCount, .auiPopup,
+.activityPopup, .floatPortlet, .loginAlert,
 .alert, .alertSuccess, .submenu_v2 li a, input[type=submit],
 input[type=button],
 input[type=reset],
@@ -33,6 +33,24 @@ button,
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
+}
+
+.scrollDecoration, .floatPortlet .auiPortletBody {
+  scrollbar-face-color: #d2d2d2;
+  scrollbar-track-color: #f6f6f6;
+  scrollbar-arrow-color: #d2d2d2;
+  scrollbar-shadow-color: #d2d2d2;
+}
+.scrollDecoration::-webkit-scrollbar, .floatPortlet .auiPortletBody::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #f6f6f6;
+}
+.scrollDecoration::-webkit-scrollbar-piece, .floatPortlet .auiPortletBody::-webkit-scrollbar-piece {
+  background: #f0f0f0;
+}
+.scrollDecoration::-webkit-scrollbar-thumb, .floatPortlet .auiPortletBody::-webkit-scrollbar-thumb {
+  background: #d2d2d2;
 }
 
 @font-face {
@@ -207,7 +225,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   color: #ff9900;
 }
 
-.counter {
+.counter, .nrCount {
   float: left !important;
   font-size: 9px;
   height: 13px;
@@ -222,7 +240,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   text-decoration: none;
 }
 
-.counter.zero {
+.counter.zero, .zero.nrCount {
   background: #b5b5b5 !important;
 }
 
@@ -523,29 +541,30 @@ h1, h2, h3, h4, h5, h6, p, span {
 /***************************************************
 	auiPortlet
 --------------------------------------------------*/
-.auiPortlet {
+.auiPortlet, .floatPortlet {
   background: white;
   background: white url("../images/common/portlet_20140116.png") repeat-x left bottom;
   margin: 10px 5px;
 }
-.auiPortlet .auiPortletHead {
+.auiPortlet .auiPortletHead, .floatPortlet .auiPortletHead {
   border-bottom: solid 1px #ededed;
   background: url("../images/common/portlet_20140116.png") repeat-x left top;
 }
-.auiPortlet .auiPortletHead .inner {
+.auiPortlet .auiPortletHead .inner, .floatPortlet .auiPortletHead .inner {
   background: url("../images/common/portlet_20140116.png") no-repeat left -100px;
-  padding: 9px 10px;
+  padding: 10px;
   position: relative;
   overflow: hidden;
 }
-.auiPortlet .auiPortletBody .auiPortletHead .inner {
+.auiPortlet .auiPortletBody .auiPortletHead .inner, .floatPortlet .auiPortletBody .auiPortletHead .inner {
   padding: 0 !important;
 }
-.auiPortlet .auiPortletTitle {
+.auiPortlet .auiPortletTitle, .floatPortlet .auiPortletTitle {
   float: left;
   white-space: nowrap;
+  line-height: 15px;
 }
-.auiPortlet .auiPortletTool {
+.auiPortlet .auiPortletTool, .floatPortlet .auiPortletTool {
   background: url("../images/common/portlet_20140116.png") no-repeat right -200px;
   top: 0;
   right: 0;
@@ -554,7 +573,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   padding: 10px;
   position: absolute;
 }
-.auiPortlet .auiPortletTool > div {
+.auiPortlet .auiPortletTool > div, .floatPortlet .auiPortletTool > div {
   float: left;
   padding: 0 5px;
   background: #ffffff;
@@ -563,49 +582,86 @@ h1, h2, h3, h4, h5, h6, p, span {
   box-shadow: -5px 0 3px white;
   white-space: nowrap;
 }
-.auiPortlet .auiPortletSetting {
+.auiPortlet .auiPortletSetting, .floatPortlet .auiPortletSetting {
   padding-right: 0 !important;
 }
-.auiPortlet .auiPortletSetting .menubar {
+.auiPortlet .auiPortletSetting .menubar, .floatPortlet .auiPortletSetting .menubar {
   right: 15px;
 }
-.auiPortlet .auiPortletDelete a {
+.auiPortlet .auiPortletDelete a, .floatPortlet .auiPortletDelete a {
   background: none;
   color: #666666;
   font-size: 15px;
 }
-.auiPortlet .auiPortletDelete a:hover {
+.auiPortlet .auiPortletDelete a:hover, .floatPortlet .auiPortletDelete a:hover {
   color: white;
 }
-.auiPortlet .auiPortletDelete a, .auiPortlet .auiPortletDelete i {
+.auiPortlet .auiPortletDelete a, .floatPortlet .auiPortletDelete a, .auiPortlet .auiPortletDelete i, .floatPortlet .auiPortletDelete i {
   line-height: 16px;
   text-decoration: none;
   text-align: center;
 }
-.auiPortlet .auiPortletBody {
+.auiPortlet .auiPortletBody, .floatPortlet .auiPortletBody {
   background: #ffffff;
   border-left: solid 1px #d2d2d2;
   border-right: solid 1px #d2d2d2;
 }
-.auiPortlet .auiPortletBody .inner {
+.auiPortlet .auiPortletBody .inner, .floatPortlet .auiPortletBody .inner {
   padding: 10px 10px 0 10px;
 }
-.auiPortlet .auiPortletBody .inner:after {
+.auiPortlet .auiPortletBody .inner:after, .floatPortlet .auiPortletBody .inner:after {
   content: ".";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.auiPortlet .auiPortletFoot {
+.auiPortlet .auiPortletFoot, .floatPortlet .auiPortletFoot {
   background: url("../images/common/portlet_20140116.png") no-repeat left -390px;
 }
-.auiPortlet .auiPortletFoot .inner {
+.auiPortlet .auiPortletFoot .inner, .floatPortlet .auiPortletFoot .inner {
   height: 10px;
   background: url("../images/common/portlet_20140116.png") no-repeat right -490px;
 }
-.auiPortlet .auiPortletBody .auiPortletFoot .inner {
+.auiPortlet .auiPortletBody .auiPortletFoot .inner, .floatPortlet .auiPortletBody .auiPortletFoot .inner {
   padding: 0 !important;
+}
+
+/***************************************************
+	floatPortlet
+--------------------------------------------------*/
+.floatPortlet {
+  position: fixed;
+  top: 100%;
+  margin: -35px 0 0 0;
+  background-image: none;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.floatPortlet.open {
+  top: auto;
+  bottom: 0;
+}
+.floatPortlet.open .icon-chevron-up:before {
+  content: "\f078";
+}
+.floatPortlet .auiPortletBody {
+  overflow: auto;
+}
+.floatPortlet .auiPortletBody .inner {
+  padding: 10px;
+}
+
+#floatPortlet_Message {
+  right: 10px;
+  width: 300px;
+}
+#floatPortlet_Message .auiPortletBody {
+  max-height: 400px;
+}
+#floatPortlet_Message .auiPortletBody .inner {
+  padding: 0;
 }
 
 /***************************************************
@@ -2868,6 +2924,80 @@ ul.attachments {
 }
 
 /***************************************************
+	message
+--------------------------------------------------*/
+.nrCount {
+  margin: 0;
+}
+
+.auiMessageRooms {
+  width: 100%;
+}
+.auiMessageRooms li {
+  position: relative;
+  padding: 0;
+  background-image: none;
+  border-bottom: solid 1px #ededed;
+}
+.auiMessageRooms li a {
+  overflow: hidden;
+  *zoom: 1;
+  display: block;
+  text-decoration: none;
+  padding: 5px 5px 5px 45px;
+}
+.auiMessageRooms li a:hover {
+  color: #333333;
+  background-color: #f6f6f6;
+}
+.auiMessageRooms li span {
+  display: block;
+}
+.auiMessageRooms .avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+}
+.auiMessageRooms .avatar img, .auiMessageRooms .avatar .icon-group {
+  display: block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.auiMessageRooms .avatar .icon-group {
+  background-color: #d2d2d2;
+  color: white;
+  font-size: 22px;
+}
+.auiMessageRooms .date {
+  float: right;
+  color: #999999;
+  white-space: nowrap;
+  margin-left: 5px;
+}
+.auiMessageRooms .date, .auiMessageRooms .name, .auiMessageRooms .latest {
+  line-height: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.auiMessageRooms .latest {
+  color: #999999;
+}
+.auiMessageRooms .nrCount {
+  display: none;
+  margin: 0 3px 0 0;
+}
+.auiMessageRooms .noread .nrCount {
+  display: block;
+}
+.auiMessageRooms .noread .name, .auiMessageRooms .noread .date {
+  font-weight: bold;
+  color: #333333;
+}
+
+/***************************************************
 	.menubarSearch
 --------------------------------------------------*/
 .menubarSearch {
@@ -3334,13 +3464,6 @@ ul.attachments {
 .auiCheckList {
   margin: 5px 0;
   overflow: auto !important;
-  max-height: 200px;
-  border-top: solid 1px #d2d2d2;
-  border-bottom: solid 1px #d2d2d2;
-}
-.auiCheckList ul {
-  border-left: solid 1px #d2d2d2;
-  border-right: solid 1px #d2d2d2;
 }
 .auiCheckList li {
   display: block;

@@ -15,19 +15,19 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		//coffee: {
-		//	compile: {
-		//		files: {
-		//			'themes/default/js/index.js': ['themes/default/coffee/*.coffee']
-		//		}
-		//	}
-		//},
-		//jshint: {
-		//	files: ['js/index.js']
-		//},
+		coffee: {
+			compile: {
+				files: {
+					'themes/default/js/index.js': ['themes/default/coffee/*.coffee']
+				}
+			}
+		},
+		jshint: {
+			files: ['js/index.js']
+		},
 		watch: {
-			files: ['themes/default/sass/*.scss'],
-			tasks: ['compass']
+			files: ['themes/default/sass/*.scss','themes/default/coffee/*.coffee'],
+			tasks: ['compass','coffee','cssmin']
 		}
 	});
 	//grunt.loadNpmTasks('grunt-contrib-compass');

@@ -4,8 +4,9 @@
 @import "mixins";
 @import "compass";
 
-//--------------------------------------------------
+//####################################################################################################
 // Sass extend class
+//----------------------------------------------------------------------------------------------------
 .bRadius3 {
 	@include border-radius(3px);
 }
@@ -15,12 +16,11 @@
 .clearfix, .inner {
 	zoom:1;
 	display:block;
-}
-
-.clearfix:after, .inner:after{
-	content: "";
-	display: block;
-	clear: both;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 }
 
 //--------------------------------------------------
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6, p, pre, address, cite {
 div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, textarea, p, th, td {
 	margin:0;
 	padding:0;
-	line-height:1.4;
+//	line-height:1.4;
 }
 blockquote {
 	margin:10px 2em;
@@ -282,7 +282,7 @@ table.center {
 #roundWrapper {
 }
 .roundMainWrapper {
-	padding:0 5px;
+	padding: 50px 5px 0 5px;
 	background: $white;
 
 	noscript .alert {
@@ -2372,15 +2372,18 @@ margin:0 3px 0 0;
 .avatar_l {
 	width: 50px;
 	height: 50px;
+	@include inline-block;
 	@extend .bRadius3;
 }
 .avatar_m {
 	width: 32px;
 	height: 32px;
+	@include inline-block;
 	@extend .bRadius3;
 }
 .avatar_s {
 	width: 24px;
 	height: 24px;
+	@include inline-block;
 	@extend .bRadius3;
 }

@@ -69,38 +69,6 @@ function dropdownToggle($this, $target) {
 		$this.className += ' active';
 	}
 }
-function onloadFunction() {
-	fitMessage();
-	fitTimeline();
-	document.onmouseover = function(e) {
-		if(e.srcElement.nodeName.toLowerCase() == 'a') {
-			e.srcElement.className = e.srcElement.className + ' hover';
-		}
-	}
-	document.onmouseout = function(e) {
-		if(e.srcElement.nodeName.toLowerCase() == 'a') {
-			e.srcElement.className = e.srcElement.className.replace(' hover', '');
-		}
-	}
-	document.onmousedown = function(e) {
-		console.log(e);
-		console.log(e.srcElement.nodeName);
-	}
-	//var closeElms = document.getElementsByClassName("open");
-	//for (var i = 0; i < closeElms.length; i++) {
-	//	closeElms[i].className = closeElms[i].className.replace(' open', '');
-	//}
-	//var unactiveElms =  document.getElementsByClassName("active");
-	//for (var i = 0; i < unactiveElms.length; i++) {
-	//	unactiveElms[i].className = unactiveElms[i].className.replace(' active', '');
-	//}
-
-}
-function resize() {
-	fitMessage();
-	fitTimeline();
-}
-
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
 		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 51;
@@ -126,6 +94,78 @@ function scrollToggle() {
 
 }
 
+window.onload=function(){
+	fitMessage();
+	fitTimeline();
+	/*
+	document.onmouseover = function(e) {	//オンマウスしたAタグにhover付与
+		if(e.srcElement.nodeName.toLowerCase() == 'a') {
+			e.srcElement.className = e.srcElement.className + ' hover';
+		}
+	}
+	document.onmouseout = function(e) {
+		if(e.srcElement.nodeName.toLowerCase() == 'a') {	//マウスアウトしたAタグのhover解除
+			e.srcElement.className = e.srcElement.className.replace(' hover', '');
+		}
+	}
+	*/
+	document.onmousedown = function(e) {
+		//console.log(e);
+		//console.log(e.srcElement.nodeName);
+		var node = new Array();
+		node[0] = {nodeName:e.srcElement.nodeName, className:e.srcElement.className};
+		var parent = e.srcElement.parentNode;
+		for(var i = 1; parent; i++) {
+			node[i] = {nodeName:parent.nodeName, className:parent.className};
+			parent = parent.parentNode;
+			//console.log(node[i].nodeName +"/"+ node[i].className);
+		}
+		var linkFlag = 0;
+		for(var i = 0; i < node.length; i++) {
+			if(node[i].nodeName.toLowerCase() == 'a') {
+				var linkFlag = 1;
+				break;
+			} else if(node[i].className) {
+				if(node[i].className.indexOf('open') > 0) {
+					var linkFlag = 1;
+					break;
+				}
+			}
+		}
+		node = void 0;
+		parent = void 0;
+		//console.log(linkFlag);
+		if(linkFlag <= 0) {
+			 var elms = document.getElementsByTagName("div");
+			 for (var i = 0; i < elms.length; i++) {
+			 if(elms[i].className.indexOf('open') > 0) {
+			 elms[i].className = elms[i].className.replace(' open', '');
+			 }
+			 }
+			 var elms = document.getElementsByTagName("a");
+			 for (var i = 0; i < elms.length; i++) {
+			 if(elms[i].className.indexOf('active') > 0) {
+			 elms[i].className = elms[i].className.replace(' active', '');
+			 }
+			 }
+			 elms = void 0;
+		}
+	}
+	//var closeElms = document.getElementsByClassName("open");
+	//for (var i = 0; i < closeElms.length; i++) {
+	//	closeElms[i].className = closeElms[i].className.replace(' open', '');
+	//}
+	//var unactiveElms =  document.getElementsByClassName("active");
+	//for (var i = 0; i < unactiveElms.length; i++) {
+	//	unactiveElms[i].className = unactiveElms[i].className.replace(' active', '');
+	//}
+}
+window.onresize=function() {
+	fitMessage();
+	fitTimeline();
+}
+
+
 // placeholder
 function phFocus($this) {
 	$this.nextSibling.style.display = "none";
@@ -137,20 +177,6 @@ function phBlur($this) {
 }
 
 
-window.onload=function(){
-	f0=document.getElementById("f0");
-	f0deleteflg=false;
-	selectedOject=new Object();
-	document.onmousedown=function(){
-		if(f0deleteflg) f0.style.display="none";
-	}
-}
-function hoge(obj){
-	selectedOject=obj;
-	f0.style.display="block";
-	f0.style.top=obj.offsetTop + 20;
-	f0.style.left=obj.offsetLeft;
-}
 /*
 $(".placeholderCheck").each(function() {
 	if ($(this).attr("jq-placeholder")) {

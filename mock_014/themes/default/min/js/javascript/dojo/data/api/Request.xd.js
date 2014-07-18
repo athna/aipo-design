@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojo.data.api.Request"]],defineResource:function(e){e._hasResource["dojo.data.api.Request"]||(e._hasResource["dojo.data.api.Request"]=!0,e.provide("dojo.data.api.Request"),e.declare("dojo.data.api.Request",null,{abort:function(){throw new Error("Unimplemented API: dojo.data.api.Request.abort")}}))}});

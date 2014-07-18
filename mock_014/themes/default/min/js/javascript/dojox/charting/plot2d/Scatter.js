@@ -1,0 +1,1 @@
+dojo._hasResource["dojox.charting.plot2d.Scatter"]||(dojo._hasResource["dojox.charting.plot2d.Scatter"]=!0,dojo.provide("dojox.charting.plot2d.Scatter"),dojo.require("dojox.charting.plot2d.Default"),dojo.declare("dojox.charting.plot2d.Scatter",dojox.charting.plot2d.Default,{constructor:function(){this.opt.lines=!1,this.opt.markers=!0}}));

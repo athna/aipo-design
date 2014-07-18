@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dijit.nls.pl.common"]],defineResource:function(o){o.provide("dijit.nls.pl.common"),o._xdLoadFlattenedBundle("dijit","common","pl",{buttonCancel:"Anuluj",buttonSave:"Zapisz",buttonOk:"OK"})}});

@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojox.timing"],["require","dojox.timing._base"]],defineResource:function(o){o._hasResource["dojox.timing"]||(o._hasResource["dojox.timing"]=!0,o.provide("dojox.timing"),o.require("dojox.timing._base"))}});

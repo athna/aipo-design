@@ -1,0 +1,1 @@
+dojo._hasResource["dojox.collections"]||(dojo._hasResource["dojox.collections"]=!0,dojo.provide("dojox.collections"),dojo.require("dojox.collections._base"));

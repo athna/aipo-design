@@ -141,6 +141,280 @@ img.avatar,
 .hdUserName .menubar {
 	right:0;
 }
+
+#wrapper{
+	padding-top: 50px;
+}
+#header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	padding: 10px 0;
+	border-bottom: 1px solid $grayLight;
+	background: $white;
+	z-index: 1000;
+
+	.icon{
+		font-size: 14px;
+	}
+	a{
+		text-decoration:none;
+	}
+}
+
+.logo{
+	float: left;
+	margin-left: 15px;
+}
+.hdTab{
+	float: left;
+	margin-left: 30px;
+
+	ul{
+		padding: 0;
+		margin: 0;
+
+		li{
+			padding: 0;
+			margin:  0 5px 0 0;
+			list-style: none;
+			background: none;
+			display: inline-block;
+			border-radius: 3px;
+			overflow: hidden;
+
+			a{
+				@include box-sizing(border-box);
+				display: block;
+				padding: 7px 5px 0;
+				margin:0;
+				height: 30px;
+
+				&:hover{
+					background: $grayLighter;
+				}
+			}
+			&.plus{
+
+				a{
+					padding: 8px 10px 0;
+					color: $gray;
+
+					&:hover{
+						color: $orange;
+					}
+				}
+			}
+			&.active{
+
+				a{
+					background: $grayLighter;
+					color: $grayDark;
+				}
+			}
+		}
+	}
+}
+.appBtn, .messageBtn, .infoBtn, .userBtn{
+	float: right;
+	display: inline-block;
+	height: 30px;
+	margin-left: 5px;
+
+	a{
+		display: inline-block;
+		height: 14px;
+		width: 30px;
+		border-radius: 3px;
+		padding: 8px 0;
+		text-align: center;
+		vertical-align: middle;
+		color: $gray;
+
+		&:hover{
+			color: $orange;
+			background: $grayLighter;
+		}
+		img{
+			width: 30px;
+			height: 30px;
+		}
+		&:focus{
+			//background: $grayLighter;
+		}
+	}
+	&.active{
+
+		a{
+			background: $red;
+			color: $white;
+		}
+	}
+}
+.appBtn{
+	margin-right: 15px;
+}
+.userBtn{
+
+	>a{
+		height: 30px;
+		padding: 0;
+		//border-radius: 3px;
+		overflow: hidden;
+	}
+}
+
+#appLauncher{
+	@include box-sizing(border-box);
+	position: fixed;
+	top: 50px;
+	left: 0;
+	width: 100%;
+	padding: 7px 10px;
+	background: $white;
+	z-index: 1001;
+	border-bottom: 1px solid $grayLight;
+	border-top:1px solid $grayBorderLight;
+
+	ul{
+
+		li{
+			display: inline-block;
+			padding: 0;
+			margin: 0;
+			background: none;
+			//border-right: 1px solid $grayBorderLight;
+
+			a{
+				@include box-sizing(border-box);
+				display: block;
+				text-decoration: none;
+				padding: 7px 7px 0;
+				height: 30px;
+				border-radius: 3px;
+				font-size: 11px;
+				vertical-align: middle;
+				//color: $grayDark;
+
+				&:hover{
+					background: $grayLighter;
+				}
+
+				.icon{
+					font-size: 14px;
+					margin-right: 3px;
+				}
+			}
+			&.active {
+
+				a {
+					background: $grayLighter;
+					//color: $grayDark;
+				}
+			}
+		}
+	}
+
+}
+#dropdownInfo,
+#dropdownUser{
+	position: fixed;
+	top: 45px;
+	background: $white;
+	width: 300px;
+	border: 1px solid $grayLight;
+	z-index: 1002;
+	border-radius: 3px;
+	@include box-shadow(0 2px 1px rgba(0,0,0,.075));
+
+	h3{
+		padding: 5px 10px;
+		font-weight: normal;
+	}
+
+}
+#dropdownInfo{
+	right: 40px;
+}
+#dropdownUser{
+	right: 110px;
+}
+
+#messangerWindow {
+	position: fixed;
+	bottom: -1px;
+	right: 20px;
+	background: $white;
+	width: 350px;
+	//border: 1px solid $gray;
+	z-index: 1002;
+	//border-radius: 3px 3px 0 0;
+	@include box-shadow(0 1px 2px rgba(0,0,0,.1));
+	margin: 0;
+}
+#messangerWindowBody{
+
+	.inner {
+		padding: 10px 0;
+		margin: 0;
+
+		#tab {
+			border-bottom: 1px solid $grayLight;
+			padding: 0 10px;
+
+			li {
+				display: block;
+				float: left;
+				background: none;
+				padding: 0;
+				margin: 0 0 -1px 10px;
+				width: 157px;
+				border-top: 1px solid $white;
+				border-left: 1px solid $white;
+				border-right: 1px solid $white;
+				border-bottom: 1px solid $grayLight;
+				border-radius: 3px 3px 0 0;
+
+				a {
+					display: block;
+					text-align: center;
+					padding: 5px 0;
+
+					&:hover {
+						background: $grayLighter;
+					}
+				}
+				&.selected {
+					border-top: 1px solid $grayLight;
+					border-left: 1px solid $grayLight;
+					border-right: 1px solid $grayLight;
+					border-bottom: 1px solid $white;
+				}
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+		}
+		.tabBody{
+
+			dt{
+				border-bottom: 1px solid $grayBorderLight;
+				text-align: center;
+				padding: 10px 0 9px;
+			}
+			dd{
+				height: 500px;
+				overflow-y: scroll;
+			}
+		}
+	}
+}
+
+.roundMainWrapper{
+	background: $grayLighter !important;
+}
 /***************************************************
 	activityField
 --------------------------------------------------*/

@@ -69,6 +69,23 @@ function dropdownToggle($this, $target) {
 		$this.className += ' active';
 	}
 }
+
+function launcherToggle($this, $target) {
+	var elm = document.getElementById($target);
+	if(elm.className.indexOf("launcherOpen") > 0) {
+		elm.className = elm.className.replace(' launcherOpen', '');
+		document.getElementById('roundMainWrapper').style.paddingRight = '5px';
+	} else {
+		elm.className += ' launcherOpen';
+		document.getElementById('roundMainWrapper').style.paddingRight = '55px';
+	}
+	if ($this.className.indexOf('launcherActive') > 0) {
+		$this.className = $this.className.replace(' launcherActive', '');
+	} else {
+		$this.className += ' launcherActive';
+	}
+}
+
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
 		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 51;

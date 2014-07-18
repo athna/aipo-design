@@ -9,7 +9,7 @@ $headerHeight: 50px;
 	width: 100%;
 	@extend .clearfix;
 	@extend .border-box;
-	padding: 0 10px;
+	padding: 0 0 0 10px;
 	background-color: $white;
 	border-bottom: solid 1px $grayLight;
 	z-index: 10;
@@ -140,18 +140,22 @@ $headerHeight: 50px;
 				display: block;
 				height: 50px;
 				padding: 0 10px;
+				min-width: 50px;
+				text-align: center;
+				text-decoration: none;
 				color: $textColor;
 				border-right: solid 1px transparent;
 				border-left: solid 1px transparent;
-				//overflow: hidden;
 
-				[class*=icon-] {
+				[class^="icon-"], [class*=" icon-"] {
+					line-height: 50px;
+					vertical-align: middle;
+					font-size: 18px;
 					color: $grayLight;
 				}
-
 				&:hover {
 					text-decoration: none;
-					[class*=icon-] {
+					[class^="icon-"], [class*=" icon-"] {
 						color: $grayDark;
 					}
 				}
@@ -161,7 +165,7 @@ $headerHeight: 50px;
 					border-left: solid 1px $grayBorderDark;
 					background-color: $white;
 					@extend .popupShadow;
-					[class*=icon-] {
+					[class^="icon-"], [class*=" icon-"] {
 						color: $grayDark;
 					}
 					&:before {
@@ -179,10 +183,8 @@ $headerHeight: 50px;
 			}
 		}
 	}
-	.dropdown {
-	}
-	.fa-caret-down {
-		font-size: 10px;
+	.icon-caret-down {
+		font-size: 10px !important;
 	}
 }
 .hdSearch {
@@ -224,7 +226,7 @@ $headerHeight: 50px;
 		border-left: solid 1px $grayBorderLight;
 		@include border-left-radius(0);
 
-		[class*=icon-] {
+		[class^="icon-"], [class*=" icon-"] {
 			display: block;
 			width: 30px;
 			color: $gray;
@@ -232,7 +234,7 @@ $headerHeight: 50px;
 
 		&:hover {
 			background-color: $grayBackLight;
-			[class*=icon-] {
+			[class^="icon-"], [class*=" icon-"] {
 				color: $textColor;
 			}
 		}
@@ -275,7 +277,7 @@ $headerHeight: 50px;
 		line-height: $headerHeight - 20 - 2;
 		text-align: center;
 	}
-	[class*=icon-] {
+	[class^="icon-"], [class*=" icon-"] {
 		margin-left: 5px;
 	}
 
@@ -285,7 +287,7 @@ $headerHeight: 50px;
 		//.dropdown {
 		//	display: block;
 		//}
-		[class*=icon-] {
+		[class^="icon-"], [class*=" icon-"] {
 			color: $textColor;
 		}
 	}
@@ -294,17 +296,6 @@ $headerHeight: 50px;
 .hdCommunications {
 	> li {
 		position: static;
-
-		> a {
-			min-width: 50px;
-			text-align: center;
-			text-decoration: none;
-			[class^="icon-"], [class*=" icon-"] {
-				line-height: 50px;
-				vertical-align: middle;
-				font-size: 18px;
-			}
-		}
 	}
 
 	.num {
@@ -344,7 +335,7 @@ $headerHeight: 50px;
 }
 
 .hdTools {
-	border-left: solid 1px $grayLighter;
+	//border-left: solid 1px $grayLighter;
 
 	> li {
 		position: relative;
@@ -367,6 +358,18 @@ $headerHeight: 50px;
 		min-width: 100%;
 		&:before {
 			width: 100%;
+		}
+	}
+}
+.hdLauncher {
+	border-left: solid 1px $grayLighter;
+	a {
+		width: 60px;
+		margin-right: -10px;
+		&.launcherActive {
+			[class^="icon-"], [class*=" icon-"] {
+				color: $textColor;
+			}
 		}
 	}
 }
@@ -623,3 +626,82 @@ $headerHeight: 50px;
 		@include text-shadow(0 -1px 0 darken($grayLight,10));
 	}
 }
+
+//####################################################################################################
+// auiLauncher
+//----------------------------------------------------------------------------------------------------
+$lcWidth: 50px;
+$lcHeight: 40px;
+#auiLauncher {
+	display: none;
+	@extend .clearfix;
+	//@extend .transitionS;
+	position: fixed;
+	right: 0;
+	//top: 0;
+	//bottom: 0;
+	//width: $lcWidth * 3 - 10;
+	width: $lcWidth - 10;
+	padding: 10px;
+
+	&.launcherOpen {
+		display: block;
+	}
+
+	//.start {
+	//	position: relative;
+	//	> a {
+	//		width: 100%;
+	//		height: 40px;
+	//		line-height: 40px;
+	//		text-align: center;
+	//	}
+	//}
+	//&.narrow {
+	//	.name {
+	//		display: none;
+	//	}
+	//}
+
+	ul.launcher,
+	ul.setting {
+		position: relative;
+		li {
+			position: relative;
+			height: $lcHeight;
+			padding: 0;
+			background-image: none;
+			a {
+				@extend .clearfix;
+				@extend .border-box;
+				@extend .ellipsis;
+				display: block;
+				line-height: $lcHeight;
+				color: $gray;
+				text-decoration: none;
+				[class^="icon-"], [class*=" icon-"] {
+					//@extend .transitionS;
+					color: $gray;
+				}
+				&:hover {
+					color: $textColor;
+					text-decoration: none;
+					[class^="icon-"], [class*=" icon-"] {
+						color: $textColor;
+					}
+				}
+			}
+			.icon, [class^="icon-"], [class*=" icon-"] {
+				display: block;
+				float: left;
+				width: $lcWidth - 10;
+				line-height: $lcHeight;
+				text-align: center;
+			}
+		}
+	}
+	ul.setting {
+		border-top: solid 1px $grayBorder;
+	}
+}
+

@@ -77,7 +77,7 @@ function launcherToggle($this, $target) {
 		document.getElementById('roundMainWrapper').style.paddingRight = '5px';
 	} else {
 		elm.className += ' launcherOpen';
-		document.getElementById('roundMainWrapper').style.paddingRight = '55px';
+		document.getElementById('roundMainWrapper').style.paddingRight = '50px';
 	}
 	if ($this.className.indexOf('launcherActive') > 0) {
 		$this.className = $this.className.replace(' launcherActive', '');
@@ -116,18 +116,12 @@ window.onload=function(){
 	fitTimeline();
 	/*
 	document.onmouseover = function(e) {	//オンマウスしたAタグにhover付与
-		if(e.srcElement.nodeName.toLowerCase() == 'a') {
-			e.srcElement.className = e.srcElement.className + ' hover';
-		}
 	}
 	document.onmouseout = function(e) {
-		if(e.srcElement.nodeName.toLowerCase() == 'a') {	//マウスアウトしたAタグのhover解除
-			e.srcElement.className = e.srcElement.className.replace(' hover', '');
-		}
 	}
 	*/
 	document.onmousedown = function(e) {
-		//console.log(e);
+		console.log(e);
 		//console.log(e.srcElement.nodeName);
 		var node = new Array();
 		node[0] = {nodeName:e.srcElement.nodeName, className:e.srcElement.className};
@@ -135,7 +129,6 @@ window.onload=function(){
 		for(var i = 1; parent; i++) {
 			node[i] = {nodeName:parent.nodeName, className:parent.className};
 			parent = parent.parentNode;
-			//console.log(node[i].nodeName +"/"+ node[i].className);
 		}
 		var linkFlag = 0;
 		for(var i = 0; i < node.length; i++) {
@@ -151,7 +144,6 @@ window.onload=function(){
 		}
 		node = void 0;
 		parent = void 0;
-		//console.log(linkFlag);
 		if(linkFlag <= 0) {
 			var elms = document.getElementsByTagName("div");
 			for (var i = 0; i < elms.length; i++) {
@@ -168,14 +160,6 @@ window.onload=function(){
 			elms = void 0;
 		}
 	}
-	//var closeElms = document.getElementsByClassName("open");
-	//for (var i = 0; i < closeElms.length; i++) {
-	//	closeElms[i].className = closeElms[i].className.replace(' open', '');
-	//}
-	//var unactiveElms =  document.getElementsByClassName("active");
-	//for (var i = 0; i < unactiveElms.length; i++) {
-	//	unactiveElms[i].className = unactiveElms[i].className.replace(' active', '');
-	//}
 }
 window.onresize=function() {
 	fitMessage();

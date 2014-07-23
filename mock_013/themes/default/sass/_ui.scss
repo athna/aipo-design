@@ -640,6 +640,7 @@ $lcHeight: 40px;
 	@extend .clearfix;
 	//@extend .transitionS;
 	position: fixed;
+	z-index: 2;
 	right: 0;
 	//top: 0;
 	//bottom: 0;
@@ -692,6 +693,9 @@ $lcHeight: 40px;
 					[class^="icon-"], [class*=" icon-"] {
 						color: $textColor;
 					}
+					.name {
+						display: block;
+					}
 				}
 			}
 			.icon, [class^="icon-"], [class*=" icon-"] {
@@ -700,6 +704,32 @@ $lcHeight: 40px;
 				width: $lcWidth - 10;
 				line-height: $lcHeight;
 				text-align: center;
+			}
+			.name {
+				@extend .bRadius2;
+				display: none;
+				position: absolute;
+				top: 5px;
+				left: -9em;
+				width: 9em;
+				line-height: 30px;
+				text-align: center;
+				white-space: nowrap;
+				color: $white;
+				background-color: $gray;
+				&:after {
+					display: block;
+					display: none\9; //IE8 hack
+					content: "";
+					position: absolute;
+					top: 50%;
+					right: -3px;
+					width: 6px;
+					height: 6px;
+					margin-top: -3px;
+					background-color: $gray;
+					@include transform(rotate(45deg));
+				}
 			}
 		}
 	}

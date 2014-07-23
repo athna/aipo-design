@@ -67,6 +67,14 @@ button.auiButtonIconDummy {
   box-sizing: border-box;
 }
 
+.bRadius2, #auiLauncher ul.launcher li .name,
+#auiLauncher ul.setting li .name {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+}
+
 .bRadius3, .hdSearch form, .dropdown, .messageRooms .avatar img, .messageRooms .avatar .icon-group, .hdUserName .avatar, img.avatar,
 .avatar img, .activityField, .auiSearchOption, .auiAvatarList li a img, textarea,
 select, input[type=text],
@@ -115,7 +123,7 @@ input[type=submit].auiButtonIconDummy,
 input[type=button].auiButtonIconDummy,
 input[type=reset].auiButtonIconDummy,
 button.auiButtonIconDummy, .counter, .nrCount, .auiPopup,
-.activityPopup, .floatPortlet, .loginAlert,
+.activityPopup, .auiPortlet, .floatPortlet, .loginAlert,
 .alert, .alertSuccess, .submenu_v2 li a, .filterInputField, #auiLauncher_1 li a, #auiLauncher_2 li a {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -754,6 +762,7 @@ input[type=submit], input[type=button], input[type=reset] {
 #auiLauncher {
   display: none;
   position: fixed;
+  z-index: 2;
   right: 0;
   width: 40px;
   padding: 10px;
@@ -794,6 +803,10 @@ input[type=submit], input[type=button], input[type=reset] {
 #auiLauncher ul.setting li a:hover [class*=" icon-"] {
   color: #333333;
 }
+#auiLauncher ul.launcher li a:hover .name,
+#auiLauncher ul.setting li a:hover .name {
+  display: block;
+}
 #auiLauncher ul.launcher li .icon, #auiLauncher ul.launcher li [class^="icon-"], #auiLauncher ul.launcher li [class*=" icon-"],
 #auiLauncher ul.setting li .icon,
 #auiLauncher ul.setting li [class^="icon-"],
@@ -803,6 +816,37 @@ input[type=submit], input[type=button], input[type=reset] {
   width: 40px;
   line-height: 40px;
   text-align: center;
+}
+#auiLauncher ul.launcher li .name,
+#auiLauncher ul.setting li .name {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: -9em;
+  width: 9em;
+  line-height: 30px;
+  text-align: center;
+  white-space: nowrap;
+  color: white;
+  background-color: #999999;
+}
+#auiLauncher ul.launcher li .name:after,
+#auiLauncher ul.setting li .name:after {
+  display: block;
+  display: none\9;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  background-color: #999999;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 #auiLauncher ul.setting {
   border-top: solid 1px #d2d2d2;
@@ -2189,15 +2233,14 @@ button.auiButtonDisabled:active {
 --------------------------------------------------*/
 .auiPortlet, .floatPortlet {
   background: white;
-  background: white url("../images/common/portlet_20140718.png") repeat-x left bottom;
-  margin: 10px 5px;
+  margin: 20px 10px;
+  border: solid 1px #ededed;
+  border-bottom: solid 1px silver;
 }
 .auiPortlet .auiPortletHead, .floatPortlet .auiPortletHead {
   border-bottom: solid 1px #ededed;
-  background: url("../images/common/portlet_20140718.png") repeat-x left top;
 }
 .auiPortlet .auiPortletHead .inner, .floatPortlet .auiPortletHead .inner {
-  background: url("../images/common/portlet_20140718.png") no-repeat left -100px;
   padding: 10px;
   position: relative;
   overflow: hidden;
@@ -2211,7 +2254,6 @@ button.auiButtonDisabled:active {
   line-height: 15px;
 }
 .auiPortlet .auiPortletTool, .floatPortlet .auiPortletTool {
-  background: url("../images/common/portlet_20140718.png") no-repeat right -200px;
   top: 0;
   right: 0;
   float: right;
@@ -2253,8 +2295,6 @@ button.auiButtonDisabled:active {
 }
 .auiPortlet .auiPortletBody, .floatPortlet .auiPortletBody {
   background: #ffffff;
-  border-left: solid 1px #d2d2d2;
-  border-right: solid 1px #d2d2d2;
 }
 .auiPortlet .auiPortletBody .inner, .floatPortlet .auiPortletBody .inner {
   padding: 10px 10px 0 10px;
@@ -2266,12 +2306,8 @@ button.auiButtonDisabled:active {
   clear: both;
   visibility: hidden;
 }
-.auiPortlet .auiPortletFoot, .floatPortlet .auiPortletFoot {
-  background: url("../images/common/portlet_20140718.png") no-repeat left -390px;
-}
 .auiPortlet .auiPortletFoot .inner, .floatPortlet .auiPortletFoot .inner {
   height: 10px;
-  background: url("../images/common/portlet_20140718.png") no-repeat right -490px;
 }
 .auiPortlet .auiPortletBody .auiPortletFoot .inner, .floatPortlet .auiPortletBody .auiPortletFoot .inner {
   padding: 0 !important;

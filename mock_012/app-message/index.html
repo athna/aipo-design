@@ -121,15 +121,15 @@
 <div class="logo"><a href="./"><img src="../themes/default/images/logo_com_20130613.png" /></a></div>
 <div class="hdTab">
 	<ul>
-		<li class="active"><a href="#">マイページ</a></li>
-		<li><a href="#">スケジュール関連</a></li>
+		<li class="active"><a href="#">マイページ</a><a href="#" class="setting"><i class="fa icon-cog"></i></a></li>
+		<li><a href="#">スケジュール関連</a><a href="#" class="setting"><i class="fa icon-cog"></i></a></li>
 		<li class="plus"><a href="#"><i class="icon icon-plus" ></i></a></li>
 	</ul>
 </div>
+	<div class="userBtn"><a href="javascript:Toggle('dropdownUser')" class="" ><img src="message/img/icon_user01.png" ></a></div>
 <div class="appBtn"><a class="rightSlide btn" href="javascript:Toggle('appLauncher')"><i class="icon icon-th"></i></a></div>
-<div class="infoBtn"><a href="javascript:Toggle('dropdownInfo')" class="" ><i class="icon icon-bell" ></i></a></div>
-<div class="messageBtn active"><a href="javascript:Toggle('messangerWindowBody')" class="" ><i class="icon icon-comment-alt" ></i></a></div>
-<div class="userBtn"><a href="javascript:Toggle('dropdownUser')" class="" ><img src="message/img/icon_user01.png" ></a></div>
+<div class="infoBtn"><span class="num">1</span><a href="javascript:Toggle('dropdownInfo')" class="" ><i class="icon icon-bell" ></i></a></div>
+<div class="messageBtn active"><span class="num">99+</span><a href="javascript:Toggle('messangerWindow')" class="" ><i class="icon icon-comment-alt" ></i></a></div>
 </div>
 
 
@@ -149,52 +149,374 @@
 <div id="dropdownInfo" style="display: none;">
 	<h3>お知らせ</h3>
 	<ul>
-		<li><a href="#"></a></li>
+		<li><a href="#">
+			<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+			<span class="name">木村 一郎</span>
+			<span class="date">10:56</span>
+			<i class="icon-comments"></i> あなたの投稿にコメントをしました。
+		</a></li>
+		<li><a href="#">
+			<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+			<span class="name">木村 一郎</span>
+			<span class="date">10:56</span>
+			<i class="icon-calendar"></i> 予定「会議」が追加されました。
+		</a></li>
 	</ul>
 </div>
-<div id="messangerWindow" class="dojoDndItem auiPortlet">
-	<div class="auiPortletHead">
-<div class="inner dojoDndHandle">
-<div class="auiPortletTitle"><a href="#">メッセージ</a></div>
-<div class="auiPortletTool">
-	<div class="auiPortletAction"><a href="#">メッセージ追加</a></div>
-	<div class="auiPortletClose"><a href="javascript:Toggle('messangerWindowBody')"><span class="auiWFicon" ><i class="icon icon-minus" ></i></span></a></div>
-<div class="auiPortletSetting"><a class="" title="カスタマイズ" onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');" onclick="" id="" href="javascript:void(0);"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
-<div style="position:absolute;left:-5;top:5;display:none;" id="menubar" class="menubar body-child">
-<ul>
-<li><a href="#">設定</a></li>
-<li id="accessControlDelete_P" class="last"><a href="#">削除</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-	<div id="messangerWindowBody" class="auiPortletBody dndIdentifier" style="display: none;">
-		<div class="inner">
-	 <ul id="tab" class="clearfix">
-		 <li class="selected first"><a href="#messageChat">会話</a></li>
-		 <li><a href="#messageMember">メンバー</a></li>
-	 </ul>
-		<dl id="messageChat" class="tabBody">
-			<dt>会話一覧</dt>
-			<dd>
-				<p>...</p>
-			</dd>
-		</dl>
-		<dl id="messageMember" class="tabBody">
-			<dt>メンバー一覧</dt>
-			<dd>
-				<p>...</p>
-			</dd>
-		</dl>
-	</div>
+<div id="messangerWindow" style="display: none;">
+	<h3>メッセージ<input type="button" class="auibutton floatRight" value="メッセージを新規作成する"/></h3>
+<div id="messangerWindowBody">
+
+		<div class="side">
+			<div class="inner">
+				<!--<div class="btnArea"><input type="button" class="auibutton" value="メッセージを新規作成する"/></div>-->
+				<ul>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name"><span class="num">3</span> 木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li class="active">
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name"><span class="num">99+</span> 木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎、田村 涼子、山田太郎、鈴木 二郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							<span class="date">10:56</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<div class="inner">
+				<div class="messengerForm">
+					<div class="user clearfix">
+						<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+						<span class="thumb"><img src="message/img/icon_user02.png" ></span>
+						<span class="thumb"><img src="message/img/icon_user03.png" ></span>
+						<span class="plus"><a href="#" ><i class="icon-plus" ></i></a></span>
+					</div>
+					<form>
+						<textarea rows="" cols="" placeholder="メッセージ"></textarea>
+						<div class="btnArea clearfix"><input type="button" class="auiButton" value="ファイルを追加する" /><input type="submit" class="auiButtonAction floatRight" value="送信する" /></div>
+					</form>
+
+				</div>
+				<div class="messageArea">
+					<ul>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+						<li>
+							<span class="thumb"><img src="message/img/icon_user01.png" ></span>
+							<span class="name">木村 一郎</span>
+							本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br/>
+							提案書作成の際にお力添えを頂きました皆様、ありがとうございました。
+							<span class="foot">
+								<span class="date">10:56</span>
+								<span class="read"><a href="#" >全員が既読</a></span>
+							</span>
+						</li>
+
+					</ul>
+				</div>
+
+
+			</div>
+		</div>
 		</div>
 </div>
 <div id="dropdownUser" style="display: none;">
-	<h3>株式会社エイムラック 木村 一郎</h3>
+	<h3>木村 一郎</h3>
 <ul>
-		<li><a href="#"></a></li>
+		<li><a href="#">個人設定</a></li>
+	<li><a href="#">ログアウト</a></li>
 	</ul>
 </div>
 

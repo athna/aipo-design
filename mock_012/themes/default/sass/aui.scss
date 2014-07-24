@@ -143,16 +143,16 @@ img.avatar,
 }
 
 #wrapper{
-	padding-top: 50px;
+	padding-top: 60px;
 }
 #header{
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 30px;
-	padding: 10px 0;
-	border-bottom: 1px solid $grayLight;
+	height: 60px;
+	padding: 0;
+	border-bottom: 1px solid #e2e2e2;
 	background: $white;
 	z-index: 1000;
 
@@ -167,61 +167,108 @@ img.avatar,
 .logo{
 	float: left;
 	margin-left: 15px;
+	margin-top: 13px;
 }
 .hdTab{
 	float: left;
 	margin-left: 30px;
 
 	ul{
+		//@include clearfix;
 		padding: 0;
 		margin: 0;
 
 		li{
+			position: relative;
+			float: left;
+			//height: 60px;
 			padding: 0;
-			margin:  0 5px 0 0;
+			margin:  0;
 			list-style: none;
 			background: none;
-			display: inline-block;
-			border-radius: 3px;
-			overflow: hidden;
+			display:block;
+			//border-radius: 3px;
+			//overflow: hidden;
 
-			a{
+			a:not(.setting){
 				@include box-sizing(border-box);
 				display: block;
-				padding: 7px 5px 0;
+				padding: 0px 20px 0;
 				margin:0;
-				height: 30px;
+				line-height: 60px;
+				height: 60px;
+				color: $gray;
 
 				&:hover{
-					background: $grayLighter;
+					//background: $grayLighter;
+					color: $grayDark;
+				}
+			}
+			.setting{
+				display: none;
+				position: absolute;
+				top: 23px;
+				right: 4px;
+				color: $grayLight;
+
+				&:hover{
+					color: $grayDark;
+				}
+			}
+			&:hover{
+
+				.setting{
+					display: block;
 				}
 			}
 			&.plus{
+				//margin-left: 3px;
 
 				a{
-					padding: 8px 10px 0;
-					color: $gray;
+					padding: 23px 10px 0;
+					color: $grayLight;
 
 					&:hover{
-						color: $orange;
+						color: $grayDark;
 					}
 				}
 			}
 			&.active{
 
-				a{
-					background: $grayLighter;
+				a:not(.setting){
+					//background: $grayLighter;
 					color: $grayDark;
+					//border-bottom: 1px solid $grayDark;
+
+					&:after{
+						content: " ";
+						position: absolute;
+						bottom: -1px;
+						left: 0;
+						height: 1px;
+						width: 100%;
+						background: $grayDark;
+						z-index: 1001;
+						//border-bottom: 1px solid $grayDark;
+					}
 				}
 			}
 		}
 	}
 }
 .appBtn, .messageBtn, .infoBtn, .userBtn{
+	position: relative;
 	float: right;
 	display: inline-block;
 	height: 30px;
-	margin-left: 5px;
+	margin-left: 7px;
+	margin-top: 15px;
+
+	.num{
+		position: absolute;
+		top: -2px;
+		right: 3px;
+	}
 
 	a{
 		display: inline-block;
@@ -248,15 +295,16 @@ img.avatar,
 	&.active{
 
 		a{
-			background: $red;
-			color: $white;
+			//background: $red;
+			//color: $white;
 		}
 	}
 }
 .appBtn{
-	margin-right: 15px;
+	margin-right: 10px;
 }
 .userBtn{
+	margin-right: 15px;
 
 	>a{
 		height: 30px;
@@ -269,7 +317,7 @@ img.avatar,
 #appLauncher{
 	@include box-sizing(border-box);
 	position: fixed;
-	top: 50px;
+	top: 60px;
 	left: 0;
 	width: 100%;
 	padding: 7px 10px;
@@ -311,7 +359,6 @@ img.avatar,
 
 				a {
 					background: $grayLighter;
-					//color: $grayDark;
 				}
 			}
 		}
@@ -321,92 +368,391 @@ img.avatar,
 #dropdownInfo,
 #dropdownUser{
 	position: fixed;
-	top: 45px;
+	top: 60px;
 	background: $white;
 	width: 300px;
 	border: 1px solid $grayLight;
 	z-index: 1002;
-	border-radius: 3px;
+	//border-radius: 3px;
 	@include box-shadow(0 2px 1px rgba(0,0,0,.075));
 
 	h3{
 		padding: 5px 10px;
 		font-weight: normal;
+		margin: 0;
+		color: $grayDark;
+	}
+	ul{
+		padding: 0;
+		margin: 0;
+
+		li{
+			padding: 0;
+			margin: 0;
+			background: none;
+
+			a{
+				display: block;
+				padding: 7px 10px;
+				margin: 0;
+				position: relative;
+				text-decoration: none;
+
+				&:hover{
+					background: $grayLighter;
+				}
+
+				.name{
+					display: block;
+					padding-right: 40px;
+				}
+				.thumb{
+					position: absolute;
+					top: 7px;
+					left: 10px;
+				}
+				.date{
+					position: absolute;
+					top: 7px;
+					right: 10px;
+					font-size: 10px !important;
+					color: $gray;
+				}
+
+			}
+		}
 	}
 
 }
 #dropdownInfo{
-	right: 40px;
+	right: 95px;
+
+	ul{
+
+		li{
+
+			a{
+				padding-left: 44px;
+				font-size: 11px;
+			}
+		}
+	}
 }
 #dropdownUser{
-	right: 110px;
+	right: 10px;
+	width: 200px;
+}
+
+.thumb{
+	width: 24px;
+	height: 24px;
+	border-radius: 3px;
+
+	img{
+		width: 24px;
+		height: 24px;
+		border-radius: 3px;
+	}
 }
 
 #messangerWindow {
+	@include box-sizing(border-box);
 	position: fixed;
-	bottom: -1px;
-	right: 20px;
+	top: 0px;
+	left: 0px;
 	background: $white;
-	width: 350px;
+	width: 100%;
+	height: 100%;
+	padding:110px 0px 0px;
 	//border: 1px solid $gray;
-	z-index: 1002;
+	z-index: 999;
 	//border-radius: 3px 3px 0 0;
-	@include box-shadow(0 1px 2px rgba(0,0,0,.1));
 	margin: 0;
+
+	h3{
+		@include box-sizing(border-box);
+		position: absolute;
+		top: 60px;
+		left: 0;
+		width: 100%;
+		padding: 9px 15px 0;
+		margin: 0;
+		font-weight: normal;
+		height: 50px;
+		line-height: 30px;
+	}
+
+	.auiPortlet{
+		@include box-sizing(border-box);
+		//background: $white;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 36px 0 0;
+		position: relative;
+		//@include box-shadow(0 1px 2px rgba(0,0,0,.1));
+
+		.auiPortletHead{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		.auiPortletFoot{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+}
+.auiPortletClose{
+	padding-right: 0 !important;
+}
+.messangerInfo{
+	border-left: 1px solid #D2D2D2;
+	border-right: 1px solid #D2D2D2;
+	padding: 10px;
+
+	.inner{
+		background: $grayLighter;
+		text-align: center;
+		padding: 10px;
+		//color: $red;
+	}
+}
+.num{
+	font-size: 10px;
+	background: $red;
+	color: $white;
+	display: inline-block;
+	border-radius: 2px;
+	padding: 2px 3px;
+	line-height: 10px !important;
+	@include box-shadow(0 1px 0 rgba(255,255,255,1.0));
+}
+:hover{
+	.num {
+		background: $red !important;
+		color: $white !important;
+	}
 }
 #messangerWindowBody{
+	@include box-sizing(border-box);
+	height: 100%;
+	width: 100%;
+	position: relative;
+	padding: 0 0 0 280px;
 
-	.inner {
-		padding: 10px 0;
-		margin: 0;
+	.side{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 280px;
+		border-right: 1px solid $grayLight;
 
-		#tab {
-			border-bottom: 1px solid $grayLight;
-			padding: 0 10px;
+		.inner{
+			@include box-sizing(border-box);
+			height: 100%;
+			width: 100%;
+			padding: 0;
+			overflow-y: scroll;
+			//background: $grayLighter;
 
-			li {
-				display: block;
-				float: left;
-				background: none;
+			.btnArea{
+				padding: 10px;
+				border-bottom: 1px solid $grayBorderLight;
+
+				input{
+					@include box-sizing(border-box);
+					width: 100%;
+				}
+			}
+			ul{
 				padding: 0;
-				margin: 0 0 -1px 10px;
-				width: 157px;
-				border-top: 1px solid $white;
-				border-left: 1px solid $white;
-				border-right: 1px solid $white;
-				border-bottom: 1px solid $grayLight;
-				border-radius: 3px 3px 0 0;
+				margin: 0;
 
-				a {
+				li{
+					background: none;
+					padding: 0;
+					margin: 0;
 					display: block;
-					text-align: center;
-					padding: 5px 0;
+					border-bottom: 1px solid $grayBorderLight;
 
-					&:hover {
-						background: $grayLighter;
+					a{
+						@include text-overflow;
+						position: relative;
+						display: block;
+						padding: 7px 7px 5px 40px;
+						text-decoration: none;
+						font-size: 11px;
+						color: $gray;
+
+						.thumb{
+							position: absolute;
+							top: 7px;
+							left: 7px;
+						}
+						.name{
+							@include text-overflow;
+							display: block;
+							padding-right: 40px;
+							margin: 0 0 3px;
+							line-height: 12px;
+							color:$textColor;
+						}
+						.date{
+							display: inline-block;
+							position: absolute;
+							top: 5px;
+							right: 7px;
+							text-align: right;
+							font-size: 10px;
+						}
+						&:hover{
+							background: $grayLighter;
+							color: $orange;
+
+							.name{
+								color: $orange;
+							}
+						}
 					}
-				}
-				&.selected {
-					border-top: 1px solid $grayLight;
-					border-left: 1px solid $grayLight;
-					border-right: 1px solid $grayLight;
-					border-bottom: 1px solid $white;
-				}
-				&:first-child {
-					margin-left: 0;
+
+					&.active{
+
+						a{
+							background: #f5f5f5;
+						}
+					}
 				}
 			}
 		}
-		.tabBody{
+	}
+	.main{
+		height: 100%;
+		width: 100%;
 
-			dt{
+
+		.inner{
+			@include box-sizing(border-box);
+			height: 100%;
+			width: 100%;
+			padding: 150px 0 0;
+			position: relative;
+
+			.messengerForm{
+				@include box-sizing(border-box);
+				//background: $grayLighter;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 150px;
+				padding: 10px;
 				border-bottom: 1px solid $grayBorderLight;
-				text-align: center;
-				padding: 10px 0 9px;
+
+				.user {
+					height: 24px;
+
+					.thumb {
+						display: block;
+						float: left;
+						margin-right: 3px;
+					}
+					.plus {
+						display: block;
+						float: left;
+
+						a {
+							@include box-sizing(border-box);
+							display: block;
+							height: 24px;
+							width: 24px;
+							padding: 5px 0 0;
+							text-decoration: none;
+							text-align: center;
+						}
+					}
+				}
+				form{
+					display: block;
+					margin: 10px 0 0;
+					border: 1px solid $grayBorder;
+					border-radius: 5px;
+
+					textarea{
+						@include box-sizing(border-box);
+						border:none;
+						width: 100%;
+						resize: none;
+						border-radius: 5px 5px 0 0;
+						padding: 7px;
+						height: 50px;
+
+						&:focus{
+							@include box-shadow(inset 0 1px 1px rgba(0,0,0,0.1));
+						}
+					}
+					.btnArea{
+						background: $grayLighter;
+						padding: 5px;
+						border-radius: 0 0 5px 5px;
+					}
+				}
 			}
-			dd{
-				height: 500px;
+			.messageArea{
 				overflow-y: scroll;
+				@include box-sizing(border-box);
+				height: 100%;
+				width: 100%;
+				padding: 0;
+
+				ul{
+					padding: 0;
+					margin: 0;
+
+					li{
+						position: relative;
+						padding: 10px 10px 10px 70px;
+						margin: 0;
+						background: none;
+						border-bottom: 1px solid $grayBorderLight;
+						min-height: 50px;
+
+						.thumb{
+							height: 50px;
+							width: 50px;
+							position: absolute;
+							top: 10px;
+							left: 10px;
+
+							img{
+								height: 50px;
+								width: 50px;
+							}
+						}
+						.name{
+							display: block;
+							margin-bottom: 3px;
+							font-weight: bold;
+						}
+						.foot{
+							display: block;
+							margin-top: 5px;
+							font-size: 10px;
+							color: $gray;
+
+							a{
+								color: $gray;
+							}
+							.date{
+								margin-right: 5px;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

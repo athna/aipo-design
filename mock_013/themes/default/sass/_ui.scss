@@ -190,6 +190,60 @@ $headerHeight: 50px;
 		font-size: 10px !important;
 	}
 }
+.search {
+	position: relative;
+	@extend .bRadius3;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+
+	&:hover {
+		border: solid 1px $gray;
+	}
+	input[type=text], .submit {
+		height: $inputHeight;//20px;
+		border: none;
+		vertical-align: middle;
+		outline: none;
+	}
+	input[type=text] {
+		width: 100%;
+		padding: 0 30px 0 3px;
+		&:hover, &:focus {
+			border: none;
+			@include box-shadow(none);
+		}
+	}
+	.submit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		//height: $headerHeight - 20 - 2;
+		margin: 0;
+		padding: 0;
+		background: none;
+		filter: none;
+		cursor: pointer;
+		border-left: solid 1px $grayBorderLight;
+		@include border-left-radius(0);
+
+		[class^="icon-"], [class*=" icon-"] {
+			display: block;
+			width: 30px;
+			color: $gray;
+		}
+
+		&:hover {
+			background-color: $grayBackLight;
+			[class^="icon-"], [class*=" icon-"] {
+				color: $textColor;
+			}
+		}
+	}
+	.placeholder {
+		top: 7px !important;
+		line-height: 1.6;
+	}
+}
 .hdSearch {
 	position: relative;
 	float: left;
@@ -380,6 +434,7 @@ $headerHeight: 50px;
 //####################################################################################################
 // dropdown
 //----------------------------------------------------------------------------------------------------
+$dropdownSideWidth: 240px;
 .dropdown {
 	@extend .bRadius3;
 	@extend .popupShadow;
@@ -418,7 +473,7 @@ $headerHeight: 50px;
 	}
 	.sideBlock {
 		float: left;
-		width: 300px;
+		width: $dropdownSideWidth;
 		.inner {
 			padding: 10px;
 		}
@@ -427,9 +482,6 @@ $headerHeight: 50px;
 		@extend .clearfix;
 		position: relative;
 		padding: 10px;
-	}
-	.divider {
-		border-bottom: solid 1px $grayBorderLight;
 	}
 	h2 {
 		margin: 0;
@@ -505,22 +557,34 @@ $headerHeight: 50px;
 		color: $gray;
 	}
 }
+.divider {
+	border-bottom: solid 1px $grayBorderLight;
+}
 
 //####################################################################################################
 // dd_message
 //----------------------------------------------------------------------------------------------------
 #dd_message {
 	width: 100%;
+	.mainBlock {
+		margin-left: $dropdownSideWidth;
+		border-left: solid 1px $grayBorder;
+	}
 	.contents {
-		margin-left: 300px;
-		border-left: solid 1px $grayBorderLight;
+	}
+	.subContents {
+		@extend .border-box;
+		float: right;
+		width: $dropdownSideWidth;
+		height: 500px;
+		border-left: solid 1px $grayBorder;
 	}
 }
 .nrCount {
 	@extend .counter;
 	margin: 0;
 }
-.messageRooms {
+.messageSummary {
 	font-size: $fontSizeSmall;
 	li {
 		position: relative;
@@ -592,6 +656,31 @@ $headerHeight: 50px;
 			color: $textColor;
 		}
 	}
+	[class*="icon-"] {
+		color: $blue;
+	}
+}
+#messageFavorites {
+	padding: 5px;
+	.timeline {
+		.avatar img {
+			width: 32px;
+			height: auto;
+		}
+		.message {
+			border-bottom: solid 1px $grayBorderLight;
+		}
+		.messageContents {
+			margin-left: 40px;
+		}
+	}
+	.tlClipImage {
+		float: none;
+		max-width: 100%;
+		max-height: 100%;
+		margin-left: 0;
+		margin-bottom: 10px;
+	}
 }
 
 //####################################################################################################
@@ -608,6 +697,7 @@ $headerHeight: 50px;
 //----------------------------------------------------------------------------------------------------
 .scroll {
 	@extend .scrollDecoration;
+	@extend .border-box;
 	overflow: auto;
 }
 

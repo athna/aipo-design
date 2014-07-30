@@ -88,20 +88,24 @@ function launcherToggle($this, $target) {
 
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
-		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 51;
+		var minusH = document.getElementById("auiHeader").clientHeight + 45 + document.getElementById("messageSummaryHead").clientHeight;
 		var w = document.documentElement.clientWidth - 20;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("dd_message").style.width = w + "px";
-		document.getElementById("messageRooms").style.height = h + "px";
+		document.getElementById("messageSummary").style.height = h + "px";
 	}
-}
-function fitTimeline() {
-	if(document.getElementById("timeline") != null) {
+	if(document.getElementById("messageTimeline") != null) {
 		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 105;
 		var h = document.documentElement.clientHeight - minusH;
-		document.getElementById("timeline").style.height = h + "px";
+		document.getElementById("messageTimeline").style.height = h + "px";
+	}
+	if(document.getElementById("messageFavorites") != null) {
+		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 37;
+		var h = document.documentElement.clientHeight - minusH;
+		document.getElementById("messageFavorites").style.height = h + "px";
 	}
 }
+
 function scrollToggle() {
 	if(document.body.style.overflow != "hidden") {
 		document.body.style.overflow = "hidden";
@@ -113,7 +117,6 @@ function scrollToggle() {
 
 window.onload=function(){
 	fitMessage();
-	fitTimeline();
 	/*
 	document.onmouseover = function(e) {	//オンマウスしたAタグにhover付与
 	}
@@ -163,7 +166,6 @@ window.onload=function(){
 }
 window.onresize=function() {
 	fitMessage();
-	fitTimeline();
 }
 
 
@@ -177,6 +179,22 @@ function phBlur($this) {
 	}
 }
 
+
+function checkCount($obj, $target) {
+	var obj = document.getElementById($obj);
+	var inputs = obj.getElementsByTagName("input");
+	var chkCount = 0;	//チェックカウンター
+	for (var i = 0; i < inputs.length; i++) {
+		if(inputs[i].checked == true) {
+			chkCount ++;
+		}
+	}
+	if(chkCount > 1) {
+		document.getElementById($target).style.display = "block";
+	} else {
+		document.getElementById($target).style.display = "none";
+	}
+}
 
 /*
 $(".placeholderCheck").each(function() {

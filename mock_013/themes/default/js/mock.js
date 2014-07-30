@@ -124,7 +124,7 @@ window.onload=function(){
 	}
 	*/
 	document.onmousedown = function(e) {
-		console.log(e);
+		//console.log(e);
 		//console.log(e.srcElement.nodeName);
 		var node = new Array();
 		node[0] = {nodeName:e.srcElement.nodeName, className:e.srcElement.className};
@@ -193,6 +193,47 @@ function checkCount($obj, $target) {
 		document.getElementById($target).style.display = "block";
 	} else {
 		document.getElementById($target).style.display = "none";
+	}
+}
+
+function auiTabs($this, $target) {
+	var target = document.getElementById($target);	//タブUIの大本取得
+	var childs = target.getElementsByTagName("ul");	//タブUI直下2つのUL取得
+	//childsからタブ側のliとコンテンツ側のliを配列として取得
+	for(i=0; i<childs.length; i++) {
+		if(childs[i].className === "tab") {
+			var tab = childs[i].getElementsByTagName("li");
+		} else if(childs[i].className === "tabContents") {
+			var tabContents = childs[i].getElementsByTagName("li");
+		}
+	}
+	//クリックしたタブがアクティブか調べる
+	var flag = -1;	//クリックしたタブ番号を兼ねたフラグ
+	for(i=0; i<tab.length; i++) {
+		if(tab[i] === $this.parentNode) {
+			if(tab[i].className.indexOf("active") < 0) {
+				var flag = i;
+			}
+		}
+	}
+	//アクティブでないタブがクリックされていれば実行
+	if(flag >= 0) {
+		//タブ番号と等しいタブはactive付与、そうでなければactive除去
+		for (i = 0; i < tab.length; i++) {
+			if (i === flag) {
+				tab[i].className += " active";
+			} else {
+				tab[i].className = tab[i].className.replace("active", "");
+			}
+		}
+		//タブ番号と等しいコンテンツはactive付与、そうでなければactive除去
+		for (i = 0; i < tabContents.length; i++) {
+			if (i === flag) {
+				tabContents[i].className += " active";
+			} else {
+				tabContents[i].className = tabContents[i].className.replace("active", "");
+			}
+		}
 	}
 }
 

@@ -103,6 +103,7 @@ function fitMessage() {
 		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 37;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("messageFavorites").style.height = h + "px";
+		document.getElementById("messageFiles").style.height = h + "px";
 	}
 }
 

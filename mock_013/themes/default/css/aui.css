@@ -1,17 +1,17 @@
 @charset "UTF-8";
-.clearfix, #auiHeader, .hdPages > ul, .hdNavigation > ul, .dropdown .title, .dropdown .body, .dropdown .contents, .messageRooms li a, #auiLauncher, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a {
+.clearfix, #auiHeader, .hdPages > ul, .hdNavigation > ul, .dropdown .title, .dropdown .body, .dropdown .contents, .messageSummary li a, #auiLauncher, #auiLauncher ul.launcher li a,
+#auiLauncher ul.setting li a, .auiTabs .tab {
   *zoom: 1;
 }
-.clearfix:before, #auiHeader:before, .hdPages > ul:before, .hdNavigation > ul:before, .dropdown .title:before, .dropdown .body:before, .dropdown .contents:before, .messageRooms li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
-#auiLauncher ul.setting li a:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after, .dropdown .body:after, .dropdown .contents:after, .messageRooms li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after {
+.clearfix:before, #auiHeader:before, .hdPages > ul:before, .hdNavigation > ul:before, .dropdown .title:before, .dropdown .body:before, .dropdown .contents:before, .messageSummary li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
+#auiLauncher ul.setting li a:before, .auiTabs .tab:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after, .dropdown .body:after, .dropdown .contents:after, .messageSummary li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
+#auiLauncher ul.setting li a:after, .auiTabs .tab:after {
   display: table;
   content: "";
   line-height: 0;
 }
-.clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after, .dropdown .body:after, .dropdown .contents:after, .messageRooms li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after {
+.clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after, .dropdown .body:after, .dropdown .contents:after, .messageSummary li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
+#auiLauncher ul.setting li a:after, .auiTabs .tab:after {
   clear: both;
 }
 
@@ -24,7 +24,7 @@
   *display: inline;
 }
 
-.border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body, .hdCommunications .num, .dropdown, #auiLauncher ul.launcher li a,
+.border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body, .hdCommunications .num, .dropdown, #dd_message .subContents, .scroll, #auiLauncher ul.launcher li a,
 #auiLauncher ul.setting li a, .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
@@ -61,7 +61,7 @@ button.auiButtonDummy, .auiButtonIconDummy,
 input[type=submit].auiButtonIconDummy,
 input[type=button].auiButtonIconDummy,
 input[type=reset].auiButtonIconDummy,
-button.auiButtonIconDummy {
+button.auiButtonIconDummy, .auiTabs .tab > li a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -75,7 +75,7 @@ button.auiButtonIconDummy {
   border-radius: 2px;
 }
 
-.bRadius3, .hdSearch form, .dropdown, .messageRooms .avatar img, .messageRooms .avatar .icon-group, .hdUserName .avatar, img.avatar,
+.bRadius3, .search, .hdSearch form, .dropdown, .messageSummary .avatar img, .messageSummary .avatar .icon-group, .hdUserName .avatar, img.avatar,
 .avatar img, .activityField, .auiSearchOption, .auiAvatarList li a img, textarea,
 select, input[type=text],
 input[type=password], #timelineOuter #inputField,
@@ -139,7 +139,7 @@ button.auiButtonIconDummy, .counter, .nrCount, .auiPopup,
 }
 
 .ellipsis, .hdPages a.name, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body, .hdTools .name, .dropdown_menu a, .dropdown_list a, .dropdown_list .body, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a {
+#auiLauncher ul.setting li a, .auiTabs .tab > li a {
   white-space: nowrap;
   overflow: hidden;
   -ms-text-overflow: ellipsis;
@@ -368,6 +368,63 @@ input[type=submit], input[type=button], input[type=reset] {
   font-size: 10px !important;
 }
 
+.search {
+  position: relative;
+  border: solid 1px #d2d2d2;
+  background-color: white;
+}
+.search:hover {
+  border: solid 1px #999999;
+}
+.search input[type=text], .search .submit {
+  height: 30px;
+  border: none;
+  vertical-align: middle;
+  outline: none;
+}
+.search input[type=text] {
+  width: 100%;
+  padding: 0 30px 0 3px;
+}
+.search input[type=text]:hover, .search input[type=text]:focus {
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.search .submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  filter: none;
+  cursor: pointer;
+  border-left: solid 1px #ededed;
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.search .submit [class^="icon-"], .search .submit [class*=" icon-"] {
+  display: block;
+  width: 30px;
+  color: #999999;
+}
+.search .submit:hover {
+  background-color: #f6f6f6;
+}
+.search .submit:hover [class^="icon-"], .search .submit:hover [class*=" icon-"] {
+  color: #333333;
+}
+.search .placeholder {
+  top: 7px !important;
+  line-height: 1.6;
+}
+
 .hdSearch {
   position: relative;
   float: left;
@@ -574,7 +631,7 @@ input[type=submit], input[type=button], input[type=reset] {
 }
 .dropdown .sideBlock {
   float: left;
-  width: 300px;
+  width: 240px;
 }
 .dropdown .sideBlock .inner {
   padding: 10px;
@@ -582,9 +639,6 @@ input[type=submit], input[type=button], input[type=reset] {
 .dropdown .contents {
   position: relative;
   padding: 10px;
-}
-.dropdown .divider {
-  border-bottom: solid 1px #ededed;
 }
 .dropdown h2 {
   margin: 0;
@@ -647,67 +701,77 @@ input[type=submit], input[type=button], input[type=reset] {
   color: #999999;
 }
 
+.divider {
+  border-bottom: solid 1px #ededed;
+}
+
 #dd_message {
   width: 100%;
 }
-#dd_message .contents {
-  margin-left: 300px;
-  border-left: solid 1px #ededed;
+#dd_message .mainBlock {
+  margin-left: 240px;
+  border-left: solid 1px #d2d2d2;
+}
+#dd_message .subContents {
+  float: right;
+  width: 240px;
+  height: 500px;
+  border-left: solid 1px #d2d2d2;
 }
 
 .nrCount {
   margin: 0;
 }
 
-.messageRooms {
+.messageSummary {
   font-size: 11px;
 }
-.messageRooms li {
+.messageSummary li {
   position: relative;
   padding: 0;
   background-image: none;
   border-bottom: solid 1px #ededed;
 }
-.messageRooms li a {
+.messageSummary li a {
   display: block;
   text-decoration: none;
   padding: 5px 5px 5px 45px;
 }
-.messageRooms li a:hover {
+.messageSummary li a:hover {
   color: #333333;
   background-color: #f6f6f6;
 }
-.messageRooms li a:hover .name {
+.messageSummary li a:hover .name {
   color: #333333;
 }
-.messageRooms li span {
+.messageSummary li span {
   display: block;
 }
-.messageRooms .avatar {
+.messageSummary .avatar {
   position: absolute;
   top: 0;
   left: 0;
   padding: 5px;
 }
-.messageRooms .avatar img, .messageRooms .avatar .icon-group {
+.messageSummary .avatar img, .messageSummary .avatar .icon-group {
   display: block;
   width: 32px;
   height: 32px;
   line-height: 32px;
   text-align: center;
 }
-.messageRooms .avatar .icon-group {
+.messageSummary .avatar .icon-group {
   background-color: #999999;
   color: white;
   font-size: 22px;
 }
-.messageRooms .date {
+.messageSummary .date {
   float: right;
   color: #999999;
   white-space: nowrap;
   margin-left: 5px;
 }
-.messageRooms .date, .messageRooms .name, .messageRooms .latest {
+.messageSummary .date, .messageSummary .name, .messageSummary .latest {
   line-height: 16px;
   height: 16px;
   overflow: hidden;
@@ -717,22 +781,46 @@ input[type=submit], input[type=button], input[type=reset] {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
-.messageRooms .latest {
+.messageSummary .latest {
   color: #999999;
 }
-.messageRooms .nrCount {
+.messageSummary .nrCount {
   display: none;
   margin: 0 3px 0 0;
 }
-.messageRooms .new {
+.messageSummary .new {
   background-color: #f6f6f6;
 }
-.messageRooms .new .nrCount {
+.messageSummary .new .nrCount {
   display: block;
 }
-.messageRooms .new .name, .messageRooms .new .date {
+.messageSummary .new .name, .messageSummary .new .date {
   font-weight: bold;
   color: #333333;
+}
+.messageSummary [class*="icon-"] {
+  color: #049cdb;
+}
+
+#messageFavorites {
+  padding: 5px;
+}
+#messageFavorites .timeline .avatar img {
+  width: 32px;
+  height: auto;
+}
+#messageFavorites .timeline .message {
+  border-bottom: solid 1px #ededed;
+}
+#messageFavorites .timeline .messageContents {
+  margin-left: 40px;
+}
+#messageFavorites .tlClipImage {
+  float: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: 0;
+  margin-bottom: 10px;
 }
 
 #dd_information .dropdown_list {
@@ -1442,6 +1530,42 @@ button:active,
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
 }
+.buttonBase span, input[type=submit] span,
+input[type=button] span,
+input[type=reset] span,
+button span,
+.auiButton span,
+.auiSelectButton a span,
+.auiWidget .auiSelectButton a span,
+.auiButtonBold span,
+input[type=submit].auiButtonBold span,
+input[type=button].auiButtonBold span,
+input[type=reset].auiButtonBold span,
+.auiButtonIcon span,
+input[type=submit].auiButtonIcon span,
+input[type=button].auiButtonIcon span,
+input[type=reset].auiButtonIcon span, .auiButtonAction span,
+input[type=submit].auiButtonAction span,
+input[type=button].auiButtonAction span,
+input[type=reset].auiButtonAction span, .auiButtonSmall span,
+input[type=submit].auiButtonSmall span,
+input[type=button].auiButtonSmall span,
+input[type=reset].auiButtonSmall span, .auiButtonDisabled span,
+input[type=submit].auiButtonDisabled span,
+input[type=button].auiButtonDisabled span,
+input[type=reset].auiButtonDisabled span, .auiButtonDummy span,
+input[type=submit].auiButtonDummy span,
+input[type=button].auiButtonDummy span,
+input[type=reset].auiButtonDummy span, .auiButtonIconDummy span,
+input[type=submit].auiButtonIconDummy span,
+input[type=button].auiButtonIconDummy span,
+input[type=reset].auiButtonIconDummy span {
+  display: table-cell;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
 .buttonBase .fa, input[type=submit] .fa,
 input[type=button] .fa,
 input[type=reset] .fa,
@@ -1597,7 +1721,7 @@ input[type=submit].auiButtonIconDummy,
 input[type=button].auiButtonIconDummy,
 input[type=reset].auiButtonIconDummy,
 button.auiButtonIconDummy {
-  width: 24px;
+  min-width: 24px;
   height: 24px;
   line-height: 24px;
   padding: 3px;
@@ -1613,7 +1737,7 @@ input[type=button].auiButtonIconDummy span,
 input[type=reset].auiButtonIconDummy span,
 button.auiButtonIconDummy span {
   display: table-cell;
-  width: 16px;
+  min-width: 16px;
   height: 16px;
   line-height: 16px;
   text-align: center;
@@ -1628,7 +1752,11 @@ input[type=submit].auiButtonIconDummy [class*="icon-"],
 input[type=button].auiButtonIconDummy [class*="icon-"],
 input[type=reset].auiButtonIconDummy [class*="icon-"],
 button.auiButtonIconDummy [class*="icon-"] {
+  display: inline-block;
   color: #666;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
 }
 
 .auiButtonDisabled,
@@ -2520,153 +2648,210 @@ button.auiButtonDisabled:active {
 /***************************************************
 	auiTabs
 --------------------------------------------------*/
-#auiTabs {
-  white-space: nowrap;
-  height: 25px;
-  padding: 0;
-  margin: 0;
-  background: white url("../images/tab.png") left bottom repeat-x;
+.auiTabs .tab {
+  background-color: #f6f6f6;
+  border-bottom: solid 1px #d2d2d2;
 }
-#auiTabs ul {
-  position: relative;
-  padding: 0 20px;
-  margin: 0;
-  white-space: nowrap;
+.auiTabs .tab > li {
+  float: left;
+  margin-bottom: -1px;
 }
-#auiTabs li {
+.auiTabs .tab > li a {
   display: block;
-  float: left;
-  height: 25px;
-  padding: 0;
-  font-size: 11px;
-  background: none;
-}
-#auiTabs li a {
-  margin: 0 5px;
-  white-space: nowrap;
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-}
-#auiTabs .tab {
-  height: 100%;
-}
-#auiTabs .title {
-  float: left;
-  height: 25px;
-  line-height: 25px;
-  padding-left: 20px;
-  background: url("../images/tab.png") left -180px no-repeat;
-}
-#auiTabs .setting {
-  float: left;
-  height: 25px;
-  background: url("../images/tab.png") left -270px no-repeat;
-}
-#auiTabs .setting a {
-  display: inline-block;
-  margin-top: 4px;
-}
-#auiTabs .first .title {
-  background: url("../images/tab.png") left -120px no-repeat;
-}
-#auiTabs .first .active .title {
-  background: url("../images/tab.png") left 0px no-repeat;
-}
-#auiTabs .last .setting {
-  padding-right: 20px;
-  background: url("../images/tab.png") right -150px no-repeat;
-}
-#auiTabs .last .active {
-  padding-right: 20px;
-  background: url("../images/tab.png") right -30px no-repeat;
-}
-#auiTabs .last .active .setting {
-  padding-right: 0;
-}
-#auiTabs .last .activeNext {
-  background: url("../images/tab.png") left -90px no-repeat;
-}
-#auiTabs .active .title {
-  background: url("../images/tab.png") left -60px no-repeat;
-}
-#auiTabs .active .setting {
-  background: url("../images/tab.png") left -240px no-repeat;
-}
-#auiTabs .activeNext {
-  padding-left: 20px;
-  background: url("../images/tab.png") left -90px no-repeat;
-}
-#auiTabs .activeNext .title {
-  padding-left: 0;
-  background: url("../images/tab.png") left -270px no-repeat;
-}
-#auiTabs .store {
-  padding-right: 20px;
-  background: url("../images/tab.png") right -150px no-repeat;
-}
-#auiTabs .single .tab {
-  padding-right: 20px;
-  background: url("../images/tab.png") right -150px no-repeat;
-}
-#auiTabs .single .title {
-  background: url("../images/tab.png") left -120px no-repeat;
-}
-#auiTabs .single .active.tab {
-  background: url("../images/tab.png") right -30px no-repeat;
-}
-#auiTabs .single .active .title {
-  background: url("../images/tab.png") left 0px no-repeat;
-}
-#auiTabs li.selectedMenu {
-  height: 25px;
-  background: url("../images/tab.png") right -25px no-repeat;
-  text-decoration: none;
-}
-#auiTabs li.selectedMenu .title {
-  background: url("../images/tab.png") left 0px no-repeat;
-}
-#auiTabs li.selectedMenu .title a {
-  text-decoration: none;
-}
-#auiTabs li.selectedMenu a {
-  white-space: nowrap;
-  text-decoration: none;
-}
-#auiTabs li.selectedMenu .menuIcon {
-  float: left;
-  height: 25px;
-  background: url("../images/tab.png") right 0px no-repeat;
-}
-#auiTabs .singleTab {
-  height: 25px;
-  line-height: 25px;
-  background: url("../images/tab.png") left -100px no-repeat;
-}
-#auiTabs .singleTab a {
-  text-decoration: none;
-}
-#auiTabs .addTab a {
-  display: block;
-  margin: 0 0 0 -5px;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  font-size: 11px;
-  font-weight: bold;
+  line-height: 30px;
+  margin: 5px 5px 0 5px;
   text-align: center;
-  background: url(../images/addtab.png) 0 0 no-repeat;
+  text-decoration: none;
+  border: solid 1px transparent;
 }
-#auiTabs .addTab a:hover {
-  background: url(../images/addtab.png) 0 -25px no-repeat;
+.auiTabs .tab > li.active a {
+  background-color: white;
+  border-color: #d2d2d2 #d2d2d2 transparent #d2d2d2;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  -ms-border-radius: 3px 3px 0 0;
+  -o-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
 }
-#auiTabs .addTab span {
+.auiTabs .tab > li.active a:hover {
+  color: #333333;
+  cursor: default;
+}
+.auiTabs .tabContents > li {
   display: none;
 }
+.auiTabs .tabContents > li.active {
+  display: block;
+}
 
+/*
+$tabBackgroundImage:	"../images/tab.png";
+#auiTabs {
+	white-space:nowrap;
+	height:25px;
+	padding:0;
+	margin:0;
+	background:#fff url($tabBackgroundImage) left bottom repeat-x;
+
+	ul {
+		position:relative;
+		padding:0 20px;
+		margin:0;
+		white-space:nowrap;
+	}
+	li {
+		display:block;
+		float:left;
+		height:25px;
+		padding:0;
+		font-size:11px;
+		background:none;
+
+		a {
+			margin:0 5px;
+			white-space:nowrap;
+			text-decoration:none;
+			text-shadow:0 1px 0 rgba(255,255,255,0.75);
+		}
+	}
+	.tab {
+		height:100%;
+	}
+    .title {
+    	float:left;
+    	height:25px;
+    	line-height:25px;
+    	padding-left:20px;
+    	background:url($tabBackgroundImage) left -180px no-repeat;
+    }
+    .setting {
+    	float:left;
+    	height:25px;
+    	background:url($tabBackgroundImage) left -270px no-repeat;
+
+    	a {
+    		display: inline-block;
+    		margin-top: 4px;
+    	}
+    }
+    .first {
+    	.title {
+    		background:url($tabBackgroundImage) left -120px no-repeat;
+    	}
+    	.active .title {
+    		background:url($tabBackgroundImage) left -0px no-repeat;
+    	}
+    }
+    .last {
+    	.setting {
+    		padding-right:20px;
+    		background:url($tabBackgroundImage) right -150px no-repeat;
+    	}
+    	.active {
+    		padding-right:20px;
+    		background:url($tabBackgroundImage) right -30px no-repeat;
+    	}
+    	.active .setting {
+    		padding-right:0;
+    	}
+    	.activeNext {
+    		background:url($tabBackgroundImage) left -90px no-repeat;
+    	}
+    }
+    .active {
+    	.title {
+    		background:url($tabBackgroundImage) left -60px no-repeat;
+    	}
+    	.setting {
+    		background:url($tabBackgroundImage) left -240px no-repeat;
+    	}
+    }
+    .activeNext {
+    	padding-left:20px;
+    	background:url($tabBackgroundImage) left -90px no-repeat;
+
+    	.title {
+    		padding-left:0;
+    		background:url($tabBackgroundImage) left -270px no-repeat;
+    	}
+    }
+    .store {
+    	padding-right:20px;
+    	background:url($tabBackgroundImage) right -150px no-repeat;
+    }
+	.single {
+		.tab {
+			padding-right:20px;
+			background:url($tabBackgroundImage) right -150px no-repeat;
+		}
+		.title {
+			background:url($tabBackgroundImage) left -120px no-repeat;
+		}
+		.active {
+			&.tab {
+				background:url($tabBackgroundImage) right -30px no-repeat;
+			}
+			.title {
+				background:url($tabBackgroundImage) left -0px no-repeat;
+			}
+		}
+	}
+    
+    li.selectedMenu {
+    	height:25px;
+    	background:url($tabBackgroundImage) right -25px no-repeat;
+    	text-decoration:none;
+
+    	.title {
+    		background:url($tabBackgroundImage) left 0px no-repeat;
+
+    		a {
+    			text-decoration:none;
+    		}
+    	}
+    	a {
+    		white-space:nowrap;
+    		text-decoration:none;
+    	}
+    	.menuIcon {
+    		float:left;
+    		height:25px;
+    		background:url($tabBackgroundImage) right -0px no-repeat;
+    	}
+    }
+    .singleTab {
+    	height:25px;
+    	line-height:25px;
+    	background:url($tabBackgroundImage) left -100px no-repeat;
+
+    	a {
+    		text-decoration:none;
+    	}
+    }
+    .addTab {
+    	a {
+    		display:block;
+    		margin:0 0 0 -5px;
+    		width:25px;
+    		height:25px;
+    		line-height:25px;
+    		font-size:11px;
+    		font-weight:bold;
+    		text-align:center;
+    		background:url(../images/addtab.png) 0 0 no-repeat;
+    	}
+    	a:hover {
+    		background:url(../images/addtab.png) 0 -25px no-repeat;
+    	}
+    	span {
+    		display:none;
+    	}
+    }
+}
 .tooltip_gray {
-  display: none;
+	display:none;
 }
-
+*/
 /***************************************************
 	auiLogin
 --------------------------------------------------*/
@@ -3942,6 +4127,12 @@ ul.attachments {
   *font-size: 75%;
   color: #434343;
 }
+.messageContents .time [class^="icon-"] {
+  vertical-align: middle;
+}
+.messageContents .time [class="icon-star"] {
+  color: #ffc40d;
+}
 
 .tlActivity,
 .tlActivity a {
@@ -4051,7 +4242,7 @@ ul.attachments {
 
 .timeline .text_exposed_show.ellipsis, .timeline .hdPages a.text_exposed_show.name, .hdPages .timeline a.text_exposed_show.name, .timeline .hdSearch .dropdown_menu .text_exposed_show.date, .hdSearch .dropdown_menu .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_list .text_exposed_show.date, .hdSearch .dropdown_list .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_menu .text_exposed_show.body, .hdSearch .dropdown_menu .timeline .text_exposed_show.body, .timeline .hdTools .text_exposed_show.name, .hdTools .timeline .text_exposed_show.name, .timeline .dropdown_menu a.text_exposed_show, .dropdown_menu .timeline a.text_exposed_show, .timeline .dropdown_list a.text_exposed_show, .dropdown_list .timeline a.text_exposed_show, .timeline .dropdown_list .text_exposed_show.body, .dropdown_list .timeline .text_exposed_show.body, .timeline #auiLauncher ul.launcher li a.text_exposed_show, #auiLauncher ul.launcher li .timeline a.text_exposed_show,
 .timeline #auiLauncher ul.setting li a.text_exposed_show,
-#auiLauncher ul.setting li .timeline a.text_exposed_show,
+#auiLauncher ul.setting li .timeline a.text_exposed_show, .timeline .auiTabs .tab > li a.text_exposed_show, .auiTabs .tab > li .timeline a.text_exposed_show,
 .timeline .message .more.opened {
   display: none;
 }
@@ -5223,6 +5414,7 @@ a:hover .auiWFicon [class^="icon-"] {
 [class^="icon-"] {
   font-size: 14px;
   color: #666666;
+  text-decoration: none !important;
 }
 
 /***************************************************

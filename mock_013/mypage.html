@@ -43,7 +43,7 @@
 	</div>
 	<div class="hdNavigation">
 		<!--div class="hdSearch">
-			<form class="">
+			<form class="search">
 				<input type="text" id="crossSearch" class="focusToggle placeholderCheck" jq-target="preSearch" jq-placeholder="検索" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="crossSearch" style="display: block;">検索</label>
 				<button class="submit" title="検索"><i class="icon-search"></i></button>
 			</form>
@@ -55,10 +55,18 @@
 					<div class="title">メッセージ</div>
 					<div class="body">
 						<div class="sideBlock">
-							<div class="inner divider">
-								<a href="javascript:void(0)" class="auiButton w100" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">送信先の追加</a>
+							<div id="messageSummaryHead">
+								<div class="inner divider">
+									<a href="javascript:void(0)" class="auiButton w100" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">ルームの追加</a>
+								</div>
+								<div class="inner divider">
+									<form class="search">
+										<input type="text" id="roomSearch" class=""jq-placeholder="検索" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="roomSearch">ルーム検索</label>
+										<button class="submit" title="検索"><i class="icon-search"></i></button>
+									</form>
+								</div>
 							</div>
-							<ul class="messageRooms scroll" id="messageRooms">
+							<ul class="messageSummary scroll" id="messageSummary">
 								<li class="new">
 									<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 										<span class="avatar">
@@ -88,7 +96,7 @@
 										</span>
 										<div class="nrCount">0</div>
 										<span class="date">6/30</span>
-										<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+										<span class="name"><i class="icon-eye-open"></i> 公開ルーム</span>
 										<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
 									</a>
 								</li>
@@ -165,7 +173,7 @@
 										</span>
 										<div class="nrCount">0</div>
 										<span class="date">2013/12/5</span>
-										<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+										<span class="name">会議室01</span>
 										<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
 									</a>
 								</li>
@@ -176,7 +184,7 @@
 										</span>
 										<div class="nrCount">0</div>
 										<span class="date">6/30</span>
-										<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+										<span class="name"><i class="icon-eye-open"></i> ミーティングルーム</span>
 										<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
 									</a>
 								</li>
@@ -253,7 +261,7 @@
 										</span>
 										<div class="nrCount">0</div>
 										<span class="date">2013/12/5</span>
-										<span class="name">木村 一郎, 田村 涼子, アーノルド シュワルツェネッガー</span>
+										<span class="name">長いルーム名長いルーム名長いルーム名長いルーム名</span>
 										<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
 									</a>
 								</li>
@@ -262,157 +270,282 @@
 								</li>
 							</ul>
 						</div>
-						<div class="contents" id="messageContents1">
-							<div class="emptyMessage">
-								<i class="icon-comments"></i>
-								<p>左のリストより送信先を選択するか新たに送信先を追加しましょう。</p>
+						<div class="mainBlock" id="messageContents1">
+							<div class="contents">
+								<div class="emptyMessage">
+									<i class="icon-comments"></i>
+									<p>左のリストよりルームを選択するか新たにルームを追加しましょう。</p>
+								</div>
 							</div>
 						</div>
-						<div class="contents clearfix" id="messageContents2" style="display:none">
-							<div id="timelineOuter">
-								<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
-								<!-- memberList -->
-								<div id="memberListWrapper" class="clearfix">
-									<div class="floatRight"><a href="javascript:void(0)" class="auiButtonIcon" title="メンバー追加" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><span><i class="icon-user"></i></span></a></div>
-									<ul class="userListIcon clearfix">
-										<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
-										<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
-										<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
-										<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
-										<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
-										<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+						<div class="mainBlock" id="messageContents2" style="display:none">
+							<div class="subContents">
+								<div class="auiTabs">
+									<ul class="tab" id="subContentsTab">
+										<li class="w50 active"><a href="javascript:void(0)">お気に入り</a></li>
+										<li class="w50"><a href="javascript:void(0)">添付ファイル</a></li>
+									</ul>
+									<ul class="tabContents">
+										<li class="active">
+											<div id="messageFavorites" class="scroll" style="height: 400px;">
+												<div class="timeline">
+													<div id="message***" class="message">
+														<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																メッセージ内容です。メッセージ内容です。<br />
+																自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
+																タイムラインのHTML構造を踏襲しますが、コメント、いいね、ファイル添付は無く、メッセージの既読の機能がある想定です。
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+																<a href="javascript:void(0)" title="お気に入りを取り消す"><i class="icon-star"></i></a> ・
+																<a href="javascript:void(0)" title="削除する"><i class="icon-trash"></i></a>
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar mr10">
+															<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+																URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+																<div class="tlClipBoard clearfix">
+																	<div class="tlClipImage">
+																		<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a>		</div>
+																	<div class="tlClipContents">
+																		<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																		<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																		<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+																	</div>
+																</div>
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" title="お気に入りを取り消す"><i class="icon-star"></i></a> ・
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+																<div class="tlClipBoard clearfix">
+																	<div class="tlClipImage">
+																		<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
+																	</div>
+																	<div class="tlClipContents">
+																		<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																		<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																		<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+																	</div>
+																</div>
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a> ・
+																<a href="javascript:void(0)" title="お気に入りを取り消す"><i class="icon-star"></i></a> ・
+																<a href="javascript:void(0)" title="削除する"><i class="icon-trash"></i></a>
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" title="お気に入りを取り消す"><i class="icon-star"></i></a> ・
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																メッセージ内容です。メッセージ内容です。<br />
+																自分の投稿には「＊人が既読」「削除する」が付きます。
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+																<a href="javascript:void(0)" title="お気に入りを取り消す"><i class="icon-star"></i></a> ・
+																<a href="javascript:void(0)" title="削除する"><i class="icon-trash"></i></a>
+															</div>
+														</div>
+													</div>
+													<div class="loader"></div>
+												</div>
+											</div>
+										</li>
+										<li class="">bbb</li>
 									</ul>
 								</div>
-								<!-- /memberList -->
-								<div id="inputField">
-									<form name="" id="" action="" method="post" onsubmit="">
-										<input type="hidden" name="_name" value="timelineForm">
-										<input type="hidden" name="secid" value="">
-										<div class="tlInputMention">
-											<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
-										</div>
-										<!--div class="tlInputAttachment">
-											<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
-											<div class="tlClipBoard clearfix">
-												<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a></div>
-												<div class="tlClipContents">
-													<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-													<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-													<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-												</div>
-											</div>
-										</div-->
-										<div class="tlInputControls clearfix">
-											<div class="floatLeft"><a href="javascript:void(0)" class="auiButton">ファイルを追加する</a></div>
-											<div class="floatRight">
-												<div class="indicatorglay">&nbsp;</div>
-												<input type="submit" class="auiButtonAction" value="投稿する" />
-											</div>
-										</div>
-									</form>
-								</div>
-
-								<div id="timeline" class="timeline scroll">
-
-									<div id="message***" class="message">
-										<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-										<div class="messageContents">
-											<div class="name">名前 名前</div>
-											<div class="body">
-												メッセージ内容です。メッセージ内容です。<br />
-												自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
-												タイムラインのHTML構造を踏襲しますが、コメント、いいね、ファイル添付は無く、メッセージの既読の機能がある想定です。
-											</div>
-											<div class="time">
-												10月10日 20:52&nbsp;
-												<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
-												<a href="javascript:void(0)" onclick="">削除する</a>
-											</div>
-										</div>
-									</div>
-
-									<div id="message***" class="message">
-										<div class="avatar mr10">
-											<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
-										<div class="messageContents">
-											<div class="name">名前 名前</div>
-											<div class="body">
-												現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
-												URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
-												<div class="tlClipBoard clearfix">
-													<div class="tlClipImage">
-														<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a>		</div>
-													<div class="tlClipContents">
-														<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-														<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-														<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-													</div>
-												</div>
-											</div>
-											<div class="time">
-												10月10日 20:52&nbsp;
-											</div>
-										</div>
-									</div>
-
-									<div id="message***" class="message">
-										<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-										<div class="messageContents">
-											<div class="name">名前 名前</div>
-											<div class="body">
-												Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
-												<div class="tlClipBoard clearfix">
-													<div class="tlClipImage">
-														<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
-													</div>
-													<div class="tlClipContents">
-														<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-														<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-														<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-													</div>
-												</div>
-											</div>
-											<div class="time">
-												10月10日 20:52&nbsp;
-												<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a> ・
-												<a href="javascript:void(0)" onclick="">削除する</a>
-											</div>
-										</div>
-									</div>
-
-									<div id="message***" class="message">
-										<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-										<div class="messageContents">
-											<div class="name">名前 名前</div>
-											<div class="body">
-												メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
-											</div>
-											<div class="time">
-												10月10日 20:52&nbsp;
-											</div>
-										</div>
-									</div>
-
-									<div id="message***" class="message">
-										<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-										<div class="messageContents">
-											<div class="name">名前 名前</div>
-											<div class="body">
-												メッセージ内容です。メッセージ内容です。<br />
-												自分の投稿には「＊人が既読」「削除する」が付きます。
-											</div>
-											<div class="time">
-												10月10日 20:52&nbsp;
-												<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
-												<a href="javascript:void(0)" onclick="">削除する</a>
-											</div>
-										</div>
-									</div>
-
-									<div class="readMore"><a href="javascript:void(0);" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135c96ce6ff-1009d?template=TimelineScreen&amp;rows=50', 'P-135c96ce6ff-1009d');">もっと見る</a></div>
-								</div>
 							</div>
+							<div class="contents clearfix">
+								<div id="timelineOuter">
+									<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+									<!-- memberList -->
+									<div id="memberListWrapper" class="clearfix">
+										<ul class="userListIcon clearfix">
+											<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24"></span></li>
+											<li><a href="javascript:void(0)" class="auiButtonIcon" title="メンバーを追加する" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><span><i class="icon-user"></i></span></a></li>
+										</ul>
+									</div>
+									<!-- /memberList -->
+									<div id="inputField">
+										<form name="" id="" action="" method="post" onsubmit="">
+											<input type="hidden" name="_name" value="timelineForm">
+											<input type="hidden" name="secid" value="">
+											<div class="tlInputMention">
+												<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+											</div>
+											<!--div class="tlInputAttachment">
+												<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
+												<div class="tlClipBoard clearfix">
+													<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a></div>
+													<div class="tlClipContents">
+														<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+														<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+														<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+													</div>
+												</div>
+											</div-->
+											<div class="tlInputControls clearfix">
+												<div class="floatLeft"><a href="javascript:void(0)" class="auiButton" title="ファイルを追加する"><span><i class="icon-folder-open"></i></span></a></div>
+												<div class="floatRight">
+													<div class="indicatorglay">&nbsp;</div>
+													<input type="submit" class="auiButtonAction" value="投稿する" />
+												</div>
+											</div>
+										</form>
+									</div>
 
+									<div id="messageTimeline" class="timeline scroll">
+
+										<div id="message***" class="message">
+											<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+											<div class="messageContents">
+												<div class="name">名前 名前</div>
+												<div class="body">
+													メッセージ内容です。メッセージ内容です。<br />
+													自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
+													タイムラインのHTML構造を踏襲しますが、コメント、いいね、ファイル添付は無く、メッセージの既読の機能がある想定です。
+												</div>
+												<div class="time">
+													10月10日 20:52&nbsp;
+													<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+													<a href="javascript:void(0)" title="お気に入り"><i class="icon-star-empty"></i></a> ・
+													<a href="javascript:void(0)" title="削除する"><i class="icon-trash"></i></a>
+												</div>
+											</div>
+										</div>
+
+										<div id="message***" class="message">
+											<div class="avatar mr10">
+												<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">		</div>
+											<div class="messageContents">
+												<div class="name">名前 名前</div>
+												<div class="body">
+													現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+													URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+													<div class="tlClipBoard clearfix">
+														<div class="tlClipImage">
+															<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a>		</div>
+														<div class="tlClipContents">
+															<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+															<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+															<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+														</div>
+													</div>
+												</div>
+												<div class="time">
+													10月10日 20:52&nbsp;
+													<a href="javascript:void(0)" title="お気に入りを取り消す"><i class="icon-star"></i></a>
+												</div>
+											</div>
+										</div>
+
+										<div id="message***" class="message">
+											<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+											<div class="messageContents">
+												<div class="name">名前 名前</div>
+												<div class="body">
+													Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+													<div class="tlClipBoard clearfix">
+														<div class="tlClipImage">
+															<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
+														</div>
+														<div class="tlClipContents">
+															<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+															<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+															<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+														</div>
+													</div>
+												</div>
+												<div class="time">
+													10月10日 20:52&nbsp;
+													<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a> ・
+													<a href="javascript:void(0)" title="お気に入り"><i class="icon-star-empty"></i></a> ・
+													<a href="javascript:void(0)" title="削除する"><i class="icon-trash"></i></a>
+												</div>
+											</div>
+										</div>
+
+										<div id="message***" class="message">
+											<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+											<div class="messageContents">
+												<div class="name">名前 名前</div>
+												<div class="body">
+													メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
+												</div>
+												<div class="time">
+													10月10日 20:52&nbsp;
+													<a href="javascript:void(0)" title="お気に入り"><i class="icon-star-empty"></i></a> ・
+												</div>
+											</div>
+										</div>
+
+										<div id="message***" class="message">
+											<div class="avatar mr10"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+											<div class="messageContents">
+												<div class="name">名前 名前</div>
+												<div class="body">
+													メッセージ内容です。メッセージ内容です。<br />
+													自分の投稿には「＊人が既読」「削除する」が付きます。
+												</div>
+												<div class="time">
+													10月10日 20:52&nbsp;
+													<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+													<a href="javascript:void(0)" title="お気に入り"><i class="icon-star-empty"></i></a> ・
+													<a href="javascript:void(0)" title="削除する"><i class="icon-trash"></i></a>
+												</div>
+											</div>
+										</div>
+										<div class="loader"></div>
+									</div>
+								</div>
+
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1066,7 +1199,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="readMore"><a href="javascript:void(0);" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135c96ce6ff-1009d?template=TimelineScreen&amp;rows=50', 'P-135c96ce6ff-1009d');">もっと見る</a></div>
+				<div class="readMore"><a href="javascript:void(0);">もっと見る</a></div>
 			</div>
 		</div>
 	</div>
@@ -1772,52 +1905,118 @@
 					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
 					</div>
 				</div>
-				<div class="auiPopupTitle">メッセージ送信先の追加</div>
+				<div class="auiPopupTitle">ルームの追加</div>
 			</div>
 			<div class="roundBlockContent">
-				<div class="auiSummaryMeta">
-					<select class="w100">
-						<option>すべてのグループ</option>
-						<option>管理部</option>
-						<option>営業部</option>
-						<option>開発部</option>
-					</select>
-				</div>
-				<div class="auiCheckList auiCL2" style="max-height:300px">
-					<ul class="clearfix">
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー/span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
-						<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
-					</ul>
-				</div>
 				<form>
+					<!--table class="listTable w100">
+						<tr>
+							<td>
+								<select class="w100">
+									<option>すべてのグループ</option>
+									<option>管理部</option>
+									<option>営業部</option>
+									<option>開発部</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="auiCheckList auiCL2" style="max-height:300px">
+									<ul class="clearfix">
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー/span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+										<li><label><input type="checkbox"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="relative">
+									<input type="text" id="roomName" class="w100" jq-placeholder="ルーム名" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="roomName">ルーム名</label>
+								</div>
+							</td>
+						</tr>
+					</table-->
+					<div class="auiSummaryMeta">
+						<select class="w100">
+							<option>すべてのグループ</option>
+							<option>管理部</option>
+							<option>営業部</option>
+							<option>開発部</option>
+						</select>
+					</div>
+					<div class="auiCheckList auiCL2 divider" style="max-height:300px">
+						<ul class="clearfix" id="roomAddList">
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー/span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">山田 太朗</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">アーノルド シュワルツェネッガーアーノルド シュワルツェネッガー</span></label></li>
+							<li><label><input type="checkbox" onClick="checkCount('roomAddList','roomSetting')"><img class="avatar" src="themes/default/images/common/avatar_default3.png" width="24" height="24" alt=""><span class="auiUCLname">Sylvester Gardenzio Stallone</span></label></li>
+						</ul>
+					</div>
+					<div id="roomSetting" class="divider mb10" style="display:none;">
+						<div class="mt10 mb10 relative">
+							<input type="text" id="roomName" class="w100" jq-placeholder="ルーム名" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="roomName">ルーム名</label>
+						</div>
+						<div class="mb10">
+							<label><input type="checkbox" />公開ルーム（<i class="icon-eye-open fcBlue"></i>）にする</label>
+						</div>
+					</div>
+
 					<div class="center auiPopupButtons">
 						<a href="javascript:void(0)" class="auiButtonAction" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">追加する</a>
 						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">
@@ -1865,7 +2064,7 @@
 							<!--div class="tlInputAttachment">
 								<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
 								<div class="tlClipBoard clearfix">
-									<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a></div>
+									<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a></div>
 									<div class="tlClipContents">
 										<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
 										<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
@@ -1912,7 +2111,7 @@
 									URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
 									<div class="tlClipBoard clearfix">
 										<div class="tlClipImage">
-											<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a>		</div>
+											<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a>		</div>
 										<div class="tlClipContents">
 											<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
 											<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
@@ -1980,7 +2179,7 @@
 							</div>
 						</div>
 
-						<div class="readMore"><a href="javascript:void(0);" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135c96ce6ff-1009d?template=TimelineScreen&amp;rows=50', 'P-135c96ce6ff-1009d');">もっと見る</a></div>
+						<div class="readMore"><a href="javascript:void(0);">もっと見る</a></div>
 					</div>
 				</div>
 			</div>

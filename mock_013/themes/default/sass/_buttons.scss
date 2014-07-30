@@ -540,6 +540,14 @@ input.auiButtonSearch.active {
 		@include filter(none !important);
 		@include box-shadow(inset 0 1px 3px rgba(#000,.2) !important);
 	}
+	span {
+		display: table-cell;
+		//min-width: $inputHeight;
+		height: $inputHeight;
+		line-height: $inputHeight;
+		text-align: center;
+		vertical-align: middle;
+	}
 	.fa, [class*="icon-"], [class^="icon-"] {
 		color: $gray;
 		cursor: pointer;
@@ -622,19 +630,23 @@ input[type=submit].auiButtonIconDummy,
 input[type=button].auiButtonIconDummy,
 input[type=reset].auiButtonIconDummy,
 button.auiButtonIconDummy {
-	width: 24px;
+	min-width: 24px;
 	height: 24px;
 	line-height: 24px;
 	padding: 3px;
 	span {
 		display: table-cell;
-		width: 16px;
+		min-width: 16px;
 		height: 16px;
 		line-height: 16px;
 		text-align: center;
 	}
 	[class*="icon-"] {
+		display: inline-block;
 		color: #666;
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
 	}
 }
 

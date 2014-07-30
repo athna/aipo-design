@@ -733,8 +733,51 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 /***************************************************
 	auiTabs
 --------------------------------------------------*/
-$tabBackgroundImage:	"../images/tab.png";
 
+.auiTabs {
+	.tab {
+		@extend .clearfix;
+		background-color: $grayBackLight;
+		border-bottom: solid 1px $grayBorder;
+
+		> li {
+			float: left;
+			margin-bottom: -1px;
+			a {
+				@extend .border-box;
+				@extend .ellipsis;
+				display: block;
+				line-height: $inputHeight;
+				margin: 5px 5px 0 5px;
+				text-align: center;
+				text-decoration: none;
+				border: solid 1px transparent;
+			}
+		}
+		> li.active {
+			a {
+				background-color: $white;
+				border-color: $grayBorder $grayBorder transparent $grayBorder;
+				@include border-radius(3px 3px 0 0);
+				&:hover {
+					color: $textColor;
+					cursor: default;
+				}
+			}
+		}
+	}
+	.tabContents {
+		> li {
+			display: none;
+		}
+		> li.active {
+			display: block;
+		}
+	}
+}
+
+/*
+$tabBackgroundImage:	"../images/tab.png";
 #auiTabs {
 	white-space:nowrap;
 	height:25px;
@@ -766,7 +809,6 @@ $tabBackgroundImage:	"../images/tab.png";
 	.tab {
 		height:100%;
 	}
-    //* basic */
     .title {
     	float:left;
     	height:25px;
@@ -784,7 +826,6 @@ $tabBackgroundImage:	"../images/tab.png";
     		margin-top: 4px;
     	}
     }
-    //* first */
     .first {
     	.title {
     		background:url($tabBackgroundImage) left -120px no-repeat;
@@ -793,7 +834,6 @@ $tabBackgroundImage:	"../images/tab.png";
     		background:url($tabBackgroundImage) left -0px no-repeat;
     	}
     }
-    //* last */
     .last {
     	.setting {
     		padding-right:20px;
@@ -810,7 +850,6 @@ $tabBackgroundImage:	"../images/tab.png";
     		background:url($tabBackgroundImage) left -90px no-repeat;
     	}
     }
-    //* active */
     .active {
     	.title {
     		background:url($tabBackgroundImage) left -60px no-repeat;
@@ -904,6 +943,7 @@ $tabBackgroundImage:	"../images/tab.png";
 .tooltip_gray {
 	display:none;
 }
+*/
 
 /***************************************************
 	auiLogin
@@ -2154,6 +2194,12 @@ ul.attachments{
 		font-size: 80%;
 		*font-size: 75%;
 		color: #434343;
+		[class^="icon-"] {
+			vertical-align: middle;
+		}
+		[class="icon-star"] {
+			color: $yellow;
+		}
 	}
 }
 
@@ -3209,6 +3255,7 @@ a:hover .auiWFicon [class^="icon-"] {
 [class^="icon-"] {
 	font-size: 14px;
 	color: #666666;
+	text-decoration: none !important;
 }
 
 /***************************************************

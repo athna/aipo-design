@@ -1,0 +1,1 @@
+dojo._hasResource["dojox.fx"]||(dojo._hasResource["dojox.fx"]=!0,dojo.provide("dojox.fx"),dojo.require("dojox.fx._base"));

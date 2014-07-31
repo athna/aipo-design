@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+// extend class
+.clearfix {
+	@include clearfix();
+}
+
+.inline-block {
+	@include inline-block;
+}
+.border-box {
+	@include box-sizing(border-box);
+}
+.bRadius2 {
+	@include border-radius(2px);
+}
+.bRadius3 {
+	@include border-radius(3px);
+}
+.bRadius4 {
+	@include border-radius(4px);
+}
+.bRadius50p {
+	@include border-radius(50%);
+}
+.ellipsis {
+	@include ellipsis;
+}
+.transition01 {
+	@include transition(.1s);
+}
+.transition02 {
+	@include transition(.2s);
+}
+
+.popupShadow {
+	@include box-shadow(0 6px 8px rgba(#000,.15));
+}
+
+.scrollDecoration {
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		background: $grayHightLight;
+	}
+	&::-webkit-scrollbar-piece {
+		background:$grayLighter;
+	}
+	&::-webkit-scrollbar-thumb {
+		background:$grayLight;
+	}
+
+	scrollbar-face-color: $grayLight;
+	scrollbar-track-color: $grayHightLight;
+	scrollbar-arrow-color: $grayLight;
+	scrollbar-shadow-color: $grayLight;
+}

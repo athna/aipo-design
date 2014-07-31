@@ -143,14 +143,14 @@ img.avatar,
 }
 
 #wrapper{
-	padding-top: 60px;
+	padding-top: 50px;
 }
 #header{
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	padding: 0;
 	border-bottom: 1px solid #e2e2e2;
 	background: $white;
@@ -167,7 +167,7 @@ img.avatar,
 .logo{
 	float: left;
 	margin-left: 15px;
-	margin-top: 13px;
+	margin-top: 9px;
 }
 .hdTab{
 	float: left;
@@ -195,8 +195,8 @@ img.avatar,
 				display: block;
 				padding: 0px 20px 0;
 				margin:0;
-				line-height: 60px;
-				height: 60px;
+				line-height: 50px;
+				height: 50px;
 				color: $gray;
 
 				&:hover{
@@ -207,7 +207,7 @@ img.avatar,
 			.setting{
 				display: none;
 				position: absolute;
-				top: 23px;
+				top: 18px;
 				right: 4px;
 				color: $grayLight;
 
@@ -225,7 +225,7 @@ img.avatar,
 				//margin-left: 3px;
 
 				a{
-					padding: 23px 10px 0;
+					padding: 18px 10px 0;
 					color: $grayLight;
 
 					&:hover{
@@ -260,25 +260,29 @@ img.avatar,
 	position: relative;
 	float: right;
 	display: inline-block;
-	height: 30px;
-	margin-left: 7px;
-	margin-top: 15px;
+	//margin-left: 7px;
+	margin-top: 0px;
 
 	.num{
 		position: absolute;
-		top: -2px;
-		right: 3px;
+		top: 7px;
+		right: 13px;
 	}
 
 	a{
-		display: inline-block;
-		height: 14px;
-		width: 30px;
-		border-radius: 3px;
-		padding: 8px 0;
+		@include box-sizing(border-box);
+		display: block;
+		width: 50px;
+		height: 50px;
+		//border-radius: 3px;
+		padding: 16px 0 0;
 		text-align: center;
 		vertical-align: middle;
 		color: $gray;
+
+		i{
+			font-size: 18px !important;
+		}
 
 		&:hover{
 			color: $orange;
@@ -293,22 +297,26 @@ img.avatar,
 		}
 	}
 	&.active{
+		border-left: 1px solid #e2e2e2;
+		border-right: 1px solid #e2e2e2;
+		border-bottom: 1px solid $white;
 
 		a{
 			//background: $red;
 			//color: $white;
+			//color: $grayDark;
 		}
 	}
 }
 .appBtn{
-	margin-right: 10px;
+	//margin-right: 10px;
 }
 .userBtn{
-	margin-right: 15px;
+	margin-right: 10px;
 
 	>a{
-		height: 30px;
-		padding: 0;
+		//height: 30px;
+		padding: 10px 0 0;
 		//border-radius: 3px;
 		overflow: hidden;
 	}
@@ -317,7 +325,7 @@ img.avatar,
 #appLauncher{
 	@include box-sizing(border-box);
 	position: fixed;
-	top: 60px;
+	top: 50px;
 	left: 0;
 	width: 100%;
 	padding: 7px 10px;
@@ -366,9 +374,10 @@ img.avatar,
 
 }
 #dropdownInfo,
-#dropdownUser{
+#dropdownUser,
+#dropdownMesSet{
 	position: fixed;
-	top: 60px;
+	top: 50px;
 	background: $white;
 	width: 300px;
 	border: 1px solid $grayLight;
@@ -442,6 +451,11 @@ img.avatar,
 	right: 10px;
 	width: 200px;
 }
+#dropdownMesSet{
+	top: 100px;
+	right: 10px;
+	width: 150px;
+}
 
 .thumb{
 	width: 24px;
@@ -454,6 +468,18 @@ img.avatar,
 		border-radius: 3px;
 	}
 }
+.badge{
+	background: $grayLighter;
+	border: 1px solid $grayLight;
+	padding: 2px 5px;
+	border-radius: 3px;
+	color: $grayDark;
+	margin-right: 5px;
+
+	i{
+		margin-right: 3px;
+	}
+}
 
 #messangerWindow {
 	@include box-sizing(border-box);
@@ -463,7 +489,7 @@ img.avatar,
 	background: $white;
 	width: 100%;
 	height: 100%;
-	padding:110px 0px 0px;
+	padding:100px 0px 0px;
 	//border: 1px solid $gray;
 	z-index: 999;
 	//border-radius: 3px 3px 0 0;
@@ -472,14 +498,27 @@ img.avatar,
 	h3{
 		@include box-sizing(border-box);
 		position: absolute;
-		top: 60px;
+		top: 50px;
 		left: 0;
 		width: 100%;
-		padding: 9px 15px 0;
+		padding: 14px 15px 0;
 		margin: 0;
 		font-weight: normal;
 		height: 50px;
-		line-height: 30px;
+		line-height: 20px;
+
+		.setting{
+			display: block;
+			text-decoration: none;
+			text-align: center;
+			vertical-align: middle;
+			//background: $grayLight;
+			padding: 3px 4px;
+
+			&:hover{
+				color: $grayDarker;
+			}
+		}
 	}
 
 	.auiPortlet{
@@ -550,7 +589,9 @@ img.avatar,
 		left: 0;
 		height: 100%;
 		width: 280px;
-		border-right: 1px solid $grayLight;
+		//border-right: 1px solid $grayLight;
+		background: $grayDark;
+		color: $white;
 
 		.inner{
 			@include box-sizing(border-box);
@@ -560,11 +601,43 @@ img.avatar,
 			overflow-y: scroll;
 			//background: $grayLighter;
 
+			.searchArea{
+				position: relative;
+				padding: 10px;
+				border-bottom: 1px solid rgba(0,0,0,0.4);
+
+				input[type="text"]{
+					@include box-sizing(border-box);
+					width: 100%;
+					//border: 1px solid rgba(255,255,255,0.2);
+					border: none;
+					outline: none;
+					background: rgba(255,255,255,0.15);
+					padding: 10px;
+
+					&:focus{
+						//border: 1px solid rgba(0,0,0,0.4);
+						background: $white;
+					}
+				}
+				button{
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					background: none;
+					border: none;
+					text-shadow: none;
+
+					i{
+						color: rgba(255,255,255,0.4);
+					}
+				}
+			}
 			.btnArea{
 				padding: 10px;
-				border-bottom: 1px solid $grayBorderLight;
+				border-bottom: 1px solid rgba(0,0,0,0.4);
 
-				input{
+				button{
 					@include box-sizing(border-box);
 					width: 100%;
 				}
@@ -578,7 +651,7 @@ img.avatar,
 					padding: 0;
 					margin: 0;
 					display: block;
-					border-bottom: 1px solid $grayBorderLight;
+					border-bottom: 1px solid rgba(0,0,0,0.4);
 
 					a{
 						@include text-overflow;
@@ -600,7 +673,11 @@ img.avatar,
 							padding-right: 40px;
 							margin: 0 0 3px;
 							line-height: 12px;
-							color:$textColor;
+							color: $white;
+
+							.num{
+								@include box-shadow(0 1px 0 rgba(0,0,0,0.5));
+							}
 						}
 						.date{
 							display: inline-block;
@@ -611,7 +688,7 @@ img.avatar,
 							font-size: 10px;
 						}
 						&:hover{
-							background: $grayLighter;
+							background: $grayDarker;
 							color: $orange;
 
 							.name{
@@ -623,7 +700,24 @@ img.avatar,
 					&.active{
 
 						a{
-							background: #f5f5f5;
+							background: $grayDarker;
+
+							.name{
+								//color: $textColor;
+							}
+						}
+					}
+					&.invite{
+
+						a{
+							//background: #555;
+
+								.name{
+
+									.num{
+										background: $blue !important;
+									}
+								}
 						}
 					}
 				}
@@ -651,7 +745,7 @@ img.avatar,
 				width: 100%;
 				height: 150px;
 				padding: 10px;
-				border-bottom: 1px solid $grayBorderLight;
+				//border-bottom: 1px solid $grayBorderLight;
 
 				.user {
 					height: 24px;
@@ -661,19 +755,10 @@ img.avatar,
 						float: left;
 						margin-right: 3px;
 					}
-					.plus {
-						display: block;
-						float: left;
-
-						a {
-							@include box-sizing(border-box);
-							display: block;
-							height: 24px;
-							width: 24px;
-							padding: 5px 0 0;
-							text-decoration: none;
-							text-align: center;
-						}
+					.plus{
+						@include box-sizing(border-box);
+						height: 24px !important;
+						font-size: 11px;
 					}
 				}
 				form{
@@ -690,6 +775,7 @@ img.avatar,
 						border-radius: 5px 5px 0 0;
 						padding: 7px;
 						height: 50px;
+						outline: none;
 
 						&:focus{
 							@include box-shadow(inset 0 1px 1px rgba(0,0,0,0.1));
@@ -702,7 +788,54 @@ img.avatar,
 					}
 				}
 			}
-			.messageArea{
+			#tabArea{
+				@include box-sizing(border-box);
+				width: 100%;
+				height: 100%;
+				position: relative;
+				padding-top: 35px;
+			}
+			#messageTab{
+				@include box-sizing(border-box);
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				padding: 0 10px;
+				margin: 5px 0 0;
+				border-bottom: 1px solid $grayLight;
+
+				li{
+					padding: 0;
+					margin: 0 5px -1px 0;
+					background: none;
+					float: left;
+					border-top:1px solid $grayLight;
+					border-left: 1px solid $grayLight;
+					border-right: 1px solid $grayLight;
+					border-bottom: 1px solid $grayLight;
+					border-radius: 4px 4px 0 0;
+
+					a{
+						padding: 5px 20px 5px 15px;
+						display: block;
+						text-decoration: none;
+						border-radius: 4px 4px 0 0;
+
+						&:hover{
+							background: $grayBackLight;
+						}
+					}
+					&.selected{
+						border-bottom: 1px solid $white;
+
+						a{
+							background: $white;
+						}
+					}
+				}
+			}
+			#talk, #fav{
 				overflow-y: scroll;
 				@include box-sizing(border-box);
 				height: 100%;
@@ -738,6 +871,11 @@ img.avatar,
 							margin-bottom: 3px;
 							font-weight: bold;
 						}
+						.mention{
+							display: inline-block;
+							color:$blue;
+							margin-right: 5px;
+						}
 						.foot{
 							display: block;
 							margin-top: 5px;
@@ -746,13 +884,127 @@ img.avatar,
 
 							a{
 								color: $gray;
+								text-decoration: none;
+
+								&:hover{
+									text-decoration: underline;
+								}
 							}
 							.date{
+								margin-right: 10px;
+							}
+							.read{
 								margin-right: 5px;
+							}
+							.fav{
+								margin-right: 5px;
+								position: relative;
+								padding-left: 15px;
+
+								i{
+									position: absolute;
+									top: 0;
+									left: 0;
+								}
+							}
+						}
+						&.newMember{
+							padding-top: 15px;
+							height: 45px;
+							background: $grayBackLight;
+
+							.foot{
+								margin-top: 10px;
 							}
 						}
 					}
 				}
+			}
+		}
+
+		&.private{
+
+			.inner{
+				padding: 20px;
+				//background: $grayBackLight;
+
+				.alertSuccess{
+					text-align: center;
+
+					i{
+						font-size: 40px;
+						color: $gray;
+					}
+				}
+			}
+		}
+	}
+}
+#files{
+	position: relative;
+	@include box-sizing(border-box);
+	height: 100%;
+	width: 100%;
+	padding: 30px 0 50px;
+
+	.fileHead{
+		@include box-sizing(border-box);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30px;
+		border-bottom: 1px solid $grayLight;
+		padding-right: 16px;
+	}
+	.fileInner{
+		overflow-y: scroll;
+		@include box-sizing(border-box);
+		height: 100%;
+		width: 100%;
+		padding: 0;
+	}
+	.fileFoot{
+		@include box-sizing(border-box);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 50px;
+		border-top: 1px solid $grayLight;
+		padding: 7px 10px 0;
+		background: $grayLighter;
+	}
+}
+.fileListTable{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+
+	thead{
+
+		tr{
+
+			th{
+				@include box-sizing(border-box);
+				height: 29px;
+				font-weight: normal;
+				padding: 0px 10px;
+				//background: $grayLighter;
+				//border-bottom: 1px solid $grayLight;
+				border-right: 1px solid $grayLighter;
+				text-align: left;
+				font-size: 11px;
+			}
+		}
+	}
+	tbody{
+
+		tr{
+
+			td{
+				padding: 10px 10px;
+				border-bottom: 1px solid $grayBorderLight;
 			}
 		}
 	}

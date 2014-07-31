@@ -175,7 +175,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 #wrapper {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 #header {
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 50px;
   padding: 0;
   border-bottom: 1px solid #e2e2e2;
   background: white;
@@ -199,7 +199,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 .logo {
   float: left;
   margin-left: 15px;
-  margin-top: 13px;
+  margin-top: 9px;
 }
 
 .hdTab {
@@ -226,8 +226,8 @@ h1, h2, h3, h4, h5, h6, p, span {
   display: block;
   padding: 0px 20px 0;
   margin: 0;
-  line-height: 60px;
-  height: 60px;
+  line-height: 50px;
+  height: 50px;
   color: #999999;
 }
 .hdTab ul li a:not(.setting):hover {
@@ -236,7 +236,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 .hdTab ul li .setting {
   display: none;
   position: absolute;
-  top: 23px;
+  top: 18px;
   right: 4px;
   color: #d2d2d2;
 }
@@ -247,7 +247,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   display: block;
 }
 .hdTab ul li.plus a {
-  padding: 23px 10px 0;
+  padding: 18px 10px 0;
   color: #d2d2d2;
 }
 .hdTab ul li.plus a:hover {
@@ -271,24 +271,27 @@ h1, h2, h3, h4, h5, h6, p, span {
   position: relative;
   float: right;
   display: inline-block;
-  height: 30px;
-  margin-left: 7px;
-  margin-top: 15px;
+  margin-top: 0px;
 }
 .appBtn .num, .messageBtn .num, .infoBtn .num, .userBtn .num {
   position: absolute;
-  top: -2px;
-  right: 3px;
+  top: 7px;
+  right: 13px;
 }
 .appBtn a, .messageBtn a, .infoBtn a, .userBtn a {
-  display: inline-block;
-  height: 14px;
-  width: 30px;
-  border-radius: 3px;
-  padding: 8px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 16px 0 0;
   text-align: center;
   vertical-align: middle;
   color: #999999;
+}
+.appBtn a i, .messageBtn a i, .infoBtn a i, .userBtn a i {
+  font-size: 18px !important;
 }
 .appBtn a:hover, .messageBtn a:hover, .infoBtn a:hover, .userBtn a:hover {
   color: #ff9900;
@@ -298,17 +301,17 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 30px;
   height: 30px;
 }
-
-.appBtn {
-  margin-right: 10px;
+.appBtn.active, .messageBtn.active, .infoBtn.active, .userBtn.active {
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+  border-bottom: 1px solid white;
 }
 
 .userBtn {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 .userBtn > a {
-  height: 30px;
-  padding: 0;
+  padding: 10px 0 0;
   overflow: hidden;
 }
 
@@ -317,7 +320,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: fixed;
-  top: 60px;
+  top: 50px;
   left: 0;
   width: 100%;
   padding: 7px 10px;
@@ -356,9 +359,10 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 #dropdownInfo,
-#dropdownUser {
+#dropdownUser,
+#dropdownMesSet {
   position: fixed;
-  top: 60px;
+  top: 50px;
   background: white;
   width: 300px;
   border: 1px solid #d2d2d2;
@@ -368,25 +372,29 @@ h1, h2, h3, h4, h5, h6, p, span {
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.075);
 }
 #dropdownInfo h3,
-#dropdownUser h3 {
+#dropdownUser h3,
+#dropdownMesSet h3 {
   padding: 5px 10px;
   font-weight: normal;
   margin: 0;
   color: #333333;
 }
 #dropdownInfo ul,
-#dropdownUser ul {
+#dropdownUser ul,
+#dropdownMesSet ul {
   padding: 0;
   margin: 0;
 }
 #dropdownInfo ul li,
-#dropdownUser ul li {
+#dropdownUser ul li,
+#dropdownMesSet ul li {
   padding: 0;
   margin: 0;
   background: none;
 }
 #dropdownInfo ul li a,
-#dropdownUser ul li a {
+#dropdownUser ul li a,
+#dropdownMesSet ul li a {
   display: block;
   padding: 7px 10px;
   margin: 0;
@@ -394,22 +402,26 @@ h1, h2, h3, h4, h5, h6, p, span {
   text-decoration: none;
 }
 #dropdownInfo ul li a:hover,
-#dropdownUser ul li a:hover {
+#dropdownUser ul li a:hover,
+#dropdownMesSet ul li a:hover {
   background: #f0f0f0;
 }
 #dropdownInfo ul li a .name,
-#dropdownUser ul li a .name {
+#dropdownUser ul li a .name,
+#dropdownMesSet ul li a .name {
   display: block;
   padding-right: 40px;
 }
 #dropdownInfo ul li a .thumb,
-#dropdownUser ul li a .thumb {
+#dropdownUser ul li a .thumb,
+#dropdownMesSet ul li a .thumb {
   position: absolute;
   top: 7px;
   left: 10px;
 }
 #dropdownInfo ul li a .date,
-#dropdownUser ul li a .date {
+#dropdownUser ul li a .date,
+#dropdownMesSet ul li a .date {
   position: absolute;
   top: 7px;
   right: 10px;
@@ -430,6 +442,12 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 200px;
 }
 
+#dropdownMesSet {
+  top: 100px;
+  right: 10px;
+  width: 150px;
+}
+
 .thumb {
   width: 24px;
   height: 24px;
@@ -439,6 +457,18 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 24px;
   height: 24px;
   border-radius: 3px;
+}
+
+.badge {
+  background: #f0f0f0;
+  border: 1px solid #d2d2d2;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #333333;
+  margin-right: 5px;
+}
+.badge i {
+  margin-right: 3px;
 }
 
 #messangerWindow {
@@ -451,7 +481,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   background: white;
   width: 100%;
   height: 100%;
-  padding: 110px 0px 0px;
+  padding: 100px 0px 0px;
   z-index: 999;
   margin: 0;
 }
@@ -460,14 +490,24 @@ h1, h2, h3, h4, h5, h6, p, span {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: absolute;
-  top: 60px;
+  top: 50px;
   left: 0;
   width: 100%;
-  padding: 9px 15px 0;
+  padding: 14px 15px 0;
   margin: 0;
   font-weight: normal;
   height: 50px;
-  line-height: 30px;
+  line-height: 20px;
+}
+#messangerWindow h3 .setting {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px 4px;
+}
+#messangerWindow h3 .setting:hover {
+  color: #222222;
 }
 #messangerWindow .auiPortlet {
   -webkit-box-sizing: border-box;
@@ -540,7 +580,8 @@ h1, h2, h3, h4, h5, h6, p, span {
   left: 0;
   height: 100%;
   width: 280px;
-  border-right: 1px solid #d2d2d2;
+  background: #333333;
+  color: white;
 }
 #messangerWindowBody .side .inner {
   -webkit-box-sizing: border-box;
@@ -551,11 +592,40 @@ h1, h2, h3, h4, h5, h6, p, span {
   padding: 0;
   overflow-y: scroll;
 }
+#messangerWindowBody .side .inner .searchArea {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+#messangerWindowBody .side .inner .searchArea input[type="text"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px;
+}
+#messangerWindowBody .side .inner .searchArea input[type="text"]:focus {
+  background: white;
+}
+#messangerWindowBody .side .inner .searchArea button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  text-shadow: none;
+}
+#messangerWindowBody .side .inner .searchArea button i {
+  color: rgba(255, 255, 255, 0.4);
+}
 #messangerWindowBody .side .inner .btnArea {
   padding: 10px;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
-#messangerWindowBody .side .inner .btnArea input {
+#messangerWindowBody .side .inner .btnArea button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -570,7 +640,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   padding: 0;
   margin: 0;
   display: block;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 #messangerWindowBody .side .inner ul li a {
   overflow: hidden;
@@ -596,7 +666,12 @@ h1, h2, h3, h4, h5, h6, p, span {
   padding-right: 40px;
   margin: 0 0 3px;
   line-height: 12px;
-  color: #333333;
+  color: white;
+}
+#messangerWindowBody .side .inner ul li a .name .num {
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 #messangerWindowBody .side .inner ul li a .date {
   display: inline-block;
@@ -607,14 +682,17 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-size: 10px;
 }
 #messangerWindowBody .side .inner ul li a:hover {
-  background: #f0f0f0;
+  background: #222222;
   color: #ff9900;
 }
 #messangerWindowBody .side .inner ul li a:hover .name {
   color: #ff9900;
 }
 #messangerWindowBody .side .inner ul li.active a {
-  background: #f5f5f5;
+  background: #222222;
+}
+#messangerWindowBody .side .inner ul li.invite a .name .num {
+  background: #049cdb !important;
 }
 #messangerWindowBody .main {
   height: 100%;
@@ -639,7 +717,6 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 100%;
   height: 150px;
   padding: 10px;
-  border-bottom: 1px solid #ededed;
 }
 #messangerWindowBody .main .inner .messengerForm .user {
   height: 24px;
@@ -650,19 +727,11 @@ h1, h2, h3, h4, h5, h6, p, span {
   margin-right: 3px;
 }
 #messangerWindowBody .main .inner .messengerForm .user .plus {
-  display: block;
-  float: left;
-}
-#messangerWindowBody .main .inner .messengerForm .user .plus a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  display: block;
-  height: 24px;
-  width: 24px;
-  padding: 5px 0 0;
-  text-decoration: none;
-  text-align: center;
+  height: 24px !important;
+  font-size: 11px;
 }
 #messangerWindowBody .main .inner .messengerForm form {
   display: block;
@@ -680,6 +749,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-radius: 5px 5px 0 0;
   padding: 7px;
   height: 50px;
+  outline: none;
 }
 #messangerWindowBody .main .inner .messengerForm form textarea:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -691,7 +761,54 @@ h1, h2, h3, h4, h5, h6, p, span {
   padding: 5px;
   border-radius: 0 0 5px 5px;
 }
-#messangerWindowBody .main .inner .messageArea {
+#messangerWindowBody .main .inner #tabArea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 35px;
+}
+#messangerWindowBody .main .inner #messageTab {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 5px 0 0;
+  border-bottom: 1px solid #d2d2d2;
+}
+#messangerWindowBody .main .inner #messageTab li {
+  padding: 0;
+  margin: 0 5px -1px 0;
+  background: none;
+  float: left;
+  border-top: 1px solid #d2d2d2;
+  border-left: 1px solid #d2d2d2;
+  border-right: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+  border-radius: 4px 4px 0 0;
+}
+#messangerWindowBody .main .inner #messageTab li a {
+  padding: 5px 20px 5px 15px;
+  display: block;
+  text-decoration: none;
+  border-radius: 4px 4px 0 0;
+}
+#messangerWindowBody .main .inner #messageTab li a:hover {
+  background: #f6f6f6;
+}
+#messangerWindowBody .main .inner #messageTab li.selected {
+  border-bottom: 1px solid white;
+}
+#messangerWindowBody .main .inner #messageTab li.selected a {
+  background: white;
+}
+#messangerWindowBody .main .inner #talk, #messangerWindowBody .main .inner #fav {
   overflow-y: scroll;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -700,11 +817,11 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 100%;
   padding: 0;
 }
-#messangerWindowBody .main .inner .messageArea ul {
+#messangerWindowBody .main .inner #talk ul, #messangerWindowBody .main .inner #fav ul {
   padding: 0;
   margin: 0;
 }
-#messangerWindowBody .main .inner .messageArea ul li {
+#messangerWindowBody .main .inner #talk ul li, #messangerWindowBody .main .inner #fav ul li {
   position: relative;
   padding: 10px 10px 10px 70px;
   margin: 0;
@@ -712,33 +829,138 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-bottom: 1px solid #ededed;
   min-height: 50px;
 }
-#messangerWindowBody .main .inner .messageArea ul li .thumb {
+#messangerWindowBody .main .inner #talk ul li .thumb, #messangerWindowBody .main .inner #fav ul li .thumb {
   height: 50px;
   width: 50px;
   position: absolute;
   top: 10px;
   left: 10px;
 }
-#messangerWindowBody .main .inner .messageArea ul li .thumb img {
+#messangerWindowBody .main .inner #talk ul li .thumb img, #messangerWindowBody .main .inner #fav ul li .thumb img {
   height: 50px;
   width: 50px;
 }
-#messangerWindowBody .main .inner .messageArea ul li .name {
+#messangerWindowBody .main .inner #talk ul li .name, #messangerWindowBody .main .inner #fav ul li .name {
   display: block;
   margin-bottom: 3px;
   font-weight: bold;
 }
-#messangerWindowBody .main .inner .messageArea ul li .foot {
+#messangerWindowBody .main .inner #talk ul li .mention, #messangerWindowBody .main .inner #fav ul li .mention {
+  display: inline-block;
+  color: #049cdb;
+  margin-right: 5px;
+}
+#messangerWindowBody .main .inner #talk ul li .foot, #messangerWindowBody .main .inner #fav ul li .foot {
   display: block;
   margin-top: 5px;
   font-size: 10px;
   color: #999999;
 }
-#messangerWindowBody .main .inner .messageArea ul li .foot a {
+#messangerWindowBody .main .inner #talk ul li .foot a, #messangerWindowBody .main .inner #fav ul li .foot a {
+  color: #999999;
+  text-decoration: none;
+}
+#messangerWindowBody .main .inner #talk ul li .foot a:hover, #messangerWindowBody .main .inner #fav ul li .foot a:hover {
+  text-decoration: underline;
+}
+#messangerWindowBody .main .inner #talk ul li .foot .date, #messangerWindowBody .main .inner #fav ul li .foot .date {
+  margin-right: 10px;
+}
+#messangerWindowBody .main .inner #talk ul li .foot .read, #messangerWindowBody .main .inner #fav ul li .foot .read {
+  margin-right: 5px;
+}
+#messangerWindowBody .main .inner #talk ul li .foot .fav, #messangerWindowBody .main .inner #fav ul li .foot .fav {
+  margin-right: 5px;
+  position: relative;
+  padding-left: 15px;
+}
+#messangerWindowBody .main .inner #talk ul li .foot .fav i, #messangerWindowBody .main .inner #fav ul li .foot .fav i {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#messangerWindowBody .main .inner #talk ul li.newMember, #messangerWindowBody .main .inner #fav ul li.newMember {
+  padding-top: 15px;
+  height: 45px;
+  background: #f6f6f6;
+}
+#messangerWindowBody .main .inner #talk ul li.newMember .foot, #messangerWindowBody .main .inner #fav ul li.newMember .foot {
+  margin-top: 10px;
+}
+#messangerWindowBody .main.private .inner {
+  padding: 20px;
+}
+#messangerWindowBody .main.private .inner .alertSuccess {
+  text-align: center;
+}
+#messangerWindowBody .main.private .inner .alertSuccess i {
+  font-size: 40px;
   color: #999999;
 }
-#messangerWindowBody .main .inner .messageArea ul li .foot .date {
-  margin-right: 5px;
+
+#files {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 30px 0 50px;
+}
+#files .fileHead {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid #d2d2d2;
+  padding-right: 16px;
+}
+#files .fileInner {
+  overflow-y: scroll;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+#files .fileFoot {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #d2d2d2;
+  padding: 7px 10px 0;
+  background: #f0f0f0;
+}
+
+.fileListTable {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.fileListTable thead tr th {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 29px;
+  font-weight: normal;
+  padding: 0px 10px;
+  border-right: 1px solid #f0f0f0;
+  text-align: left;
+  font-size: 11px;
+}
+.fileListTable tbody tr td {
+  padding: 10px 10px;
+  border-bottom: 1px solid #ededed;
 }
 
 .roundMainWrapper {

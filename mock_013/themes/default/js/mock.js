@@ -117,7 +117,18 @@ function scrollToggle() {
 }
 
 window.onload=function(){
-	fitMessage();
+	var uls = document.getElementsByTagName("ul");	//ページ内すべての<ul>を取得
+	for (i = 0; i < uls.length; i++) {
+		var lis = uls[i].getElementsByTagName("li");	//対象の<ul>内すべての<li>を取得
+		for (j = 0; j < lis.length; j++) {
+			if(j % 2 == 0) {
+				lis[j].className += " even";
+			} else {
+				lis[j].className += " odd";
+			}
+		}
+	}
+		fitMessage();
 	/*
 	document.onmouseover = function(e) {	//オンマウスしたAタグにhover付与
 	}
@@ -207,8 +218,6 @@ function auiTabs($this, $target) {
 			var tabContents = childs[i].getElementsByTagName("li");
 		}
 	}
-	console.log(tab);
-	console.log(tabContents);
 	//クリックしたタブがアクティブか調べる
 	var flag = -1;	//クリックしたタブ番号を兼ねたフラグ
 	for(i=0; i<tab.length; i++) {

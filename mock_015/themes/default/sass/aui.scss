@@ -149,7 +149,7 @@ img.avatar,
 	text-align: center;
 	margin-top:5px;
 	margin-right:2px;
-	@extend .bRadius4;
+	@extend .bRadius2;
 	color:#FFFFFF;
 	background:#e63439 !important;
 	text-decoration:none;
@@ -641,6 +641,7 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 }
 
 .userListIcon {
+	margin-bottom: 5px;
 	li {
 		display: block;
 		float:left;
@@ -648,9 +649,19 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 		margin:0 4px 5px 0;
 		padding: 0;
 	}
-	.avatar img {
+	.avatar img,
+	[class*=icon-] {
+		display: block;
 		width:24px;
 		height: 24px;
+		line-height: 24px;
+		text-align: center;
+		color: $grayLight;
+	}
+	a:hover {
+		[class*=icon-] {
+			color: $textColor;
+		}
 	}
 }
 
@@ -747,8 +758,8 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 				@extend .ellipsis;
 				display: block;
 				line-height: $inputHeight;
-				margin: 0 5px;
-				padding: 0 10px;
+				margin: 0 5px 0 0;
+				padding: 0 20px;
 				text-align: center;
 				text-decoration: none;
 				background-color: $white;
@@ -758,6 +769,9 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 				&:hover {
 					color: $orange;
 				}
+			}
+			&:first-child a {
+				margin: 0 5px;
 			}
 		}
 		> li.active {
@@ -1973,11 +1987,13 @@ ul.attachments{
 /***************************************************
 	timeline
 --------------------------------------------------*/
-#timelineOuter {
+.timelineOuter {
 	position:relative;
 	//margin:5px 0;
 
 	.message {
+		@extend .clearfix;
+		position: relative;
 		margin:0;
 		padding:10px 0 0;
 		clear:both;
@@ -1986,20 +2002,19 @@ ul.attachments{
 	.message:first-child,
 	.message.first {
 		border-top: none !important;
-		padding-top:0 !important;
-		margin-top:0 !important;
+		//padding-top:0 !important;
 	}
 	.on {
 		border-top: 1px solid #999999;
 	}
-	#inputField,
+	.inputField,
 	.outer {
 		@extend .bRadius3;
 		border: 1px $grayBorder solid;
 		background:#fff;
 		overflow:hidden;
 	}
-	#inputField {
+	.inputField {
 		margin-bottom: 15px;
 		background:transparent;
 	}
@@ -2072,7 +2087,8 @@ ul.attachments{
 
 .tlDisplayChanger {
 	position:relative;
-	height:15px;
+	//height:15px;
+	height: 5px;
 	line-height:15px;
 	border-top:1px solid $grayBorderLight;
 	z-index:1;
@@ -2108,7 +2124,8 @@ ul.attachments{
 }
 .timeline {
 	.avatar {
-		float:left;
+		position: absolute;
+		//float:left;
 		//margin:0 10px 0 0;
 	}
 	.messageContents {
@@ -2278,7 +2295,7 @@ ul.attachments{
 	margin:0 4px 0 0;
 	@extend .bRadius3;
 }
-#timelineOuter .newMessage {
+.timelineOuter .newMessage {
 	background: $grayBackLight;
 	text-align: center;
 	border: 1px $grayBorder solid;
@@ -2292,7 +2309,7 @@ ul.attachments{
 	border: 1px $grayBorder solid;
 	@extend .bRadius3;
 }
-#timelineOuter .newMessage a,
+.timelineOuter .newMessage a,
 .timeline .readMore a {
 	display:block;
 	padding: 3px;
@@ -2325,6 +2342,7 @@ ul.attachments{
 }
 .disabled a {
 	color:#666666;
+	font-weight: bold;
 }
 
 /***************************************************
@@ -3268,17 +3286,19 @@ a:hover .auiWFicon [class^="icon-"] {
 	loader
 --------------------------------------------------*/
 .loader {
-  //background: $grayBackLight;
-  padding: 10px;
-  height:20px;
-  //@extend .bRadius4;
-  background: url(../images/common/indicator.gif) no-repeat center center;
-  background-size:16px;
-  text-align: center;
-
-  img {
-  	vertical-align: middle;
-  }
+	padding: 10px;
+	height:20px;
+	line-height: 20px;
+	  //@extend .bRadius4;
+	  //background: url(../images/common/indicator.gif) no-repeat center center;
+	 background-size:16px;
+	text-align: center;
+	img {
+		vertical-align: middle;
+	}
+	[class*=icon-] {
+		font-size: 18px;
+	}
 }
 .auiLoadWrapper {
 	position: relative;

@@ -3,7 +3,7 @@
 //####################################################################################################
 // auiHeader
 //----------------------------------------------------------------------------------------------------
-$headerHeight: 50px;
+$headerHeight:60px;
 #auiHeader {
 	position: fixed;
 	width: 100%;
@@ -27,7 +27,7 @@ $headerHeight: 50px;
 	float: left;
 	a {
 		display: inline-block;
-		padding: 10px;
+		padding: 15px 10px;
 	}
 }
 .hdPages {
@@ -43,13 +43,13 @@ $headerHeight: 50px;
 			> a {
 				display: block;
 				float: left;
-				line-height: 50px;
+				line-height: $headerHeight;
 				padding: 0 20px;
 				color: $grayLight;
 				font-size: $fontSizeSmall;
 				text-decoration: none;
 				[class*=icon-] {
-					color: $gray;
+					color: $grayLight;
 				}
 				&:hover {
 					color: $textColor;
@@ -60,7 +60,7 @@ $headerHeight: 50px;
 				}
 			}
 			[class^="icon-"], [class*=" icon-"] {
-				line-height: 50px;
+				line-height: $headerHeight;
 			}
 
 			&:hover {
@@ -104,10 +104,10 @@ $headerHeight: 50px;
 			//border-right: none;
 			//border-bottom: none;
 			//@include transform(rotate(45deg));
-			bottom: 0;
+			bottom: -1px;
 			width: 100%;
-			height: 3px;
-			background-color: $grayBorderDark;
+			height: 1px;
+			background-color: $textColor;
 		}
 		a {
 			color: $textColor;
@@ -141,17 +141,18 @@ $headerHeight: 50px;
 			> a {
 				position: relative;
 				display: block;
-				height: 50px;
+				height: $headerHeight;
 				padding: 0 10px;
-				min-width: 50px;
+				min-width: $headerHeight - 10;
 				text-align: center;
 				text-decoration: none;
 				color: $textColor;
+				border-top: solid 1px transparent;
 				border-right: solid 1px transparent;
 				border-left: solid 1px transparent;
 
 				[class^="icon-"], [class*=" icon-"] {
-					line-height: 50px;
+					line-height: $headerHeight;
 					vertical-align: middle;
 					font-size: 18px;
 					color: $grayLight;
@@ -164,6 +165,7 @@ $headerHeight: 50px;
 				}
 				&.active {
 					position: relative;
+					border-top: solid 1px $grayBorderDark;
 					border-right: solid 1px $grayBorderDark;
 					border-left: solid 1px $grayBorderDark;
 					background-color: $white;
@@ -186,9 +188,9 @@ $headerHeight: 50px;
 			}
 		}
 	}
-	.icon-caret-down {
-		font-size: 10px !important;
-	}
+	//.icon-caret-down {
+	//	font-size: 10px !important;
+	//}
 }
 .search {
 	position: relative;
@@ -223,7 +225,7 @@ $headerHeight: 50px;
 		background: none;
 		filter: none;
 		cursor: pointer;
-		border-left: solid 1px $grayBorderLight;
+		//border-left: solid 1px $grayBorderLight;
 		@include border-left-radius(0);
 
 		[class^="icon-"], [class*=" icon-"] {
@@ -233,7 +235,7 @@ $headerHeight: 50px;
 		}
 
 		&:hover {
-			background-color: $grayBackLight;
+			//background-color: $grayBackLight;
 			[class^="icon-"], [class*=" icon-"] {
 				color: $textColor;
 			}
@@ -350,9 +352,18 @@ $headerHeight: 50px;
 	}
 }
 
-.hdCommunications {
+ul.hdCommunications {
+	padding: 5px 0;
 	> li {
 		position: static;
+		> a {
+			display: table-cell;
+			vertical-align: middle;
+			height: $headerHeight - 10;
+			[class^="icon-"], [class*=" icon-"] {
+				line-height: $headerHeight - 10;
+			}
+		}
 	}
 
 	.num {
@@ -361,14 +372,14 @@ $headerHeight: 50px;
 		top: 8px;
 		right: 8px;
 		min-width: 12px;
-		line-height: 12px;
+		line-height: 13px;
 		padding: 0 2px;
 		font-size: 10px;
 		text-align: center;
 		//color: $gray;
-		border: solid 1px $white;
-		//@include box-shadow(-1px 1px 0 $white);
-		@include border-radius(6px);
+		//border: solid 1px $white;
+		@include box-shadow(0 1px 1px rgba($black,.1));
+		@extend .bRadius3;
 		@extend .border-box;
 	}
 	.valid {
@@ -377,7 +388,7 @@ $headerHeight: 50px;
 		}
 		.num {
 			display: block;
-			background-color: $grayDark;
+			background-color: $red;
 			//background-color: $red;
 			color: $white;
 		}
@@ -386,22 +397,57 @@ $headerHeight: 50px;
 		text-wrap: nowrap;
 	}
 }
+
+[class^="sprite-"] {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/common/head_icons.png);
+}
+.sprite-comment {
+	background-position: left top;
+	a:hover &,
+	a.active & {
+		background-position: left bottom;
+	}
+}
+.sprite-notification {
+	background-position: center top;
+	a:hover &,
+	a.active & {
+		background-position: center bottom;
+	}
+}
+.sprite-support {
+	background-position: right top;
+	a:hover &,
+	a.active & {
+		background-position: right bottom;
+	}
+}
+
 .tweet {
 	textarea {
 		width: 100%;
 	}
 }
 
-.hdTools {
+ul.hdTools {
 	//border-left: solid 1px $grayLighter;
+	padding: 5px 0;
 
 	> li {
 		position: relative;
 		min-width: 120px;
+		line-height: $headerHeight - 10;
 		> a {
+			height: $headerHeight - 10;
 			text-decoration: none;
 			&:hover, &:hover .name {
 				color: $textColor;
+			}
+			[class^="icon-"], [class*=" icon-"] {
+				line-height: $headerHeight - 10;
 			}
 		}
 	}
@@ -435,7 +481,7 @@ $headerHeight: 50px;
 //####################################################################################################
 // dropdown
 //----------------------------------------------------------------------------------------------------
-$dropdownSideWidth: 300px;
+$dropdownSideWidth: 280px;
 .dropdown {
 	@extend .bRadius3;
 	@extend .popupShadow;
@@ -466,7 +512,7 @@ $dropdownSideWidth: 300px;
 		@extend .clearfix;
 		padding: 10px;
 		line-height: 24px;
-		font-weight: bold;
+		//font-weight: bold;
 		border-bottom: solid 1px $grayBorder;
 	}
 	.body {
@@ -494,6 +540,10 @@ $dropdownSideWidth: 300px;
 		&:first-child {
 			border-top: none;
 		}
+	}
+	.foot {
+		@extend .clearfix;
+		padding: 10px;
 	}
 }
 .dropdown_menu {
@@ -524,22 +574,25 @@ $dropdownSideWidth: 300px;
 	font-size: $fontSizeSmall;
 	li {
 		border-bottom: solid 1px $grayBorderLight;
+		> a {
+			> .avatar {
+				position: absolute;
+				+ .body {
+					padding-left: 30px;
+				}
+			}
+		}
 	}
-
-	.body {
-		@extend .ellipsis;
-		width: 100%;
+	.name {
+		margin-bottom: 5px;
 	}
 	.date {
 		float: right;
 		color: $gray;
 	}
-	[class*=avatar_] {
-		margin-right: 5px;
-	}
-	.body {
-		//line-height: 1.5;
-	}
+	//[class*=avatar_] {
+	//	margin-right: 5px;
+	//}
 	.new {
 		background-color: $grayBackLight;
 		.date, .name {
@@ -567,6 +620,25 @@ $dropdownSideWidth: 300px;
 //----------------------------------------------------------------------------------------------------
 #dd_message {
 	width: 100%;
+
+	.sideBlock {
+		background-color: $grayDark;
+		color: $white;
+		.search {
+			background-color: $gray;
+			border-color: $gray;
+			input[type=text] {
+				background-color: $gray;
+			}
+			button {
+				text-shadow: none;
+			}
+			label,
+			[class*="icon-"] {
+				color: $grayLight;
+			}
+		}
+	}
 	.mainBlock {
 		margin-left: $dropdownSideWidth;
 		border-left: solid 1px $grayBorder;
@@ -579,6 +651,9 @@ $dropdownSideWidth: 300px;
 		width: $dropdownSideWidth;
 		border-left: solid 1px $grayBorder;
 	}
+	.inputField {
+		margin-bottom: 10px;
+	}
 }
 .nrCount {
 	@extend .counter;
@@ -590,17 +665,21 @@ $dropdownSideWidth: 300px;
 		position: relative;
 		padding: 0;
 		background-image: none;
-		border-bottom: solid 1px $grayBorderLight;
+		border-bottom: solid 1px $black;
 		a {
 			@extend .clearfix;
 			display: block;
 			text-decoration: none;
-			padding: 5px 5px 5px 45px;
+			padding: 5px 5px 5px 40px;
+			color: $gray;
+			.name {
+				color: $white;
+			}
 			&:hover {
-				color: $textColor;
-				background-color: $grayBackLight;
+				color: $linkColorHover;
+				background-color: $grayDarker;
 				.name {
-					color: $textColor;
+					color: $linkColorHover;
 				}
 			}
 		}
@@ -612,24 +691,23 @@ $dropdownSideWidth: 300px;
 		position: absolute;
 		top: 0;
 		left: 0;
-		padding: 5px;
+		padding: 8px;
 		img, .icon-group {
 			display: block;
-			width: 32px;
-			height: 32px;
-			line-height: 32px;
+			width: 24px;
+			height: 24px;
+			line-height: 24px;
 			text-align: center;
 			@extend .bRadius3;
 		}
 		.icon-group {
 			background-color: $gray;
 			color: $white;
-			font-size: 22px;
+			font-size: 18px;
 		}
 	}
 	.date {
 		float: right;
-		color: $gray;
 		white-space: nowrap;
 		margin-left: 5px;
 	}
@@ -640,24 +718,40 @@ $dropdownSideWidth: 300px;
 		@include ellipsis;
 	}
 	.latest {
-		color: $gray;
 	}
 	.nrCount {
-		display: none;
 		margin: 0 3px 0 0;
 	}
-	.new {
-		background-color: $grayBackLight;
-		.nrCount {
-			display: block;
-		}
-		.name, .date {
-			font-weight: bold;
-			color: $textColor;
+	.active {
+		background-color: $white;
+		a, a:hover {
+			color: $gray !important;
+			background-color: $white;
+			.date, .latest {
+				color: $gray !important;
+			}
+			.name {
+				color: $textColor;
+			}
 		}
 	}
 	[class*="icon-"] {
 		color: $blue;
+	}
+}
+.messageSummaryHead {
+	div {
+		border-bottom: solid 1px $black;
+	}
+}
+#messageTimeline {
+	margin: 0 -10px;
+	.message {
+		padding-right: 10px;
+		padding-left: 10px;
+		&.invite {
+			background-color: $grayBackLight;
+		}
 	}
 }
 //#messageFavorites,
@@ -690,10 +784,7 @@ $dropdownSideWidth: 300px;
 //####################################################################################################
 // dd_information
 //----------------------------------------------------------------------------------------------------
-#dd_information {
-	.dropdown_list {
-		height: 300px;
-	}
+#dd_notification {
 }
 
 //####################################################################################################

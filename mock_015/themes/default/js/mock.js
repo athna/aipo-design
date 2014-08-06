@@ -17,27 +17,12 @@ function floatPortletToggle($this, $target) {
 	var i = t.className.indexOf(" open");
 	if (i > 0) {
 		t.className = t.className.replace(" open","")
-		//document.getElementById($target).className += " open";
 	} else {
 		t.className += " open";
 	}
 }
 
 function dropdownToggle($this, $target) {
-	/* IE8でgetElementsByClassNameが使えないため直下の処理に変更
-	var closeElms = document.getElementsByClassName("open");
-	for (var i = 0; i < closeElms.length; i++) {
-		if(closeElms[i].id != $target) {
-			closeElms[i].className = closeElms[i].className.replace(' open', '');
-		}
-	}
-	var unactiveElms =  document.getElementsByClassName("active");
-	for (var i = 0; i < unactiveElms.length; i++) {
-		if(unactiveElms[i] != $this) {
-			unactiveElms[i].className = unactiveElms[i].className.replace(' active', '');
-		}
-	}
-	*/
 	var elms = document.getElementsByTagName("div");
 	for (var i = 0; i < elms.length; i++) {
 		if(elms[i].className.indexOf('open') > 0) {
@@ -88,14 +73,16 @@ function launcherToggle($this, $target) {
 
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
-		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 106;
+		var minusH = document.getElementById("auiHeader").clientHeight + 45;
 		var w = document.documentElement.clientWidth - 20;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("dd_message").style.width = w + "px";
-		document.getElementById("messageSummary").style.height = h + "px";
+		//document.getElementById("messageSummary").style.height = h + "px";
+		document.getElementById("messageSideBlock").style.height = h + "px";
 	}
 	if(document.getElementById("messageTimeline") != null) {
-		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 42 + 105;
+		//var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 42 + 105;
+		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 105;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("messageTimeline").style.height = h + "px";
 	}

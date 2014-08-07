@@ -7,6 +7,7 @@ $headerHeight:60px;
 #auiHeader {
 	position: fixed;
 	width: 100%;
+	min-width: $layoutMinWidth;
 	@extend .clearfix;
 	@extend .border-box;
 	padding: 0 0 0 10px;
@@ -32,7 +33,7 @@ $headerHeight:60px;
 }
 .hdPages {
 	float: left;
-	padding-left: 10px;
+	padding-left: 20px;
 	> ul {
 		@extend .clearfix;
 		> li {
@@ -46,7 +47,7 @@ $headerHeight:60px;
 				line-height: $headerHeight;
 				padding: 0 20px;
 				color: $grayLight;
-				font-size: $fontSizeSmall;
+				//font-size: $fontSizeSmall;
 				text-decoration: none;
 				[class*=icon-] {
 					color: $grayLight;
@@ -73,7 +74,7 @@ $headerHeight:60px;
 	a.name {
 		@extend .ellipsis;
 		max-width: 12em;
-		font-size: $fontSizeSmall;
+		//font-size: $fontSizeSmall;
 	}
 	a.setting {
 		display: none;
@@ -84,6 +85,7 @@ $headerHeight:60px;
 		text-align: center;
 	}
 	a.plus {
+		padding: 0 15px;
 		[class*=icon-] {
 			color: $grayLight;
 		}
@@ -146,7 +148,7 @@ $headerHeight:60px;
 				min-width: $headerHeight - 10;
 				text-align: center;
 				text-decoration: none;
-				color: $textColor;
+				color: $gray;
 				border-top: solid 1px transparent;
 				border-right: solid 1px transparent;
 				border-left: solid 1px transparent;
@@ -169,7 +171,7 @@ $headerHeight:60px;
 					border-right: solid 1px $grayBorderDark;
 					border-left: solid 1px $grayBorderDark;
 					background-color: $white;
-					@extend .popupShadow;
+					//@extend .popupShadow;
 					[class^="icon-"], [class*=" icon-"] {
 						color: $grayDark;
 					}
@@ -510,7 +512,9 @@ $dropdownSideWidth: 280px;
 	}
 	.title {
 		@extend .clearfix;
-		padding: 10px;
+		@extend .border-box;
+		height: 40px;
+		padding: 8px 10px;
 		line-height: 24px;
 		//font-weight: bold;
 		border-bottom: solid 1px $grayBorder;
@@ -519,6 +523,7 @@ $dropdownSideWidth: 280px;
 		@extend .clearfix;
 	}
 	.sideBlock {
+		position: relative;
 		float: left;
 		width: $dropdownSideWidth;
 		.inner {
@@ -543,7 +548,7 @@ $dropdownSideWidth: 280px;
 	}
 	.foot {
 		@extend .clearfix;
-		padding: 10px;
+		padding: 8px 10px;
 	}
 }
 .dropdown_menu {
@@ -801,11 +806,13 @@ $dropdownSideWidth: 280px;
 //----------------------------------------------------------------------------------------------------
 .emptyMessage {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	width: 200px;
 	height: 160px;
-	margin: -80px 0 0 -100px;
+	margin: auto;
 	text-align: center;
 	color: $gray;
 	[class*=icon-] {

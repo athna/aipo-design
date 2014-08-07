@@ -50,7 +50,7 @@
 		</div-->
 		<ul class="hdCommunications">
 			<li>
-				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_message');"><i class="sprite-comment"></i><span class="num">99+</span></a>
+				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_message');" title="メッセージ"><i class="sprite-comment"></i><span class="num">99+</span></a>
 				<div class="dropdown" id="dd_message">
 					<div class="title">メッセージ</div>
 					<div class="body">
@@ -75,7 +75,7 @@
 										<div class="nrCount">5</div>
 										<span class="date">15:05</span>
 										<span class="name">木村 一郎</span>
-										<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+										<span class="latest">メッセージ0件のルーム</span>
 									</a>
 								</li>
 								<li class="active">
@@ -256,9 +256,58 @@
 						</div>
 						<div class="mainBlock" id="messageContents1" style="display:none">
 							<div class="contents">
-								<div class="emptyMessage">
-									<i class="icon-comments"></i>
-									<p>左のリストよりルームを選択するか新たにルームを追加しましょう。</p>
+								<div class="timelineOuter">
+									<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+
+									<!-- memberList -->
+									<div id="memberListWrapper" class="clearfix">
+										<ul class="userListIcon clearfix">
+											<li><span class="avatar avatar_s"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="themes/default/images/_mock/avatar2.jpg" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="themes/default/images/_mock/avatar3.jpg" title="木村 一郎" width="24" height="24"></span></li>
+											<li><a href="javascript:void(0)" title="メンバーを追加する" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-plus"></i></a></li>
+											<li class="floatRight"><a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-gear"></i></a></li>
+										</ul>
+									</div>
+									<!-- /memberList -->
+
+									<div class="inputField">
+										<form name="" id="" action="" method="post" onsubmit="">
+											<input type="hidden" name="_name" value="timelineForm">
+											<input type="hidden" name="secid" value="">
+											<div class="tlInputMention">
+												<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+											</div>
+											<!--div class="tlInputAttachment">
+												<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
+												<div class="tlClipBoard clearfix">
+													<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a></div>
+													<div class="tlClipContents">
+														<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+														<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+														<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+													</div>
+												</div>
+											</div-->
+											<div class="tlInputControls clearfix">
+												<div class="floatLeft"><a href="javascript:void(0)" class="auiButton" title="ファイルを追加する"><span><i class="icon-plus mr5"></i><i class="icon-paper-clip"></i></span></a></div>
+												<div class="floatRight">
+													<i class="icon-spinner icon-spin"></i>
+													<input type="submit" class="auiButtonAction" value="投稿する" />
+												</div>
+											</div>
+										</form>
+									</div>
+
+									<div id="messageTimeline" class="timeline scroll">
+
+										<div class="emptyMessage">
+											<i class="icon-comment-alt"></i>
+											<p>メッセージはまだありません。</p>
+										</div>
+
+									</div>
+
 								</div>
 							</div>
 						</div>
@@ -639,7 +688,7 @@
 				</div>
 			</li>
 			<li>
-				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_notification')"><i class="sprite-notification"></i><span class="num">9</span></a>
+				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_notification')" title="あなたへの通知"><i class="sprite-notification"></i><span class="num">9</span></a>
 				<div class="dropdown" id="dd_notification">
 					<div class="title">
 						<div class="floatRight">
@@ -695,7 +744,7 @@
 						</div>
 						<div class="floatRight">
 							<div class="count">1 ～ 5 / 7</div>
-							<div class="auiSelectButton floatLeft">
+							<div class="auiSelectButtonSmall floatLeft">
 								<ul class="floatLeft">
 									<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
 									<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
@@ -706,7 +755,7 @@
 				</div>
 			</li>
 			<li>
-				<a href="javascript:void(0)" onclick="dropdownToggle(this,'dd_support')"><i class="sprite-support"></i><span class="num">0</span></a>
+				<a href="javascript:void(0)" onclick="dropdownToggle(this,'dd_support')"><i class="sprite-support" title="サポート"></i><span class="num">0</span></a>
 				<div class="dropdown" id="dd_support">
 					<div class="title">Aipoからのお知らせ</div>
 					<ul class="contentList divider">
@@ -740,7 +789,7 @@
 		</ul>
 		<ul class="hdTools">
 			<li>
-				<a href="javascript:void(0)" id="toggle_settings" class="last" onclick="dropdownToggle(this,'dd_settings')"><img src="themes/default/images/_mock/avatar1.jpg" width="24" height="24" class="avatar_s"><span class="name">木村 一郎</span></a>
+				<a href="javascript:void(0)" id="toggle_settings" class="last" onclick="dropdownToggle(this,'dd_settings')"><img src="themes/default/images/_mock/avatar1.jpg" width="32" height="32" class="avatar_m"><span class="name">木村 一郎</span></a>
 				<div class="dropdown" id="dd_settings">
 					<ul class="dropdown_menu">
 						<li><a href="javascript:void(0)">個人設定</a></li>

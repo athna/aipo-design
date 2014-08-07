@@ -73,7 +73,7 @@ function launcherToggle($this, $target) {
 
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
-		var minusH = document.getElementById("auiHeader").clientHeight + 45;
+		var minusH = 55 + 40;
 		var w = document.documentElement.clientWidth - 20;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("dd_message").style.width = w + "px";
@@ -82,7 +82,7 @@ function fitMessage() {
 	}
 	if(document.getElementById("messageTimeline") != null) {
 		//var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 42 + 105;
-		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 105;
+		var minusH = 55 + 40 + 145;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("messageTimeline").style.height = h + "px";
 	}

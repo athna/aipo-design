@@ -152,6 +152,7 @@ $headerHeight:60px;
 				border-top: solid 1px transparent;
 				border-right: solid 1px transparent;
 				border-left: solid 1px transparent;
+				@include border-radius(3px 3px 0 0);
 
 				[class^="icon-"], [class*=" icon-"] {
 					line-height: $headerHeight;
@@ -445,6 +446,7 @@ ul.hdTools {
 		> a {
 			height: $headerHeight - 10;
 			text-decoration: none;
+			text-align: left;
 			&:hover, &:hover .name {
 				color: $textColor;
 			}
@@ -462,6 +464,7 @@ ul.hdTools {
 	}
 	.dropdown {
 		min-width: 100%;
+		@include border-radius(0 0 3px 3px);
 		&:before {
 			width: 100%;
 		}
@@ -501,9 +504,6 @@ $dropdownSideWidth: 280px;
 		display: block;
 	}
 
-	#auiHeader & {
-		@include border-radius(0 0 3px 3px);
-	}
 	.hdCommunications &, .hdTools &, .tools & {
 		right: 0;
 	}
@@ -536,11 +536,8 @@ $dropdownSideWidth: 280px;
 		padding: 10px;
 	}
 	h2 {
-		margin: 0;
-		padding: 2px 10px;
-		font-size: 1em;
-		background-color: $grayBack;
-		border-top: solid 1px $grayBorder;
+		margin: 0 0 1em 0;
+		font-weight: normal;
 
 		&:first-child {
 			border-top: none;
@@ -575,8 +572,12 @@ $dropdownSideWidth: 280px;
 	}
 }
 .dropdown_list {
-	@extend .dropdown_menu;
-	font-size: $fontSizeSmall;
+	min-height: 200px;
+	position: relative;
+	ul {
+		@extend .dropdown_menu;
+		font-size: $fontSizeSmall;
+	}
 	li {
 		border-bottom: solid 1px $grayBorderLight;
 		> a {
@@ -610,6 +611,10 @@ $dropdownSideWidth: 280px;
 	li {
 		padding: 6px 10px !important;
 		line-height: 1.5;
+		border-top: solid 1px $grayBorderLight;
+		&:first-child {
+			border-top: none;
+		}
 	}
 	.date {
 		margin-bottom: 3px;
@@ -810,7 +815,7 @@ $dropdownSideWidth: 280px;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	width: 200px;
+	width: 17em;
 	height: 160px;
 	margin: auto;
 	text-align: center;

@@ -25,7 +25,7 @@
   *display: inline;
 }
 
-.border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body, ul.hdCommunications .num, .dropdown, .dropdown .title, #dd_message .subContents, .scroll, #auiLauncher ul.launcher li a,
+.border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdCommunications .num, .dropdown, .dropdown .title, #dd_message .subContents, .scroll, #auiLauncher ul.launcher li a,
 #auiLauncher ul.setting li a, .buttonBase, input[type=submit],
 input[type=button],
 input[type=reset],
@@ -143,7 +143,7 @@ button.auiButtonIconDummy, .auiPopup,
   border-radius: 50%;
 }
 
-.ellipsis, .hdPages a.name, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body, ul.hdTools .name, .dropdown_menu a, .dropdown_list a, #auiLauncher ul.launcher li a,
+.ellipsis, .hdPages a.name, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdTools .name, .dropdown_menu a, .dropdown_list ul a, #auiLauncher ul.launcher li a,
 #auiLauncher ul.setting li a, .auiTabs .tab > li a {
   white-space: nowrap;
   overflow: hidden;
@@ -339,6 +339,11 @@ input[type=submit], input[type=button], input[type=reset] {
   border-top: solid 1px transparent;
   border-right: solid 1px transparent;
   border-left: solid 1px transparent;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  -ms-border-radius: 3px 3px 0 0;
+  -o-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
 }
 .hdNavigation > ul > li > a [class^="icon-"], .hdNavigation > ul > li > a [class*=" icon-"] {
   line-height: 60px;
@@ -481,13 +486,13 @@ input[type=submit], input[type=button], input[type=reset] {
 .hdSearch .submit:hover [class^="icon-"], .hdSearch .submit:hover [class*=" icon-"] {
   color: #333333;
 }
-.hdSearch .dropdown_menu a, .hdSearch .dropdown_list a {
+.hdSearch .dropdown_menu a, .hdSearch .dropdown_list ul a, .dropdown_list .hdSearch ul a {
   line-height: 1.5;
 }
-.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list .body {
+.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body {
   width: 100%;
 }
-.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list .date {
+.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date {
   color: #999999;
 }
 .hdSearch #preSearch {
@@ -613,6 +618,7 @@ ul.hdTools > li {
 ul.hdTools > li > a {
   height: 50px;
   text-decoration: none;
+  text-align: left;
 }
 ul.hdTools > li > a:hover, ul.hdTools > li > a:hover .name {
   color: #333333;
@@ -628,6 +634,11 @@ ul.hdTools .name {
 }
 ul.hdTools .dropdown {
   min-width: 100%;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  -ms-border-radius: 0 0 3px 3px;
+  -o-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
 }
 ul.hdTools .dropdown:before {
   width: 100%;
@@ -656,13 +667,6 @@ ul.hdTools .dropdown:before {
 .dropdown.open {
   display: block;
 }
-#auiHeader .dropdown {
-  -webkit-border-radius: 0 0 3px 3px;
-  -moz-border-radius: 0 0 3px 3px;
-  -ms-border-radius: 0 0 3px 3px;
-  -o-border-radius: 0 0 3px 3px;
-  border-radius: 0 0 3px 3px;
-}
 .hdCommunications .dropdown, .hdTools .dropdown, .tools .dropdown {
   right: 0;
 }
@@ -688,11 +692,8 @@ ul.hdTools .dropdown:before {
   padding: 10px;
 }
 .dropdown h2 {
-  margin: 0;
-  padding: 2px 10px;
-  font-size: 1em;
-  background-color: #f0f0f0;
-  border-top: solid 1px #d2d2d2;
+  margin: 0 0 1em 0;
+  font-weight: normal;
 }
 .dropdown h2:first-child {
   border-top: none;
@@ -701,24 +702,28 @@ ul.hdTools .dropdown:before {
   padding: 8px 10px;
 }
 
-.dropdown_menu a, .dropdown_list a {
+.dropdown_menu a, .dropdown_list ul a {
   display: block;
   padding: 6px 10px;
   color: #333333;
   text-decoration: none;
 }
-#auiHeader .dropdown_menu a, #auiHeader .dropdown_list a {
+#auiHeader .dropdown_menu a, #auiHeader .dropdown_list ul a, .dropdown_list #auiHeader ul a {
   min-width: 118px;
 }
-.dropdown_menu a:hover, .dropdown_list a:hover {
+.dropdown_menu a:hover, .dropdown_list ul a:hover {
   text-decoration: none;
   background-color: #f6f6f6;
 }
-.dropdown_menu .active a, .dropdown_list .active a {
+.dropdown_menu .active a, .dropdown_list ul .active a {
   background-color: #f6f6f6;
 }
 
 .dropdown_list {
+  min-height: 200px;
+  position: relative;
+}
+.dropdown_list ul {
   font-size: 11px;
 }
 .dropdown_list li {
@@ -748,6 +753,10 @@ ul.hdTools .dropdown:before {
 .contentList li {
   padding: 6px 10px !important;
   line-height: 1.5;
+  border-top: solid 1px #ededed;
+}
+.contentList li:first-child {
+  border-top: none;
 }
 .contentList .date {
   margin-bottom: 3px;
@@ -902,7 +911,7 @@ ul.hdTools .dropdown:before {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 200px;
+  width: 17em;
   height: 160px;
   margin: auto;
   text-align: center;
@@ -4394,7 +4403,7 @@ ul.attachments {
   margin: 0 0 10px 60px;
 }
 
-.timeline .text_exposed_show.ellipsis, .timeline .hdPages a.text_exposed_show.name, .hdPages .timeline a.text_exposed_show.name, .timeline .hdSearch .dropdown_menu .text_exposed_show.date, .hdSearch .dropdown_menu .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_list .text_exposed_show.date, .hdSearch .dropdown_list .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_menu .text_exposed_show.body, .hdSearch .dropdown_menu .timeline .text_exposed_show.body, .timeline .hdSearch .dropdown_list .text_exposed_show.body, .hdSearch .dropdown_list .timeline .text_exposed_show.body, .timeline ul.hdTools .text_exposed_show.name, ul.hdTools .timeline .text_exposed_show.name, .timeline .dropdown_menu a.text_exposed_show, .dropdown_menu .timeline a.text_exposed_show, .timeline .dropdown_list a.text_exposed_show, .dropdown_list .timeline a.text_exposed_show, .timeline #auiLauncher ul.launcher li a.text_exposed_show, #auiLauncher ul.launcher li .timeline a.text_exposed_show,
+.timeline .text_exposed_show.ellipsis, .timeline .hdPages a.text_exposed_show.name, .hdPages .timeline a.text_exposed_show.name, .timeline .hdSearch .dropdown_menu .text_exposed_show.date, .hdSearch .dropdown_menu .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_list ul .text_exposed_show.date, .hdSearch .dropdown_list ul .timeline .text_exposed_show.date, .timeline .dropdown_list .hdSearch ul .text_exposed_show.date, .dropdown_list .hdSearch ul .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_menu .text_exposed_show.body, .hdSearch .dropdown_menu .timeline .text_exposed_show.body, .timeline .hdSearch .dropdown_list ul .text_exposed_show.body, .hdSearch .dropdown_list ul .timeline .text_exposed_show.body, .timeline .dropdown_list .hdSearch ul .text_exposed_show.body, .dropdown_list .hdSearch ul .timeline .text_exposed_show.body, .timeline ul.hdTools .text_exposed_show.name, ul.hdTools .timeline .text_exposed_show.name, .timeline .dropdown_menu a.text_exposed_show, .dropdown_menu .timeline a.text_exposed_show, .timeline .dropdown_list ul a.text_exposed_show, .dropdown_list ul .timeline a.text_exposed_show, .timeline #auiLauncher ul.launcher li a.text_exposed_show, #auiLauncher ul.launcher li .timeline a.text_exposed_show,
 .timeline #auiLauncher ul.setting li a.text_exposed_show,
 #auiLauncher ul.setting li .timeline a.text_exposed_show, .timeline .auiTabs .tab > li a.text_exposed_show, .auiTabs .tab > li .timeline a.text_exposed_show,
 .timeline .message .more.opened {

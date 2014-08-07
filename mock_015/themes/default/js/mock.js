@@ -80,11 +80,12 @@ function fitMessage() {
 		//document.getElementById("messageSummary").style.height = h + "px";
 		document.getElementById("messageSideBlock").style.height = h + "px";
 	}
-	if(document.getElementById("messageTimeline") != null) {
+	if(document.getElementById("messageTimeline1") != null) {
 		//var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 42 + 105;
 		var minusH = 55 + 40 + 145;
 		var h = document.documentElement.clientHeight - minusH;
-		document.getElementById("messageTimeline").style.height = h + "px";
+		document.getElementById("messageTimeline1").style.height = h + "px";
+		document.getElementById("messageTimeline2").style.height = h + "px";
 	}
 	if(document.getElementById("messageFavorites") != null) {
 		var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 42;

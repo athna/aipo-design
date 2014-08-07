@@ -15,6 +15,13 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		haml: {
+			dist: {
+				files: {
+					'html/test.html': 'haml/test.haml'
+				}
+			}
+		},
 		//coffee: {
 		//	compile: {
 		//		files: {
@@ -26,17 +33,34 @@ module.exports = function (grunt) {
 		//	files: ['js/index.js']
 		//},
 		watch: {
-			files: ['themes/default/sass/*.scss'],
-			tasks: ['compass']
+			files: ['themes/default/sass/*.scss','haml/*.haml'],
+			tasks: ['compass','haml']
 		}
+		/*
+		esteWatch: {
+			options: {
+				dirs:['themes/default/sass/*.scss','haml/*.haml'],
+				livereload: {
+					enabled: false
+				}
+			},
+			compass: function(filepath) {
+				var files = [{
+
+				}]
+			}
+		}
+		*/
 	});
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	grunt.loadNpmTasks('grunt-contrib-haml');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	//grunt.loadNpmTasks('grunt-este-watch');
 
 	//var taskName;
 	//for (taskName in pkg.devDependencies) {

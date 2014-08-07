@@ -684,14 +684,17 @@ button.auiButtonIconDummy {
 }
 
 .auiSelectButton a,
-.auiWidget .auiSelectButton a {
+.auiWidget .auiSelectButton a,
+.auiSelectButtonSmall a,
+.auiWidget .auiSelectButtonSmall a {
 	@extend .auiButton;
 }
 
 /***************************************************
 	auiSelectButton
 --------------------------------------------------*/
-.auiSelectButton {
+.auiSelectButton,
+.auiSelectButtonSmall {
 	background:#fff;
 
 	ul {
@@ -781,6 +784,17 @@ button.auiButtonIconDummy {
 	.auiWidget & span {
 		padding:0;
 		background-image:none;
+	}
+}
+.auiSelectButtonSmall {
+	a,
+	.auiWidget & a {
+		height: 24px;
+		line-height: 24px;
+		font-size: 10px;
+		[class*=icon-] {
+			line-height: 24px;
+		}
 	}
 }
 .selectCount {

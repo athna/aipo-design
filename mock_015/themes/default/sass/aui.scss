@@ -2069,6 +2069,7 @@ ul.attachments{
 /***************************************************
 	timeline
 --------------------------------------------------*/
+#timelineOuter,
 .timelineOuter {
 	position:relative;
 	//margin:5px 0;
@@ -2089,6 +2090,7 @@ ul.attachments{
 	.on {
 		border-top: 1px solid #999999;
 	}
+	#inputField,
 	.inputField,
 	.outer {
 		@extend .bRadius3;
@@ -2096,6 +2098,7 @@ ul.attachments{
 		background:#fff;
 		overflow:hidden;
 	}
+	#inputField,
 	.inputField {
 		margin-bottom: 15px;
 		background:transparent;
@@ -2379,12 +2382,20 @@ ul.attachments{
 	margin:0 4px 0 0;
 	@extend .bRadius3;
 }
-.timelineOuter .newMessage {
-	background: $grayBackLight;
-	text-align: center;
-	border: 1px $grayBorder solid;
-	@extend .bRadius3;
-	margin-bottom:15px;
+#timelineOuter,
+.timelineOuter {
+	.newMessage {
+		background: $grayBackLight;
+		text-align: center;
+		border: 1px $grayBorder solid;
+		@extend .bRadius3;
+		margin-bottom:15px;
+	}
+	.newMessage a,
+	.readMore a {
+		display:block;
+		padding: 3px;
+	}
 }
 .timeline .readMore {
 	margin: 10px 0;
@@ -2392,11 +2403,6 @@ ul.attachments{
 	text-align: center;
 	border: 1px $grayBorder solid;
 	@extend .bRadius3;
-}
-.timelineOuter .newMessage a,
-.timeline .readMore a {
-	display:block;
-	padding: 3px;
 }
 .timeline .message > .more {
 	line-height:1.6;

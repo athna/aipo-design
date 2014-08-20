@@ -1,17 +1,21 @@
 @charset "UTF-8";
 .clearfix, #auiHeader, .hdPages > ul, .hdNavigation > ul, .dropdown .title, .dropdown .body, .dropdown .contents, .dropdown .foot, .messageSummary li a, #auiLauncher, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .auiTabs .tab, .timelineOuter .message {
+#auiLauncher ul.setting li a, .auiTabs .tab, #timelineOuter .message,
+.timelineOuter .message {
   *zoom: 1;
 }
 .clearfix:before, #auiHeader:before, .hdPages > ul:before, .hdNavigation > ul:before, .dropdown .title:before, .dropdown .body:before, .dropdown .contents:before, .dropdown .foot:before, .messageSummary li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
-#auiLauncher ul.setting li a:before, .auiTabs .tab:before, .timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after, .dropdown .body:after, .dropdown .contents:after, .dropdown .foot:after, .messageSummary li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, .timelineOuter .message:after {
+#auiLauncher ul.setting li a:before, .auiTabs .tab:before, #timelineOuter .message:before,
+.timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after, .dropdown .body:after, .dropdown .contents:after, .dropdown .foot:after, .messageSummary li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
+#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+.timelineOuter .message:after {
   display: table;
   content: "";
   line-height: 0;
 }
 .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after, .dropdown .body:after, .dropdown .contents:after, .dropdown .foot:after, .messageSummary li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, .timelineOuter .message:after {
+#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+.timelineOuter .message:after {
   clear: both;
 }
 
@@ -41,8 +45,13 @@
 
 .bRadius3, .search, .hdSearch form, ul.hdCommunications .num, .dropdown, .messageSummary .avatar img, .messageSummary .avatar .icon-group, .auiSearchOption, .auiAvatarList li a img, textarea,
 select, input[type=text],
-input[type=password], .timelineOuter .inputField,
-.timelineOuter .outer, .timeline .commentInputDummy span, .name .avatar, .timelineOuter .newMessage, .timeline .readMore, .filterTip, .auiAbsLayer {
+input[type=password], #timelineOuter #inputField,
+#timelineOuter .inputField,
+#timelineOuter .outer,
+.timelineOuter #inputField,
+.timelineOuter .inputField,
+.timelineOuter .outer, .timeline .commentInputDummy span, .name .avatar, #timelineOuter .newMessage,
+.timelineOuter .newMessage, .timeline .readMore, .filterTip, .auiAbsLayer {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -1731,6 +1740,7 @@ button.auiButtonSmall {
 
 .auiButtonAction,
 input.auiButtonAction {
+  background-color: #ff9900;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffa31a), color-stop(100%, #ff8400));
   background-image: -webkit-linear-gradient(top, #ffa31a, #ff8400);
   background-image: -moz-linear-gradient(top, #ffa31a, #ff8400);
@@ -1775,9 +1785,9 @@ button[disabled]:active {
   background-color: #f0f0f0 !important;
   border: solid 1px #d2d2d2 !important;
   cursor: default;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
   text-shadow: 0 1px 0 white;
 }
 
@@ -4139,9 +4149,11 @@ ul.attachments {
 /***************************************************
 	timeline
 --------------------------------------------------*/
+#timelineOuter,
 .timelineOuter {
   position: relative;
 }
+#timelineOuter .message,
 .timelineOuter .message {
   position: relative;
   margin: 0;
@@ -4149,27 +4161,39 @@ ul.attachments {
   clear: both;
   border-top: 1px solid #ededed;
 }
+#timelineOuter .message:first-child,
+#timelineOuter .message.first,
 .timelineOuter .message:first-child,
 .timelineOuter .message.first {
   border-top: none !important;
 }
+#timelineOuter .on,
 .timelineOuter .on {
   border-top: 1px solid #999999;
 }
+#timelineOuter #inputField,
+#timelineOuter .inputField,
+#timelineOuter .outer,
+.timelineOuter #inputField,
 .timelineOuter .inputField,
 .timelineOuter .outer {
   border: 1px #d2d2d2 solid;
   background: #fff;
   overflow: hidden;
 }
+#timelineOuter #inputField,
+#timelineOuter .inputField,
+.timelineOuter #inputField,
 .timelineOuter .inputField {
   margin-bottom: 15px;
   background: transparent;
 }
+#timelineOuter .outer,
 .timelineOuter .outer {
   padding: 3px;
   margin: 0 0 5px 0;
 }
+#timelineOuter textarea,
 .timelineOuter textarea {
   border: none;
   -webkit-border-radius: 0;
@@ -4179,11 +4203,13 @@ ul.attachments {
   border-radius: 0;
   font-size: 13px;
 }
+#timelineOuter textarea:focus,
 .timelineOuter textarea:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
+#timelineOuter textarea.elastic,
 .timelineOuter textarea.elastic {
   width: 99%;
   overflow: hidden;
@@ -4434,11 +4460,19 @@ ul.attachments {
   margin: 0 4px 0 0;
 }
 
+#timelineOuter .newMessage,
 .timelineOuter .newMessage {
   background: #f6f6f6;
   text-align: center;
   border: 1px #d2d2d2 solid;
   margin-bottom: 15px;
+}
+#timelineOuter .newMessage a,
+#timelineOuter .readMore a,
+.timelineOuter .newMessage a,
+.timelineOuter .readMore a {
+  display: block;
+  padding: 3px;
 }
 
 .timeline .readMore {
@@ -4446,12 +4480,6 @@ ul.attachments {
   background: #f0f0f0;
   text-align: center;
   border: 1px #d2d2d2 solid;
-}
-
-.timelineOuter .newMessage a,
-.timeline .readMore a {
-  display: block;
-  padding: 3px;
 }
 
 .timeline .message > .more {

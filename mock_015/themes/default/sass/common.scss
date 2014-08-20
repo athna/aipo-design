@@ -919,36 +919,40 @@ $modalWidth:	700px;
 	line-height:$inputHeight + 2;
 }
 
-.indicator {
-  background: url(../images/common/indicator.gif) no-repeat left;
-  padding:2px 0 2px 18px;
-  margin-left:2px;
-  clear:both;
+.indicator,
+.indicatorGlay,
+.indicatorBlack {
+	width:18px;
 }
 i.indicator,
-i.indicatorglay,
-i.indicatorblack {
-  display:inline-block;
-  margin:0;
-  padding:0;
-  width:18px;
-  height:18px;
-  vertical-align: middle;
+i.indicatorGlay,
+i.indicatorBlack {
+	display:inline-block;
+	margin:0;
+	padding:0;
+	height:18px;
+	vertical-align: middle;
+	clear:both;
 }
 .indicatorDialog {
   .auiIconIndicator {
     vertical-align: -0.4em;
   }
 }
+.indicator {
+	background: url(../images/common/indicator.gif) no-repeat left;
+	//padding:2px 0 2px 18px;
+	//margin-left:2px;
+}
 .indicatorGray {
   background: url(../images/common/indicatorglay.gif) no-repeat left;
-  padding:2px 0 2px 18px;
-  margin-left:2px;
+  //padding:2px 0 2px 18px;
+  //margin-left:2px;
 }
 .indicatorBlack {
 	background: url(../images/common/indicatorblack.gif) no-repeat left;
-	padding:2px 0 2px 18px;
-	margin-left:2px;
+	//padding:2px 0 2px 18px;
+	//margin-left:2px;
 }
 
 img.icon {
@@ -1757,7 +1761,7 @@ background:url(../images/icon/account_user_add.gif) no-repeat;
 .menubar {
 	position:absolute;
 	background: #ffffff;
-	padding:5px;
+	//padding:5px;
 	border:1px solid $grayBorderDark;
 	@include border-radius(4px);
     @include box-shadow(0 2px 4px rgba(0,0,0,0.2));
@@ -1778,24 +1782,22 @@ ul.blockList {
 	width:100%;
 	margin:0;
 	padding:0;
-}
-.menubar ul li,
-ul.blockList li {
-	margin:0;
-	padding:0;
-	background:none;
-	@extend .bRadius3;
-}
-.menubar ul li:first-child,
-ul.blockList li:first-child {
-	border:none;
+	li {
+		margin:0;
+		padding:0;
+		background:none;
+		@extend .bRadius3;
+		&:first-child {
+			border:none;
+		}
+	}
 }
 .menubar > ul li a,
 .menubar.multi ul li a,
 ul.blockList li a {
 	display:block;
 	//max-width: 180px; #31152
-	padding:4px 6px !important;
+	padding:4px 11px !important;
 	margin:0;
 	text-decoration:none;
 	text-overflow:ellipsis;
@@ -1911,7 +1913,8 @@ ul.blockList li a.selected {
 
 /* menubar.multi **********/
 .menubar.multi {
-	padding-left: 0;
+	//padding-left: 0;
+	padding: 5px 5px 5px 0;
 }
 .menubar.multi > div {
 	width:125px;
@@ -2206,8 +2209,29 @@ margin:0 3px 0 0;
 }
 
 /***************************************************
+	position
+--------------------------------------------------*/
+.static {
+	position: static;
+}
+.absolute {
+	position: absolute;
+}
+.relative {
+	position: relative;
+}
+.fixed {
+	position: fixed;
+}
+
+/***************************************************
 	avatar
 --------------------------------------------------*/
+.avatar {
+	img {
+		@extend .bRadius3;
+	}
+}
 .avatar_l {
 	width: 50px;
 	height: 50px;

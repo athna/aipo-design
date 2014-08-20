@@ -15,26 +15,26 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		haml: {
+		/*haml: {
 			dist: {
 				files: {
 					'html/test.html': 'haml/test.haml'
 				}
 			}
-		},
-		//coffee: {
-		//	compile: {
-		//		files: {
-		//			'themes/default/js/index.js': ['themes/default/coffee/*.coffee']
-		//		}
-		//	}
-		//},
-		//jshint: {
-		//	files: ['js/index.js']
-		//},
+		},*/
+		/*coffee: {
+			compile: {
+				files: {
+					'themes/default/js/index.js': ['themes/default/coffee/*.coffee']
+				}
+			}
+		},*/
+		/*jshint: {
+			files: ['js/index.js']
+		},*/
 		watch: {
-			files: ['themes/default/sass/*.scss','haml/*.haml'],
-			tasks: ['compass','haml']
+			files: ['themes/default/sass/*.scss'],
+			tasks: ['compass']
 		}
 		/*
 		esteWatch: {
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
-	grunt.loadNpmTasks('grunt-contrib-haml');
+	//grunt.loadNpmTasks('grunt-contrib-haml');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	//grunt.loadNpmTasks('grunt-este-watch');

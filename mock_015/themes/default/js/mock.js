@@ -73,12 +73,13 @@ function launcherToggle($this, $target) {
 
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
-		var minusH = 55 + 40;
+		var minusH = 55 + 40 + 45;
 		var w = document.documentElement.clientWidth - 20;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("dd_message").style.width = w + "px";
 		//document.getElementById("messageSummary").style.height = h + "px";
-		document.getElementById("messageSideBlock").style.height = h + "px";
+		document.getElementById("messageSideBlock1").style.height = h + "px";
+		document.getElementById("messageSideBlock2").style.height = h + "px";
 	}
 	if(document.getElementById("messageTimeline1") != null) {
 		//var minusH = document.getElementById("auiHeader").clientHeight + 45 + 10 + 29 + 42 + 105;
@@ -186,17 +187,21 @@ function checkCount($obj, $target) {
 
 function auiTabs($this, $target) {
 	var target = document.getElementById($target);	//タブUIの大本取得
-	var childs = target.getElementsByTagName("ul");	//タブUI直下2つのUL取得
+	//タブUI直下の<UL>を取得
+	var childs = Array();
+	getTagNameChildNodes(target,childs,'ul');
 	//childsからタブ側のliとコンテンツ側のliを配列として取得
 	for(i=0; i<childs.length; i++) {
 		if(childs[i].className === "tab") {
-			var tab = childs[i].getElementsByTagName("li");
+			//e = childs[i].childNodes;
+			var tab = Array();
+			getTagNameChildNodes(childs[i],tab,'li');
 		} else if(childs[i].className === "tabContents") {
-			var tabContents = childs[i].getElementsByTagName("li");
+			//e = childs[i].childNodes;
+			var tabContents = Array();
+			getTagNameChildNodes(childs[i],tabContents,'li');
 		}
 	}
-	console.log(tab);
-	console.log(tabContents);
 	//クリックしたタブがアクティブか調べる
 	var flag = -1;	//クリックしたタブ番号を兼ねたフラグ
 	for(i=0; i<tab.length; i++) {
@@ -222,6 +227,24 @@ function auiTabs($this, $target) {
 				tabContents[i].className += " active";
 			} else {
 				tabContents[i].className = tabContents[i].className.replace("active", "");
+			}
+		}
+	}
+}
+
+// getChildNodesTagName
+// obj直下子要素(childNodes)よりtag要素をarrayへ取得する関数。
+// getElementsByTagNameの直下子要素限定版。getElementsByTagNameは孫以降の要素も全て取得してしまう。
+// auiTabで利用。
+function getTagNameChildNodes($obj,$array,$tag) {
+	var e = $obj.childNodes;
+	var i = -1;
+	var j = 0;
+	while (++i < e.length) {
+		if(e[i].nodeType == 1) {
+			if(e[i].nodeName.toLowerCase() == $tag) {
+				$array[j] = e[i];
+				j++;
 			}
 		}
 	}

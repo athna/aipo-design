@@ -377,7 +377,6 @@ ul.hdCommunications {
 
 	.num {
 		position: absolute;
-		display: none;
 		top: 8px;
 		right: 8px;
 		min-width: 12px;
@@ -385,22 +384,11 @@ ul.hdCommunications {
 		padding: 0 2px;
 		font-size: 10px;
 		text-align: center;
-		//color: $gray;
-		//border: solid 1px $white;
+		background-color: $red;
+		color: $white;
 		@include box-shadow(0 1px 1px rgba($black,.1));
 		@extend .bRadius3;
 		@extend .border-box;
-	}
-	.valid {
-		[class*=icon-] {
-			color: $gray;
-		}
-		.num {
-			display: block;
-			background-color: $red;
-			//background-color: $red;
-			color: $white;
-		}
 	}
 	.label {
 		text-wrap: nowrap;
@@ -551,6 +539,10 @@ $dropdownSideWidth: 280px;
 	}
 }
 .dropdown_menu {
+	li {
+		padding: 0;
+		background-image: none;
+	}
 	a {
 		@extend .ellipsis;
 		display: block;
@@ -581,7 +573,9 @@ $dropdownSideWidth: 280px;
 		font-size: $fontSizeSmall;
 	}
 	li {
+		padding: 0;
 		border-bottom: solid 1px $grayBorderLight;
+		background-image: none;
 		> a {
 			> .avatar {
 				position: absolute;
@@ -805,10 +799,10 @@ $dropdownSideWidth: 280px;
 		padding: 10px;
 	}
 	.search {
-		background-color: $gray;
-		border-color: $gray;
+		background-color: $grayDeep;
+		border-color: $grayDeep;
 		input[type=text] {
-			background-color: $gray;
+			background-color: $grayDeep;
 		}
 		button {
 			text-shadow: none;
@@ -828,7 +822,7 @@ $dropdownSideWidth: 280px;
 					height: 45px;
 					line-height: 45px;
 					border: none;
-					color: $gray;
+					color: $grayLight;
 					&:hover {
 						color: $white;
 					}

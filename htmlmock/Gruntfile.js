@@ -15,34 +15,58 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		coffee: {
+		/*haml: {
+			dist: {
+				files: {
+					'html/test.html': 'haml/test.haml'
+				}
+			}
+		},*/
+		/*coffee: {
 			compile: {
 				files: {
 					'themes/default/js/index.js': ['themes/default/coffee/*.coffee']
 				}
 			}
-		},
-		jshint: {
+		},*/
+		/*jshint: {
 			files: ['js/index.js']
-		},
+		},*/
 		watch: {
-			files: ['themes/default/sass/*.scss','themes/default/coffee/*.coffee'],
-			tasks: ['compass','coffee','cssmin']
+			files: ['themes/default/sass/*.scss'],
+			tasks: ['compass']
 		}
-	});
-	//grunt.loadNpmTasks('grunt-contrib-compass');
-	//grunt.loadNpmTasks('grunt-contrib-compress');
-	//grunt.loadNpmTasks('grunt-contrib-csslint');
-	//grunt.loadNpmTasks('grunt-contrib-cssmin');
-	//grunt.loadNpmTasks('grunt-contrib-htmlmin');
-	//grunt.loadNpmTasks('grunt-contrib-sass');
-	//grunt.loadNpmTasks('grunt-contrib-watch');
+		/*
+		esteWatch: {
+			options: {
+				dirs:['themes/default/sass/*.scss','haml/*.haml'],
+				livereload: {
+					enabled: false
+				}
+			},
+			compass: function(filepath) {
+				var files = [{
 
-	var taskName;
-	for (taskName in pkg.devDependencies) {
-		if (taskName.substring(0, 6) == 'grunt-') {
-			grunt.loadNpmTasks(taskName);
+				}]
+			}
 		}
-	}
+		*/
+	});
+	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-contrib-csslint');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	//grunt.loadNpmTasks('grunt-contrib-haml');
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	//grunt.loadNpmTasks('grunt-este-watch');
+
+	//var taskName;
+	//for (taskName in pkg.devDependencies) {
+	//	if (taskName.substring(0, 6) == 'grunt-') {
+	//		grunt.loadNpmTasks(taskName);
+	//	}
+	//}
 	grunt.registerTask('default', ['watch']);
 };

@@ -702,7 +702,7 @@ $auiMbCaptionHeight:	18px !default;
 	position:fixed;
 	top:0;
     left:0;
-    z-index:1000;
+    z-index: $zindex-mobileHeader;
 	@include mobile-header-style();
     @include box-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
 
@@ -733,7 +733,33 @@ $auiMbCaptionHeight:	18px !default;
     }
     .mhRight {
         float:right;
-    }
+	}
+	.mhLeft, .mhRight {
+		[class^="icon-"],
+		[class*=" icon-"] {
+			color:$gray;
+			font-size:20px;
+			line-height:42px;
+			cursor:pointer;
+			@include text-shadow(0 -1px 0 rgba(0,0,0,0.5));
+		}
+
+		.active [class^="icon-"],
+		.active [class*=" icon-"] {
+			color:$grayDark;
+			@include text-shadow(0 -1px 0 rgba(0,0,0,1));
+		}
+
+		.zero ~ span [class^="icon-"],
+		.zero ~ span [class*=" icon-"] {
+			opacity:0.4;
+		}
+
+		.active .zero ~ span [class^="icon-"],
+		.active .zero ~ span [class*=" icon-"] {
+			opacity:1;
+		}
+	}
     
     #auiMbBtnActivity > .dijitDropDownButton{
         width:100%;
@@ -757,31 +783,6 @@ $auiMbCaptionHeight:	18px !default;
         text-decoration:none;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
-    [class^="icon-"],
-    [class*=" icon-"] {
-        color:$gray;
-        font-size:20px;
-        line-height:42px;
-        cursor:pointer;
-        @include text-shadow(0 -1px 0 rgba(0,0,0,0.5));
-    }
-    
-    .active [class^="icon-"],
-    .active [class*=" icon-"] {
-        color:$grayDark;
-        @include text-shadow(0 -1px 0 rgba(0,0,0,1));
-    }
-    
-    .zero ~ span [class^="icon-"],
-    .zero ~ span [class*=" icon-"] {
-        opacity:0.4;
-    }
-    
-    .active .zero ~ span [class^="icon-"],
-    .active .zero ~ span [class*=" icon-"] {
-        opacity:1;
-    }
-    
     .icon-bell-alt {
         font-size:18px;
     }
@@ -857,13 +858,18 @@ $auiMbCaptionHeight:	18px !default;
         background:none;
         height:auto !important;
     }
+	.dropdown {
+		//width: 300px !important;
+	}
 }
 
 /***************************************************
 	hdNavigation
 --------------------------------------------------*/
 .hdNavigation {
-	right: 0;
+	position: static;
+	float: right;
+	//right: 0;
 	background: none;
 	> ul {
 		> li {
@@ -2109,7 +2115,7 @@ div.weeklyTermRights div.weeklyTermRightR {
 	dropdown
 --------------------------------------------------*/
 .dropdown {
-	width: 98%;
+	width: 98% !important;
 	margin: 0 1%;
 }
 /***************************************************

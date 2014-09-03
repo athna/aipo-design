@@ -9,11 +9,16 @@ ul.blockList li a, .avatar img, .avatar_l, .avatar_m, .avatar_s {
   border-radius: 3px;
 }
 
+.clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+
 .clearfix, .inner {
   zoom: 1;
   display: block;
 }
-.clearfix:after, .inner:after {
+.clearfix:before, .clearfix:after, .inner:before, .inner:after {
   content: "";
   display: block;
   clear: both;
@@ -298,15 +303,20 @@ table.center {
 }
 
 #wrapper {
+  position: relative;
+  height: 100%;
   min-width: 960px;
-  padding: 0;
   -ms-word-break: break-all;
   word-break: break-all;
 }
 
 .roundMainWrapper {
+  min-height: 100%;
   padding: 60px 5px 0 5px;
   background-color: #f0f0f0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .roundMainWrapper noscript .alert {
   -webkit-border-radius: 8px;

@@ -4,6 +4,24 @@
 .clearfix {
 	@include clearfix();
 }
+.clearfix {
+	zoom:1;
+	display:block;
+	&:before, &:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+//.clearfix:before,
+//.clearfix:after{
+//	content:"";
+//	display: table;
+//}
+//.clearfix {
+//	*zoom:1;
+//}
 
 .inline-block {
 	@include inline-block;

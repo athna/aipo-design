@@ -11,12 +11,12 @@
 	@include border-radius(3px);
 }
 .clearfix {
-	//@include clearfix();
+	@include clearfix();
 }
 .clearfix, .inner {
 	zoom:1;
 	display:block;
-	&:after {
+	&:before, &:after {
 		content: "";
 		display: block;
 		clear: both;
@@ -273,17 +273,18 @@ table.center {
 	height:16px;
 }
 #wrapper {
+	position: relative;
+	height: 100%;
 	min-width:$layoutMinWidth;
-	padding:0;
 	-ms-word-break: break-all;
 	word-break: break-all;
 }
 
 .roundMainWrapper {
+	min-height: 100%;
 	padding: 60px 5px 0 5px;
-	//padding: 50px 55px 0 5px;
-	//background: $white;
 	background-color: $grayBack;
+	@include box-sizing(border-box);
 
 	noscript .alert {
     	@include border-radius(8px);

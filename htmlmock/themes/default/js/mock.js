@@ -264,6 +264,7 @@ function getTagNameChildNodes($obj,$array,$tag) {
 	}
 }
 
+
 /*
 $(".placeholderCheck").each(function() {
 	if ($(this).attr("jq-placeholder")) {

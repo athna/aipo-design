@@ -681,7 +681,7 @@ $dropdownSideWidth: 280px;
 	@extend .counter;
 	margin: 0;
 }
-.messageSummary {
+.messageSummary, .messageUserlist ul {
 	font-size: $fontSizeSmall;
 	li {
 		position: relative;
@@ -691,8 +691,8 @@ $dropdownSideWidth: 280px;
 		a {
 			@extend .clearfix;
 			display: block;
+			min-height: 40px;
 			text-decoration: none;
-			padding: 5px 5px 5px 40px;
 			color: $gray;
 			.name {
 				color: $white;
@@ -714,18 +714,15 @@ $dropdownSideWidth: 280px;
 		top: 0;
 		left: 0;
 		padding: 8px;
-		img, .icon-group {
-			display: block;
-			width: 24px;
-			height: 24px;
-			line-height: 24px;
-			text-align: center;
-			@extend .bRadius3;
+		img {
+			//display: block;
 		}
-		.icon-group {
-			background-color: $gray;
-			color: $white;
-			font-size: 18px;
+	}
+}
+.messageSummary {
+	li {
+		a {
+			padding: 5px 5px 5px 40px;
 		}
 	}
 	.date {
@@ -736,8 +733,7 @@ $dropdownSideWidth: 280px;
 	.date, .name, .latest {
 		line-height: 16px;
 		height: 16px;
-		overflow: hidden;
-		@include ellipsis;
+		@extend .ellipsis;
 	}
 	.latest {
 	}
@@ -757,8 +753,23 @@ $dropdownSideWidth: 280px;
 			}
 		}
 	}
-	[class*="icon-"] {
-		color: $blue;
+}
+.messageUserlist {
+	ul {
+		li {
+			a {
+				line-height: 40px;
+				padding-left: 40px;
+			}
+		}
+	}
+	.index {
+		line-height: 20px;
+		padding: 0 8px;
+		background: $grayDarker;
+	}
+	.name {
+		@extend .ellipsis;
 	}
 }
 .messageSummaryHead {

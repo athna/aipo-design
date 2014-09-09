@@ -904,21 +904,32 @@ $dropdownSideWidth: 280px;
 	emptyMessage
 --------------------------------------------------*/
 .emptyMessage {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	width: 17em;
-	height: 160px;
+	//width: 17em;
 	margin: auto;
 	text-align: center;
 	color: $gray;
+	padding: 120px 0 170px; //アプリ画面用
 	[class*=icon-] {
 		font-size: 10em;
 		color: $grayLight;
 		@include text-shadow(0 -1px 0 darken($grayLight,10));
 	}
+}
+#dd_message {
+
+	.emptyMessage{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 160px;
+		padding: 0; //メッセージ用
+	}
+}
+
+.tableWrapper .emptyMessage{
+	padding: 15px 0; //ポートレット用
 }
 
 /***************************************************

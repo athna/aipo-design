@@ -1149,21 +1149,29 @@ ul.hdTools .dropdown:before {
 	emptyMessage
 --------------------------------------------------*/
 .emptyMessage {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 17em;
-  height: 160px;
   margin: auto;
   text-align: center;
   color: #999999;
+  padding: 120px 0 170px;
 }
 .emptyMessage [class*=icon-] {
   font-size: 10em;
   color: #d2d2d2;
   text-shadow: 0 -1px 0 #b8b8b8;
+}
+
+#dd_message .emptyMessage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 160px;
+  padding: 0;
+}
+
+.tableWrapper .emptyMessage {
+  padding: 15px 0;
 }
 
 /***************************************************
@@ -6288,4 +6296,79 @@ iframe.iframe_messagelist {
   -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
   overflow: hidden;
+}
+
+/***************************************************
+	guideList
+--------------------------------------------------*/
+.guideList {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -1em;
+  word-spacing: -1em;
+}
+
+:root .guideList {
+  font-size: 1px;
+  letter-spacing: -1px;
+  word-spacing: -1px;
+}
+
+.guideList li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  width: 24.75%;
+  min-width: 109px;
+  box-sizing: border-box;
+  vertical-align: top;
+  font-size: 12px;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+.guideList li > a:not(.auiButtonAction) {
+  display: block;
+  text-align: center;
+  padding: 10px 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.guideList li > a p {
+  text-decoration: underline;
+}
+
+.guideList li > a:not(.auiButtonAction):hover {
+  background: #F6F6F6;
+}
+
+.guideList li > a:hover p {
+  text-decoration: none;
+}
+
+.guideList i {
+  font-size: 50px;
+}
+
+.guideList.wide li {
+  width: 100%;
+  padding: 10px 0 0 120px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.guideList.wide .iconBox {
+  position: absolute;
+  display: inline-block;
+  width: 110px;
+  top: 15px;
+  left: 0px;
+  text-align: center;
+}
+
+.guideList .iconBox i {
+  font-size: 70px;
 }

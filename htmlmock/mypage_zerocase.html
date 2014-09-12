@@ -54,22 +54,206 @@
 				<div class="dropdown" id="dd_message">
 					<div class="title">メッセージ</div>
 					<div class="body">
-						<div class="sideBlock scroll" id="messageSideBlock">
-							<div class="messageSummaryHead">
-								<div class="inner">
-									<a href="javascript:void(0)" class="auiButton w100" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">ルームを追加する</a>
-								</div>
-								<div class="inner">
-									<form class="search">
-										<input type="text" id="roomSearch" class=""jq-placeholder="検索" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="roomSearch">ルーム検索</label>
-										<button class="submit" title="検索"><i class="icon-search"></i></button>
-									</form>
-								</div>
+						<div class="sideBlock">
+							<div class="auiTabs" id="messageSideBlockTab">
+								<ul class="tab">
+									<li class="w50 active"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ルーム</a></li>
+									<li class="w50"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ユーザー</a></li>
+								</ul>
+								<ul class="tabContents">
+									<li class="active">
+										<div class="scroll" id="messageSideBlock1">
+											<div class="messageSummaryHead">
+												<div class="inner">
+													<a href="javascript:void(0)" class="auiButton w100" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">ルームを追加する</a>
+												</div>
+												<div class="inner">
+													<form class="search">
+														<input type="text" id="roomSearch" class="" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="roomSearch">ルーム検索</label>
+														<button class="submit" title="検索"><i class="icon-search"></i></button>
+													</form>
+												</div>
+											</div>
+											<div class="emptyMessage">
+												<i class="icon-arrow-up"></i>
+												<p>メッセージルームがありません。<br>ルームを追加してメッセージを開始しましょう。</p>
+											</div>
+										</div>
+									</li>
+									<li class="">
+										<div class="scroll" id="messageSideBlock2">
+											<div class="messageSummaryHead">
+												<div class="inner">
+													<form>
+														<select class="w100">
+															<option value="">すべてのグループ</option>
+															<option value="">管理部</option>
+															<option value="">営業部</option>
+														</select>
+													</form>
+												</div>
+												<div class="inner">
+													<form class="search">
+														<input type="text" id="userSearch" class="" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="userSearch">ユーザー検索</label>
+														<button class="submit" title="検索"><i class="icon-search"></i></button>
+													</form>
+												</div>
+											</div>
+											<div class="messageUserlist">
+												<div class="index">あ</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">アーノルド シュワルツェネッガー</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">浅井 長政</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">明智 光秀</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">石田 三成</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">上杉 謙信</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">織田 信長</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">か</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">加藤 清正</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">木下 藤吉郎</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">黒田 官兵衛</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">さ</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">真田 信繁</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">柴田 勝家</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">島 左近</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">島津 豊久</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">た</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">武田 信玄</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">伊達 政宗</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">長宗我部 元親</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">徳川 家康</span>
+														</a>
+													</li>
+												</ul>
+												<div class="loader"><i class="indicatorBlack"></i></div>
+											</div>
+										</div>
+									</li>
+								</ul>
 							</div>
-								<div class="emptyMessage">
-									<i class="icon-arrow-up"></i>
-									<p>メッセージルームがありません。<br>ルームを追加してメッセージを開始しましょう。</p>
-								</div>
 						</div>
 						<div class="mainBlock" id="messageContents1">
 							<div class="contents">
@@ -464,8 +648,7 @@
 					</div>
 					<div class="dropdown_list">
 						<div class="emptyMessage">
-							<i class="icon-bell-alt"></i>
-							<p>あなた宛てのお知らせはありません。</p>
+							<p>あなた宛てのお知らせがありません。</p>
 						</div>
 					</div>
 					<div class="foot">

@@ -689,9 +689,10 @@ $dropdownSideWidth: 280px;
 		background-image: none;
 		border-bottom: solid 1px $black;
 		a {
+			@extend .border-box;
 			@extend .clearfix;
 			display: block;
-			min-height: 40px;
+			height: 40px;
 			text-decoration: none;
 			color: $gray;
 			.name {
@@ -916,7 +917,7 @@ $dropdownSideWidth: 280px;
 		@include text-shadow(0 -1px 0 darken($grayLight,10));
 	}
 	//ポートレット等
-	.dropdown_list &, .tableWrapper & {
+	.dropdown_list &, .tableWrapper &, .auiPopup & {
 		margin: 15px 0;
 	}
 	//メッセージ用

@@ -216,34 +216,41 @@ function auiTabs($this, $target) {
 			getTagNameChildNodes(childs[i],tabContents,'li');
 		}
 	}
+
+
 	//クリックしたタブがアクティブか調べる
 	var flag = -1;	//クリックしたタブ番号を兼ねたフラグ
 	for(i=0; i<tab.length; i++) {
-		if(tab[i] === $this.parentNode) {
+		if(tab[i] == $this.parentNode) {
 			if(tab[i].className.indexOf("active") < 0) {
 				var flag = i;
 			}
 		}
 	}
+
+	//var flag = $this.parentNode.getAttribute("auiTabs");
+
 	//アクティブでないタブがクリックされていれば実行
 	if(flag >= 0) {
 		//タブ番号と等しいタブはactive付与、そうでなければactive除去
 		for (i = 0; i < tab.length; i++) {
-			if (i === flag) {
-				tab[i].className += " active";
+			if (i == flag) {
+				tab[i].className += " active"; //activeを付与
 			} else {
-				tab[i].className = tab[i].className.replace("active", "");
+				tab[i].className = tab[i].className.replace("active", ""); //activeを削除
 			}
 		}
+
 		//タブ番号と等しいコンテンツはactive付与、そうでなければactive除去
 		for (i = 0; i < tabContents.length; i++) {
-			if (i === flag) {
+			if (i == flag) {
 				tabContents[i].className += " active";
 			} else {
 				tabContents[i].className = tabContents[i].className.replace("active", "");
 			}
 		}
 	}
+
 }
 
 // getChildNodesTagName

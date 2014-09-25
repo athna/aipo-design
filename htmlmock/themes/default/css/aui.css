@@ -2589,14 +2589,6 @@ button.auiButtonIconDummy {
   line-height: 15px !important;
 }
 
-@font-face {
-  font-family: 'FontAwesome';
-  src: url("../font/fontawesome-webfont.eot");
-  src: url("../font/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../font/fontawesome-webfont.woff") format("woff"), url("../font/fontawesome-webfont.ttf") format("truetype") url("../font/fontawesome-webfont.svg#fontawesomeregular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .counter, .nrCount {
   float: left !important;
   font-size: 9px;
@@ -2839,13 +2831,10 @@ button.auiButtonIconDummy {
 /* imgPopup */
 .imgPopup {
   position: absolute !important;
-  /*overflow:hidden;*/
 }
-
 .imgPopup .imgBody {
   text-align: center;
 }
-
 .imgPopup img {
   max-width: 800px;
   max-height: 800px;
@@ -3952,6 +3941,7 @@ $tabBackgroundImage:	"../images/tab.png";
 .auiDirectoryList a {
   display: block;
   width: 100%;
+  min-height: 26px;
   text-decoration: none;
   overflow: hidden;
 }
@@ -3962,10 +3952,16 @@ $tabBackgroundImage:	"../images/tab.png";
   background: #f6f6f6;
 }
 .auiDirectoryList a:hover span {
+  position: absolute;
+  padding-right: 5px;
   color: #000;
+  background: #f6f6f6;
 }
-.auiDirectoryList .active a {
+.auiDirectoryList .active {
   font-weight: bold;
+  background: #f0f0f0;
+}
+.auiDirectoryList .active a:hover span {
   background: #f0f0f0;
 }
 .auiDirectoryList .directory {
@@ -4443,7 +4439,6 @@ ul.attachments {
 }
 #timelineOuter .message,
 .timelineOuter .message {
-  position: relative;
   margin: 0;
   padding: 10px 0 0;
   clear: both;
@@ -4586,7 +4581,8 @@ ul.attachments {
   position: relative;
 }
 .timeline .avatar {
-  position: absolute;
+  float: left;
+  margin: 0 10px 0 0;
 }
 .timeline .messageContents {
   margin-left: 60px;

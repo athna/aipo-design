@@ -103,7 +103,7 @@ th a {
   color: #1b1b1b;
 }
 
-a:hover, a:hover strong, a:hover span {
+a:hover, a:hover strong, a:hover span, a:hover i {
   color: #ff9900;
   text-decoration: none;
 }
@@ -1386,23 +1386,23 @@ div.tableBorderM {
   line-height: 1px;
 }
 
-div.sunday, td.sunday {
+div.sunday {
   background: #fef6f1;
 }
 
-div.saturday, td.saturday {
+div.saturday {
   background: #f4f7fa;
 }
 
-div.holiday, td.holiday {
+div.holiday {
   background: #fef6f1;
 }
 
-div.today, td.today {
+div.today {
   background: #edfeed;
 }
 
-div.off, td.off {
+div.off {
   background: #f6f6f6;
 }
 
@@ -1488,56 +1488,10 @@ div.off, td.off {
 .calendar div {
   overflow: hidden;
 }
-
-div.calendarScheduleDiv div.time {
-  height: 1.5em;
-  line-height: 1.5em;
-  overflow: hidden;
-  white-space: nowrap;
-}
-div.calendarScheduleDiv a:link,
-div.calendarScheduleDiv a:visited {
-  display: block;
-  text-decoration: none;
-  padding: 1px;
-}
-div.calendarScheduleDiv a:hover {
-  background-color: #FFFFE5;
-  border: 1px solid #ff9900;
-  text-decoration: none;
-  padding: 0;
-}
-div.calendarScheduleDiv .calendarTime {
-  padding-bottom: 5px;
-  vertical-align: text-bottom;
-}
-div.calendarScheduleDiv .addSchedule {
-  display: inline-block !important;
-  margin: 0 0 5px 0;
-  padding: 1px 0 !important;
-  text-decoration: underline !important;
-}
-div.calendarScheduleDiv .addSchedule:hover {
-  padding: 1px 0;
-  border: none;
-  background: none;
-}
-
-.addScheduleCell:hover {
-  background: #F5F5F5;
-  cursor: pointer;
-}
-
-.addScheduleCell:hover a.addSchedule {
-  color: #FF9900;
-  text-decoration: none !important;
-}
-
 .calendar td.term {
   border-top: none;
   border-bottom: none;
 }
-
 .calendar div.calerndarTermScheduleDiv {
   font-weight: normal;
   text-align: center;
@@ -1545,43 +1499,268 @@ div.calendarScheduleDiv .addSchedule:hover {
   background-color: #DFD;
   overflow: hidden;
 }
-
 .calendar td.topNone {
   border-top: none;
 }
 
+/*
+div.calendarScheduleDiv {
+
+	 div.time {
+		height:1.5em;
+		line-height:1.5em;
+		overflow:hidden;
+		white-space:nowrap;
+	}
+	a:link,
+	a:visited {
+		display:block;
+		text-decoration:none;
+		padding:1px;
+	}
+	a:hover {
+		background-color:#FFFFE5;
+		border:1px solid $linkColorHover;
+		text-decoration:none;
+		padding:0;
+	}
+	.calendarTime {
+		padding-bottom:5px;
+		vertical-align:text-bottom;
+	}
+	.addSchedule {
+		display:inline-block !important;
+		margin:0 0 5px 0;
+		padding:1px 0 !important;
+		text-decoration:underline !important;
+	}
+	.addSchedule:hover {
+		padding:1px 0;
+		border:none;
+		background:none;
+	}
+}
+.addScheduleCell:hover {
+	background:#F5F5F5;
+	cursor:pointer;
+}
+.addScheduleCell:hover a.addSchedule {
+	color:#FF9900;
+	text-decoration:none !important;
+}
+
 div.calerndarTermScheduleDiv a:link, div.calerndarTermScheduleDiv a:visited {
-  display: block;
-  text-decoration: none;
+	display:block;
+	text-decoration:none;
+	padding:1px;
+}
+div.calerndarTermScheduleDiv a:hover {
+	background-color:#FFFFE5;
+	border:1px solid $grayBorder;
+	text-decoration:none;
+	padding:0;
+}
+.calendar div.calerndarTodoDiv {
+	padding:0;
+	font-weight:normal;
+	text-align:center;
+	border:1px solid #f0a0a0;
+	background-color:#FFE5E5;
+}
+div.calerndarTodoDiv a:link, div.calerndarTodoDiv a:visited {
+	display:block;
+	text-decoration:none;
+	padding:1px;
+}
+div.calerndarTodoDiv a:hover {
+	background-color:#FFFFE5;
+	border:1px solid $grayBorder;
+	text-decoration:none;
+	padding:0;
+}
+*/
+/***************************************************
+	calendar_v2
+--------------------------------------------------*/
+.calendar_v2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #d2d2d2;
+  font-size: 11px;
+}
+.calendar_v2 th {
+  border: 1px solid #ddd;
+  padding: 3px;
+  font-weight: normal;
+  text-align: center;
+}
+.calendar_v2 td {
+  border-right: 1px solid #d2d2d2;
+  border-left: 1px solid #d2d2d2;
+  padding: 3px;
+  vertical-align: top;
+  word-break: break-all;
+}
+.calendar_v2 tr:first-child th {
+  padding: 0;
+  font-size: 11px;
+  background: #f6f6f6;
+}
+.calendar_v2 tr.calendarWeek th {
+  width: 14.286%;
+  white-space: nowrap;
+}
+.calendar_v2 th.groupOneday {
+  width: auto;
+}
+.calendar_v2 th.groupWeekly {
+  width: 12.5%;
+}
+.calendar_v2 td.day {
+  padding: 3px 5px;
+  border-top: solid 1px #d2d2d2;
+}
+.calendar_v2 td.day.sunday a {
+  color: #ff3333;
+}
+.calendar_v2 td.day.saturday a {
+  color: #049cdb;
+}
+.calendar_v2 td.day.holiday, .calendar_v2 td.day.holiday a {
+  color: #ff3333;
+}
+.calendar_v2 td.day.off, .calendar_v2 td.day.off a {
+  color: #999999;
+}
+.calendar_v2 td.day.today {
+  border: solid 1px #666666;
+  border-bottom: none;
+}
+.calendar_v2 td.calendarHeader {
+  background: #ddd;
+}
+.calendar_v2 td.off {
+  background: #f6f6f6;
+  color: #999999;
+}
+.calendar_v2 td.off a {
+  color: #999999;
+}
+.calendar_v2 td.off a:hover {
+  color: #ff9900;
+}
+.calendar_v2 div.calendarBody {
+  min-height: 60px;
+}
+.calendar_v2 div.calendarFooter {
+  height: 17px;
+}
+.calendar_v2 div {
+  overflow: hidden;
+}
+.calendar_v2 td.term {
   padding: 1px;
 }
-
-div.calerndarTermScheduleDiv a:hover {
-  background-color: #FFFFE5;
-  border: 1px solid #d2d2d2;
-  text-decoration: none;
-  padding: 0;
+.calendar_v2 td.term.today {
+  border-right: solid 1px #666666;
+  border-left: solid 1px #666666;
 }
-
-.calendar div.calerndarTodoDiv {
+.calendar_v2 div.calerndarTermScheduleDiv {
+  font-weight: normal;
+  text-align: center;
+  border: 1px solid #9c9;
+  background-color: #DFD;
+  overflow: hidden;
+}
+.calendar_v2 .calerndarTermScheduleDiv a:link, .calendar_v2 .calerndarTermScheduleDiv a:visited {
+  display: block;
+  text-decoration: none;
+}
+.calendar_v2 .calerndarTermScheduleDiv a:hover {
+  background-color: #FFFFE5;
+  text-decoration: none;
+}
+.calendar_v2 td.calendarTodo {
+  padding: 1px;
+}
+.calendar_v2 td.calendarTodo.today {
+  border-right: solid 1px #666666;
+  border-left: solid 1px #666666;
+}
+.calendar_v2 div.calerndarTodoDiv {
   padding: 0;
   font-weight: normal;
   text-align: center;
   border: 1px solid #f0a0a0;
   background-color: #FFE5E5;
 }
-
-div.calerndarTodoDiv a:link, div.calerndarTodoDiv a:visited {
+.calendar_v2 .calerndarTodoDiv a:link, .calendar_v2 .calerndarTodoDiv a:visited {
+  display: block;
+  text-decoration: none;
+}
+.calendar_v2 .calerndarTodoDiv a:hover {
+  background-color: #FFFFE5;
+  text-decoration: none;
+}
+.calendar_v2 .calendarScheduleDiv a {
+  line-height: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+}
+.calendar_v2 .calendarScheduleDiv .time {
+  margin-right: .5em;
+  padding: 1px;
+}
+.calendar_v2 .calendarScheduleDiv .title {
+  padding: 1px;
+}
+.calendar_v2 .calendarScheduleDiv a:link,
+.calendar_v2 .calendarScheduleDiv a:visited {
   display: block;
   text-decoration: none;
   padding: 1px;
 }
-
-div.calerndarTodoDiv a:hover {
+.calendar_v2 .calendarScheduleDiv a:hover {
   background-color: #FFFFE5;
-  border: 1px solid #d2d2d2;
+  border: 1px solid #ff9900;
   text-decoration: none;
   padding: 0;
+}
+.calendar_v2 .calendarScheduleDiv .calendarTime {
+  padding-bottom: 5px;
+  vertical-align: text-bottom;
+}
+.calendar_v2 .calendarScheduleDiv .addSchedule {
+  display: inline-block !important;
+  margin: 0 0 5px 0;
+  padding: 1px 0 !important;
+  text-decoration: underline !important;
+}
+.calendar_v2 .calendarScheduleDiv .addSchedule:hover {
+  padding: 1px 0;
+  border: none;
+  background: none;
+}
+.calendar_v2 .calendarScheduleDiv.overlap {
+  color: #ff3333;
+}
+.calendar_v2 .calendarScheduleDiv.overlap a, .calendar_v2 .calendarScheduleDiv.overlap span, .calendar_v2 .calendarScheduleDiv.overlap i {
+  color: #ff3333;
+}
+.calendar_v2 .addScheduleCell:hover {
+  background: #f6f6f6;
+  cursor: pointer;
+}
+.calendar_v2 .addScheduleCell.today {
+  border: solid 1px #666666;
+  border-top: none;
+}
+.calendar_v2 i[class*="icon-"] {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
 }
 
 /*span span span,*/

@@ -105,7 +105,7 @@ a {
 th a {
 	color:$linkColor;
 }
-a:hover, a:hover strong, a:hover span {
+a:hover, a:hover strong, a:hover span, a:hover i {
 	color:$linkColorHover;
 	text-decoration:none;
 }
@@ -1288,19 +1288,19 @@ div.tableBorderM {
 	font-size:1px;
 	line-height:1px;
 }
-div.sunday, td.sunday {
+div.sunday {//, td.sunday {
 	background:$sundayBack;
 }
-div.saturday, td.saturday {
+div.saturday {//, td.saturday {
 	background:$saturdayBack;
 }
-div.holiday, td.holiday {
+div.holiday {//, td.holiday {
 	background:$sundayBack
 }
-div.today, td.today {
+div.today {//, td.today {
 	background: #edfeed;
 }
-div.off, td.off {
+div.off {//}, td.off {
 	background: #f6f6f6;
 }
 
@@ -1386,7 +1386,24 @@ div.off, td.off {
 	div {
 		overflow:hidden;
 	}
+
+	// term : 期間スケジュール
+	td.term {
+		border-top:none;
+		border-bottom:none;
+	}
+	div.calerndarTermScheduleDiv {
+		font-weight:normal;
+		text-align:center;
+		border:1px solid #9c9;
+		background-color:#DFD;
+		overflow:hidden;
+	}
+	td.topNone {
+		border-top:none;
+	}
 }
+/*
 div.calendarScheduleDiv {
 
 	 div.time {
@@ -1423,7 +1440,6 @@ div.calendarScheduleDiv {
 		background:none;
 	}
 }
-
 .addScheduleCell:hover {
 	background:#F5F5F5;
 	cursor:pointer;
@@ -1433,21 +1449,6 @@ div.calendarScheduleDiv {
 	text-decoration:none !important;
 }
 
-
-.calendar td.term {
-	border-top:none;
-	border-bottom:none;
-}
-.calendar div.calerndarTermScheduleDiv {
-	font-weight:normal;
-	text-align:center;
-	border:1px solid #9c9;
-	background-color:#DFD;
-	overflow:hidden;
-}
-.calendar td.topNone {
-	border-top:none;
-}
 div.calerndarTermScheduleDiv a:link, div.calerndarTermScheduleDiv a:visited {
 	display:block;
 	text-decoration:none;
@@ -1477,6 +1478,245 @@ div.calerndarTodoDiv a:hover {
 	text-decoration:none;
 	padding:0;
 }
+*/
+
+/***************************************************
+	calendar_v2
+--------------------------------------------------*/
+.calendar_v2 {
+	margin-top:5px;
+	margin-bottom:5px;
+	border-collapse:collapse;
+	border-spacing:0;
+	border:1px solid $grayBorder;
+	font-size: $fontSizeSmall;
+
+	th {
+		//height: 60px;
+		border:1px solid #ddd;
+		padding: 3px;
+		font-weight:normal;
+		text-align:center;
+	}
+	td {
+		border-right :1px solid $grayBorder;
+		border-left :1px solid $grayBorder;
+		padding: 3px;
+		vertical-align:top;
+		word-break: break-all;
+	}
+	tr:first-child th {
+		//height: auto;
+		padding: 0;
+		font-size: $fontSizeSmall;
+		background: $grayBackLight;
+	}
+	tr.calendarWeek {
+		th {
+			width: 14.286%;
+			white-space: nowrap;
+		}
+	}
+	th.groupOneday {
+		width:auto;
+	}
+	th.groupWeekly {
+		width:12.5%;
+	}
+	//曜日系優先度 : today > off > holiday > saturday = sunday
+	td.day {
+		padding: 3px 5px;
+		//background-color:#FFFFE5;
+		border-top: solid 1px $grayBorder;
+		&.sunday a {
+			color: $red;
+		}
+		&.saturday a {
+			color: $blue;
+		}
+		&.holiday, &.holiday a {
+			color: $red;
+		}
+		&.off, &.off a {
+			color: $gray;
+		}
+		&.today {
+			border: solid 1px $grayDeep;
+			border-bottom: none;
+		}
+	}
+
+	th.sunday {
+		//background: $sundayBack;
+	}
+	th.saturday {
+		//background: $saturdayBack;
+	}
+	th.holiday {
+		//background: $sundayBack;
+	}
+	th.today {
+		//background: #edfeed;
+	}
+	td.calendarHeader {
+		background:#ddd;
+	}
+	td.off {
+		background: $grayBackLight;
+		color: $gray;
+		a {
+			color: $gray;
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+	td.off2 {
+		//background-color:#DDD;
+	}
+	//div.calendarDay {
+	//	color:#666;
+	//	margin:0;
+	//	padding:0 2px 0 2px;
+	//	vertical-align:top;
+	//}
+	td.termSchedule {
+	}
+	div.calendarBody {
+		min-height:60px;
+	}
+	div.calendarFooter {
+		height:17px;
+	}
+	div {
+		overflow:hidden;
+	}
+
+	// term : 期間スケジュール
+	td.term {
+		padding: 1px;
+		//border-top:none;
+		//border-bottom:none;
+		&.today {
+			border-right: solid 1px $grayDeep;
+			border-left: solid 1px $grayDeep;
+		}
+	}
+	div.calerndarTermScheduleDiv {
+		font-weight:normal;
+		text-align:center;
+		border:1px solid #9c9;
+		background-color:#DFD;
+		overflow:hidden;
+	}
+	//td.topNone {
+	//	border-top:none;
+	//}
+	.calerndarTermScheduleDiv a:link, .calerndarTermScheduleDiv a:visited {
+		display:block;
+		text-decoration:none;
+	}
+	.calerndarTermScheduleDiv a:hover {
+		background-color:#FFFFE5;
+		text-decoration:none;
+	}
+
+	// todo
+	td.calendarTodo {
+		padding: 1px;
+		&.today {
+			border-right: solid 1px $grayDeep;
+			border-left: solid 1px $grayDeep;
+		}
+	}
+	div.calerndarTodoDiv {
+		padding:0;
+		font-weight:normal;
+		text-align:center;
+		border:1px solid #f0a0a0;
+		background-color:#FFE5E5;
+	}
+
+	.calerndarTodoDiv a:link, .calerndarTodoDiv a:visited {
+		display:block;
+		text-decoration:none;
+	}
+	.calerndarTodoDiv a:hover {
+		background-color:#FFFFE5;
+		text-decoration:none;
+	}
+
+	// schedule : 個別スケジュール
+	.calendarScheduleDiv {
+		a {
+			line-height: 1.5em;
+			height: 1.5em;
+			overflow: hidden;
+		}
+		.time {
+			margin-right: .5em;
+			padding: 1px;
+		}
+		.title {
+			padding: 1px;
+		}
+		a:link,
+		a:visited {
+			display:block;
+			text-decoration:none;
+			padding:1px;
+		}
+		a:hover {
+			background-color:#FFFFE5;
+			border:1px solid $linkColorHover;
+			text-decoration:none;
+			padding:0;
+		}
+		.calendarTime {
+			padding-bottom:5px;
+			vertical-align:text-bottom;
+		}
+		.addSchedule {
+			display:inline-block !important;
+			margin:0 0 5px 0;
+			padding:1px 0 !important;
+			text-decoration:underline !important;
+		}
+		.addSchedule:hover {
+			padding:1px 0;
+			border:none;
+			background:none;
+		}
+	}
+	.calendarScheduleDiv.overlap { //重複スケジュール
+		color: $red;
+		a, span, i {
+			color: $red;
+		}
+
+	}
+	.addScheduleCell {
+		&:hover {
+			background: $grayBackLight;
+			cursor:pointer;
+		}
+		&:hover a.addSchedule {
+			//color:#FF9900;
+			//text-decoration:none !important;
+		}
+		&.today {
+			border: solid 1px $grayDeep;
+			border-top: none;
+		}
+	}
+	i[class*="icon-"] {
+		display: inline-block;
+		width: 1em;
+		text-align: center;
+	}
+}
+
+
 
 /*span span span,*/
 span.dispUser {

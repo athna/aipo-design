@@ -261,16 +261,43 @@ $headerHeight:60px;
 				color: $textColor;
 			}
 		}
+		&:active {
+			background: none !important;
+			box-shadow: none !important;
+			color: $textColor;
+		}
 	}
 	.placeholder {
 		top: 7px !important;
 		line-height: 1.6;
 	}
+	.indicator {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: $inputHeight;
+		height: $inputHeight;
+		padding: 0;
+		background-position: center center;
+		background-color: $white;
+		@include border-radius(4px);
+	}
 }
+//filterInputField
+.search .filterInputField {
+	border: none;
+	.filterDropDrawer {
+		width: 20px;
+	}
+	input[type=text] {
+		padding-right: $inputHeight + 20;
+	}
+}
+
 .hdSearch {
 	position: relative;
 	float: left;
-	margin: 10px;
+	margin: (($headerHeight - ($inputHeight + 2)) / 2) 10px;
 
 	form {
 		@extend .bRadius3;
@@ -283,7 +310,7 @@ $headerHeight:60px;
 	}
 
 	input[type=text], .submit {
-		height: 20px;
+		height: $inputHeight;//20px;
 		border: none;
 		vertical-align: middle;
 		outline: none;
@@ -297,7 +324,7 @@ $headerHeight:60px;
 		}
 	}
 	.submit {
-		height: $headerHeight - 20 - 2;
+		height: $inputHeight;//$headerHeight - 20 - 2;
 		margin: 0;
 		padding: 0;
 		background: none;

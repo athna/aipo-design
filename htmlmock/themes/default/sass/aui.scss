@@ -10,6 +10,7 @@
 
 //ui
 @import "ui";
+@import "new-smpui";
 @import "buttons";
 
 .counter {
@@ -2376,20 +2377,30 @@ ul.attachments{
 --------------------------------------------------*/
 .auiFilter {
 	position:relative;
+	form {
+		width:100%;
+		@include box-sizing(border-box);
+	}
+	.auiButton {
+		float:left;
+		width:16px;
+	}
+	.auiSearch .auiButtonSearch {
+		margin-left:5px;
+	}
 }
-.auiFilter form {
-	width:100%;
-	@include box-sizing(border-box);
-}
-.auiFilter .auiButton {
-	float:left;
-	width:16px;
-}
+
 .filters {
 	color:$gray;
 	line-height:$inputHeight;
 	cursor:text;
 	//width: 99%;
+	a {
+		text-decoration:none;
+	}
+	a:hover span {
+		color:#000;
+	}
 }
 .filterTip {
 	//display:block;
@@ -2405,32 +2416,20 @@ ul.attachments{
 	white-space:nowrap;
 	font-size:11px;
 	cursor:pointer;
-}
-.auiSearch .filterTip {
-	margin:2px !important;
-}
-
-.filterInputField .filterTip {
-	height:$inputHeight - 4 !important;
-	line-height:$inputHeight - 4 !important;
-	padding-right:22px;
-}
-.filterTip > span {
-	display:inline-block;
-	max-width:16em;
-	overflow:hidden;
-	white-space:nowrap;
-	text-overflow:ellipsis;
-}
-.filters a {
-	text-decoration:none;
-}
-.filters a:hover span {
-	color:#000;
-}
-.filterTip > a {
-	position:absolute;
-	margin:6px -5px 0 5px;
+	> span {
+		display:inline-block;
+		max-width:16em;
+		overflow:hidden;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+	}
+	> a {
+		position:absolute;
+		margin:6px -5px 0 5px;
+	}
+	.auiSearch &, .search & { // .auiSearch .filterTip
+		margin:2px !important;
+	}
 }
 *:first-child+html .filterTip > a {
 	margin-top:5px;
@@ -2444,72 +2443,83 @@ ul.attachments{
 	@extend .bRadius4;
 	background:#ffffff;
 	overflow: hidden;
+	.filterTip {
+		height:$inputHeight - 4 !important;
+		line-height:$inputHeight - 4 !important;
+		padding-right:22px;
+	}
+	.filters {
+		position:absolute;
+		height:$inputHeight;
+		overflow:hidden;
+		//white-space:normal;
+		white-space: nowrap;
+	}
+	input[type=text] {
+		margin:0 !important;
+		height:$inputHeight;
+		border:none;
+		background:transparent;
+		max-width:500px;
+		padding-right:24px;
+		outline: none;
+	}
+	.menubar.multi {
+		left:auto;
+		top:30px;
+		right:0;
+	}
 }
 *:first-child+html .filterInputField {
 	overflow:hidden;
 }
 
-.filterInputField .filters {
-	position:absolute;
-	height:$inputHeight;
-	overflow:hidden;
-	//white-space:normal;
-	white-space: nowrap;
-}
-
-.filterInputField input[type=text] {
-	margin:0 !important;
-	height:$inputHeight;
-	border:none;
-	background:transparent;
-}
-
-.filterInputField .menubar.multi {
-	left:auto;
-	right:0;
-}
 .filterDropDrawer {
 	position:absolute;
 	display:block;
 	right:0;
 	width:24px;
-	height:$inputHeight - 4;
-	top:2px;
+	//height:$inputHeight - 4;
+	height: $inputHeight;
+	//top:2px;
 	//right:2px;
-	@include border-radius(0 2px 2px 0);
-	@include box-shadow(-3px 0 3px 0px #fff);
+	//@include border-radius(0 2px 2px 0);
+	//@include box-shadow(-3px 0 3px 0px #fff);
 	vertical-align:middle;
-	background:#ffffff;
+	//background:#ffffff;
 	text-decoration: none;
+	text-align: center;
 
-	i[class*=icon-] {
-		line-height: 26px;
-		margin-left: 7px;
+	i[class*="icon-"] {
+		position: absolute;
+		top: 0;
+		right: 6px;
+		height: $inputHeight;
+		line-height: $inputHeight;
+		color: $gray;
+		&:hover, .active & {
+			color: $textColor;
+		}
+	}
+	i {
+		cursor:pointer;
+		//margin:6px 0 0 2px;
+		position: relative;
+		top: 7px;
 	}
 }
-.filterDropDrawer i {
-	cursor:pointer;
-	margin:6px 0 0 2px;
-}
-.filterInputField input[type=text] {
-	max-width:500px;
-	padding-right:20px;
-}
-.filterInputField .menubar.multi {
-	top:30px;
-}
-.auiFilter .auiSearch .auiButtonSearch {
-	margin-left:5px;
+.search .filterDropDrawer {
+	right: $inputHeight;
 }
 
 .filters.colors .filterTip {
 	color:$white !important;
 	cursor:default;
-}
-.filters.colors .filterTip > a {
-	color:$white !important;
-	position:static;
-	margin:0 0 0 6px;
+	> a {
+		color:$white !important;
+		position:static;
+		margin:0 0 0 6px;
+	}
 }
 
 /***************************************************

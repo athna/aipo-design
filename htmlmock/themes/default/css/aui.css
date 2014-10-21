@@ -4,7 +4,7 @@
 .activityPopup .body, .supportPopup .body, .dropdown .contents,
 .activityPopup .contents, .supportPopup .contents, .dropdown .foot,
 .activityPopup .foot, .supportPopup .foot, .messageSummary li a, .messageUserlist ul li a, #auiLauncher, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .auiTabs .tab, #timelineOuter .message,
+#auiLauncher ul.setting li a, .dateChanger, .auiTabs .tab, #timelineOuter .message,
 .timelineOuter .message {
   *zoom: 1;
 }
@@ -13,13 +13,13 @@
 .activityPopup .body:before, .supportPopup .body:before, .dropdown .contents:before,
 .activityPopup .contents:before, .supportPopup .contents:before, .dropdown .foot:before,
 .activityPopup .foot:before, .supportPopup .foot:before, .messageSummary li a:before, .messageUserlist ul li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
-#auiLauncher ul.setting li a:before, .auiTabs .tab:before, #timelineOuter .message:before,
+#auiLauncher ul.setting li a:before, .dateChanger:before, .auiTabs .tab:before, #timelineOuter .message:before,
 .timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after,
 .activityPopup .title:after, .supportPopup .title:after, .dropdown .body:after,
 .activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
 .activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
 .activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
 .timelineOuter .message:after {
   display: table;
   content: "";
@@ -30,7 +30,7 @@
 .activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
 .activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
 .activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
 .timelineOuter .message:after {
   clear: both;
 }
@@ -40,7 +40,7 @@
 .activityPopup .body, .supportPopup .body, .dropdown .contents,
 .activityPopup .contents, .supportPopup .contents, .dropdown .foot,
 .activityPopup .foot, .supportPopup .foot, .messageSummary li a, .messageUserlist ul li a, #auiLauncher, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .auiTabs .tab, #timelineOuter .message,
+#auiLauncher ul.setting li a, .dateChanger, .auiTabs .tab, #timelineOuter .message,
 .timelineOuter .message {
   zoom: 1;
   display: block;
@@ -50,13 +50,13 @@
 .activityPopup .body:before, .supportPopup .body:before, .dropdown .contents:before,
 .activityPopup .contents:before, .supportPopup .contents:before, .dropdown .foot:before,
 .activityPopup .foot:before, .supportPopup .foot:before, .messageSummary li a:before, .messageUserlist ul li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
-#auiLauncher ul.setting li a:before, .auiTabs .tab:before, #timelineOuter .message:before,
+#auiLauncher ul.setting li a:before, .dateChanger:before, .auiTabs .tab:before, #timelineOuter .message:before,
 .timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after,
 .activityPopup .title:after, .supportPopup .title:after, .dropdown .body:after,
 .activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
 .activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
 .activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
 .timelineOuter .message:after {
   content: "";
   display: block;
@@ -105,7 +105,7 @@ input[type=password], #timelineOuter #inputField,
   border-radius: 3px;
 }
 
-.bRadius4, .auiPopup,
+.bRadius4, .auiSelect, .auiPopup,
 .activityPopup, .loginAlert,
 .alert, .alertSuccess, .submenu_v2 li a, .filterInputField, #auiLauncher_1 li a, #auiLauncher_2 li a, .guideList li > a {
   -webkit-border-radius: 4px;
@@ -128,6 +128,10 @@ input[type=password], #timelineOuter #inputField,
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .transition01 {
@@ -209,7 +213,7 @@ input[type=submit], input[type=button], input[type=reset] {
 .activityPopup .body, .supportPopup .body, .dropdown .contents,
 .activityPopup .contents, .supportPopup .contents, .dropdown .foot,
 .activityPopup .foot, .supportPopup .foot, .messageSummary li a, .messageUserlist ul li a, #auiLauncher, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .auiTabs .tab, #timelineOuter .message,
+#auiLauncher ul.setting li a, .dateChanger, .auiTabs .tab, #timelineOuter .message,
 .timelineOuter .message {
   *zoom: 1;
 }
@@ -218,13 +222,13 @@ input[type=submit], input[type=button], input[type=reset] {
 .activityPopup .body:before, .supportPopup .body:before, .dropdown .contents:before,
 .activityPopup .contents:before, .supportPopup .contents:before, .dropdown .foot:before,
 .activityPopup .foot:before, .supportPopup .foot:before, .messageSummary li a:before, .messageUserlist ul li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
-#auiLauncher ul.setting li a:before, .auiTabs .tab:before, #timelineOuter .message:before,
+#auiLauncher ul.setting li a:before, .dateChanger:before, .auiTabs .tab:before, #timelineOuter .message:before,
 .timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after,
 .activityPopup .title:after, .supportPopup .title:after, .dropdown .body:after,
 .activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
 .activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
 .activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
 .timelineOuter .message:after {
   display: table;
   content: "";
@@ -235,7 +239,7 @@ input[type=submit], input[type=button], input[type=reset] {
 .activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
 .activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
 .activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
 .timelineOuter .message:after {
   clear: both;
 }
@@ -245,7 +249,7 @@ input[type=submit], input[type=button], input[type=reset] {
 .activityPopup .body, .supportPopup .body, .dropdown .contents,
 .activityPopup .contents, .supportPopup .contents, .dropdown .foot,
 .activityPopup .foot, .supportPopup .foot, .messageSummary li a, .messageUserlist ul li a, #auiLauncher, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .auiTabs .tab, #timelineOuter .message,
+#auiLauncher ul.setting li a, .dateChanger, .auiTabs .tab, #timelineOuter .message,
 .timelineOuter .message {
   zoom: 1;
   display: block;
@@ -255,13 +259,13 @@ input[type=submit], input[type=button], input[type=reset] {
 .activityPopup .body:before, .supportPopup .body:before, .dropdown .contents:before,
 .activityPopup .contents:before, .supportPopup .contents:before, .dropdown .foot:before,
 .activityPopup .foot:before, .supportPopup .foot:before, .messageSummary li a:before, .messageUserlist ul li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
-#auiLauncher ul.setting li a:before, .auiTabs .tab:before, #timelineOuter .message:before,
+#auiLauncher ul.setting li a:before, .dateChanger:before, .auiTabs .tab:before, #timelineOuter .message:before,
 .timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after,
 .activityPopup .title:after, .supportPopup .title:after, .dropdown .body:after,
 .activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
 .activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
 .activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
-#auiLauncher ul.setting li a:after, .auiTabs .tab:after, #timelineOuter .message:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
 .timelineOuter .message:after {
   content: "";
   display: block;
@@ -310,7 +314,7 @@ input[type=password], #timelineOuter #inputField,
   border-radius: 3px;
 }
 
-.bRadius4, .auiPopup,
+.bRadius4, .auiSelect, .auiPopup,
 .activityPopup, .loginAlert,
 .alert, .alertSuccess, .submenu_v2 li a, .filterInputField, #auiLauncher_1 li a, #auiLauncher_2 li a, .guideList li > a {
   -webkit-border-radius: 4px;
@@ -333,6 +337,10 @@ input[type=password], #timelineOuter #inputField,
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .transition01 {
@@ -588,15 +596,45 @@ input[type=password], #timelineOuter #inputField,
 .search .submit:hover [class^="icon-"], .search .submit:hover [class*=" icon-"] {
   color: #333333;
 }
+.search .submit:active {
+  background: none !important;
+  box-shadow: none !important;
+  color: #333333;
+}
 .search .placeholder {
   top: 7px !important;
   line-height: 1.6;
+}
+.search .indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-position: center center;
+  background-color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.search .filterInputField {
+  border: none;
+}
+.search .filterInputField .filterDropDrawer {
+  width: 20px;
+}
+.search .filterInputField input[type=text] {
+  padding-right: 50px;
 }
 
 .hdSearch {
   position: relative;
   float: left;
-  margin: 10px;
+  margin: 14px 10px;
 }
 .hdSearch form {
   border: solid 1px #d2d2d2;
@@ -606,7 +644,7 @@ input[type=password], #timelineOuter #inputField,
   border: solid 1px #999999;
 }
 .hdSearch input[type=text], .hdSearch .submit {
-  height: 20px;
+  height: 30px;
   border: none;
   vertical-align: middle;
   outline: none;
@@ -622,7 +660,7 @@ input[type=password], #timelineOuter #inputField,
   box-shadow: none;
 }
 .hdSearch .submit {
-  height: 38px;
+  height: 30px;
   margin: 0;
   padding: 0;
   background: none;
@@ -1265,6 +1303,265 @@ ul.hdTools .dropdown:before {
 }
 #auiLauncher ul.setting {
   border-top: solid 1px #d2d2d2;
+}
+
+.clearfix, #auiHeader, .hdPages > ul, .hdNavigation > ul, .dropdown .title,
+.activityPopup .title, .supportPopup .title, .dropdown .body,
+.activityPopup .body, .supportPopup .body, .dropdown .contents,
+.activityPopup .contents, .supportPopup .contents, .dropdown .foot,
+.activityPopup .foot, .supportPopup .foot, .messageSummary li a, .messageUserlist ul li a, #auiLauncher, #auiLauncher ul.launcher li a,
+#auiLauncher ul.setting li a, .dateChanger, .auiTabs .tab, #timelineOuter .message,
+.timelineOuter .message {
+  *zoom: 1;
+}
+.clearfix:before, #auiHeader:before, .hdPages > ul:before, .hdNavigation > ul:before, .dropdown .title:before,
+.activityPopup .title:before, .supportPopup .title:before, .dropdown .body:before,
+.activityPopup .body:before, .supportPopup .body:before, .dropdown .contents:before,
+.activityPopup .contents:before, .supportPopup .contents:before, .dropdown .foot:before,
+.activityPopup .foot:before, .supportPopup .foot:before, .messageSummary li a:before, .messageUserlist ul li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
+#auiLauncher ul.setting li a:before, .dateChanger:before, .auiTabs .tab:before, #timelineOuter .message:before,
+.timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after,
+.activityPopup .title:after, .supportPopup .title:after, .dropdown .body:after,
+.activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
+.activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
+.activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
+.timelineOuter .message:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after,
+.activityPopup .title:after, .supportPopup .title:after, .dropdown .body:after,
+.activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
+.activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
+.activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
+.timelineOuter .message:after {
+  clear: both;
+}
+
+.clearfix, #auiHeader, .hdPages > ul, .hdNavigation > ul, .dropdown .title,
+.activityPopup .title, .supportPopup .title, .dropdown .body,
+.activityPopup .body, .supportPopup .body, .dropdown .contents,
+.activityPopup .contents, .supportPopup .contents, .dropdown .foot,
+.activityPopup .foot, .supportPopup .foot, .messageSummary li a, .messageUserlist ul li a, #auiLauncher, #auiLauncher ul.launcher li a,
+#auiLauncher ul.setting li a, .dateChanger, .auiTabs .tab, #timelineOuter .message,
+.timelineOuter .message {
+  zoom: 1;
+  display: block;
+}
+.clearfix:before, #auiHeader:before, .hdPages > ul:before, .hdNavigation > ul:before, .dropdown .title:before,
+.activityPopup .title:before, .supportPopup .title:before, .dropdown .body:before,
+.activityPopup .body:before, .supportPopup .body:before, .dropdown .contents:before,
+.activityPopup .contents:before, .supportPopup .contents:before, .dropdown .foot:before,
+.activityPopup .foot:before, .supportPopup .foot:before, .messageSummary li a:before, .messageUserlist ul li a:before, #auiLauncher:before, #auiLauncher ul.launcher li a:before,
+#auiLauncher ul.setting li a:before, .dateChanger:before, .auiTabs .tab:before, #timelineOuter .message:before,
+.timelineOuter .message:before, .clearfix:after, #auiHeader:after, .hdPages > ul:after, .hdNavigation > ul:after, .dropdown .title:after,
+.activityPopup .title:after, .supportPopup .title:after, .dropdown .body:after,
+.activityPopup .body:after, .supportPopup .body:after, .dropdown .contents:after,
+.activityPopup .contents:after, .supportPopup .contents:after, .dropdown .foot:after,
+.activityPopup .foot:after, .supportPopup .foot:after, .messageSummary li a:after, .messageUserlist ul li a:after, #auiLauncher:after, #auiLauncher ul.launcher li a:after,
+#auiLauncher ul.setting li a:after, .dateChanger:after, .auiTabs .tab:after, #timelineOuter .message:after,
+.timelineOuter .message:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.inline-block {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+.border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdCommunications .num, .dropdown,
+.activityPopup, .supportPopup, .dropdown .title,
+.activityPopup .title, .supportPopup .title, #dd_message .subContents, .messageSummary li a, .messageUserlist ul li a, .scroll, #auiLauncher ul.launcher li a,
+#auiLauncher ul.setting li a, .auiTabs .tab > li a, .guideList li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.bRadius2, #auiLauncher ul.launcher li .name,
+#auiLauncher ul.setting li .name, .counter, .nrCount {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.bRadius3, .search, .hdSearch form, ul.hdCommunications .num, .dropdown,
+.activityPopup, .supportPopup, .auiSearchOption, .auiAvatarList li a img, textarea,
+select, input[type=text],
+input[type=password], #timelineOuter #inputField,
+#timelineOuter .inputField,
+#timelineOuter .outer,
+.timelineOuter #inputField,
+.timelineOuter .inputField,
+.timelineOuter .outer, .timeline .commentInputDummy span, .name .avatar, #timelineOuter .newMessage,
+.timelineOuter .newMessage, .timeline .readMore, .filterTip, .auiAbsLayer {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.bRadius4, .auiSelect, .auiPopup,
+.activityPopup, .loginAlert,
+.alert, .alertSuccess, .submenu_v2 li a, .filterInputField, #auiLauncher_1 li a, #auiLauncher_2 li a, .guideList li > a {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.bRadius50p {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.ellipsis, .hdPages a.name, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, ul.hdTools .name, .messageSummary .date, .messageSummary .name, .messageSummary .latest, .messageUserlist .name, #auiLauncher ul.launcher li a,
+#auiLauncher ul.setting li a, .auiTabs .tab > li a {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.transition01 {
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.transition02 {
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.popupShadow, .dropdown,
+.activityPopup, .supportPopup {
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.scrollDecoration, .scroll, .auiCheckList {
+  scrollbar-face-color: #d2d2d2;
+  scrollbar-track-color: #f6f6f6;
+  scrollbar-arrow-color: #d2d2d2;
+  scrollbar-shadow-color: #d2d2d2;
+}
+.scrollDecoration::-webkit-scrollbar, .scroll::-webkit-scrollbar, .auiCheckList::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #f6f6f6;
+}
+.scrollDecoration::-webkit-scrollbar-piece, .scroll::-webkit-scrollbar-piece, .auiCheckList::-webkit-scrollbar-piece {
+  background: #f0f0f0;
+}
+.scrollDecoration::-webkit-scrollbar-thumb, .scroll::-webkit-scrollbar-thumb, .auiCheckList::-webkit-scrollbar-thumb {
+  background: #d2d2d2;
+}
+
+.dateChanger {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: solid 1px #d2d2d2;
+  border-bottom: none;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+  font-size: 0;
+}
+.dateChanger > div {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+}
+.dateChanger .currentDate {
+  padding: 0 10px;
+  text-align: center;
+  font-weight: bold;
+}
+.dateChanger a {
+  display: block;
+}
+.dateChanger a i[class*="icon-"] {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 22px;
+  color: #999999;
+}
+.dateChanger a:hover i[class*="icon-"] {
+  color: #ff9900;
+}
+
+.auiSelect {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  border: solid 1px #d2d2d2;
+  cursor: default;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.auiSelect:hover {
+  border: solid 1px #999999;
+}
+.auiSelect .current {
+  line-height: 30px;
+  padding: 0 30px 0 10px;
+}
+.auiSelect .current .avatar_s {
+  margin: 0 5px 0 -6px;
+  vertical-align: middle;
+}
+.auiSelect i[class*="icon-"] {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 30px;
+  line-height: 30px;
+  color: #999999;
+}
+.auiSelect:hover i[class*="icon-"], .auiSelect.active i[class*="icon-"] {
+  color: #333333;
+}
+
+table .more {
+  text-align: center;
 }
 
 /***************************************************
@@ -4866,23 +5163,30 @@ ul.attachments {
 .auiFilter {
   position: relative;
 }
-
 .auiFilter form {
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .auiFilter .auiButton {
   float: left;
   width: 16px;
+}
+.auiFilter .auiSearch .auiButtonSearch {
+  margin-left: 5px;
 }
 
 .filters {
   color: #999999;
   line-height: 30px;
   cursor: text;
+}
+.filters a {
+  text-decoration: none;
+}
+.filters a:hover span {
+  color: #000;
 }
 
 .filterTip {
@@ -4897,17 +5201,6 @@ ul.attachments {
   font-size: 11px;
   cursor: pointer;
 }
-
-.auiSearch .filterTip {
-  margin: 2px !important;
-}
-
-.filterInputField .filterTip {
-  height: 26px !important;
-  line-height: 26px !important;
-  padding-right: 22px;
-}
-
 .filterTip > span {
   display: inline-block;
   max-width: 16em;
@@ -4915,18 +5208,12 @@ ul.attachments {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
-.filters a {
-  text-decoration: none;
-}
-
-.filters a:hover span {
-  color: #000;
-}
-
 .filterTip > a {
   position: absolute;
   margin: 6px -5px 0 5px;
+}
+.auiSearch .filterTip, .search .filterTip {
+  margin: 2px !important;
 }
 
 *:first-child + html .filterTip > a {
@@ -4941,28 +5228,34 @@ ul.attachments {
   background: #ffffff;
   overflow: hidden;
 }
-
-*:first-child + html .filterInputField {
-  overflow: hidden;
+.filterInputField .filterTip {
+  height: 26px !important;
+  line-height: 26px !important;
+  padding-right: 22px;
 }
-
 .filterInputField .filters {
   position: absolute;
   height: 30px;
   overflow: hidden;
   white-space: nowrap;
 }
-
 .filterInputField input[type=text] {
   margin: 0 !important;
   height: 30px;
   border: none;
   background: transparent;
+  max-width: 500px;
+  padding-right: 24px;
+  outline: none;
 }
-
 .filterInputField .menubar.multi {
   left: auto;
+  top: 30px;
   right: 0;
+}
+
+*:first-child + html .filterInputField {
+  overflow: hidden;
 }
 
 .filterDropDrawer {
@@ -4970,48 +5263,36 @@ ul.attachments {
   display: block;
   right: 0;
   width: 24px;
-  height: 26px;
-  top: 2px;
-  -webkit-border-radius: 0 2px 2px 0;
-  -moz-border-radius: 0 2px 2px 0;
-  -ms-border-radius: 0 2px 2px 0;
-  -o-border-radius: 0 2px 2px 0;
-  border-radius: 0 2px 2px 0;
-  -webkit-box-shadow: -3px 0 3px 0px white;
-  -moz-box-shadow: -3px 0 3px 0px white;
-  box-shadow: -3px 0 3px 0px white;
+  height: 30px;
   vertical-align: middle;
-  background: #ffffff;
   text-decoration: none;
+  text-align: center;
 }
-.filterDropDrawer i[class*=icon-] {
-  line-height: 26px;
-  margin-left: 7px;
+.filterDropDrawer i[class*="icon-"] {
+  position: absolute;
+  top: 0;
+  right: 6px;
+  height: 30px;
+  line-height: 30px;
+  color: #999999;
 }
-
+.filterDropDrawer i[class*="icon-"]:hover, .active .filterDropDrawer i[class*="icon-"] {
+  color: #333333;
+}
 .filterDropDrawer i {
   cursor: pointer;
-  margin: 6px 0 0 2px;
+  position: relative;
+  top: 7px;
 }
 
-.filterInputField input[type=text] {
-  max-width: 500px;
-  padding-right: 20px;
-}
-
-.filterInputField .menubar.multi {
-  top: 30px;
-}
-
-.auiFilter .auiSearch .auiButtonSearch {
-  margin-left: 5px;
+.search .filterDropDrawer {
+  right: 30px;
 }
 
 .filters.colors .filterTip {
   color: white !important;
   cursor: default;
 }
-
 .filters.colors .filterTip > a {
   color: white !important;
   position: static;

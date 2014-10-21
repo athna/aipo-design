@@ -1,3 +1,12 @@
+function displayToggle($target) {
+	var elm = document.getElementById($target);
+	var style = elm.currentStyle || document.defaultView.getComputedStyle(elm, '');
+	if (style.display == 'none') {
+		elm.style.display = 'block'
+	} else {
+		elm.style.display = 'none'
+	}
+}
 function popupToggle($this, $target) {
 	var elm = document.getElementById($target);
 	var style = elm.currentStyle || document.defaultView.getComputedStyle(elm, '');
@@ -12,6 +21,41 @@ function popupToggle($this, $target) {
 		$this.className += ' active';
 	}
 }
+function positionToggle($this, $target) {
+	var bounds = $this.getBoundingClientRect();
+	var elm = document.getElementById($target);
+	var style = elm.currentStyle || document.defaultView.getComputedStyle(elm, '');
+	if (style.display == 'none') {
+		elm.style.display = 'block';
+		elm.style.top = bounds.top + $this.offsetHeight + 'px';
+		elm.style.left = bounds.left+'px';
+	} else {
+		elm.style.display = 'none'
+	}
+	if ($this.className.indexOf('active') > 0) {
+		$this.className = $this.className.replace(' active', '');
+	} else {
+		$this.className += ' active';
+	}
+}
+function parentToggle($this, $target) {
+	var bounds = $this.parentNode.getBoundingClientRect();
+	var elm = document.getElementById($target);
+	var style = elm.currentStyle || document.defaultView.getComputedStyle(elm, '');
+	if (style.display == 'none') {
+		elm.style.display = 'block';
+		elm.style.top = bounds.top + $this.offsetHeight + 'px';
+		elm.style.left = bounds.left+'px';
+	} else {
+		elm.style.display = 'none'
+	}
+	if ($this.className.indexOf('active') > 0) {
+		$this.className = $this.className.replace(' active', '');
+	} else {
+		$this.className += ' active';
+	}
+}
+
 function floatPortletToggle($this, $target) {
 	var t = document.getElementById($target);
 	var i = t.className.indexOf(" open");

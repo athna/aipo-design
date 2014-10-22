@@ -1477,8 +1477,8 @@ input[type=password], #timelineOuter #inputField,
 }
 
 .dateChanger {
-  height: 40px;
-  line-height: 40px;
+  position: relative;
+  min-width: 10em;
   text-align: center;
   border: solid 1px #d2d2d2;
   border-bottom: none;
@@ -1492,8 +1492,16 @@ input[type=password], #timelineOuter #inputField,
 }
 .dateChanger > div {
   display: inline-block;
+  height: 40px;
+  line-height: 40px;
   vertical-align: middle;
   font-size: 12px;
+}
+.dateChanger .today {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  background: none;
 }
 .dateChanger .currentDate {
   padding: 0 10px;
@@ -1501,7 +1509,12 @@ input[type=password], #timelineOuter #inputField,
   font-weight: bold;
 }
 .dateChanger a {
-  display: block;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 .dateChanger a i[class*="icon-"] {
   display: inline-block;

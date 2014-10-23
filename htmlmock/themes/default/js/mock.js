@@ -227,6 +227,21 @@ function phBlur($this) {
 	}
 }
 
+// searchClear
+function scChange($this, $target) {
+	var elm = document.getElementById($target);
+	if($this.value) {
+		elm.style.display = 'block';
+	} else {
+		elm.style.display = 'none';
+	}
+}
+function searchClear($this,$target) {
+	document.getElementById($target).value = "";
+	$this.style.display = 'none';
+}
+
+
 function checkCount($obj, $target) {
 	var obj = document.getElementById($obj);
 	var inputs = obj.getElementsByTagName("input");

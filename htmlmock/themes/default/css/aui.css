@@ -570,6 +570,9 @@ input[type=password], #timelineOuter #inputField,
   -moz-box-shadow: none;
   box-shadow: none;
 }
+.search input[type=text]::-ms-clear {
+  display: none;
+}
 .search .submit {
   position: absolute;
   top: 0;
@@ -597,22 +600,6 @@ input[type=password], #timelineOuter #inputField,
   background: none !important;
   box-shadow: none !important;
   color: #333333;
-}
-.search .searchClear {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 30px;
-}
-.search .searchClear [class^="icon-"], .search .searchClear [class*=" icon-"] {
-  display: block;
-  width: 20px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-}
-.search .searchClear:hover [class^="icon-"], .search .searchClear:hover [class*=" icon-"] {
-  color: white;
 }
 .search .placeholder {
   top: 7px !important;
@@ -1067,6 +1054,19 @@ ul.hdTools .dropdown:before {
   top: 0;
   left: 0;
   padding: 8px;
+}
+.messageSummary .searchClear, .messageUserlist ul .searchClear {
+  padding: 0;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+}
+.messageSummary .searchClear [class^="icon-"], .messageSummary .searchClear [class*=" icon-"], .messageUserlist ul .searchClear [class^="icon-"], .messageUserlist ul .searchClear [class*=" icon-"] {
+  color: white;
+  margin-right: 5px;
+}
+.messageSummary .searchClear:hover [class^="icon-"], .messageSummary .searchClear:hover [class*=" icon-"], .messageUserlist ul .searchClear:hover [class^="icon-"], .messageUserlist ul .searchClear:hover [class*=" icon-"] {
+  color: #ff9900;
 }
 
 .messageSummary li a {

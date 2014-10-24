@@ -236,6 +236,10 @@ $headerHeight:60px;
 			@include box-shadow(none);
 		}
 	}
+	input[type=text]::-ms-clear {
+		display: none;
+	}
+
 	.submit {
 		position: absolute;
 		top: 0;
@@ -263,24 +267,6 @@ $headerHeight:60px;
 			background: none !important;
 			box-shadow: none !important;
 			color: $textColor;
-		}
-	}
-	.searchClear {
-		display: none;
-		position: absolute;
-		top: 0;
-		right: $inputHeight;
-		[class^="icon-"], [class*=" icon-"] {
-			display: block;
-			width: 20px;
-			height: $inputHeight;
-			line-height: $inputHeight;
-			text-align: center;
-		}
-		&:hover {
-			[class^="icon-"], [class*=" icon-"] {
-				color: $white;
-			}
 		}
 	}
 	.placeholder {
@@ -760,6 +746,21 @@ $dropdownSideWidth: 280px;
 		padding: 8px;
 		img {
 			//display: block;
+		}
+	}
+	.searchClear {
+		padding: 0;
+		line-height: 40px;
+		text-align: center;
+		color: $white;
+		[class^="icon-"], [class*=" icon-"] {
+			color: $white;
+			margin-right: 5px;
+		}
+		&:hover {
+			[class^="icon-"], [class*=" icon-"] {
+				color: $linkColorHover;
+			}
 		}
 	}
 }

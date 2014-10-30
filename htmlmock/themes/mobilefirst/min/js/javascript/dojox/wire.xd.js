@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojox.wire"],["require","dojox.wire._base"]],defineResource:function(e){e._hasResource["dojox.wire"]||(e._hasResource["dojox.wire"]=!0,e.provide("dojox.wire"),e.require("dojox.wire._base"))}});

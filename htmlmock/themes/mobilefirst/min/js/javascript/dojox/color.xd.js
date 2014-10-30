@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojox.color"],["require","dojox.color._base"]],defineResource:function(o){o._hasResource["dojox.color"]||(o._hasResource["dojox.color"]=!0,o.provide("dojox.color"),o.require("dojox.color._base"))}});

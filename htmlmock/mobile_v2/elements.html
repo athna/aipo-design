@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="../themes/mobilefirst/css/mobile_v2.css"/>
   <link rel="stylesheet" type="text/css" href="../themes/mobilefirst/css/print.css" media="print"/>
   <link rel="stylesheet" type="text/css" href="../themes/mobilefirst/css/font-awesome.min.css"/>
-  <script src="../../themes/mobilefirstjs/mock.js"></script>
+  <script src="../themes/mobilefirst/js/mock.js"></script>
 </head>
 <body>
 
@@ -37,32 +37,62 @@
 <div class="mobileContentsWrapper">
 
   <div class="row">
-    <div class="col-1">
-      <div class="auiSelect w100" onclick="positionToggle(this,'menubar_2')">
-        <div class="current">
-          <div class="image"><img src="../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s"></div>
-          木村 一郎
-        </div>
-        <i class="icon-caret-down"></i>
-      </div>
+    <div class="col-1 center">
+      <div style="background:#ccc;">row / col-1</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2 center">
+      <div style="background:#ccc;">row / col-2</div>
+    </div>
+    <div class="col-2 center">
+      <div style="background:#ccc;">row / col-2</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3 center">
+      <div style="background:#ccc;">row / col-3</div>
+    </div>
+    <div class="col-3 center">
+      <div style="background:#ccc;">row / col-3</div>
+    </div>
+    <div class="col-3 center">
+      <div style="background:#ccc;">row / col-3</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4 center">
+      <div style="background:#ccc;">row / col-4</div>
+    </div>
+    <div class="col-4 center">
+      <div style="background:#ccc;">row / col-4</div>
+    </div>
+    <div class="col-4 center">
+      <div style="background:#ccc;">row / col-4</div>
+    </div>
+    <div class="col-4 center">
+      <div style="background:#ccc;">row / col-4</div>
     </div>
   </div>
 
   <div class="row">
 
     <div class="col-2">
-      <div class="auiSelect w100" onclick="positionToggle(this,'menubar_1')">
+      <div class="auiSelect w100" onclick="popupToggle(this,'menubar_schedulechange');popupToggle(this,'popMask')">
         <div class="current">月間表示</div>
         <i class="icon-caret-down"></i>
       </div>
     </div>
 
     <div class="col-2">
-      <div class="auiSelect w100" onclick="positionToggle(this,'menubar_2')">
+      <div class="auiSelect w100" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">
         <div class="current">
-          <div class="image"><img src="../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s"></div>
-          木村 一郎
-        </div>
+			<div class="image"><img src="../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s"></div>
+			木村 一郎
+		</div>
         <i class="icon-caret-down"></i>
       </div>
     </div>
@@ -108,6 +138,61 @@
 
 
 </div>
+
+
+<div class="modal" id="menubar_schedulechange" style="display: none;top: 160px;">
+	<div class="menubar caret-left noBorder">
+		<ul>
+			<li><a href="block.html">ブロック表示</a></li>
+			<li><a href="day.html">日表示</a></li>
+			<li><a href="week.html">週間表示</a></li>
+			<li><a href="month.html" class="selected">月間表示</a></li>
+			<li class="last"><a href="list.html">一覧表示</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modal" id="menubar_userselect" style="display: none;top: 160px;">
+	<div class="menubar caret-right noBorder">
+		<div class="row">
+			<div class="col-1">
+				<select class="w100">
+					<option value="#">すべてのグループ</option>
+					<option value="#">全員</option>
+					<option value="#">----------</option>
+					<option value="#">商品開発部</option>
+					<option value="#">営業部</option>
+					<option value="#">----------</option>
+					<option value="#">設備一覧</option>
+				</select>
+				<i class="icon-caret-down pc_hide"></i>
+			</div>
+		</div>
+		<ul>
+			<li><a href="#">
+				<img src="../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+			<li><a href="#">
+				<img src="../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+			<li><a href="#">
+				<img src="../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+			<li><a href="#">
+				<img src="../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modalDialogUnderlayWrapper" id="popMask" style="display: none;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+
 
 </body>
 </html>

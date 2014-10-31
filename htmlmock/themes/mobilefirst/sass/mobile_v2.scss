@@ -8,6 +8,41 @@
 //html
 @import "html";
 
+body {
+	-webkit-text-size-adjust: 100%;
+}
+
+select {
+	position: relative;
+	-webkit-appearance: button;
+	appearance: button;
+	&:after {
+		position: absolute;
+		display: block;
+		content: "";
+		width: 10px;
+		height: 10px;
+		background: #f00;
+	}
+	&:before {
+		position: absolute;
+		display: block;
+		content: "\f0d7";
+	}
+	&+.icon-caret-down {
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		@include transform(translateY(-50%));
+		color: $gray;
+	}
+	&:hover {
+		&+.icon-caret-down {
+			color: $textColor;
+		}
+	}
+}
+
 //ui
 @import "ui";
 @import "new-smpui";
@@ -16,9 +51,10 @@
 // variables
 $mbUIHeight: 40px;
 
-body {
-	-webkit-text-size-adjust: 100%;
+.pc_hide {
+	display: block !important;
 }
+
 
 a {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -40,6 +76,11 @@ a {
 		line-height: $mbUIHeight;
 		text-align: center;
 	}
+	> .left {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 	> .right {
 		position: absolute;
 		top: 0;
@@ -48,11 +89,15 @@ a {
 	a {
 		display: block;
 		float: left;
+		height: $mbUIHeight;
+		line-height: $mbUIHeight;
+		padding: 0 10px;
+		font-size: $baseFontSize;
 		text-decoration: none;
 	}
 	[class*="icon-"] {
 		display: inline-block;
-		min-width: $mbUIHeight;
+		min-width: 20px;
 		height: $mbUIHeight;
 		line-height: $mbUIHeight;
 		text-align: center;
@@ -61,6 +106,11 @@ a {
 	}
 	.icon-plus {
 		color: $linkColorHover;
+	}
+	[class*="auiButton"] {
+		height: $inputHeight;
+		line-height: $inputHeight;
+		margin: ($mbUIHeight - $inputHeight)/2;
 	}
 }
 
@@ -103,10 +153,17 @@ a {
 
 .row {
 	@extend .clearfix;
-	margin: 5px 0;
-	padding-left: 5px;
+	.mobileContentsWrapper & {
+		margin: 5px 0;
+		padding-left: 5px;
+	}
+	.menubar & {
+		padding: 5px 0 5px 5px;
+		border-bottom: solid 1px $grayBorderLight;
+	}
 }
 .col, [class*="col-"] {
+	position: relative;
 	@include box-sizing(border-box);
 	padding-right: 5px;
 }
@@ -138,7 +195,6 @@ a {
 
 .dateChanger {
 	border: none;
-	border-bottom: solid 1px $grayBorder;
 	.today {
 		left: 0;
 		a {
@@ -172,6 +228,7 @@ a {
 
 .auiCalendar {
 	width: 100%;
+	border-top: solid 1px $grayBorder;
 	td {
 		position: relative;
 		width: 14.285%;
@@ -246,11 +303,38 @@ a {
 		border: none;
 	}
 	&.caret-left:after {
-		left: 20px;
+		left: 30px;
 	}
 	&.caret-right:after {
-		right: 20px;
+		right: 30px;
 	}
+}
+
+
+/***************************************************
+	listTable
+--------------------------------------------------*/
+.listTable {
+	width: 100%;
+	margin: 0;
+	border: none;
+	tr:first-child td {
+		border-top: none;
+	}
+	.caption {
+		width: 90px;
+		font-weight: normal;
+		padding: 5px;
+	}
+	input[type=text], input[type=password], textarea {
+		border: none;
+		&:focus {
+			box-shadow: none;
+		}
+	}
+}
+.editable {
+	color: $blueDark;
 }
 
 // marge style #######################################################################
@@ -279,7 +363,7 @@ a {
 	td {
 		position: relative;
 		padding:8px 5px;
-		border-bottom:solid 1px $grayBorderLight;
+		border-top: solid 1px $grayBorderLight;
 		&:first-child {
 			padding-left: 10px;
 		}
@@ -353,17 +437,11 @@ a {
 	}
 }
 
-.scheduleList { // mobile only
-	td {
-		&:last-child {
-			padding-right: 25px;
-			&:after {
-				@include afterArrowRight;
-				right: 10px;
-			}
-		}
-	}
-	a:after {
+
+.afterArrowRight {
+	position: relative;
+	padding-right: 25px !important;
+	&:after {
+		@include afterArrowRight;
 	}
 }
-

@@ -1,7 +1,9 @@
 @charset "UTF-8";
 .bRadius3, span.dispUser, .menubar > ul li a,
 .menubar.multi ul li a,
-ul.blockList li a, .avatar img, .avatar_l, .avatar_m, .avatar_s {
+ul.blockList li a, textarea,
+select, input[type=text],
+input[type=password], .avatar img, .avatar_l, .avatar_m, .avatar_s {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -2538,7 +2540,6 @@ div.userInfo {
   z-index: 1000;
   overflow: hidden;
   zoom: 1;
-  overflow: visible;
 }
 .menubar.z-upper {
   position: fixed !important;
@@ -2739,6 +2740,139 @@ ul.blockList li a.selected:after {
 
 .menubar.multi ul li {
   border-top: none;
+}
+
+/***************************************************
+	auiForm
+--------------------------------------------------*/
+.auiForm,
+form {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+input[type=text],
+input[type=password],
+textarea,
+select {
+  margin: 0;
+  vertical-align: middle;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  vertical-align: middle;
+}
+
+textarea,
+select {
+  border: solid 1px #c0c0c0;
+}
+
+input[type=text],
+input[type=password] {
+  height: 32px;
+  padding: 4px 2px;
+  vertical-align: middle;
+  border: 1px solid #d2d2d2;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  -webkit-appearance: none;
+}
+
+/*IE8Hack*/
+html > body input[type=text],
+html > body input[type=password] {
+  line-height/*\**/: 32px \9;
+  padding/*\**/: 0 2px \9;
+}
+
+select {
+  min-height: 32px;
+  padding: 5px;
+  max-width: 100%;
+}
+
+form textarea {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=password]:hover,
+input[type=password]:focus,
+select:hover,
+select:focus,
+textarea:hover,
+textarea:focus {
+  border: solid 1px #999;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input[type=checkbox],
+input[type=radio] {
+  height: auto;
+}
+
+.inlineCheckbox,
+.inlineRadio {
+  line-height: 1em;
+  margin-bottom: 1px;
+}
+
+.inlineLabel {
+  line-height: 1em;
+  vertical-align: baseline;
+}
+
+/* fileupload **************************/
+ul.attachments {
+  margin: 5px 0;
+}
+
+.attachments .deletebutton {
+  margin-left: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #1B1B1B;
+}
+
+.attachments .deletebutton:hover {
+  text-decoration: none;
+  color: #ff9900;
+}
+
+.auiInputFileFrame {
+  height: 32px;
+  width: 130px;
+}
+
+.uploadText {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 9em;
+}
+
+.singleFile li {
+  background: none;
+  padding: 0;
 }
 
 /***************************************************

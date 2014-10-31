@@ -189,6 +189,42 @@ input[type=submit], input[type=button], input[type=reset] {
   outline: none;
 }
 
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+select {
+  position: relative;
+  -webkit-appearance: button;
+  appearance: button;
+}
+select:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #f00;
+}
+select:before {
+  position: absolute;
+  display: block;
+  content: "\f0d7";
+}
+select + .icon-caret-down {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #999;
+}
+select:hover + .icon-caret-down {
+  color: #333;
+}
+
 .clearfix, #auiHeader, .hdPages > ul, .hdNavigation > ul, .dropdown .title,
 .activityPopup .title, .supportPopup .title, .dropdown .body,
 .activityPopup .body, .supportPopup .body, .dropdown .contents,
@@ -2877,8 +2913,8 @@ button.auiButtonIconDummy {
   line-height: 15px !important;
 }
 
-body {
-  -webkit-text-size-adjust: 100%;
+.pc_hide {
+  display: block !important;
 }
 
 a {
@@ -2902,6 +2938,11 @@ a {
   line-height: 40px;
   text-align: center;
 }
+.mobileHeader > .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .mobileHeader > .right {
   position: absolute;
   top: 0;
@@ -2910,11 +2951,15 @@ a {
 .mobileHeader a {
   display: block;
   float: left;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  font-size: 12px;
   text-decoration: none;
 }
 .mobileHeader [class*="icon-"] {
   display: inline-block;
-  min-width: 40px;
+  min-width: 20px;
   height: 40px;
   line-height: 40px;
   text-align: center;
@@ -2923,6 +2968,11 @@ a {
 }
 .mobileHeader .icon-plus {
   color: #ff9900;
+}
+.mobileHeader [class*="auiButton"] {
+  height: 30px;
+  line-height: 30px;
+  margin: 5px;
 }
 
 .mobileMainNavigation {
@@ -2963,12 +3013,17 @@ a {
   border: solid 1px #ffffff;
 }
 
-.row {
+.mobileContentsWrapper .row {
   margin: 5px 0;
   padding-left: 5px;
 }
+.menubar .row {
+  padding: 5px 0 5px 5px;
+  border-bottom: solid 1px #ededed;
+}
 
 .col, [class*="col-"] {
+  position: relative;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -3003,7 +3058,6 @@ a {
 
 .dateChanger {
   border: none;
-  border-bottom: solid 1px #d2d2d2;
 }
 .dateChanger .today {
   left: 0;
@@ -3036,6 +3090,7 @@ a {
 
 .auiCalendar {
   width: 100%;
+  border-top: solid 1px #d2d2d2;
 }
 .auiCalendar td {
   position: relative;
@@ -3122,10 +3177,37 @@ a {
   border: none;
 }
 .menubar.caret-left:after {
-  left: 20px;
+  left: 30px;
 }
 .menubar.caret-right:after {
-  right: 20px;
+  right: 30px;
+}
+
+/***************************************************
+	listTable
+--------------------------------------------------*/
+.listTable {
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+.listTable tr:first-child td {
+  border-top: none;
+}
+.listTable .caption {
+  width: 90px;
+  font-weight: normal;
+  padding: 5px;
+}
+.listTable input[type=text], .listTable input[type=password], .listTable textarea {
+  border: none;
+}
+.listTable input[type=text]:focus, .listTable input[type=password]:focus, .listTable textarea:focus {
+  box-shadow: none;
+}
+
+.editable {
+  color: #006699;
 }
 
 /***************************************************
@@ -3151,7 +3233,7 @@ a {
 .auiRowTable td {
   position: relative;
   padding: 8px 5px;
-  border-bottom: solid 1px #ededed;
+  border-top: solid 1px #ededed;
 }
 .auiRowTable td:first-child {
   padding-left: 10px;
@@ -3216,22 +3298,22 @@ a {
   color: #ff3333;
 }
 
-.scheduleList td:last-child {
-  padding-right: 25px;
+.afterArrowRight {
+  position: relative;
+  padding-right: 25px !important;
 }
-.scheduleList td:last-child:after {
+.afterArrowRight:after {
   position: absolute;
   top: 50%;
-  -moz-transform: translateY(-50%) rotate(45deg);
-  -ms-transform: translateY(-50%) rotate(45deg);
-  -webkit-transform: translateY(-50%) rotate(45deg);
-  transform: translateY(-50%) rotate(45deg);
-  display: block;
-  content: "";
-  width: 6px;
-  height: 6px;
-  border: solid 2px #d2d2d2;
-  border-left: none;
-  border-bottom: none;
   right: 10px;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: block;
+  font-family: FontAwesome;
+  font-weight: normal;
+  content: "\f105";
+  font-size: 20px;
+  color: #999;
 }

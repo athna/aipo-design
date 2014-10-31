@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+	<meta charset="UTF-8">
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<link type="image/x-icon" rel="shortcut icon" href="../../themes/mobilefirst/images/favicon.ico"/>
+	<link type="image/x-icon" rel="icon" href="../../themes/mobilefirst/images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/mobile_v2.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/font-awesome.min.css"/>
+	<script src="../../themes/mobilefirst/js/mock.js"></script>
+</head>
+<body>
+
+<div class="mobileHeader">
+  <div class="title">スケジュール</div>
+  <div class="right">
+	  <a href="javascript:void(0);"><i class="icon-search"></i></a>
+	  <a href="add.html"><i class="icon-plus"></i></a>
+  </div>
+</div>
+
+<div class="mobileMainNavigation">
+  <div><a href="javascript:void(0);"><div class="counter">5</div><i class="icon-comment-alt"></i></a></div>
+  <div><a href="javascript:void(0);"><div class="counter">99</div><i class="icon-bell"></i></a></div>
+  <div><a href="javascript:void(0);"><i class="icon-info-sign"></i></a></div>
+  <div><a href="javascript:void(0);"><i class="icon-reorder"></i></a></div>
+</div>
+
+<div class="mobileContentsWrapper">
+
+  <div class="row">
+
+    <div class="col-2">
+      <div class="auiSelect w100" onclick="popupToggle(this,'menubar_schedulechange');popupToggle(this,'popMask')">
+        <div class="current">一覧表示</div>
+        <i class="icon-caret-down"></i>
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div class="auiSelect w100" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">
+        <div class="current">
+			<div class="image"><img src="../../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s"></div>
+			木村 一郎
+		</div>
+        <i class="icon-caret-down"></i>
+      </div>
+    </div>
+
+  </div><!-- /row -->
+
+	<div class="contentsSection">
+
+		<div class="dateChanger">
+			<div class="today"><a href="javascript:void(0)">今日</a>&nbsp;</div>
+			<div class="prev_more"><a href="javascript:void(0);" class="btn arrow" onclick="" title="前の週へ"><i class="icon-double-angle-left"></i></a></div>
+			<div class="prev"><a href="javascript:void(0);" class="first arrow" onclick="" title="前の日へ"><i class="icon-angle-left"></i></a></div>
+			<div class="currentDate"><span class="subDate">2014年10月</span><span class="mainDate">8日<small>(水)</small></span></div>
+			<div class="next"><a href="javascript:void(0);" class="last arrow" onclick="" title="次の日へ"><i class="icon-angle-right"></i></a></div>
+			<div class="next_more"><a href="javascript:void(0);" class="btn arrow" onclick="" title="次の週へ"><i class="icon-double-angle-right"></i></a></div>
+		</div>
+
+		<table class="auiRowTable wide scheduleList">
+		<tbody>
+		<tr class="dayStart today" onclick="alert('行をonclickで遷移')">
+			<td colspan="2" class="day"><a href="javascript:void(0);">10月08日 (水)</a></td>
+		</tr>
+
+		<tr class="today" onclick="location.href='detail.html';">
+			<td class="time">期間</td>
+			<td>
+				<div><a href="#">プロジェクト-X</a></div>
+			</td>
+		</tr>
+
+		<tr class="today" onclick="location.href='detail.html';">
+			<td class="time">09:00 - 9:30</td>
+			<td>
+				<div><a href="#">朝礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="today" onclick="location.href='detail.html';">
+			<td class="time">13:00 - 15:00</td>
+			<td>
+				<div><a href="#">長いスケジュール長いスケジュール長いスケジュール</a></div>
+			</td>
+		</tr>
+
+		<tr class="sunday overlap" onclick="location.href='detail.html';">
+			<td class="time">16:30 - 19:00</td>
+			<td>
+				<div><i class="icon-exclamation-sign" title="重複"></i>&nbsp;<a href="#">重複スケジュール</a></div>
+			</td>
+		</tr>
+
+		<tr class="today overlap" onclick="location.href='detail.html';">
+			<td class="time">16:00 - 17:00</td>
+			<td>
+				<div><i class="icon-exclamation-sign" title="重複"></i>&nbsp;<a href="#">営業会議</a></div>
+			</td>
+		</tr>
+
+		<tr class="today" onclick="location.href='detail.html';">
+			<td class="time">17:00 - 18:00</td>
+			<td>
+				<div><i class="icon-lock"></i>&nbsp;<a href="#">非公開スケジュール</a></div>
+			</td>
+		</tr>
+
+		<tr class="today" onclick="location.href='detail.html';">
+			<td class="time">18:30 - 18:45</td>
+			<td>
+				<div><a href="#">終礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="dayStart" onclick="alert('行をonclickで遷移')">
+			<td colspan="2" class="day"><a href="javascript:void(0);">10月09日 (木)</a></td>
+		</tr>
+
+		<tr class="" onclick="location.href='detail.html';">
+			<td class="time">期間</td>
+			<td>
+				<div><a href="#">プロジェクト-X</a></div>
+			</td>
+		</tr>
+
+		<tr class="" onclick="location.href='detail.html';">
+			<td class="time">09:00 - 9:30</td>
+			<td>
+				<div><a href="#">朝礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="" onclick="location.href='detail.html';">
+			<td class="time">14:00 - 16:00</td>
+			<td>
+				<div><a href="#">ジャパネット 高田様訪問</a></div>
+			</td>
+		</tr>
+
+		<tr class=" overlap" onclick="location.href='detail.html';">
+			<td class="time">17:00 - 19:00</td>
+			<td>
+				<div><i class="icon-exclamation-sign" title="重複"></i>&nbsp;<a href="#">資料作成</a></div>
+			</td>
+		</tr>
+
+		<tr class=" overlap" onclick="location.href='detail.html';">
+			<td class="time">18:30 - 18:45</td>
+			<td>
+				<div><i class="icon-exclamation-sign" title="重複"></i>&nbsp;<a href="#">終礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="dayStart" onclick="alert('行をonclickで遷移')">
+			<td colspan="2" class="day"><a href="javascript:void(0);">10月10日 (金)</a></td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">期間</td>
+			<td>
+				<div><a href="#">プロジェクト-X</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">11:00 - 11:30</td>
+			<td>
+				<div><a href="#">朝礼</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">11:00 - 11:30</td>
+			<td>
+				<div><a href="#">面接：織田信長様</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">13:00 - 13:30</td>
+			<td>
+				<div><a href="#">面接：木下藤吉郎様</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">14:00 - 14:30</td>
+			<td>
+				<div><a href="#">面接：前田利家様</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">15:00 - 15:30</td>
+			<td>
+				<div><a href="#">面接：黒田官兵衛様</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">16:00 - 16:30</td>
+			<td>
+				<div><a href="#">面接：柴田勝家様</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">17:00 - 18:00</td>
+			<td>
+				<div><a href="#">採用会議</a></div>
+			</td>
+		</tr>
+
+		<tr class=" overlap" onclick="location.href='detail.html';">
+			<td class="time">17:00 - 18:00</td>
+			<td>
+				<div><i class="icon-exclamation-sign" title="重複"></i>&nbsp;<a href="#">終礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="dayStart saturday" onclick="alert('行をonclickで遷移')">
+			<td colspan="2" class="day"><a href="javascript:void(0);">10月11日 (土)</a></td>
+		</tr>
+
+		<tr class="saturday" onclick="location.href='detail.html';">
+			<td class="time">期間</td>
+			<td>
+				<div><a href="#">プロジェクト-X</a></div>
+			</td>
+		</tr>
+
+		<tr class="saturday" onclick="location.href='detail.html';">
+
+			<td class="time">終日</td>
+			<td>
+				<div><a href="#">大阪出張</a></div>
+			</td>
+		</tr>
+
+		<tr class="saturday" onclick="location.href='detail.html';">
+			<td class="time">09:00 - 9:30</td>
+			<td>
+				<div><a href="#">朝礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="saturday" onclick="location.href='detail.html';">
+			<td class="time">18:30 - 18:45</td>
+			<td>
+				<div><a href="#">終礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="dayStart sunday" onclick="alert('行をonclickで遷移')">
+			<td colspan="2" class="day"><a href="javascript:void(0);">10月12日 (日)</a></td>
+		</tr>
+
+		<tr class="sunday" onclick="location.href='detail.html';">
+			<td class="time">09:00 - 9:30</td>
+			<td>
+				<div><a href="#">朝礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="sunday" onclick="location.href='detail.html';">
+			<td class="time">13:00 - 15:00</td>
+			<td>
+				<div><a href="#">大森製薬 塚田様訪問</a></div>
+			</td>
+		</tr>
+
+		<tr class="sunday" onclick="location.href='detail.html';">
+			<td class="time">16:00 - 17:00</td>
+			<td>
+				<div><a href="#">定例会議</a></div>
+			</td>
+		</tr>
+
+		<tr class="sunday" onclick="location.href='detail.html';">
+			<td class="time">18:30 - 18:45</td>
+			<td>
+				<div><a href="#">終礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="dayStart" onclick="alert('行をonclickで遷移')">
+			<td colspan="2" class="day"><a href="javascript:void(0);">10月13日 (月)</a></td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">09:00 - 9:30</td>
+			<td>
+				<div><a href="#">朝礼</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">18:30 - 18:45</td>
+			<td>
+				<div><a href="#">終礼</a></div>
+			</td>
+		</tr>
+
+		<tr class="dayStart" onclick="alert('行をonclickで遷移')">
+			<td colspan="2" class="day"><a href="javascript:void(0);">10月14日 (火)</a></td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">09:00 - 9:30</td>
+			<td>
+				<div><a href="#">朝礼</a></div>
+			</td>
+		</tr>
+
+		<tr onclick="location.href='detail.html';">
+			<td class="time">18:30 - 18:45</td>
+			<td>
+				<div><a href="#">終礼</a></div>
+			</td>
+		</tr>
+
+		</tbody>
+		</table>
+
+	</div><!-- /contentsSection -->
+
+
+</div><!-- /mobileContentsWrapper -->
+
+
+<div class="modal" id="menubar_schedulechange" style="display: none;top: 77px;">
+	<div class="menubar caret-left noBorder">
+		<ul>
+			<li><a href="block.html">ブロック表示</a></li>
+			<li><a href="day.html">日表示</a></li>
+			<li><a href="week.html">週間表示</a></li>
+			<li><a href="month.html">月間表示</a></li>
+			<li class="last"><a href="list.html" class="selected">一覧表示</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modal" id="menubar_userselect" style="display: none;top: 77px;">
+	<div class="menubar caret-right noBorder">
+		<div class="row">
+			<div class="col-1">
+				<select class="w100">
+					<option value="#">すべてのグループ</option>
+					<option value="#">全員</option>
+					<option value="#">----------</option>
+					<option value="#">商品開発部</option>
+					<option value="#">営業部</option>
+					<option value="#">----------</option>
+					<option value="#">設備一覧</option>
+				</select>
+				<i class="icon-caret-down pc_hide"></i>
+			</div>
+		</div>
+		<ul>
+			<li><a href="#">
+				<img src="../../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+			<li><a href="#">
+				<img src="../../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+			<li><a href="#">
+				<img src="../../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+			<li><a href="#">
+				<img src="../../themes/mobilefirst/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">
+				木村 一郎
+			</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modalDialogUnderlayWrapper" id="popMask" style="display: none;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+
+</body>
+</html>

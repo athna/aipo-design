@@ -2031,7 +2031,6 @@ background:url(../images/icon/account_user_add.gif) no-repeat;
 	z-index:$zindex-menubar;
 	overflow:hidden;
 	zoom:1;
-	overflow:visible;
 
 	&.z-upper {
 		position: fixed !important;
@@ -2214,6 +2213,131 @@ ul.blockList li a.selected {
 	@extend .bRadius3;
 }
 
+/***************************************************
+	auiForm
+--------------------------------------------------*/
+.auiForm,
+form {
+	margin:0;
+	padding:0;
+	max-width:100%;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+	margin:0;
+	vertical-align:middle;
+}
+input[type=radio],
+input[type=checkbox] {
+	vertical-align:middle;
+}
+textarea,
+select {
+	border:solid 1px $grayBorderDark;
+	@extend .bRadius3;
+}
+input[type=text],
+input[type=password] {
+	height:$inputHeight +2;
+	padding:4px 2px;
+	vertical-align:middle;
+	@extend .bRadius3;
+	border:1px solid $grayBorder;
+	@include box-sizing(border-box);
+	background-color:#ffffff;
+	-webkit-appearance: none;
+}
+/*IE8Hack*/
+html>/**/body input[type=text],
+html>/**/body input[type=password] {
+	line-height/*\**/:$inputHeight + 2 \9;
+	padding/*\**/:0 2px \9;
+}
+select {
+	min-height:$inputHeight +2;
+	padding:5px;
+	max-width:100%;
+}
+
+form textarea {
+	@include box-sizing(border-box);
+	background-color:#fff;
+}
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=password]:hover,
+input[type=password]:focus,
+select:hover,
+select:focus,
+textarea:hover,
+textarea:focus {
+	border:solid 1px $gray;
+}
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
+	-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,0.2);
+	-moz-box-shadow:inset 0 1px 2px rgba(0,0,0,0.2);
+	box-shadow:inset 0 1px 2px rgba(0,0,0,0.2);
+}
+input[type=checkbox],
+input[type=radio] {
+	height:auto;
+}
+.inlineCheckbox,
+.inlineRadio {
+	line-height:1em;
+	margin-bottom:1px
+}
+.inlineLabel {
+	line-height:1em;
+	vertical-align:baseline;
+}
+
+/* fileupload **************************/
+ul.attachments{
+	margin:5px 0;
+}
+
+//ul.attachments >li{
+//	list-style: none;
+//	background:none;
+//	padding:0;
+//}
+
+.attachments .deletebutton{
+	margin-left:10px;
+	cursor:pointer;
+	text-decoration: underline;
+	color: $linkColor;
+}
+.attachments .deletebutton:hover{
+	text-decoration:none;
+	color: $linkColorHover;
+}
+
+.auiInputFileFrame {
+	height:$inputHeight + 2;
+	width:130px;
+}
+
+.uploadText {
+	position:absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width:9em;
+	//line-height:2em;
+}
+
+.singleFile li {
+	background:none;
+	padding:0;
+}
 
 /***************************************************
 	controllerTable
@@ -2527,8 +2651,6 @@ margin:0 3px 0 0;
 	@include inline-block;
 	@extend .bRadius3;
 }
-
-
 
 /***************************************************
 	新規クラス

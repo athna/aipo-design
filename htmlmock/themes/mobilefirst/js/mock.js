@@ -320,6 +320,14 @@ function getTagNameChildNodes($obj,$array,$tag) {
 	}
 }
 
+function checkToggle($target) {
+	var f = document.getElementById($target).checked;
+	if(f) {
+		document.getElementById($target).checked = false;
+	} else {
+		document.getElementById($target).checked = true;
+	}
+}
 
 /*
 $(".placeholderCheck").each(function() {

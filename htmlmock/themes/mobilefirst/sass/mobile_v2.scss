@@ -12,6 +12,11 @@ body {
 	-webkit-text-size-adjust: 100%;
 }
 
+input[type=text], input[type=password] {
+	&:focus {
+		@include box-shadow(none);
+	}
+}
 select {
 	position: relative;
 	-webkit-appearance: button;
@@ -70,7 +75,8 @@ a {
 	height: $mbUIHeight;
 	background: $white;
 	font-size: $fontSizeLarge;
-	@include box-shadow(0 1px 0 rgba($grayBorder,1));
+	border-bottom: solid 1px $grayBorder;
+	//@include box-shadow(0 1px 0 rgba($grayBorder,1));
 
 	> .title {
 		line-height: $mbUIHeight;
@@ -123,7 +129,8 @@ a {
 	background: $white;
 	font-size: $fontSizeLarge;
 	bottom: 0;
-	@include box-shadow(0 -1px 0 rgba($grayBorder,1));
+	border-top: solid 1px $grayBorder;
+	//@include box-shadow(0 -1px 0 rgba($grayBorder,1));
 	> div {
 		position: relative;
 		float: left;
@@ -223,6 +230,13 @@ a {
 		line-height: 30px;
 		font-size: $fontSizeLarge;
 	}
+	&.fixed {
+		position: fixed;
+		background-color: $white;
+		z-index: 100;
+		border-bottom: solid 1px $grayBorder;
+		@include border-radius(0);
+	}
 }
 
 
@@ -233,6 +247,9 @@ a {
 		position: relative;
 		width: 14.285%;
 		text-align: center;
+		> div {
+			position: relative;
+		}
 	}
 	a {
 		display: block;
@@ -263,17 +280,16 @@ a {
 	.selected a {
 		border: solid 1px $grayBorderDark;
 	}
-	.sign:after {
+	.sign {
 		position: absolute;
+		display: block;
 		bottom: 5px;
 		right: 50%;
 		@include transform(translateX(50%));
-		display: block;
-		content: "";
-		background: $orange;
 		width: 5px;
 		height: 5px;
-		@include border-radius(50%);
+		background: $orange;
+		@include border-radius(5px);
 	}
 }
 
@@ -289,15 +305,20 @@ a {
 	&[class*="caret-"]:after {
 		position: absolute;
 		display: block;
-		content: "";
-		width: 8px;
-		height: 8px;
-		top: 1px;
-		background: $white;
-		border:1px solid $grayBorderDark;
-		border-right: 0;
-		border-bottom: 0;
-		@include transform(rotate(45deg));
+		//content: "";
+		//width: 8px;
+		//height: 8px;
+		//top: 1px;
+		//background: $white;
+		//border:1px solid $grayBorderDark;
+		//border-right: 0;
+		//border-bottom: 0;
+		//@include transform(rotate(45deg));
+		content: "\f0d8";
+		top: -15px;
+		font-family: FontAwesome;
+		font-size: 25px;
+		color: $white;
 	}
 	&.noBorder[class*="caret-"]:after {
 		border: none;
@@ -321,20 +342,72 @@ a {
 	tr:first-child td {
 		border-top: none;
 	}
+	td {
+		border-top: solid 1px $grayBorderLight;
+	}
 	.caption {
-		width: 90px;
+		width: 80px;
 		font-weight: normal;
-		padding: 5px;
+		padding: 10px 5px 10px 10px;
 	}
 	input[type=text], input[type=password], textarea {
 		border: none;
-		&:focus {
-			box-shadow: none;
-		}
 	}
 }
 .editable {
 	color: $blueDark;
+}
+
+/***************************************************
+	schedule
+--------------------------------------------------*/
+// Block
+div.weeklyScrollPane {
+	border-bottom: none;
+	overflow: auto;
+}
+div.weeklyLeft {
+	border-left: none;
+}
+div.scrollRight {
+	border-right: none;
+}
+.scrollRight {
+	border: none;
+}
+
+.coloredUserList {
+	position: relative;
+	.tool {
+		position: absolute;
+		right: 0;
+		i {
+			display: block;
+			font-size: 20px;
+			width: 30px;
+			height: 26px;
+			line-height: 26px;
+			text-align: center;
+			color: $gray;
+		}
+	}
+	.list {
+		margin-bottom: -3px;
+		> div {
+			float: left;
+			margin: 0 3px 3px 0;
+			padding: 2px;
+			@include border-radius(4px);
+		}
+	}
+	.tool + .list {
+		padding-right: 30px;
+	}
+	div[class*=color] {
+		padding: 0;
+		border-style: solid;
+		border-width: 2px;
+	}
 }
 
 // marge style #######################################################################
@@ -349,7 +422,7 @@ a {
 	word-break: break-all;
 
 	th {
-		padding:8px 5px;
+		padding:10px 5px;
 		white-space:nowrap;
 		background:$grayLighter;
 		text-align:left;
@@ -362,7 +435,7 @@ a {
 	}
 	td {
 		position: relative;
-		padding:8px 5px;
+		padding:10px 5px;
 		border-top: solid 1px $grayBorderLight;
 		&:first-child {
 			padding-left: 10px;
@@ -396,9 +469,9 @@ a {
 	}
 	div {
 		width:100%;
-		margin:-8px 0;
-		height:35px;
-		line-height:35px;
+		margin:-10px 0;
+		height:40px;
+		line-height:40px;
 		overflow:hidden;
 		text-overflow: ellipsis;
 	}
@@ -422,6 +495,13 @@ a {
 	}
 	.auiMTCheck {
 		width:20px;
+	}
+	&:first-child {
+		tr:first-child {
+			td {
+				border-top: none;
+			}
+		}
 	}
 }
 .auiRowTable.scheduleList {

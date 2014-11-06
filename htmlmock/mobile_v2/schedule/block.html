@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+	<meta charset="UTF-8">
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<link type="image/x-icon" rel="shortcut icon" href="../../themes/mobilefirst/images/favicon.ico"/>
+	<link type="image/x-icon" rel="icon" href="../../themes/mobilefirst/images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/mobile_v2.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/font-awesome.min.css"/>
+	<script src="../../themes/mobilefirst/js/jquery-2.1.1.min.js"></script>
+	<script src="../../themes/mobilefirst/js/mock.js"></script>
+	<script>
+		$(function(){
+			var w = $("#dataChanger-1").width();
+			var hd = $(".mobileHeader").height();
+			var fixObj = $("#dataChanger-1");
+			var fixTop = fixObj.offset().top - hd;
+			var cal = $("#weeklyScrollPane_P-");
+			$(window).scroll(function () {
+				if($(window).scrollTop() >= fixTop) {
+					fixObj.addClass("fixed");
+					fixObj.css("top",hd+"px");
+					fixObj.css("width",w);
+					cal.css("margin-top",hd+"px");
+				} else {
+					fixObj.removeClass("fixed");
+					fixObj.removeAttr("style");
+					cal.removeAttr("style");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+
+<div class="mobileHeader">
+	<div class="left">
+		<a href="month.html">10月</a>
+	</div>
+	<div class="title">スケジュール</div>
+	<div class="right">
+		<a href="search.html"><i class="icon-search"></i></a>
+		<a href="add.html"><i class="icon-plus"></i></a>
+	</div>
+</div>
+
+<div class="mobileMainNavigation">
+	<div><a href="javascript:void(0);"><div class="counter">5</div><i class="icon-comment-alt"></i></a></div>
+	<div><a href="javascript:void(0);"><div class="counter">99</div><i class="icon-bell"></i></a></div>
+	<div><a href="javascript:void(0);"><i class="icon-info-sign"></i></a></div>
+	<div><a href="javascript:void(0);"><i class="icon-reorder"></i></a></div>
+</div>
+
+<div class="mobileContentsWrapper">
+
+<div class="row">
+
+	<div class="col-2">
+		<div class="auiSelect w100" onclick="popupToggle(this,'menubar_schedulechange');popupToggle(this,'popMask')">
+			<div class="current">ブロック表示</div>
+			<i class="icon-caret-down"></i>
+		</div>
+	</div>
+
+	<div class="col-2">
+		<div class="auiSelect w100" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">
+			<div class="current">グループ選択</div>
+			<i class="icon-caret-down"></i>
+		</div>
+	</div>
+
+</div><!-- /row -->
+
+<div class="row">
+	<div class="col-1">
+		<div class="coloredUserList" onclick="location.href='userselect.html';">
+			<div class="tool"><i class="icon-cog"></i></div>
+			<div class="list clearfix">
+				<div class="color0"><img src="../../themes/mobilefirst/images/_mock/avatar1.jpg" width="24" height="24" class="avatar_s" /></div>
+				<div class="color1"><img src="../../themes/mobilefirst/images/_mock/avatar2.jpg" width="24" height="24" class="avatar_s" /></div>
+				<div class="color2"><img src="../../themes/mobilefirst/images/_mock/avatar3.jpg" width="24" height="24" class="avatar_s" /></div>
+				<div class="color3"><img src="../../themes/mobilefirst/images/_mock/avatar1.jpg" width="24" height="24" class="avatar_s" /></div>
+				<div class="color4"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color5"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color6"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color7"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color8"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color9"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color10"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color11"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+				<div class="color12"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="24" height="24" class="avatar_s" /></div>
+			</div>
+		</div>
+	</div>
+</div><!-- /row -->
+
+<div class="contentsSection">
+
+<div class="dateChanger" id="dataChanger-1">
+	<div class="today"><a href="javascript:void(0)">今日</a>&nbsp;</div>
+	<div class="prev_more"><a href="javascript:void(0);" class="btn arrow" onclick="" title="前の週へ"><i class="icon-double-angle-left"></i></a></div>
+	<div class="prev"><a href="javascript:void(0);" class="first arrow" onclick="" title="前の日へ"><i class="icon-angle-left"></i></a></div>
+	<div class="currentDate"><span class="subDate">2014年10月</span><span class="mainDate">8日<small>(水)</small></span></div>
+	<div class="next"><a href="javascript:void(0);" class="last arrow" onclick="" title="次の日へ"><i class="icon-angle-right"></i></a></div>
+	<div class="next_more"><a href="javascript:void(0);" class="btn arrow" onclick="" title="次の週へ"><i class="icon-double-angle-right"></i></a></div>
+</div>
+<div class="weeklyScrollPane" id="weeklyScrollPane_P-">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tbody>
+<tr valign="top">
+<td width="50">
+	<div class="weeklyLeft">
+		<div class="leftMinute">00:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">01:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">02:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">03:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">04:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">05:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">06:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">07:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">08:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">09:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">10:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">11:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">12:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">13:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">14:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">15:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">16:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">17:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">18:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">19:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">20:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">21:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">22:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+		<div class="leftMinute">23:00</div>
+		<div class="leftMinuteBottom">&nbsp;</div>
+	</div>
+</td>
+<td width="100%">
+	<div id="" class="weeklyRights">
+		<div class="weeklyRight" style="left: 0%; width: 100%;" id="">
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+			<div class="rightMinute">&nbsp;</div>
+			<div class="rightMinuteBottom">&nbsp;</div>
+		</div>
+
+		<div id="scheduleDivAdd00_P-" class="scheduleDivAdd" style="left: 0%; width: 100%; opacity: 0;">&nbsp;</div>
+
+		<div id="scheduleGarage-P-***" class="scheduleGarage">
+			<div id="schedule-0-P-***" class="scheduleDiv color1" style="top: 342px; left: 0%; height: 17px; width: 100%; z-index: 1; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color1">
+					<span id="scheduleDivStartTime-0-P-***" class="scheduleDivTime color1">[共有]朝会</span>
+					<span id="scheduleDivSepalater-0-P-***" class="scheduleDivSepalater color1"></span>
+					<span id="scheduleDivEndTime-0-P-***" class="scheduleDivTime color1"></span>
+				</div>
+				<div class="scheduleDivRightLine color1"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color1">朝会</div>
+				<div class="scheduleDivLastLine color1">
+					<div class="scheduleDivRightLine color1"></div>
+					<center><div class="handleDiv color1" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-2-P-***" class="scheduleDiv color1" style="top: 396px; left: 51.42857142857143%; height: 35px; width: 48.57142857142857%; z-index: 4; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color1">
+					<span id="scheduleDivStartTime-2-P-***" class="scheduleDivTime color1">[共有]11:00</span>
+					<span id="scheduleDivSepalater-2-P-***" class="scheduleDivSepalater color1">-</span>
+					<span id="scheduleDivEndTime-2-P-***" class="scheduleDivTime color1">12:00</span>
+				</div>
+				<div class="scheduleDivRightLine color1"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color1">集中時間</div>
+				<div class="scheduleDivLastLine color1">
+					<div class="scheduleDivRightLine color1"></div>
+					<center><div class="handleDiv color1" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-3-P-***" class="scheduleDiv color0" style="top: 396px; left: 0%; height: 35px; width: 81.46285714285716%; z-index: 3; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color0">
+					<span id="scheduleDivStartTime-3-P-***" class="scheduleDivTime color0">[共有]11:00</span>
+					<span id="scheduleDivSepalater-3-P-***" class="scheduleDivSepalater color0">-</span>
+					<span id="scheduleDivEndTime-3-P-***" class="scheduleDivTime color0">12:00</span>
+				</div>
+				<div class="scheduleDivRightLine color0"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color0">集中時間</div>
+				<div class="scheduleDivLastLine color0">
+					<div class="scheduleDivRightLine color0"></div>
+					<center><div class="handleDiv color0" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-4-P-***" class="scheduleDiv color1" style="top: 468px; left: 51.42857142857143%; height: 35px; width: 48.57142857142857%; z-index: 6; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color1">
+					<span id="scheduleDivStartTime-4-P-***" class="scheduleDivTime color1">[共有]13:00</span>
+					<span id="scheduleDivSepalater-4-P-***" class="scheduleDivSepalater color1">-</span>
+					<span id="scheduleDivEndTime-4-P-***" class="scheduleDivTime color1">14:00</span>
+				</div>
+				<div class="scheduleDivRightLine color1"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color1">集中時間</div>
+				<div class="scheduleDivLastLine color1">
+					<div class="scheduleDivRightLine color1"></div>
+					<center><div class="handleDiv color1" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-5-P-***" class="scheduleDiv color0" style="top: 468px; left: 0%; height: 35px; width: 81.46285714285716%; z-index: 5; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color0">
+					<span id="scheduleDivStartTime-5-P-***" class="scheduleDivTime color0">[共有]13:00</span>
+					<span id="scheduleDivSepalater-5-P-***" class="scheduleDivSepalater color0">-</span>
+					<span id="scheduleDivEndTime-5-P-***" class="scheduleDivTime color0">14:00</span>
+				</div>
+				<div class="scheduleDivRightLine color0"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color0">集中時間</div>
+				<div class="scheduleDivLastLine color0">
+					<div class="scheduleDivRightLine color0"></div>
+					<center><div class="handleDiv color0" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-6-P-***" class="scheduleDiv color1" style="top: 540px; left: 0%; height: 35px; width: 81.46285714285716%; z-index: 7; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color1">
+					<span id="scheduleDivStartTime-6-P-***" class="scheduleDivTime color1">[共有]15:00</span>
+					<span id="scheduleDivSepalater-6-P-***" class="scheduleDivSepalater color1">-</span>
+					<span id="scheduleDivEndTime-6-P-***" class="scheduleDivTime color1">16:00</span>
+				</div>
+				<div class="scheduleDivRightLine color1"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color1">集中時間</div>
+				<div class="scheduleDivLastLine color1">
+					<div class="scheduleDivRightLine color1"></div>
+					<center><div class="handleDiv color1" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-7-P-***" class="scheduleDiv color0" style="top: 540px; left: 51.42857142857143%; height: 35px; width: 48.57142857142857%; z-index: 8; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color0">
+					<span id="scheduleDivStartTime-7-P-***" class="scheduleDivTime color0">[共有]15:00</span>
+					<span id="scheduleDivSepalater-7-P-***" class="scheduleDivSepalater color0">-</span>
+					<span id="scheduleDivEndTime-7-P-***" class="scheduleDivTime color0">16:00</span>
+				</div>
+				<div class="scheduleDivRightLine color0"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color0">集中時間</div>
+				<div class="scheduleDivLastLine color0">
+					<div class="scheduleDivRightLine color0"></div>
+					<center><div class="handleDiv color0" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-8-P-***" class="scheduleDiv color2" style="top: 612px; left: 51.42857142857143%; height: 53px; width: 48.57142857142857%; z-index: 10; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color2">
+					<span id="scheduleDivStartTime-8-P-***" class="scheduleDivTime color2">17:00</span>
+					<span id="scheduleDivSepalater-8-P-***" class="scheduleDivSepalater color2">-</span>
+					<span id="scheduleDivEndTime-8-P-***" class="scheduleDivTime color2">18:30</span>
+				</div>
+				<div class="scheduleDivRightLine color2"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color2">【早退】皮膚科通院</div>
+				<div class="scheduleDivLastLine color2"><div class="scheduleDivRightLine color2"></div>
+					<center><div class="handleDiv color2" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-9-P-***" class="scheduleDiv color0" style="top: 612px; left: 0%; height: 17px; width: 81.46285714285716%; z-index: 9; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color0">
+					<span id="scheduleDivStartTime-9-P-***" class="scheduleDivTime color0">[共有][設備]取締役定例決議</span>
+					<span id="scheduleDivSepalater-9-P-***" class="scheduleDivSepalater color0"></span>
+					<span id="scheduleDivEndTime-9-P-***" class="scheduleDivTime color0"></span>
+				</div>
+				<div class="scheduleDivRightLine color0"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color0">取締役定例決議</div>
+				<div class="scheduleDivLastLine color0">
+					<div class="scheduleDivRightLine color0"></div>
+					<center><div class="handleDiv color0" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-10-P-***" class="scheduleDiv color1" style="top: 630px; left: 0%; height: 17px; width: 81.46285714285715%; z-index: 11; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color1">
+					<span id="scheduleDivStartTime-10-P-***" class="scheduleDivTime color1">月間PJ集中時間</span>
+					<span id="scheduleDivSepalater-10-P-***" class="scheduleDivSepalater color1"></span>
+					<span id="scheduleDivEndTime-10-P-***" class="scheduleDivTime color1"></span>
+				</div>
+				<div class="scheduleDivRightLine color1"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color1">月間PJ集中時間</div>
+				<div class="scheduleDivLastLine color1">
+					<div class="scheduleDivRightLine color1"></div>
+					<center><div class="handleDiv color1" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+			<div id="schedule-11-P-***" class="scheduleDiv color1" style="top: 684px; left: 0%; height: 17px; width: 100%; z-index: 12; visibility: visible; border-right-style: none;">
+				<div class="scheduleDivFirstLine color1">
+					<span id="scheduleDivStartTime-11-P-***" class="scheduleDivTime color1">[共有]帰宅タイム</span>
+					<span id="scheduleDivSepalater-11-P-***" class="scheduleDivSepalater color1"></span>
+					<span id="scheduleDivEndTime-11-P-***" class="scheduleDivTime color1"></span>
+				</div>
+				<div class="scheduleDivRightLine color1"></div>
+				<div style="overflow: hidden;" class="scheduleDivName color1">帰宅タイム</div>
+				<div class="scheduleDivLastLine color1">
+					<div class="scheduleDivRightLine color1"></div>
+					<center><div class="handleDiv color1" align="center">&nbsp;</div></center>
+				</div>
+			</div>
+		</div>
+	</div>
+</td>
+<td class="scrollRight">
+	<div class="scroll_width"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><!-- /contentsSection -->
+
+
+</div><!-- /mobileContentsWrapper -->
+
+
+<div class="modal" id="menubar_schedulechange" style="display: none;top: 77px;">
+	<div class="menubar caret-left noBorder">
+		<ul>
+			<li><a href="block.html" class="selected">ブロック表示</a></li>
+			<li><a href="month.html">月間表示</a></li>
+			<li><a href="list.html">一覧表示</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modal" id="menubar_userselect" style="display: none;top: 77px;">
+	<div class="menubar caret-right noBorder">
+		<ul>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" class="selected" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modalDialogUnderlayWrapper" id="popMask" style="display: none;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+
+</body>
+</html>

@@ -171,7 +171,7 @@ table {
 	border-spacing: 0;
 }
 
-div.outer {
+.outer {
 	border-top:1px solid $grayBorderLight;
 	border-left:1px solid $grayBorderLight;
 	border-bottom:1px solid $grayBorderDark;
@@ -977,7 +977,7 @@ div.indidiv, span.indidiv {
 	overflow:hidden;
 	color:#f00;
 }
-div.weeklyScrollPane {
+.weeklyScrollPane {
 	width:100%;
 	position:relative;
 	overflow:scroll;
@@ -990,17 +990,17 @@ div.weeklyScrollPane {
 .scroll_width {
 	padding-right:1px;
 }
-div.weeklyHeadLeft {
+.weeklyHeadLeft {
 	width:50px;
 	border:solid $grayBorder;
 	border-width:0 0 0 1px;
 	float:left;
 }
-div.weeklyHeadLeft div.weeklyHeadLeftTop {
+.weeklyHeadLeft .weeklyHeadLeftTop {
 	width:100%;
 	height:17px;
 }
-div.weeklyHeadLeft div.weeklyHeadLeftBottom {
+.weeklyHeadLeft .weeklyHeadLeftBottom {
 	width:100%;
 	height:17px;
 }
@@ -2087,14 +2087,21 @@ ul.blockList li a.selected {
 		position: absolute;
 		display: block;
 		content: "";
-		width: 5px;
-		height: 10px;
-		top: 48%;
-		right: 15px;
-		border: solid 3px $gray;
-		border-left: 0;
-		border-top: 0;
-		@include transform(translateY(-50%) rotate(45deg));
+		right: 10px;
+		top: 50%;
+		width: 16px;
+		height: 16px;
+		background-image: url("../images/common/icon_check.png");
+		background-size: 100% 100%;
+		@include transform(translateY(-50%));
+		//width: 5px;
+		//height: 10px;
+		//top: 48%;
+		//right: 15px;
+		//border: solid 3px $gray;
+		//border-left: 0;
+		//border-top: 0;
+		//@include transform(translateY(-50%) rotate(45deg));
 	}
 }
 
@@ -2602,6 +2609,9 @@ margin:0 3px 0 0;
 /***************************************************
 	display
 --------------------------------------------------*/
+.block {
+	display: block;
+}
 .inlineBlock {
 	display: inline-block;
 }
@@ -2659,7 +2669,4 @@ margin:0 3px 0 0;
 	position: absolute;
 	z-index: $zindex-modal;
 	@include box-sizing(border-box);
-}
-.overlap {
-	color: $red;
 }

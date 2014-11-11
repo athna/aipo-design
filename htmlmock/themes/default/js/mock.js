@@ -122,16 +122,27 @@ function launcherToggle($this, $target) {
 
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
-		// minusH 内訳 = auiHeader(55) + .title(40)  + tab(35px) + messageSummaryHead(106) + dropdown余白(10)
-		var minusH = 55 + 40 + 35 + 106 + 10;
+		// minusH 内訳 = auiHeader(55) + .title(40) + tab(35px) + dropdown余白(10)
+		var minusH = 55 + 40 + 35 + 10;
 		var w = document.documentElement.clientWidth - 20;
 		var h = document.documentElement.clientHeight - minusH;
+		var tabh = document.documentElement.clientHeight - (minusH + 106);// minusH + messageSummaryHead(106)
 		document.getElementById("dd_message").style.width = w + "px";
+		//document.getElementById("messageSummary").style.height = h + "px";
+		//if(document.getElementById("messageSideBlock") != null) {
+		//	document.getElementById("messageSideBlock").style.height = h + "px";
+		//}
+		if(document.getElementById("messageSideBlock1") != null) {
+			document.getElementById("messageSideBlock1").style.height = h + "px";
+		}
+		if(document.getElementById("messageSideBlock2") != null) {
+			document.getElementById("messageSideBlock2").style.height = h + "px";
+		}
 		if(document.getElementById("messageSummary") != null) {
-			document.getElementById("messageSummary").style.height = h + "px";
+			document.getElementById("messageSummary").style.height = tabh + "px";
 		}
 		if(document.getElementById("messageUserlist") != null) {
-			document.getElementById("messageUserlist").style.height = h + "px";
+			document.getElementById("messageUserlist").style.height = tabh + "px";
 		}
 	}
 	if(document.getElementById("messageTimeline1") != null) {

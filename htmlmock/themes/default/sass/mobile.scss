@@ -15,7 +15,7 @@
 	style denial
 --------------------------------------------------*/
 body {
-	position:absolute;
+	//position:absolute;
 	background: $white;
 	-webkit-text-size-adjust: 100%;
 }
@@ -51,9 +51,10 @@ td.container {
 --------------------------------------------------*/
 select {
 	//height:auto !important;
+	height: $inputHeight + 2;
     max-width:100%;
 }
-select[multiple] {
+select[multiple="multiple"] {
     height:auto;
 }
 
@@ -120,9 +121,10 @@ input[type=password] {
 .auiPortlet {
 	margin: 0;
 	.auiPortletHead {
-		position:absolute;
-		top:0;
-		@include mobile-header-style();
+		display: none;
+		//position:absolute;
+		//top:0;
+		//@include mobile-header-style();
 		//@include box-shadow(none);
 
 		> .inner {
@@ -159,6 +161,9 @@ input[type=password] {
 	}
 	.auiPortletBody > .inner {
 		padding:0 5px;
+	}
+	.auiPortletFoot {
+		display: none;
 	}
 }
 
@@ -2126,8 +2131,14 @@ div.weeklyTermRights div.weeklyTermRightR {
 /***************************************************
 	message
 --------------------------------------------------*/
+body.messageRoomList {
+	background-color: $grayDark;
+	.roundMainWrapper {
+		background-color: $grayDark !important;
+	}
+}
 .sideBlock {
-	margin: -5px;
+	margin: -5px -5px -20px -5px;
 }
 .messageOuter {
 	.inputField {

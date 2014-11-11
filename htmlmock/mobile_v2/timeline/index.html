@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head lang="ja">
-  <meta charset="UTF-8">
-  <title>Aipo.com</title>
-  <meta name="description" content=""/>
-  <meta name="keywords" content=""/>
-  <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-  <meta name="robots" content="noindex,follow"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
-  <meta name="format-detection" content="telephone=no">
-  <link type="image/x-icon" rel="shortcut icon" href="../../themes/default/images/favicon.ico?20130719"/>
-  <link type="image/x-icon" rel="icon" href="../../themes/default/images/favicon.ico?20130719"/>
-	<link rel="stylesheet" type="text/css" href="../../themes/default/css/extend.css"/>
-	<link rel="stylesheet" type="text/css" href="../../themes/default/css/common.css"/>
-  <link rel="stylesheet" type="text/css" href="../../themes/default/css/mobile_v2.css"/>
-  <link rel="stylesheet" type="text/css" href="../../themes/default/css/print.css" media="print"/>
-  <link rel="stylesheet" type="text/css" href="../../themes/default/css/font-awesome.min.css"/>
-  <script language="JavaScript" type="text/javascript" src="../javascript/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+	<meta charset="UTF-8">
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<link type="image/x-icon" rel="shortcut icon" href="../../themes/mobilefirst/images/favicon.ico"/>
+	<link type="image/x-icon" rel="icon" href="../../themes/mobilefirst/images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/mobile_v2.css"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../../themes/mobilefirst/css/font-awesome.min.css"/>
+	<script src="../../themes/mobilefirst/js/jquery-2.1.1.min.js"></script>
+	<script src="../../themes/mobilefirst/js/mock.js"></script>
 </head>
 <body>
 
 <div class="mobileHeader">
   <div class="title">タイムライン</div>
   <div class="right">
-    <a href="javascript:void(0);"><i class="icon-search"></i></a><a href="javascript:void(0);"><i class="icon-plus"></i></a>
+	  <a href="add.html"><i class="icon-plus"></i></a>
   </div>
 </div>
 
@@ -37,61 +38,79 @@
 <div class="mobileContentsWrapper">
 
   <div class="row">
+
     <div class="col-1">
-      <div class="auiSelect w100" onclick="positionToggle(this,'menubar_2')">
-        <div class="current"><img src="../../themes/default/images/_mock/avatar1.jpg" width="16" height="16" class="avatar_s">木村 一郎</div>
-        <i class="icon-caret-down"></i>
-      </div>
-    </div>
+      <div class="auiSelect w100" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">
+        <div class="current">
+			グループ名
+		</div>
+		  <i class="icon-caret-down"></i>
+	  </div>
+	</div>
+
   </div><!-- /row -->
 
-  <div class="contentsSingle">
+	<div class="contentsSection">
 
-    <div id="message1" class="message">
-      <div class="avatar mr10"><img src="../../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
-      <div class="messageContents">
-        <div class="name">名前 名前</div>
-        <div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
-          <div class="tlClipBoard clearfix">
-            <div class="tlClipImage"><a href="http://www.example.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"></a></div>
-            <div class="tlClipContents">
-              <div class="tlClipTitle"><a href="http://www.example.com" target="_blank">タイトルタイトル</a></div>
-              <div class="tlClipUrl">www.example.com</div>
-              <div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-            </div>
-          </div>
-        </div>
-        <div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
-          <form style="display:inline">
-            <input type="hidden" name="secid" value="">
-            <a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
-          </form>
-          <a href="javascript:void(0)" onclick="">コメントする</a></div>
-      </div>
-    </div>
+		<div class="timeline">
+			<div id="message_P-" class="message">
+				<div class="messageContents">
+					<div class="head">
+						<div class="avatar"><img src="../../themes/mobilefirst/images/common/avatar_default3.png" width="50" height="50" class="avatar_m"></div>
+						<div class="name">木村 一郎</div>
+						<div class="time">
+							15:05
+							<form>
+								&nbsp;
+								<a href="javascript:void(0)">削除する</a>
+							</form>
+						</div>
+					</div>
+					<div class="body">
+						<a href="javascript:void(0);">予定「企画会議」を追加しました。</a>
+					</div>
+					<div class="foot">
+						<form><a href="javascript:void(0)">いいね！</a></form>
+						<a href="javascript:void(0)">コメントする</a>
+						<a href="javascript:void(0);"><i class="icon-thumbs-up-alt mr5"></i>13</a>
+						<a href="javascript:void(0);"><i class="icon-comment mr5"></i>0</a>
+					</div>
+				</div>
+				<p class="more"><a href="javascript:void(0);" class="ellipsis_message">他3件の更新情報を見る</a></p>
+			</div>
+		</div>
 
-    <div id="comments1" class="comments">
-      <div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
-      <div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
-      <div id="message112" class="message">
-        <form name="" id="" action="">
-          <div class="avatar mr10"><img src="../../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-          <div class="messageContents">
-            <div class="name">ユーザー名</div>
-            <div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-            <div class="time">16:51</div>
-          </div>
-        </form>
-      </div>
-      <div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
-    </div>
-
-  </div>
+	</div><!-- /contentsSection -->
 
 
 </div><!-- /mobileContentsWrapper -->
 
 
+<div class="modal" id="menubar_schedulechange" style="display: none;top: 77px;">
+	<div class="menubar caret-left noBorder">
+		<ul>
+			<li><a href="block.html">ブロック表示</a></li>
+			<li><a href="month.html" class="selected">月間表示</a></li>
+			<li><a href="list.html">一覧表示</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modal" id="menubar_userselect" style="display: none;top: 77px;">
+	<div class="menubar caret-right noBorder">
+		<ul>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" class="selected" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+			<li><a href="javascript:void(0);" onclick="popupToggle(this,'menubar_userselect');popupToggle(this,'popMask')">グループ名</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="modalDialogUnderlayWrapper" id="popMask" style="display: none;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
 
 </body>
 </html>

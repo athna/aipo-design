@@ -693,6 +693,14 @@ $dropdownSideWidth: 280px;
 	.mainBlock {
 		margin-left: $dropdownSideWidth;
 		border-left: solid 1px $grayBorder;
+		.body {
+			font-size: 13px;
+		}
+	}
+	.timelineOuter {
+		.message:first-child {
+			padding-top: 0 !important;
+		}
 	}
 	.contents {
 	}
@@ -739,7 +747,7 @@ $dropdownSideWidth: 280px;
 			@extend .border-box;
 			@extend .clearfix;
 			display: block;
-			height: 40px;
+			height: 44px;
 			text-decoration: none;
 			color: $gray;
 			.name {
@@ -761,7 +769,7 @@ $dropdownSideWidth: 280px;
 		position: absolute;
 		top: 0;
 		left: 0;
-		padding: 8px;
+		padding: 6px;
 		img {
 			//display: block;
 		}
@@ -770,7 +778,7 @@ $dropdownSideWidth: 280px;
 .messageSummary {
 	li {
 		a {
-			padding: 5px 5px 5px 40px;
+			padding: 6px 10px 6px 45px;
 		}
 	}
 	.date {
@@ -794,10 +802,10 @@ $dropdownSideWidth: 280px;
 			color: $gray !important;
 			background-color: $white;
 			.date, .latest {
-				color: $gray !important;
+				color: $grayDeep !important;
 			}
 			.name {
-				color: $textColor;
+				color: $black;
 			}
 		}
 	}
@@ -806,8 +814,8 @@ $dropdownSideWidth: 280px;
 	ul {
 		li {
 			a {
-				line-height: 40px;
-				padding-left: 40px;
+				line-height: 45px;
+				padding-left: 45px;
 			}
 		}
 	}
@@ -844,11 +852,20 @@ $dropdownSideWidth: 280px;
 }
 .roomHeader {
 	margin-bottom: 10px;
+	.userListIcon {
+		padding-right: 30px;
+		height: 24px;
+		margin-bottom: 0;
+		overflow: hidden;
+	}
 	.floatLeft {
 		@include text-overflow();
 		width: 90%;
 	}
 	.floatRight {
+		position: absolute;
+		top: 0;
+		right: 0;
 		a {
 			display: inline-block;
 			[class*=icon-] {
@@ -933,9 +950,9 @@ $dropdownSideWidth: 280px;
 				a,
 				&:first-child a {
 					margin: 0;
-					background-color: $grayDarker;
-					height: 45px;
-					line-height: 45px;
+					background-color: $black;
+					height: 35px;
+					line-height: 35px;
 					border: none;
 					color: $grayLight;
 					&:hover {

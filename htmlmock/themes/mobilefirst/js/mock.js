@@ -7,6 +7,13 @@ function displayToggle($target) {
 		elm.style.display = 'none'
 	}
 }
+function displayChange($target, $status) {
+	var elm = document.getElementById($target);
+	var style = elm.currentStyle || document.defaultView.getComputedStyle(elm, '');
+	if(!$status) $status = "display";
+	elm.style.display = $status;
+}
+
 function popupToggle($this, $target) {
 	var elm = document.getElementById($target);
 	var style = elm.currentStyle || document.defaultView.getComputedStyle(elm, '');

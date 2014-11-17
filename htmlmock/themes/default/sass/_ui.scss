@@ -589,6 +589,9 @@ $dropdownSideWidth: 280px;
 			line-height: 24px;
 		}
 	}
+	a, input, button {
+		filter: none !important; //IE hack
+	}
 }
 .activityPopup, .supportPopup {
 	display: block;
@@ -744,7 +747,7 @@ $dropdownSideWidth: 280px;
 	@extend .counter;
 	margin: 0;
 }
-.messageSummary, .messageUserlist ul {
+.messageSummary, .messageUserlist {
 	font-size: $fontSizeSmall;
 	li {
 		position: relative;
@@ -782,9 +785,22 @@ $dropdownSideWidth: 280px;
 			//display: block;
 		}
 	}
+	.active {
+		background-color: $white;
+		a, a:hover {
+			color: $gray !important;
+			background-color: $white;
+			.date, .latest {
+				color: $grayDeep !important;
+			}
+			.name {
+				color: $black;
+			}
+		}
+	}
 }
 .messageSummary {
-	position: relative;
+	//position: relative;
 	li {
 		a {
 			padding: 6px 10px 6px 45px;
@@ -804,19 +820,6 @@ $dropdownSideWidth: 280px;
 	}
 	.nrCount {
 		margin: 0 3px 0 0;
-	}
-	.active {
-		background-color: $white;
-		a, a:hover {
-			color: $gray !important;
-			background-color: $white;
-			.date, .latest {
-				color: $grayDeep !important;
-			}
-			.name {
-				color: $black;
-			}
-		}
 	}
 }
 .messageUserlist {

@@ -66,7 +66,7 @@
 .border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdCommunications .num, .dropdown,
 .activityPopup, .supportPopup, .dropdown .title,
 .activityPopup .title, .supportPopup .title, #dd_message .subContents, .messageSummary li a, .messageUserlist ul li a, .scroll, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .mobileHeader, .mobileMainNavigation {
+#auiLauncher ul.setting li a, .mobileHeader, .mobileMainNavigation, .mobileNavigation .head {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -307,7 +307,7 @@ select:hover + .icon-caret-down {
 .border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdCommunications .num, .dropdown,
 .activityPopup, .supportPopup, .dropdown .title,
 .activityPopup .title, .supportPopup .title, #dd_message .subContents, .messageSummary li a, .messageUserlist ul li a, .scroll, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .mobileHeader, .mobileMainNavigation {
+#auiLauncher ul.setting li a, .mobileHeader, .mobileMainNavigation, .mobileNavigation .head {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1421,7 +1421,7 @@ ul.hdTools .dropdown:before {
 .border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdCommunications .num, .dropdown,
 .activityPopup, .supportPopup, .dropdown .title,
 .activityPopup .title, .supportPopup .title, #dd_message .subContents, .messageSummary li a, .messageUserlist ul li a, .scroll, #auiLauncher ul.launcher li a,
-#auiLauncher ul.setting li a, .mobileHeader, .mobileMainNavigation {
+#auiLauncher ul.setting li a, .mobileHeader, .mobileMainNavigation, .mobileNavigation .head {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3025,6 +3025,131 @@ a {
   border: solid 1px #ffffff;
 }
 
+/***************************************************
+	mobileNavigation
+--------------------------------------------------*/
+.mobileNavigation {
+  display: none;
+  padding: 40px 0;
+  background: #ffffff;
+}
+.mobileNavigation .head {
+  position: fixed;
+  z-index: 110;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background: #333;
+  font-size: 16px;
+  color: #ffffff;
+}
+.mobileNavigation .head > .title {
+  line-height: 40px;
+  text-align: center;
+}
+.mobileNavigation .head > .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mobileNavigation .head > .right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.mobileNavigation .head a {
+  display: block;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  font-size: 12px;
+  text-decoration: none;
+}
+.mobileNavigation .head [class*="icon-"] {
+  display: inline-block;
+  min-width: 20px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+}
+.mobileNavigation .head [class*="auiButton"] {
+  height: 30px;
+  line-height: 30px;
+  margin: 5px;
+}
+.mobileNavigation .body li {
+  background-image: none;
+  padding: 0;
+}
+.mobileNavigation .body li a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: #333;
+  border-top: solid 1px #ffffff;
+  border-bottom: solid 1px #ededed;
+  background: #ffffff;
+}
+.mobileNavigation .body .icon {
+  display: block;
+  float: left;
+  padding: 10px;
+  vertical-align: middle;
+  text-align: center;
+  color: #999;
+}
+.mobileNavigation .body .icon i {
+  display: block;
+  width: 20px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.mobileNavigation .user > div {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+}
+.mobileNavigation .user .avatar {
+  width: 40px;
+  text-align: center;
+}
+.mobileNavigation .user .avatar img {
+  margin: 8px;
+}
+.mobileNavigation .user .name {
+  font-size: 16px;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mobileNavigation .foot {
+  padding: 0 10px;
+  background: #f0f0f0;
+}
+.mobileNavigation .foot div {
+  height: 40px;
+  line-height: 40px;
+}
+.mobileNavigation h2 {
+  color: #333;
+  clear: both;
+  padding: 5px;
+  font-weight: normal;
+  background: #f0f0f0;
+  font-size: 12px;
+}
+
+/***************************************************
+	row & col
+--------------------------------------------------*/
 .mobileContentsWrapper .row {
   margin: 5px 0;
   padding-left: 5px;

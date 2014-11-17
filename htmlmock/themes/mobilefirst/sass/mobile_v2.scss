@@ -163,6 +163,137 @@ a {
 	}
 }
 
+/***************************************************
+	mobileNavigation
+--------------------------------------------------*/
+.mobileNavigation {
+	display: none;
+	padding: $mbUIHeight 0;
+	background: $white;
+	.head {
+		@extend .border-box;
+		position: fixed;
+		z-index: $zindex-mobileHeader;
+		top: 0;
+		width: 100%;
+		height: $mbUIHeight;
+		background: $grayDark;
+		font-size: $fontSizeLarge;
+		color: $white;
+
+		> .title {
+			line-height: $mbUIHeight;
+			text-align: center;
+		}
+		> .left {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		> .right {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		a {
+			display: block;
+			float: left;
+			height: $mbUIHeight;
+			line-height: $mbUIHeight;
+			padding: 0 10px;
+			font-size: $baseFontSize;
+			text-decoration: none;
+		}
+		[class*="icon-"] {
+			display: inline-block;
+			min-width: 20px;
+			height: $mbUIHeight;
+			line-height: $mbUIHeight;
+			text-align: center;
+			font-size: 20px;
+			color: $white;
+		}
+		[class*="auiButton"] {
+			height: $inputHeight;
+			line-height: $inputHeight;
+			margin: ($mbUIHeight - $inputHeight)/2;
+		}
+	}
+	.body {
+		li {
+			background-image: none;
+			padding: 0;
+			a {
+				display: block;
+				height: $mbUIHeight;
+				line-height: $mbUIHeight;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				text-decoration: none;
+				color: #333;
+				border-top: solid 1px $white;
+				border-bottom: solid 1px $grayBorderLight;
+				background: $white;
+			}
+		}
+		.icon {
+			display: block;
+			float: left;
+			padding: 10px;
+			vertical-align: middle;
+			text-align: center;
+			color: $gray;
+			i {
+				display: block;
+				width: 20px;
+				font-size: 18px;
+				line-height: 20px;
+			}
+		}
+	}
+	.user {
+		> div {
+			float: left;
+			height: $mbUIHeight;
+			line-height: $mbUIHeight;
+		}
+		.avatar {
+			width: 40px;
+			text-align: center;
+			img {
+				margin: 8px;
+			}
+		}
+		.name {
+			font-size: 16px;
+			width: 70%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	.foot {
+		padding: 0 10px;
+		background: $grayBack;
+		div {
+			height: $mbUIHeight;
+			line-height: $mbUIHeight;
+		}
+	}
+	h2 {
+		color: #333;
+		clear: both;
+		padding: 5px;
+		font-weight: normal;
+		background: #f0f0f0;
+		font-size: 12px;
+	}
+}
+/***************************************************
+	row & col
+--------------------------------------------------*/
+
 .row {
 	@extend .clearfix;
 	.mobileContentsWrapper & {

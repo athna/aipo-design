@@ -542,18 +542,18 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
 
   var bubbleInner = document.createElement('div');
   bubbleInner.style.position = 'relative';
-  bubbleInner.style.width = '150px';
+  bubbleInner.style.width = '180px';
   bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
-  bubbleInner.style.border = '3px solid #ccc';
+  bubbleInner.style.border = '1px solid #d2d2d2';
   bubbleInner.style.padding = '20px 20px 20px 80px';
   bubbleInner.style.WebkitBorderRadius = '8px';
-  bubbleInner.style.WebkitBoxShadow = '0 0 8px rgba(0, 0, 0, 0.7)';
+  bubbleInner.style.WebkitBoxShadow = '0 0 5px rgba(0, 0, 0, 0.2)';
   bubbleInner.style.WebkitBackgroundSize = '100% 8px';
   bubbleInner.style.backgroundColor = '#ffffff';
-  bubbleInner.style.background = '#cddcf3 -webkit-gradient(linear, ' +
+  /*bubbleInner.style.background = '#cddcf3 -webkit-gradient(linear, ' +
       'left bottom, left top, ' + isIpad ?
           'from(#cddcf3), to(#b3caed)) no-repeat top' :
-          'from(#b3caed), to(#cddcf3)) no-repeat bottom';
+          'from(#b3caed), to(#cddcf3)) no-repeat bottom';*/
   bubbleInner.style.font = '13px/17px sans-serif';
   bubble.appendChild(bubbleInner);
 
@@ -562,12 +562,12 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   if (this.getIosVersion_() >= this.getVersion_(4, 2)) {
     /*bubbleInner.innerHTML = 'Install this web app on your phone: ' +
         'tap on the arrow and then <b>\'Add to Home Screen\'</b>';*/
-    bubbleInner.innerHTML = 'Aipoをホーム画面へインストールできます！<br />矢印をタップして<b>「ホーム画面に追加」</b>で完了です。';
+    bubbleInner.innerHTML = 'Aipoをホーム画面へ<br/>置くことができます。<br/>下のアイコンをタップして<b>「ホーム画面に追加」</b>で完了です。';
   } else {
 /*    bubbleInner.innerHTML = 'Install this web app on your phone: ' +
         'tap <b style="font-size:15px">+</b> and then ' +
         '<b>\'Add to Home Screen\'</b>';*/
-    bubbleInner.innerHTML = 'Aipoをホーム画面へインストールできます！<br /><b style="font-size:15px">+</b>をタップして<b>「ホーム画面に追加」</b>で完了です。';
+    bubbleInner.innerHTML = 'Aipoをホーム画面へ<br/>置くことができます！<br/><b style="font-size:15px">+</b>をタップして<b>「ホーム画面に追加」</b>で完了です。';
   }
 
   var icon = document.createElement('div');
@@ -587,15 +587,16 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   var arrow = document.createElement('div');
   //arrow.style.backgroundImage = 'url(' + this.IMAGE_ARROW_DATA_URL_ + ')';
   arrow.style.background = '#ffffff';
-  arrow.style.border = 'solid 4px #ccc';
+  arrow.style.border = 'solid 1px #d2d2d2';
   arrow.style.borderTop = 'none';
   arrow.style.borderLeft = 'none';
   arrow.style.width = '15px';
   arrow.style.height = '15px';
-  arrow.style.bottom = '-12px';
+  arrow.style.bottom = '-9px';
   arrow.style.position = 'absolute';
   arrow.style.left = '115px';
   arrow.style.WebkitTransform = 'rotate(45deg)';
+  arrow.style.WebkitBoxShadow = '1px 1px 3px rgba(0, 0, 0, 0.1)';
   //if (isIpad) {
   //  arrow.style.WebkitTransform = 'rotate(180deg)';
   //  arrow.style.top = '-19px';
@@ -604,17 +605,23 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   //}
   bubbleInner.appendChild(arrow);
 
-  var close = document.createElement('a');
+  // close button
+  //var close = document.createElement('a');
+  var close = document.createElement('i');
+  close.className = 'icon-remove';
   close.onclick = google.bind(this.closeClickHandler_, this);
   close.style.position = 'absolute';
   close.style.display = 'block';
-  close.style.top = '-3px';
-  close.style.right = '-3px';
-  close.style.width = '16px';
-  close.style.height = '16px';
-  close.style.border = '10px solid transparent';
-  close.style.background =
-      'url(' + this.IMAGE_CLOSE_DATA_URL_ + ') no-repeat';
+  close.style.top = '5px';
+  close.style.right = '5px';
+  close.style.width = '20px';
+  close.style.height = '20px';
+  close.style.lineHeight = '20px';
+  close.style.textAlign = 'center';
+  close.style.fontSize = '20px';
+  //close.style.border = '10px solid transparent';
+  /*close.style.background =
+      'url(' + this.IMAGE_CLOSE_DATA_URL_ + ') no-repeat';*/
   bubbleInner.appendChild(close);
 
   return bubble;

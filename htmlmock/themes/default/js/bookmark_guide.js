@@ -17,19 +17,19 @@ if ( (ua.indexOf('iPhone') > 0 && ua.indexOf('CriOS') < 0) || ua.indexOf('iPod')
 
 	//本文
 	if ( ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0) { //iOS
-		inner.innerHTML = '<p>Aipoをホーム画面に置けます。</p><p>ブラウザ下中央のボタンより「ホーム画面に追加」をタップしてください。</p>';
+		inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>ブラウザ下中央のボタンより「ホーム画面に追加」をタップしてください。</p>';
 	}
 
 	if (ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) { //Android
 		if(ua.indexOf('Chrome') > 0) {
-			inner.innerHTML = '<p>Aipoをホーム画面に置けます。</p><p>オプションメニューより「ホーム画面に追加」をタップしてください。</p>';
+			inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>オプションメニューより「ホーム画面に追加」をタップしてください。</p>';
 		} else {
 			var androidversion = parseFloat(ua.slice(ua.indexOf("Android")+8));
 			console.log(androidversion);
 			if(androidversion >= 4) {
-				inner.innerHTML = '<p>Aipoをホーム画面に置けます。</p><p>このページをブックマークに追加される際、「追加先」に「ホーム画面」をタップしてください。</p>';
+				inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>このページをブックマークに追加される際、「追加先」に「ホーム画面」をタップしてください。</p>';
 			} else {
-				inner.innerHTML = '<p>Aipoをホーム画面に置けます。</p><p>このページをブックマークに追加し、ブックマーク一覧より長押ししてショートカットを作成」をタップしてください。</p>';
+				inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>このページをブックマークに追加し、ブックマーク一覧より長押ししてショートカットを作成」をタップしてください。</p>';
 			}
 		}
 	}

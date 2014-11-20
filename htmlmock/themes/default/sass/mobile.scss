@@ -14,9 +14,11 @@
 /***************************************************
 	style denial
 --------------------------------------------------*/
+html,body {
+	background: $white;
+}
 body {
 	//position:absolute;
-	background: $white;
 	-webkit-text-size-adjust: 100%;
 }
 .hdSign, .hdUserName, .hdLogout, #auiTabs, #footer {
@@ -1439,8 +1441,14 @@ ul.hdCommunications {
 	loader
 --------------------------------------------------*/
 .loader {
-  background: url(../images/common/loading_smp_white.gif) no-repeat center center;
-  background-size:16px;
+	.indicatorBlack {
+		background: url(../images/common/loading_smp.gif) no-repeat center center;
+		background-size:16px;
+	}
+	.indicator {
+		background: url(../images/common/loading_smp_white.gif) no-repeat center center;
+		background-size:16px;
+	}
 }
 /***************************************************
 	auiThreeClumns
@@ -2244,4 +2252,47 @@ body.messageRoomList {
 --------------------------------------------------*/
 .auiCheckList {
 	max-height: 100%;
+}
+
+
+/***************************************************
+	dateChanger
+--------------------------------------------------*/
+.dateChanger {
+	//border: none;
+	.today {
+		left: 0;
+		a {
+			display: block;
+			width: 40px !important;
+			height: 40px !important;
+			line-height: 40px !important;
+			text-decoration: none;
+		}
+	}
+	.currentDate {
+		width: 70px;
+		font-weight: normal;
+	}
+	.subDate {
+		position: absolute;
+		top: 25px;
+		display: block;
+		width: 100%;
+		line-height: 1;
+		font-size: $fontSizeSmall;
+		color: $gray;
+	}
+	.mainDate {
+		display: block;
+		line-height: 30px;
+		font-size: $fontSizeLarge;
+	}
+	&.fixed {
+		position: fixed;
+		background-color: $white;
+		z-index: 100;
+		border-bottom: solid 1px $grayBorder;
+		@include border-radius(0);
+	}
 }

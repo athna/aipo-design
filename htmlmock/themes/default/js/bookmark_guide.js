@@ -17,7 +17,7 @@ if ( (ua.indexOf('iPhone') > 0 && ua.indexOf('CriOS') < 0) || ua.indexOf('iPod')
 	guideBox.appendChild(inner);
 
 	//remove
-	var remove = '<a href="javascript:void(0);" onclick="javascript:document.getElementById(\'bookmarkGuide\').style.display=\'none\'" style="display:block;float:right"><i class="icon-remove" style="display:block;width:18px;height:18px;font-size:18px;text-align:center;"></i></a>';
+	var remove = '<a href="javascript:void(0);" onclick="javascript:document.getElementById(\'bookmarkGuide\').style.display=\'none\'" style="display:block;float:right;color:#999999"><i class="icon-remove" style="display:block;width:18px;height:18px;font-size:18px;text-align:center;"></i></a>';
 
 	//本文
 	inner.innerHTML = remove;

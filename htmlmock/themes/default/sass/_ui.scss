@@ -585,8 +585,9 @@ $dropdownSideWidth: 280px;
 	.foot {
 		@extend .clearfix;
 		padding: 8px 10px;
+		border-top: solid 1px $grayBorder;
 		.count {
-			line-height: 24px;
+			//line-height: 24px;
 		}
 	}
 }
@@ -634,9 +635,13 @@ $dropdownSideWidth: 280px;
 	}
 	li {
 		padding: 0;
-		border-bottom: solid 1px $grayBorderLight;
+		border-top: solid 1px $grayBorderLight;
 		background-image: none;
+		&:first-child {
+			border-top: none;
+		}
 		> a {
+			position: relative;
 			> .avatar {
 				position: absolute;
 				+ .body {

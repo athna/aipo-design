@@ -4,6 +4,7 @@ if ( (ua.indexOf('iPhone') > 0 && ua.indexOf('CriOS') < 0) || ua.indexOf('iPod')
 	//iOS Chrome ではホームに追加が行えないため「CriOS」は除外する
 
 	var guideBox = document.createElement('div');
+	guideBox.id = 'bookmarkGuide';
 	guideBox.className = 'bookmarkGuide';
 	guideBox.style.minHeight = '48px';
 	guideBox.style.padding = '0 10px';
@@ -15,21 +16,25 @@ if ( (ua.indexOf('iPhone') > 0 && ua.indexOf('CriOS') < 0) || ua.indexOf('iPod')
 	inner.style.padding = '10px 0 10px 60px';
 	guideBox.appendChild(inner);
 
+	//remove
+	var remove = '<a href="javascript:void(0);" onclick="javascript:document.getElementById(\'bookmarkGuide\').style.display=\'none\'" style="display:block;float:right"><i class="icon-remove" style="display:block;width:18px;height:18px;font-size:18px;text-align:center;"></i></a>';
+
 	//本文
+	inner.innerHTML = remove;
 	if ( ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0) { //iOS
-		inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>ブラウザ下中央のボタンより「ホーム画面に追加」をタップしてください。</p>';
+		inner.innerHTML = inner.innerHTML + '<p>Aipoをホーム画面に配置できます。</p><p>ブラウザ下中央のボタンより「ホーム画面に追加」をタップしてください。</p>';
 	}
 
 	if (ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) { //Android
 		if(ua.indexOf('Chrome') > 0) {
-			inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>オプションメニューより「ホーム画面に追加」をタップしてください。</p>';
+			inner.innerHTML = inner.innerHTML + '<p>Aipoをホーム画面に配置できます。</p><p>オプションメニューより「ホーム画面に追加」をタップしてください。</p>';
 		} else {
 			var androidversion = parseFloat(ua.slice(ua.indexOf("Android")+8));
 			console.log(androidversion);
 			if(androidversion >= 4) {
-				inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>このページをブックマークに追加される際、「追加先」に「ホーム画面」をタップしてください。</p>';
+				inner.innerHTML = inner.innerHTML + '<p>Aipoをホーム画面に配置できます。</p><p>このページをブックマークに追加される際、「追加先」に「ホーム画面」をタップしてください。</p>';
 			} else {
-				inner.innerHTML = '<p>Aipoをホーム画面に置くことができます。</p><p>このページをブックマークに追加し、ブックマーク一覧より長押ししてショートカットを作成」をタップしてください。</p>';
+				inner.innerHTML = inner.innerHTML + '<p>Aipoをホーム画面に配置できます。</p><p>このページをブックマークに追加し、ブックマーク一覧より長押ししてショートカットを作成」をタップしてください。</p>';
 			}
 		}
 	}
@@ -56,9 +61,6 @@ if ( (ua.indexOf('iPhone') > 0 && ua.indexOf('CriOS') < 0) || ua.indexOf('iPod')
 	icon.style.border = 'solid 1px #d2d2d2';
 	icon.style.borderRadius = '10px';
 	inner.appendChild(icon);
-
-	var remove = document.createElement('i');
-
 
 	//配置
 	if(document.getElementById("contents")) {//Cloud

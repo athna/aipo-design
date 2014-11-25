@@ -2269,20 +2269,34 @@ body.messageRoomList {
 	dateChanger
 --------------------------------------------------*/
 .dateChanger {
+	$dcHeight: 40px;
 	//border: none;
+	> div {
+		height: $dcHeight;
+		line-height: $dcHeight;
+	}
 	.today {
 		left: 0;
 		a {
 			display: block;
 			width: 40px !important;
 			height: 40px !important;
-			line-height: 40px !important;
+			line-height: $dcHeight !important;
 			text-decoration: none;
 		}
 	}
 	.currentDate {
 		width: 70px;
 		font-weight: normal;
+	}
+	.prev_more a, .prev a, .next a, .next_more a {
+		height: $dcHeight;
+	}
+	a {
+		i[class*="icon-"] {
+			height: $dcHeight;
+			line-height: $dcHeight;
+		}
 	}
 	.subDate {
 		position: absolute;
@@ -2304,5 +2318,11 @@ body.messageRoomList {
 		z-index: 100;
 		border-bottom: solid 1px $grayBorder;
 		@include border-radius(0);
+	}
+	+ .weeklyTableHead tr:first-child {
+		display: none;
+	}
+	+ .weeklyTableHead .weeklyTermRights div:first-child {
+		border-top: none;
 	}
 }

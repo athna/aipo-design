@@ -1,0 +1,1871 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8"/>
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css">
+	<![endif]-->
+	<script src="../themes/default/js/mock.js"></script>
+	<!--script type="text/javascript" language="JavaScript" src="javascript/dojo/dojo.js"></script-->
+	<script type="text/javascript" language="JavaScript" src="../javascript/aipo.js"></script>
+	<!--script type="text/javascript" language="JavaScript" src="http://hudson.aipo.com:8080/gadgets/js/core:rpc:shindig-container.js?c=1"></script-->
+	<script type="text/javascript" language="JavaScript" src="../javascript/aipo/container.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../javascript/aipo/customize/form.js"></script>
+</head>
+<body>
+
+<!-- WRAPPER -->
+<div id="wrapper">
+
+<!-- #auiHeader -->
+<div id="auiHeader">
+	<div class="hdLogo"><a href="mypage.html"><img src="../themes/default/images/logo_com_20130613.png" width="100" height="30" alt="Aipo.com"></a></div>
+	<div class="hdPages">
+		<ul>
+			<li class="current">
+				<a href="mypage.html" class="name" title="マイページ">マイページ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-1');"><i class="icon-cog"></i></a>
+				<div class="menubar body-child" id="menubar_tab_P-1" style="display: none; right: 0px; top: 40px;">
+					<ul>
+						<li><a href="javascript:void(0);" onclick="">設定</a></li>
+						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="name" title="その他アプリ">その他アプリ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-2');"><i class="icon-cog"></i></a>
+				<div class="menubar body-child" id="menubar_tab_P-2" style="display: none; right: 0px; top: 40px;">
+					<ul>
+						<li><a href="javascript:void(0);" onclick="">設定</a></li>
+						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="name" title="長いページ名長いページ名長いページ名">長いページ名長いページ名長いページ名</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-3');"><i class="icon-cog"></i></a>
+				<div class="menubar body-child" id="menubar_tab_P-3" style="display: none; right: 0px; top: 40px;">
+					<ul>
+						<li><a href="javascript:void(0);" onclick="">設定</a></li>
+						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="javascript:void(0)" class="plus" title="ページを追加"><i class="icon-plus"></i></a></li>
+		</ul>
+	</div>
+	<div class="hdNavigation">
+		<!--div class="hdSearch">
+			<form class="search">
+				<input type="text" id="crossSearch" class="focusToggle placeholderCheck" jq-target="preSearch" jq-placeholder="検索" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="crossSearch" style="display: block;">検索</label>
+				<button class="submit" title="検索"><i class="icon-search"></i></button>
+			</form>
+		</div-->
+		<ul class="hdCommunications">
+			<li>
+				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_message');" title="メッセージ"><i class="sprite-comment"></i><span class="num">99+</span></a>
+				<div class="dropdown" id="dd_message">
+					<div class="title">メッセージ</div>
+					<div class="body">
+						<div class="sideBlock">
+							<div class="auiTabs" id="messageSideBlockTab">
+								<ul class="tab">
+									<li class="w50 active" auiTabs="0"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ルーム</a></li>
+									<li class="w50" auiTabs="1"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ユーザー</a></li>
+								</ul>
+								<ul class="tabContents">
+									<li class="active">
+										<div class="scroll" id="messageSideBlock1">
+											<div class="messageSummaryHead">
+												<div class="inner">
+													<a href="javascript:void(0)" class="auiButton w100" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">ルームを追加する</a>
+												</div>
+												<div class="inner">
+													<form class="search">
+														<input type="text" id="roomSearch" class="" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="roomSearch">ルーム検索</label>
+														<button class="submit" title="検索"><i class="icon-search"></i></button>
+													</form>
+												</div>
+											</div>
+											<ul class="messageSummary">
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+														<div class="nrCount">5</div>
+														<span class="date">15:05</span>
+														<span class="name">木村 一郎</span>
+														<span class="latest">メッセージ0件のルーム</span>
+													</a>
+												</li>
+												<li class="active">
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
+														</span>
+														<div class="nrCount">99+</div>
+														<span class="date">9:50</span>
+														<span class="name">田村 涼子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">6/30</span>
+														<span class="name">打ち合わせルーム</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">6/29</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">5/2</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+														<span class="date">4/8</span>
+														<span class="name">木村 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
+														</span>
+														<span class="date">3/15</span>
+														<span class="name">田村 涼子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">2/12</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/20</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/5</span>
+														<span class="name">会議室01</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">6/30</span>
+														<span class="name">ミーティングルーム</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">6/29</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">5/2</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+														<span class="date">4/8</span>
+														<span class="name">木村 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
+														</span>
+														<span class="date">3/15</span>
+														<span class="name">田村 涼子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">2/12</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/20</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/5</span>
+														<span class="name">長いルーム名長いルーム名長いルーム名長いルーム名</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+											</ul>
+											<div class="loader"><i class="indicatorBlack"></i></div>
+										</div>
+									</li>
+									<li class="">
+										<div class="scroll" id="messageSideBlock2">
+											<div class="messageSummaryHead">
+												<div class="inner">
+													<form>
+														<select class="w100">
+															<option value="">すべてのグループ</option>
+															<option value="">管理部</option>
+															<option value="">営業部</option>
+														</select>
+													</form>
+												</div>
+												<div class="inner">
+													<form class="search">
+														<input type="text" id="userSearch" class="" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="userSearch">ユーザー検索</label>
+														<button class="submit" title="検索"><i class="icon-search"></i></button>
+													</form>
+												</div>
+											</div>
+											<div class="messageUserlist">
+												<div class="index">あ</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">アーノルド シュワルツェネッガー</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">浅井 長政</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">明智 光秀</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">石田 三成</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">上杉 謙信</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">織田 信長</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">か</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">加藤 清正</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">木下 藤吉郎</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">黒田 官兵衛</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">さ</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">真田 信繁</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">柴田 勝家</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">島 左近</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">島津 豊久</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">た</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">武田 信玄</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">伊達 政宗</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">長宗我部 元親</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">徳川 家康</span>
+														</a>
+													</li>
+												</ul>
+												<div class="loader"><i class="indicatorBlack"></i></div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="mainBlock" id="messageContents1">
+							<div class="contents clearfix">
+								<div class="timelineOuter">
+									<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+
+									<div class="roomHeader clearfix">
+										<div class="floatLeft">
+											<span class="avatar mr5"><img src="../themes/default/images/common/group_default.png" class="avatar_s"></span>ルーム名
+										</div>
+										<div class="floatRight">
+											<a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_roomSetting');"><i class="icon-gear"></i></a>
+										</div>
+									</div>
+
+									<div class="inputField">
+										<form name="" id="" action="" method="post" onsubmit="">
+											<input type="hidden" name="_name" value="timelineForm">
+											<input type="hidden" name="secid" value="">
+											<div class="tlInputMention relative">
+												<textarea id="messageTextarea1" class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onfocus="phFocus(this)" onblur="phBlur(this)"></textarea><label class="placeholder" for="messageTextarea1">近況を共有しましょう</label>
+											</div>
+											<!--div class="tlInputAttachment">
+												<div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
+												<div class="tlClipBoard clearfix">
+													<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a></div>
+													<div class="tlClipContents">
+														<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+														<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+														<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+													</div>
+												</div>
+											</div-->
+											<div class="tlInputControls clearfix">
+												<div class="floatLeft"><a href="javascript:void(0)" class="auiButton">ファイルを追加する</a></div>
+												<div class="floatRight">
+													<i class="indicator"></i>
+													<input type="submit" class="auiButtonAction" value="投稿する"/>
+												</div>
+											</div>
+										</form>
+									</div>
+
+										<div id="messageTimeline1" class="timeline scroll">
+
+											<div id="message***" class="message invite">
+												<div class="avatar"><img src="../themes/default/images/_mock/avatar3.jpg" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="body">
+														田村 涼子さんが参加しました。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。<br/>
+														自分の投稿には「＊人が既読」が付きます。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar">
+													<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">
+												</div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+														URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+														<div class="tlClipBoard clearfix">
+															<div class="tlClipImage">
+																<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90"/></a>		</div>
+															<div class="tlClipContents">
+																<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+														<div class="tlClipBoard clearfix">
+															<div class="tlClipImage">
+																<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg"/></a>
+															</div>
+															<div class="tlClipContents">
+																<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。<br/>
+														自分の投稿には「＊人が既読」が付きます。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+													</div>
+												</div>
+											</div>
+											<div class="loader"><i class="indicator"></i></div>
+										</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="mainBlock" id="messageContents2" style="display:none">
+							<div class="contents">
+								<div class="timelineOuter">
+									<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+
+									<!-- memberList -->
+									<div id="memberListWrapper" class="clearfix">
+										<ul class="userListIcon clearfix">
+											<li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar2.jpg" title="木村 一郎" width="24" height="24"></span></li>
+											<li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar3.jpg" title="木村 一郎" width="24" height="24"></span></li>
+											<li><a href="javascript:void(0)" title="メンバーを追加する" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-plus"></i></a></li>
+											<li class="floatRight"><a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-gear"></i></a></li>
+										</ul>
+									</div>
+									<!-- /memberList -->
+
+									<div class="inputField">
+										<form name="" id="" action="" method="post" onsubmit="">
+											<input type="hidden" name="_name" value="timelineForm">
+											<input type="hidden" name="secid" value="">
+											<div class="tlInputMention">
+												<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
+											</div>
+											<div class="tlInputControls clearfix">
+												<div class="floatLeft"><a href="javascript:void(0)" class="auiButton" title="ファイルを追加する"><span><i class="icon-plus mr5"></i><i class="icon-paper-clip"></i></span></a></div>
+												<div class="floatRight">
+													<i class="indicator"></i>
+													<input type="submit" class="auiButtonAction" value="投稿する"/>
+												</div>
+											</div>
+										</form>
+									</div>
+
+									<div id="messageTimeline2" class="timeline scroll">
+
+										<div class="emptyMessage">
+											<i class="icon-comment-alt"></i>
+											<p>メッセージはまだありません。</p>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_notification')" title="あなた宛てのお知らせ"><i class="sprite-notification"></i><span class="num">9</span></a>
+				<div class="dropdown" id="dd_notification">
+					<div class="title">
+						<input type="button" class="auiButtonSmall floatRight" value="すべて既読"/>
+						あなた宛てのお知らせ
+					</div>
+					<div class="dropdown_list">
+						<ul>
+							<li class="new"><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">10:05</div>
+									<div class="name">木村 一郎とその他3人</div>
+									<div>あなたの投稿に「いいね！」が押されました。あなたの投稿に「いいね！」が押されました。あなたの投稿に「いいね！」が押されました。</div>
+								</div>
+							</a></li>
+							<li class="new"><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">10:00</div>
+									<div class="name">山田 太朗</div>
+									<div>予定「定例会議」を編集しました。予定「定例会議」を編集しました。予定「定例会議」を編集しました。</div>
+								</div>
+							</a></li>
+							<li><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">9:30</div>
+									<div class="name">田村 涼子</div>
+									<div>申請「【稟議書】 タイムカード報告」を承認しました。</div>
+								</div>
+							</a></li>
+							<li><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">5/20</div>
+									<div class="name">木村 一郎とその他3人</div>
+									<div>あなたの投稿に「いいね！」が押されました。</div>
+								</div>
+							</a></li>
+							<li><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">4/5</div>
+									<div class="name">山田 太朗</div>
+									<div>予定「定例会議」を編集しました。</div>
+								</div>
+							</a></li>
+						</ul>
+					</div>
+					<div class="foot">
+						<div class="floatLeft">
+							<input type="button" class="auiButtonSmall" value="デスクトップ通知を無効に"/>
+						</div>
+						<div class="floatRight">
+							<div class="count">1 ～ 5 / 7</div>
+							<div class="auiSelectButtonSmall floatLeft">
+								<ul class="floatLeft">
+									<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
+									<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" onclick="dropdownToggle(this,'dd_support')"><i class="sprite-support" title="サポート"></i><span class="num">0</span></a>
+				<div class="dropdown" id="dd_support">
+					<ul class="dropdown_menu divider">
+						<li><a href="javascript:void(0)">管理ガイド</a></li>
+						<li><a href="javascript:void(0)">ヘルプ</a></li>
+						<li><a href="javascript:void(0)">Facebook</a></li>
+						<li><a href="javascript:void(0)">Twitter</a></li>
+						<li><a href="javascript:void(0)">お問い合わせ</a></li>
+					</ul>
+					<div class="contents divider">
+						<h2 class="clearfix">
+							<a href="javascript:void(0)" class="auiButtonSmall floatRight">すべて既読</a>
+							Aipoからのお知らせ
+						</h2>
+						<ul class="tipInfo scroll" style="max-height: 9em;">
+							<li><div><strong>プランリニューアルのお知らせ</strong><br>
+								7月24日（木）にプランのリニューアルを行いました。<br>
+								Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+								詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+								<br>
+								なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+								<div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
+									「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
+								</div>
+							</li>
+							<li><div><strong>プランリニューアルのお知らせ</strong><br>
+								7月24日（木）にプランのリニューアルを行いました。<br>
+								Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+								詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+								<br>
+								なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+								<div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
+									「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="contents tweet divider">
+					<h2>ご意見・ご要望</h2>
+						<p class="fcGray fs11">頂いたご意見やご要望をもとに改善に励みます。</p>
+						<div class="clearfix">
+							<div class="fs11 floatRight"><a href="javascript:void(0)">Twitter連携を解除</a></div>
+							<div class="floatLeft fs11 fcGray">獲得容量：<span id="get-capacity-size">3</span> MB</div>
+							<textarea></textarea>
+							<div class="clearfix right mt5">
+								<span class="fcGray mr5"><span id="count">0</span>/117</span><input type="submit" class="auiButtonAction" value="ツイート">
+							</div>
+						</div>
+					</div>
+					<div class="contents tweet divider">
+						998 MB(97%) / 1027 MB を使用中
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="hdTools">
+			<li>
+				<a href="javascript:void(0)" id="toggle_settings" class="last" onclick="dropdownToggle(this,'dd_settings')"><img src="../themes/default/images/_mock/avatar1.jpg" width="32" height="32" class="avatar_m"><span class="name">木村 一郎</span></a>
+				<div class="dropdown" id="dd_settings">
+					<ul class="dropdown_menu">
+						<li><a href="javascript:void(0)">個人設定</a></li>
+						<li><a href="javascript:void(0)">管理設定</a></li>
+						<li class="divider"></li>
+						<li><a href="javascript:void(0)">ログアウト</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- /#auiHeader -->
+
+<!-- roundMainWrapper -->
+<div id="roundWrapper">
+<!-- MAIN OUTER -->
+	<div class="roundMainWrapper">
+		<!-- LAYOUT -->
+	
+
+		<!-- auiPortlet -->
+		<div class="dojoDndItem auiPortlet" id="portletsBody">
+			<div class="auiPortletHead">
+				<div class="inner">
+					<div class="auiPortletTitle">アプリの配置</div>
+					<div class="auiPortletTool"></div>
+				</div>
+			</div>
+			<!-- auiPortletBody -->
+			<div class="auiPortletBody">
+				<div class="inner">
+					<div dojotype="aimluck:Contentpane" widgetid="widget_" id="portlet_">
+
+
+					<div class="spaceBoth">
+						<table class="tableWrapper">
+						<tbody>
+							<tr>
+								<td>
+									<table class="tableWrapper">
+									<tbody>
+										<tr>
+											<td class="top" width="33%">
+												<table class="tableWrapper">
+												<tbody>
+													<tr>
+														<td class="wide">
+															<form action="">
+																<div class="auiPortlet">
+																	<div class="auiPortletHead">
+																		<div class="inner ">
+																			<div class="auiPortletTitle">フォルダ</div>
+																			<div class="auiPortletTool">
+																				<div class="auiPortletDelete">
+																					<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																					<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="auiPortletBody">
+																		<div class="inner">
+																			<table width="100%" cellspacing="0" cellpadding="0">
+																				<tbody>
+																				<tr>
+																					<td nowrap="nowrap" class="middle center">
+																						<table style="margin:0 auto;"><tbody>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						</tbody></table>
+																					</td>
+																				</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																	<!-- /auiPortletBody -->
+																	<div class="auiPortletFoot">
+																		<div class="inner"></div>
+																	</div>
+																</div>
+																<!-- /PORTLET OUTER -->
+															</form>
+														</td>
+													</tr>
+													<tr>
+														<td class="wide">
+															<form action="">
+											<input type="hidden" name="action" value="controllers.MultiColumnControllerAction">
+																<div class="auiPortlet">
+																	<div class="auiPortletHead">
+																		<div class="inner ">
+																			<div class="auiPortletTitle">アドレス帳</div>
+																			<div class="auiPortletTool">
+																				<div class="auiPortletDelete">
+																					<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																					<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="auiPortletBody">
+																		<div class="inner">
+																			<table width="100%" cellspacing="0" cellpadding="0">
+																				<tbody>
+																				<tr>
+																					<td nowrap="nowrap" class="middle center">
+																						<table style="margin:0 auto;"><tbody>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						</tbody></table>
+																					</td>
+																				</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																	<!-- /auiPortletBody -->
+																	<div class="auiPortletFoot">
+																		<div class="inner"></div>
+																	</div>
+																</div>
+																<!-- /PORTLET OUTER -->
+															</form>
+														</td>
+													</tr>
+													<tr>
+														<td class="wide">
+															<form action="">
+																<div class="auiPortlet">
+																	<div class="auiPortletHead">
+																		<div class="inner ">
+																			<div class="auiPortletTitle">更新情報</div>
+																			<div class="auiPortletTool">
+																				<div class="auiPortletDelete">
+																					<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																					<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="auiPortletBody">
+																		<div class="inner">
+																			<table width="100%" cellspacing="0" cellpadding="0">
+																				<tbody>
+																				<tr>
+																					<td nowrap="nowrap" class="middle center">
+																						<table style="margin:0 auto;"><tbody>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						</tbody></table>
+																					</td>
+																				</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																	<!-- /auiPortletBody -->
+																	<div class="auiPortletFoot">
+																		<div class="inner"></div>
+																	</div>
+																</div>
+																<!-- /PORTLET OUTER -->
+															</form>
+														</td>
+													</tr>
+													<tr>
+														<td class="wide">
+															<form action="">
+																<div class="auiPortlet">
+																	<div class="auiPortletHead">
+																		<div class="inner ">
+																			<div class="auiPortletTitle">ユーザー名簿</div>
+																			<div class="auiPortletTool">
+																				<div class="auiPortletDelete">
+																					<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																					<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="auiPortletBody">
+																		<div class="inner">
+																			<table width="100%" cellspacing="0" cellpadding="0">
+																				<tbody>
+																				<tr>
+																					<td nowrap="nowrap" class="middle center">
+																						<table style="margin:0 auto;"><tbody>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						</tbody></table>
+																					</td>
+																				</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																	<!-- /auiPortletBody -->
+																	<div class="auiPortletFoot">
+																		<div class="inner"></div>
+																	</div>
+																</div>
+																<!-- /PORTLET OUTER -->
+															</form>
+														</td>
+													</tr>
+													<tr>
+														<td class="wide">
+															<form action="">
+																<div class="auiPortlet">
+																	<div class="auiPortletHead">
+																		<div class="inner ">
+																			<div class="auiPortletTitle">タイムライン</div>
+																			<div class="auiPortletTool">
+																			</div>
+																		</div>
+																	</div>
+																	<div class="auiPortletBody">
+																		<div class="inner">
+																			<table width="100%" cellspacing="0" cellpadding="0">
+																				<tbody>
+																				<tr>
+																					<td nowrap="nowrap" class="middle center">
+																						<table style="margin:0 auto;"><tbody>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						</tbody></table>
+																					</td>
+																				</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																	<!-- /auiPortletBody -->
+																	<div class="auiPortletFoot">
+																		<div class="inner"></div>
+																	</div>
+																</div>
+																<!-- /PORTLET OUTER -->
+															</form>
+														</td>
+													</tr>
+													<tr>
+														<td class="wide">
+															<form action="">
+																<div class="auiPortlet">
+																	<div class="auiPortletHead">
+																		<div class="inner ">
+																			<div class="auiPortletTitle">メモ帳</div>
+																			<div class="auiPortletTool">
+																				<div class="auiPortletDelete">
+																					<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																					<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="auiPortletBody">
+																		<div class="inner">
+																			<table width="100%" cellspacing="0" cellpadding="0">
+																				<tbody>
+																				<tr>
+																					<td nowrap="nowrap" class="middle center">
+																						<table style="margin:0 auto;"><tbody>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																							<td>
+																								<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>&nbsp;</td>
+																							<td>
+																								<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</span>
+																							</td>
+																							<td>&nbsp;</td>
+																						</tr>
+																						</tbody></table>
+																					</td>
+																				</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																	<!-- /auiPortletBody -->
+																	<div class="auiPortletFoot">
+																		<div class="inner"></div>
+																	</div>
+																</div>
+																<!-- /PORTLET OUTER -->
+															</form>
+														</td>
+													</tr>
+												</tbody>
+												</table>
+											</td>
+											<td class="top" width="2"></td>
+											<td class="top" width="34%">
+												<table class="tableWrapper">
+												<tbody>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">Wiki</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</span>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">エクセル関数辞典</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:(function(e){ document.getElementById('remove_button_50638').click()})();" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_50638" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">プロジェクト管理</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">ストレージ</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:(function(e){ document.getElementById('remove_button_48038').click()})();" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_48038" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">Webデータベース</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">ToDo</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doRight">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</button>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</span>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												</tbody>
+												</table>
+											</td>
+											<td class="top" width="2"></td>
+											<td class="top" width="33%">
+												<table class="tableWrapper">
+												<tbody>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">掲示板</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</span>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</span>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">報告書</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</span>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">ブログ</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</span>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doDown">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												<tr>
+													<td class="wide">
+														<form action="">
+															<div class="auiPortlet">
+																<div class="auiPortletHead">
+																	<div class="inner ">
+																		<div class="auiPortletTitle">Webメール</div>
+																		<div class="auiPortletTool">
+																			<div class="auiPortletDelete">
+																				<a href="javascript:void(0);" class="auiIcon"><i class="icon-remove"></i></a>
+																				<button type="submit" id="remove_button_P-xxx" style="display:none" name="eventSubmit_doDelete">&nbsp;<i class="icon-remove"></i>&nbsp;</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="auiPortletBody">
+																	<div class="inner">
+																		<table width="100%" cellspacing="0" cellpadding="0">
+																			<tbody>
+																			<tr>
+																				<td nowrap="nowrap" class="middle center">
+																					<table style="margin:0 auto;"><tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doUp">&nbsp;<i class="icon-arrow-up"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td>
+																							<button class="auiButton" type="submit" name="eventSubmit_doLeft">&nbsp;<i class="icon-arrow-left"></i>&nbsp;</button>
+																						</td>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-right"></i>&nbsp;</span>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td>
+																							<span class="auiButtonDisabled">&nbsp;<i class="icon-arrow-down"></i>&nbsp;</span>
+																						</td>
+																						<td>&nbsp;</td>
+																					</tr>
+																					</tbody></table>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<!-- /auiPortletBody -->
+																<div class="auiPortletFoot">
+																	<div class="inner"></div>
+																</div>
+															</div>
+															<!-- /PORTLET OUTER -->
+														</form>
+													</td>
+												</tr>
+												</tbody>
+												</table>
+											</td>
+										</tr>
+									</tbody>
+									</table>
+								</td>
+							</tr>
+						<tr>
+							<td>
+								<form action="">
+									<input type="hidden" name="action" value="">
+									<div class="center auiPopupButtons">
+										<input name="eventSubmit_doSave" class="auiButtonAction" type="submit" value="更新する" onclick="aimluck.io.setHiddenValue(this);">
+										<input name="eventSubmit_doCancel" class="button" type="submit" value="キャンセルする" onclick="aimluck.io.setHiddenValue(this);">
+									</div>
+								</form>
+							</td>
+						</tr>
+
+						</tbody>
+						</table>
+
+
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- /auiPortletBody -->
+			<div class="auiPortletFoot"><div class="inner"></div></div>
+		</div>
+		<!-- /MAIN OUTER  -->
+
+	</div>
+<!-- /roundMainWrapper -->
+</div>
+<!-- /roundWrapper -->
+
+</div>
+<!-- /wrapper -->
+
+
+</body>
+</html>

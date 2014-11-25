@@ -2270,7 +2270,7 @@ body.messageRoomList {
 --------------------------------------------------*/
 .dateChanger {
 	$dcHeight: 40px;
-	//border: none;
+
 	> div {
 		height: $dcHeight;
 		line-height: $dcHeight;
@@ -2319,10 +2319,13 @@ body.messageRoomList {
 		border-bottom: solid 1px $grayBorder;
 		@include border-radius(0);
 	}
-	+ .weeklyTableHead tr:first-child {
-		display: none;
-	}
-	+ .weeklyTableHead .weeklyTermRights div:first-child {
+	+ .weeklyTableHead {
 		border-top: none;
+		tr:first-child {
+			display: none;
+			+ tr .weeklyTermLeft:first-child {
+				border-top: solid 1px $grayBorder;
+			}
+		}
 	}
 }

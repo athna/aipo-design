@@ -1190,6 +1190,7 @@ ul.hdTools .dropdown:before {
   border-radius: 4px 4px 0 0;
   overflow: hidden;
   font-size: 0;
+  white-space: nowrap;
 }
 .dateChanger > div {
   display: inline-block;
@@ -1201,14 +1202,32 @@ ul.hdTools .dropdown:before {
 .dateChanger .today {
   position: absolute;
   top: 0;
-  left: 10px;
+  left: 0px;
   background: none;
+}
+.dateChanger .today a {
+  display: block;
+  width: 40px !important;
+  text-decoration: none;
 }
 .dateChanger .currentDate {
   position: relative;
-  width: 10em;
   text-align: center;
-  font-weight: bold;
+  width: 70px;
+}
+.dateChanger .subDate {
+  position: absolute;
+  top: 18px;
+  display: block;
+  width: 100%;
+  line-height: 1;
+  font-size: 11px;
+  color: #999;
+}
+.dateChanger .mainDate {
+  display: block;
+  line-height: 20px;
+  font-size: 14px;
 }
 .dateChanger .prev_more a, .dateChanger .prev a, .dateChanger .next a, .dateChanger .next_more a {
   display: block;
@@ -1218,7 +1237,7 @@ ul.hdTools .dropdown:before {
 .dateChanger a i[class*="icon-"] {
   display: block;
   height: 31px;
-  width: 40px;
+  width: 30px;
   line-height: 31px;
   font-size: 22px;
   color: #999;
@@ -2937,6 +2956,9 @@ button.auiButtonIconDummy {
   padding: 10px;
   position: relative;
   overflow: hidden;
+}
+.auiPortlet .auiPortletBody .auiPortletHead > .inner {
+  padding: 0 !important;
 }
 .auiPortlet .auiPortletTitle {
   float: left;

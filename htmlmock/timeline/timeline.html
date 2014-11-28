@@ -23,10 +23,10 @@
 	<![endif]-->
 	<script src="../themes/default/js/mock.js"></script>
 	<!--script type="text/javascript" language="JavaScript" src="javascript/dojo/dojo.js"></script-->
-	<script type="text/javascript" language="JavaScript" src="../javascript/aipo.js"></script>
+	<!--script type="text/javascript" language="JavaScript" src="../javascript/aipo.js"></script-->
 	<!--script type="text/javascript" language="JavaScript" src="http://hudson.aipo.com:8080/gadgets/js/core:rpc:shindig-container.js?c=1"></script-->
-	<script type="text/javascript" language="JavaScript" src="../javascript/aipo/container.js"></script>
-	<script type="text/javascript" language="JavaScript" src="../javascript/aipo/customize/form.js"></script>
+	<!--script type="text/javascript" language="JavaScript" src="../javascript/aipo/container.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../javascript/aipo/customize/form.js"></script-->
 </head>
 <body>
 
@@ -1100,15 +1100,19 @@
 			<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>
 			<div class="tlDisplayChanger">
 				<div class="btn"><i class="indicator"></i> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a></div>
-				<div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
+				<div class="menubar" id="menubar_tlDisplayChanger" style="display:block">
 					<ul>
-						<li><div class="menubarSearch"><input type="text" class="text" placeholder="検索" /><button><i class="icon-search"></i></button></div></li>
-						<li class="tipDivider"></li>
 						<li><a href="#" class="selected">すべてのグループ</a></li>
 						<li><a href="#">管理本部</a></li>
 						<li><a href="#">開発本部</a></li>
 						<li><a href="#">企画本部</a></li>
 						<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
+						<li class="tipDivider"></li>
+					</ul>
+					<ul>
+						<li><a href="#" class="selected">すべて表示</a></li>
+						<li><a href="#">投稿のみ表示</a></li>
+						<li><a href="#">更新情報のみ表示</a></li>
 					</ul>
 				</div>
 			</div>
@@ -1129,7 +1133,9 @@
 								ソース内改行も発生しないようお願いします。
 
 								############################################################ -->
-								<div class="tlImageBlock clearfix"><a href="javascript:void(0)"onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a><a href="javascript:void(0)"onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+								<div class="tlImageBlock clearfix">
+									<a href="javascript:void(0)" onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a>
+									<a href="javascript:void(0)" onclick="popupToggle(this,'imageDialog');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
 							</div>
 							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
 								<form style="display:inline">
@@ -1607,13 +1613,34 @@
 
 
 <div class="auiPopup imgPopup" id="imgPopup1" style="display: none; max-width:800px;left:50%;top:50%;margin:-200px 0 0 -400px;">
-	<div class="meta">
-		<a href="javascript:void(0)"onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><i class="icon-remove"></i></a>
-	</div>
-	<div class="imgBody">
-		<a href="javascript:void(0)"onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a>
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="meta">
+			<a href="javascript:void(0)"onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><i class="icon-remove"></i></a>
+		</div>
+		<div class="imgBody">
+			<a href="javascript:void(0)"onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a>
+		</div>
 	</div>
 </div>
+
+<div id="imageDialog" class="auiPopup imgPopup fileuploadViewDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" onclick="" widgetid="imageDialog" title="" style="display: none; margin-left: -400px; top: 152px; width: 800px; height: 600px;">
+	<span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="meta">
+			<a href="javascript:void(0)" onclick="popupToggle(this,'imageDialog');popupToggle(this,'popupMask')"><i class="icon-remove"></i></a>
+		</div>
+		<div class="imgBody">
+			<div class="indicatorDialog center" style="display: none;"><i class="auiIcon auiIconIndicator"></i> 読み込み中...</div>
+		</div>
+		<a href="javascript:void(0)" onclick="popupToggle(this,'imageDialog');popupToggle(this,'popupMask')">
+			<img id="popupImage" onload="aipo.fileupload.onLoadImage(this)" onerror="aipo.fileupload.onLoadImage(this)" src="http://localhost:8080/aipo/portal/media-type/html/user/a/page/default.psml/template/TimelineFileRawScreen/ownerid/703/entityid/20981/attachmentindex/2901/f/null">
+		</a>
+	</div>
+	<span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+</div>
+
 
 </body>
 </html>

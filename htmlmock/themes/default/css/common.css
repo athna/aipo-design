@@ -1,7 +1,9 @@
 .bRadius3, span.dispUser, .menubar ul li,
-ul.blockList li, .menubar > ul li a,
+ul.blockList li, .menubar > ul li a, .menubar > ul li label,
 .menubar.multi ul li a,
-ul.blockList li a, .avatar img, .avatar_l, .avatar_m, .avatar_s {
+.menubar.multi ul li label,
+ul.blockList li a,
+ul.blockList li label, .avatar img, .avatar_l, .avatar_m, .avatar_s {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1027,6 +1029,7 @@ div.weeklyScrollPane {
   overflow: scroll;
   overflow-x: hidden;
   border-bottom: solid #d2d2d2 1px;
+  font-size: 12px;
 }
 
 .scrollRight {
@@ -1350,6 +1353,7 @@ table.weeklyTableHead {
   margin-top: 5px;
   border-top: solid 1px #d2d2d2;
   border-right: solid 1px #d2d2d2;
+  font-size: 12px;
 }
 
 div.weeklyBorder {
@@ -2583,9 +2587,11 @@ ul.blockList li:first-child {
   border: none;
 }
 
-.menubar > ul li a,
+.menubar > ul li a, .menubar > ul li label,
 .menubar.multi ul li a,
-ul.blockList li a {
+.menubar.multi ul li label,
+ul.blockList li a,
+ul.blockList li label {
   display: block;
   padding: 4px 11px !important;
   margin: 0;
@@ -2594,21 +2600,18 @@ ul.blockList li a {
   white-space: nowrap;
   overflow: hidden;
 }
-
-.menubar > ul li.last a,
-.menubar.multi ul li.last a,
-ul.blockList li.last a {
+.menubar > ul li + .last a,
+.menubar.multi ul li + .last a,
+ul.blockList li + .last a {
   background-image: none !important;
   overflow: hidden;
 }
-
 .menubar > ul li a:hover,
 .menubar.multi ul li a:hover,
 ul.blockList li a:hover {
   color: #000;
   background: #f0f0f0;
 }
-
 .menubar > ul li a.selected,
 .menubar.multi ul li a.selected,
 ul.blockList li a.selected {
@@ -2650,7 +2653,7 @@ ul.blockList li a.selected {
 }
 
 .menubar .tipDivider {
-  margin: 5px -5px;
+  margin: 5px 0;
 }
 
 .tipBox {

@@ -983,6 +983,7 @@ div.weeklyScrollPane {
 	overflow:scroll;
 	overflow-x:hidden;
 	border-bottom:solid $grayBorder 1px;
+	font-size: 12px;
 }
 .scrollRight{
 	border-right:1px solid $grayBorder;
@@ -1261,6 +1262,7 @@ table.weeklyTableHead {
 	margin-top:5px;
 	border-top:solid 1px $grayBorder;
 	border-right:solid 1px $grayBorder;
+	font-size: 12px;
 }
 div.weeklyBorder {
 	width:100%;
@@ -2078,35 +2080,31 @@ ul.blockList {
 		}
 	}
 }
-.menubar > ul li a,
-.menubar.multi ul li a,
-ul.blockList li a {
-	display:block;
-	//max-width: 180px; #31152
-	padding:4px 11px !important;
-	margin:0;
-	text-decoration:none;
-	text-overflow:ellipsis;
-	white-space:nowrap;
-	overflow:hidden;
-	@extend .bRadius3;
-}
-.menubar > ul li.last a,
-.menubar.multi ul li.last a,
-ul.blockList li.last a {
-	background-image:none!important;
-	overflow:hidden;
-}
-.menubar > ul li a:hover,
-.menubar.multi ul li a:hover,
-ul.blockList li a:hover {
-	color:#000;
-	background:$grayLighter;
-}
-.menubar > ul li a.selected,
-.menubar.multi ul li a.selected,
-ul.blockList li a.selected {
-	background:$grayLighter;
+.menubar > ul li,
+.menubar.multi ul li,
+ul.blockList li {
+	a,label {
+		display:block;
+		//max-width: 180px; #31152
+		padding:4px 11px !important;
+		margin:0;
+		text-decoration:none;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+		overflow:hidden;
+		@extend .bRadius3;
+	}
+	+.last a {
+		background-image:none!important;
+		overflow:hidden;
+	}
+	a:hover {
+		color:#000;
+		background:$grayLighter;
+	}
+	a.selected {
+		background:$grayLighter;
+	}
 }
 
 /* .menubarSearch */
@@ -2141,7 +2139,7 @@ ul.blockList li a.selected {
     margin:9px -9px 10px;
 }
 .menubar .tipDivider {
-    margin:5px -5px;
+    margin:5px 0;
 }
 
 .tipBox {

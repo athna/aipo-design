@@ -1,12 +1,20 @@
 @charset "utf-8";
 // Core variables and mixins
 @import "variables";
+$sansFontFamily:        'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, Helvetica, sans-serif;
+$baseFontSize:          13px;
+
 @import "mixins";
 @import "extendclass";
 @import "compass";
 
 //html
 @import "html";
+
+html,body {
+	font-size: 13px;
+}
+
 
 //ui
 @import "ui";
@@ -644,7 +652,6 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 	bottom:0;
 	width:100%;
 	margin:0;
-	font-size:0.9em;
 	text-align:center;
 	text-shadow:0 1px 0 rgba(0,0,0,0.5);
 	background:#666;
@@ -986,7 +993,6 @@ $tabBackgroundImage:	"../images/tab.png";
 	height:43px;
 	padding:0;
 	color:#fff;
-	font-size:1.2em;
 	text-shadow:0 1px 0 rgba(0,0,0,0.2);
 	border:none;
 	background:url(../images/login_btn_back.png) 0px 0px no-repeat;
@@ -1216,7 +1222,6 @@ $submenuBackground:	"../images/common/bg_submenu_20140903.gif";
 /***************************************************
 	auiContentsArea
 --------------------------------------------------*/
-// 未使用？廃止候補
 #auiContentsArea {
 	float:right;
 	width:100%;
@@ -2133,6 +2138,7 @@ ul.attachments{
 			border:solid 1px $grayBorderLight;
 			margin: 10px 0 5px;
 			padding: 10px;
+			font-size: $baseFontSize;
 		}
 		.time {
 			margin-bottom: 10px;
@@ -2150,6 +2156,9 @@ ul.attachments{
 			margin-left:42px;
 			.time {
 				margin-bottom: 0;
+			}
+			.body {
+				font-size: $baseFontSize;
 			}
 		}
 		.message {
@@ -2215,6 +2224,8 @@ ul.attachments{
 	}
 	.body {
 		padding:5px 0;
+		font-size: 14px !important;
+		line-height: 1.6;
 		//line-height: 1.4;
 
 		.more{
@@ -2222,8 +2233,7 @@ ul.attachments{
 		}
 	}
 	.time {
-		font-size: 80%;
-		*font-size: 75%;
+		font-size: 11px;
 		color: #434343;
 		[class^="icon-"] {
 			vertical-align: middle;
@@ -3642,7 +3652,7 @@ iframe.iframe_messagelist{
 	width: 24.75%;
 	min-width: 109px;
 	vertical-align: top;
-	font-size: 12px;
+	//font-size: 12px;
 	letter-spacing: normal;
 	word-spacing: normal;
 }

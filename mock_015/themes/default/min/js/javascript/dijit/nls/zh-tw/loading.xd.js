@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.nls.zh-tw.loading"]],defineResource:function(d){d.provide("dijit.nls.zh-tw.loading"),d._xdLoadFlattenedBundle("dijit","loading","zh-tw",{loadingState:"載入中...",errorState:"抱歉，發生錯誤"})}});

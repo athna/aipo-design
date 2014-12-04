@@ -1,1 +1,0 @@
-dojo._hasResource["dojox.flash"]||(dojo._hasResource["dojox.flash"]=!0,dojo.provide("dojox.flash"),dojo.require("dojox.flash._common"));

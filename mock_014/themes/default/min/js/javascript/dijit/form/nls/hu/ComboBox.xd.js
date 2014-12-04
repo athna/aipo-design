@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.form.nls.hu.ComboBox"]],defineResource:function(o){o.provide("dijit.form.nls.hu.ComboBox"),o._xdLoadFlattenedBundle("dijit.form","ComboBox","hu",{previousMessage:"Előző menüpontok",nextMessage:"További menüpontok"})}});

@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.nls.de.loading"]],defineResource:function(e){e.provide("dijit.nls.de.loading"),e._xdLoadFlattenedBundle("dijit","loading","de",{loadingState:"Wird geladen...",errorState:"Es ist ein Fehler aufgetreten."})}});

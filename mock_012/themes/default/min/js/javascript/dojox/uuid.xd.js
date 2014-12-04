@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dojox.uuid"],["require","dojox.uuid._base"]],defineResource:function(o){o._hasResource["dojox.uuid"]||(o._hasResource["dojox.uuid"]=!0,o.provide("dojox.uuid"),o.require("dojox.uuid._base"))}});

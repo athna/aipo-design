@@ -1,1 +1,0 @@
-dojo._hasResource["dijit._base.bidi"]||(dojo._hasResource["dijit._base.bidi"]=!0,dojo.provide("dijit._base.bidi"),dojo.addOnLoad(function(){dojo._isBodyLtr()||dojo.addClass(dojo.body(),"dijitRtl")}));

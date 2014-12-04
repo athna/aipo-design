@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dojox.presentation"],["require","dojox.presentation._base"]],defineResource:function(e){e._hasResource["dojox.presentation"]||(e._hasResource["dojox.presentation"]=!0,e.provide("dojox.presentation"),e.require("dojox.presentation._base"))}});

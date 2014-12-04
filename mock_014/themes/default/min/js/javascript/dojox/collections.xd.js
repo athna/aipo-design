@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dojox.collections"],["require","dojox.collections._base"]],defineResource:function(o){o._hasResource["dojox.collections"]||(o._hasResource["dojox.collections"]=!0,o.provide("dojox.collections"),o.require("dojox.collections._base"))}});

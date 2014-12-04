@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.form.nls.ja.ComboBox"]],defineResource:function(o){o.provide("dijit.form.nls.ja.ComboBox"),o._xdLoadFlattenedBundle("dijit.form","ComboBox","ja",{previousMessage:"以前の選択項目",nextMessage:"追加の選択項目"})}});

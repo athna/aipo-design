@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.nls.hu.loading"]],defineResource:function(d){d.provide("dijit.nls.hu.loading"),d._xdLoadFlattenedBundle("dijit","loading","hu",{loadingState:"Betöltés...",errorState:"Sajnálom, hiba történt"})}});

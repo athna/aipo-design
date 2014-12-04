@@ -1,1 +1,0 @@
-dojo._hasResource["dojox.fx.easing"]||(dojo._hasResource["dojox.fx.easing"]=!0,dojo.provide("dojox.fx.easing"),dojox.fx.easing={easeIn:function(o){return Math.pow(o,3)},easeOut:function(o){return 1-Math.pow(1-o,3)},easeInOut:function(o){return 3*Math.pow(o,2)-2*Math.pow(o,3)}});

@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.form.nls.pl.validate"]],defineResource:function(e){e.provide("dijit.form.nls.pl.validate"),e._xdLoadFlattenedBundle("dijit.form","validate","pl",{rangeMessage:"* Ta wartość jest spoza zakresu.",invalidMessage:"* Wprowadzona wartość nie jest poprawna.",missingMessage:"* Ta wartość jest wymagana."})}});

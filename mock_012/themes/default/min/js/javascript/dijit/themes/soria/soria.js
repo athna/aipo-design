@@ -1,1 +1,0 @@
-dojo._hasResource["dijit.themes.soria"]||(dojo._hasResource["dijit.themes.soria"]=!0,dojo.provide("dijit.themes.soria"));

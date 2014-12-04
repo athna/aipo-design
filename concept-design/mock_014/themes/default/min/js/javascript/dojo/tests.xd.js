@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({defineResource:function(){load("dojo.js"),load("tests/runner.js"),tests.run()}});

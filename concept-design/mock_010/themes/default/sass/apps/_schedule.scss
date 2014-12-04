@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+#schedule {
+
+	.nav-tabs {
+		margin: 15px 0 0;
+		text-align: center;
+
+		li {
+			width: 30%;
+			float: none;
+			display: inline-block;
+
+			a {
+				padding: 7px 0;
+			}
+		}
+	}
+}
+.dayBlock{
+	text-align: center;
+
+	a.today{
+		display: inline-block;
+		font-size: 28px;
+		line-height: normal;
+		margin: 0;
+		padding: 5px;
+
+		span{
+			display: block;
+			font-size: 12px;
+		}
+
+	}
+	a.today:hover{
+		background: $grayLighter;
+	}
+	a.today:focus{
+		text-decoration: none;
+		color: $linkColor;
+		background: $grayLighter;
+	}
+	.calendar.dropdown-menu{
+		width: 80%;
+		@extend .bRadiusNone;
+		box-shadow: 0px 1px 4px rgba($black, 0.1);
+		left: 10%;
+		padding: 0;
+
+		h4{
+			font-size: 14px;
+
+			a{
+				display: inline-block;
+				padding: 0 2px;
+				margin: 0 5px;
+			}
+		}
+		.table{
+			font-size: 11px;
+			margin-bottom: 0;
+
+			th {
+				font-size: 10px;
+				font-weight: normal;
+				color: $gray;
+			}
+			td{
+				padding: 0;
+				a{
+					display: block;
+					padding: 5px;
+				}
+				a:hover{
+					background: $grayLighter;
+				}
+			}
+			.active{
+
+				a, a:hover{
+					background: $linkColor;
+					color: $white;
+				}
+			}
+			.off{
+
+				a{
+					background: $grayLighter;
+					color: $gray;
+				}
+			}
+		}
+
+	}
+}
+.dayList{
+	padding:20px 0 15px;
+	margin:0;
+	text-align:center;
+	vertical-align:middle;
+	border-bottom:1px solid $grayLight;
+
+	li{
+		list-style:none;
+		display:inline-block;
+		text-align:center;
+		vertical-align:middle;
+
+		a{
+			display:inline-block;
+			height:28px;
+			line-height:28px;
+			min-width:20px;
+			font-size:10px;
+
+			.fa{
+				font-size:14px;
+			}
+		}
+		a:hover{
+			background:$linkColor;
+			color:$white;
+		}
+		span{
+			display:inline-block;
+			height:28px;
+			font-size:28px;
+			line-height:28px;
+		}
+	}
+}
+
+.timeSchedule {
+	height: 560px;
+	overflow-y: scroll;
+
+	ul {
+		padding: 0;
+		margin: 0;
+
+		li {
+			display: block;
+			list-style: none;
+			padding: 0 10px;
+			margin: 0;
+			color: rgba($black, 0.2);
+			font-size: 18px;
+			height: 80px;
+			line-height: 50px;
+			z-index: 0;
+			background: $grayLighter;
+		}
+		li:nth-child(even) {
+			background: $white;
+		}
+	}
+	.schedule {
+		position: absolute;
+		background: $white;
+		box-shadow: 0px 1px 1px rgba($black, 0.2);
+		padding: 0;
+		width: 45%;
+		border-radius: 0 0 3px 3px;
+		border-top: 1px solid;
+		cursor: pointer;
+
+		.schedule_inner {
+			position: relative;
+		}
+		a {
+			display: block;
+			overflow: hidden;
+		}
+
+		.s_title, .s_time, .s_place, .s_member {
+			@extend .ellipsis;
+			display: block;
+			font-size: 11px;
+			padding: 0 5px;
+			color: $black;
+		}
+
+		.s_title {
+		}
+		.s_time {
+			padding: 3px 5px;
+			margin-bottom: 3px;
+			border-bottom: 1px solid $grayLighter;
+		}
+		.s_place {
+			color: $grayDark;
+
+			.fa {
+				margin-right: 5px;
+			}
+		}
+		.s_member {
+		}
+		.tool {
+			display: none;
+		}
+		.tool:hover {
+			display: block;
+		}
+	}
+	.schedule:hover {
+
+		.tool {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background: rgba($black, 0.8);
+			color: $white;
+			padding: 5px;
+		}
+	}
+	.schedule.color01 {
+		border-top-color: $red;
+	}
+	.schedule.color02 {
+		border-top-color: $blue;
+	}
+	.schedule.color03 {
+		border-top-color: $green;
+	}
+
+	.schedule.color01 > a > .s_time {
+		color: $red;
+	}
+	.schedule.color02 > a > .s_time {
+		color: $blue;
+	}
+	.schedule.color03 > a > .s_time {
+		color: $green;
+	}
+}
+

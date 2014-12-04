@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+.schedule_block {
+	font-size: $fontSizeSmall;
+	table, th, td, div {
+		@extend .border-box;
+	}
+	.colHead {
+		float: left;
+		width: 50px;
+	}
+	.cols {
+		margin-left: 50px;
+	}
+	.week {
+		@extend .clearfix;
+		.colHead {
+			text-align: center;
+			height: 54px;
+			border: solid 1px $grayBorder;
+			border-right: none;
+		}
+		table {
+			width: 100%;
+		}
+		th {
+			font-weight: normal;
+			vertical-align: top;
+			border: solid 1px $grayBorder;
+		}
+		td {
+			border: solid 1px $grayBorder;
+		}
+		.holiday {
+			color: $gray;
+		}
+		.cols {
+		}
+		.col {
+			height: 18px;
+		}
+		.sc {
+		}
+		.dummy {
+			display: block;
+			width: 13px;
+			border: none;
+		}
+	}
+	.scrollarea {
+		@extend .clearfix;
+		@extend .scrollDecoration;
+		overflow: auto;
+		height: 400px;
+		padding-right: 5px;
+
+		.colHead{
+			border-bottom: solid 1px $grayLight;
+			div {
+				@extend .border-box;
+				text-align: right;
+				height: 40px;
+				padding-right: 2px;
+				border-top: solid 1px $grayLight;
+				border-left: solid 1px $grayLight;
+			}
+		}
+		td {
+			border: solid 1px $grayBorder;
+			border-top: none;
+		}
+		.cols {
+			table {
+				width: 100%;
+				.col {
+					.early, .latter {
+						@extend .border-box;
+						height: 20px;
+					}
+					.early {
+						border-top: solid 1px $grayLight;
+					}
+					.latter {
+						border-top: dotted 1px $grayBorder;
+					}
+				}
+			}
+		}
+	}
+	.today {
+		background-color: $grayBackLight;
+	}
+	&.threeDays {
+		.col {
+			width: 33.333%;
+		}
+	}
+}

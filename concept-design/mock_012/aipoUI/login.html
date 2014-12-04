@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Aipo.com</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved." />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8,chrome=1" />
+<meta name="robots" content="noindex,follow" />
+<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719?1372140200000" />
+<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719?1372140200000" />
+<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+<link rel="apple-touch-icon-precomposed" href="../themes/iphone/img/apple-touch-icon-precomposed.png" />
+</head>
+<body onload="aipo.container.renderGadgets()">
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+<!-- WRAPPER -->
+<div id="wrapper"  style="margin-bottom : 26px">
+
+<!-- HEADER -->
+<!-- /HEADER -->
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+dojo.require("aipo.widget.DropdownActivityChecker");
+
+dojo.addOnLoad(function () {
+    var num;
+    if(dojo.byId("messagechecker") != undefined  && dojo.byId("activitychecker") != undefined) {
+    	num = parseInt(dojo.byId("activitychecker").innerHTML) + parseInt(dojo.byId("messagechecker").innerHTML);
+    } else if(dojo.byId("activitychecker") != undefined) {
+    	num = parseInt(dojo.byId("activitychecker"));
+    } else {
+    	num = 0;
+    }
+    if (!num){
+    	document.title = djConfig.siteTitle;
+    } else if (num > 99) {
+    	document.title = "(99+) " + djConfig.siteTitle;
+    } else {
+    	document.title = "(" + num + ") " + djConfig.siteTitle;
+    }
+    var acHtml = document.getElementById("activitycheckerContainer");
+    if(acHtml){
+       var params = {
+            widgetId: "activitychecker",
+
+            iconURL: "themes/default/images/common/icon_message.gif",
+            iconWidth: "19",
+            iconHeight: "15",
+            extendClass: "counter",
+
+            iconAlt: "あなた宛のお知らせ"
+       };
+       var ac = new aipo.widget.DropdownActivityChecker(params , acHtml);
+   }
+});
+
+//]]>
+</script>
+
+
+
+
+
+
+                                                            <div dojoType="dojo.dnd.Source" withHandles="true">
+
+
+	
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+var tmpUsername = "";
+
+function set_username(form){
+  form.username.value = form.member_username.value;
+}
+
+
+function submit2(form) {
+  set_username(form);
+
+  if (form.save_username.checked) {
+    set_cookie("username", form.username.value);
+  } else {
+    remove_cookie("username");
+  }
+  set_cookie("save_username", form.save_username.checked);
+}
+
+function init() {
+  var form = document.forms[0];
+  var saveUsernameStr = get_cookie("save_username");
+  var saveUsernameObj = form.save_username;
+  if (saveUsernameStr == "true") {
+    saveUsernameObj.checked = true;
+  } else {
+    saveUsernameObj.checked = false;
+  }
+  change_login_type(form);
+}
+
+function set_input_value(form) {
+  var usernameStr = "";
+  if (tmpUsername == "") {
+    if (form.save_username.checked) {
+      usernameStr = get_cookie("username");
+    }
+  } else {
+    usernameStr = tmpUsername;
+  }
+  var usernameObj = form.username;
+  usernameObj.value = usernameStr;
+  form.member_username.value = usernameStr;
+  if(form.member_username.value!=''){
+    form.member_username.nextSibling.style.display = "none";
+  }
+
+ form.member_username.value = usernameStr;
+  if(form.member_username.value!=''){
+    form.member_username.nextSibling.style.display = "none";
+  }
+}
+
+function set_select_value(form) {
+  var usernameStr = "";
+  if (tmpUsername == "") {
+    if (form.save_username.checked) {
+      usernameStr = get_cookie("username");
+    }
+  } else {
+    usernameStr = tmpUsername;
+  }
+  if (form.save_username.checked) {
+    form.username.value = get_cookie("username");
+  }
+}
+
+function get_cookie(strName) {
+  var strReturn = "";
+  var nLoop = 0;
+  var nLength = 0;
+  var strNameEx = strName + "=";
+  var strTemp = "";
+  while (nLoop < document.cookie.length) {
+    nLength = nLoop + strNameEx.length;
+    if (document.cookie.substring(nLoop, nLength) == strNameEx) {
+      strTemp = document.cookie.indexOf(";", nLength);
+      if (strTemp == -1) {
+        strReturn = document.cookie.substring(nLength, document.cookie.length);
+      } else {
+        strReturn = document.cookie.substring(nLength, strTemp);
+      }
+      break;
+   }
+   nLoop = document.cookie.indexOf(" ", nLoop) + 1;
+   if (nLoop == 0) {
+     break;
+    }
+  }
+  return strReturn;
+}
+
+function set_cookie(strName, strValue) {
+  var dtExpire = new Date();
+  dtExpire.setTime(dtExpire.getTime() + 10*24*60*60*1000);
+  document.cookie = strName + "=" + strValue + "; expires=" + dtExpire.toGMTString() + "; path=/aipo/";
+}
+
+function remove_cookie(strName) {
+  var strValue;
+  var dtExpire = new Date();
+  dtExpire.setTime(dtExpire.getTime() - 1);
+  strValue = get_cookie(strName);
+  document.cookie = strName + "=" + strValue + "; expires=" + dtExpire.toGMTString() + "; path=/aipo/";
+}
+
+function change_login_type(form) {
+  getObjectById('login_username_field').style.display = "";
+  if (form.username.value != "") {
+    tmpUsername = form.username.value;
+  }
+  set_input_value(form);
+}
+
+
+
+//-->
+</script>
+<!-- auiLoginBox -->
+<div id="auiLoginBox"><div id="auiLoginInner">
+<div class="logo"><img src="themes/default/images/logo_l.png" width="285" height="105" alt="Aipo6" /></div>
+<form name="frm" action="" onSubmit="disableSubmit(this);submit2(this)" method="post" enctype="application/x-www-form-urlencoded">
+<input name="action" type="hidden" value="ALJLoginUser" />
+<input name="org" type="hidden" value="org001" />
+<input name="username" type="hidden" value="" />
+<div class="field clearfix">
+<span id="login_username_field">
+<input class='text' id='member_username' name='member_username' value='' type='text'  maxlength='50' style='ime-mode:disabled' tabindex="1" placeholder="ユーザー名" /><span class="guide" style="display:none;" onclick="this.style.display='none';document.getElementById('member_username').focus();">ユーザー名</span>
+</span>
+</div>
+<div class="field">
+<input class="text" id="password" name="password" type="password" value='' maxlength="50" style="ime-mode:disabled" tabindex="3" placeholder="パスワード" /><span class="guide" style="display:none;"  onclick="this.style.display='none';document.getElementById('password').focus();">パスワード</span>
+</div>
+<div class="clearfix">
+<div class="floatLeft">
+<p><input class="inlineCheckbox" name="save_username" type="checkbox" value="save" id="pass" tabindex="6" />&nbsp;<label for="pass" class="inlineLabel">ユーザー名を保存する</label></p>
+</div>
+<div class="floatRight">
+<input name="login_submit" class="button" type="submit" value="ログイン" onclick="aimluck.io.setHiddenValue(this);setHiddenValue(this)" tabindex="4" />
+</div>
+</div>
+</form>
+</div></div>
+<!-- /auiLoginBox -->
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+init();
+
+if(!('placeholder' in document.createElement('input'))){
+    //以下placeholder機能が存在しない場合
+
+    var onblur=function(){
+      if(this.value==''){
+        this.nextSibling.style.display='block'
+      }
+    };
+
+    dojo.query("input[placeholder],textarea[placeholder]")
+    .connect("onfocus",function(){
+        this.nextSibling.style.display='none';
+    }).connect("onblur",onblur)
+    .forEach(function(obj){
+        onblur.apply(obj);
+    });
+}
+//-->
+</script>
+
+
+
+                                                            </div>
+
+
+
+
+                            <!-- FOOTER -->
+                            <div id="footer" class="clearfix">
+															<div id="footText">
+                            	<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 7.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
+								
+                           </div>
+                           </div>
+                            <!-- /FOOTER -->
+
+</div>
+<!-- /WRAPPER -->
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+dojo.require("aimluck.widget.Dialog");
+
+dojo.addOnLoad(function() {
+	aipo.customize.positionInitialize();
+    });
+
+scheduleTooltipEnable = true;
+
+dojo.require("dojo.dnd.Source");
+dojo.require("aipo.customize.form");
+
+dojo.addOnLoad(function() {
+
+	aipo.customize.addAutoHideMenuTrigger();
+
+    var containers = dojo.query('.container');
+    var containerSources = [];
+    for(var c = 0; c < containers.length ; c++){
+        var container = new dojo.dnd.Source(containers[c], {
+            withHandles: true,
+            copyOnly: false
+        });
+        container.onSelectStart = function(e){
+		    if(this.isDragging){
+			    dojo.stopEvent(e);
+		    }
+        };
+        containerSources.push(container);
+    }
+
+
+    for(var c = 0; c < containers.length ; c++){
+        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
+            dojo.addClass(this, 'dojoDndContainerItemOver');
+            aipo.customize.hideMenu();
+        });
+
+        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
+            dojo.removeClass(this, 'dojoDndContainerItemOver');
+        });
+
+        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
+            if (this == target) {
+                if (copy) {
+                    nodes.orphan();
+                }
+                var params = '';
+                var cols = dojo.query('.container');
+                for(var c = 0; c < cols.length ; c++){
+                    var rows = dojo.query('.dojoDndItem .dndIdentifier > div', cols[c]);
+                    var reverse = false;
+                    if (rows.length >= 2) {
+                        var top = rows[0];
+                        var bottom = rows[rows.length - 1];
+
+                        var _top = dojo._abs(top);
+                        var _bottom = dojo._abs(bottom);
+
+                        while (_top && _bottom && _top.y == _bottom.y) {
+                            top = top.offsetParent;
+                            bottom = bottom.offsetParent;
+                            _top = dojo._abs(top);
+                            _bottom = dojo._abs(bottom);
+                        }
+
+                        if (_top.y > _bottom.y) {
+                            reverse = true;
+                        }
+
+                    }
+                    for (var r = 0 ; r < rows.length ; r++) {
+                        var pid = rows[r].id.split("portlet_")[1];
+                        if (reverse) {
+                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
+                        } else {
+                            params = params + '&' + pid + '_row=' + r;
+                        }
+                        params = params + '&' + pid + '_col=' + c;
+                    }
+                }
+
+                url = "http://59.106.173.26:8080/aipo/portal/media-type/html/user/anon;jsessionid=3870300878914CB5898B49E156D8B49E?template=CustomizeFormJSONScreen&mode=layout" + params;
+                aipo.customize.submit(url, '', function(){
+                });
+
+                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+                if(iframe && iframe.length == 1) {
+                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+                  var gadgets_ = aipo.container.gadgets_;
+                  for(var i in gadgets_) {
+                     var gadget = gadgets_[i];
+                     if(gadget.portletId == pid) {
+                       aipo.container.renderGadget(gadget);
+                       break;
+                     }
+                  }
+                }
+
+                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+            }
+        });
+    }
+    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='_underlay'><div dojoAttachPoint='node'></div></div>" });
+    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
+        underlay.hide();
+    });
+    underlay.show();
+});
+//]]>
+</script>
+
+<iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+  <script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/common.js?1372140200000" defer="defer"></script>
+</body>
+</html>

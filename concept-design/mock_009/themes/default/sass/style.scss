@@ -1,0 +1,42 @@
+@charset "utf-8";
+@import "compass";
+@import "variables";
+@import "extend";
+
+//html
+@import "html";
+
+//ui
+@import "ui";
+@import "buttons";
+
+//apps
+@import "apps/bbs";
+@import "apps/timeline";
+@import "apps/schedule";
+@import "apps/timecard";
+@import "apps/appDataTable";
+
+//generic-class
+@import"generic-class";
+
+$experimental-support-for-svg: true;
+
+
+.transition3 {
+	@include transition(.3s);
+}
+a {
+	@extend .transition3;
+	color: #099;
+	&:hover {
+		color: #6cc;
+	}
+}
+.btn {
+	@extend .transition3;
+	background-color: #099;
+	&:hover {
+		background-color: #6cc;
+	}
+}

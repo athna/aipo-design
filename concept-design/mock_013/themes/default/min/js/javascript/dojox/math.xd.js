@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojox.math"],["require","dojox.math._base"]],defineResource:function(o){o._hasResource["dojox.math"]||(o._hasResource["dojox.math"]=!0,o.provide("dojox.math"),o.require("dojox.math._base"))}});

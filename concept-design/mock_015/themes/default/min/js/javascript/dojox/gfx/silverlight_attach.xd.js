@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["require","dojox.gfx.silverlight"]],defineResource:function(e){e.require("dojox.gfx.silverlight"),e.experimental("dojox.gfx.silverlight_attach"),function(){dojox.gfx.attachNode=function(e){return null},dojox.gfx.attachSurface=function(){return null}}()}});

@@ -1,0 +1,545 @@
+@charset "utf-8";
+
+#timelineOuter {
+	position:relative;
+
+	#inputField, .outer {
+		@extend .bRadiusM;
+		border: solid 1px $grayBorder;
+		background: $white;
+		overflow: hidden;
+
+		&:hover {
+			border: solid 1px $gray;
+		}
+	}
+	#inputField {
+		margin-bottom: 15px;
+		background: transparent;
+	}
+	.outer {
+		padding: 3px;
+		margin:0 0 5px 0;
+	}
+	textarea {
+		width: 100%;
+		margin: 0;
+		border: none;
+		resize: none;
+	}
+	.message {
+		margin:0;
+		padding:10px 0 0;
+		clear:both;
+		border-top: 1px solid $grayBorderLight;
+	}
+	.message:first-child,
+	.message.first {
+		border-top: none !important;
+		padding-top:0 !important;
+		margin-top:0 !important;
+	}
+	.on {
+		border-top: 1px solid #999999;
+	}
+
+	.newMessage, .readMore {
+		@extend .bRadiusM;
+		background: $grayBackLight;
+		border: solid 1px $grayBorder;
+		text-align: center;
+		a {
+			display:block;
+			padding: 3px;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		&:hover {
+			border: solid 1px $gray;
+		}
+	}
+	.newMessage {
+		//margin-bottom:15px;
+	}
+	.readMore {
+		margin-top: 10px;
+	}
+}
+
+.tlInputMention {
+	padding:4px;
+}
+.tlInputAttachment {
+	border-top:dotted 1px $grayBorder;
+	padding: 10px;
+}
+.tlInputAttachmentTitle {
+	font-weight:bold;
+}
+
+.tlInputControls {
+	border-top:solid 1px $grayBorderLight;
+	padding:4px;
+	background:$grayBackLight;
+
+	.floatRight {
+		li {
+			float:left;
+			background:none;
+			padding:0 0 0 5px;
+		}
+		li:first-child {
+			padding:0;
+		}
+		.indicatorglay {
+			display:inline-block;
+		}
+	}
+	ul.attachments {
+		float:left;
+		margin:0;
+
+		> li {
+			margin-left:5px;
+		}
+	}
+}
+
+
+.tlDisplayChanger {
+	position:relative;
+	height:15px;
+	line-height:15px;
+	border-top:1px solid $grayBorderLight;
+
+	.btn {
+		background:#fff;
+		padding:0 3px;
+		position:absolute;
+		top:-9px;
+		right:15px;
+
+		a {
+			font-size:11px;
+		}
+		span {
+			height:20px;
+			line-height:20px;
+		}
+	}
+	.indicator {
+		vertical-align:middle;
+		float:left;
+		margin:1px 0;
+	}
+	.dropdown {
+		top:10px;
+		right:0;
+		width:12em;
+	}
+}
+.tlDisplayGroup {
+	cursor:pointer;/*IE7*/
+}
+.timeline {
+	@extend .scrollDecoration;
+	overflow: auto;
+	.avatar {
+		float:left;
+		margin:0 10px 0 0;
+	}
+	.messageContents {
+		margin-left:60px;
+		margin-bottom:10px;
+
+		.tlClipBoard {
+			border:solid 1px $grayBorderLight;
+			margin: 10px 0 5px;
+			padding: 10px;
+		}
+	}
+	.commentsBorder {
+		border-top:solid 1px #fff !important;
+	}
+	.comments {
+		margin:0 0 10px 60px;
+		background:$grayBackLight;
+		overflow:hidden;
+
+		.messageContents {
+			margin-left:42px;
+		}
+		.message {
+			margin:0;
+			padding:5px !important;
+			border: none;
+			@extend .commentsBorder;
+		}
+	}
+	.message .comments {
+		margin-top:10px;
+		margin-bottom:10px;
+
+		.avatar {
+			margin:0 10px 0 0;
+		}
+	}
+	.commentCaption {
+		padding:3px 5px;
+		font-size:smaller;
+		@extend .commentsBorder;
+	}
+	.commentInputDummy {
+		padding:5px;
+		@extend .commentsBorder;
+
+		span {
+			display:block;
+			padding:5px;
+			border: 1px $grayBorder solid;
+			color: $grayLight;
+			cursor: text;
+			background:#fff;
+			@extend .bRadiusM;
+		}
+	}
+	.commentField {
+		padding:5px;
+		@extend .commentsBorder;
+
+		form {
+			margin-left:42px;
+		}
+	}
+	.timeline {
+		width: 100%;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+}
+//.messageContents {
+//	.name {
+//		font-weight: bold;
+//		padding-right: 5px;
+//	}
+//	.body {
+//		padding:5px 0;
+//	}
+//	.time {
+//		font-size: 80%;
+//		*font-size: 75%;
+//		color: #434343;
+//	}
+//}
+
+.tlActivity,
+.tlActivity a {
+	color:#666666;
+	font-size:11px;
+}
+.tlActivity {
+	.messageContents {
+		display:table-cell;
+		padding-left:0px !important;
+		line-height:20px;
+
+		div {
+			display:inline;
+			padding:0;
+		}
+	}
+}
+
+/* tlImageBox */
+.tlImageBlock {
+	margin:10px 0;
+	a {
+		display:inline-block;
+		margin:0 5px 5px 0;
+		&:hover img {
+			border:solid 1px $grayBorder;
+		}
+	}
+	img {
+		max-width:160px;
+		max-height:160px;
+		height:auto;
+		padding:4px;
+		border:solid 1px $grayBorderLight;
+	}
+}
+.thumbBlock {
+	img {
+		max-width:160px;
+		max-height:160px;
+		height:auto;
+		padding:4px;
+		border:solid 1px $grayBorderLight;
+	}
+	a:hover img {
+		border:solid 1px $grayBorder;
+	}
+}
+
+/* clipBloard */
+.tlClipBoard {
+}
+.tlClipImage {
+	float:left;
+	max-width:90px;
+	max-height:90px;
+	margin-right:10px;
+	text-align:center;
+	img {
+		max-width:90px;
+		max-height:90px;
+		width: auto;
+		height: auto;
+		-ms-interpolation-mode: bicubic;
+	}
+}
+.tlClipContents {display:table-cell}
+.tlClipTitle {font-size:12px;}
+.tlClipUrl {font-size:10px;}
+.tlClipBody {padding-top:5px;color:#666666;}
+
+.name .avatar {
+	float:left;
+	width:23px;
+	height:23px;
+	margin:0 4px 0 0;
+	@extend .bRadiusM;
+}
+.timeline .message > .more {
+	line-height:1.6;
+	margin:0 0 10px 60px;
+}
+
+.timeline .text_exposed_show.ellipsis,
+.timeline .message .more.opened {
+	display:none;
+}
+
+.iconLike,
+.iconComment {
+	display:inline-block;
+	width:14px;
+	height:14px;
+	vertical-align:middle;
+}
+.iconLike {background-position:-2px -594px;}
+.iconComment {background-position:-2px -609px;}
+
+/* table Class */
+.disabled th, .disabled td {
+	background:#f6f6f6;
+	color:#666666;
+}
+.disabled a {
+	color:#666666;
+}
+
+
+//####################################################################################################
+// timeline_v2
+//----------------------------------------------------------------------------------------------------
+.timeline_v2 {
+	.timelinePost {
+		@extend .bRadiusM;
+		position: relative;
+		border: solid 1px $grayBorder;
+		background: $white;
+		overflow: hidden;
+		margin-bottom: 15px;
+
+		&:hover {
+			border: solid 1px $gray;
+		}
+		.text {
+			padding: 4px;
+		}
+		a .fa {
+			margin: 0 5px;
+			:hover {
+				color: $textColor;
+			}
+		}
+	}
+	textarea {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: none;
+		resize: none;
+	}
+	.attachment {
+		padding: 0 5px;
+	}
+	.clipBoard {
+		@extend .clearfix;
+		@extend .bRadiusS;
+		margin: 5px 0;
+		padding: 5px;
+		border: solid 1px $grayBorder;
+	}
+	.clipImage {
+		float: left;
+		max-width: 80px;
+		max-height: 80px;
+		margin-right: 5px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.clipUrl {
+		@extend .ellipsis;
+		width: 100%;
+		font-size: $fontSizeMini;
+
+		a {
+			@extend .ellipsis;
+			width: 100%;
+		}
+	}
+	.clipBody {
+		margin-top: 5px;
+		color: $gray;
+	}
+	.controls {
+		@extend .clearfix;
+		padding: 5px;
+		border-top: solid 1px $grayBorderLight
+	}
+
+	.newMessage {
+		a {
+			@extend .bRadiusM;
+			display: block;
+			margin-bottom: 15px;
+			padding: 3px;
+			border: solid 1px $grayBorder;
+			//background-color: $grayBackLight;
+			background-color: $white;
+			text-align: center;
+			&:hover {
+				text-decoration: none;
+				border: solid 1px $gray;
+			}
+		}
+	}
+	.timelineContents {
+		//margin: 5px 0;
+	}
+	.message {
+		//border-top: solid 1px $grayBorderLight;
+		border-bottom: solid 1px $grayBorderLight;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		.head {
+			@extend .clearfix;
+			.avatar {
+				float: left;
+			}
+			.date {
+				margin-left: 40px;
+			}
+		}
+		.name {
+			font-weight: bold;
+		}
+		.time {
+			font-size: $fontSizeMini;
+			color: $gray;
+		}
+		.body {
+			.more {
+				margin: 5px 0;
+			}
+		}
+		.meta {
+			margin: 5px 0;
+			font-size: $fontSizeMini;
+			color: $gray;
+		}
+	}
+	.imgBlock {
+		@extend .clearfix;
+		a {
+			@include inline-block;
+			margin: 0 5px 5px 0;
+		}
+
+		img {
+			height: auto;
+			max-width: 110px;
+			max-height: 110px;
+			padding: 4px;
+			border: solid 1px $grayBorder;
+			background-color: $white;
+		}
+	}
+	.comments {
+		//background-color: $grayBackLight;
+		background-color: $white;
+		> div {
+			padding: 5px;
+			//border-bottom: solid 1px $white;
+			border-bottom: solid 1px $grayBorderLight;
+		}
+		.commentCaption {
+			font-size: $fontSizeMini;
+		}
+		.message {
+			border-top: none;
+			margin-bottom: 0;
+			.avatar {
+				float: left;
+			}
+			.messageContents {
+				margin-left: 40px;
+				font-size: $fontSizeSmall;
+			}
+		}
+	}
+	.commentInputDummy {
+		span {
+			@extend .border-box;
+			@extend .bRadiusM;
+			display: block;
+			width: 100%;
+			padding: 5px;
+			border: solid 1px $grayBorder;
+			background-color: $white;
+			color: $grayLight;
+			&:hover {
+				border: solid 1px $gray;
+			}
+		}
+	}
+	.commentField {
+		.avatar {
+			float: left;
+		}
+		form {
+			@extend .bRadiusM;
+			position: relative;
+			margin-left: 40px;
+			border: solid 1px $grayBorder;
+			background: $white;
+			overflow: hidden;
+			&:hover {
+				border: solid 1px $gray;
+			}
+			.text {
+				position: relative;
+				padding: 4px;
+				textarea {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+}

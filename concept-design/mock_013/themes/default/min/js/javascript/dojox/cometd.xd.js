@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojox.cometd"],["require","dojox._cometd.cometd"]],defineResource:function(o){o._hasResource["dojox.cometd"]||(o._hasResource["dojox.cometd"]=!0,o.provide("dojox.cometd"),o.require("dojox._cometd.cometd"))}});

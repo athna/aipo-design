@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dojox.validate"],["require","dojox.validate._base"]],defineResource:function(e){e._hasResource["dojox.validate"]||(e._hasResource["dojox.validate"]=!0,e.provide("dojox.validate"),e.require("dojox.validate._base"))}});

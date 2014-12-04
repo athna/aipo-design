@@ -1,0 +1,536 @@
+@charset "utf-8";
+
+//####################################################################################################
+// wrapper
+//----------------------------------------------------------------------------------------------------
+#wrapper {
+	min-width: $layoutMinWidth;
+}
+
+//####################################################################################################
+// auiHeader
+//----------------------------------------------------------------------------------------------------
+$headerHeight: 50px;
+#auiHeader {
+	@extend .clearfix;
+	padding: 0 10px;
+	background-color: $white;
+	border-bottom: solid 1px $grayLight;
+}
+.hdLogo {
+	float: left;
+	height: 30px;
+	padding: 10px;
+}
+.hdNavi {
+	float: right;
+	font-size: 11px;
+
+	> ul {
+		@extend .clearfix;
+		float: left;
+		> li {
+			display: block;
+			position: relative;
+			float: left;
+			list-style: none;
+			line-height: $headerHeight;
+
+			> a {
+				display: block;
+				padding: 0 10px;
+
+				&:hover, &.active {
+					text-decoration: none;
+					background-color: $grayBack;
+
+					.fa {
+						color: $grayDark;
+					}
+				}
+			}
+		}
+	}
+}
+.hdSearch {
+	position: relative;
+	float: left;
+	padding: 10px;
+
+	form {
+		@extend .bRadiusM;
+		border: solid 1px $grayBorder;
+		background-color: $white;
+
+		&:hover {
+			border: solid 1px $gray;
+		}
+	}
+
+	input[type=text], .submit {
+		height: 20px;
+		border: none;
+		vertical-align: middle;
+	}
+	input[type=text] {
+		width: 160px;
+		margin: 0 3px;
+
+		&:focus {
+			width: 281px;
+		}
+	}
+	.submit {
+		height: $headerHeight - 20 - 2;
+		margin: 0;
+		padding: 0;
+		background: none;
+		filter: none;
+		cursor: pointer;
+
+		&:hover {
+			.fa {
+				color: $grayDark;
+			}
+		}
+	}
+	.fa {
+		display: block;
+		width: 30px;
+		border-left: solid 1px $grayBorder;
+	}
+}
+.hdCommunications {
+	.count {
+		display: block;
+		float: left;
+		min-width: 16px;
+		height: 16px;
+		line-height: 16px;
+		margin: ($headerHeight - 16) / 2 2px 0 0;
+		padding: 0 2px;
+		font-size: 10px;
+		background-color: $grayBack;
+		text-align: center;
+		color: $gray;
+		@extend .bRadiusS;
+		@extend .border-box;
+	}
+		.count.valid {
+			background-color: $red;
+			color: $white;
+		}
+	.label {
+		text-wrap: nowrap;
+	}
+}
+.tweet {
+	textarea {
+		width: 100%;
+	}
+}
+
+.hdTools {
+	border-left: solid 1px $grayLighter;
+	//margin-left: 5px !important;
+	//padding-left: 5px !important;
+
+	li a {
+		//padding-left: 4px;
+	}
+	.name {
+		margin: 0 5px;
+	}
+	.fa {
+		vertical-align: middle;
+	}
+}
+
+//####################################################################################################
+// dropdown
+//----------------------------------------------------------------------------------------------------
+.dropdown {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	line-height: 2;
+	@include box-shadow(0 6px 8px rgba(#000,.15));
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=0, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=90, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=180, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=270, strength=3, enabled=true);
+	@include border-radius(0 0 3px 3px);
+
+	.hdCommunications &, .hdTools & {
+		right: 0;
+	}
+	.hdCommunications & {
+		width: 320px;
+	}
+	.hdSearch & {
+		width: 320px;
+		margin-top: 1px;
+	}
+	.title {
+		@extend .clearfix;
+		padding: 10px;
+		line-height: 24px;
+		//background-color: $grayBack;
+		font-weight: bold;
+		border-bottom: solid 1px $grayBorderLight;
+	}
+	.contents {
+		@extend .clearfix;
+		padding: 10px;
+	}
+	.divider {
+		border-bottom: solid 1px $grayBorderLight;
+	}
+	h2 {
+		margin: 0;
+		padding: 2px 10px;
+		font-size: 1em;
+		background-color: $grayBack;
+		border-top: solid 1px $grayBorder;
+
+		&:first-child {
+			border-top: none;
+		}
+	}
+}
+.dropdown_menu {
+	a {
+		display: block;
+		padding: 6px 10px;
+		min-width: 10em;
+
+		&:hover {
+			text-decoration: none;
+			background-color: $grayBackLight;
+		}
+	}
+}
+.dropdown_list {
+	@extend .dropdown_menu;
+
+	.body {
+		@extend .ellipsis;
+		width: 100%;
+	}
+	.date {
+		float: right;
+		color: $gray;
+	}
+	[class*=avatar_] {
+		margin-right: 5px;
+	}
+	.body {
+		//line-height: 1.5;
+	}
+}
+.contentList {
+	li {
+		padding: 6px 10px;
+		line-height: 1.5;
+	}
+	.date {
+		margin-bottom: 3px;
+		color: $gray;
+	}
+}
+
+//####################################################################################################
+// avatar
+//----------------------------------------------------------------------------------------------------
+[class*=avatar_] {
+	@extend .inline-block;
+}
+.avatar_s {
+	@extend .bRadiusS;
+	width: 16px;
+	height: 16px;
+}
+.avatar_m {
+	@extend .bRadiusS;
+	width: 24px;
+	height: 24px;
+}
+
+//####################################################################################################
+// auiLauncher
+//----------------------------------------------------------------------------------------------------
+#auiLauncher {
+	display: none;
+	overflow: hidden;
+	background-color: $grayBackLight;
+
+	ul {
+		padding: 0 8px 8px;
+		text-align: center;
+		@extend .clearfix;
+		@extend .border-box;
+	}
+	li {
+		display: block;
+		float: left;
+		width: 95px;
+		height: 62px;
+		padding: 10px 5px 0;
+		@extend .border-box;
+
+		a {
+			position: relative;
+			display: block;
+			text-decoration: none;
+			width: 85px;
+			height: 52px;
+			background-color: $white;
+			border: solid 1px $grayBorderLight;
+			@extend .bRadiusM;
+			@extend .border-box;
+
+			.icon {
+				display: block;
+				height: 30px;
+				padding: 3px;
+				@extend .border-box;
+			}
+			.name {
+				font-size: 11px;
+				display: block;
+				width: 83px;
+				height: 20px;
+				line-height: 20px;
+				padding: 0 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				@extend .border-box;
+				@extend .ellipsis;
+			}
+			.fa {
+				font-size: 24px;
+				color: $grayLight;
+			}
+
+			&:hover {
+				position: absolute;
+				height: auto;
+				z-index: 1;
+
+				.fa {
+					color: $grayDark;
+				}
+				.name {
+					height: auto;
+					white-space: normal;
+				}
+			}
+		}
+	}
+}
+//####################################################################################################
+// auiMainNavi
+//----------------------------------------------------------------------------------------------------
+#auiMainNavi {
+	position: relative;
+	//@include box-shadow(inset 0 -1px 0 $grayBorder);
+	background-color: $grayBackLight;
+	border-bottom: solid 1px $grayBorder;
+
+	ul {
+		@extend .clearfix;
+		margin-bottom: -1px;
+		padding: 5px 8px 0 ;
+	}
+	li {
+		float: left;
+		margin: 0 2px;
+		border: solid 1px transparent;
+		@include box-sizing(border-box);
+		@include border-radius(3px 3px 0 0);
+		@extend .border-box;
+
+		&:hover {
+			border: solid 1px $grayBorder;
+			border-bottom: none;
+		}
+		a {
+			@extend .border-box;
+			display: block;
+			float: left;
+			padding: 4px 5px;
+			color: $gray;
+
+			&:hover {
+				color: $grayDark;
+				text-decoration: none;
+
+				.fa {
+					color: $grayDark;
+				}
+			}
+		}
+		.label {
+			padding-left: 10px;
+		}
+		.tool {
+			padding-right: 10px;
+		}
+		&.active {
+			background-color: $white;
+			border: solid 1px $grayBorder;
+			border-bottom: solid 1px $white !important;
+
+			.label {
+				color: $textColor;
+			}
+		}
+	}
+	.launcher {
+		position: absolute;
+		right: 10px;
+
+		a {
+			display: block;
+			line-height: 30px;
+			padding: 3px 10px 0;
+			color: $gray;
+			&:hover {
+				color: $textColor;
+				text-decoration: none;
+
+				.fa {
+					color: $textColor;
+				}
+			}
+			.fa {
+				margin-left: 5px;
+			}
+			&.active, &.active .fa {
+				color: $textColor;
+			}
+		}
+	}
+}
+
+//####################################################################################################
+// auiContents
+//----------------------------------------------------------------------------------------------------
+#auiContents {
+	margin: 0 5px;
+
+	td {
+		vertical-align: top;
+	}
+}
+
+//####################################################################################################
+// alert
+//----------------------------------------------------------------------------------------------------
+.alert {
+	margin: 10px 0;
+	padding: 10px;
+	background-color: $grayBack;
+	@extend .bRadiusM;
+
+	.alertTool {
+		float: right;
+
+		a {
+			i {
+				@include inline-block;
+				text-decoration: none;
+				text-align: center;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+			}
+		}
+	}
+	.alertHead {
+		border-bottom: solid 1px $grayBorder;
+		padding-bottom:9px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		line-height: 20px;
+	}
+}
+#auiContents > .alert {
+	margin: 10px 5px 0;
+}
+
+//####################################################################################################
+// auiPortlet
+//----------------------------------------------------------------------------------------------------
+.auiPortlet {
+	@extend .border-box;
+	@extend .bRadiusM;
+	margin: 10px 5px;
+	//border: solid 1px $grayBorderLight;
+	border: solid 1px $grayBorder;
+	background-color: $white;
+	//@include box-shadow(0 0 2px rgba(#000,.2))
+	//@include filter-shadow();
+}
+
+// auiPortletHead
+.auiPortletHead {
+	position: relative;
+	border-bottom: solid 1px $grayBorderLight;
+	//@extend .clearfix;
+
+	.inner {
+		height: 35px;
+		line-height: 35px;
+		padding: 0 10px;
+		@extend .clearfix;
+		@extend .border-box;
+	}
+	.handle {
+		cursor: pointer;
+	}
+}
+.auiPortletTitle {
+	float: left;
+	white-space:nowrap;
+}
+.auiPortletTool {
+	position: absolute;
+	top: 0;
+	right: 5px;
+
+	> div {
+		float:left;
+		padding:0 5px;
+		background:#ffffff;
+		white-space:nowrap;
+	}
+	a {
+		@include box-shadow(-5px 0 3px #ffffff);
+		&:hover {
+			.fa {
+				color: $grayDark;
+			}
+		}
+	}
+}
+
+//auiPotletBody
+.auiPortletBody {
+	.inner {
+		padding: 10px;
+	}
+}
+
+//####################################################################################################
+// popup
+//----------------------------------------------------------------------------------------------------
+.popup {
+	display: none;
+	position: absolute;
+}
+.auiTip {
+	@extend .auiPortlet;
+	@include box-shadow(0 1px 4px rgba(#000,.1));
+	margin: 0;
+}
+

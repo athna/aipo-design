@@ -1,0 +1,1 @@
+dojo._xdResourceLoaded({depends:[["provide","dijit.themes.soria"]],defineResource:function(e){e._hasResource["dijit.themes.soria"]||(e._hasResource["dijit.themes.soria"]=!0,e.provide("dijit.themes.soria"))}});

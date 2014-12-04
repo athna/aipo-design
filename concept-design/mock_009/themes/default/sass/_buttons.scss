@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+//####################################################################################################
+// auiButton
+//----------------------------------------------------------------------------------------------------
+.buttonBase {
+	@extend .border-box;
+	@extend .bRadiusM;
+	@include inline-block;
+	height: $inputHeight;
+	line-height: $inputHeight;
+	padding: 0 8px;
+	border: solid 1px $grayBorder;
+	cursor: pointer;
+	color: $textColor;
+
+	&:hover, &:focus {
+		border: solid 1px $gray;
+		text-decoration: none;
+	}
+	&:active {
+		@include background-image(none !important);
+		@include filter(none !important);
+		@include box-shadow(inset 0 1px 3px rgba(#000,.2) !important);
+	}
+	.fa {
+		color: $gray;
+	}
+}
+input[type=submit],
+input[type=button],
+input[type=reset],
+button,
+.auiButton {
+	@extend .buttonBase;
+	@include background-image(linear-gradient(top, $white, $grayBack));
+	@include filter-gradient($white, $grayBack, vertical);
+	@include text-shadow(0 1px 0 rgba($white,.5));
+	//@include box-shadow(inset 0 1px 3px rgba($white,.5));
+
+	&:active {
+		background-color: $grayLight;
+		border: solid 1px $gray;
+	}
+}
+
+.auiButtonAction,
+input[type=submit].auiButtonAction,
+input[type=button].auiButtonAction,
+input[type=reset].auiButtonAction,
+button.auiButtonAction {
+	@extend .buttonBase;
+	@include background-image(linear-gradient(top, lighten($orange,5), adjust-hue($orange, -5deg)));
+	@include filter-gradient(lighten($orange,5), adjust-hue($orange, -5deg), vertical);
+	@include text-shadow(0 -1px 0 rgba(#000,.2));
+	color: $white;
+	border: solid 1px $orange !important;
+
+	&:hover, &:focus {
+		border: solid 1px darken($orange, 25) !important;
+	}
+	&:active {
+		background-color: adjust-hue($orange, -10deg) !important;
+		border: solid 1px darken($orange, 25) !important;
+	}
+	.fa {
+		color: $white;
+	}
+}
+
+.auiButtonBold,
+input[type=submit].auiButtonBold,
+input[type=button].auiButtonBold,
+input[type=reset].auiButtonBold,
+button.auiButtonBold {
+	@extend .buttonBase;
+}
+
+.auiButtonSmall,
+input[type=submit].auiButtonSmall,
+input[type=button].auiButtonSmall,
+input[type=reset].auiButtonSmall,
+button.auiButtonSmall {
+	@extend .buttonBase;
+	font-size: 10px;
+	height: 24px;
+	line-height: 24px;
+	@include background-image(linear-gradient(top, $white, $grayBack));
+	@include filter-gradient($white, $grayBack, vertical);
+	@include text-shadow(0 1px 0 rgba($white,.5));
+	@include box-shadow(inset 0 1px 3px rgba($white,.5));
+}
+
+.auiButtonDisabled,
+input[type=submit].auiButtonDisabled,
+input[type=button].auiButtonDisabled,
+input[type=reset].auiButtonDisabled,
+button.auiButtonDisabled {
+	@extend .buttonBase;
+	background-color: $grayLighter;
+	color: $gray;
+	cursor: default;
+
+	&:hover, &:focus, &:active {
+		border: solid 1px $grayBorder;
+		@include box-shadow(none !important);
+	}
+}
+
+.auiButtonIcon,
+input[type=submit].auiButtonIcon,
+input[type=button].auiButtonIcon,
+input[type=reset].auiButtonIcon,
+button.auiButtonIcon {
+	@extend .buttonBase;
+}
+
+.auiButtonDummy,
+input[type=submit].auiButtonDummy,
+input[type=button].auiButtonDummy,
+input[type=reset].auiButtonDummy,
+button.auiButtonDummy {
+	@extend .buttonBase;
+}
+
+.auiButtonIconDummy,
+input[type=submit].auiButtonIconDummy,
+input[type=button].auiButtonIconDummy,
+input[type=reset].auiButtonIconDummy,
+button.auiButtonIconDummy {
+	@extend .buttonBase;
+}
+
+.auiSelectButton a,
+.auiWidget .auiSelectButton a {
+	@extend .auiButton;
+}
+
+/***************************************************
+	auiSelectButton
+--------------------------------------------------*/
+.auiSelectButton {
+	background:#fff;
+
+	ul {
+		@extend .inline-block;
+	}
+	li,
+	div {
+		float:left;
+		background:none;
+		padding:0;
+		line-height:1;
+	}
+	a,
+	.auiWidget & a {
+		display:block;
+		margin:0 -1px 0 0;
+		padding:0 !important;
+		line-height:$inputHeight;
+		min-width:$inputHeight - 3;
+		@include border-radius(0);
+		border-color: $grayBorder $grayBorder $grayBorderDark;
+	}
+	a {
+		text-align: center;
+
+		[class*=icon-] {
+			line-height: $inputHeight;
+		}
+		.icon-backward,
+		.icon-forward {
+			font-size: 10px;
+		}
+		.icon-backward {
+			margin-right:2px;
+		}
+		.icon-forward {
+			margin-left:1px;
+		}
+	}
+	a:hover, a:active, a:focus {
+		position: relative;
+
+		span {
+			color:$textColor;
+		}
+	}
+	a.first,
+	a.btn {
+		margin-left:0;
+		@include border-top-left-radius(3px);
+		@include border-bottom-left-radius(3px);
+	}
+	a.last {
+		margin:0;
+		&:hover:after {
+			display: none;
+		}
+	}
+	a.last,
+	a.btn {
+		margin-right:0;
+		@include border-top-right-radius(3px);
+		@include border-bottom-right-radius(3px);
+	}
+	span i,
+	span img {
+		margin:6px 0;
+	}
+	.active {
+		a {
+			background:$grayLight;
+			border-color:$grayLight $grayLight $grayBorderDark;
+			cursor:default;
+			filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+		}
+		a:focus,
+		a:active {
+			@include box-shadow(none);
+		}
+		a:hover span {
+			cursor:default;
+		}
+	}
+	.auiIconArrowLeft {
+		margin-left:-4px !important;
+	}
+	.auiWidget & span {
+		padding:0;
+		background-image:none;
+	}
+}
+.selectCount {
+	display: inline-block;
+	line-height: 100%;
+}

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="favicon.ico">
+<title>Aipo.com</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="themes/default/css/font-awesome.min.css">
+<link rel="stylesheet" href="themes/default/css/jquery.pageslide.css">
+<link rel="stylesheet" href="themes/default/css/jquery.jscrollpane.css">
+<!-- Custom styles for this template -->
+<link href="themes/default/css/style.css" rel="stylesheet" type="text/css">
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!-- wrapper SRT ------------------------------------------------------- -->
+<div id="wrapper">
+<!-- menu SRT ------------------------------------------------------- -->
+<div id="header">
+<div class="logo"><a href="#"><img src="themes/default/img/logo.png" alt=""></a></div>
+<div class="appBtn"><a href="#modalLeft" class="leftSlide btn"><i class="fa fa-th"></i></a></div>
+<div class="messageBtn"><a id="messageClick" href="#" class="btn"><i class="fa fa-comment-o"></i></a></div>
+<!--<div class="messageBtn"><a href="#modalRight" class="rightSlide btn"><i class="fa fa-comment-o"></i></a></div>-->
+<div class="alertBtn dropdown"><a href="#" class="dropdown-toggle btn" data-toggle="dropdown"><i class="fa fa-bell-o"></i></a><ul class="dropdown-menu notice dropdown-menu-right">
+<li role="presentation" class="dropdown-header">お知らせ</li>
+<li class="divider"></li>
+<!--<li class="title">あなた宛てのお知らせ<button type="button" class="btn btn-default btn-sm pull-right">既読にする</button></li>-->
+<!--<li class="indicator"><i class="fa fa-spinner fa-spin"></i>読み込み中...</li>-->
+<li class=""><a href="#"><span class="n_date">11:53</span><span class="n_name">田村亮子</span><span class="n_body">あなたの投稿にコメントしました。</span></a></li>
+<li class=""><a href="#"><span class="n_date">11:53</span><span class="n_name">田村亮子</span><span class="n_body">あなたの投稿にコメントしました。</span></a></li>
+<li class=""><a href="#"><span class="n_date">11:53</span><span class="n_name">田村亮子</span><span class="n_body">あなたの投稿にコメントしました。</span></a></li>
+<li class=""><a href="#"><span class="n_date">11:53</span><span class="n_name">田村亮子</span><span class="n_body">あなたの投稿にコメントしました。</span></a></li>
+<li class=""><a href="#"><span class="n_date">11:53</span><span class="n_name">田村亮子</span><span class="n_body">あなたの投稿にコメントしました。</span></a></li>
+<li class="divider"></li>
+<ul class="pagination pagination-sm pull-right">
+  <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+</ul>
+</ul></div>
+<div class="userBtn dropdown"><a href="#" class="dropdown-toggle btn" data-toggle="dropdown"><img src="themes/default/img/userimage04.jpg"></a>
+<ul class="dropdown-menu notice dropdown-menu-right">
+<li role="presentation" class="dropdown-header">田村 涼子 でログイン中</li>
+<li class="divider"></li>
+<li><a href="#">個人設定</a></li>
+<li><a href="#">デスクトップ通知設定</a></li>
+<li class="divider"></li>
+<li><a href="#">ヘルプ</a></li>
+<li><a href="#">公式Facebook</a></li>
+<li><a href="#">公式Twitter</a></li>
+<li><a href="#">お問い合わせ</a></li>
+<li class="divider"></li>
+<li><a href="#">ログアウト</a></li>
+</ul></div>
+
+<ul class="nav nav-tabs">
+<li class="active"><a href="#">マイページ</a></li>
+<li class="plus"><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a></li>
+</ul>
+</div>
+
+
+<!-- main SRT ------------------------------------------------------- -->
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-3">
+  <!--*** app ****-->
+<div class="app timecard" style="background-image:url(themes/default/img/userimage02.jpg);">
+<div class="date"><span class="year">2014</span>05/27</div>
+<div class="comment">おはようございます！</div>
+<div class="btnarea"><a href="#" class="btn btn-primary wide">おはよう</a></div>
+</div>
+
+<!--*** app ****-->
+<div id="schedule" class="app">
+<div class="appTitle"><a href="#"><i class="fa fa-calendar"></i>スケジュール</a><a class="plus" href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a></div>
+
+<ul class="userList">
+<li class="color01"><a href="#" data-toggle="tooltip" data-placement="bottom" title="田村 涼子を削除する"><span class="delete"><i class="fa fa-times"></i></span><span title="田村 涼子" class="thumb"><img alt="" src="themes/default/img/userimage04.jpg"></span></a></li><li class="color02"><a href="#" data-toggle="tooltip" data-placement="bottom" title="木村 一郎を削除する"><span class="delete"><i class="fa fa-times"></i></span><span title="田村 涼子" class="thumb"><img alt="" src="themes/default/img/userimage03.jpg"></span></a></li><li class="color03"><a href="#" data-toggle="tooltip" data-placement="bottom" title="山田 華子を削除する"><span class="delete"><i class="fa fa-times"></i></span><span title="田村 涼子" class="thumb"><img alt="" src="themes/default/img/userimage.jpg"></span></a></li>
+</ul>
+
+<div class="timeSchedule scroll_area">
+<div class="schedule color01" style="top:40px; left:45px; height:80px;">
+<a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="8:30 - 9:30" data-content="&lt;b&gt;&lt;a href=&quot;#&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal02&quot;&gt;打ち合わせ打ち合わせ打ち合わせ&lt;/a&gt;&lt;/b&gt;&lt;span class=&quot;s_place&quot;&gt;&lt;i class=&quot;fa fa-map-marker&quot;&gt;&lt;/i&gt;第二会議室&lt;/span&gt;&lt;span class=&quot;s_member&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;田村 涼子&lt;br&gt;木村 一郎&lt;br&gt;山田 太郎&lt;/span&gt;">
+<span class="s_time">8:30 - 9:30</span>
+<span class="s_title">打ち合わせ打ち合わせ打ち合わせ</span>
+<span class="s_place"><i class="fa fa-map-marker"></i>第二会議室</span></a></div>
+
+<div class="schedule color02" style="top:80px; left:50%; height:80px;">
+<a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="9:00 - 10:00" data-content="&lt;b&gt;&lt;a href=&quot;#&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal02&quot;&gt;打ち合わせ打ち合わせ打ち合わせ&lt;/a&gt;&lt;/b&gt;&lt;span class=&quot;s_place&quot;&gt;&lt;i class=&quot;fa fa-map-marker&quot;&gt;&lt;/i&gt;第二会議室&lt;/span&gt;&lt;span class=&quot;s_member&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;田村 涼子&lt;br&gt;木村 一郎&lt;br&gt;山田 太郎&lt;/span&gt;">
+<span class="s_time">9:00 - 10:00</span>
+<span class="s_title">打ち合わせ打ち合わせ打ち合わせ</span>
+<span class="s_place"><i class="fa fa-map-marker"></i>第二会議室</span></a>
+</div>
+
+<div class="schedule color01" style="top:160px; left:45px; height:80px;">
+<a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="10:00 - 11:00" data-content="&lt;b&gt;&lt;a href=&quot;#&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal02&quot;&gt;打ち合わせ打ち合わせ打ち合わせ&lt;/a&gt;&lt;/b&gt;&lt;span class=&quot;s_place&quot;&gt;&lt;i class=&quot;fa fa-map-marker&quot;&gt;&lt;/i&gt;第二会議室&lt;/span&gt;&lt;span class=&quot;s_member&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;田村 涼子&lt;br&gt;木村 一郎&lt;br&gt;山田 太郎&lt;/span&gt;">
+<span class="s_time">10:00 - 11:00</span>
+<span class="s_title">打ち合わせ打ち合わせ打ち合わせ</span>
+<span class="s_place"><i class="fa fa-map-marker"></i>第二会議室</span></a></div>
+
+<div class="schedule color03" style="top:280px; left:45px;  height:80px;">
+<a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="11:30 - 12:30" data-content="&lt;b&gt;&lt;a href=&quot;#&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal02&quot;&gt;打ち合わせ打ち合わせ打ち合わせ&lt;/a&gt;&lt;/b&gt;&lt;span class=&quot;s_place&quot;&gt;&lt;i class=&quot;fa fa-map-marker&quot;&gt;&lt;/i&gt;第二会議室&lt;/span&gt;&lt;span class=&quot;s_member&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;田村 涼子&lt;br&gt;木村 一郎&lt;br&gt;山田 太郎&lt;/span&gt;">
+<span class="s_time">11:30 - 12:30</span>
+<span class="s_title">打ち合わせ打ち合わせ打ち合わせ</span>
+<span class="s_place"><i class="fa fa-map-marker"></i>第二会議室</span></a>
+</div>
+
+<div class="schedule color02" style="top:360px; left:50%; height:160px;">
+<a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="12:30 - 14:30" data-content="&lt;b&gt;&lt;a href=&quot;#&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal02&quot;&gt;打ち合わせ打ち合わせ打ち合わせ&lt;/a&gt;&lt;/b&gt;&lt;span class=&quot;s_place&quot;&gt;&lt;i class=&quot;fa fa-map-marker&quot;&gt;&lt;/i&gt;第二会議室&lt;/span&gt;&lt;span class=&quot;s_member&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;田村 涼子&lt;br&gt;木村 一郎&lt;br&gt;山田 太郎&lt;/span&gt;">
+<span class="s_time">12:30 - 14:30</span>
+<span class="s_title">打ち合わせ打ち合わせ打ち合わせ</span>
+<span class="s_place"><i class="fa fa-map-marker"></i>第二会議室</span></a>
+</div>
+
+<div class="schedule color01" style="top:400px; left:45px; height:160px;">
+<a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="13:00 - 15:00" data-content="&lt;b&gt;&lt;a href=&quot;#&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal02&quot;&gt;打ち合わせ打ち合わせ打ち合わせ&lt;/a&gt;&lt;/b&gt;&lt;span class=&quot;s_place&quot;&gt;&lt;i class=&quot;fa fa-map-marker&quot;&gt;&lt;/i&gt;第二会議室&lt;/span&gt;&lt;span class=&quot;s_member&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;田村 涼子&lt;br&gt;木村 一郎&lt;br&gt;山田 太郎&lt;/span&gt;">
+<span class="s_time">13:00 - 15:00</span>
+<span class="s_title">打ち合わせ打ち合わせ打ち合わせ</span>
+<span class="s_place"><i class="fa fa-map-marker"></i>第二会議室</span></a></div>
+
+<ul>
+<li>08</li>
+<li>09</li>
+<li>10</li>
+<li>11</li>
+<li>12</li>
+<li>13</li>
+<li>14</li>
+<li>15</li>
+<li>16</li>
+<li>17</li>
+<li>18</li>
+<li>19</li>
+<li>20</li>
+<li>21</li>
+<li>22</li>
+<li>23</li>
+</ul>
+</div>
+
+<!-- Nav tabs -->
+<!--<ul class="nav nav-tabs">
+  <li class="active"><a href="#day" data-toggle="tab">5/27</a></li>
+  <li><a href="#week" data-toggle="tab">5/26 - 6/1</a></li>
+  <li><a href="#month" data-toggle="tab">5月</a></li>
+</ul>-->
+
+<!-- Tab panes -->
+<!--<div class="tab-content">
+  <div class="tab-pane active" id="day"></div>
+  <div class="tab-pane" id="week">...</div>
+  <div class="tab-pane" id="month">...</div>
+</div>-->
+
+
+
+</div>
+
+
+
+
+</div>
+<div id="main" class="col-md-6">
+<div class="app search">
+<form action="">
+<i class="fa fa-search"></i>
+<input type="search" />
+</form>
+</div>
+  
+<div id="timeline" class="app">
+<div class="appTitle"><a href="#"><i class="fa fa-comments"></i>タイムライン</a></div>
+<form class="timelineForm" action="">
+<textarea placeholder="近況を共有しましょう"></textarea>
+<div class="app-form-bottom">
+<ul class="">
+<li class="active"><a href="#" data-toggle="tooltip" data-placement="bottom" title="添付ファイルを追加する"><i class="fa fa-paperclip"></i></a></li>
+<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="宛先を追加する"><i class="fa fa-users"></i></a></li>
+</ul>
+<input type="button" value="共有する" class="btn btn-primary action" onClick=""></div>
+</form>
+<ul class="timelineList">
+<li>
+<div class="thumb"><img src="themes/default/img/userimage03.jpg"></div>
+<div class="name">木村 一郎</div>
+<div class="time">11:53</div>
+<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br />
+提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+<div class="foot"><a class="active" href="#"><i class="fa fa-thumbs-up"></i>3</a><a href="#"><i class="fa fa-comment"></i>1</a></div>
+<ul class="comment">
+<li>
+<div class="thumb"><img src="themes/default/img/userimage03.jpg"></div>
+<div class="name">山田 太郎</div>
+<div class="time">11:53</div>
+<div class="body">すごい！<br />
+次回の打ち合わせに同行しますので、予定の調整をお願いします。</div>
+<div class="foot"><a class="" href="#"><i class="fa fa-thumbs-up"></i>1</a></div>
+</li>
+</ul>
+</li>
+
+<li>
+<div class="thumb"><img src="themes/default/img/userimage03.jpg"></div>
+<div class="name">木村 一郎</div>
+<div class="time">11:53</div>
+<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br />
+提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+<div class="foot"><a class="active" href="#"><i class="fa fa-thumbs-up"></i>3</a><a href="#"><i class="fa fa-comment"></i>1</a></div>
+</li>
+
+<li>
+<div class="thumb"><img src="themes/default/img/userimage03.jpg"></div>
+<div class="name">木村 一郎</div>
+<div class="time">11:53</div>
+<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br />
+提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+<div class="foot"><a class="active" href="#"><i class="fa fa-thumbs-up"></i>3</a><a href="#"><i class="fa fa-comment"></i>1</a></div>
+</li>
+
+<li>
+<div class="thumb"><img src="themes/default/img/userimage03.jpg"></div>
+<div class="name">木村 一郎</div>
+<div class="time">11:53</div>
+<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br />
+提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+<div class="foot"><a class="active" href="#"><i class="fa fa-thumbs-up"></i>3</a><a href="#"><i class="fa fa-comment"></i>1</a></div>
+</li>
+
+<li>
+<div class="thumb"><img src="themes/default/img/userimage03.jpg"></div>
+<div class="name">木村 一郎</div>
+<div class="time">11:53</div>
+<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br />
+提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+<div class="foot"><a class="active" href="#"><i class="fa fa-thumbs-up"></i>3</a><a href="#"><i class="fa fa-comment"></i>1</a></div>
+</li>
+
+<li>
+<div class="thumb"><img src="themes/default/img/userimage03.jpg"></div>
+<div class="name">木村 一郎</div>
+<div class="time">11:53</div>
+<div class="body">本日のお客様との打ち合わせで、リニューアル案件のご発注をいただきました。<br />
+提案書作成の際にお力添えを頂きました皆様、ありがとうございました。</div>
+<div class="foot"><a class="active" href="#"><i class="fa fa-thumbs-up"></i>3</a><a href="#"><i class="fa fa-comment"></i>1</a></div>
+</li>
+
+
+</ul>
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<!--*** app ****-->
+<div class="app">
+<div class="appTitle"><a href="#"><i class="fa fa-check"></i>ToDo</a><a class="plus" href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a></div>
+<ul class="list">
+
+<li class="active todo-8">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<!--<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>-->
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#">
+<span class="thumb" title="田村 涼子"><img src="themes/default/img/userimage04.jpg" alt=""></span>
+<!--<span class="status">84%</span>-->
+<span class="title">営業システム仕様書</span>
+<span class="date">06/01</span>
+<span class="todo"></span></a></li>
+
+
+<li class="todo-2">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<!--<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>-->
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#">
+<!--<span class="status">23%</span>-->
+<span class="thumb" title="山田 太郎"><img src="themes/default/img/userimage03.jpg" alt=""></span>
+<span class="title">コーポレートサイト構築</span>
+<span class="date">06/01</span>
+<span class="todo"></span></a></li>
+
+<li class="todo-5">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<!--<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>-->
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#">
+<!--<span class="status">52%</span>-->
+<span class="thumb" title="山田 太郎"><img src="themes/default/img/userimage03.jpg" alt=""></span>
+<span class="title">マニュアル作成</span>
+<span class="date">06/01</span>
+<span class="todo"></span></a></li>
+
+<li class="todo-1">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<!--<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>-->
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#">
+<!--<span class="status">52%</span>-->
+<span class="thumb" title="田村 涼子"><img src="themes/default/img/userimage04.jpg" alt=""></span>
+<span class="title">マニュアル作成</span>
+<span class="date">06/01</span>
+<span class="todo"></span></a></li>
+
+<li class="todo-6">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<!--<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>-->
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#">
+<!--<span class="status">52%</span>-->
+<span class="thumb" title="山田 太郎"><img src="themes/default/img/userimage03.jpg" alt=""></span>
+<span class="title">見積もり作成</span>
+<span class="date">06/01</span>
+<span class="todo"></span></a></li>
+
+</ul>
+</div>
+<!--*** app ****-->
+<div class="app">
+<div class="appTitle"><a href="#"><i class="fa fa-pencil"></i>ボード</a><a class="plus" href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a></div>
+<ul class="list">
+
+<li class="active">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<!--<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>-->
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#">
+<span class="thumb" title="田村 涼子"><img src="themes/default/img/userimage04.jpg" alt=""></span>
+<span class="date">12:03</span>
+お花見のお知らせ<span class="cat">お知らせ</span></a></li>
+
+
+<li>
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<!--<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>-->
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#"><span class="date">11:47</span>
+<span class="thumb" title="山田 太郎"><img src="themes/default/img/userimage03.jpg" alt=""></span>
+歓迎会開催のお知らせ<span class="cat">お知らせ</span></a></li>
+
+<li>
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<!--<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>-->
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#"><span class="date">10:35</span>
+<span class="thumb" title="山田 太郎"><img src="themes/default/img/userimage03.jpg" alt=""></span>
+歓迎会の幹事募集！<span class="cat">お知らせ</span></a></li>
+
+</ul>
+</div>
+<!--*** app ****-->
+<div class="app">
+<div class="appTitle"><a href="#"><i class="fa fa-envelope"></i>メール</a><a class="plus" href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a></div>
+<ul class="list mail">
+
+<li class="active">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<!--<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>-->
+</ul>
+<a href="#">
+<span class="date">12:03</span>
+ページ更新につきまして<span class="cat">yamada_t@test.com</span></a></li>
+
+
+<li>
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<!--<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>-->
+</ul>
+<a href="#"><span class="date">11:47</span>
+打ち合わせ日時変更のお願い<span class="cat">tamura@test.com</span></a></li>
+
+<li>
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<!--<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>-->
+</ul>
+<a href="#"><span class="date">10:35</span>
+<i class="fa fa-paperclip attach"></i>宣材送ります<span class="cat">tamura@test.com</span></a></li>
+
+</ul>
+</div>
+<!--*** app ****-->
+<div class="app">
+<div class="appTitle"><a href="#"><i class="fa fa-phone"></i>伝言</a><a class="plus" href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a></div>
+<ul class="list">
+
+<li class="active">
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#">
+<span class="thumb" title="田村 涼子"><img src="themes/default/img/userimage04.jpg" alt=""></span>
+<span class="date">12:03</span>
+再度電話します
+<span class="name">A商事 佐藤 様</span></a></li>
+
+
+<li>
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#"><span class="date">11:47</span>
+<span class="thumb" title="山田 太郎"><img src="themes/default/img/userimage03.jpg" alt=""></span>
+電話をしてください
+<span class="name">B株式会社 竹内 様</span></a></li>
+
+<li>
+<ul class="tool">
+<li title="タイムラインに投稿する"><a href="#"><i class="fa fa-comments"></i></a></li>
+<li title="スケジュールに投稿する"><a href="#"><i class="fa fa-calendar"></i></a></li>
+<li title="ボードに投稿する"><a href="#"><i class="fa fa-pencil"></i></a></li>
+<li title="ToDoに追加する"><a href="#"><i class="fa fa-check"></i></a></li>
+<li title="メールで送る"><a href="#"><i class="fa fa-envelope"></i></a></li>
+</ul>
+<a href="#"><span class="date">10:35</span>
+<span class="thumb" title="山田 太郎"><img src="themes/default/img/userimage03.jpg" alt=""></span>
+メールをお送りいたしますので、ご確認をお願いいたします
+<span class="name">有限会社C 坂本 様</span></a></li>
+
+</ul>
+</div>
+
+  
+</div>
+</div>
+</div>
+
+
+
+
+<div id="messageOpen">
+<div class="appTitle"><a href="#"><i class="fa fa-comment-o"></i>メッセージ</a></div>
+
+<ul class="nav nav-tabs">
+<li class="active"><a href="#talk" data-toggle="tab">会話</a></li>
+<li><a href="#member" data-toggle="tab">メンバー</a></li>
+</ul>
+
+<div class="massageBlock">
+
+<div class="tab-content">
+<div class="tab-pane active" id="talk">
+<!--<h3><a href="#"><i class="fa fa-chevron-left"></i></a>木村 一郎, 田村 涼子, 山田 太郎</h3>
+<div class="scroll_area">
+<ul class="messageList">
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">木村 一郎</span>
+来週月曜日、ちょっと贅沢にコースランチしませんか？
+<span class="date">17:30 </span>
+</span>
+</li>
+
+<li class="right">
+<span class="thumb"><img src="themes/default/img/userimage.jpg"></span>
+<span class="body">
+<span class="name">田村 涼子</span>
+17日にお花見に行きましょー
+<span class="date">17:30 <a href="#myModal" role="button" class="readList" data-toggle="modal">全員が既読</a></span></span>
+</li>
+
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">山田 太郎</span>
+京都出張のおみやげ買ってきたので休憩室に置いておきました。
+<span class="date">17:30 </span>
+</span>
+</li>
+
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">木村 一郎</span>
+来週月曜日、ちょっと贅沢にコースランチしませんか？
+<span class="date">17:30 </span>
+</span>
+</li>
+
+<li class="right">
+<span class="thumb"><img src="themes/default/img/userimage.jpg"></span>
+<span class="body">
+<span class="name">田村 涼子</span>
+17日にお花見に行きましょー
+<span class="date">17:30 <a href="#myModal" role="button" class="readList" data-toggle="modal">全員が既読</a></span></span>
+</li>
+
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">山田 太郎</span>
+京都出張のおみやげ買ってきたので休憩室に置いておきました。
+<span class="date">17:30 </span>
+</span>
+</li>
+
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">木村 一郎</span>
+来週月曜日、ちょっと贅沢にコースランチしませんか？
+<span class="date">17:30 </span>
+</span>
+</li>
+
+<li class="right">
+<span class="thumb"><img src="themes/default/img/userimage.jpg"></span>
+<span class="body">
+<span class="name">田村 涼子</span>
+17日にお花見に行きましょー
+<span class="date">17:30 <a href="#myModal" role="button" class="readList" data-toggle="modal">全員が既読</a></span></span>
+</li>
+
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">山田 太郎</span>
+京都出張のおみやげ買ってきたので休憩室に置いておきました。
+<span class="date">17:30 </span>
+</span>
+</li>
+
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">木村 一郎</span>
+来週月曜日、ちょっと贅沢にコースランチしませんか？
+<span class="date">17:30 </span>
+</span>
+</li>
+
+<li class="right">
+<span class="thumb"><img src="themes/default/img/userimage.jpg"></span>
+<span class="body">
+<span class="name">田村 涼子</span>
+17日にお花見に行きましょー
+<span class="date">17:30 <a href="#myModal" role="button" class="readList" data-toggle="modal">全員が既読</a></span></span>
+</li>
+
+<li class="left">
+<span class="thumb"><img src="themes/default/img/userimage03.jpg"></span>
+<span class="body">
+<span class="name">山田 太郎</span>
+京都出張のおみやげ買ってきたので休憩室に置いておきました。
+<span class="date">17:30 </span>
+</span>
+</li>
+</ul>
+</div>
+<div class=" messageForm">
+<input type="text" class="text" placeholder="メッセージを送る">
+<input type="button" onClick="" class="btn btn-primary action" value="送信">
+</div>-->
+<iframe src="message/talk.html" frameborder="0" height="444"></iframe>
+</div>
+<div class="tab-pane" id="member">
+
+<ul class="list">
+
+<li class="active">
+<a href="#">
+<span title="田村 涼子" class="thumb"><img alt="" src="themes/default/img/userimage04.jpg"></span>
+田村 涼子<span class="cat">営業本部</span></a></li>
+
+
+<li>
+<a href="#">
+<span title="山田 太郎" class="thumb"><img alt="" src="themes/default/img/userimage03.jpg"></span>
+山田 太郎<span class="cat">営業本部</span></a></li>
+
+<li>
+<a href="#">
+<span title="山田 太郎" class="thumb"><img alt="" src="themes/default/img/userimage03.jpg"></span>
+山田 太郎<span class="cat">営業本部</span></a></li>
+
+</ul>
+
+</div>
+  
+</div>
+
+
+
+</div>
+</div>
+
+<!-- modal SRT ------------------------------------------------------- -->
+<!--<div id="modalRight" style="display:none">
+
+<div class="messageBody">
+
+<iframe src="message/list.html" id="sample4" style="border:0; width:100%; overflow:auto;"></iframe>
+</div>
+
+<div class="modalBody">
+<h2><i class="fa fa-comment-o"></i>メッセージ</h2><a class="plus" href="#"><i class="fa fa-plus"></i></a>
+
+<ul class="nav nav-pills">
+  <li class="active"><a href="#">メンバー</a></li>
+  <li><a href="#">会話</a></li>
+</ul>
+
+
+<div class="messageForm">
+<Form>
+<textarea placeholder="メッセージを入力"></textarea>
+<input type="button" class="btn" value="送信">
+</Form>
+</div>
+
+</div>
+</div>-->
+<div id="modalLeft" style="display:none">
+<h2><i class="fa fa-th"></i>アプリ</h2>
+<ul class="appList container-fluid">
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-comments"></i></span>タイムライン</a></li>
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-clock-o"></i></span>タイムカード</a></li>
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-pencil"></i></span>ボード</a></li>
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-phone"></i></span>伝言</a></li>
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-check"></i></span>ToDo</a></li>
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-envelope"></i></span>メール</a></li>
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-calendar"></i></span>スケジュール</a></li>
+<li class="col-md-4" role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="icon"><i class="fa fa-plus"></i></span>アプリを追加</a></li>
+</ul>
+<!--<a href="javascript:$.pageslide.close()">Close</a>-->
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><input type="text" class="text" placeholder="新規追加"></h4>
+      </div>
+      <div class="modal-body">
+      <table class="table">
+       <tbody>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-clock-o"></i></span>時間</th>
+       <td><input type="time" class="text" placeholder="開始時間"> - <input type="time" class="text" placeholder="終了時間"></td>
+       </tr>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-map-marker"></i></span>場所</th>
+       <td><!--<input type="text" class="text" placeholder="場所"> --><a href="#"><i class="fa fa-plus-circle"></i> 追加する</a></td>
+       </tr>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-user"></i></span>メンバー</th>
+       <td><a href="#"><i class="fa fa-plus-circle"></i> 追加する</a></td>
+       </tr>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-bookmark"></i></span>備考</th>
+       <td><textarea class="text" placeholder="備考"></textarea></td>
+       </tr>
+       </tbody>
+       </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        <button type="button" class="btn btn-primary">登録する</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal02" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">打ち合わせ打ち合わせ打ち合わせ</h4>
+      </div>
+      <div class="modal-body">
+       <table class="table">
+       <tbody>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-clock-o"></i></span>時間</th>
+       <td>8:30 - 9:30</td>
+       </tr>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-map-marker"></i></span>場所</th>
+       <td>第二会議室</td>
+       </tr>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-user"></i></span>メンバー</th>
+       <td>田村 涼子, 木村 一郎, 山田 太郎</td>
+       </tr>
+       <tr>
+       <th><span class="iconBox"><i class="fa fa-bookmark"></i></span>備考</th>
+       <td></td>
+       </tr>
+       </tbody>
+       </table>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>-->
+        <button type="button" class="btn btn-primary">編集する</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- wrapper END ------------------------------------------------------- -->
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="themes/default/js/jquery.pageslide.min.js"></script>
+<script src="themes/default/js/jquery.jscrollpane.min.js"></script>
+<script src="themes/default/js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript">
+$( "#messageClick" ).click(function() {
+$( "#messageOpen" ).slideToggle();
+});
+
+$("[data-toggle=tooltip]").tooltip();
+
+$(function(){
+	$('.scroll_area').jScrollPane();
+});
+$(".leftSlide").pageslide({ modal: true });
+$(".rightSlide").pageslide({ direction: "left", modal: true });
+
+$("[data-toggle=popover]").popover({
+    trigger: 'manual',
+    animate: false,
+    html: true,
+    template: '<div class="popover" onmouseover="$(this).mouseleave(function() {$(this).hide();});" style="display:block;"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
+}).mouseenter(function(e) {
+    $(this).popover('show');
+});
+</script>
+</body>
+</html>

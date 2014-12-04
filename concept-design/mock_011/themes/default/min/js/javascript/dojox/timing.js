@@ -1,0 +1,1 @@
+dojo._hasResource["dojox.timing"]||(dojo._hasResource["dojox.timing"]=!0,dojo.provide("dojox.timing"),dojo.require("dojox.timing._base"));

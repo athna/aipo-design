@@ -25,8 +25,8 @@
 	<!--script type="text/javascript" language="JavaScript" src="javascript/dojo/dojo.js"></script-->
 	<script type="text/javascript" language="JavaScript" src="javascript/aipo.js"></script>
 	<!--script type="text/javascript" language="JavaScript" src="http://hudson.aipo.com:8080/gadgets/js/core:rpc:shindig-container.js?c=1"></script-->
-	<script type="text/javascript" language="JavaScript" src="../htmlmock/javascript/aipo/container.js"></script>
-	<script type="text/javascript" language="JavaScript" src="../htmlmock/javascript/aipo/customize/form.js"></script>
+	<script type="text/javascript" language="JavaScript" src="javascript/aipo/container.js"></script>
+	<script type="text/javascript" language="JavaScript" src="javascript/aipo/customize/form.js"></script>
 </head>
 <body>
 
@@ -35,15 +35,19 @@
 
 <!-- #auiHeader -->
 <div id="auiHeader">
-	<div class="hdLogo"><a href="../htmlmock/mypage.html"><img src="../htmlmock/themes/default/images/logo_com_20130613.png" width="100" height="30" alt="Aipo.com"></a></div>
+	<div class="hdLogo"><a href="mypage.html"><img src="../htmlmock/themes/default/images/logo_com_20130613.png" width="100" height="30" alt="Aipo.com"></a></div>
 	<div class="hdPages">
 		<ul>
 			<li class="current">
-				<a href="../htmlmock/mypage.html" class="name" title="マイページ">マイページ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-1');"><i class="icon-cog"></i></a>
+				<a href="mypage.html" class="name" title="マイページ">マイページ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-1');"><i class="icon-cog"></i></a>
 				<div class="menubar body-child" id="menubar_tab_P-1" style="display: none; right: 0px; top: 40px;">
 					<ul>
 						<li><a href="javascript:void(0);" onclick="">設定</a></li>
-						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li class="move last">
+							<label title="左へ"><i class="icon-chevron-left"></i></label>
+							<a title="右へ" href="javascript:void(0);" onclick=""><i class="icon-chevron-right"></i></a>
+						</li>
 					</ul>
 				</div>
 			</li>
@@ -52,7 +56,11 @@
 				<div class="menubar body-child" id="menubar_tab_P-2" style="display: none; right: 0px; top: 40px;">
 					<ul>
 						<li><a href="javascript:void(0);" onclick="">設定</a></li>
-						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li class="move last">
+							<a title="左へ" href="javascript:void(0);" onclick=""><i class="icon-chevron-left"></i></a>
+							<a title="右へ" href="javascript:void(0);" onclick=""><i class="icon-chevron-right"></i></a>
+						</li>
 					</ul>
 				</div>
 			</li>
@@ -61,11 +69,15 @@
 				<div class="menubar body-child" id="menubar_tab_P-3" style="display: none; right: 0px; top: 40px;">
 					<ul>
 						<li><a href="javascript:void(0);" onclick="">設定</a></li>
-						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li class="move last">
+							<a title="左へ" href="javascript:void(0);" onclick=""><i class="icon-chevron-left"></i></a>
+							<label title="右へ"><i class="icon-chevron-right"></i></label>
+						</li>
 					</ul>
 				</div>
 			</li>
-			<li><a href="javascript:void(0)" class="plus" title="ページを追加"><i class="icon-plus"></i></a></li>
+			<li><a href="javascript:void(0)" class="plus" title="ページを追加" onclick="popupToggle(this,'modalDialog');popupToggle(this,'popupMask');"><i class="icon-plus"></i></a></li>
 		</ul>
 	</div>
 	<div class="hdNavigation">
@@ -532,7 +544,7 @@
 											</div-->
 											<div class="tlInputControls clearfix">
 												<div class="floatLeft">
-													<iframe scrolling="no" frameborder="0" src="../htmlmock/timeline/inner_form.html" allowtransparency="true" id="" name="" class="auiInputFileFrame"></iframe>
+													<iframe scrolling="no" frameborder="0" src="timeline/inner_form.html" allowtransparency="true" id="" name="" class="auiInputFileFrame"></iframe>
 												</div>
 												<div class="floatRight">
 													<i class="indicator"></i>
@@ -662,7 +674,7 @@
 										<div id="messageTimeline" class="timeline scroll">
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -680,7 +692,7 @@
 
 											<div id="message***" class="message">
 												<div class="avatar">
-													<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
+													<img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -704,7 +716,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -729,7 +741,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -743,7 +755,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -765,7 +777,7 @@
 											<div id="messageFavorites" class="scroll">
 												<div class="timeline">
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -783,7 +795,7 @@
 
 													<div id="message***" class="message">
 														<div class="avatar">
-															<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
+															<img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -807,7 +819,7 @@
 													</div>
 
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -832,7 +844,7 @@
 													</div>
 
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -846,7 +858,7 @@
 													</div>
 
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -2620,7 +2632,7 @@
 				<li>
 					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar1.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar1.jpg">
 						</span>
 						<div class="nrCount">5</div>
 						<span class="date">15:05</span>
@@ -2631,7 +2643,7 @@
 				<li>
 					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar2.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar2.jpg">
 						</span>
 						<div class="nrCount">99+</div>
 						<span class="date">9:50</span>
@@ -2653,7 +2665,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar3.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">6/29</span>
@@ -2664,7 +2676,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/common/avatar_default3.png">
+							<img src="../htmlmock/themes/default/images/common/avatar_default3.png">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">5/2</span>
@@ -2675,7 +2687,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar1.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar1.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">4/8</span>
@@ -2686,7 +2698,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar2.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar2.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">3/15</span>
@@ -2697,7 +2709,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar3.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">2/12</span>
@@ -2708,7 +2720,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/common/avatar_default3.png">
+							<img src="../htmlmock/themes/default/images/common/avatar_default3.png">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">2013/12/20</span>
@@ -3131,6 +3143,48 @@
 		</div>
 	</div>
 </div>
+
+<div id="modalDialog" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top: 50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">ページ追加</div>
+			</div>
+			<div class="roundBlockContent">
+				<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
+				<div id="messageDiv"></div>
+				<form name="" id="" action="" method="post">
+					<table class="listTable wide">
+						<tbody>
+						<tr>
+							<td class="caption"><span class="required">ページ名</span></td>
+							<td><input class="text w100" type="text" name="page_title" id="page_title" value="" maxlength="10" style="ime-mode:active"></td>
+						</tr>
+						<tr>
+							<td class="caption">コピー元</td>
+							<td><select>
+								<option>コピーしない</option>
+								<option>マイページ</option>
+							</select></td>
+						</tr>
+						</tbody>
+					</table>
+
+					<div class="center auiPopupButtons">
+						<input name="" class="auiButtonAction" type="submit" id="" value="追加する" onclick="">
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog');popupToggle(this,'popupMask');">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 </body>
 </html>

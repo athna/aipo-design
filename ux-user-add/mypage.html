@@ -22,11 +22,22 @@
 	<link rel="stylesheet" type="text/css" href="../htmlmock/themes/default/css/font-awesome-ie7.min.css">
 	<![endif]-->
 	<script src="../htmlmock/themes/default/js/mock.js"></script>
-	<!--script type="text/javascript" language="JavaScript" src="javascript/dojo/dojo.js"></script-->
-	<script type="text/javascript" language="JavaScript" src="javascript/aipo.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../htmlmock/javascript/dojo/dojo.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../htmlmock/javascript/aipo/aipo.js"></script>
 	<!--script type="text/javascript" language="JavaScript" src="http://hudson.aipo.com:8080/gadgets/js/core:rpc:shindig-container.js?c=1"></script-->
-	<script type="text/javascript" language="JavaScript" src="javascript/aipo/container.js"></script>
-	<script type="text/javascript" language="JavaScript" src="javascript/aipo/customize/form.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../htmlmock/javascript/aipo/container.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../htmlmock/javascript/aipo/customize/form.js"></script>
+	<script type="text/javascript" language="javascript">
+		function select_all(){
+			var member_to = dojo.byId('member_to_add');
+			if(member_to) {
+				var t_o = member_to.options;
+				for(i = 0 ; i < t_o.length; i++ ) {
+					t_o[i].selected = true;
+				}
+			}
+		}
+	</script>
 </head>
 <body>
 
@@ -3157,7 +3168,7 @@
 					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
 					</div>
 				</div>
-				<div class="auiPopupTitle">ページ追加</div>
+				<div class="auiPopupTitle">予定追加</div>
 			</div>
 			<div class="roundBlockContent">
 		<div class="indicator" id="indicator-dlg-P-135ea887364-10654" style="display:none;">データを送信しています...</div>
@@ -4017,6 +4028,7 @@
 							</select>
 						</div>
 					</div>
+
 					<div class="body clearfix">
 						<div class="floatLeft">
 							<select size="5" multiple="multiple">
@@ -4024,7 +4036,7 @@
 							</select>
 						</div>
 						<div class="floatRight">
-							<select size="5" multiple="multiple">
+							<select id="member_to_add" size="5" multiple="multiple">
 								<option>パブロ・ディエゴ・ホセ・フランシスコ・デ・パウラ・ファン・ネポムセーノ・マリーア・デ・ロス・レメディオス・クリスピアーノ・デ・ラ・サンティシマ・トリニダード</option>
 								<option>山田 太郎</option>
 								<option>田中 一郎</option>
@@ -4045,7 +4057,7 @@
 							<input type="button" class="button" value="削除">
 						</div>
 						<div class="floatRight">
-							<div class="floatLeft left mt10 ml5 small"><a href="javascript:void(0)">全員を選択する</a></div>
+							<div class="floatLeft left mt10 ml5 small"><a href="javascript:void(0)" onclick="select_all()">全員を選択する</a></div>
 							<input type="button" class="button" value="＜ 追加">
 						</div>
 					</div>

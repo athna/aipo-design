@@ -11,49 +11,22 @@
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
 	<meta name="robots" content="noindex,follow"/>
-	<link type="image/x-icon" rel="shortcut icon" href="themes/default/images/favicon.ico?20130719"/>
-	<link type="image/x-icon" rel="icon" href="themes/default/images/favicon.ico?20130719"/>
-	<link rel="stylesheet" type="text/css" href="themes/default/css/extend.css"/>
-	<link rel="stylesheet" type="text/css" href="themes/default/css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="themes/default/css/aui.css"/>
-	<link rel="stylesheet" type="text/css" href="themes/default/css/print.css" media="print"/>
-	<link rel="stylesheet" type="text/css" href="themes/default/css/font-awesome.min.css"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../htmlmock/themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../htmlmock/themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../htmlmock/themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../htmlmock/themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../htmlmock/themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../htmlmock/themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../htmlmock/themes/default/css/font-awesome.min.css"/>
 	<!--[if IE 7]>
-	<link rel="stylesheet" type="text/css" href="themes/default/css/font-awesome-ie7.min.css">
+	<link rel="stylesheet" type="text/css" href="../htmlmock/themes/default/css/font-awesome-ie7.min.css">
 	<![endif]-->
-	<script src="themes/default/js/mock.js"></script>
+	<script src="../htmlmock/themes/default/js/mock.js"></script>
 	<!--script type="text/javascript" language="JavaScript" src="javascript/dojo/dojo.js"></script-->
 	<script type="text/javascript" language="JavaScript" src="javascript/aipo.js"></script>
 	<!--script type="text/javascript" language="JavaScript" src="http://hudson.aipo.com:8080/gadgets/js/core:rpc:shindig-container.js?c=1"></script-->
 	<script type="text/javascript" language="JavaScript" src="javascript/aipo/container.js"></script>
 	<script type="text/javascript" language="JavaScript" src="javascript/aipo/customize/form.js"></script>
-	<style>
-		* {
-			font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Arial, Helvetica, sans-serif;
-		}
-		html, body {
-			font-size: 13px;
-		}
-		.tlClipTitle {
-			font-size: inherit;
-		}
-		.messageContents .body {
-			font-size: 14px;
-			line-height: 1.6;
-		}
-		#dd_message .mainBlock .body {
-			font-size: 14px;
-		}
-		.comments .messageContents .body {
-			font-size: inherit;
-		}
-		.timeline .comments {
-			font-size: 13px;
-		}
-		.timeline .commentCaption {
-			font-size: 11px;
-		}
-	</style>
 </head>
 <body>
 
@@ -62,7 +35,7 @@
 
 <!-- #auiHeader -->
 <div id="auiHeader">
-	<div class="hdLogo"><a href="mypage.html"><img src="themes/default/images/logo_com_20130613.png" width="100" height="30" alt="Aipo.com"></a></div>
+	<div class="hdLogo"><a href="mypage.html"><img src="../htmlmock/themes/default/images/logo_com_20130613.png" width="100" height="30" alt="Aipo.com"></a></div>
 	<div class="hdPages">
 		<ul>
 			<li class="current">
@@ -70,7 +43,11 @@
 				<div class="menubar body-child" id="menubar_tab_P-1" style="display: none; right: 0px; top: 40px;">
 					<ul>
 						<li><a href="javascript:void(0);" onclick="">設定</a></li>
-						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li class="move last">
+							<label title="左へ"><i class="icon-caret-left"></i></label>
+							<a title="右へ" href="javascript:void(0);" onclick=""><i class="icon-caret-right"></i></a>
+						</li>
 					</ul>
 				</div>
 			</li>
@@ -79,7 +56,11 @@
 				<div class="menubar body-child" id="menubar_tab_P-2" style="display: none; right: 0px; top: 40px;">
 					<ul>
 						<li><a href="javascript:void(0);" onclick="">設定</a></li>
-						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li class="move last">
+							<a title="左へ" href="javascript:void(0);" onclick=""><i class="icon-caret-left"></i></a>
+							<a title="右へ" href="javascript:void(0);" onclick=""><i class="icon-caret-right"></i></a>
+						</li>
 					</ul>
 				</div>
 			</li>
@@ -88,11 +69,15 @@
 				<div class="menubar body-child" id="menubar_tab_P-3" style="display: none; right: 0px; top: 40px;">
 					<ul>
 						<li><a href="javascript:void(0);" onclick="">設定</a></li>
-						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li><a href="javascript:void(0);" onclick="">削除</a></li>
+						<li class="move last">
+							<a title="左へ" href="javascript:void(0);" onclick=""><i class="icon-caret-left"></i></a>
+							<label title="右へ"><i class="icon-caret-right"></i></label>
+						</li>
 					</ul>
 				</div>
 			</li>
-			<li><a href="javascript:void(0)" class="plus" title="ページを追加"><i class="icon-plus"></i></a></li>
+			<li><a href="javascript:void(0)" class="plus" title="ページを追加" onclick="popupToggle(this,'modalDialog');popupToggle(this,'popupMask');"><i class="icon-plus"></i></a></li>
 		</ul>
 	</div>
 	<div class="hdNavigation">
@@ -136,7 +121,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar1.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" class="avatar_m">
 															</span>
 															<div class="nrCount">5</div>
 															<span class="date">15:05</span>
@@ -147,7 +132,7 @@
 													<li class="active">
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar2.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" class="avatar_m">
 															</span>
 															<div class="nrCount">99+</div>
 															<span class="date">9:50</span>
@@ -158,7 +143,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/group_default.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/group_default.png" class="avatar_m">
 															</span>
 															<span class="date">6/30</span>
 															<span class="name">打ち合わせルーム</span>
@@ -168,7 +153,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar3.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" class="avatar_m">
 															</span>
 															<span class="date">6/29</span>
 															<span class="name">山田 花子</span>
@@ -178,7 +163,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="date">5/2</span>
 															<span class="name">鈴木 一郎</span>
@@ -188,7 +173,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar1.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" class="avatar_m">
 															</span>
 															<span class="date">4/8</span>
 															<span class="name">木村 一郎</span>
@@ -198,7 +183,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar2.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" class="avatar_m">
 															</span>
 															<span class="date">3/15</span>
 															<span class="name">田村 涼子</span>
@@ -208,7 +193,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar3.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" class="avatar_m">
 															</span>
 															<span class="date">2/12</span>
 															<span class="name">山田 花子</span>
@@ -218,7 +203,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="date">2013/12/20</span>
 															<span class="name">鈴木 一郎</span>
@@ -228,7 +213,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/group_default.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/group_default.png" class="avatar_m">
 															</span>
 															<span class="date">2013/12/5</span>
 															<span class="name">会議室01</span>
@@ -238,7 +223,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/group_default.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/group_default.png" class="avatar_m">
 															</span>
 															<span class="date">6/30</span>
 															<span class="name">ミーティングルーム</span>
@@ -248,7 +233,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar3.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" class="avatar_m">
 															</span>
 															<span class="date">6/29</span>
 															<span class="name">山田 花子</span>
@@ -258,7 +243,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="date">5/2</span>
 															<span class="name">鈴木 一郎</span>
@@ -268,7 +253,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar1.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" class="avatar_m">
 															</span>
 															<span class="date">4/8</span>
 															<span class="name">木村 一郎</span>
@@ -278,7 +263,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar2.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" class="avatar_m">
 															</span>
 															<span class="date">3/15</span>
 															<span class="name">田村 涼子</span>
@@ -288,7 +273,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/_mock/avatar3.jpg" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" class="avatar_m">
 															</span>
 															<span class="date">2/12</span>
 															<span class="name">山田 花子</span>
@@ -298,7 +283,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="date">2013/12/20</span>
 															<span class="name">鈴木 一郎</span>
@@ -308,7 +293,7 @@
 													<li>
 														<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 															<span class="avatar">
-																<img src="themes/default/images/common/group_default.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/group_default.png" class="avatar_m">
 															</span>
 															<span class="date">2013/12/5</span>
 															<span class="name">長いルーム名長いルーム名長いルーム名長いルーム名</span>
@@ -347,7 +332,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">アーノルド シュワルツェネッガー</span>
 														</a>
@@ -355,7 +340,7 @@
 													<li class="active">
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">浅井 長政</span>
 														</a>
@@ -363,7 +348,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">明智 光秀</span>
 														</a>
@@ -371,7 +356,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">石田 三成</span>
 														</a>
@@ -379,7 +364,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">上杉 謙信</span>
 														</a>
@@ -387,7 +372,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">織田 信長</span>
 														</a>
@@ -398,7 +383,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">加藤 清正</span>
 														</a>
@@ -406,7 +391,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">木下 藤吉郎</span>
 														</a>
@@ -414,7 +399,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">黒田 官兵衛</span>
 														</a>
@@ -425,7 +410,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">真田 信繁</span>
 														</a>
@@ -433,7 +418,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">柴田 勝家</span>
 														</a>
@@ -441,7 +426,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">島 左近</span>
 														</a>
@@ -449,7 +434,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">島津 豊久</span>
 														</a>
@@ -460,7 +445,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">武田 信玄</span>
 														</a>
@@ -468,7 +453,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">伊達 政宗</span>
 														</a>
@@ -476,7 +461,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">長宗我部 元親</span>
 														</a>
@@ -484,7 +469,7 @@
 													<li>
 														<a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="themes/default/images/common/avatar_default3.png" class="avatar_m">
+																<img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_m">
 															</span>
 															<span class="name">徳川 家康</span>
 														</a>
@@ -505,34 +490,34 @@
 
 									<div class="roomHeader clearfix">
 										<ul class="userListIcon clearfix">
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
 										</ul>
 										<div class="floatRight">
 											<a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_roomSetting');"><i class="icon-gear"></i></a>
@@ -572,7 +557,7 @@
 										<div id="messageTimeline1" class="timeline scroll">
 
 											<div id="message***" class="message invite">
-												<div class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="body">
 														田村 涼子さんが参加しました。
@@ -585,7 +570,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -601,7 +586,7 @@
 
 											<div id="message***" class="message">
 												<div class="avatar">
-													<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">
+													<img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">
 												</div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
@@ -625,7 +610,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -649,7 +634,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -662,7 +647,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -689,7 +674,7 @@
 										<div id="messageTimeline" class="timeline scroll">
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -707,7 +692,7 @@
 
 											<div id="message***" class="message">
 												<div class="avatar">
-													<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
+													<img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -731,7 +716,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -756,7 +741,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -770,7 +755,7 @@
 											</div>
 
 											<div id="message***" class="message">
-												<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 												<div class="messageContents">
 													<div class="name">名前 名前</div>
 													<div class="body">
@@ -792,7 +777,7 @@
 											<div id="messageFavorites" class="scroll">
 												<div class="timeline">
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -810,7 +795,7 @@
 
 													<div id="message***" class="message">
 														<div class="avatar">
-															<img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
+															<img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -834,7 +819,7 @@
 													</div>
 
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -859,7 +844,7 @@
 													</div>
 
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -873,7 +858,7 @@
 													</div>
 
 													<div id="message***" class="message">
-														<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 														<div class="messageContents">
 															<div class="name">名前 名前</div>
 															<div class="body">
@@ -903,10 +888,10 @@
 
 									<div class="roomHeader clearfix">
 										<ul class="userListIcon clearfix">
-											<li><span class="avatar"><img src="themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
-											<li><span class="avatar"><img src="themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar2.jpg" title="田村 涼子" width="24" height="24" class="avatar_s"></span></li>
+											<li><span class="avatar"><img src="../htmlmock/themes/default/images/_mock/avatar3.jpg" title="山田 花子" width="24" height="24" class="avatar_s"></span></li>
 										</ul>
 										<div class="floatRight">
 											<a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_roomSetting');"><i class="icon-gear"></i></a>
@@ -966,7 +951,7 @@
 					<div class="dropdown_list">
 						<ul>
 							<li class="new"><a href="javascript:void(0)">
-								<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
 								<div class="body">
 									<div class="date">10:05</div>
 									<div class="name">木村 一郎とその他3人</div>
@@ -974,7 +959,7 @@
 								</div>
 							</a></li>
 							<li class="new"><a href="javascript:void(0)">
-								<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
 								<div class="body">
 									<div class="date">10:00</div>
 									<div class="name">山田 太朗</div>
@@ -982,7 +967,7 @@
 								</div>
 							</a></li>
 							<li><a href="javascript:void(0)">
-								<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
 								<div class="body">
 									<div class="date">9:30</div>
 									<div class="name">田村 涼子</div>
@@ -990,7 +975,7 @@
 								</div>
 							</a></li>
 							<li><a href="javascript:void(0)">
-								<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
 								<div class="body">
 									<div class="date">5/20</div>
 									<div class="name">木村 一郎とその他3人</div>
@@ -998,7 +983,7 @@
 								</div>
 							</a></li>
 							<li><a href="javascript:void(0)">
-								<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
 								<div class="body">
 									<div class="date">4/5</div>
 									<div class="name">山田 太朗</div>
@@ -1081,7 +1066,7 @@
 		</ul>
 		<ul class="hdTools">
 			<li>
-				<a href="javascript:void(0)" id="toggle_settings" class="last" onclick="dropdownToggle(this,'dd_settings')"><img src="themes/default/images/_mock/avatar1.jpg" width="32" height="32" class="avatar_m"><span class="name">木村 一郎</span></a>
+				<a href="javascript:void(0)" id="toggle_settings" class="last" onclick="dropdownToggle(this,'dd_settings')"><img src="../htmlmock/themes/default/images/_mock/avatar1.jpg" width="32" height="32" class="avatar_m"><span class="name">木村 一郎</span></a>
 				<div class="dropdown" id="dd_settings">
 					<ul class="dropdown_menu">
 						<li><a href="javascript:void(0)">個人設定</a></li>
@@ -1105,6 +1090,37 @@
 <noscript>
 	<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
 </noscript>
+
+<!--div class="alert bgGray">
+	<div class="alertTool"><a href="javascript:void(0)"><i class="icon-remove"></i></a></div>
+	<div class="alertHead">
+		重要なお知らせ
+	</div>
+	<div class="alertBody">
+		<p>下記日程にてAipo.comのメンテナンスを行わせて頂きます。</p>
+		<p class="mt10 mb10"><strong>日程：</strong> 2014年6月10日　19:00～20:00</p>
+		<p>メンテナンス中はAipo.comをご利用いただくことができません。<br>大変ご迷惑をおかけいたしますがご了承のほど何卒宜しくお願い申し上げます。</p>
+	</div>
+</div-->
+
+
+<!--div id="auiLauncher">
+	<ul class="launcher">
+		<li><a href="todo/index.html" title="スケジュール"><i class="icon-calendar"></i><span class="name">スケジュール</span></a></li>
+		<li><a href="todo/index.html" title="Webメール"><i class="icon-envelope-alt"></i><span class="name">Webメール</span></a></li>
+		<li><a href="todo/index.html" title="掲示板"><i class="icon-picture"></i><span class="name">掲示板</span></a></li>
+		<li><a href="todo/index.html" title="ブログ"><i class="icon-book"></i><span class="name">ブログ</span></a></li>
+		<li><a href="todo/index.html" title="伝言メモ"><i class="icon-phone"></i><span class="name">伝言メモ</span></a></li>
+		<li><a href="todo/index.html" title="ToDo"><i class="icon-list-ul"></i><span class="name">ToDo</span></a></li>
+		<li><a href="todo/index.html" title="フォルダ"><i class="icon-folder-open"></i><span class="name">フォルダ</span></a></li>
+		<li><a href="todo/index.html" title="報告書"><i class="icon-file-text-alt"></i><span class="name">報告書</span></a></li>
+		<li><a href="todo/index.html" title="ワークフロー"><i class="icon-inbox"></i><span class="name">ワークフロー</span></a></li>
+	</ul>
+	<ul class="setting">
+		<li><a href="javascript:void(0)" title="ランチャー設定" class="jq-alert"><i class="icon-cogs"></i><span class="name">ランチャー設定</span></a></li>
+	</ul>
+</div-->
+
 
 <!-- .tableWrapper -->
 <table class="tableWrapper">
@@ -1429,270 +1445,195 @@
 </div>
 <!-- /auiPortlet -->
 </td>
-<td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-<!-- auiPortlet -->
+<td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true"><!-- auiPortlet -->
 <div class="dojoDndItem auiPortlet">
-	<div class="auiPortletHead">
-		<div class="inner">
-			<div class="auiPortletTitle"><a href="#">タイムライン</a></div>
-			<div class="auiPortletTool">
-				<div class="auiPortletAction"><a href="#">トピック追加</a></div>
-				<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
+<div class="auiPortletHead">
+	<div class="inner">
+		<div class="auiPortletTitle"><a href="#">タイムライン</a></div>
+		<div class="auiPortletTool">
+			<div class="auiPortletAction"><a href="#">トピック追加</a></div>
+			<div class="auiPortletSetting"><a href="javascript:void(0);" title="カスタマイズ"><span class="auiWFicon"><i class="icon-cog"></i></span></a>
 
-					<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
-						<ul>
-							<li><a href="#">設定</a></li>
-							<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
-						</ul>
-					</div>
+				<div class="menubar" id="menubar_test1" style="position: absolute; display: none; ">
+					<ul>
+						<li><a href="#">設定</a></li>
+						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- auiPortletBody -->
-	<div class="auiPortletBody">
-		<div class="inner">
-			<div class="timelineOuter">
-				<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
-				<!-- inputField -->
-				<div class="inputField">
-					<form name="" id="" action="" method="post" onsubmit="">
-						<input type="hidden" name="_name" value="timelineForm">
-						<input type="hidden" name="secid" value="">
+</div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody">
+	<div class="inner">
+		<div class="timelineOuter">
+			<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+			<!-- inputField -->
+			<div class="inputField">
+				<form name="" id="" action="" method="post" onsubmit="">
+					<input type="hidden" name="_name" value="timelineForm">
+					<input type="hidden" name="secid" value="">
 
-						<div class="tlInputMention">
-							<textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
-						</div>
-						<div class="tlInputAttachment">
-							<div class="floatRight"><a href="#"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
-							<div class="tlClipBoard clearfix">
-								<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="160" height="120"/></a></div>
-								<div class="tlClipContents">
-									<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-									<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-									<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-								</div>
-							</div>
-						</div>
-						<!-- tlInputControls -->
-						<div class="tlInputControls clearfix">
-							<div class="floatLeft" style="width: 140px;">
-								<div id="uploadContainer">
-									<div class="auiButtonBold" style="position: relative; display:block; width: 140px;">
-										<span class="uploadText">ファイルを追加する</span>
-										<input type="file" id="attachment" name="attachment" style="position: absolute; right: 0px; top: 0px; z-index: 1; font-size: 50px; cursor: pointer; opacity: 0; filter:alpha(opacity=0);" onchange="submitMini(this.form, 'P-135e7e25490-10b76');">
-									</div>
-								</div>
-							</div>
-							<div class="floatRight">
-								<ul class="clearfix">
-									<li>
-										<input type="submit" class="auiButtonAction" value="投稿する"/>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<!-- /tlInputControls --> </form>
-				</div>
-				<!-- /inputField -->
-				<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>
-				<div class="tlDisplayChanger">
-					<div class="btn"><i class="indicator"></i> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a></div>
-					<div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
-						<ul>
-							<li><a href="#" class="selected">すべてのグループ</a></li>
-							<li><a href="#">管理本部</a></li>
-							<li><a href="#">開発本部</a></li>
-							<li><a href="#">企画本部</a></li>
-							<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
-						</ul>
+					<div class="tlInputMention">
+						<textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
 					</div>
+					<div class="tlInputAttachment">
+						<div class="floatRight"><a href="#"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
+						<div class="tlClipBoard clearfix">
+							<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="160" height="120"/></a></div>
+							<div class="tlClipContents">
+								<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+								<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+								<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+							</div>
+						</div>
+					</div>
+					<!-- tlInputControls -->
+					<div class="tlInputControls clearfix">
+						<div class="floatLeft" style="width: 130px;">
+							<div id="uploadContainer">
+								<div class="auiButtonBold" style="position: relative; display:block;">
+									<span class="uploadText">ファイルを追加する</span>
+									<input type="file" id="attachment" name="attachment" style="position: absolute; right: 0px; top: 0px; z-index: 1; font-size: 50px; cursor: pointer; opacity: 0; filter:alpha(opacity=0);" onchange="submitMini(this.form, 'P-135e7e25490-10b76');">
+								</div>
+							</div>
+						</div>
+						<div class="floatRight">
+							<ul class="clearfix">
+								<li>
+									<input type="submit" class="auiButtonAction" value="投稿する"/>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- /tlInputControls --> </form>
+			</div>
+			<!-- /inputField -->
+			<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>
+			<div class="tlDisplayChanger">
+				<div class="btn"><i class="indicator"></i> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a></div>
+				<div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
+					<ul>
+						<li><a href="#" class="selected">すべてのグループ</a></li>
+						<li><a href="#">管理本部</a></li>
+						<li><a href="#">開発本部</a></li>
+						<li><a href="#">企画本部</a></li>
+						<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
+					</ul>
 				</div>
-				<div id="timeline" class="timeline" style="min-height:750px;">
-					<div id="content_xxx">
-						<input id="readHidden_P-135e7e25490-10b76" type="hidden" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b76?template=TimelineContentScreen&amp;start=2', 'P-135e7e25490-10b76', '1', '82');"/>
-						<input type="hidden" id="last_timelineId_P-135e7e25490-10b76" value="4072"/>
+			</div>
+			<div id="timeline" class="timeline" style="min-height:750px;">
+				<div id="content_xxx">
+					<input id="readHidden_P-135e7e25490-10b76" type="hidden" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135e7e25490-10b76?template=TimelineContentScreen&amp;start=2', 'P-135e7e25490-10b76', '1', '82');"/>
+					<input type="hidden" id="last_timelineId_P-135e7e25490-10b76" value="4072"/>
 
-						<div id="message21" class="message first">
-							<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
-							<div class="messageContents">
-								<div class="name">名前 名前</div>
-								<div class="body">長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。<br><br>
-									長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。<br><br>
+					<div id="message21" class="message first">
+						<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+								<div class="body"> 画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。<br><br>
 									長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。<br><br>
+									長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。
+								<p class="more">...<br/>
+									<a href="#">続きを読む</a></p>
+								<div class="tlImageBlock clearfix"><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a>
+							</div>
+						</div>
+					</div>
+					<div id="comments21" class="comments">
+						<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div id="message112" class="message">
+							<form name="" id="" action="">
+								<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+								<div class="messageContents">
+									<div class="name">ユーザー名</div>
+									<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
+										<p class="more">...<br/>
+											<a href="#">続きを読む</a></p>
+									</div>
+									<div class="time">16:51</div>
 								</div>
-								<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
-									<form style="display:inline">
-										<input type="hidden" name="secid" value="">
-										<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
-									</form>
-									<a href="javascript:void(0)" onclick="">コメントする</a>
-								</div>
-							</div>
+							</form>
 						</div>
-						<div id="comments21" class="comments">
-							<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
-							<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
-							<div id="message112" class="message">
-								<form name="" id="" action="">
-									<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-									<div class="messageContents">
-										<div class="name">ユーザー名</div>
-										<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
-											<p class="more">...<br/>
-												<a href="#">続きを読む</a></p>
-										</div>
-										<div class="time">16:51</div>
-									</div>
-								</form>
-							</div>
-							<div id="message112" class="message">
-								<form name="" id="" action="">
-									<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-									<div class="messageContents">
-										<div class="name">ユーザー名</div>
-										<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
-											<p class="more">...<br/>
-												<a href="#">続きを読む</a></p>
-										</div>
-										<div class="time">16:51</div>
-									</div>
-								</form>
-							</div>
-							<div id="message112" class="message">
-								<form name="" id="" action="">
-									<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-									<div class="messageContents">
-										<div class="name">ユーザー名</div>
-										<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
-											<p class="more">...<br/>
-												<a href="#">続きを読む</a></p>
-										</div>
-										<div class="time">16:51</div>
-									</div>
-								</form>
-							</div>
-							<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
-							<div id="commentField175" class="commentField" style="">
-								<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-								<form name="" id="" action="" method="post" onsubmit="">
-									<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
-
-									<div class="outer">
-										<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
-									</div>
-									<div class="right"><a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a></div>
-								</form>
-							</div>
-						</div>
-
-						<div id="message21" class="message">
-							<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
-							<div class="messageContents">
-								<div class="name">名前 名前</div>
-								<div class="body"> 画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。
-									<p class="more">...<br/>
-										<a href="#">続きを読む</a></p>
-									<div class="tlImageBlock clearfix"><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a><a href="timeline_imgpopup.html"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
-								</div>
-								<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
-									<form style="display:inline">
-										<input type="hidden" name="secid" value="">
-										<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
-									</form>
-									<a href="javascript:void(0)" onclick="">コメントする</a>
-								</div>
-							</div>
-						</div>
-						<div id="comments21" class="comments">
-							<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
-							<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
-							<div id="message112" class="message">
-								<form name="" id="" action="">
-									<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-									<div class="messageContents">
-										<div class="name">ユーザー名</div>
-										<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
-											<p class="more">...<br/>
-												<a href="#">続きを読む</a></p>
-										</div>
-										<div class="time">16:51</div>
-									</div>
-								</form>
-							</div>
-							<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
-							<div id="commentField175" class="commentField" style="">
-								<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-								<form name="" id="" action="" method="post" onsubmit="">
-									<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
-
-									<div class="outer">
-										<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
-									</div>
-									<div class="right"><a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a></div>
-								</form>
-							</div>
-						</div>
-
-						<div id="message21" class="message">
-							<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
-							<div class="messageContents">
-								<div class="name">名前 名前</div>
-								<div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
-									<div class="tlClipBoard clearfix">
-										<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
-										<div class="tlClipContents">
-											<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-											<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-											<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
-										</div>
-									</div>
-								</div>
-								<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
-									<form style="display:inline">
-										<input type="hidden" name="secid" value="">
-										<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
-									</form>
-									<a href="javascript:void(0)" onclick="">コメントする</a></div>
-							</div>
-						</div>
-						<div id="comments21" class="comments">
-							<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
-							<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
-							<div id="message112" class="message">
-								<form name="" id="" action="">
-									<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
-									<div class="messageContents">
-										<div class="name">ユーザー名</div>
-										<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-										<div class="time">16:51</div>
-									</div>
-								</form>
-							</div>
-							<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
-						</div>
-
-						<div id="commentField21" class="commentField" style="display:none">
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+						<div id="commentField175" class="commentField" style="">
+							<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
 							<form name="" id="" action="" method="post" onsubmit="">
-								<input type="hidden" name="secid" value="">
+								<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
 
 								<div class="outer">
-									<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+									<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
 								</div>
-								<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
+								<div class="right"><a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a></div>
 							</form>
 						</div>
 					</div>
-					<div class="readMore"><a href="javascript:void(0);">もっと見る</a></div>
+					<div id="message21" class="message">
+						<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a></div>
+						</div>
+					</div>
+					<div id="comments21" class="comments">
+						<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div id="message112" class="message">
+							<form name="" id="" action="">
+								<div class="avatar"><img src="../htmlmock/themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+								<div class="messageContents">
+									<div class="name">ユーザー名</div>
+									<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
+									<div class="time">16:51</div>
+								</div>
+							</form>
+						</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+					</div>
+					<div id="commentField21" class="commentField" style="display:none">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="secid" value="">
+
+							<div class="outer">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+							</div>
+							<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
+						</form>
+					</div>
 				</div>
+				<div class="readMore"><a href="javascript:void(0);">もっと見る</a></div>
 			</div>
 		</div>
 	</div>
-	<!-- /auiPortletBody -->
-	<div class="auiPortletFoot">
-		<div class="inner"></div>
-	</div>
+</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+	<div class="inner"></div>
+</div>
 </div>
 <!-- /auiPortlet -->
 
@@ -2691,7 +2632,7 @@
 				<li>
 					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar1.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar1.jpg">
 						</span>
 						<div class="nrCount">5</div>
 						<span class="date">15:05</span>
@@ -2702,7 +2643,7 @@
 				<li>
 					<a href="javascript:void(0)" class="noread" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar2.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar2.jpg">
 						</span>
 						<div class="nrCount">99+</div>
 						<span class="date">9:50</span>
@@ -2724,7 +2665,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar3.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">6/29</span>
@@ -2735,7 +2676,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/common/avatar_default3.png">
+							<img src="../htmlmock/themes/default/images/common/avatar_default3.png">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">5/2</span>
@@ -2746,7 +2687,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar1.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar1.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">4/8</span>
@@ -2757,7 +2698,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar2.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar2.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">3/15</span>
@@ -2768,7 +2709,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/_mock/avatar3.jpg">
+							<img src="../htmlmock/themes/default/images/_mock/avatar3.jpg">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">2/12</span>
@@ -2779,7 +2720,7 @@
 				<li>
 					<a href="javascript:void(0)" onclick="popupToggle(this,'modalDialog_messageroom');popupToggle(this,'popupMask');">
 						<span class="avatar">
-							<img src="themes/default/images/common/avatar_default3.png">
+							<img src="../htmlmock/themes/default/images/common/avatar_default3.png">
 						</span>
 						<div class="nrCount">0</div>
 						<span class="date">2013/12/20</span>
@@ -2825,6 +2766,58 @@
 
 </div>
 <!-- /rowndMainWrapper  -->
+
+<!-- .activityPopup -->
+<div class="dijitPopup" style="z-index: 1000; visibility: visible; top:30px; right:340px; ">
+	<div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
+		<div class="activityPopup">
+			<div class="clearfix">
+				<div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
+					<h2>あなた宛のお知らせ</h2>
+
+					<div style="background:#ffffff;padding:2px;">
+						<div class="auiSummaryMeta clearfix">
+							<div class="floatRight">
+								<div class="count">1 - 5 / 20</div>
+								<div class="auiSelectButton floatLeft">
+									<ul>
+										<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
+										<li title="次へ"><a href="javascript:void(0);" onclick="" class="last arrow"><i class="icon-caret-right"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<ul class="activityList">
+							<li class="unread">
+								<div class="meta">12月26日 &nbsp; 山本 次郎</div>
+								<a href="javascript:void(0);" onclick="">予定「お客様訪問」を編集しました。</a>
+							</li>
+							<li>
+								<div class="meta">12月26日 &nbsp; 高橋 四郎</div>
+								<img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle"> <a href="javascript:void(0);" onclick="">あなたの投稿にコメントしました。</a>
+							</li>
+							<li>
+								<div class="meta">12月22日 &nbsp; 山中 愛子</div>
+								<a href="javascript:void(0);" onclick="">山田様より伝言「伝言をお願いします。」がありました。</a>
+							</li>
+							<li>
+								<div class="meta">12月21日 &nbsp; 山本 次郎</div>
+								<a href="javascript:void(0);" onclick="">予定「お客様修正連絡」を追加しました。</a>
+							</li>
+							<li>
+								<div class="meta">12月21日 &nbsp; 田村 三郎</div>
+								<a href="javascript:void(0);" onclick="">報告書「業務報告」の確認依頼を出しました。</a>
+							</li>
+						</ul>
+						<p class="rightBtn"><a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;
+							<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /activityPopup -->
 
 <!-- menubar_auiFilter_1 -->
 <div class="menubar multi" id="menubar_auiFilter_1" style="width:390px;top:526px; left:33px;display:none;">
@@ -2978,15 +2971,15 @@
 				<p class="center">すべてのユーザーの配置を変更できます。</p>
 				<ul class="auiRowList mb10">
 					<li>
-						<label for="layout01"> <span class="section auiRowListImg"><img src="themes/default/images/function/btn_selectlayout_timeline.gif" alt="タイムラインメイン" width="130" height="130"></span> <span class="section">
+						<label for="layout01"> <span class="section auiRowListImg"><img src="../htmlmock/themes/default/images/function/btn_selectlayout_timeline.gif" alt="タイムラインメイン" width="130" height="130"></span> <span class="section">
               <input type="radio" name="layout" id="layout01" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'timeline')"></span> <span class="section small">「タイムライン」を中心に配置</span> </label>
 					</li>
 					<li>
-						<label for="layout02"> <span class="section auiRowListImg"><img src="themes/default/images/function/btn_selectlayout_schedule.gif" alt="スケジュールメイン" width="130" height="130"></span> <span class="section">
+						<label for="layout02"> <span class="section auiRowListImg"><img src="../htmlmock/themes/default/images/function/btn_selectlayout_schedule.gif" alt="スケジュールメイン" width="130" height="130"></span> <span class="section">
               <input type="radio" name="layout" id="layout02" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'schedule')"></span> <span class="section small">「スケジュール」を中心に配置</span> </label>
 					</li>
 					<li>
-						<label for="layout03"> <span class="section auiRowListImg"><img src="themes/default/images/function/btn_selectlayout_mine.gif" alt="あなたの現在の配置" width="130" height="130"></span> <span class="section">
+						<label for="layout03"> <span class="section auiRowListImg"><img src="../htmlmock/themes/default/images/function/btn_selectlayout_mine.gif" alt="あなたの現在の配置" width="130" height="130"></span> <span class="section">
               <input type="radio" name="layout" id="layout03" onclick="aipo.saas_gadgets.beforeSubmit(this,'121', 'all_user')"></span> <span class="section small">あなたの現在の配置を適用</span> </label>
 					</li>
 				</ul>
@@ -3134,7 +3127,7 @@
 						<tr>
 							<td class="caption"><span class="">ルームアイコン</span></td>
 							<td class="center">
-								<p><img src="themes/default/images/common/group_default.png" width="50" height="50" class="avatar_l"></p>
+								<p><img src="../htmlmock/themes/default/images/common/group_default.png" width="50" height="50" class="avatar_l"></p>
 								<input type="file">
 							</td>
 						</tr>
@@ -3150,6 +3143,48 @@
 		</div>
 	</div>
 </div>
+
+<div id="modalDialog" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top: 50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="auiPopup clearfix">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">ページ追加</div>
+			</div>
+			<div class="roundBlockContent">
+				<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
+				<div id="messageDiv"></div>
+				<form name="" id="" action="" method="post">
+					<table class="listTable wide">
+						<tbody>
+						<tr>
+							<td class="caption"><span class="required">ページ名</span></td>
+							<td><input class="text w100" type="text" name="page_title" id="page_title" value="" maxlength="10" style="ime-mode:active"></td>
+						</tr>
+						<tr>
+							<td class="caption">コピー元</td>
+							<td><select>
+								<option>コピーしない</option>
+								<option>マイページ</option>
+							</select></td>
+						</tr>
+						</tbody>
+					</table>
+
+					<div class="center auiPopupButtons">
+						<input name="" class="auiButtonAction" type="submit" id="" value="追加する" onclick="">
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog');popupToggle(this,'popupMask');">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 </body>
 </html>

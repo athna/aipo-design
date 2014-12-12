@@ -15,23 +15,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		/*haml: {
-			dist: {
-				files: {
-					'html/test.html': 'haml/test.haml'
-				}
-			}
-		},*/
-		/*coffee: {
-			compile: {
-				files: {
-					'themes/default/js/index.js': ['themes/default/coffee/*.coffee']
-				}
-			}
-		},*/
-		/*jshint: {
-			files: ['js/index.js']
-		},*/
 		watch: {
 			files: ['themes/default/sass/*.scss'],
 			tasks: ['compass']

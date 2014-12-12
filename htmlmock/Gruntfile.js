@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 		cssmin: {
 			compress: {
 				files: {
-					'./themes/default/css/style-min.css': ['themes/default/css/style.css']
+					'./themes/default/css/aui-min.css': ['themes/default/css/aui.css']
 				}
 			}
 		},

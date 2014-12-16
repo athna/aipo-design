@@ -10,6 +10,10 @@
 	@include border-radius(4px);
 }
 //--------------------------------------------------
+// mobile only variables
+$outerPadding:	5px;
+
+//--------------------------------------------------
 
 
 /***************************************************
@@ -2383,4 +2387,31 @@ body.messageRoomList {
 			}
 		}
 	}
+}
+
+/***************************************************
+	row & col
+--------------------------------------------------*/
+.row {
+	display: block;
+	margin-right: -$outerPadding;
+}
+[class*=col-] {
+	display: block;
+	position: relative;
+	float: left;
+	padding-right: 5px;
+	@include box-sizing(border-box);
+
+	input[type=text],
+	input[type=password],
+	select {
+		width: 100%;
+	}
+}
+.col-2 {
+	width: 50%;
+}
+.col-3 {
+	width: 33.3%;
 }

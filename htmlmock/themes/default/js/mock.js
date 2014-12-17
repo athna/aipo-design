@@ -234,6 +234,7 @@ function phBlur($this) {
 }
 
 function checkCount($obj, $target) {
+
 	var obj = document.getElementById($obj);
 	var inputs = obj.getElementsByTagName("input");
 	var chkCount = 0;	//チェックカウンター

@@ -11,7 +11,7 @@
 }
 //--------------------------------------------------
 // mobile only variables
-$outerPadding:	5px;
+$outerPadding:	10px;
 
 //--------------------------------------------------
 
@@ -163,11 +163,11 @@ input[type=password] {
 		display:none;
 	}
 	.auiPortletBody {
-		margin-top:6px;
+		margin-top: $outerPadding;
 		border: none;
 	}
 	.auiPortletBody > .inner {
-		padding:0 5px;
+		padding:0 $outerPadding;
 	}
 	.auiPortletFoot {
 		display: none;
@@ -203,19 +203,19 @@ input[type=password] {
 $auiMbCaptionHeight:	18px !default;
 .auiMbTable {
 	display:block;
-    margin:0 -5px;
-    padding:0 5px;
+    margin:0 (-$outerPadding);
+    padding:0 $outerPadding;
 	border-top:solid 1px $grayBorderLight;
 
     tbody {
-        margin:0 -5px;
+        margin:0 (-$outerPadding);
         display:block;
     }
     tr:first-child {
         display:none;
     }
     tr {
-        padding:5px 5px 7px 5px;
+        padding:5px $outerPadding 7px $outerPadding;
         display:block;
         overflow:hidden;
         border-bottom:solid 1px $grayBorderLight;
@@ -248,7 +248,7 @@ $auiMbCaptionHeight:	18px !default;
         float:left;
         width:auto;
         margin:0;
-        padding:4px 10px 0 5px;
+        padding:4px 10px 0 0;
         vertical-align:middle;
 
         input[type=checkbox] {
@@ -1335,13 +1335,13 @@ ul.hdCommunications {
     }
 }
 .widgetButton {
-	position:absolute;
-	padding:5px !important;
+	position: absolute;
+	padding: 5px $outerPadding !important;
 }
 .snDrawer {
 	float:right;
 	//padding:4px;
-    padding-right:5px;
+    padding-right: 5px;
 
 	a {
     	display:inline-block;
@@ -1729,7 +1729,7 @@ ul.hdCommunications {
 --------------------------------------------------*/
 .alert {
 	.roundMainWrapper & {
-		margin: 5px 5px 0 5px;
+		margin: $outerPadding $outerPadding 0 $outerPadding;
 	}
 }
 
@@ -1741,6 +1741,9 @@ ul.hdCommunications {
 	.count {
 		height:$inputHeight + 2;
 		line-height:$inputHeight + 2;
+	}
+	&:first-child {
+		margin-top: 0;
 	}
 }
 .auiSelectButton {
@@ -2219,7 +2222,7 @@ body.messageRoomList {
 	}
 }
 .sideBlock {
-	margin: -5px -5px -20px -5px;
+	margin: (-$outerPadding) (-$outerPadding) -20px (-$outerPadding);
 }
 .messageOuter {
 	.inputField {
@@ -2394,7 +2397,7 @@ body.messageRoomList {
 --------------------------------------------------*/
 .row {
 	display: block;
-	margin-right: -$outerPadding;
+	margin-right: -5px;
 }
 [class*=col-] {
 	display: block;

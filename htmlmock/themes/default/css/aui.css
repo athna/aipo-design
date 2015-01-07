@@ -72,7 +72,7 @@
 
 .border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdCommunications .num, .dropdown,
 .activityPopup, .supportPopup, .dropdown .title,
-.activityPopup .title, .supportPopup .title, #dd_message .subContents, .messageSummary li a, .messageUserlist ul li a, .scroll, #auiLauncher ul.launcher li a,
+.activityPopup .title, .supportPopup .title, #dd_message .subContents, .scroll, #auiLauncher ul.launcher li a,
 #auiLauncher ul.setting li a, .auiTabs .tab > li a, .guideList li {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -161,7 +161,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
   background-color: #f0f0f0;
 }
@@ -411,7 +411,7 @@ input[type=submit], input[type=button], input[type=reset] {
   color: #333;
 }
 .search .placeholder {
-  top: 7px !important;
+  top: 6px !important;
   line-height: 1.6;
 }
 .search .indicator {
@@ -561,15 +561,15 @@ ul.hdCommunications .num {
   top: 8px;
   right: 8px;
   width: auto;
-  height: 13px;
-  min-width: 13px;
-  line-height: 13px;
+  min-width: 14px;
+  line-height: 1.4;
   padding: 0 3px;
   font-size: 10px;
   text-align: center;
   background-color: #ff3333;
   color: #ffffff;
   white-space: nowrap;
+  text-decoration: none;
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -625,6 +625,7 @@ ul.hdTools > li > a {
 }
 ul.hdTools > li > a:hover, ul.hdTools > li > a:hover .name {
   color: #333;
+  text-decoration: none;
 }
 ul.hdTools > li > a [class^="icon-"], ul.hdTools > li > a [class*=" icon-"] {
   line-height: 50px;
@@ -821,9 +822,6 @@ ul.hdTools .dropdown:before {
 #dd_message .mainBlock > .contents {
   padding: 10px 10px 0 10px;
 }
-#dd_message .mainBlock .body {
-  font-size: 13px;
-}
 #dd_message .timelineOuter .message:first-child {
   padding-top: 0 !important;
 }
@@ -838,7 +836,7 @@ ul.hdTools .dropdown:before {
 
 .counter {
   float: left !important;
-  font-size: 9px;
+  font-size: 10px;
   height: 13px;
   min-width: 11px;
   line-height: 13px !important;
@@ -855,9 +853,6 @@ ul.hdTools .dropdown:before {
   background: #b5b5b5 !important;
 }
 
-.messageSummary, .messageUserlist ul {
-  font-size: 11px;
-}
 .messageSummary li, .messageUserlist ul li {
   position: relative;
   padding: 0;
@@ -869,6 +864,9 @@ ul.hdTools .dropdown:before {
   height: 44px;
   text-decoration: none;
   color: #999;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .messageSummary li a .name, .messageUserlist ul li a .name {
   color: #ffffff;
@@ -876,12 +874,19 @@ ul.hdTools .dropdown:before {
 .messageSummary li a:hover, .messageUserlist ul li a:hover {
   color: #ff9900;
   background-color: #222;
+  text-decoration: none;
+}
+.messageSummary li a:hover span, .messageUserlist ul li a:hover span {
+  text-decoration: none;
 }
 .messageSummary li a:hover .name, .messageUserlist ul li a:hover .name {
   color: #ff9900;
 }
 .messageSummary li span, .messageUserlist ul li span {
   display: block;
+}
+.messageSummary li .latest, .messageSummary li .date, .messageUserlist ul li .latest, .messageUserlist ul li .date {
+  font-size: 11px;
 }
 .messageSummary .avatar, .messageUserlist ul .avatar {
   position: absolute;
@@ -908,12 +913,11 @@ ul.hdTools .dropdown:before {
 .messageSummary .nrCount {
   float: left;
   display: inline-block;
-  height: 13px;
   min-width: 10px;
-  line-height: 13px;
+  line-height: 1.4;
   margin: 0 3px 0 0;
   padding: 0 2px;
-  font-size: 9px;
+  font-size: 10px;
   text-align: center;
   text-decoration: none;
   background-color: #ff3333;
@@ -1078,7 +1082,7 @@ ul.hdTools .dropdown:before {
   margin: 120px 0 170px;
 }
 .emptyMessage [class*=icon-] {
-  font-size: 10em;
+  font-size: 120px;
   color: #d2d2d2;
   text-shadow: 0 -1px 0 #b8b8b8;
 }
@@ -1218,7 +1222,7 @@ ul.hdTools .dropdown:before {
   height: 31px;
   line-height: 31px;
   vertical-align: middle;
-  font-size: 12px;
+  font-size: 13px;
 }
 .dateChanger .today {
   position: absolute;
@@ -2080,7 +2084,7 @@ button {
   padding: 0 5px;
   height: 24px !important;
   line-height: 24px !important;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 input[type=submit].auiButtonSmall,
@@ -2268,6 +2272,7 @@ button[disabled]:active {
 .auiSelectButtonSmall a:active,
 .auiSelectButtonSmall a:focus {
   position: relative;
+  text-decoration: none;
 }
 .auiSelectButton a.first,
 .auiSelectButton a.btn,
@@ -2296,6 +2301,7 @@ button[disabled]:active {
 .auiSelectButton a:hover span,
 .auiSelectButtonSmall a:hover span {
   color: #333333;
+  text-decoration: none;
 }
 .auiSelectButton span i,
 .auiSelectButton span img,
@@ -2634,17 +2640,9 @@ button.auiButtonIconDummy {
 	line-height: 100%;
 }
 */
-/***************************************************
-	icon
---------------------------------------------------*/
-[class^="auiButton"] .icon-remove {
-  font-size: 15px !important;
-  line-height: 15px !important;
-}
-
 .counter {
   float: left !important;
-  font-size: 9px;
+  font-size: 10px;
   height: 13px;
   min-width: 11px;
   line-height: 13px !important;
@@ -2878,7 +2876,7 @@ button.auiButtonIconDummy {
 .rightBtn {
   text-align: right;
   margin: 0;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 /* imgPopup */
@@ -2978,9 +2976,13 @@ button.auiButtonIconDummy {
 }
 .auiPortlet .auiPortletHead > .inner {
   background: url("../images/common/portlet_20140718.png") no-repeat left -100px;
+  height: 35px;
   padding: 10px;
   position: relative;
   overflow: hidden;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .auiPortlet .auiPortletBody .auiPortletHead > .inner {
   padding: 0 !important;
@@ -2988,7 +2990,6 @@ button.auiButtonIconDummy {
 .auiPortlet .auiPortletTitle {
   float: left;
   white-space: nowrap;
-  line-height: 15px;
 }
 .auiPortlet .auiPortletTool {
   background: url("../images/common/portlet_20140718.png") no-repeat right -200px;
@@ -3132,46 +3133,6 @@ button.auiButtonIconDummy {
 /***************************************************
 	footer
 --------------------------------------------------*/
-#footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  margin: 0;
-  font-size: 0.9em;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-  background: #666;
-  color: #fff;
-  overflow: hidden;
-  z-index: 995;
-}
-
-#footer a {
-  text-decoration: none;
-}
-
-#footText,
-#footText a {
-  color: #fff;
-}
-
-#footText a:hover {
-  text-decoration: underline;
-}
-
-#footText div {
-  display: inline;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 1em;
-  border-left: solid 1px #c0c0c0;
-}
-
-#footer div.copyright {
-  text-align: center;
-  border-left: none;
-}
-
 /***************************************************
 	startGuide
 --------------------------------------------------*/
@@ -3491,7 +3452,7 @@ $tabBackgroundImage:	"../images/tab.png";
   height: 43px;
   padding: 0;
   color: #fff;
-  font-size: 1.2em;
+  font-size: 14px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   border: none;
   background: url(../images/login_btn_back.png) 0px 0px no-repeat;
@@ -3716,7 +3677,7 @@ $tabBackgroundImage:	"../images/tab.png";
 
 #auiContentsArea h2, h2.caption {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 16px;
 }
 
 #auiThreeClumns {
@@ -4288,6 +4249,9 @@ $tabBackgroundImage:	"../images/tab.png";
   margin-left: 60px;
   word-break: break-all;
 }
+#auiContentsArea .entryText {
+  font-size: 14px;
+}
 
 .entryHeader {
   padding: 0 0 10px 0;
@@ -4628,9 +4592,6 @@ ul.attachments {
   top: -9px;
   right: 15px;
 }
-.tlDisplayChanger .btn a {
-  font-size: 11px;
-}
 .tlDisplayChanger .btn span {
   height: 20px;
   line-height: 20px;
@@ -4683,6 +4644,9 @@ ul.attachments {
 .timeline .comments .messageContents .time {
   margin-bottom: 0;
 }
+.timeline .comments .messageContents .body {
+  font-size: 13px;
+}
 .timeline .comments .message {
   margin: 0;
   padding: 5px !important;
@@ -4697,7 +4661,7 @@ ul.attachments {
 }
 .timeline .commentCaption {
   padding: 3px 5px;
-  font-size: smaller;
+  font-size: 11px;
 }
 .timeline .commentInputDummy {
   padding: 5px;
@@ -4728,13 +4692,13 @@ ul.attachments {
 }
 .messageContents .body {
   padding: 5px 0;
+  font-size: 14px;
 }
 .messageContents .body .more {
   margin: 0;
 }
 .messageContents .time {
-  font-size: 80%;
-  *font-size: 75%;
+  font-size: 11px;
   color: #434343;
 }
 .messageContents .time [class^="icon-"] {
@@ -4785,6 +4749,10 @@ ul.attachments {
 }
 
 /* clipBloard */
+.tlClipBoard {
+  font-size: 13px;
+}
+
 .tlClipImage {
   float: left;
   max-width: 90px;
@@ -4805,12 +4773,8 @@ ul.attachments {
   display: table-cell;
 }
 
-.tlClipTitle {
-  font-size: 12px;
-}
-
 .tlClipUrl {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .tlClipBody {
@@ -4969,7 +4933,6 @@ ul.attachments {
   height: 32px !important;
   line-height: 33px !important;
   white-space: nowrap;
-  font-size: 11px;
   cursor: pointer;
 }
 .filterTip > span {
@@ -4978,6 +4941,7 @@ ul.attachments {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-decoration: none;
 }
 .filterTip > a {
   position: absolute;
@@ -5270,7 +5234,7 @@ ul.attachments {
   -webkit-tap-highlight-color: transparent;
 }
 
-.auiMailList .auiWLCaption {
+.auiMailList .auiWLDate {
   font-weight: bold;
 }
 
@@ -5462,6 +5426,9 @@ ul.attachments {
 /***************************************************
 	auiWikiContent
 --------------------------------------------------*/
+.auiWikiContent {
+  font-size: 14px;
+}
 .auiWikiContent h1, .auiWikiContent h2, .auiWikiContent h3 {
   margin: 1em 0 !important;
 }
@@ -5575,7 +5542,6 @@ tr:first-child #gantt_task > table td {
 }
 #gantt_area .gantt_area_cell td {
   text-align: center;
-  font-size: 8px;
   height: 30px;
   border-right: 1px solid #d2d2d2;
 }
@@ -5587,7 +5553,6 @@ tr:first-child #gantt_task > table td {
 #gantt_area .gantt_tip {
   position: absolute;
   height: 10px;
-  font-size: 10px;
   border: 1px solid #999;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -6107,7 +6072,7 @@ html > body .auiLoadWrapper .loader {
   text-align: center;
 }
 .errorbox h1 {
-  font-size: 1.2em;
+  font-size: 16px;
   margin: 1em 0;
 }
 .errorbox ul, .errorbox ol {
@@ -6356,7 +6321,6 @@ iframe.iframe_messagelist {
 }
 
 :root .guideList {
-  font-size: 1px;
   letter-spacing: -1px;
   word-spacing: -1px;
 }
@@ -6369,7 +6333,6 @@ iframe.iframe_messagelist {
   width: 24.75%;
   min-width: 109px;
   vertical-align: top;
-  font-size: 12px;
   letter-spacing: normal;
   word-spacing: normal;
 }

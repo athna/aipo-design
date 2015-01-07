@@ -14,7 +14,7 @@
 
 .counter {
 	float:left !important;
-	font-size:9px;
+	font-size: $fontSizeMini;
 	height:13px;
 	min-width:11px;
 	line-height:13px !important;
@@ -87,7 +87,7 @@
 
 .auiPopupTool .auiButtonSmall {
 	padding:3px !important;
-	font-size:14px;
+	font-size: 14px;
 	color:lighten($grayDark,20);
 }
 .auiPopupTool .auiButtonSmall:hover i {
@@ -223,7 +223,7 @@
 .rightBtn {
 	text-align:right;
 	margin:0;
-	font-size:10px;
+	font-size: $fontSizeSmall;
 }
 /* imgPopup */
 .imgPopup {
@@ -317,9 +317,11 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 
 		> .inner {
 			background: url($portletBackground) no-repeat left -100px;
+			height: 35px;
 			padding: 10px;
 			position:relative;
 			overflow: hidden;
+			@include box-sizing(border-box);
 		}
 	}
 	.auiPortletBody .auiPortletHead > .inner {
@@ -328,7 +330,7 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 	.auiPortletTitle {
 		float:left;
 		white-space:nowrap;
-		line-height: 15px;
+		//line-height: 15px;
 	}
 	.auiPortletTool {
 		background: url($portletBackground) no-repeat right -200px;
@@ -341,6 +343,7 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 
 		> div {
 			float:left;
+			//line-height: 15px;
 			padding:0 5px;
 			background:#ffffff;
 			@include box-shadow(-5px 0 3px #ffffff);
@@ -360,7 +363,7 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 		a {
 			background:none;
 			color:#666666;
-			font-size:15px;
+			font-size: 15px;
 		}
 		a:hover {
 			color:$white;
@@ -638,40 +641,40 @@ $portletBackground:	"../images/common/portlet_20140718.png";
 /***************************************************
 	footer
 --------------------------------------------------*/
-#footer {
-	position:fixed;
-	bottom:0;
-	width:100%;
-	margin:0;
-	font-size:0.9em;
-	text-align:center;
-	text-shadow:0 1px 0 rgba(0,0,0,0.5);
-	background:#666;
-	color:#fff;
-	overflow:hidden;
-	z-index: $zindex-footer;
-}
-#footer a {
-	text-decoration:none;
-}
-#footText,
-#footText a {
-	color:#fff;
-}
-#footText a:hover {
-	text-decoration:underline;
-}
-#footText div {
-	display:inline;
-	height:30px;
-	line-height:30px;
-	padding:0 1em;
-	border-left:solid 1px $grayBorderDark;
-}
-#footer div.copyright {
-	text-align:center;
-	border-left:none;
-}
+//#footer {
+//	position:fixed;
+//	bottom:0;
+//	width:100%;
+//	margin:0;
+//	font-size: $fontSizeSmall;
+//	text-align:center;
+//	text-shadow:0 1px 0 rgba(0,0,0,0.5);
+//	background:#666;
+//	color:#fff;
+//	overflow:hidden;
+//	z-index: $zindex-footer;
+//}
+//#footer a {
+//	text-decoration:none;
+//}
+//#footText,
+//#footText a {
+//	color:#fff;
+//}
+//#footText a:hover {
+//	text-decoration:underline;
+//}
+//#footText div {
+//	display:inline;
+//	height:30px;
+//	line-height:30px;
+//	padding:0 1em;
+//	border-left:solid 1px $grayBorderDark;
+//}
+//#footer div.copyright {
+//	text-align:center;
+//	border-left:none;
+//}
 /***************************************************
 	startGuide
 --------------------------------------------------*/
@@ -985,7 +988,7 @@ $tabBackgroundImage:	"../images/tab.png";
 	height:43px;
 	padding:0;
 	color:#fff;
-	font-size:1.2em;
+	font-size: $fontSizeMiddle;
 	text-shadow:0 1px 0 rgba(0,0,0,0.2);
 	border:none;
 	background:url(../images/login_btn_back.png) 0px 0px no-repeat;
@@ -1134,7 +1137,7 @@ $tabBackgroundImage:	"../images/tab.png";
 .inlistCount {
 	color: $black;
 	display: inline-block;
-	font-size: 10px;
+	font-size: $fontSizeMini;
 	width: 20px;
 	margin: 0 5px 0 -5px;
 	text-align: center;
@@ -1227,7 +1230,7 @@ $submenuBackground:	"../images/common/bg_submenu_20140903.gif";
 }
 #auiContentsArea h2, h2.caption {
 	margin:0;
-	font-size:1.2em;
+	font-size: $fontSizeLarge;
 }
 #auiThreeClumns {
 	float:left;
@@ -1339,7 +1342,7 @@ $submenuBackground:	"../images/common/bg_submenu_20140903.gif";
 //		margin-top: 0 !important;
 //	}
 	.icon-print {
-		font-size:17px;
+		font-size: 17px;
 	}
 }
 .count {
@@ -1554,7 +1557,7 @@ $submenuBackground:	"../images/common/bg_submenu_20140903.gif";
         [class^="icon-"],[class*=" icon-"] {
         	color:$grayLight;
         	margin-right:5px;
-        	font-size:16px;
+        	font-size: $fontSizeLarge;
         	display:inline-block;
         	height:26px;
         	line-height:26px;
@@ -1669,7 +1672,7 @@ $submenuBackground:	"../images/common/bg_submenu_20140903.gif";
 
 	td {
 		text-align:center;
-		font-size:11px;
+		font-size: $fontSizeSmall;
 		width:26px;
 
 		a {
@@ -1770,9 +1773,14 @@ $submenuBackground:	"../images/common/bg_submenu_20140903.gif";
 .entryBody {
 	margin-left:40px;
 }
-#auiContentsArea .entryBody {
-	margin-left:60px;
-	word-break: break-all;
+#auiContentsArea {
+	.entryBody {
+		margin-left:60px;
+		word-break: break-all;
+	}
+	.entryText {
+		font-size: $fontSizeMiddle;
+	}
 }
 .entryHeader {
 	padding:0 0 10px 0;
@@ -1910,6 +1918,7 @@ ul.attachments{
 
 #uploadContainer {
 	.auiButtonBold {
+		//width: 130px;
 		width: 142px;
 	}
 }
@@ -2019,7 +2028,7 @@ ul.attachments{
 	textarea {
 		border:none;
 		@include border-radius(0);
-		font-size:13px;
+		font-size: $baseFontSize;
 	}
 	textarea:focus {
 		-webkit-box-shadow:none;
@@ -2095,7 +2104,7 @@ ul.attachments{
 		right:15px;
 
 		a {
-			font-size:11px;
+			//font-size:11px;
 		}
 		span {
 			height:20px;
@@ -2150,6 +2159,9 @@ ul.attachments{
 			.time {
 				margin-bottom: 0;
 			}
+			.body {
+				font-size: $baseFontSize;
+			}
 		}
 		.message {
 			margin:0;
@@ -2170,7 +2182,7 @@ ul.attachments{
 	}
 	.commentCaption {
 		padding:3px 5px;
-		font-size:smaller;
+		font-size: $fontSizeSmall;
 		//border-top:solid 1px #fff;
 		//border-bottom:solid 1px $grayBorderLight;
 		@extend .commentsBorder;
@@ -2214,15 +2226,14 @@ ul.attachments{
 	}
 	.body {
 		padding:5px 0;
-		//line-height: 1.4;
+		font-size: $fontSizeMiddle;
 
 		.more{
 			margin: 0;
 		}
 	}
 	.time {
-		font-size: 80%;
-		*font-size: 75%;
+		font-size: $fontSizeSmall;
 		color: #434343;
 		[class^="icon-"] {
 			vertical-align: middle;
@@ -2236,7 +2247,7 @@ ul.attachments{
 .tlActivity,
 .tlActivity a {
 	color:#666666;
-	font-size:11px;
+	font-size: $fontSizeSmall;
 }
 .tlActivity {
 	.messageContents {
@@ -2274,6 +2285,7 @@ ul.attachments{
 
 /* clipBloard */
 .tlClipBoard {
+	font-size: $baseFontSize;
 	//margin:10px 0;
 }
 .tlClipImage {
@@ -2290,10 +2302,18 @@ ul.attachments{
 	height: auto;
 	-ms-interpolation-mode: bicubic;
 }
-.tlClipContents {display:table-cell}
-.tlClipTitle {font-size:12px;}
-.tlClipUrl {font-size:10px;}
-.tlClipBody {padding-top:5px;color:#666666;}
+.tlClipContents {
+	display:table-cell
+}
+.tlClipTitle {
+}
+.tlClipUrl {
+	font-size: $fontSizeSmall;
+}
+.tlClipBody {
+	padding-top: 5px;
+	color: #666666;
+}
 
 .name .avatar {
 	float:left;
@@ -2438,7 +2458,7 @@ ul.attachments{
 	height:$inputHeight + 2 !important;
 	line-height:$inputHeight + 3 !important;
 	white-space:nowrap;
-	font-size:11px;
+	//font-size: $fontSizeSmall;
 	cursor:pointer;
 	> span {
 		display:inline-block;
@@ -2446,6 +2466,7 @@ ul.attachments{
 		overflow:hidden;
 		white-space:nowrap;
 		text-overflow:ellipsis;
+		text-decoration: none;
 	}
 	> a {
 		position:absolute;
@@ -2640,7 +2661,7 @@ $wuiWLCaptionHeight: 24px;
 .auiWLCaption {
 	height:$wuiWLCaptionHeight;
 	line-height:$wuiWLCaptionHeight;
-	font-size:14px;
+	font-size: $fontSizeMiddle;
 	color:$black;
 	overflow:hidden;
 	white-space:nowrap;
@@ -2674,7 +2695,7 @@ $wuiWLCaptionHeight: 24px;
 	height:$wuiWLCaptionHeight;
 	line-height:$wuiWLCaptionHeight;
 	margin-left:5px;
-	font-size:11px;
+	font-size: $fontSizeSmall;
 	white-space:nowrap;
 }
 .auiWLCover {
@@ -2729,7 +2750,7 @@ $wuiWLCaptionHeight: 24px;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.auiMailList .auiWLCaption {
+.auiMailList .auiWLDate {
 	font-weight:bold;
 }
 .auiMailList .read .auiWLCaption {
@@ -2837,7 +2858,6 @@ $wuiWLCaptionHeight: 24px;
 .auiDispChanger {
 	text-align:center;
 	background:$grayLight;
-
 	background: #333333;
 
 	a {
@@ -2845,7 +2865,7 @@ $wuiWLCaptionHeight: 24px;
 		display: block;
 		height: 40px;
 		line-height: 40px;
-		font-size: 16px;
+		font-size: $fontSizeLarge;
 		font-weight: bold;
 		text-decoration:none;
 		//text-shadow: 0 1px 0 black;
@@ -2936,6 +2956,7 @@ $wuiWLCaptionHeight: 24px;
 	auiWikiContent
 --------------------------------------------------*/
 .auiWikiContent {
+	font-size: $fontSizeMiddle;
 	h1,h2,h3 {
 		margin: 1em 0 !important;
 	}
@@ -3047,7 +3068,7 @@ $wuiWLCaptionHeight: 24px;
 			width: 20px;
 			height: 20px;
 			padding: 0;
-			font-size: 10px;
+			font-size: $fontSizeMini;
 			border:solid 1px $grayBorder;
 			border-left: none;
 			text-align: center;
@@ -3063,7 +3084,6 @@ $wuiWLCaptionHeight: 24px;
 	.gantt_area_cell {
 		td {
 			text-align:center;
-			font-size:8px;
 			height:30px;
 			border-right: 1px solid $grayBorder;
 		}
@@ -3083,7 +3103,6 @@ $wuiWLCaptionHeight: 24px;
 	.gantt_tip {
 		position:absolute;
 		height: 10px;
-		font-size: 10px;
 		border:1px solid $gray;
 		@include box-sizing(border-box);
 		background: $grayBack;
@@ -3099,7 +3118,7 @@ $wuiWLCaptionHeight: 24px;
 	.gantt_link {
 		cursor: pointer;
 		position:absolute;
-		font-size: 10px;
+		font-size: $fontSizeMini;
 		height:10px;
 		line-height: 10px;
 		z-index:4;
@@ -3400,7 +3419,7 @@ html>/**/body .auiLoadWrapper .loader {
 	text-align: center;
 
 	h1 {
-		font-size: 1.2em;
+		font-size: $fontSizeLarge;
 		margin: 1em 0;
 	}
 	ul,ol {
@@ -3462,7 +3481,7 @@ html>/**/body .auiLoadWrapper .loader {
 				}
 			}
 			.name {
-				font-size: 11px;
+				font-size: $fontSizeSmall;
 				display: block;
 				width: 78px;
 				height: 15px;
@@ -3558,7 +3577,7 @@ html>/**/body .auiLoadWrapper .loader {
 				}
 			}
 			.name {
-				font-size: 11px;
+				font-size: $fontSizeSmall;
 				display: block;
 				width: 78px;
 				height: 15px;
@@ -3628,7 +3647,6 @@ iframe.iframe_messagelist{
 	word-spacing: -1em;
 }
 :root .guideList{
-	font-size: 1px;
 	letter-spacing: -1px;
 	word-spacing: -1px;
 }
@@ -3641,7 +3659,6 @@ iframe.iframe_messagelist{
 	width: 24.75%;
 	min-width: 109px;
 	vertical-align: top;
-	font-size: 12px;
 	letter-spacing: normal;
 	word-spacing: normal;
 }

@@ -269,7 +269,7 @@ $headerHeight:60px;
 		}
 	}
 	.placeholder {
-		top: 7px !important;
+		top: 6px !important;
 		line-height: 1.6;
 	}
 	.indicator {
@@ -423,15 +423,16 @@ ul.hdCommunications {
 		top: 8px;
 		right: 8px;
 		width: auto;
-		height: 13px;
-		min-width: 13px;
-		line-height: 13px;
+		//height: 14px;
+		min-width: 14px;
+		line-height: 1.4;
 		padding: 0 3px;
-		font-size: 10px;
+		font-size: $fontSizeMini;
 		text-align: center;
 		background-color: $red;
 		color: $white;
 		white-space: nowrap;
+		text-decoration: none;
 		@include box-shadow(0 1px 1px rgba($black,.1));
 		@extend .bRadius3;
 		@extend .border-box;
@@ -489,6 +490,7 @@ ul.hdTools {
 			text-align: left;
 			&:hover, &:hover .name {
 				color: $textColor;
+				text-decoration: none;
 			}
 			[class^="icon-"], [class*=" icon-"] {
 				line-height: $headerHeight - 10;
@@ -705,9 +707,6 @@ $dropdownSideWidth: 280px;
 		> .contents {
 			padding: 10px 10px 0 10px;
 		}
-		.body {
-			font-size: 13px;
-		}
 	}
 	.timelineOuter {
 		.message:first-child {
@@ -728,7 +727,7 @@ $dropdownSideWidth: 280px;
 }
 .counter {
 	float:left !important;
-	font-size:9px;
+	font-size: $fontSizeMini;
 	height:13px;
 	min-width:11px;
 	line-height:13px !important;
@@ -744,30 +743,30 @@ $dropdownSideWidth: 280px;
 .counter.zero{
 	background:#b5b5b5 !important;
 }
-.nrCount {
-	//@extend .counter;
-	//margin: 0;
-}
+
 .messageSummary, .messageUserlist ul {
-	font-size: $fontSizeSmall;
 	li {
 		position: relative;
 		padding: 0;
 		background-image: none;
 		border-bottom: solid 1px $black;
 		a {
-			@extend .border-box;
 			@extend .clearfix;
 			display: block;
 			height: 44px;
 			text-decoration: none;
 			color: $gray;
+			@include box-sizing("border-box");
 			.name {
 				color: $white;
 			}
 			&:hover {
 				color: $linkColorHover;
 				background-color: $grayDarker;
+				text-decoration: none;
+				span {
+					text-decoration: none;
+				}
 				.name {
 					color: $linkColorHover;
 				}
@@ -775,6 +774,9 @@ $dropdownSideWidth: 280px;
 		}
 		span {
 			display: block;
+		}
+		.latest, .date {
+			font-size: $fontSizeSmall;
 		}
 	}
 	.avatar {
@@ -804,17 +806,15 @@ $dropdownSideWidth: 280px;
 		height: 16px;
 		@extend .ellipsis;
 	}
-	.latest {
-	}
 	.nrCount {
 		float: left;
 		display: inline-block;
-		height: 13px;
+		//height: 14px;
 		min-width: 10px;
-		line-height: 13px;
+		line-height: 1.4;
 		margin: 0 3px 0 0;
 		padding: 0 2px;
-		font-size: 9px;
+		font-size: $fontSizeMini;
 		text-align: center;
 		text-decoration: none;
 		background-color: $red;
@@ -1023,7 +1023,7 @@ $dropdownSideWidth: 280px;
 	color: $gray;
 	margin: 120px 0 170px;
 	[class*=icon-] {
-		font-size: 10em;
+		font-size: 120px;
 		color: $grayLight;
 		@include text-shadow(0 -1px 0 darken($grayLight,10));
 	}

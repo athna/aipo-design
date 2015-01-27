@@ -2107,7 +2107,7 @@ ul.attachments{
 		right:15px;
 
 		a {
-			//font-size:11px;
+			font-size:11px;
 		}
 		span {
 			height:20px;
@@ -2327,7 +2327,8 @@ ul.attachments{
 }
 #timelineOuter,
 .timelineOuter {
-	.newMessage {
+	.newMessage,
+	.searchClearOuter {
 		background: $grayBackLight;
 		text-align: center;
 		border: 1px $grayBorder solid;
@@ -2335,12 +2336,14 @@ ul.attachments{
 		margin-bottom:15px;
 	}
 	.newMessage a,
-	.readMore a {
+	.readMore a,
+	.searchClearOuter a{
 		display:block;
-		padding: 3px;
+		padding: 3px !important;
 	}
 }
-.timeline .readMore {
+.timeline .readMore,
+{
 	margin: 10px 0;
 	background: $grayBack;
 	text-align: center;
@@ -2379,34 +2382,38 @@ ul.attachments{
 }
 
 /***************************************************
-	.menubarSearch
+	.auiSummarySearch
 --------------------------------------------------*/
-.menubarSearch {
-	position: relative;
+.auiSummaryMeta {
 
-	.text {
-		width: 100%;
-		padding-right:25px;
+  .auiSummarySearch {
+	float: right;
+  }
+  .search {
+	.submit {
+
+	  &:hover {
+		[class^="icon-"], [class*=" icon-"] {
+		  color: $textColor;
+		}
+	  }
 	}
-	button {
-		position: absolute;
-		right:0;
-		border: none;
-		background: none;
 
-		i {
-			color: $gray;
-		}
-
-		&:active,
-		&:focus {
-			@include box-shadow(none);
-		}
-		&:hover i {
-			color: $grayDark;
-		}
-	}
+	//.submit [class^="icon-"],
+	//.submit [class*=" icon-"] {
+	//  width: 24px;
+	//}
+  }
 }
+.searchClear {
+  color: $textColor !important;
+  line-height: inherit;
+}
+.searchClear [class^="icon-"], .searchClear [class*=" icon-"] {
+  color: $textColor !important;
+}
+
+
 /***************************************************
 	dijitCalendar Plus
 --------------------------------------------------*/

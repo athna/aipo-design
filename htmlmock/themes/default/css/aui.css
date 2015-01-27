@@ -96,7 +96,9 @@ input[type=password], #timelineOuter #inputField,
 .timelineOuter #inputField,
 .timelineOuter .inputField,
 .timelineOuter .outer, .timeline .commentInputDummy span, .name .avatar, #timelineOuter .newMessage,
-.timelineOuter .newMessage, .timeline .readMore, .filterTip, .auiAbsLayer {
+#timelineOuter .searchClearOuter,
+.timelineOuter .newMessage,
+.timelineOuter .searchClearOuter, .timeline .readMore, .filterTip, .auiAbsLayer {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -4620,6 +4622,9 @@ ul.attachments {
   top: -9px;
   right: 15px;
 }
+.tlDisplayChanger .btn a {
+  font-size: 11px;
+}
 .tlDisplayChanger .btn span {
   height: 20px;
   line-height: 20px;
@@ -4818,7 +4823,9 @@ ul.attachments {
 }
 
 #timelineOuter .newMessage,
-.timelineOuter .newMessage {
+#timelineOuter .searchClearOuter,
+.timelineOuter .newMessage,
+.timelineOuter .searchClearOuter {
   background: #f6f6f6;
   text-align: center;
   border: 1px #d2d2d2 solid;
@@ -4826,10 +4833,12 @@ ul.attachments {
 }
 #timelineOuter .newMessage a,
 #timelineOuter .readMore a,
+#timelineOuter .searchClearOuter a,
 .timelineOuter .newMessage a,
-.timelineOuter .readMore a {
+.timelineOuter .readMore a,
+.timelineOuter .searchClearOuter a {
   display: block;
-  padding: 3px;
+  padding: 3px !important;
 }
 
 .timeline .readMore {
@@ -4881,31 +4890,22 @@ ul.attachments {
 }
 
 /***************************************************
-	.menubarSearch
+	.auiSummarySearch
 --------------------------------------------------*/
-.menubarSearch {
-  position: relative;
+.auiSummaryMeta .auiSummarySearch {
+  float: right;
 }
-.menubarSearch .text {
-  width: 100%;
-  padding-right: 25px;
-}
-.menubarSearch button {
-  position: absolute;
-  right: 0;
-  border: none;
-  background: none;
-}
-.menubarSearch button i {
-  color: #999;
-}
-.menubarSearch button:active, .menubarSearch button:focus {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.menubarSearch button:hover i {
+.auiSummaryMeta .search .submit:hover [class^="icon-"], .auiSummaryMeta .search .submit:hover [class*=" icon-"] {
   color: #333;
+}
+
+.searchClear {
+  color: #333 !important;
+  line-height: inherit;
+}
+
+.searchClear [class^="icon-"], .searchClear [class*=" icon-"] {
+  color: #333 !important;
 }
 
 /***************************************************

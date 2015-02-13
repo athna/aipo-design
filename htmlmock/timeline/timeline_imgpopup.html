@@ -1,1011 +1,1426 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Language" content="ja"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title></title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta http-equiv="Content-Style-Type" content="text/css"/>
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
-    <meta name="robots" content="noindex,follow"/>
-    <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
-    <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<meta http-equiv="Content-Language" content="ja"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=emulateIE8"/>
+	<title>Aipo.com</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+	<meta name="robots" content="noindex,follow"/>
+	<link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome-ie7.min.css">
+	<![endif]-->
+	<script src="../themes/default/js/mock.js"></script>
+	<!--script type="text/javascript" language="JavaScript" src="javascript/dojo/dojo.js"></script-->
+	<!--script type="text/javascript" language="JavaScript" src="../javascript/aipo.js"></script-->
+	<!--script type="text/javascript" language="JavaScript" src="http://hudson.aipo.com:8080/gadgets/js/core:rpc:shindig-container.js?c=1"></script-->
+	<!--script type="text/javascript" language="JavaScript" src="../javascript/aipo/container.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../javascript/aipo/customize/form.js"></script-->
 </head>
 <body>
-<script type="text/javascript">
-    djConifg = {
-        xDomainBasePath: 'https://app.aipo.com/javascript'
-    };
-</script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
-<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
 
 <!-- WRAPPER -->
-<div id="wrapper" style="margin-bottom:170px;">
+<div id="wrapper">
 
-<!-- HEADER -->
-<div id="header" class="clearfix"><div class="inner">
-
-	<div class="hdSign">
-		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-   </div>
-
-    <div class="hdNavi">
-		<!--
-		<div class="hdSearch"><form action="" class="searchbox"><input type="text" class="text" /><input type="submit" value="" title="検索" class="submit" /></form></div>
-		-->
-		<div class="hdActivity" title="あなた宛のお知らせ">
-        	<div class="activityField" onClick="if(document.getElementById('aipo_widget_ActivityList_0').style.display=='none'){document.getElementById('aipo_widget_ActivityList_0').style.display='block'}else{document.getElementById('aipo_widget_ActivityList_0').style.display='none'};if(this.className.indexOf('active')>0){this.className='activityField'}else{this.className='activityField active'};">
-                <div class="dijitRight">
-                    <div class="dijit dijitLeft dijitInline dijitDropDownButton" dojoattachevent="#" widgetid="activitycheckerContainer">
-                        <div class="dijitRight">
-                            <span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-activitycheckerContainer_label" role="button" aria-haspopup="true" aria-labelledby="activitycheckerContainer_label" id="activitycheckerContainer" tabindex="0" aria-valuenow="" aria-disabled="false"><span class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label" popupactive="true"><img src="../themes/default/images/icon/icon_message.png" alt="あなた宛のお知らせ"></span>
-                            <div style="display: block; " id="activitychecker"><span class="activitychecker-right"><span id="activitychecker-counter" class="activitychecker-left" style="display: block; ">99</span></span></div>
-                            <select name="" id="" size="10" multiple="multiple" style="display:none" dojoattachpoint="selectNode"></select><input type="hidden" id="" name="" value="" dojoattachpoint="valueNode"><span name="" id="" dojoattachpoint="inputNode"></span></span>                        </div>
-                    </div>
-                </div>
-            </div>
-		</div>
-		<div class="hdUserName"><a href="#"><img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま</a></div>
-		<div class="hdLogout"><form><input type="submit" value="ログアウト" /></form></div>
+<!-- #auiHeader -->
+<div id="auiHeader">
+	<div class="hdLogo"><a href="mypage.html"><img src="../themes/default/images/logo_com_20130613.png" width="100" height="30" alt="Aipo.com"></a></div>
+	<div class="hdPages">
+		<ul>
+			<li class="current">
+				<a href="mypage.html" class="name" title="マイページ">マイページ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-1');"><i class="icon-cog"></i></a>
+				<div class="menubar body-child" id="menubar_tab_P-1" style="display: none; right: 0px; top: 40px;">
+					<ul>
+						<li><a href="javascript:void(0);" onclick="">設定</a></li>
+						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="name" title="その他アプリ">その他アプリ</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-2');"><i class="icon-cog"></i></a>
+				<div class="menubar body-child" id="menubar_tab_P-2" style="display: none; right: 0px; top: 40px;">
+					<ul>
+						<li><a href="javascript:void(0);" onclick="">設定</a></li>
+						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="name" title="長いページ名長いページ名長いページ名">長いページ名長いページ名長いページ名</a><a href="javascript:void(0)" class="setting toggle" title="ページ設定" onclick="popupToggle(this,'menubar_tab_P-3');"><i class="icon-cog"></i></a>
+				<div class="menubar body-child" id="menubar_tab_P-3" style="display: none; right: 0px; top: 40px;">
+					<ul>
+						<li><a href="javascript:void(0);" onclick="">設定</a></li>
+						<li class="last"><a href="javascript:void(0);" onclick="">削除</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="javascript:void(0)" class="plus" title="ページを追加"><i class="icon-plus"></i></a></li>
+		</ul>
 	</div>
+	<div class="hdNavigation">
 
-</div></div>
-<!-- /HEADER -->
+		<ul class="hdCommunications">
+			<li>
+				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_message');" title="メッセージ"><i class="sprite-comment"></i><span class="num">99+</span></a>
+				<div class="dropdown" id="dd_message">
+					<div class="title">メッセージ</div>
+					<div class="body">
+						<div class="sideBlock">
+							<div class="auiTabs" id="messageSideBlockTab">
+								<ul class="tab">
+									<li class="w50 active" auiTabs="0"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ルーム</a></li>
+									<li class="w50" auiTabs="1"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ユーザー</a></li>
+								</ul>
+								<ul class="tabContents">
+									<li class="active">
+										<div class="scroll" id="messageSideBlock1">
+											<div class="messageSummaryHead">
+												<div class="inner">
+													<a href="javascript:void(0)" class="auiButton w100" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">ルームを追加する</a>
+												</div>
+												<div class="inner">
+													<form class="search">
+														<input type="text" id="roomSearch" class="" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="roomSearch">ルーム検索</label>
+														<button class="submit" title="検索"><i class="icon-search"></i></button>
+													</form>
+												</div>
+											</div>
+											<ul class="messageSummary">
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+														<div class="nrCount">5</div>
+														<span class="date">15:05</span>
+														<span class="name">木村 一郎</span>
+														<span class="latest">メッセージ0件のルーム</span>
+													</a>
+												</li>
+												<li class="active">
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
+														</span>
+														<div class="nrCount">99+</div>
+														<span class="date">9:50</span>
+														<span class="name">田村 涼子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">6/30</span>
+														<span class="name">打ち合わせルーム</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">6/29</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">5/2</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+														<span class="date">4/8</span>
+														<span class="name">木村 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
+														</span>
+														<span class="date">3/15</span>
+														<span class="name">田村 涼子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">2/12</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/20</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/5</span>
+														<span class="name">会議室01</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">6/30</span>
+														<span class="name">ミーティングルーム</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">6/29</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">5/2</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+														<span class="date">4/8</span>
+														<span class="name">木村 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
+														</span>
+														<span class="date">3/15</span>
+														<span class="name">田村 涼子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
+														</span>
+														<span class="date">2/12</span>
+														<span class="name">山田 花子</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/20</span>
+														<span class="name">鈴木 一郎</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
+														</span>
+														<span class="date">2013/12/5</span>
+														<span class="name">長いルーム名長いルーム名長いルーム名長いルーム名</span>
+														<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+													</a>
+												</li>
+											</ul>
+											<div class="loader"><i class="indicatorBlack"></i></div>
+										</div>
+									</li>
+									<li class="">
+										<div class="scroll" id="messageSideBlock2">
+											<div class="messageSummaryHead">
+												<div class="inner">
+													<form>
+														<select class="w100">
+															<option value="">すべてのグループ</option>
+															<option value="">管理部</option>
+															<option value="">営業部</option>
+														</select>
+													</form>
+												</div>
+												<div class="inner">
+													<form class="search">
+														<input type="text" id="userSearch" class="" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="userSearch">ユーザー検索</label>
+														<button class="submit" title="検索"><i class="icon-search"></i></button>
+													</form>
+												</div>
+											</div>
+											<div class="messageUserlist">
+												<div class="index">あ</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">アーノルド シュワルツェネッガー</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">浅井 長政</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">明智 光秀</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">石田 三成</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">上杉 謙信</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">織田 信長</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">か</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">加藤 清正</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">木下 藤吉郎</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">黒田 官兵衛</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">さ</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">真田 信繁</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">柴田 勝家</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">島 左近</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">島津 豊久</span>
+														</a>
+													</li>
+												</ul>
+												<div class="index">た</div>
+												<ul>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">武田 信玄</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">伊達 政宗</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">長宗我部 元親</span>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+															<span class="name">徳川 家康</span>
+														</a>
+													</li>
+												</ul>
+												<div class="loader"><i class="indicatorBlack"></i></div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="mainBlock" id="messageContents1">
+							<div class="contents clearfix">
+								<div class="timelineOuter">
+									<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
 
+									<div class="roomHeader clearfix">
+										<div class="floatLeft">
+											<span class="avatar mr5"><img src="../themes/default/images/common/group_default.png" class="avatar_s"></span>ルーム名
+										</div>
+										<div class="floatRight">
+											<a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_roomSetting');"><i class="icon-gear"></i></a>
+										</div>
+									</div>
 
-<!-- roundWrapper -->
-<div id="roundWrapper">
+									<div class="inputField">
+										<form name="" id="" action="" method="post" onsubmit="">
+											<input type="hidden" name="_name" value="timelineForm">
+											<input type="hidden" name="secid" value="">
+											<div class="tlInputMention relative">
+												<textarea id="messageTextarea1" class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; "  onfocus="phFocus(this)" onblur="phBlur(this)"></textarea><label class="placeholder" for="messageTextarea1">近況を共有しましょう</label>
+											</div>
 
-<!-- MAIN TAB -->
-<div id="auiTabs" class="clearfix">
-	<ul>
-    	<li class="first">
-        	<div class="tab active">
-                <div class="title"><a href="#">マイページ</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
-    	<li class="last">
-        	<div class="tab activeNext">
-                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a<div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>iIconSetting"></a></div>
-            </div>
-        </li>
-		<li class="addTab">
-			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>
-		</li>
-    </ul>
+											<div class="tlInputControls clearfix">
+												<div class="floatLeft"><a href="javascript:void(0)" class="auiButton">ファイルを追加する</a></div>
+												<div class="floatRight">
+													<i class="indicator"></i>
+													<input type="submit" class="auiButtonAction" value="投稿する" />
+												</div>
+											</div>
+										</form>
+									</div>
+
+										<div id="messageTimeline1" class="timeline scroll">
+
+											<div id="message***" class="message invite">
+												<div class="avatar"><img src="../themes/default/images/_mock/avatar3.jpg" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="body">
+														田村 涼子さんが参加しました。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。<br />
+														自分の投稿には「＊人が既読」が付きます。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar">
+													<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">
+												</div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+														URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+														<div class="tlClipBoard clearfix">
+															<div class="tlClipImage">
+																<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a>		</div>
+															<div class="tlClipContents">
+																<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+														<div class="tlClipBoard clearfix">
+															<div class="tlClipImage">
+																<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
+															</div>
+															<div class="tlClipContents">
+																<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。<br />
+														自分の投稿には「＊人が既読」が付きます。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+													</div>
+												</div>
+											</div>
+											<div class="loader"><i class="indicator"></i></div>
+										</div>
+
+									<!--div class="auiTabs" id="messageTabs">
+									<ul class="tab" id="subContentsTab">
+										<li class="active"><a href="javascript:void(0)" onclick="auiTabs(this,'messageTabs')">メッセージ (99+)</a></li>
+										<li class=""><a href="javascript:void(0)" onclick="auiTabs(this,'messageTabs')">重要</a></li>
+									</ul>
+									<ul class="tabContents">
+										<li class="active">
+
+										<div id="messageTimeline" class="timeline scroll">
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。<br />
+														自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
+														タイムラインのHTML構造を踏襲しますが、コメント、いいね、ファイル添付は無く、メッセージの既読の機能がある想定です。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+														<a href="javascript:void(0)" title="ブックマーク"><i class="icon-star-empty"></i></a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar">
+													<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+														URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+														<div class="tlClipBoard clearfix">
+															<div class="tlClipImage">
+																<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a>		</div>
+															<div class="tlClipContents">
+																<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" title="ブックマークを取り消す"><i class="icon-star"></i></a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+														<div class="tlClipBoard clearfix">
+															<div class="tlClipImage">
+																<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
+															</div>
+															<div class="tlClipContents">
+																<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+															</div>
+														</div>
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a> ・
+														<a href="javascript:void(0)" title="ブックマーク"><i class="icon-star-empty"></i></a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" title="ブックマーク"><i class="icon-star-empty"></i></a>
+													</div>
+												</div>
+											</div>
+
+											<div id="message***" class="message">
+												<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+												<div class="messageContents">
+													<div class="name">名前 名前</div>
+													<div class="body">
+														メッセージ内容です。メッセージ内容です。<br />
+														自分の投稿には「＊人が既読」「削除する」が付きます。
+													</div>
+													<div class="time">
+														10月10日 20:52&nbsp;
+														<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+														<a href="javascript:void(0)" title="ブックマーク"><i class="icon-star-empty"></i></a>
+													</div>
+												</div>
+											</div>
+											<div class="loader"></div>
+										</div>
+
+										</li>
+										<li>
+											<div id="messageFavorites" class="scroll">
+												<div class="timeline">
+													<div id="message***" class="message">
+														<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																メッセージ内容です。メッセージ内容です。<br />
+																自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
+																タイムラインのHTML構造を踏襲しますが、コメント、いいね、ファイル添付は無く、メッセージの既読の機能がある想定です。
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+																<a href="javascript:void(0)" title="ブックマークを取り消す"><i class="icon-star"></i></a>
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar">
+															<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+																URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+																<div class="tlClipBoard clearfix">
+																	<div class="tlClipImage">
+																		<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a>		</div>
+																	<div class="tlClipContents">
+																		<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																		<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																		<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+																	</div>
+																</div>
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" title="ブックマークを取り消す"><i class="icon-star"></i></a> ・
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+																<div class="tlClipBoard clearfix">
+																	<div class="tlClipImage">
+																		<a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
+																	</div>
+																	<div class="tlClipContents">
+																		<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+																		<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+																		<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+																	</div>
+																</div>
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a> ・
+																<a href="javascript:void(0)" title="ブックマークを取り消す"><i class="icon-star"></i></a>
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" title="ブックマークを取り消す"><i class="icon-star"></i></a> ・
+															</div>
+														</div>
+													</div>
+
+													<div id="message***" class="message">
+														<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+														<div class="messageContents">
+															<div class="name">名前 名前</div>
+															<div class="body">
+																メッセージ内容です。メッセージ内容です。<br />
+																自分の投稿には「＊人が既読」「削除する」が付きます。
+															</div>
+															<div class="time">
+																10月10日 20:52&nbsp;
+																<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
+																<a href="javascript:void(0)" title="ブックマークを取り消す"><i class="icon-star"></i></a>
+															</div>
+														</div>
+													</div>
+													<div class="loader"></div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									</div-->
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_notification')" title="あなた宛てのお知らせ"><i class="sprite-notification"></i><span class="num">9</span></a>
+				<div class="dropdown" id="dd_notification">
+					<div class="title">
+						<input type="button" class="auiButtonSmall floatRight" value="すべて既読"/>
+						あなた宛てのお知らせ
+					</div>
+					<div class="dropdown_list">
+						<ul>
+							<li class="new"><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">10:05</div>
+									<div class="name">木村 一郎とその他3人</div>
+									<div>あなたの投稿に「いいね！」が押されました。あなたの投稿に「いいね！」が押されました。あなたの投稿に「いいね！」が押されました。</div>
+								</div>
+							</a></li>
+							<li class="new"><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">10:00</div>
+									<div class="name">山田 太朗</div>
+									<div>予定「定例会議」を編集しました。予定「定例会議」を編集しました。予定「定例会議」を編集しました。</div>
+								</div>
+							</a></li>
+							<li><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">9:30</div>
+									<div class="name">田村 涼子</div>
+									<div>申請「【稟議書】 タイムカード報告」を承認しました。</div>
+								</div>
+							</a></li>
+							<li><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">5/20</div>
+									<div class="name">木村 一郎とその他3人</div>
+									<div>あなたの投稿に「いいね！」が押されました。</div>
+								</div>
+							</a></li>
+							<li><a href="javascript:void(0)">
+								<div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+								<div class="body">
+									<div class="date">4/5</div>
+									<div class="name">山田 太朗</div>
+									<div>予定「定例会議」を編集しました。</div>
+								</div>
+							</a></li>
+						</ul>
+					</div>
+					<div class="foot">
+						<div class="floatLeft">
+							<input type="button" class="auiButtonSmall" value="デスクトップ通知を無効に"/>
+						</div>
+						<div class="floatRight">
+							<div class="count">1 ～ 5 / 7</div>
+							<div class="auiSelectButtonSmall floatLeft">
+								<ul class="floatLeft">
+									<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
+									<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:void(0)" onclick="dropdownToggle(this,'dd_support')"><i class="sprite-support" title="サポート"></i><span class="num">0</span></a>
+				<div class="dropdown" id="dd_support">
+					<ul class="dropdown_menu divider">
+						<li><a href="javascript:void(0)">管理ガイド</a></li>
+						<li><a href="javascript:void(0)">ヘルプ</a></li>
+						<li><a href="javascript:void(0)">Facebook</a></li>
+						<li><a href="javascript:void(0)">Twitter</a></li>
+						<li><a href="javascript:void(0)">お問い合わせ</a></li>
+					</ul>
+					<div class="contents divider">
+						<h2 class="clearfix">
+							<a href="javascript:void(0)" class="auiButtonSmall floatRight">すべて既読</a>
+							Aipoからのお知らせ
+						</h2>
+						<ul class="tipInfo scroll" style="max-height: 9em;">
+							<li><div><strong>プランリニューアルのお知らせ</strong><br>
+								7月24日（木）にプランのリニューアルを行いました。<br>
+								Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+								詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+								<br>
+								なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+								<div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
+									「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
+								</div>
+							</li>
+							<li><div><strong>プランリニューアルのお知らせ</strong><br>
+								7月24日（木）にプランのリニューアルを行いました。<br>
+								Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+								詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+								<br>
+								なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+								<div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
+									「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="contents tweet divider">
+					<h2>ご意見・ご要望</h2>
+						<p class="fcGray fs11">頂いたご意見やご要望をもとに改善に励みます。</p>
+						<div class="clearfix">
+							<div class="fs11 floatRight"><a href="javascript:void(0)">Twitter連携を解除</a></div>
+							<div class="floatLeft fs11 fcGray">獲得容量：<span id="get-capacity-size">3</span> MB</div>
+							<textarea></textarea>
+							<div class="clearfix right mt5">
+								<span class="fcGray mr5"><span id="count">0</span>/117</span><input type="submit" class="auiButtonAction" value="ツイート">
+							</div>
+						</div>
+					</div>
+					<div class="contents tweet divider">
+						998 MB(97%) / 1027 MB を使用中
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="hdTools">
+			<li>
+				<a href="javascript:void(0)" id="toggle_settings" class="last" onclick="dropdownToggle(this,'dd_settings')"><img src="../themes/default/images/_mock/avatar1.jpg" width="32" height="32" class="avatar_m"><span class="name">木村 一郎</span></a>
+				<div class="dropdown" id="dd_settings">
+					<ul class="dropdown_menu">
+						<li><a href="javascript:void(0)">個人設定</a></li>
+						<li><a href="javascript:void(0)">管理設定</a></li>
+						<li class="divider"></li>
+						<li><a href="javascript:void(0)">ログアウト</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<!--ul class="hdLauncher">
+			<li><a href="javascript:void(0)" onclick="launcherToggle(this,'auiLauncher')"><i class="icon-reorder"></i></a></li>
+		</ul-->
+	</div>
 </div>
-<!-- /MAIN TAB -->
+<!-- /#auiHeader -->
 
-<!-- MAIN OUTER -->
-<table class="tableWrapper">
-	<tbody>
-		<tr>
-			<td class="wide top">
-				<div class="roundTopMain clearfix">
-					<div class="roundRightMain">
-						<div class="roundBottomMain">
-							<div class="roundLeftMain">
-								<div class="roundTopLeftMain">
-									<div class="roundTopRightMain">
-										<div class="roundBottomRightMain">
-											<div class="roundBottomLeftMain">
-												<div class="roundMainWrapper">
-													<!-- LAYOUT -->
-
+<!-- roundMainWrapper -->
+<div class="roundMainWrapper">
 
 <!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
 
-
 <table class="tableWrapper">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-
-                                                              <!-- auiPortlet -->
-                                                              <div class="dojoDndItem P-135ce1a0d5f-1000c" id="dojoUnique1">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000c?action=controls.Maximize">タイムカード</a></td>
-<td class="roundBlockIcon last">
-    
-    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1a0d5f-1000c');" title="カスタマイズ"></a>
-		
-            <div class="menubar" id="menubar_P-135ce1a0d5f-1000c" style="position: absolute; display: none; ">
-        <ul>
-                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000c?action=controls.Customize">設定</a></li>
-            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000c?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135ce1a0d5f-1000c', function(){ dojo.query('.dojoDndItem.P-135ce1a0d5f-1000c').orphan(); window.location.reload(); } );">削除</a></li>
-					</ul>
-    </div>
-    </td>
-
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1a0d5f-1000c" id="portlet_P-135ce1a0d5f-1000c">
-
-
-
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/exttimecard/form.js"></script>
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135ce1a0d5f-1000c'] = { group:"exttimecard", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000c?template=ExtTimecardScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-
- <div class="indicator" id="indicator-list-P-135ce1a0d5f-1000c" style="display:none;">データを送信しています...</div>
-<div id="exttimecardmessageDiv"></div>
-<form name="formP-135ce1a0d5f-1000c" id="formP-135ce1a0d5f-1000c" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000c?template=ExtTimecardFormJSONScreen" method="post" onsubmit="aimluck.io.submit(this, 'indicator-list-','P-135ce1a0d5f-1000c',aipo.exttimecard.onListReceiveMessage);return false;">
-<input type="hidden" name="_name" value="exttimecardForm">
-<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-<table class="wide">
-  <tbody>
+<tbody>
 <tr>
-    <td nowrap="nowrap" class="w25 center">
+<td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer"></td>
+<td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer">
 
-<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'mode', 'punchin');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'punchin', '出勤');dojo.byId('formP-135ce1a0d5f-1000c').onsubmit();">出勤</a>
-
-    </td>
-
-    <td nowrap="nowrap" class="w25 center">
-<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'mode', 'punchout');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'punchout', '退勤');dojo.byId('formP-135ce1a0d5f-1000c').onsubmit();">退勤</a>
-    </td>
-
-    <td nowrap="nowrap" class="w25 center">
-<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'mode', 'outgoing');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'outgoing', '外出');dojo.byId('formP-135ce1a0d5f-1000c').onsubmit();">外出</a>
-    </td>
-
-    <td nowrap="nowrap" class="w25 center">
-<a class="auiButton" onclick="aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'mode', 'comeback');aipo.exttimecard.addHiddenValue(dojo.byId('formP-135ce1a0d5f-1000c'), 'outgoing', '復帰');dojo.byId('formP-135ce1a0d5f-1000c').onsubmit();">復帰</a>
-    </td>
-
-</tr>
-  </tbody>
-</table>
-</form>
-
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-- /auiPortlet -->
-
-
-
-
-                                                              <!-- auiPortlet -->
-                                                              <div class="dojoDndItem P-135ce1a0d5f-1000d" id="dojoUnique2">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000d?action=controls.Maximize">更新情報</a></td>
-<td class="roundBlockIcon last">
-    
-    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1a0d5f-1000d');" title="カスタマイズ"></a>
-		
-            <div class="menubar" id="menubar_P-135ce1a0d5f-1000d" style="position: absolute; display: none; ">
-        <ul>
-                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000d?action=controls.Customize">設定</a></li>
-            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000d?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135ce1a0d5f-1000d', function(){ dojo.query('.dojoDndItem.P-135ce1a0d5f-1000d').orphan(); window.location.reload(); } );">削除</a></li>
-					</ul>
-    </div>
-    </td>
-
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1a0d5f-1000d" id="portlet_P-135ce1a0d5f-1000d">
-
-
-
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135ce1a0d5f-1000d'] = { group:"activity", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d5f-1000d?template=ActivityAllScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-
-<div class="message">更新情報はありません。</div>
-
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-<!-- /auiPortlet -->
-
-                                                              <!-- auiPortlet -->
-                                                              <div class="dojoDndItem P-135ce1a0d62-10010" id="dojoUnique3">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10010?action=controls.Maximize">報告書</a></td>
-                                                                                    <td class="roundBlockIcon"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10010?template=ReportFormScreen&amp;entityid=new','P-135ce1a0d62-10010',aipo.report.onLoadReportDialog);">報告書追加</a></td>
-<td class="roundBlockIcon last">
-    
-    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1a0d62-10010');" title="カスタマイズ"></a>
-		
-            <div class="menubar" id="menubar_P-135ce1a0d62-10010" style="position: absolute; display: none; ">
-        <ul>
-                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10010?action=controls.Customize">設定</a></li>
-            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10010?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135ce1a0d62-10010', function(){ dojo.query('.dojoDndItem.P-135ce1a0d62-10010').orphan(); window.location.reload(); } );">削除</a></li>
-					</ul>
-    </div>
-    </td>
-
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1a0d62-10010" id="portlet_P-135ce1a0d62-10010">
-
-
-
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/report/form.js"></script>
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js"></script>
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135ce1a0d62-10010'] = { group:"report", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10010?template=ReportScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-
-<div class="message">報告書はありません。</div>
-
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-- /<!-- /auiPortlet -->                                                             <!-- auiPortlet -->
-                                                              <div class="dojoDndItem P-135ce1a0d62-10011" id="dojoUnique4">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10011?action=controls.Maximize">アドレス帳</a></td>
-                                                                                    <td class="roundBlockIcon"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10011?template=AddressBookFormScreen&amp;entityid=new','P-135ce1a0d62-10011',aipo.addressbook.onLoadAddressbookDialog);">アドレス追加</a></td>
-<td class="roundBlockIcon last">
-    
-    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1a0d62-10011');" title="カスタマイズ"></a>
-		
-            <div class="menubar" id="menubar_P-135ce1a0d62-10011" style="position: absolute; display: none; ">
-        <ul>
-                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10011?action=controls.Customize">設定</a></li>
-            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10011?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135ce1a0d62-10011', function(){ dojo.query('.dojoDndItem.P-135ce1a0d62-10011').orphan(); window.location.reload(); } );">削除</a></li>
-					</ul>
-    </div>
-    </td>
-
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1a0d62-10011" id="portlet_P-135ce1a0d62-10011">
-
-
-
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/addressbook/form.js"></script>
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135ce1a0d62-10011'] = { group:"addressbook", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10011?template=AddressBookScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-
-<form class="auiSearch auiForm" name="addressbookP-135ce1a0d62-10011" id="addressbookP-135ce1a0d62-10011" action="#" method="post" onsubmit="aipo.addressbook.onSubmitSerchButton(this,'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d62-10011?template=AddressBookScreen','P-135ce1a0d62-10011','','indicator-dlg-'); return false;">
-
-<div class="auiSummaryMeta clearfix">
-<input class="text floatLeft" type="text" name="sword" id="sword" style="width:60%; margin-right:5px;" value="">
-<input type="button" class="auiButtonSearch floatLeft" value="検索"/>
-<div class="floatLeft"><div class="indicator" id="indicator-dlg-P-135ce1a0d62-10011" style="display:none;">&nbsp;</div></div>
+<!-- auiPortlet -->
+<div class="dojoDndItem auiPortlet">
+<div class="auiPortletHead">
+	<div class="inner">
+		<div class="auiPortletTitle"><a href="#">タイムライン（高さ指定）</a></div>
+		<div class="auiPortletTool">
+		</div>
+	</div>
 </div>
+<!-- auiPortletBody -->
+<div class="auiPortletBody">
+	<div class="inner">
+		<div id="timelineOuter">
+			<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
+			<!-- inputField -->
+			<div id="inputField">
+				<form name="" id="" action="" method="post" onsubmit="">
+					<input type="hidden" name="_name" value="timelineForm">
+					<input type="hidden" name="secid" value="">
 
-<input name="mode" type="hidden" value="ajaxsearch">
-</form>
-
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-- /POR<!-- /auiPortlet -->                                                      </td>
-                                                            <td width="50%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-
-                                                              <!-- auiPortlet -->
-                                                              <div class="dojoDndItem P-135ce1c560d-10224" id="dojoUnique5">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?action=controls.Maximize">タイムラインβ版</a></td>
-<td class="roundBlockIcon last">
-    
-    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1c560d-10224');" title="カスタマイズ"></a>
-		
-            <div class="menubar" id="menubar_P-135ce1c560d-10224" style="position: absolute; display: none; ">
-        <ul>
-                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?action=controls.Customize">設定</a></li>
-            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135ce1c560d-10224', function(){ dojo.query('.dojoDndItem.P-135ce1c560d-10224').orphan(); window.location.reload(); } );">削除</a></li>
-					</ul>
-    </div>
-    </td>
-
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1c560d-10224" id="portlet_P-135ce1c560d-10224">
-
-
-
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/timeline/form.js"></script>
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135ce1c560d-10224'] = { group:"timeline", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?template=TimelineScreen&amp;rows=20&amp;scrolltop=0', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-
-<div id="timelineOuter">
-	<input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
-	<div id="inputField">
-	<form name="formP-135ce1c560d-10224" id="formP-135ce1c560d-10224" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?template=TimelineJSONScreen" method="post" onsubmit="aimluck.io.submit(this,'indicator-list-','P-135ce1c560d-10224',aipo.timeline.onReceiveMessage);return false;">
-	<input type="hidden" name="_name" value="timelineForm">
-	<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-	<div class="outer">
-	<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown="aipo.timeline.onKeyDown('P-135ce1c560d-10224', 0);" onkeyup="aipo.timeline.onKeyUp('P-135ce1c560d-10224');"></textarea>
-	</div>
-	<div class="right">
-	<span class="count" id="textCount_P-135ce1c560d-10224">500 文字</span> <a href="javascript:void(0)" class="auiButton" onclick="aipo.timeline.addHiddenValue(dojo.byId('formP-135ce1c560d-10224'), 'mode', 'insert');dojo.byId('formP-135ce1c560d-10224').onsubmit();">発言する</a>
-	</div>
-	</form>
-	</div>
-
-	<div id="newMessage" style="display:none">
-	<a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい発言があります</a>
-	</div>
-
-	<div id="timeline" class="timeline">
-		<img src="images/common/dot.gif" width="1" height="1" onload="aipo.timeline.setScrollTop(0);">
-		<div id="content">
-
-			<div id="message21" class="message">
-				<div class="avatar mr10">
-					<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">
-				</div>
-				<div class="messageContents">
-					<div class="name">名前 名前</div>
-					<div class="body">
-					画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。
-					<p class="more">...<br /><a href="#">続きを読む</a></p>
-						<div class="tlImageBlock clearfix">
-							<a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a>
-						</div>
+					<div class="tlInputMention">
+						<textarea class="elastic" id="timelineTextarea" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
 					</div>
-					<div class="time">
-						20:52&nbsp;
-						<a href="javascript:void(0)">コメントする</a> ・ 
-						<form style="display:inline">
-						<input type="hidden" name="secid" value="">
-						<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・ 
-						</form>
-						<a href="javascript:void(0)" onclick="">コメントする</a>
-					</div>
-				</div>
-			</div>
-
-			<div id="comments21" class="comments">
-				<div id="commentCaption108" class="commentCaption">
-					<span class="iconComment"></span>
-					<a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a>
-				</div>
-				<div id="like_21" class="commentCaption">
-					<span class="iconLike"></span>
-					2人が「いいね！」と言っています。
-				</div>
-				<div id="message112" class="message">
-					<form name="" id="" action="">
-					<div class="avatar mr10">
-						<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">
-					</div>
-					<div class="messageContents">
-						<div class="name">ユーザー名</div>
-						<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
-						<p class="more">...<br /><a href="#">続きを読む</a></p>
-						</div>
-						<div class="time">16:51</div>
-					</div>
-					</form>
-				</div>
-				<div id="message112" class="message">
-					<form name="" id="" action="" method="post" onsubmit="">
-					<div class="floatLeft mr10">
-					<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">
-					</div>
-					<div class="messageContents">
-						<div class="name">ユーザー名</div>
-						<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-						<div class="time">16:51</div>
-					</div>
-					</form>
-				</div>
-				<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146">
-				<span>コメントする</span>
-				</div>
-
-				<div id="commentField175" class="commentField" style="">
-					<div class="avatar mr10">
-						<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">
-					</div>
-					<form name="" id="" action="" method="post" onsubmit="">
-					<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
-					<div class="outer">
-					<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; color: black; height: 39px; " onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
-					</div>
-					<div class="right">
-					<a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a>
-					</div>
-					</form>
-				</div>
-			</div>
-
-			<div id="commentField21" class="commentField" style="display:none">
-			<form name="" id="" action="" method="post" onsubmit="">
-			<input type="hidden" name="secid" value="">
-			<div class="outer">
-			<textarea class="elastic" id="" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px; color: black; " onkeydown=""></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a>
-			</div>
-			</form>
-			</div>
-
-			<div id="message21" class="message">
-				<div class="avatar mr10">
-					<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">
-				</div>
-				<div class="messageContents">
-					<div class="name">名前 名前</div>
-					<div class="body">
-					URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+					<div class="tlInputAttachment">
+						<div class="floatRight"><a href="#"><span class="auiWFicon"><i class="icon-remove"></i></span></a></div>
 						<div class="tlClipBoard clearfix">
-							<div class="tlClipImage">
-								<a href="http://www.google.com" target="_blank"><img src="http://capture.heartrails.com/90x90?http://www.aipo.com/" /></a>
-							</div>
+							<div class="tlClipImage"><a href="http://www.example.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="160" height="120"/></a></div>
 							<div class="tlClipContents">
-								<div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
-								<div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
-								<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+								<div class="tlClipTitle"><a href="http://www.example.com" target="_blank">タイトルタイトル</a></div>
+								<div class="tlClipUrl">www.example.com</div>
+								<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
 							</div>
 						</div>
 					</div>
-					<div class="time">
-						20:52&nbsp;
-						<a href="javascript:void(0)">コメントする</a> ・ 
-						<form style="display:inline">
-						<input type="hidden" name="secid" value="">
-						<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・ 
+					<!-- tlInputControls -->
+					<div class="tlInputControls clearfix">
+						<div class="floatLeft">
+							<iframe scrolling="no" frameborder="0" src="../timeline/inner_form.html" allowtransparency="true" id="if_fileupload_P-137c2bd20fb-1008a" name="if_fileupload_P-137c2bd20fb-1008a" class="auiInputFileFrame"></iframe>
+						</div>
+						<div class="floatRight">
+							<ul class="clearfix">
+								<!--li><a href="javascript:void(0)" class="auiButton" title="スケジュールに追加する" onclick="if(document.getElementById('popup_3').style.display!='none'){document.getElementById('popup_3').style.display='none'}else{bounds=this.getBoundingClientRect();document.getElementById('popup_3').style.top=bounds.top+30+'px';document.getElementById('popup_3').style.right=document.body.clientWidth-bounds.right+'px';document.getElementById('popup_3').style.display='block'; document.getElementById('timelineTextarea').value='[[2012/07/17 09:00-09:30]]';}"><span><i class="auiIcon auiIconCalendar"></i></span></a></li-->
+								<li>
+									<input type="submit" class="auiButtonAction" value="投稿する"/>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- /tlInputControls --> </form>
+			</div>
+			<!-- /inputField -->
+			<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>
+			<div class="tlDisplayChanger">
+				<div class="btn"><i class="indicator"></i> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a></div>
+				<div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
+					<ul>
+						<li><a href="#" class="selected">すべてのグループ</a></li>
+						<li><a href="#">管理本部</a></li>
+						<li><a href="#">開発本部</a></li>
+						<li><a href="#">企画本部</a></li>
+						<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
+						<li class="tipDivider"></li>
+					</ul>
+					<ul>
+						<li><a href="#" class="selected">すべて表示</a></li>
+						<li><a href="#">投稿のみ表示</a></li>
+						<li><a href="#">更新情報のみ表示</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="timeline" class="timeline" style="height:300px; overflow-y:scroll;overflow-x:hidden;clear:both;">
+				<div id="content_xxx">
+
+					<div id="message21" class="message first">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body"> 画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。
+								<p class="more">...<br/>
+									<a href="#">続きを読む</a></p>
+								<!-- ############################################################
+								●開発担当者向けコメント
+
+								画像が複数投稿される場合も<br>を使わずそのまま羅列させてください。
+								ソース内改行も発生しないようお願いします。
+
+								############################################################ -->
+								<div class="tlImageBlock clearfix">
+									<a href="javascript:void(0)" onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a>
+									<a href="javascript:void(0)" onclick="popupToggle(this,'imgPopup2');popupToggle(this,'popupMask')"><img src="http://www.aipo.com/img/icon/icon_windows.gif"/></a>
+									</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a>
+							</div>
+						</div>
+					</div>
+					<div id="comments21" class="comments">
+						<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div id="message112" class="message">
+							<form name="" id="" action="">
+								<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+								<div class="messageContents">
+									<div class="name">ユーザー名</div>
+									<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容
+										<p class="more">...<br/>
+											<a href="#">続きを読む</a></p>
+									</div>
+									<div class="time">16:51</div>
+								</div>
+							</form>
+						</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+						<div id="commentField175" class="commentField" style="">
+							<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+							<form name="" id="" action="" method="post" onsubmit="">
+								<input type="hidden" name="secid" value="85a7f15f68a4358be68ed17a3d980ef4">
+
+								<div class="outer">
+									<textarea class="elastic" id="note_P-135c96ce6ff-1009d_175" cols="10" name="note" rows="1" style="height: 39px;" onkeydown="aipo.timeline.onKeyDown('P-135c96ce6ff-1009d', 175)"></textarea>
+								</div>
+								<div class="right"><a class="auiButton" href="javascript:void(0)" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135c96ce6ff-1009d_175'), 'mode', 'comment');dojo.byId('commentForm_P-135c96ce6ff-1009d_175').onsubmit();">コメントする</a></div>
+							</form>
+						</div>
+					</div>
+
+					<div id="message21" class="message">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipImage"><a href="http://www.example.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.example.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl">www.example.com</div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a></div>
+						</div>
+					</div>
+					<div id="comments21" class="comments">
+						<div id="commentCaption108" class="commentCaption"><i class="icon-comment"></i> <a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a></div>
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div id="message112" class="message">
+							<form name="" id="" action="">
+								<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32"></div>
+								<div class="messageContents">
+									<div class="name">ユーザー名</div>
+									<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
+									<div class="time">16:51</div>
+								</div>
+							</form>
+						</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+					</div>
+					<div id="commentField21" class="commentField" style="display:none">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="secid" value="">
+
+							<div class="outer">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+							</div>
+							<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
 						</form>
-						<a href="javascript:void(0)" onclick="">コメントする</a>
 					</div>
-				</div>
-			</div>
 
-			<div id="comments21" class="comments">
-				<div id="commentCaption108" class="commentCaption">
-					<span class="iconComment"></span>
-					<a href="javascript:void(0)" onclick="aipo.timeline.showCommentAll(108)">コメント3件をすべて見る</a>
-				</div>
-				<div id="like_21" class="commentCaption">
-					<span class="iconLike"></span>
-					2人が「いいね！」と言っています。
-				</div>
-				<div id="message112" class="message">
-					<form name="" id="" action="">
-					<div class="avatar mr10">
-						<img src="../themes/default/images/common/avatar_default3.png" alt="田中 一郎" width="32" height="32">
+					<div id="message22" class="message">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body"><a href="http://www.example.com/entry/20141010123030.html" target="_blank">http://www.example.com/entry/20141010123030.html</a>
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.example.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl">www.example.com</div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a></div>
+						</div>
 					</div>
-					<div class="messageContents">
-						<div class="name">ユーザー名</div>
-						<div class="body">コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。コメント内容。</div>
-						<div class="time">16:51</div>
+					<div id="comments22" class="comments">
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
 					</div>
-					</form>
-				</div>
-				<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146">
-				<span>コメントする</span>
-				</div>
-			</div>
+					<div id="commentField22" class="commentField" style="display:none">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="secid" value="">
 
-			<div id="commentField21" class="commentField" style="display:none">
-			<form name="" id="" action="" method="post" onsubmit="">
-			<input type="hidden" name="secid" value="">
-			<div class="outer">
-			<textarea class="elastic" id="" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px; color: black; " onkeydown=""></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a>
-			</div>
-			</form>
-			</div>
-
-			<div id="message21" class="message">
-				<div class="avatar mr10">
-					<img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50">
-				</div>
-				<div class="messageContents">
-					<div class="name">名前 名前</div>
-					<div class="body">
-					つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。つぶやき内容。
-					</div>
-					<div class="time">
-						20:52&nbsp;
-						<a href="javascript:void(0)">コメントする</a> ・ 
-						<form style="display:inline">
-						<input type="hidden" name="secid" value="">
-						<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・ 
+							<div class="outer">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+							</div>
+							<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
 						</form>
-						<a href="javascript:void(0)" onclick="">コメントする</a>
 					</div>
-				</div>
-			</div>
 
-			<div id="comments1" class="comments">
-				<div id="like_21" class="commentCaption">
-					<span class="iconLike"></span>
-					2人が「いいね！」と言っています。
-				</div>
-			</div>
+					<div id="message23" class="message">
+						<div class="avatar mr10"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50"></div>
+						<div class="messageContents">
+							<div class="name">名前 名前</div>
+							<div class="body"><a href="http://www.example.com" target="_blank">http://www.example.com</a><br/>URLに加えて長いコメントもした場合。URLに加えて長いコメントもした場合。URLに加えて長いコメントもした場合。URLに加えて長いコメントもした場合。
+								<div class="tlClipBoard clearfix">
+									<div class="tlClipImage"><a href="http://www.example.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>
+									<div class="tlClipContents">
+										<div class="tlClipTitle"><a href="http://www.example.com" target="_blank">タイトルタイトル</a></div>
+										<div class="tlClipUrl">www.example.com</div>
+										<div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+									</div>
+								</div>
+							</div>
+							<div class="time"> 20:52&nbsp; <a href="javascript:void(0)">コメントする</a> ・
+								<form style="display:inline">
+									<input type="hidden" name="secid" value="">
+									<a href="javascript:void(0)" onclick="">いいね！を取り消す</a> ・
+								</form>
+								<a href="javascript:void(0)" onclick="">コメントする</a></div>
+						</div>
+					</div>
+					<div id="comments23" class="comments">
+						<div id="like_21" class="commentCaption"><i class="icon-thumbs-up-alt"></i> 2人が「いいね！」と言っています。</div>
+						<div onclick="aipo.timeline.showCommentField(146);" class="commentInputDummy" id="commentInputDummy146"><span>コメントする</span></div>
+					</div>
+					<div id="commentField23" class="commentField" style="display:none">
+						<form name="" id="" action="" method="post" onsubmit="">
+							<input type="hidden" name="secid" value="">
 
-			<div id="commentField1" class="commentField" style="display:none">
-			<form name="commentForm_P-135ce1c560d-10224_1" id="commentForm_P-135ce1c560d-10224_1" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1c560d-10224?template=TimelineJSONScreen&amp;entityid=1" method="post" onsubmit="aimluck.io.submit(this,'indicator-list-','P-135ce1c560d-10224',aipo.timeline.onReceiveMessage);return false;">
-			<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-			<div class="outer">
-			<textarea class="elastic" id="note_P-135ce1c560d-10224_1" cols="10" name="note" rows="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; height: 39px; color: black; " onkeydown="aipo.timeline.onKeyDown('P-135ce1c560d-10224', 1)"></textarea>
-			</div>
-			<div class="right">
-			<a href="javascript:void(0)" class="auiButton" onclick="aipo.timeline.addHiddenValue(dojo.byId('commentForm_P-135ce1c560d-10224_1'), 'mode', 'comment_1');dojo.byId('commentForm_P-135ce1c560d-10224_1').onsubmit();">コメントする</a>
-			</div>
-			</form>
+							<div class="outer">
+								<textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px;" onkeydown=""></textarea>
+							</div>
+							<div class="right"><a href="javascript:void(0)" class="auiButton" onclick="">コメントする</a></div>
+						</form>
+					</div>
+
+				</div>
+				<div class="readMore"><a href="javascript:void(0);" onclick="">もっと見る</a></div>
 			</div>
 		</div>
-
-		<div class="readMore"><a href="javascript:void(0);" onclick="aipo.timeline.onScroll('https://app.aipo.com/portal/media-type/html/user/0000000007/page/default.psml/js_peid/P-135c96ce6ff-1009d?template=TimelineScreen&amp;rows=50', 'P-135c96ce6ff-1009d');">もっと見る</a></div>
 	</div>
 </div>
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-- /PORTLE<!-- /auiPortlet -->                                                   </td>
-                                                            <td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer" dojotype="dojo.dnd.Source" withhandles="true">
-
-
-                                                              <!-- auiPortlet -->
-                                                              <div class="dojoDndItem P-135ce1a0d64-10014" id="dojoUnique6">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?action=controls.Maximize">掲示板</a></td>
-                                                                                    <td class="roundBlockIcon"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicFormScreen&amp;entityid=new','P-135ce1a0d64-10014',aipo.msgboard.onLoadMsgboardDialog);">トピック追加</a></td>
-<td class="roundBlockIcon last">
-    
-    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1a0d64-10014');" title="カスタマイズ"></a>
-		
-            <div class="menubar" id="menubar_P-135ce1a0d64-10014" style="position: absolute; display: none; ">
-        <ul>
-                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?action=controls.Customize">設定</a></li>
-            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135ce1a0d64-10014', function(){ dojo.query('.dojoDndItem.P-135ce1a0d64-10014').orphan(); window.location.reload(); } );">削除</a></li>
-					</ul>
-    </div>
-    </td>
-
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1a0d64-10014" id="portlet_P-135ce1a0d64-10014">
-
-
-
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js"></script>
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/msgboard/form.js"></script>
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135ce1a0d64-10014'] = { group:"msgboard", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-<div class="auiSummaryMeta clearfix">
-<div class="floatLeft w30">
-<form class="auiForm">
-<select name="topic" id="topic" style="width:100%;" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135ce1a0d64-10014')">
-<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen&amp;filter=0&amp;filtertype=category">すべてのカテゴリ</option>
-<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen&amp;filter=2&amp;filtertype=category">お知らせ</option>
-<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicScreen&amp;filter=1&amp;filtertype=category">その他</option>
-</select>
-</form>
-</div>
-
-<div class="floatRight">
-	<div class="count">1 ～ 2 / 2</div>
+<!-- /auiPortletBody -->
+<div class="auiPortletFoot">
+	<div class="inner"></div>
 </div>
 </div>
+<!-- /auiPortlet -->
 
-<form name="formP-135ce1a0d64-10014" id="formP-135ce1a0d64-10014" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-<input type="hidden" name="_name" value="Msgboard">
-<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-<table class="auiRowTable wide">
-<colgroup>
-</colgroup><colgroup style="width:20%;">
-</colgroup><colgroup style="width:20%;">
-</colgroup><colgroup style="width:6em;">
-</colgroup><tbody>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicDetailScreen&amp;entityid=2', 'P-135ce1a0d64-10014', aipo.msgboard.onLoadMsgboardDetail);">お花見のお知らせ （1）</a>
-</div>
-    </td>
-      <td><div>お知らせ</div></td>
-      <td><div>木村 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>20:51</div></td>
-</tr>
-<tr>
-    <td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10014?template=MsgboardTopicDetailScreen&amp;entityid=1', 'P-135ce1a0d64-10014', aipo.msgboard.onLoadMsgboardDetail);">歓迎会開催のお知らせ </a>
-</div>
-    </td>
-      <td><div>お知らせ</div></td>
-      <td><div>木村 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>20:51</div></td>
+
+
+</td>
+<td width="25%" class="top container dojoDndSource dojoDndTarget dojoDndContainer"></td>
 </tr>
 </tbody>
 </table>
-</form>
-
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-- /PORTLET O<!-- /auiPortlet -->                                                    <!-- auiPortlet -->
-                                                              <div class="dojoDndItem P-135ce1a0d64-10015" id="dojoUnique7">
-                                                              <div class="roundTopBlock clearfix">
-                                                                <div class="roundRightBlock">
-                                                                  <div class="roundBottomBlock">
-                                                                    <div class="roundLeftBlock">
-                                                                      <div class="roundTopLeftBlock">
-                                                                        <div class="roundTopRightBlock">
-                                                                          <div class="roundBottomRightBlock">
-                                                                            <div class="roundBottomLeftBlock">
-                                                                              <table class="roundBlockWrapperTop">
-                                                                                <tbody>
-                                                                                  <tr>
-                                                                                    <td class="roundBlockTitle wide dojoDndHandle"><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?action=controls.Maximize">共有フォルダ</a></td>
-                                                                                    <td class="roundBlockIcon"><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetFileFormScreen&amp;entityid=new','P-135ce1a0d64-10015',aipo.cabinet.onLoadCabinetFileDialog);">ファイル追加</a></td>
-<td class="roundBlockIcon last">
-    
-    	        <a href="javascript:void(0);" class="customizeMenuIcon auiIcon auiIconSetting" onclick="aipo.customize.showMenu('P-135ce1a0d64-10015');" title="カスタマイズ"></a>
-		
-            <div class="menubar" id="menubar_P-135ce1a0d64-10015" style="position: absolute; display: none; ">
-        <ul>
-                            <li><a href="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?action=controls.Customize">設定</a></li>
-            						<li class="last"><a href="javascript:void(0);" onclick="aipo.customize.deletesubmit('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CustomizeFormJSONScreen&amp;mode=delete', 'P-135ce1a0d64-10015', function(){ dojo.query('.dojoDndItem.P-135ce1a0d64-10015').orphan(); window.location.reload(); } );">削除</a></li>
-					</ul>
-    </div>
-    </td>
-
-                                                                                </tr>
-                                                                                </tbody>
-                                                                              </table>
-                                                                              <div class="roundBlockWrapperBottom clearfix">
-                                                                                <div class="roundBlockContent">
-                                                                                  <div dojotype="aimluck.widget.Contentpane" widgetid="portlet_P-135ce1a0d64-10015" id="portlet_P-135ce1a0d64-10015">
-
-
-
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/fileupload/form.js"></script>
-<script language="JavaScript" type="text/javascript" src="/aipo/javascript/aipo/cabinet/form.js"></script>
-<script language="JavaScript" type="text/javascript">
-//<![CDATA[
-
-    ptConfig['P-135ce1a0d64-10015'] = { group:"cabinet", initUrl:'http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen', reloadFunction:aipo.reloadPage };
-
-//]]>
-</script>
-
-
-<div class="auiSummaryMeta clearfix">
-<div class="floatLeft w30">
-<form class="auiForm">
-<select name="folder_id" id="folder_id" style="width:100%;" onchange="aipo.viewPage(this.options[this.selectedIndex].value, 'P-135ce1a0d64-10015')">
-<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=0">すべてのフォルダ</option>
-<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=1">ルートフォルダ</option>
-<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=2">&nbsp;&nbsp;&nbsp;商品開発部</option>
-<option value="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetScreen&amp;folder_id=3">&nbsp;&nbsp;&nbsp;営業部</option>
-</select>
-</form>
-</div>
-
-<div class="floatRight">
-	<div class="count">1 ～ 2 / 2</div>
-</div>
-</div>
-
-<form name="formP-135ce1a0d64-10015" id="formP-135ce1a0d64-10015" action="http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015" method="post" onsubmit="return(aimluck.io.disableForm(this, true));">
-<input type="hidden" name="_name" value="Cabinet">
-<input type="hidden" name="secid" value="6ec1dbcca852efb2e10683025d8be5db">
-<table class="auiRowTable wide">
-<colgroup>
-</colgroup><colgroup style="width:20%;">
-</colgroup><colgroup style="width:20%;">
-</colgroup><colgroup style="width:6em;">
-</colgroup><tbody>
-    <tr><td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetFileDetailScreen&amp;entityid=1');">メンバー一覧</a></div>
-    </td>
-      <td><div>商品開発部</div></td>
-      <td><div>木村 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>20:51</div></td>
-</tr>
-    <tr><td>
-<div><a href="javascript:void(0);" onclick="aipo.common.showDialog('http://hudson.aipo.com:8080/aipo/portal/media-type/html/user/sample1/page/default.psml/js_peid/P-135ce1a0d64-10015?template=CabinetFileDetailScreen&amp;entityid=2');">営業部メンバーリスト</a></div>
-    </td>
-      <td><div>営業部</div></td>
-      <td><div>木村 一郎</div></td>
-      <td class="right" nowrap="nowrap"><div>20:51</div></td>
-</tr>
-</tbody>
-</table>
-</form>
-
-                                                                                  </div>
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                              </div>
-                                                              <!-- /PORTLET OUTER -->
-
-
-                                                            </td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
 
 <!-- ###### ▲開発向け：ここまで改修コンテンツ（当コメントは反映しないで下さい） #####-->
 
+</div>
+<!-- /roundMainWrapper  -->
+</div>
+<!-- /wrapper -->
 
-<!-- /LAYOUT -->
-</div></div></div></div></div></div></div></div></div></td></tr></tbody></table>
-<!-- /MAIN OUTER  -->
 
-<!-- FOOTER -->
-<div id="footer" class="clearfix">
+<!-- popupMask -->
+<div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;">
+	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
+</div>
+<!-- /popupMask -->
 
-	<!-- START GUIDE -->
-	<div id="startGuide" style="display:none;">
-		<div class="close"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='none';document.getElementById('wrapper').style.marginBottom='40px';document.getElementById('guide_on').style.display='inline'"><img src="images/close.gif" alt="閉じる" width="19" height="20" border="0" align="absmiddle" title="閉じる"> 閉じる</a></div>
-		<div class="clearfix">
-			<div class="guideContents">
-				<p>ユーザーを追加しよう</p>
-				<p><a href="#" class="auiButtonAction">ユーザー追加方法を見る</a></p>
-			</div>
-			<div class="guideContents">
-				<p>画面レイアウトを変更しよう</p>
-				<p><a href="#" class="auiButtonAction">レイアウト変更方法を見る</a></p>
-			</div>
+<div style="display: none; max-width: 800px; left: 50%; top: 50%; margin: -200px 0px 0px -400px;" id="imgPopup1" class="auiPopup imgPopup">
+	<div class="auiPopupHead clearfix">
+		<div class="auiPopupTool">
+			<div><a title="閉じる" class="auiButtonIcon" onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')" href="javascript:void(0)"> <span><i class="icon-remove"></i></span> </a></div>
+		</div>
+		<div class="auiPopupTitle">sample.png</div>
+	</div>
+	<div class="roundBlockContent">
+		<div class="imgBody">
+			<a target="_blank" title="新規ウインドウで開く" href="http://www.aipo.com/img/plus/future01_05.png">
+				<div class="imgOverlay"><i class="icon-external-link" style="padding-top:168px;"></i></div><img src="http://www.aipo.com/img/plus/future01_05.png"></a>
+		</div>
+		<div class="center auiPopupButtons">
+			<input type="button" onclick="aimluck.io.openDialog(this, '" value="ダウンロード" class="button" name="ajaxbuttonReplyAll">
+			<input type="button" name="ajaxbuttonClose" class="button" value="閉じる" onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')">
 		</div>
 	</div>
-	<!-- /START GUIDE -->
-
-	<div id="footText">
-	<div class="copyright"><a href="http://www.aipo.com/" target="_blank">Aipo</a>(R) 6.0.2.0 Copyright(C) Aimluck,Inc. All Rights Reserved.</div>
-	<div id="guide_on" style="display:inline;"><a href="javascript:void(0);" onClick="document.getElementById('startGuide').style.display='block';document.getElementById('wrapper').style.marginBottom='170px';document.getElementById('guide_on').style.display='none'">スタートガイド</a></div>
+</div>
+<div style="display: none; width: 700px; left: 50%; top: 50%; margin: -200px 0px 0px -400px;" id="imgPopup2" class="auiPopup imgPopup">
+	<div class="auiPopupHead clearfix">
+		<div class="auiPopupTool">
+			<div><a title="閉じる" class="auiButtonIcon" onclick="popupToggle(this,'imgPopup2');popupToggle(this,'popupMask')" href="javascript:void(0)"> <span><i class="icon-remove"></i></span> </a></div>
+		</div>
+		<div class="auiPopupTitle">sample.png</div>
+	</div>
+	<div class="roundBlockContent">
+		<div class="imgBody">
+			<a target="_blank" title="新規ウインドウで開く" href="http://www.aipo.com/img/icon/icon_windows.gif">
+				<div class="imgOverlay"><i class="icon-external-link" style="padding-top:75px;"></i></div><img src="http://www.aipo.com/img/icon/icon_windows.gif" style="padding-top: 80px; padding-bottom: 80px;"></a>
+		</div>
+		<div class="center auiPopupButtons">
+			<input type="button" onclick="aimluck.io.openDialog(this, '" value="ダウンロード" class="button" name="ajaxbuttonReplyAll">
+			<input type="button" name="ajaxbuttonClose" class="button" value="閉じる" onclick="popupToggle(this,'imgPopup2');popupToggle(this,'popupMask')">
+		</div>
 	</div>
 </div>
-<!-- /FOOTER -->
 
+<!--<div class="auiPopup clearfix" id="imgPopup2">-->
+	<!--<div class="auiPopupHead clearfix">-->
+		<!--<div class="auiPopupTool">-->
+			<!--<div><a href="#" class="auiButtonIcon" title="印刷画面を開く"> <span><i class="icon-print"></i></span> </a></div>-->
+			<!--<div><a href="#" class="auiButtonIcon" title="閉じる"> <span><i class="icon-remove"></i></span> </a></div>-->
+		<!--</div>-->
+		<!--<div class="auiPopupTitle">スケジュール詳細</div>-->
+	<!--</div>-->
+	<!--<div class="roundBlockContent">-->
+		<!--<div id="messageDiv"></div>-->
+		<!--<form name="formP-1390432c4be-10009" id="formP-1390432c4be-10009" action="#" method="post" onsubmit="return false;">-->
+			<!--<table class="listTable wide">-->
+				<!--<tbody>-->
+				<!--<tr>-->
+					<!--<td class="caption">名前</td>-->
+					<!--<td> 伊藤 博-->
+						<!--文 </td>-->
+				<!--</tr>-->
+				<!--<tr>-->
+					<!--<td class="caption">日時</td>-->
+					<!--<td> 毎週月火曜日<br>-->
+						<!--11:00&nbsp;-&nbsp;16:00 <i class="auiIcon auiIconOverlap" title="重複スケジュール"></i> <i class="auiIcon auiIconSecret" title="非公開"></i> <i class="auiIcon auiIconRepeat" title="繰り返し"></i> <i class="auiIcon auiIconTmpreserve" title="仮スケジュール"></i> </td>-->
+				<!--</tr>-->
+				<!--<tr>-->
+					<!--<td class="caption">タイトル</td>-->
+					<!--<td>リクルー-->
+						<!--ト活動</td>-->
+				<!--</tr>-->
+				<!--&lt;!&ndash;tr>-->
+                                    <!--<td class="caption">場所</td>-->
+                                    <!--<td></td>-->
+                                <!--</tr&ndash;&gt;-->
+				<!--<tr>-->
+					<!--<td class="caption">内容</td>-->
+					<!--<td></td>-->
+				<!--</tr>-->
+				<!--<tr>-->
+					<!--<td class="caption">公開区分</td>-->
+					<!--<td> 公開 （スケジュールを全員に公開します） </td>-->
+				<!--</tr>-->
+				<!--<tr>-->
+					<!--<td class="caption">参加ユーザー</td>-->
+					<!--<td> 板垣 退助 <br>-->
+						<!--<div style="padding:4px 0px 0px 0px"> 参加ユーザーは、このスケジュールを編集／削除できます。</div>-->
+						<!--<div> 参加ユーザーにメール通知をおこないます。 </div></td>-->
+				<!--</tr>-->
+				<!--<tr>-->
+					<!--<td class="caption">設備</td>-->
+					<!--<td> 第1会議-->
+						<!--室<br>-->
+					<!--</td>-->
+				<!--</tr>-->
+				<!--<tr>-->
+					<!--<td class="caption">登録者</td>-->
+					<!--<td>板垣 退助 （2012年12月12日）</td>-->
+				<!--</tr>-->
+				<!--<tr>-->
+					<!--<td class="caption">更新者</td>-->
+					<!--<td>板垣 退助 （2012年12月12日 10:29）</td>-->
+				<!--</tr>-->
+				<!--</tbody>-->
+			<!--</table>-->
+			<!--<div align="center">-->
+				<!--<div align="left" style="padding:0px 0px 2px 0px" class="radioBlock">-->
+					<!--<h3> 削除する場合の条件</h3>-->
+					<!--<label for="P-1390432c4be-10009del_flag_3_id" onclick="aipo.schedule.delFlag3(this.form)">-->
+						<!--<input name="del_flag" type="radio" value="3" id="P-1390432c4be-10009del_flag_3_id" checked="checked" onclick="aipo.schedule.delFlag3(this.form)">-->
+						<!--伊藤 博文 の 2013年7月2日 の予定のみを削除します</label>-->
+					<!--<br>-->
+					<!--<label for="P-1390432c4be-10009del_flag_2_id" onclick="aipo.schedule.delFlag2(this.form)">-->
+						<!--<input name="del_flag" type="radio" value="2" id="P-1390432c4be-10009del_flag_2_id" onclick="aipo.schedule.delFlag2(this.form)">-->
+						<!--伊藤 博文 のこの予定を完全に削除します</label>-->
+					<!--<br>-->
+					<!--<label for="P-1390432c4be-10009del_flag_1_id" onclick="aipo.schedule.delFlag1(this.form)">-->
+						<!--<input name="del_flag" type="radio" value="1" id="P-1390432c4be-10009del_flag_1_id" onclick="aipo.schedule.delFlag1(this.form)">-->
+						<!--参加ユーザー全員の 2013年7月2日 の予定のみを削除します</label>-->
+					<!--<br>-->
+					<!--<label for="P-1390432c4be-10009del_flag_0_id" onclick="aipo.schedule.delFlag0(this.form)">-->
+						<!--<input name="del_flag" type="radio" value="0" id="P-1390432c4be-10009del_flag_0_id" onclick="aipo.schedule.delFlag0(this.form)">-->
+						<!--参加ユーザー全員のこの予定を完全に削除します</label>-->
+				<!--</div>-->
+              <!--<span style="vertical-align:middle;">-->
+              <!--<input name="" class="button" type="button" value="ダウンロードする" onclick="">-->
+              <!--<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">-->
+              <!--</span> </div>-->
+		<!--</form>-->
+	<!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="auiPopup imgPopup" id="imgPopup1" style="display: block; max-width:800px;left:50%;top:50%;margin:-200px 0 0 -400px;">-->
+	<!--<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">-->
+		<!--<div class="meta">-->
+			<!--<a href="javascript:void(0)"onclick="popupToggle(this,'imgPopup1');popupToggle(this,'popupMask')"><i class="icon-remove"></i></a>-->
+		<!--</div>-->
+		<!--<div class="imgBody">-->
+
+			<!--<a href="http://www.aipo.com/img/plus/future01_05.png" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" />-->
+
+			<!--</a>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+
+<div id="imageDialog" class="auiPopup imgPopup fileuploadViewDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" onclick="" widgetid="imageDialog" title="" style="display: none; margin-left: -400px; top: 152px; width: 800px; height: 600px;">
+	<span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
+		<div class="meta">
+			<a href="javascript:void(0)" onclick="popupToggle(this,'imageDialog');popupToggle(this,'popupMask')"><i class="icon-remove"></i></a>
+		</div>
+		<div class="imgBody">
+			<div class="indicatorDialog center" style="display: none;"><i class="auiIcon auiIconIndicator"></i> 読み込み中...</div>
+		</div>
+		<a href="javascript:void(0)" onclick="popupToggle(this,'imageDialog');popupToggle(this,'popupMask')">
+			<img id="popupImage" onload="aipo.fileupload.onLoadImage(this)" onerror="aipo.fileupload.onLoadImage(this)" src="http://localhost:8080/aipo/portal/media-type/html/user/a/page/default.psml/template/TimelineFileRawScreen/ownerid/703/entityid/20981/attachmentindex/2901/f/null">
+		</a>
+	</div>
+	<span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+	<span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
 </div>
-<!-- /roundWrapper -->
 
-</div>
-
-
-<div class="dijitPopup" style="z-index: 1000; left:1090px; visibility: visible; top: 32px; ">
-    <div id="aipo_widget_ActivityList_0" widgetid="aipo_widget_ActivityList_0" style="display: none; ">
-    <div class="activityPopup">
-    <div class="clearfix">
-    <div id="activityListPane" widgetid="activityListPane" class="dijitContentPane" title="">
-    
-    
-    <h2>あなた宛のお知らせ</h2>
-    <div style="background:#ffffff;padding:2px;">
-    <ul class="activityList">
-    <li class="unread">
-    <div class="meta">12月26日 &nbsp; 山本 次郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3088&amp;view_date=2012-01-10-00-00&amp;activityId=3563&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3563)">予定「PMI<wbr>様訪問」を編<wbr>集しました。<wbr></a>
-    </li>
-    <li>
-    <div class="meta">12月26日 &nbsp; 高橋 四郎</div>
-    <img src="https://s3-ap-northeast-1.amazonaws.com/gadgets.aipo.com/microblog/img/icon/icon16-trans.png" width="16" height="16" alt="" align="absmiddle">
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=GadgetsPopupScreen&amp;view=popup&amp;aid=61&amp;activityId=3518&amp;eid=804&amp;mid=487&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3518)">あなたの投稿<wbr>にコメントし<wbr>ました。</a>
-    </li>
-    <li>
-    <div class="meta">12月22日 &nbsp; 山中 愛子</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=NoteDetailScreen&amp;entityid=356&amp;activityId=3505&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3505)">かねこさん様<wbr>より伝言「伝<wbr>言をお願いし<wbr>ます。」があ<wbr>りました。</a>
-    </li>
-    <li>
-    <div class="meta">12月21日 &nbsp; 山本 次郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ScheduleDetailScreen&amp;entityid=3037&amp;view_date=2011-12-22-00-00&amp;activityId=3467&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3467)">予定「ハイソ<wbr>ル様修正連絡<wbr>」を追加しま<wbr>した。</a>
-    </li>
-    <li>
-    <div class="meta">12月21日 &nbsp; 田村 三郎</div>
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.common.showDialog('?template=ReportDetailScreen&amp;entityid=4&amp;activityId=3441&amp;js_peid=P-130c0eeca1f-10017', 'P-130c0eeca1f-10017', aipo.container.onPopupGadgets );aipo.container.gadgetService.requestCheckActivity(3441)">報告書「fo<wbr>rm.aip<wbr>o.comの<wbr>ボタン画像に<wbr>テキストが表<wbr>示されます」<wbr>の確認依頼を<wbr>出しました。<wbr></a>
-    </li>
-    </ul>
-    
-    <div class="clearfix">
-      <div class="alignleft small">
-    
-        <div class="pagination">
-          <ul>
-            <li class="prev disabled"><a href="javascript:void(0);" class="small">前へ</a></li>
-            <li class="next"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">次へ</a></li>
-            <li class="selected"><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=1');" class="small">1</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=2');" class="small">2</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=3');" class="small">3</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=4');" class="small">4</a></li>
-            <li><a href="javascript:void(0);" onclick="dijit.byId('activityListPane').viewPage('?template=ActivityListScreen&amp;start=5');" class="small">5</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <p class="rightBtn">
-    <a href="javascript:void(0);" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestDesktopNotifyEnable();" class="small">デスクトップ通知を有効にする</a>&nbsp;<input type="button" name="allread" value="すべて既読にする" onclick="dijit.byId('activitycheckerContainer')._closeDropDown();aipo.container.gadgetService.requestCheckActivity('*')">
-    </p>
-    
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-</div>
-
-
-<div class="auiPopup imgPopup" style="max-width:800px;left:50%;top:50%;margin:-200px 0 0 -400px;">
-	<div class="imgBody"><a href="timeline.html"><img src="http://www.aipo.com/img/plus/future01_05.png" /></a></div>
-</div>
 
 </body>
 </html>

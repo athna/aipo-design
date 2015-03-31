@@ -1484,7 +1484,6 @@ div.sunday {
   //, td.sunday {
   background: $sundayBack;
 }
-
 div.saturday {
   //, td.saturday {
   background: $saturdayBack;
@@ -1690,10 +1689,9 @@ div.off {
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid $grayBorder;
-  //font-size: $fontSizeSmall;
+  font-size: 12px;
 
   th {
-    //height: 60px;
     min-width: 2em;
     border: 1px solid #ddd;
     padding: 3px;
@@ -1702,16 +1700,12 @@ div.off {
   }
   td {
     min-width: 2em;
-    //padding: 3px;
     border: solid 1px $grayBorder;
     vertical-align: top;
     word-break: break-all;
   }
   tr:first-child th {
-    //height: auto;
-    padding: 0;
-    //font-size: $fontSizeSmall;
-    background: $grayBackLight;
+    padding: 3px 1px;
   }
   tr.calendarWeek {
     th {
@@ -1721,32 +1715,24 @@ div.off {
   }
   //日表示用
   th.groupOneday {
-    white-space: nowrap;
 
     .auiButtonSmall {
       margin-top: 5px;
     }
   }
-  td.fill {
-    .calendarScheduleDiv {
-      //background: #e1f4ff;
-      //border: 1px solid #b0dfff;
-      //margin: 1px;
-      //height: 100%;
-    }
-  }
   //週表示用
   th.groupWeekly {
     width: 12.5%;
+
+    .auiButtonSmall {
+      margin-top: 5px;
+    }
   }
   //曜日系優先度 : today > off > holiday > saturday = sunday
   td.day {
     padding: 3px 5px;
-    //background-color:#FFFFE5;
     border-bottom: none;
-    a {
-      text-decoration: none;
-    }
+
     &.sunday a {
       color: $red;
     }
@@ -1761,35 +1747,13 @@ div.off {
     }
     &.today {
       background: $todayBack;
-      //border: solid 1px $grayDeep;
-      //border-bottom: none;
-      .alignleft {
-        font-weight: bold;
-      }
+
+//      .alignleft {
+//        font-weight: bold;
+//      }
     }
   }
 
-  th.sunday {
-    //background: $sundayBack;
-    //	  color: $red;
-    //	  a {
-    //		color: $red;
-    //	  }
-  }
-  th.saturday {
-    //background: $saturdayBack;
-    //	  color: $blue;
-    //	  a {
-    //		color: $blue;
-    //	  }
-  }
-  th.holiday {
-    //background: $sundayBack;
-    //	  color: $red;
-    //	  a {
-    //		color: $red;
-    //	  }
-  }
   th.today {
     background: $todayBack;
   }
@@ -1797,7 +1761,7 @@ div.off {
     background: #ddd;
   }
   td.off {
-    //background: $grayBackLight;
+
     color: $gray;
     a {
       color: $gray;
@@ -1806,16 +1770,8 @@ div.off {
       }
     }
   }
-  td.off2 {
-    //background-color:#DDD;
-  }
-  //div.calendarDay {
-  //	color:#666;
-  //	margin:0;
-  //	padding:0 2px 0 2px;
-  //	vertical-align:top;
-  //}
-  td.termSchedule {
+  td.topNone {
+    border-top:none;
   }
   div.calendarBody {
     min-height: 60px;
@@ -1829,38 +1785,41 @@ div.off {
 
   // term : 期間スケジュール
   td.term {
-    padding: 0;
+    padding: 1px;
     border-top: none;
     border-bottom: none;
+    vertical-align: top;
+
     &.today {
-      //border-right: solid 1px $grayDeep;
-      //border-left: solid 1px $grayDeep;
       background: $todayBack;
     }
   }
   div.calerndarTermScheduleDiv {
-    @extend .ellipsis;
-    margin: 1px;
+
+    font-weight: normal;
     text-align: center;
     border: 1px solid #9c9;
     background-color: #DFD;
+    overflow: hidden;
+
     a {
       padding: 0 2px;
     }
-  }
-  //td.topNone {
-  //	border-top:none;
-  //}
-  .calerndarTermScheduleDiv a:link, .calerndarTermScheduleDiv a:visited {
-    display: block;
-    text-decoration: none;
-  }
-  .calerndarTermScheduleDiv a:hover {
-    background-color: #FFFFE5;
-    text-decoration: none;
+    a:link,
+    a:visited {
+      display: block;
+      text-decoration: none;
+      padding: 1px;
+    }
+    a:hover {
+      background-color: #FFFFE5;
+      border: 1px solid #d2d2d2;
+      text-decoration: none;
+      padding: 0;
+    }
   }
 
-  // todo
+  //todo
   td.calendarTodo {
     padding: 0;
     border-top: none;
@@ -1869,40 +1828,42 @@ div.off {
       background: $todayBack;
     }
   }
+  td.fill{
+    background-color: #edf1f2;
+  }
   .calerndarTodoDiv {
-    @extend .ellipsis;
-    margin: 1px;
+//    @extend .ellipsis;
+    padding: 0;
+    font-weight: normal;
     text-align: center;
     border: 1px solid #f0a0a0;
     background-color: #FFE5E5;
+
     a {
       padding: 0 2px;
     }
-  }
-
-  .calerndarTodoDiv a:link, .calerndarTodoDiv a:visited {
-    display: block;
-    text-decoration: none;
-  }
-  .calerndarTodoDiv a:hover {
-    background-color: #FFFFE5;
-    text-decoration: none;
+    a:link,
+    a:visited {
+      display: block;
+      text-decoration: none;
+      padding: 1px;
+    }
+    a:hover {
+      background-color: #FFFFE5;
+      border: 1px solid #d2d2d2;
+      text-decoration: none;
+      padding: 0;
+    }
   }
 
   // schedule : 個別スケジュール
   .calendarScheduleDiv {
     margin: 1px;
-    a {
-      line-height: 1.6em;
-      height: 1.5em;
-      overflow: hidden;
-    }
+
     .time {
-      margin-right: .3em;
-      padding: 1px;
+      display: block;
     }
     .title {
-      padding: 1px;
     }
     a:link,
     a:visited {
@@ -1916,6 +1877,7 @@ div.off {
       text-decoration: none;
       padding: 0;
     }
+
     .calendarTime {
       padding-bottom: 5px;
       vertical-align: text-bottom;
@@ -1929,15 +1891,21 @@ div.off {
     .addSchedule:hover {
       padding: 1px 0;
       border: none;
-      background: none;
+      background: #F5F5F5;
+      cursor: pointer;
+
+      a.addSchedule {
+        color: #FF9900;
+        text-decoration: none !important;
+      }
     }
   }
   .calendarScheduleDiv.overlap {
     //重複スケジュール
     color: $red;
-    a, span, i {
-      color: $red;
-    }
+//    a, span, i {
+//      color: $red;
+//    }
 
   }
   .addScheduleCell {
@@ -1946,13 +1914,7 @@ div.off {
       background: $grayBackLight;
       cursor: pointer;
     }
-    &:hover a.addSchedule {
-      //color:#FF9900;
-      //text-decoration:none !important;
-    }
     &.today {
-      //border: solid 1px $grayDeep;
-      //border-top: none;
       background: $todayBack;
     }
   }
@@ -1963,52 +1925,104 @@ div.off {
   }
 }
 
-.overlap {
-  //重複スケジュール
-  color: $red;
-  a, span, i {
-    color: $red;
-  }
-}
+//.overlap {
+//  //重複スケジュール
+//  color: $red;
+//  a, span, i {
+//    color: $red;
+//  }
+//}
 
 //週別カレンダー
 .calendarDisplayWeek {
   .calendar {
-    th {
-      min-width: 4em;
-    }
+
   }
 }
 
 //月別カレンダー
 .calendarDisplayMonth {
   .calendar {
+
     th {
       min-width: 7.5em;
+    }
+    .calendarScheduleDiv {
+      min-width:6em;
+      .time {
+      display: inline;
+      margin-right:5px;
+      }
+      a {
+        height: 1.5em;
+        line-height: 1.6em;
+        overflow: hidden;
+      }
     }
   }
 }
 
-//日別カレンダー
+//日別表示
 .calendarDisplayDay {
   .calendar {
-    .calerndarTermScheduleDiv {
-      min-width: 4.3em;
+    tr:first-child th {
+      background: #f6f6f6;
+      white-space: nowrap;
+      min-width: 0;
+      padding: 0;
     }
-    .calendarScheduleDiv {
+    .calerndarTermScheduleDiv,
+    .calerndarTodoDiv {
       min-width: 4.3em;
-
-      a {
-        height: auto;
-      }
-      .time {
-        display: block;
-      }
-    }
-    th {
-      min-width: 1em;
+      margin: 1px;
     }
   }
+}
+
+.calendarDisplayWeek,
+.calendarDisplayDay {
+  .calendar {
+    .calendarScheduleDiv {
+      a {
+      height: auto;
+      }
+    }
+  }
+}
+
+//期間スケジュール調整（Fx/chrome対応・IE未対応）
+.calendarDisplayWeek,
+.calendarDisplayMonth {
+  .calendar {
+    height: 100%;
+    tr {
+    }
+    td.term {
+      background: none ;
+    }
+    td.term{
+      background: none;
+    }
+    tbody,
+    tr,
+    td.term{
+      height: 100%;
+    }
+    .calerndarTermScheduleDiv {
+      height: 100%;
+      @include box-sizing(border-box);
+
+      a {
+        height: 100%;
+        @include box-sizing(border-box);
+      }
+    }
+  }
+}
+
+.this-wont-expand-to-100-percent-in-IE {
+  display: table-cell;
+  height:100%;
 }
 
 /*span span span,*/

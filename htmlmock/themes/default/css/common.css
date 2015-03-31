@@ -1428,6 +1428,7 @@ div.off {
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #d2d2d2;
+  font-size: 12px;
 }
 .calendar th {
   min-width: 2em;
@@ -1443,14 +1444,10 @@ div.off {
   word-break: break-all;
 }
 .calendar tr:first-child th {
-  padding: 0;
-  background: #f6f6f6;
+  padding: 3px 1px;
 }
 .calendar tr.calendarWeek th {
   width: 14.286%;
-  white-space: nowrap;
-}
-.calendar th.groupOneday {
   white-space: nowrap;
 }
 .calendar th.groupOneday .auiButtonSmall {
@@ -1459,12 +1456,12 @@ div.off {
 .calendar th.groupWeekly {
   width: 12.5%;
 }
+.calendar th.groupWeekly .auiButtonSmall {
+  margin-top: 5px;
+}
 .calendar td.day {
   padding: 3px 5px;
   border-bottom: none;
-}
-.calendar td.day a {
-  text-decoration: none;
 }
 .calendar td.day.sunday a {
   color: #ff3333;
@@ -1481,9 +1478,6 @@ div.off {
 .calendar td.day.today {
   background: #edfeed;
 }
-.calendar td.day.today .alignleft {
-  font-weight: bold;
-}
 .calendar th.today {
   background: #edfeed;
 }
@@ -1499,6 +1493,9 @@ div.off {
 .calendar td.off a:hover {
   color: #ff9900;
 }
+.calendar td.topNone {
+  border-top: none;
+}
 .calendar div.calendarBody {
   min-height: 60px;
 }
@@ -1509,29 +1506,35 @@ div.off {
   overflow: hidden;
 }
 .calendar td.term {
-  padding: 0;
+  padding: 1px;
   border-top: none;
   border-bottom: none;
+  vertical-align: top;
 }
 .calendar td.term.today {
   background: #edfeed;
 }
 .calendar div.calerndarTermScheduleDiv {
-  margin: 1px;
+  font-weight: normal;
   text-align: center;
   border: 1px solid #9c9;
   background-color: #DFD;
+  overflow: hidden;
 }
 .calendar div.calerndarTermScheduleDiv a {
   padding: 0 2px;
 }
-.calendar .calerndarTermScheduleDiv a:link, .calendar .calerndarTermScheduleDiv a:visited {
+.calendar div.calerndarTermScheduleDiv a:link,
+.calendar div.calerndarTermScheduleDiv a:visited {
   display: block;
   text-decoration: none;
+  padding: 1px;
 }
-.calendar .calerndarTermScheduleDiv a:hover {
+.calendar div.calerndarTermScheduleDiv a:hover {
   background-color: #FFFFE5;
+  border: 1px solid #d2d2d2;
   text-decoration: none;
+  padding: 0;
 }
 .calendar td.calendarTodo {
   padding: 0;
@@ -1541,8 +1544,12 @@ div.off {
 .calendar td.calendarTodo.today {
   background: #edfeed;
 }
+.calendar td.fill {
+  background-color: #edf1f2;
+}
 .calendar .calerndarTodoDiv {
-  margin: 1px;
+  padding: 0;
+  font-weight: normal;
   text-align: center;
   border: 1px solid #f0a0a0;
   background-color: #FFE5E5;
@@ -1550,28 +1557,23 @@ div.off {
 .calendar .calerndarTodoDiv a {
   padding: 0 2px;
 }
-.calendar .calerndarTodoDiv a:link, .calendar .calerndarTodoDiv a:visited {
+.calendar .calerndarTodoDiv a:link,
+.calendar .calerndarTodoDiv a:visited {
   display: block;
   text-decoration: none;
+  padding: 1px;
 }
 .calendar .calerndarTodoDiv a:hover {
   background-color: #FFFFE5;
+  border: 1px solid #d2d2d2;
   text-decoration: none;
+  padding: 0;
 }
 .calendar .calendarScheduleDiv {
   margin: 1px;
 }
-.calendar .calendarScheduleDiv a {
-  line-height: 1.6em;
-  height: 1.5em;
-  overflow: hidden;
-}
 .calendar .calendarScheduleDiv .time {
-  margin-right: .3em;
-  padding: 1px;
-}
-.calendar .calendarScheduleDiv .title {
-  padding: 1px;
+  display: block;
 }
 .calendar .calendarScheduleDiv a:link,
 .calendar .calendarScheduleDiv a:visited {
@@ -1598,12 +1600,14 @@ div.off {
 .calendar .calendarScheduleDiv .addSchedule:hover {
   padding: 1px 0;
   border: none;
-  background: none;
+  background: #F5F5F5;
+  cursor: pointer;
+}
+.calendar .calendarScheduleDiv .addSchedule:hover a.addSchedule {
+  color: #FF9900;
+  text-decoration: none !important;
 }
 .calendar .calendarScheduleDiv.overlap {
-  color: #ff3333;
-}
-.calendar .calendarScheduleDiv.overlap a, .calendar .calendarScheduleDiv.overlap span, .calendar .calendarScheduleDiv.overlap i {
   color: #ff3333;
 }
 .calendar .addScheduleCell {
@@ -1622,35 +1626,77 @@ div.off {
   text-align: center;
 }
 
-.overlap {
-  color: #ff3333;
-}
-.overlap a, .overlap span, .overlap i {
-  color: #ff3333;
-}
-
-.calendarDisplayWeek .calendar th {
-  min-width: 4em;
-}
-
 .calendarDisplayMonth .calendar th {
   min-width: 7.5em;
 }
+.calendarDisplayMonth .calendar .calendarScheduleDiv {
+  min-width: 6em;
+}
+.calendarDisplayMonth .calendar .calendarScheduleDiv .time {
+  display: inline;
+  margin-right: 5px;
+}
+.calendarDisplayMonth .calendar .calendarScheduleDiv a {
+  height: 1.5em;
+  line-height: 1.6em;
+  overflow: hidden;
+}
 
-.calendarDisplayDay .calendar .calerndarTermScheduleDiv {
-  min-width: 4.3em;
+.calendarDisplayDay .calendar tr:first-child th {
+  background: #f6f6f6;
+  white-space: nowrap;
+  min-width: 0;
+  padding: 0;
 }
-.calendarDisplayDay .calendar .calendarScheduleDiv {
+.calendarDisplayDay .calendar .calerndarTermScheduleDiv,
+.calendarDisplayDay .calendar .calerndarTodoDiv {
   min-width: 4.3em;
+  margin: 1px;
 }
+
+.calendarDisplayWeek .calendar .calendarScheduleDiv a,
 .calendarDisplayDay .calendar .calendarScheduleDiv a {
   height: auto;
 }
-.calendarDisplayDay .calendar .calendarScheduleDiv .time {
-  display: block;
+
+.calendarDisplayWeek .calendar,
+.calendarDisplayMonth .calendar {
+  height: 100%;
 }
-.calendarDisplayDay .calendar th {
-  min-width: 1em;
+.calendarDisplayWeek .calendar td.term,
+.calendarDisplayMonth .calendar td.term {
+  background: none;
+}
+.calendarDisplayWeek .calendar td.term,
+.calendarDisplayMonth .calendar td.term {
+  background: none;
+}
+.calendarDisplayWeek .calendar tbody,
+.calendarDisplayWeek .calendar tr,
+.calendarDisplayWeek .calendar td.term,
+.calendarDisplayMonth .calendar tbody,
+.calendarDisplayMonth .calendar tr,
+.calendarDisplayMonth .calendar td.term {
+  height: 100%;
+}
+.calendarDisplayWeek .calendar .calerndarTermScheduleDiv,
+.calendarDisplayMonth .calendar .calerndarTermScheduleDiv {
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.calendarDisplayWeek .calendar .calerndarTermScheduleDiv a,
+.calendarDisplayMonth .calendar .calerndarTermScheduleDiv a {
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.this-wont-expand-to-100-percent-in-IE {
+  display: table-cell;
+  height: 100%;
 }
 
 /*span span span,*/
@@ -4105,7 +4151,7 @@ ul.blockList li a.selected {
 /***************************************************
     ellipsis
 --------------------------------------------------*/
-.ellipsis, .calendar div.calerndarTermScheduleDiv, .calendar .calerndarTodoDiv {
+.ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

@@ -695,6 +695,90 @@ $dropdownSideWidth: 280px;
 }
 
 /***************************************************
+	profilePopup
+--------------------------------------------------*/
+.profilePopup {
+  width: 320px;
+
+  &.dropdown {
+	left: 55px;
+	top: 10px;
+  }
+  .avatar_l {
+	float: left;
+	margin-right: 10px;
+  }
+  .name {
+	display: block;
+	font-weight: bold;
+  }
+  .name_kana {
+	display: block;
+	font-size: $fontSizeMini;
+  }
+  .post_name {
+	display: block;
+	padding: 5px 0;
+  }
+  .messageInputDummy {
+	@extend .commentsBorder;
+	span {
+	  display:block;
+	  padding:5px;
+	  border: 1px $grayBorder solid;
+	  color: $grayLight;
+	  cursor: text;
+	  background:#fff;
+	  @extend .bRadius3;
+	}
+  }
+  .messageField {
+
+	@extend .commentsBorder;
+	.avatar {
+	  float:left;
+	  margin:0 10px 0 0;
+	}
+	form {
+	  margin-left:42px;
+	}
+	.outer {
+	  @extend .bRadius3;
+	  border: 1px $grayBorder solid;
+	  background:#fff;
+	  overflow:hidden;
+	}
+	#inputField,
+	.inputField {
+	  margin-bottom: 15px;
+	  background:transparent;
+	}
+	.outer {
+	  padding: 3px;
+	  margin:0 0 5px 0;
+	}
+	textarea {
+	  border:none;
+	  @include border-radius(0);
+	  font-size: $baseFontSize;
+	}
+	textarea:focus {
+	  -webkit-box-shadow:none;
+	  -moz-box-shadow:none;
+	  box-shadow:none;
+	}
+	textarea.elastic {
+	  width: 99%;
+	  overflow: hidden;
+	  resize: none;
+	  outline: 0;
+	  line-height: normal;
+	  height: 21px;
+	  -webkit-appearance: caret;
+	}
+  }
+}
+/***************************************************
 	dd_message
 --------------------------------------------------*/
 #dd_message {

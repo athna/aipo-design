@@ -88,7 +88,7 @@
 }
 
 .bRadius3, .search, .hdSearch form, ul.hdCommunications .num, .dropdown,
-.activityPopup, .supportPopup, .auiSearchOption, .auiAvatarList li a img, textarea,
+.activityPopup, .supportPopup, .profilePopup .messageInputDummy span, .profilePopup .messageField .outer, .auiSearchOption, .auiAvatarList li a img, textarea,
 select, input[type=text],
 input[type=password], #timelineOuter #inputField,
 #timelineOuter .inputField,
@@ -808,6 +808,83 @@ ul.hdTools .dropdown:before {
 
 .divider {
   border-bottom: solid 1px #ededed;
+}
+
+/***************************************************
+	profilePopup
+--------------------------------------------------*/
+.profilePopup {
+  width: 320px;
+}
+.profilePopup.dropdown {
+  left: 55px;
+  top: 10px;
+}
+.profilePopup .avatar_l {
+  float: left;
+  margin-right: 10px;
+}
+.profilePopup .name {
+  display: block;
+  font-weight: bold;
+}
+.profilePopup .name_kana {
+  display: block;
+  font-size: 10px;
+}
+.profilePopup .post_name {
+  display: block;
+  padding: 5px 0;
+}
+.profilePopup .messageInputDummy span {
+  display: block;
+  padding: 5px;
+  border: 1px #d2d2d2 solid;
+  color: #d2d2d2;
+  cursor: text;
+  background: #fff;
+}
+.profilePopup .messageField .avatar {
+  float: left;
+  margin: 0 10px 0 0;
+}
+.profilePopup .messageField form {
+  margin-left: 42px;
+}
+.profilePopup .messageField .outer {
+  border: 1px #d2d2d2 solid;
+  background: #fff;
+  overflow: hidden;
+}
+.profilePopup .messageField #inputField,
+.profilePopup .messageField .inputField {
+  margin-bottom: 15px;
+  background: transparent;
+}
+.profilePopup .messageField .outer {
+  padding: 3px;
+  margin: 0 0 5px 0;
+}
+.profilePopup .messageField textarea {
+  border: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  font-size: 13px;
+}
+.profilePopup .messageField textarea:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.profilePopup .messageField textarea.elastic {
+  width: 99%;
+  overflow: hidden;
+  resize: none;
+  outline: 0;
+  line-height: normal;
+  height: 21px;
+  -webkit-appearance: caret;
 }
 
 /***************************************************
@@ -4693,7 +4770,7 @@ ul.attachments {
 .timeline .messageContents .time {
   margin-bottom: 10px;
 }
-.timeline .commentsBorder, .timeline .comments .message, .timeline .commentCaption, .timeline .commentInputDummy, .timeline .commentField {
+.timeline .commentsBorder, .timeline .profilePopup .messageInputDummy, .profilePopup .timeline .messageInputDummy, .timeline .profilePopup .messageField, .profilePopup .timeline .messageField, .timeline .comments .message, .timeline .commentCaption, .timeline .commentInputDummy, .timeline .commentField {
   border-top: solid 1px #fff !important;
 }
 .timeline .comments {

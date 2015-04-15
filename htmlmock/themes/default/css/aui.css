@@ -70,7 +70,7 @@
   *display: inline;
 }
 
-.border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, ul.hdCommunications .num, .dropdown, .profilePopup,
+.border-box, #auiHeader, #auiHeader a, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .profilePopup .icon_menu .date, .profilePopup .hdSearch .icon_menu .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, .hdSearch .profilePopup .icon_menu .body, .profilePopup .hdSearch .icon_menu .body, ul.hdCommunications .num, .dropdown, .profilePopup,
 .activityPopup, .supportPopup, .dropdown .title, .profilePopup .title,
 .activityPopup .title, .supportPopup .title, #dd_message .subContents, .scroll, #auiLauncher ul.launcher li a,
 #auiLauncher ul.setting li a, .auiTabs .tab > li a, .guideList li {
@@ -121,7 +121,7 @@ input[type=password], #timelineOuter #inputField,
   border-radius: 50%;
 }
 
-.ellipsis, .hdPages a.name, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, ul.hdTools .name, .messageSummary .date, .messageSummary .name, .messageSummary .latest, .messageUserlist .name, #auiLauncher ul.launcher li a,
+.ellipsis, .hdPages a.name, .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .profilePopup .icon_menu .date, .profilePopup .hdSearch .icon_menu .date, ul.hdTools .name, .messageSummary .date, .messageSummary .name, .messageSummary .latest, .messageUserlist .name, #auiLauncher ul.launcher li a,
 #auiLauncher ul.setting li a, .auiTabs .tab > li a {
   white-space: nowrap;
   overflow: hidden;
@@ -498,13 +498,13 @@ input[type=submit], input[type=button], input[type=reset] {
 .hdSearch .submit:hover [class^="icon-"], .hdSearch .submit:hover [class*=" icon-"] {
   color: #333;
 }
-.hdSearch .dropdown_menu a, .hdSearch .dropdown_list ul a, .dropdown_list .hdSearch ul a {
+.hdSearch .dropdown_menu a, .hdSearch .dropdown_list ul a, .dropdown_list .hdSearch ul a, .hdSearch .profilePopup .icon_menu a, .profilePopup .hdSearch .icon_menu a {
   line-height: 1.5;
 }
-.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body {
+.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .profilePopup .icon_menu .date, .profilePopup .hdSearch .icon_menu .date, .hdSearch .dropdown_menu .body, .hdSearch .dropdown_list ul .body, .dropdown_list .hdSearch ul .body, .hdSearch .profilePopup .icon_menu .body, .profilePopup .hdSearch .icon_menu .body {
   width: 100%;
 }
-.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date {
+.hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date, .hdSearch .profilePopup .icon_menu .date, .profilePopup .hdSearch .icon_menu .date {
   color: #999;
 }
 .hdSearch #preSearch {
@@ -731,24 +731,24 @@ ul.hdTools .dropdown:before, ul.hdTools .profilePopup:before {
   border: none;
 }
 
-.dropdown_menu li, .dropdown_list ul li {
+.dropdown_menu li, .dropdown_list ul li, .profilePopup .icon_menu li {
   padding: 0;
   background-image: none;
 }
-.dropdown_menu a, .dropdown_list ul a {
+.dropdown_menu a, .dropdown_list ul a, .profilePopup .icon_menu a {
   display: block;
   padding: 6px 10px;
   color: #333;
   text-decoration: none;
 }
-#auiHeader .dropdown_menu a, #auiHeader .dropdown_list ul a, .dropdown_list #auiHeader ul a {
+#auiHeader .dropdown_menu a, #auiHeader .dropdown_list ul a, .dropdown_list #auiHeader ul a, #auiHeader .profilePopup .icon_menu a, .profilePopup #auiHeader .icon_menu a {
   min-width: 118px;
 }
-.dropdown_menu a:hover, .dropdown_list ul a:hover {
+.dropdown_menu a:hover, .dropdown_list ul a:hover, .profilePopup .icon_menu a:hover {
   text-decoration: none;
   background-color: #f6f6f6;
 }
-.dropdown_menu .active a, .dropdown_list ul .active a {
+.dropdown_menu .active a, .dropdown_list ul .active a, .profilePopup .icon_menu .active a {
   background-color: #f6f6f6;
 }
 
@@ -830,6 +830,9 @@ ul.hdTools .dropdown:before, ul.hdTools .profilePopup:before {
   float: left;
   margin-right: 10px;
 }
+.profilePopup .profilePopipMeta {
+  overflow: hidden;
+}
 .profilePopup .name {
   display: block;
   font-weight: bold;
@@ -837,10 +840,36 @@ ul.hdTools .dropdown:before, ul.hdTools .profilePopup:before {
 .profilePopup .name_kana {
   display: block;
   font-size: 10px;
-}
-.profilePopup .post_name {
-  display: block;
   padding: 5px 0;
+}
+.profilePopup .icon_menu li {
+  width: 106px;
+  float: left;
+  text-align: center;
+  font-size: 10px;
+  margin-left: -1px;
+  border-left: 1px solid #ededed;
+}
+.profilePopup .icon_menu li:first-child {
+  margin-left: 0px;
+  border-left: none;
+}
+.profilePopup .icon_menu li div {
+  padding-bottom: 3px;
+}
+.profilePopup .icon_menu li a {
+  color: #a0a0a0;
+}
+.profilePopup .icon_menu li a i {
+  font-size: 20px;
+  color: #a0a0a0;
+}
+.profilePopup .icon_menu li a:hover {
+  color: #313131;
+  background: none;
+}
+.profilePopup .icon_menu li a:hover i {
+  color: #313131;
 }
 .profilePopup .messageInputDummy span {
   display: block;
@@ -4966,7 +4995,7 @@ ul.attachments {
   margin: 0 0 10px 60px;
 }
 
-.timeline .text_exposed_show.ellipsis, .timeline .hdPages a.text_exposed_show.name, .hdPages .timeline a.text_exposed_show.name, .timeline .hdSearch .dropdown_menu .text_exposed_show.date, .hdSearch .dropdown_menu .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_list ul .text_exposed_show.date, .hdSearch .dropdown_list ul .timeline .text_exposed_show.date, .timeline .dropdown_list .hdSearch ul .text_exposed_show.date, .dropdown_list .hdSearch ul .timeline .text_exposed_show.date, .timeline ul.hdTools .text_exposed_show.name, ul.hdTools .timeline .text_exposed_show.name, .timeline .messageSummary .text_exposed_show.date, .messageSummary .timeline .text_exposed_show.date, .timeline .messageSummary .text_exposed_show.name, .messageSummary .timeline .text_exposed_show.name, .timeline .messageSummary .text_exposed_show.latest, .messageSummary .timeline .text_exposed_show.latest, .timeline .messageUserlist .text_exposed_show.name, .messageUserlist .timeline .text_exposed_show.name, .timeline #auiLauncher ul.launcher li a.text_exposed_show, #auiLauncher ul.launcher li .timeline a.text_exposed_show,
+.timeline .text_exposed_show.ellipsis, .timeline .hdPages a.text_exposed_show.name, .hdPages .timeline a.text_exposed_show.name, .timeline .hdSearch .dropdown_menu .text_exposed_show.date, .hdSearch .dropdown_menu .timeline .text_exposed_show.date, .timeline .hdSearch .dropdown_list ul .text_exposed_show.date, .hdSearch .dropdown_list ul .timeline .text_exposed_show.date, .timeline .dropdown_list .hdSearch ul .text_exposed_show.date, .dropdown_list .hdSearch ul .timeline .text_exposed_show.date, .timeline .hdSearch .profilePopup .icon_menu .text_exposed_show.date, .hdSearch .profilePopup .icon_menu .timeline .text_exposed_show.date, .timeline .profilePopup .hdSearch .icon_menu .text_exposed_show.date, .profilePopup .hdSearch .icon_menu .timeline .text_exposed_show.date, .timeline ul.hdTools .text_exposed_show.name, ul.hdTools .timeline .text_exposed_show.name, .timeline .messageSummary .text_exposed_show.date, .messageSummary .timeline .text_exposed_show.date, .timeline .messageSummary .text_exposed_show.name, .messageSummary .timeline .text_exposed_show.name, .timeline .messageSummary .text_exposed_show.latest, .messageSummary .timeline .text_exposed_show.latest, .timeline .messageUserlist .text_exposed_show.name, .messageUserlist .timeline .text_exposed_show.name, .timeline #auiLauncher ul.launcher li a.text_exposed_show, #auiLauncher ul.launcher li .timeline a.text_exposed_show,
 .timeline #auiLauncher ul.setting li a.text_exposed_show,
 #auiLauncher ul.setting li .timeline a.text_exposed_show, .timeline .auiTabs .tab > li a.text_exposed_show, .auiTabs .tab > li .timeline a.text_exposed_show,
 .timeline .message .more.opened {

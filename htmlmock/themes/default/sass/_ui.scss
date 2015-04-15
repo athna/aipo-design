@@ -711,6 +711,9 @@ $dropdownSideWidth: 280px;
 	float: left;
 	margin-right: 10px;
   }
+  .profilePopipMeta {
+	overflow: hidden;
+  }
   .name {
 	display: block;
 	font-weight: bold;
@@ -718,10 +721,43 @@ $dropdownSideWidth: 280px;
   .name_kana {
 	display: block;
 	font-size: $fontSizeMini;
+	padding: 5px 0;
   }
   .post_name {
-	display: block;
-	padding: 5px 0;
+  }
+  .icon_menu {
+	@extend .dropdown_menu;
+
+	li {
+	  width: 106px;
+	  float: left;
+	  text-align: center;
+	  font-size: $fontSizeMini;
+	  margin-left: -1px;
+	  border-left: 1px solid $grayBorderLight;
+
+	  &:first-child {
+		margin-left: 0px;
+		border-left: none;
+	  }
+	  div {
+		padding-bottom: 3px;
+	  }
+	  a {
+		color: #a0a0a0;
+		i {
+		  font-size: 20px;
+		  color: #a0a0a0;
+		}
+		&:hover {
+		  color: #313131;
+		  background: none;
+		  i {
+			color: #313131;
+		  }
+		}
+	  }
+	}
   }
   .messageInputDummy {
 	@extend .commentsBorder;

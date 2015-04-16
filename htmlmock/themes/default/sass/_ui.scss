@@ -703,30 +703,49 @@ $dropdownSideWidth: 280px;
   position: absolute;
 }
 .profilePopup {
-  width: 320px;
+  min-width: 220px;
+
   @extend .dropdown;
   left: 55px;
   top: 10px;
-  .avatar_l {
-	float: left;
-	margin-right: 10px;
-  }
-  .profilePopipMeta {
-	overflow: hidden;
-  }
-  .name {
-	display: block;
-	font-weight: bold;
-  }
-  .name_kana {
-	display: block;
-	font-size: $fontSizeMini;
-	padding: 2px 0 5px;
-  }
-  .post_name {
+
+  .dropdown_menu {
+
+	.avatar_l {
+	  float: left;
+	  margin-right: 10px;
+	}
+	a {
+	  padding: 10px;
+	  display: block;
+	  text-decoration: none;
+	  color: $grayDark;
+
+	  &:hover span,
+	  &:hover i {
+		text-decoration: none;
+		color: $grayDark;
+	  }
+	}
+	.name {
+	  display: block;
+	  overflow: hidden;
+	  font-weight: bold;
+	}
+	.name_kana {
+	  display: block;
+	  overflow: hidden;
+	  font-size: $fontSizeMini;
+	  padding: 2px 0 5px;
+	}
+	.post_name {
+	  display: block;
+	  overflow: hidden;
+	}
   }
   .icon_menu {
 	@extend .dropdown_menu;
+	width: 320px;
 
 	li {
 	  width: 106px;

@@ -703,52 +703,37 @@ $dropdownSideWidth: 280px;
   position: absolute;
 }
 .profilePopup {
-  min-width: 220px;
-
   @extend .dropdown;
+  min-width: 220px;
   left: 55px;
   top: 10px;
+  z-index: 1;
 
-  .dropdown_menu {
-
-	.avatar_l {
-	  float: left;
-	  margin-right: 10px;
-	}
-	a {
-	  padding: 10px;
-	  display: block;
-	  text-decoration: none;
-	  color: $grayDark;
-
-	  &:hover span,
-	  &:hover i {
-		text-decoration: none;
-		color: $grayDark;
-	  }
-	}
-	.name {
-	  display: block;
-	  overflow: hidden;
-	  font-weight: bold;
-	}
-	.name_kana {
-	  display: block;
-	  overflow: hidden;
-	  font-size: $fontSizeMini;
-	  padding: 2px 0 5px;
-	}
-	.post_name {
-	  display: block;
-	  overflow: hidden;
-	}
+  .avatar_l {
+	float: left;
+	margin-right: 10px;
+  }
+  .name {
+	display: block;
+	font-weight: bold;
+	overflow: hidden;
+  }
+  .name_kana {
+	display: block;
+	font-size: $fontSizeMini;
+	padding: 2px 0 5px;
+	overflow: hidden;
+  }
+  .post_name {
+	display: block;
+	overflow: hidden;
   }
   .icon_menu {
 	@extend .dropdown_menu;
 	width: 320px;
 
 	li {
-	  width: 106px;
+	  width: 159px;
 	  float: left;
 	  text-align: center;
 	  font-size: $fontSizeMini;
@@ -778,9 +763,20 @@ $dropdownSideWidth: 280px;
 	  }
 
 	}
+	&.icon_menu_s{
+	  width: 260px;
+	  li {
+		width: 129px;
+	  }
+	}
 	&.icon_menu_ver2{
 	  li {
 		width: 159px;
+	  }
+	}
+	&.icon_menu_ver3{
+	  li {
+		width: 106px;
 	  }
 	}
   }

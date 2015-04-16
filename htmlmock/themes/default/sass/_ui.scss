@@ -703,7 +703,24 @@ $dropdownSideWidth: 280px;
   position: absolute;
 }
 .profilePopup {
-  @extend .dropdown;
+  //@extend .dropdown;
+
+  @extend .bRadius3;
+  @extend .popupShadow;
+  @extend .border-box;
+  display: none;
+  position: absolute;
+  border: solid 1px $grayBorderDark;
+  background-color: $white;
+  line-height: 2;
+  overflow: hidden;
+
+  .contents {
+	@extend .clearfix;
+	position: relative;
+	padding: 10px;
+  }
+
   min-width: 220px;
   left: 55px;
   top: 10px;
@@ -713,26 +730,28 @@ $dropdownSideWidth: 280px;
 	float: left;
 	margin-right: 10px;
   }
+  .popupInner {
+	overflow: hidden;
+  }
   .name {
 	display: block;
 	font-weight: bold;
-	overflow: hidden;
   }
   .name_kana {
 	display: block;
 	font-size: $fontSizeMini;
 	padding: 2px 0 5px;
-	overflow: hidden;
   }
   .post_name {
 	display: block;
-	overflow: hidden;
   }
   .icon_menu {
-	@extend .dropdown_menu;
+	//@extend .dropdown_menu;
 	width: 320px;
 
 	li {
+	  padding: 0;
+	  background-image: none;
 	  width: 159px;
 	  float: left;
 	  text-align: center;
@@ -748,13 +767,17 @@ $dropdownSideWidth: 280px;
 		padding-bottom: 3px;
 	  }
 	  a {
+		display: block;
+		padding: 6px 10px;
 		color: #a0a0a0;
+		text-decoration: none;
 		i {
 		  font-size: 20px;
 		  color: #a0a0a0;
 		}
 		&:hover {
 		  color: #313131;
+		  text-decoration: none;
 		  background: none;
 		  i {
 			color: #313131;

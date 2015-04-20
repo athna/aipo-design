@@ -693,7 +693,167 @@ $dropdownSideWidth: 280px;
 .divider {
 	border-bottom: solid 1px $grayBorderLight;
 }
+.dividerBg {
+  	background-color: $grayBackLight;
+}
+/***************************************************
+	profilePopup
+--------------------------------------------------*/
+.profilePopupWrap {
+  position: absolute;
+}
+.profilePopup {
+  //@extend .dropdown;
 
+  @extend .bRadius3;
+  @extend .popupShadow;
+  @extend .border-box;
+  display: none;
+  position: absolute;
+  border: solid 1px $grayBorderDark;
+  background-color: $white;
+  line-height: 2;
+  overflow: hidden;
+
+  .contents {
+	@extend .clearfix;
+	position: relative;
+	padding: 10px;
+  }
+
+  min-width: 220px;
+  left: 55px;
+  top: 10px;
+  z-index: 1;
+
+  .avatar_l {
+	float: left;
+	margin-right: 10px;
+  }
+  .popupInner {
+	overflow: hidden;
+  }
+  .name {
+	display: block;
+	font-weight: bold;
+  }
+  .name_kana {
+	display: block;
+	font-size: $fontSizeMini;
+	padding: 2px 0 5px;
+  }
+  .post_name {
+	display: block;
+  }
+  .icon_menu {
+	//@extend .dropdown_menu;
+	width: 320px;
+
+	li {
+	  padding: 0;
+	  background-image: none;
+	  width: 159px;
+	  float: left;
+	  text-align: center;
+	  font-size: $fontSizeMini;
+	  margin-left: -1px;
+	  border-left: 1px solid $grayBorderLight;
+
+	  &:first-child {
+		margin-left: 0px;
+		border-left: none;
+	  }
+	  div {
+		padding-bottom: 3px;
+	  }
+	  a {
+		display: block;
+		padding: 6px 10px;
+		color: #a0a0a0;
+		text-decoration: none;
+		i {
+		  font-size: 20px;
+		  color: #a0a0a0;
+		}
+		&:hover {
+		  color: #313131;
+		  text-decoration: none;
+		  background: none;
+		  i {
+			color: #313131;
+		  }
+		}
+	  }
+
+	}
+	&.icon_menu_s{
+	  width: 260px;
+	  li {
+		width: 129px;
+	  }
+	}
+	&.icon_menu_ver2{
+	  li {
+		width: 159px;
+	  }
+	}
+	&.icon_menu_ver3{
+	  li {
+		width: 106px;
+	  }
+	}
+  }
+  .messageInputDummy {
+	@extend .commentsBorder;
+	span {
+	  display:block;
+	  padding:5px;
+	  border: 1px $grayBorder solid;
+	  color: $grayLight;
+	  cursor: text;
+	  background:#fff;
+	  @extend .bRadius3;
+	}
+  }
+  .messageField {
+
+	@extend .commentsBorder;
+	.outer {
+	  @extend .bRadius3;
+	  border: 1px $grayBorder solid;
+	  background:#fff;
+	  overflow:hidden;
+	}
+	#inputField,
+	.inputField {
+	  margin-bottom: 15px;
+	  background:transparent;
+	}
+	.outer {
+	  padding: 3px;
+	  margin:0 0 5px 0;
+	}
+	textarea {
+	  border:none;
+	  @include border-radius(0);
+	  font-size: $baseFontSize;
+	}
+	textarea:focus {
+	  -webkit-box-shadow:none;
+	  -moz-box-shadow:none;
+	  box-shadow:none;
+	}
+	textarea.elastic {
+	  width: 99%;
+	  overflow: hidden;
+	  resize: none;
+	  outline: 0;
+	  line-height: normal;
+	  height: 21px;
+	  -webkit-appearance: caret;
+	}
+  }
+}
 /***************************************************
 	dd_message
 --------------------------------------------------*/

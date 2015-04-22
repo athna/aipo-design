@@ -3183,22 +3183,10 @@
           <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007849/page/default.psml/js_peid/131?template=SystemWebMailSettingsFormJSONScreen" id="form131" name="form131">
             <input type="hidden" value="webmailForm" name="_name">
             <input type="hidden" value="c8d81a7e73f0f754d2f755fdd25d0970" name="secid">
-            <div style="padding:0px 0px 5px 0px">
-              現在ご利用中のブラウザのデスクトップ通知の可否を設定します。
+            <h3>デスクトップ通知</h3>
+            <div class="p spaceBottom">
+              ご利用のブラウザはデスクトップ通知に対応していません。
             </div>
-            <table class="listTable wide">
-              <tbody>
-
-              <tr>
-                <td class="caption">デスクトップ通知</td>
-                <td>
-                  ご利用のブラウザはデスクトップ通知に対応していません。<br/>
-                  デスクトップ通知をご利用になりたい場合はFirefoxまたはChromeをご利用ください。
-                </td>
-              </tr>
-
-              </tbody>
-            </table>
 
             <div class="center auiPopupButtons">
               <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
@@ -3206,12 +3194,25 @@
           </form>
         </div>
       </div>
-      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>      <!-- ################################################################################
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+      <!-- ################################################################################
 
-            通知設定
+            通知設定//有効にするとき
 
             ################################################################################ -->
-      <a id="notifications"></a>
+      <style>
+        .test div.alertRecommend {
+          display: none;
+        }
+
+        .test :target div.alertRecommend {
+          display: block;
+        }
+        .test :target div#link1 {
+          display: none;
+        }
+      </style>
+      <a id="notifications2"></a>
       <div class="auiPopup clearfix">
         <div class="auiPopupHead clearfix">
           <div class="auiPopupTool">
@@ -3225,90 +3226,112 @@
           <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007849/page/default.psml/js_peid/131?template=SystemWebMailSettingsFormJSONScreen" id="form131" name="form131">
             <input type="hidden" value="webmailForm" name="_name">
             <input type="hidden" value="c8d81a7e73f0f754d2f755fdd25d0970" name="secid">
+            <h3>デスクトップ通知</h3>
+
             <div style="padding:0px 0px 5px 0px">
               現在ご利用中のブラウザのデスクトップ通知の可否を設定します。
+            </div>
+
+              <div class="test p spaceBottom">
+                <div id="notifications3" class="section">
+                  <div id="" class="alertRecommend">ポップアップされたウインドウの「表示する / 許可 / はい / 有効にする」などのボタンをクリックして、設定を完了させてください。</div>
+                  <div id="link1">
+                    <a href="#notifications3">デスクトップ通知を有効にする</a>
+                  </div>
+                </div>
+            </div>
+
+
+            <div class="center auiPopupButtons">
+              <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
+      <!-- ################################################################################
+
+            通知設定 // 無効に設定されているとき。
+
+            ################################################################################ -->
+      <a id="notifications2"></a>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a onclick="aipo.common.hideDialog()" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a>
+            </div>
+          </div>
+          <div class="auiPopupTitle">通知設定（無効になっているとき）</div>
+        </div>
+        <div class="roundBlockContent">
+          <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+          <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007849/page/default.psml/js_peid/131?template=SystemWebMailSettingsFormJSONScreen" id="form131" name="form131">
+            <input type="hidden" value="webmailForm" name="_name">
+            <input type="hidden" value="c8d81a7e73f0f754d2f755fdd25d0970" name="secid">
+            <h3>デスクトップ通知</h3>
+
+            <div style="padding:0px 0px 5px 0px">
+              現在ご利用中のブラウザではデスクトップ通知が無効になっています。
+            </div>
+
+              <div class="test p spaceBottom">
+                <div id="notifications3" class="section">
+                  <div id="" class="alertSuccess">あなたは現在デスクトップ通知を無効にしています。<br/>デスクトップ通知を有効にするには、ブラウザーの設定を行う必要があります。</div>
+                </div>
+            </div>
+
+
+            <div class="center auiPopupButtons">
+              <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+
+      <!-- ################################################################################
+
+            通知設定 // 有効に設定されているとき。
+
+            ################################################################################ -->
+      <a id="notifications2"></a>
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a onclick="aipo.common.hideDialog()" title="閉じる" class="auiButtonIcon" href="javascript:void(0)"><span><i class="icon-remove"></i></span></a>
+            </div>
+          </div>
+          <div class="auiPopupTitle">通知設定（設定後）</div>
+        </div>
+        <div class="roundBlockContent">
+          <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+          <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.system.onReceiveMessage);return false;" method="post" action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007849/page/default.psml/js_peid/131?template=SystemWebMailSettingsFormJSONScreen" id="form131" name="form131">
+            <input type="hidden" value="webmailForm" name="_name">
+            <input type="hidden" value="c8d81a7e73f0f754d2f755fdd25d0970" name="secid">
+            <h3>デスクトップ通知</h3>
+
+            <div style="padding:0px 0px 5px 0px">
+              現在ご利用中のブラウザでのデスクトップ通知設定を変更します。
             </div>
             <table class="listTable wide">
               <tbody>
               <tr>
                 <td class="caption">デスクトップ通知</td>
                 <td>
-                  <input type="checkbox" checked="checked" id="pc_flg_blog_id" value="1" name="pc_flg_blog">
-                  <label for="pc_flg_blog_id">通知する</label>
+                  <p><input type="radio" checked="checked" id="pc_flg_blog_id" value="1" name="pc_flg_blog">
+                  <label for="pc_flg_blog_id">お知らせの内容を表示する</label></p>
+                  <p><input type="radio" id="pc_flg_blog_id" value="1" name="pc_flg_blog">
+                  <label for="pc_flg_blog_id">お知らせの内容は表示しない</label></p>
+                  <p><input type="radio" id="pc_flg_blog_id" value="1" name="pc_flg_blog">
+                  <label for="pc_flg_blog_id">通知しない</label></p>
                 </td>
               </tr>
-              <!--<tr>-->
-                <!--<td class="caption">Chrome</td>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" checked="checked" id="pc_flg_schedule_id" value="1" name="pc_flg_schedule">-->
-                  <!--<label for="pc_flg_schedule_id">メッセージ</label>-->
-                  <!--<input type="checkbox" checked="checked" id="cell_flg_schedule_id" value="1" name="cell_flg_schedule">-->
-                  <!--<label for="cell_flg_schedule_id">あなた宛のお知らせ</label>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td class="caption">Internet Explorer</td>-->
-                <!--<td>-->
-                  <!--ご利用中のブラウザはデスクトップ通知には対応していません。<br/>-->
-                  <!--デスクトップ通知をご利用になりたい場合はFirefoxまたはChromeをご利用ください。-->
-                <!--</td>-->
-              <!--</tr>-->
 
               </tbody>
             </table>
-            <!--<div style="padding:0px 0px 5px 0px">-->
-              <!--メール通知の可否を設定します。-->
-            <!--</div>-->
-            <!--<table class="listTable wide">-->
-              <!--<tbody>-->
-              <!--<tr>-->
-                <!--<td class="caption">他人からのブログコメント</td>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" checked="checked" id="pc_flg_blog_id" value="1" name="pc_flg_blog">-->
-                  <!--<label for="pc_flg_blog_id">パソコンに通知する</label>-->
-                  <!--<input type="checkbox" checked="checked" id="cell_flg_blog_id" value="1" name="cell_flg_blog">-->
-                  <!--<label for="cell_flg_blog_id">携帯電話に通知する</label>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td class="caption">他人からのスケジュール追加</td>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" checked="checked" id="pc_flg_schedule_id" value="1" name="pc_flg_schedule">-->
-                  <!--<label for="pc_flg_schedule_id">パソコンに通知する</label>-->
-                  <!--<input type="checkbox" checked="checked" id="cell_flg_schedule_id" value="1" name="cell_flg_schedule">-->
-                  <!--<label for="cell_flg_schedule_id">携帯電話に通知する</label>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td class="caption">他人からの掲示板返信</td>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" checked="checked" id="pc_flg_msgboard_id" value="1" name="pc_flg_msgboard">-->
-                  <!--<label for="pc_flg_msgboard_id">パソコンに通知する</label>-->
-                  <!--<input type="checkbox" checked="checked" id="cell_flg_msgboard_id" value="1" name="cell_flg_msgboard">-->
-                  <!--<label for="cell_flg_msgboard_id">携帯電話に通知する</label>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td class="caption">ワークフロー申請</td>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" checked="checked" id="pc_flg_workflow_id" value="1" name="pc_flg_workflow">-->
-                  <!--<label for="pc_flg_workflow_id">パソコンに通知する</label>-->
-                  <!--<input type="checkbox" checked="checked" id="cell_flg_workflow_id" value="1" name="cell_flg_workflow">-->
-                  <!--<label for="cell_flg_workflow_id">携帯電話に通知する</label>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td class="caption">他人からの報告書追加</td>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" checked="checked" id="pc_flg_report_id" value="1" name="pc_flg_report">-->
-                  <!--<label for="pc_flg_report_id">パソコンに通知する</label>-->
-                  <!--<input type="checkbox" checked="checked" id="cell_flg_report_id" value="1" name="cell_flg_report">-->
-                  <!--<label for="cell_flg_report_id">携帯電話に通知する</label>-->
-                <!--</td>-->
-              <!--</tr>-->
 
-              <!--</tbody>-->
-            <!--</table>-->
+
             <div class="center auiPopupButtons">
               <input type="submit" onclick="aimluck.io.setHiddenValue(this);" value="適用する" class="auiButtonAction" name="eventSubmit_doWebmail_mailaccount_update_option">
               <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button" name="ajaxbuttonClose">

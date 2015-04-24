@@ -6,702 +6,719 @@
 /***************************************************
 	auiHeader
 --------------------------------------------------*/
-$headerHeight:60px;
+$headerHeight: 60px;
 #auiHeader {
-	position: fixed;
-	width: 100%;
-	min-width: $layoutMinWidth;
-	@extend .clearfix;
-	@extend .border-box;
-	padding: 0 0 0 10px;
-	background-color: $white;
-	border-bottom: solid 1px $grayLight;
-	z-index: $zindex-auiHeader;
-	a {
-		@extend .border-box;
-	}
-	ul {
-		li {
-			padding: 0;
-			background-image: none;
-		}
-	}
+  position: fixed;
+  width: 100%;
+  min-width: $layoutMinWidth;
+  @extend .clearfix;
+  @extend .border-box;
+  padding: 0 0 0 10px;
+  background-color: $white;
+  border-bottom: solid 1px $grayLight;
+  z-index: $zindex-auiHeader;
+  a {
+    @extend .border-box;
+  }
+  ul {
+    li {
+      padding: 0;
+      background-image: none;
+    }
+  }
 }
+
 .hdLogo {
-	float: left;
-	a {
-		display: inline-block;
-		padding: 15px 10px;
-	}
+  float: left;
+  a {
+    display: inline-block;
+    padding: 15px 10px;
+  }
 }
+
 .hdPages {
-	float: left;
-	padding-left: 20px;
-	> ul {
-		@extend .clearfix;
-		> li {
-			position: relative;
-			display: block;
-			float: left;
+  float: left;
+  padding-left: 20px;
+  > ul {
+    @extend .clearfix;
+    > li {
+      position: relative;
+      display: block;
+      float: left;
 
-			> a {
-				display: block;
-				float: left;
-				line-height: $headerHeight;
-				padding: 0 30px 0 15px;
-				color: $grayLight;
-				//font-size: $fontSizeSmall;
-				text-decoration: none;
-				[class*=icon-] {
-					color: $grayLight;
-				}
-				&:hover {
-					color: $textColor;
-					text-decoration: none;
-					[class*=icon-] {
-						color: $textColor;
-					}
-				}
-			}
-			[class^="icon-"], [class*=" icon-"] {
-				line-height: $headerHeight;
-			}
+      > a {
+        display: block;
+        float: left;
+        line-height: $headerHeight;
+        padding: 0 30px 0 15px;
+        color: $grayLight;
+        //font-size: $fontSizeSmall;
+        text-decoration: none;
+        [class*=icon-] {
+          color: $grayLight;
+        }
+        &:hover {
+          color: $textColor;
+          text-decoration: none;
+          [class*=icon-] {
+            color: $textColor;
+          }
+        }
+      }
+      [class^="icon-"], [class*=" icon-"] {
+        line-height: $headerHeight;
+      }
 
-			&:hover {
-				a.setting {
-					display: block;
-				}
-			}
-		}
-	}
-	a.name {
-		@extend .ellipsis;
-		max-width: 12em;
-		//font-size: $fontSizeSmall;
-	}
-	a.setting {
-		//display: none;
-		position: absolute;
-		right: 0;
-		width: 25px;
-		padding: 0;
-		//ext-align: center;
-		&.active {
-			//display: block;
-			[class*=icon-] {
-				color: $textColor;
-			}
-		}
-	}
-	a.plus {
-		padding: 0 15px;
-		[class*=icon-] {
-			color: $grayLight;
-		}
-	}
-	.current {
-		position: relative;
-		&:after {
-			position: absolute;
-			display: block;
-			content: "";
-			//width: 12px;
-			//height: 12px;
-			//bottom: -7px;
-			//left: 50%;
-			//margin-left: -6px;
-			//background-color: $white;
-			//border: solid 1px $grayBorder;
-			//border-right: none;
-			//border-bottom: none;
-			//@include transform(rotate(45deg));
-			bottom: -1px;
-			width: 100%;
-			height: 1px;
-			background-color: $textColor;
-		}
-		a {
-			color: $textColor;
-		}
-	}
+      &:hover {
+        a.setting {
+          display: block;
+        }
+      }
+    }
+  }
+  a.name {
+    @extend .ellipsis;
+    max-width: 12em;
+    //font-size: $fontSizeSmall;
+  }
+  a.setting {
+    //display: none;
+    position: absolute;
+    right: 0;
+    width: 25px;
+    padding: 0;
+    //ext-align: center;
+    &.active {
+      //display: block;
+      [class*=icon-] {
+        color: $textColor;
+      }
+    }
+  }
+  a.plus {
+    padding: 0 15px;
+    [class*=icon-] {
+      color: $grayLight;
+    }
+  }
+  .current {
+    position: relative;
+    &:after {
+      position: absolute;
+      display: block;
+      content: "";
+      //width: 12px;
+      //height: 12px;
+      //bottom: -7px;
+      //left: 50%;
+      //margin-left: -6px;
+      //background-color: $white;
+      //border: solid 1px $grayBorder;
+      //border-right: none;
+      //border-bottom: none;
+      //@include transform(rotate(45deg));
+      bottom: -1px;
+      width: 100%;
+      height: 1px;
+      background-color: $textColor;
+    }
+    a {
+      color: $textColor;
+    }
+  }
 }
 
 .hdNavigation {
-	position: absolute;
-	right: 10px;
-	//font-size: $fontSizeSmall;
-	background: $white;
+  position: absolute;
+  right: 10px;
+  //font-size: $fontSizeSmall;
+  background: $white;
 
-	> ul {
-		@extend .clearfix;
-		float: left;
-		> li {
-			display: block;
-			//position: relative !important; //Fx
-			float: left;
-			list-style: none;
-			line-height: $headerHeight;
+  > ul {
+    @extend .clearfix;
+    float: left;
+    > li {
+      display: block;
+      //position: relative !important; //Fx
+      float: left;
+      list-style: none;
+      line-height: $headerHeight;
 
-			&:hover {
-				//background-color: $grayBack;
-				//.dropdown {
-				//	display: block;
-				//}
-			}
+      &:hover {
+        //background-color: $grayBack;
+        //.dropdown {
+        //	display: block;
+        //}
+      }
 
-			> a {
-				position: relative;
-				display: block !important;
-				height: $headerHeight;
-				padding: 0 10px;
-				min-width: $headerHeight - 10;
-				text-align: center;
-				text-decoration: none;
-				color: $gray;
-				border-top: solid 1px transparent;
-				border-right: solid 1px transparent;
-				border-left: solid 1px transparent;
-				@include border-radius(3px 3px 0 0);
+      > a {
+        position: relative;
+        display: block !important;
+        height: $headerHeight;
+        padding: 0 10px;
+        min-width: $headerHeight - 10;
+        text-align: center;
+        text-decoration: none;
+        color: $gray;
+        border-top: solid 1px transparent;
+        border-right: solid 1px transparent;
+        border-left: solid 1px transparent;
+        @include border-radius(3px 3px 0 0);
 
-				[class^="icon-"], [class*=" icon-"] {
-					line-height: $headerHeight;
-					vertical-align: middle;
-					font-size: 18px;
-					color: $grayLight;
-				}
-				[class*="sprite-"] {
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					margin: auto;
-				}
-				&:hover {
-					text-decoration: none;
-					[class^="icon-"], [class*=" icon-"] {
-						color: $grayDark;
-					}
-				}
-				&.active {
-					position: relative;
-					border-top: solid 1px $grayBorderDark;
-					border-right: solid 1px $grayBorderDark;
-					border-left: solid 1px $grayBorderDark;
-					background-color: $white;
-					//@extend .popupShadow;
-					[class^="icon-"], [class*=" icon-"] {
-						color: $grayDark;
-					}
-					&:before {
-						position: absolute;
-						bottom: -1px;
-						right: 0;
-						display: block;
-						content: "";
-						width: 100%;
-						height: 1px;
-						background-color: $white;
-						z-index: $zindex-dropdown + 1;
-					}
-				}
-			}
-		}
-	}
-	//.icon-caret-down {
-	//	font-size: 10px !important;
-	//}
-}
-.search {
-	position: relative;
-	@extend .bRadius3;
-	border: solid 1px $grayBorder;
-	background-color: $white;
-
-	&:hover {
-		border: solid 1px $gray;
-	}
-	input[type=text], .submit {
-		height: $inputHeight;//20px;
-		border: none;
-		vertical-align: middle;
-		outline: none;
-	}
-	input[type=text] {
-		width: 100%;
-		padding: 0 ($inputHeight +20) 0 3px;
-		&:hover, &:focus {
-			border: none;
-			@include box-shadow(none);
-		}
-	}
-	input[type=text]::-ms-clear {
-		display: none;
-	}
-
-	.submit {
-		position: absolute;
-		top: 0;
-		right: 0;
-		//height: $headerHeight - 20 - 2;
-		margin: 0;
-		padding: 0 !important;
-		background: none;
-		filter: none;
-		cursor: pointer;
-		//border-left: solid 1px $grayBorderLight;
-		@include border-left-radius(0);
-
-		[class^="icon-"], [class*=" icon-"] {
-			display: block;
-			width: $inputHeight;
-		}
-
-		&:hover {
-			[class^="icon-"], [class*=" icon-"] {
-				color: $white;
-			}
-		}
-		&:active {
-			background: none !important;
-			box-shadow: none !important;
-			color: $textColor;
-		}
-	}
-  button::-moz-focus-inner {
-	padding: 0;
-	border: 0
+        [class^="icon-"], [class*=" icon-"] {
+          line-height: $headerHeight;
+          vertical-align: middle;
+          font-size: 18px;
+          color: $grayLight;
+        }
+        [class*="sprite-"] {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+        &:hover {
+          text-decoration: none;
+          [class^="icon-"], [class*=" icon-"] {
+            color: $grayDark;
+          }
+        }
+        &.active {
+          position: relative;
+          border-top: solid 1px $grayBorderDark;
+          border-right: solid 1px $grayBorderDark;
+          border-left: solid 1px $grayBorderDark;
+          background-color: $white;
+          //@extend .popupShadow;
+          [class^="icon-"], [class*=" icon-"] {
+            color: $grayDark;
+          }
+          &:before {
+            position: absolute;
+            bottom: -1px;
+            right: 0;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: $white;
+            z-index: $zindex-dropdown + 1;
+          }
+        }
+      }
+    }
   }
-	.placeholder {
-		top: 6px !important;
-		line-height: 1.6;
-	}
-	.indicator {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: $inputHeight;
-		height: $inputHeight;
-		padding: 0;
-		background-position: center center;
-		background-color: $white;
-		@include border-radius(4px);
-	}
+  //.icon-caret-down {
+  //	font-size: 10px !important;
+  //}
 }
+
+.search {
+  position: relative;
+  @extend .bRadius3;
+  border: solid 1px $grayBorder;
+  background-color: $white;
+
+  &:hover {
+    border: solid 1px $gray;
+  }
+  input[type=text], .submit {
+    height: $inputHeight; //20px;
+    border: none;
+    vertical-align: middle;
+    outline: none;
+  }
+  input[type=text] {
+    width: 100%;
+    padding: 0 ($inputHeight +20) 0 3px;
+    &:hover, &:focus {
+      border: none;
+      @include box-shadow(none);
+    }
+  }
+  input[type=text]::-ms-clear {
+    display: none;
+  }
+
+  .submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    //height: $headerHeight - 20 - 2;
+    margin: 0;
+    padding: 0 !important;
+    background: none;
+    filter: none;
+    cursor: pointer;
+    //border-left: solid 1px $grayBorderLight;
+    @include border-left-radius(0);
+
+    [class^="icon-"], [class*=" icon-"] {
+      display: block;
+      width: $inputHeight;
+    }
+
+    &:hover {
+      [class^="icon-"], [class*=" icon-"] {
+        color: $white;
+      }
+    }
+    &:active {
+      background: none !important;
+      box-shadow: none !important;
+      color: $textColor;
+    }
+  }
+  button::-moz-focus-inner {
+    padding: 0;
+    border: 0
+  }
+  .placeholder {
+    top: 6px !important;
+    line-height: 1.6;
+  }
+  .indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $inputHeight;
+    height: $inputHeight;
+    padding: 0;
+    background-position: center center;
+    background-color: $white;
+    @include border-radius(4px);
+  }
+}
+
 //filterInputField
 .search .filterInputField {
-	border: none;
-	.filterDropDrawer {
-		width: 20px;
-	}
-	input[type=text] {
-		padding-right: $inputHeight + 20;
-	}
+  border: none;
+  .filterDropDrawer {
+    width: 20px;
+  }
+  input[type=text] {
+    padding-right: $inputHeight + 20;
+  }
 }
 
 .hdSearch {
-	position: relative;
-	float: left;
-	margin: (($headerHeight - ($inputHeight + 2)) / 2) 10px;
+  position: relative;
+  float: left;
+  margin: (($headerHeight - ($inputHeight + 2)) / 2) 10px;
 
-	form {
-		@extend .bRadius3;
-		border: solid 1px $grayBorder;
-		background-color: $white;
+  form {
+    @extend .bRadius3;
+    border: solid 1px $grayBorder;
+    background-color: $white;
 
-		&:hover {
-			border: solid 1px $gray;
-		}
-	}
+    &:hover {
+      border: solid 1px $gray;
+    }
+  }
 
-	input[type=text], .submit {
-		height: $inputHeight;//20px;
-		border: none;
-		vertical-align: middle;
-		outline: none;
-	}
-	input[type=text] {
-		width: 160px;
-		margin: 0 3px;
-		&:hover, &:focus {
-			border: none;
-			@include box-shadow(none);
-		}
-	}
-	.submit {
-		height: $inputHeight;//$headerHeight - 20 - 2;
-		margin: 0;
-		padding: 0;
-		background: none;
-		filter: none;
-		cursor: pointer;
-		border-left: solid 1px $grayBorderLight;
-		@include border-left-radius(0);
+  input[type=text], .submit {
+    height: $inputHeight; //20px;
+    border: none;
+    vertical-align: middle;
+    outline: none;
+  }
+  input[type=text] {
+    width: 160px;
+    margin: 0 3px;
+    &:hover, &:focus {
+      border: none;
+      @include box-shadow(none);
+    }
+  }
+  .submit {
+    height: $inputHeight; //$headerHeight - 20 - 2;
+    margin: 0;
+    padding: 0;
+    background: none;
+    filter: none;
+    cursor: pointer;
+    border-left: solid 1px $grayBorderLight;
+    @include border-left-radius(0);
 
-		[class^="icon-"], [class*=" icon-"] {
-			display: block;
-			width: 30px;
-			color: $gray;
-		}
+    [class^="icon-"], [class*=" icon-"] {
+      display: block;
+      width: 30px;
+      color: $gray;
+    }
 
-		&:hover {
-			background-color: $grayBackLight;
-			[class^="icon-"], [class*=" icon-"] {
-				color: $textColor;
-			}
-		}
-	}
-	.dropdown_menu {
-		a {
-			line-height: 1.5;
-		}
-		.date, .body {
-			@extend .border-box;
-			width: 100%;
-		}
-		.date {
-			@extend .ellipsis;
-			color: $gray;
-		}
-	}
-	#preSearch {
-		width: 100%;
-		li {
-			border-top: solid 1px $grayBorderLight;
-		}
-	}
-	.placeholder {
-		top: 7px !important;
-		line-height: 1.6;
-	}
+    &:hover {
+      background-color: $grayBackLight;
+      [class^="icon-"], [class*=" icon-"] {
+        color: $textColor;
+      }
+    }
+  }
+  .dropdown_menu {
+    a {
+      line-height: 1.5;
+    }
+    .date, .body {
+      @extend .border-box;
+      width: 100%;
+    }
+    .date {
+      @extend .ellipsis;
+      color: $gray;
+    }
+  }
+  #preSearch {
+    width: 100%;
+    li {
+      border-top: solid 1px $grayBorderLight;
+    }
+  }
+  .placeholder {
+    top: 7px !important;
+    line-height: 1.6;
+  }
 }
+
 .searchCategory {
-	display: inline-block;
-	float: left;
-	width: 60px;
-	border-right: solid 1px $grayBorderLight;
-	color: $gray;
-	cursor: pointer;
-	overflow: hidden;
-	@include border-radius(3px 0 0 3px);
+  display: inline-block;
+  float: left;
+  width: 60px;
+  border-right: solid 1px $grayBorderLight;
+  color: $gray;
+  cursor: pointer;
+  overflow: hidden;
+  @include border-radius(3px 0 0 3px);
 
-	.name {
-		line-height: $headerHeight - 20 - 2;
-		text-align: center;
-	}
-	[class^="icon-"], [class*=" icon-"] {
-		margin-left: 5px;
-	}
+  .name {
+    line-height: $headerHeight - 20 - 2;
+    text-align: center;
+  }
+  [class^="icon-"], [class*=" icon-"] {
+    margin-left: 5px;
+  }
 
-	&:hover, .active {
-		color: $textColor;
-		background-color: $grayBackLight;
-		//.dropdown {
-		//	display: block;
-		//}
-		[class^="icon-"], [class*=" icon-"] {
-			color: $textColor;
-		}
-	}
+  &:hover, .active {
+    color: $textColor;
+    background-color: $grayBackLight;
+    //.dropdown {
+    //	display: block;
+    //}
+    [class^="icon-"], [class*=" icon-"] {
+      color: $textColor;
+    }
+  }
 }
 
 ul.hdCommunications {
-	padding: 5px 0;
-	> li {
-		position: static;
-		padding: 0;
-		background-image: none;
-		> a {
-			display: table-cell;
-			vertical-align: middle;
-			height: $headerHeight - 10;
-			[class^="icon-"], [class*=" icon-"] {
-				line-height: $headerHeight - 10;
-			}
-		}
-	}
+  padding: 5px 0;
+  > li {
+    position: static;
+    padding: 0;
+    background-image: none;
+    > a {
+      display: table-cell;
+      vertical-align: middle;
+      height: $headerHeight - 10;
+      [class^="icon-"], [class*=" icon-"] {
+        line-height: $headerHeight - 10;
+      }
+    }
+  }
 
-	.num {
-		display: block;
-		position: absolute;
-		top: 8px;
-		right: 8px;
-		width: auto;
-		//height: 14px;
-		min-width: 14px;
-		line-height: 1.4;
-		padding: 0 3px;
-		font-size: $fontSizeMini;
-		text-align: center;
-		background-color: $red;
-		color: $white;
-		white-space: nowrap;
-		text-decoration: none;
-		@include box-shadow(0 1px 1px rgba($black,.1));
-		@extend .bRadius3;
-		@extend .border-box;
-	}
-	.label {
-		text-wrap: nowrap;
-	}
+  .num {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: auto;
+    //height: 14px;
+    min-width: 14px;
+    line-height: 1.4;
+    padding: 0 3px;
+    font-size: $fontSizeMini;
+    text-align: center;
+    background-color: $red;
+    color: $white;
+    white-space: nowrap;
+    text-decoration: none;
+    @include box-shadow(0 1px 1px rgba($black, .1));
+    @extend .bRadius3;
+    @extend .border-box;
+  }
+  .label {
+    text-wrap: nowrap;
+  }
 }
 
 [class^="sprite-"] {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background-image: url(../images/common/head_icons.png);
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/common/head_icons.png);
 }
+
 .sprite-comment {
-	background-position: left top;
-	a:hover &,
-	a.active & {
-		background-position: left bottom;
-	}
+  background-position: left top;
+  a:hover &,
+  a.active & {
+    background-position: left bottom;
+  }
 }
+
 .sprite-notification {
-	background-position: center top;
-	a:hover &,
-	a.active & {
-		background-position: center bottom;
-	}
+  background-position: center top;
+  a:hover &,
+  a.active & {
+    background-position: center bottom;
+  }
 }
+
 .sprite-support {
-	background-position: right top;
-	a:hover &,
-	a.active & {
-		background-position: right bottom;
-	}
+  background-position: right top;
+  a:hover &,
+  a.active & {
+    background-position: right bottom;
+  }
 }
 
 .tweet {
-	textarea {
-		width: 100%;
-	}
+  textarea {
+    width: 100%;
+  }
 }
 
 ul.hdTools {
-	//border-left: solid 1px $grayLighter;
-	padding: 5px 0;
+  //border-left: solid 1px $grayLighter;
+  padding: 5px 0;
 
-	> li {
-		position: relative;
-		min-width: 120px;
-		line-height: $headerHeight - 10;
-		> a {
-			height: $headerHeight - 10;
-			text-decoration: none;
-			text-align: left;
-			&:hover, &:hover .name {
-				color: $textColor;
-				text-decoration: none;
-			}
-			[class^="icon-"], [class*=" icon-"] {
-				line-height: $headerHeight - 10;
-			}
-		}
-	}
-	.name {
-		display: inline-block;
-		vertical-align: middle;
-		max-width: 10em;
-		margin: 0 5px;
-		@extend .ellipsis;
-	}
-	.dropdown {
-		min-width: 100%;
-		@include border-radius(0 0 3px 3px);
-		&:before {
-			width: 100%;
-		}
-	}
+  > li {
+    position: relative;
+    min-width: 120px;
+    line-height: $headerHeight - 10;
+    > a {
+      height: $headerHeight - 10;
+      text-decoration: none;
+      text-align: left;
+      &:hover, &:hover .name {
+        color: $textColor;
+        text-decoration: none;
+      }
+      [class^="icon-"], [class*=" icon-"] {
+        line-height: $headerHeight - 10;
+      }
+    }
+  }
+  .name {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 10em;
+    margin: 0 5px;
+    @extend .ellipsis;
+  }
+  .dropdown {
+    min-width: 100%;
+    @include border-radius(0 0 3px 3px);
+    &:before {
+      width: 100%;
+    }
+  }
 }
+
 .hdLauncher {
-	border-left: solid 1px $grayLighter;
-	a {
-		width: 60px;
-		margin-right: -10px;
-		&.launcherActive {
-			[class^="icon-"], [class*=" icon-"] {
-				color: $textColor;
-			}
-		}
-	}
+  border-left: solid 1px $grayLighter;
+  a {
+    width: 60px;
+    margin-right: -10px;
+    &.launcherActive {
+      [class^="icon-"], [class*=" icon-"] {
+        color: $textColor;
+      }
+    }
+  }
 }
 
 /***************************************************
 	dropdown
 --------------------------------------------------*/
-$dropdownSideWidth: 280px;
+$dropdownSideWidth: 240px;
 .dropdown,
 .activityPopup, .supportPopup {
-	@extend .bRadius3;
-	@extend .popupShadow;
-	@extend .border-box;
-	display: none;
-	position: absolute;
-	z-index: $zindex-dropdown;
-	border: solid 1px $grayBorderDark;
-	background-color: $white;
-	line-height: 2;
-	//font-size: $fontSizeSmall;
-	//filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=0, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=90, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=180, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=270, strength=3, enabled=true);
+  @extend .bRadius3;
+  @extend .popupShadow;
+  @extend .border-box;
+  display: none;
+  position: absolute;
+  z-index: $zindex-dropdown;
+  border: solid 1px $grayBorderDark;
+  background-color: $white;
+  line-height: 2;
+  //font-size: $fontSizeSmall;
+  //filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=0, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=90, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=180, strength=3, enabled=true), progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa, direction=270, strength=3, enabled=true);
 
-	&.open {
-		display: block;
-	}
+  &.open {
+    display: block;
+  }
 
-	.hdCommunications &, .hdTools &, .tools & {
-		right: 0;
-	}
-	.hdCommunications & {
-		width: 320px;
-	}
-	.title {
-		@extend .clearfix;
-		@extend .border-box;
-		height: 40px;
-		padding: 8px 10px;
-		line-height: 24px;
-		//font-weight: bold;
-		border-bottom: solid 1px $grayBorder;
-	}
-	.body {
-		@extend .clearfix;
-	}
-	.sideBlock {
-		float: left;
-		width: $dropdownSideWidth;
-	}
-	.contents {
-		@extend .clearfix;
-		position: relative;
-		padding: 10px;
-	}
-	h2 {
-		margin: 0 0 10px 0;
-		font-weight: normal;
-		line-height: 24px;
+  .hdCommunications &, .hdTools &, .tools & {
+    right: 0;
+  }
+  .hdCommunications & {
+    width: 320px;
+  }
+  .title {
+    @extend .clearfix;
+    @extend .border-box;
+    height: 40px;
+    padding: 8px 10px;
+    line-height: 24px;
+    //font-weight: bold;
+    border-bottom: solid 1px $grayBorder;
+  }
+  .body {
+    @extend .clearfix;
+  }
+  .sideBlock {
+    float: left;
+    width: $dropdownSideWidth;
+  }
+  .contents {
+    @extend .clearfix;
+    position: relative;
+    padding: 10px;
+  }
+  h2 {
+    margin: 0 0 10px 0;
+    font-weight: normal;
+    line-height: 24px;
 
-		&:first-child {
-			border-top: none;
-		}
-	}
-	.foot {
-		@extend .clearfix;
-		padding: 8px 10px;
-		border-top: solid 1px $grayBorder;
-		.count {
-			//line-height: 24px;
-		}
-	}
+    &:first-child {
+      border-top: none;
+    }
+  }
+  .foot {
+    @extend .clearfix;
+    padding: 8px 10px;
+    border-top: solid 1px $grayBorder;
+    .count {
+      //line-height: 24px;
+    }
+  }
 }
+
 .activityPopup, .supportPopup {
-	display: block;
-	padding: 0 !important;
-	&.auiPopup h2 {
-		padding: 0;
-		border: none;
-	}
+  display: block;
+  padding: 0 !important;
+  &.auiPopup h2 {
+    padding: 0;
+    border: none;
+  }
 }
+
 .dropdown_menu {
-	li {
-		padding: 0;
-		background-image: none;
-	}
-	a {
-		//@extend .ellipsis;
-		display: block;
-		padding: 6px 10px;
-		color: $textColor;
-		text-decoration: none;
+  li {
+    padding: 0;
+    background-image: none;
+  }
+  a {
+    //@extend .ellipsis;
+    display: block;
+    padding: 6px 10px;
+    color: $textColor;
+    text-decoration: none;
 
-		#auiHeader & {
-			min-width: 118px;//10em;
-		}
+    #auiHeader & {
+      min-width: 118px; //10em;
+    }
 
-		&:hover {
-			text-decoration: none;
-			background-color: $grayBackLight;
-		}
-	}
-	.active {
-		a {
-			background-color: $grayBackLight;
-		}
-	}
+    &:hover {
+      text-decoration: none;
+      background-color: $grayBackLight;
+    }
+  }
+  .active {
+    a {
+      background-color: $grayBackLight;
+    }
+  }
 }
+
 .dropdown_list {
-	//min-height: 200px;
-	position: relative;
-	ul {
-		@extend .dropdown_menu;
-		font-size: $fontSizeSmall;
-	}
-	li {
-		padding: 0;
-		border-top: solid 1px $grayBorderLight;
-		background-image: none;
-		&:first-child {
-			border-top: none;
-		}
-		> a {
-			position: relative;
-			> .avatar {
-				position: absolute;
-				+ .body {
-					padding-left: 30px;
-				}
-			}
-		}
-	}
-	.name {
-		margin-bottom: 5px;
-	}
-	.date {
-		float: right;
-		color: $gray;
-	}
-	//[class*=avatar_] {
-	//	margin-right: 5px;
-	//}
-	.new {
-		background-color: $grayBackLight;
-		.date, .name {
-			color: $textColor;
-			font-weight: bold;
-		}
-		&:hover a {
-			background-color: $grayBorderLight;
-		}
-	}
+  //min-height: 200px;
+  position: relative;
+  ul {
+    @extend .dropdown_menu;
+    font-size: $fontSizeSmall;
+  }
+  li {
+    padding: 0;
+    border-top: solid 1px $grayBorderLight;
+    background-image: none;
+    &:first-child {
+      border-top: none;
+    }
+    > a {
+      position: relative;
+      > .avatar {
+        position: absolute;
+        + .body {
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+  .name {
+    margin-bottom: 5px;
+  }
+  .date {
+    float: right;
+    color: $gray;
+  }
+  //[class*=avatar_] {
+  //	margin-right: 5px;
+  //}
+  .new {
+    background-color: $grayBackLight;
+    .date, .name {
+      color: $textColor;
+      font-weight: bold;
+    }
+    &:hover a {
+      background-color: $grayBorderLight;
+    }
+  }
 }
+
 .contentList {
-	li {
-		padding: 6px 10px !important;
-		line-height: 1.5;
-		border-top: solid 1px $grayBorderLight;
-		&:first-child {
-			border-top: none;
-		}
-	}
-	.date {
-		margin-bottom: 3px;
-		color: $gray;
-	}
+  li {
+    padding: 6px 10px !important;
+    line-height: 1.5;
+    border-top: solid 1px $grayBorderLight;
+    &:first-child {
+      border-top: none;
+    }
+  }
+  .date {
+    margin-bottom: 3px;
+    color: $gray;
+  }
 }
+
 .divider {
-	border-bottom: solid 1px $grayBorderLight;
+  border-bottom: solid 1px $grayBorderLight;
 }
+
 .dividerBg {
-  	background-color: $grayBackLight;
+  background-color: $grayBackLight;
 }
+
 /***************************************************
 	profilePopup
 --------------------------------------------------*/
 .profilePopupWrap {
   position: absolute;
 }
+
 .profilePopup {
   //@extend .dropdown;
 
@@ -716,9 +733,9 @@ $dropdownSideWidth: 280px;
   overflow: hidden;
 
   .contents {
-	@extend .clearfix;
-	position: relative;
-	padding: 10px;
+    @extend .clearfix;
+    position: relative;
+    padding: 10px;
   }
 
   min-width: 220px;
@@ -727,365 +744,406 @@ $dropdownSideWidth: 280px;
   z-index: 1;
 
   .avatar_l {
-	float: left;
-	margin-right: 10px;
+    float: left;
+    margin-right: 10px;
   }
   .popupInner {
-	overflow: hidden;
+    overflow: hidden;
   }
   .name {
-	display: block;
-	font-weight: bold;
+    display: block;
+    font-weight: bold;
   }
   .name_kana {
-	display: block;
-	font-size: $fontSizeMini;
-	padding: 2px 0 5px;
+    display: block;
+    font-size: $fontSizeMini;
+    padding: 2px 0 5px;
   }
   .post_name {
-	display: block;
+    display: block;
   }
   .icon_menu {
-	//@extend .dropdown_menu;
-	width: 320px;
+    //@extend .dropdown_menu;
+    width: 320px;
 
-	li {
-	  padding: 0;
-	  background-image: none;
-	  width: 159px;
-	  float: left;
-	  text-align: center;
-	  font-size: $fontSizeMini;
-	  margin-left: -1px;
-	  border-left: 1px solid $grayBorderLight;
+    li {
+      padding: 0;
+      background-image: none;
+      width: 159px;
+      float: left;
+      text-align: center;
+      font-size: $fontSizeMini;
+      margin-left: -1px;
+      border-left: 1px solid $grayBorderLight;
 
-	  &:first-child {
-		margin-left: 0px;
-		border-left: none;
-	  }
-	  div {
-		padding-bottom: 3px;
-	  }
-	  a {
-		display: block;
-		padding: 6px 10px;
-		color: #a0a0a0;
-		text-decoration: none;
-		i {
-		  font-size: 20px;
-		  color: #a0a0a0;
-		}
-		&:hover {
-		  color: #313131;
-		  text-decoration: none;
-		  background: none;
-		  i {
-			color: #313131;
-		  }
-		}
-	  }
+      &:first-child {
+        margin-left: 0px;
+        border-left: none;
+      }
+      div {
+        padding-bottom: 3px;
+      }
+      a {
+        display: block;
+        padding: 6px 10px;
+        color: #a0a0a0;
+        text-decoration: none;
+        i {
+          font-size: 20px;
+          color: #a0a0a0;
+        }
+        &:hover {
+          color: #313131;
+          text-decoration: none;
+          background: none;
+          i {
+            color: #313131;
+          }
+        }
+      }
 
-	}
-	&.icon_menu_s{
-	  width: 260px;
-	  li {
-		width: 129px;
-	  }
-	}
-	&.icon_menu_ver2{
-	  li {
-		width: 159px;
-	  }
-	}
-	&.icon_menu_ver3{
-	  li {
-		width: 106px;
-	  }
-	}
+    }
+    &.icon_menu_s {
+      width: 260px;
+      li {
+        width: 129px;
+      }
+    }
+    &.icon_menu_ver2 {
+      li {
+        width: 159px;
+      }
+    }
+    &.icon_menu_ver3 {
+      li {
+        width: 106px;
+      }
+    }
   }
   .messageInputDummy {
-	@extend .commentsBorder;
-	span {
-	  display:block;
-	  padding:5px;
-	  border: 1px $grayBorder solid;
-	  color: $grayLight;
-	  cursor: text;
-	  background:#fff;
-	  @extend .bRadius3;
-	}
+    @extend .commentsBorder;
+    span {
+      display: block;
+      padding: 5px;
+      border: 1px $grayBorder solid;
+      color: $grayLight;
+      cursor: text;
+      background: #fff;
+      @extend .bRadius3;
+    }
   }
   .messageField {
 
-	@extend .commentsBorder;
-	.outer {
-	  @extend .bRadius3;
-	  border: 1px $grayBorder solid;
-	  background:#fff;
-	  overflow:hidden;
-	}
-	#inputField,
-	.inputField {
-	  margin-bottom: 15px;
-	  background:transparent;
-	}
-	.outer {
-	  padding: 3px;
-	  margin:0 0 5px 0;
-	}
-	textarea {
-	  border:none;
-	  @include border-radius(0);
-	  font-size: $baseFontSize;
-	}
-	textarea:focus {
-	  -webkit-box-shadow:none;
-	  -moz-box-shadow:none;
-	  box-shadow:none;
-	}
-	textarea.elastic {
-	  width: 99%;
-	  overflow: hidden;
-	  resize: none;
-	  outline: 0;
-	  line-height: normal;
-	  height: 21px;
-	  -webkit-appearance: caret;
-	}
+    @extend .commentsBorder;
+    .outer {
+      @extend .bRadius3;
+      border: 1px $grayBorder solid;
+      background: #fff;
+      overflow: hidden;
+    }
+    #inputField,
+    .inputField {
+      margin-bottom: 15px;
+      background: transparent;
+    }
+    .outer {
+      padding: 3px;
+      margin: 0 0 5px 0;
+    }
+    textarea {
+      border: none;
+      @include border-radius(0);
+      font-size: $baseFontSize;
+    }
+    textarea:focus {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    textarea.elastic {
+      width: 99%;
+      overflow: hidden;
+      resize: none;
+      outline: 0;
+      line-height: normal;
+      height: 21px;
+      -webkit-appearance: caret;
+    }
   }
 }
+
 /***************************************************
 	dd_message
 --------------------------------------------------*/
 #dd_message {
-	width: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 3px;
 
-	> .body {
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAABCAYAAAAFILFrAAAAFUlEQVR42mMwNjb+P4pH8SgexbTAAPnyvlAL+gbgAAAAAElFTkSuQmCC);
-		background-repeat: repeat-y;
-		background-position: left;
-	}
-	.mainBlock {
-		margin-left: $dropdownSideWidth;
-		border-left: solid 1px $grayBorder;
-		> .contents {
-			padding: 10px 10px 0 10px;
-		}
-	}
-	.timelineOuter {
-		.message:first-child {
-			padding-top: 0 !important;
-		}
-	  .timeline {
-		.messageContents {
-		  margin-right: 60px;
-		}
-	  }
-	}
-	.contents {
-	}
-	.subContents {
-		@extend .border-box;
-		float: right;
-		width: $dropdownSideWidth;
-		border-left: solid 1px $grayBorder;
-	}
-	.inputField {
-		margin-bottom: 10px;
-	}
+  > .body {
+    //background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAABCAYAAAAFILFrAAAAFUlEQVR42mMwNjb+P4pH8SgexbTAAPnyvlAL+gbgAAAAAElFTkSuQmCC);
+    //background-repeat: repeat-y;
+    //background-position: left;
+    background: #eee;
+  }
+  .title {
+    height: 50px;
+    line-height: 34px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .mainBlock {
+    margin-left: $dropdownSideWidth;
+    //border-left: solid 1px $grayBorder;
+    > .contents {
+      padding: 10px 20px 0 20px;
+    }
+  }
+  .timelineOuter {
+    .message {
+      border-top: none;
+      padding: 0 0 20px;
+
+      &:first-child {
+        padding-top: 0 !important;
+      }
+      .time{
+        color: $gray;
+
+        a{
+          color: $gray;
+
+          &:hover{
+            color: $linkColorHover;
+          }
+        }
+      }
+    }
+    .timeline {
+      .messageContents {
+        margin-right: 60px;
+      }
+    }
+  }
+  .contents {
+    background: $white;
+  }
+  .subContents {
+    @extend .border-box;
+    float: right;
+    width: $dropdownSideWidth;
+    border-left: solid 1px $grayBorder;
+  }
+  .inputField {
+    margin-bottom: 30px;
+  }
 }
+
 .counter {
-	float:left !important;
-	font-size: $fontSizeMini;
-	height:13px;
-	min-width:11px;
-	line-height:13px !important;
-	padding:0 2px;// 0 1px;
-	text-align: center;
-	margin-top:5px;
-	margin-right:2px;
-	@extend .bRadius2;
-	color:#FFFFFF;
-	background:$red !important;
-	text-decoration:none;
+  float: left !important;
+  font-size: $fontSizeMini;
+  height: 13px;
+  min-width: 11px;
+  line-height: 13px !important;
+  padding: 0 2px; // 0 1px;
+  text-align: center;
+  margin-top: 5px;
+  margin-right: 2px;
+  @extend .bRadius2;
+  color: #FFFFFF;
+  background: $red !important;
+  text-decoration: none;
 }
-.counter.zero{
-	background:#b5b5b5 !important;
+
+.counter.zero {
+  background: #b5b5b5 !important;
 }
 
 .messageSummary, .messageUserlist ul {
-	li {
-		position: relative;
-		padding: 0;
-		background-image: none;
-		border-bottom: solid 1px $black;
-		a {
-			@extend .clearfix;
-			display: block;
-			height: 44px;
-			text-decoration: none;
-			color: $gray;
-			@include box-sizing("border-box");
-			.name {
-				color: $white;
-			}
-			&:hover {
-				color: $linkColorHover;
-				background-color: $grayDarker;
-				text-decoration: none;
-				span {
-					text-decoration: none;
-				}
-				.name {
-					color: $linkColorHover;
-				}
-			}
-		}
-		span {
-			display: block;
-		}
-		.latest, .date {
-			font-size: $fontSizeSmall;
-		}
-	}
-	.avatar {
-		position: absolute;
-		top: 0;
-		left: 0;
-		padding: 6px;
-		img {
-			//display: block;
-		}
-	}
+  li {
+    position: relative;
+    padding: 0;
+    margin-left: 10px;
+    background-image: none;
+    //border-bottom: solid 1px $black;
+    a {
+      @extend .clearfix;
+      display: block;
+      height: 38px;
+      text-decoration: none;
+      //color: $gray;
+      @include box-sizing("border-box");
+      .name {
+        //color: $white;
+      }
+      &:hover {
+        color: $linkColorHover;
+        //background-color: $grayDarker;
+        text-decoration: none;
+        span {
+          text-decoration: none;
+        }
+        .name {
+          color: $linkColorHover;
+        }
+      }
+    }
+    span {
+      display: block;
+    }
+    .latest, .date {
+      font-size: $fontSizeSmall;
+      color: #999;
+    }
+  }
+  .avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px;
+    img {
+      //display: block;
+    }
+  }
 }
+
 .messageSummary {
-	position: relative;
-	li {
-		a {
-			padding: 6px 10px 6px 45px;
-		}
-	}
-	.date {
-		float: right;
-		white-space: nowrap;
-		margin-left: 5px;
-	}
-	.date, .name, .latest {
-		line-height: 16px;
-		height: 16px;
-		@extend .ellipsis;
-	}
-	.nrCount {
-		float: left;
-		display: inline-block;
-		//height: 14px;
-		min-width: 10px;
-		line-height: 1.4;
-		margin: 0 3px 0 0;
-		padding: 0 2px;
-		font-size: $fontSizeMini;
-		text-align: center;
-		text-decoration: none;
-		background-color: $red;
-		color: $white;
-		@include border-radius(3px);
-	}
-	.active {
-		background-color: $white;
-		a, a:hover {
-			color: $gray !important;
-			background-color: $white;
-			.date, .latest {
-				color: $grayDeep !important;
-			}
-			.name {
-				color: $black;
-			}
-		}
-	}
+  position: relative;
+  li {
+    a {
+      padding: 6px 16px 6px 40px;
+    }
+  }
+  .date {
+    float: right;
+    white-space: nowrap;
+    margin-left: 5px;
+  }
+  .date, .name, .latest {
+    line-height: 25px; //16px
+    height: 25px; //16px
+    @extend .ellipsis;
+  }
+  .nrCount {
+    float: left;
+    display: inline-block;
+    //height: 14px;
+    min-width: 10px;
+    line-height: 1.4;
+    margin: 5px 3px 0 0;
+    padding: 0 3px;
+    font-size: $fontSizeMini;
+    text-align: center;
+    text-decoration: none;
+    background-color: $red;
+    color: $white;
+    @include border-radius(3px);
+  }
+  .active {
+    //background-color: $white;
+    a, a:hover {
+      color: $gray !important;
+      background-color: $white;
+      border-top: 1px solid #e7e7e7;
+      border-bottom: 1px solid #e7e7e7;
+      border-left: 1px solid #e7e7e7;
+      border-radius: 3px 0 0 3px;
+
+      .date, .latest {
+        //color: $grayDeep !important;
+      }
+      .name {
+        color: $black;
+      }
+    }
+  }
 }
+
 .messageUserlist {
-	ul {
-		li {
-			a {
-				line-height: 45px;
-				padding-left: 45px;
-			}
-		}
-	}
-	.index {
-		line-height: 20px;
-		padding: 0 8px;
-		background: $grayDarker;
-	}
-	.name {
-		@extend .ellipsis;
-	}
+  ul {
+    li {
+      a {
+        line-height: 45px;
+        padding-left: 45px;
+      }
+    }
+  }
+  .index {
+    line-height: 20px;
+    padding: 0 8px;
+    //background: $grayDarker;
+  }
+  .name {
+    @extend .ellipsis;
+  }
 }
+
 .searchClear {
-	padding: 0 !important;
-	line-height: 40px;
-	text-align: center;
-	color: $white !important;
-	[class^="icon-"], [class*=" icon-"] {
-		color: $white;
-		margin-right: 5px;
-	}
-	&:hover {
-		color: $linkColorHover !important;
-		[class^="icon-"], [class*=" icon-"] {
-			color: $linkColorHover;
-		}
-	}
+  padding: 0 !important;
+  line-height: 40px;
+  text-align: center;
+  color: $white !important;
+  [class^="icon-"], [class*=" icon-"] {
+    color: $white;
+    margin-right: 5px;
+  }
+  &:hover {
+    color: $linkColorHover !important;
+    [class^="icon-"], [class*=" icon-"] {
+      color: $linkColorHover;
+    }
+  }
 }
 
 .messageSummaryHead {
-	div {
-		border-bottom: solid 1px $black;
-	}
+  div {
+    //border-bottom: solid 1px $black;
+  }
 }
+
 .roomHeader {
-	margin-bottom: 10px;
-	.userListIcon {
-		padding-right: 30px;
-		height: 24px;
-		margin-bottom: 0;
-		overflow: hidden;
-	}
-	.floatLeft {
-		@include text-overflow();
-		width: 90%;
-	}
-	.floatRight {
-		position: absolute;
-		top: 0;
-		right: 0;
-		a {
-			display: inline-block;
-			[class*=icon-] {
-				display: inline-block;
-				min-width: 24px;
-				height: 24px;
-				line-height: 24px;
-				text-align: center;
-				color: $grayLight;
-			}
-			&:hover [class*=icon-] {
-				color: $textColor;
-			}
-		}
-	}
+  margin-bottom: 10px;
+  .userListIcon {
+    padding-right: 30px;
+    height: 24px;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  .floatLeft {
+    @include text-overflow();
+    width: 90%;
+  }
+  .floatRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+    a {
+      display: inline-block;
+      [class*=icon-] {
+        display: inline-block;
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        color: $grayLight;
+      }
+      &:hover [class*=icon-] {
+        color: $textColor;
+      }
+    }
+  }
 }
+
 #messageTimeline {
-	margin: 0 -10px;
-	.message {
-		padding-right: 10px;
-		padding-left: 10px;
-		&.invite {
-			background-color: $grayBackLight;
-		}
-	}
+  margin: 0 -10px;
+  .message {
+    padding-right: 10px;
+    padding-left: 10px;
+    &.invite {
+      background-color: $grayBackLight;
+    }
+  }
 }
+
 //#messageFavorites,
 //#messageFiles{
 //	padding: 5px;
@@ -1117,55 +1175,60 @@ $dropdownSideWidth: 280px;
 	sideBlock
 --------------------------------------------------*/
 .sideBlock {
-	position: relative;
-	background-color: $grayDark;
-	color: $white;
-	.inner {
-		padding: 10px;
-	}
-	.search {
-		background-color: $grayDeep;
-		border-color: $grayDeep;
-		input[type=text] {
-			background-color: $grayDeep;
-			color: $white;
-		}
-		button {
-			text-shadow: none;
-		}
-		label,
-		[class*="icon-"] {
-			color: $grayLight;
-		}
-	}
-	.auiTabs {
-		.tab {
-			li {
-				a,
-				&:first-child a {
-					margin: 0;
-					background-color: $black;
-					height: 35px;
-					line-height: 35px;
-					border: none;
-					color: $grayLight;
-					&:hover {
-						color: $white;
-					}
-				}
-				&.active a {
-					background-color: $grayDark;
-					color: $white !important;
-				}
-			}
-		}
-		.tabContents {
-			li {
-				padding: 0 !important;
-			}
-		}
-	}
+  position: relative;
+  //background-color: $grayDark;
+  //color: $white;
+  .inner {
+    padding: 10px 15px;
+  }
+  .search {
+    //background-color: $grayDeep;
+    //border-color: $grayDeep;
+    input[type=text] {
+      background-color: $grayDeep;
+      color: $white;
+    }
+    button {
+      text-shadow: none;
+    }
+    label,
+    [class*="icon-"] {
+      color: $grayLight;
+    }
+  }
+  .auiTabs {
+    //border-right: 1px solid #eee;
+    .tab {
+      border-right: 1px solid #eee;
+      li {
+        a,
+        &:first-child a {
+          margin: 0;
+          //background-color: $black;
+          height: 35px;
+          line-height: 35px;
+          border: none;
+          border-radius: 0;
+          //color: $grayLight;
+          &:hover {
+            //color: $white;
+          }
+        }
+        &.active a {
+          //background-color: $grayDark;
+          //color: $white !important;
+          background: #eee;
+        }
+      }
+    }
+    .tabContents {
+      li {
+        padding: 0 !important;
+      }
+    }
+  }
 }
+
 /***************************************************
 	dd_information
 --------------------------------------------------*/
@@ -1176,9 +1239,9 @@ $dropdownSideWidth: 280px;
 	scroll
 --------------------------------------------------*/
 .scroll {
-	//@extend .scrollDecoration;
-	@extend .border-box;
-	overflow: auto;
+  //@extend .scrollDecoration;
+  @extend .border-box;
+  overflow: auto;
 }
 
 /***************************************************
@@ -1186,31 +1249,32 @@ $dropdownSideWidth: 280px;
 --------------------------------------------------*/
 //アプリ画面用
 .emptyMessage {
-	//width: 17em;
-	margin: auto;
-	text-align: center;
-	color: $gray;
-	margin: 120px 0 170px;
-	[class*=icon-] {
-		font-size: 120px !important;
-		color: $grayLight;
-		@include text-shadow(0 -1px 0 darken($grayLight,10));
-	}
-	//ポートレット等
-	.dropdown_list &, .tableWrapper &, .auiPopup & {
-		margin: 15px 0;
-	}
-	//メッセージ用
-	#dd_message & {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		height: 160px;
-		margin: auto;
-	}
+  //width: 17em;
+  margin: auto;
+  text-align: center;
+  color: $gray;
+  margin: 120px 0 170px;
+  [class*=icon-] {
+    font-size: 120px !important;
+    color: $grayLight;
+    @include text-shadow(0 -1px 0 darken($grayLight, 10));
+  }
+  //ポートレット等
+  .dropdown_list &, .tableWrapper &, .auiPopup & {
+    margin: 15px 0;
+  }
+  //メッセージ用
+  #dd_message & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 160px;
+    margin: auto;
+  }
 }
+
 //メッセージ用
 //#dd_message {
 //	.emptyMessage{
@@ -1226,15 +1290,15 @@ $dropdownSideWidth: 280px;
 //ポートレット用
 //.tableWrapper .emptyMessage{
 //	margin: 15px 0;
-	//color: $textColor;
-	//text-align: left;
+//color: $textColor;
+//text-align: left;
 //}
 
 /***************************************************
 	row & col
 --------------------------------------------------*/
 .row, .col-2, .col-3 {
-	display: inline-block;
+  display: inline-block;
 }
 
 /***************************************************
@@ -1243,106 +1307,106 @@ $dropdownSideWidth: 280px;
 $lcWidth: 50px;
 $lcHeight: 40px;
 #auiLauncher {
-	display: none;
-	@extend .clearfix;
-	//@extend .transitionS;
-	position: fixed;
-	z-index: 2;
-	right: 0;
-	//top: 0;
-	//bottom: 0;
-	//width: $lcWidth * 3 - 10;
-	width: $lcWidth - 10;
-	padding: 10px;
+  display: none;
+  @extend .clearfix;
+  //@extend .transitionS;
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  //top: 0;
+  //bottom: 0;
+  //width: $lcWidth * 3 - 10;
+  width: $lcWidth - 10;
+  padding: 10px;
 
-	&.launcherOpen {
-		display: block;
-	}
+  &.launcherOpen {
+    display: block;
+  }
 
-	//.start {
-	//	position: relative;
-	//	> a {
-	//		width: 100%;
-	//		height: 40px;
-	//		line-height: 40px;
-	//		text-align: center;
-	//	}
-	//}
-	//&.narrow {
-	//	.name {
-	//		display: none;
-	//	}
-	//}
+  //.start {
+  //	position: relative;
+  //	> a {
+  //		width: 100%;
+  //		height: 40px;
+  //		line-height: 40px;
+  //		text-align: center;
+  //	}
+  //}
+  //&.narrow {
+  //	.name {
+  //		display: none;
+  //	}
+  //}
 
-	ul.launcher,
-	ul.setting {
-		position: relative;
-		li {
-			position: relative;
-			height: $lcHeight;
-			padding: 0;
-			background-image: none;
-			a {
-				@extend .clearfix;
-				@extend .border-box;
-				@extend .ellipsis;
-				display: block;
-				line-height: $lcHeight;
-				color: $gray;
-				text-decoration: none;
-				[class^="icon-"], [class*=" icon-"] {
-					//@extend .transitionS;
-					color: $gray;
-				}
-				&:hover {
-					color: $textColor;
-					text-decoration: none;
-					[class^="icon-"], [class*=" icon-"] {
-						color: $textColor;
-					}
-					.name {
-						display: block;
-					}
-				}
-			}
-			.icon, [class^="icon-"], [class*=" icon-"] {
-				display: block;
-				float: left;
-				width: $lcWidth - 10;
-				line-height: $lcHeight;
-				text-align: center;
-			}
-			.name {
-				@extend .bRadius2;
-				display: none;
-				position: absolute;
-				top: 5px;
-				left: -9em;
-				width: 9em;
-				line-height: 30px;
-				text-align: center;
-				white-space: nowrap;
-				color: $white;
-				background-color: $gray;
-				&:after {
-					display: block;
-					display: none\9; //IE8 hack
-					content: "";
-					position: absolute;
-					top: 50%;
-					right: -3px;
-					width: 6px;
-					height: 6px;
-					margin-top: -3px;
-					background-color: $gray;
-					@include transform(rotate(45deg));
-				}
-			}
-		}
-	}
-	ul.setting {
-		border-top: solid 1px $grayBorder;
-	}
+  ul.launcher,
+  ul.setting {
+    position: relative;
+    li {
+      position: relative;
+      height: $lcHeight;
+      padding: 0;
+      background-image: none;
+      a {
+        @extend .clearfix;
+        @extend .border-box;
+        @extend .ellipsis;
+        display: block;
+        line-height: $lcHeight;
+        color: $gray;
+        text-decoration: none;
+        [class^="icon-"], [class*=" icon-"] {
+          //@extend .transitionS;
+          color: $gray;
+        }
+        &:hover {
+          color: $textColor;
+          text-decoration: none;
+          [class^="icon-"], [class*=" icon-"] {
+            color: $textColor;
+          }
+          .name {
+            display: block;
+          }
+        }
+      }
+      .icon, [class^="icon-"], [class*=" icon-"] {
+        display: block;
+        float: left;
+        width: $lcWidth - 10;
+        line-height: $lcHeight;
+        text-align: center;
+      }
+      .name {
+        @extend .bRadius2;
+        display: none;
+        position: absolute;
+        top: 5px;
+        left: -9em;
+        width: 9em;
+        line-height: 30px;
+        text-align: center;
+        white-space: nowrap;
+        color: $white;
+        background-color: $gray;
+        &:after {
+          display: block;
+          display: none \9; //IE8 hack
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -3px;
+          width: 6px;
+          height: 6px;
+          margin-top: -3px;
+          background-color: $gray;
+          @include transform(rotate(45deg));
+        }
+      }
+    }
+  }
+  ul.setting {
+    border-top: solid 1px $grayBorder;
+  }
 }
 
 /***************************************************
@@ -1350,79 +1414,79 @@ $lcHeight: 40px;
 	日付遷移UI
 --------------------------------------------------*/
 .dateChanger {
-	$dcHeight: 30px;
-	@extend .clearfix;
-	position: relative;
-	//min-width: 10em;
-	text-align: center;
-	border: solid 1px $grayBorder;
-	border-bottom: none;
-	@include border-radius(4px 4px 0 0);
-	overflow: hidden;
-	font-size: 0;
-	white-space: nowrap;
-	> div {
-		display: inline-block;
-		height: $dcHeight;
-		line-height: $dcHeight;
-		vertical-align: middle;
-		font-size: $baseFontSize;
-	}
-	.today {
-		position: absolute;
-		top: 0;
-		left: 0px;
-		background: none;
-		a {
-			display: block;
-			width: 40px !important;
-			//height: 40px !important;
-			//line-height: $dcHeight !important;
-			text-decoration: none;
-		}
-	}
-	.currentDate {
-		position: relative;
-		//width: 10em;
-		text-align: center;
-		//font-weight: bold;
-		//font-size: $fontSizeLarge;
-		width: 70px;
-	}
-	.subDate {
-		position: absolute;
-		//top: 25px;
-		top: 18px;
-		display: block;
-		width: 100%;
-		line-height: 1;
-		font-size: $fontSizeSmall;
-		color: $gray;
-	}
-	.mainDate {
-		display: block;
-		//line-height: 30px;
-		line-height: 20px;
-		font-size: 14px;
-	}
-	.prev_more a, .prev a, .next a, .next_more a {
-		display: block;
-		text-decoration: none;
-		height: $dcHeight;
-	}
-	a {
-		i[class*="icon-"] {
-			display: block;
-			height: $dcHeight;
-			width: 30px;
-			line-height: $dcHeight;
-			font-size: 20px;
-			//color: $gray;
-		}
-		&:hover i[class*="icon-"] {
-			color: $linkColorHover;
-		}
-	}
+  $dcHeight: 30px;
+  @extend .clearfix;
+  position: relative;
+  //min-width: 10em;
+  text-align: center;
+  border: solid 1px $grayBorder;
+  border-bottom: none;
+  @include border-radius(4px 4px 0 0);
+  overflow: hidden;
+  font-size: 0;
+  white-space: nowrap;
+  > div {
+    display: inline-block;
+    height: $dcHeight;
+    line-height: $dcHeight;
+    vertical-align: middle;
+    font-size: $baseFontSize;
+  }
+  .today {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    background: none;
+    a {
+      display: block;
+      width: 40px !important;
+      //height: 40px !important;
+      //line-height: $dcHeight !important;
+      text-decoration: none;
+    }
+  }
+  .currentDate {
+    position: relative;
+    //width: 10em;
+    text-align: center;
+    //font-weight: bold;
+    //font-size: $fontSizeLarge;
+    width: 70px;
+  }
+  .subDate {
+    position: absolute;
+    //top: 25px;
+    top: 18px;
+    display: block;
+    width: 100%;
+    line-height: 1;
+    font-size: $fontSizeSmall;
+    color: $gray;
+  }
+  .mainDate {
+    display: block;
+    //line-height: 30px;
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .prev_more a, .prev a, .next a, .next_more a {
+    display: block;
+    text-decoration: none;
+    height: $dcHeight;
+  }
+  a {
+    i[class*="icon-"] {
+      display: block;
+      height: $dcHeight;
+      width: 30px;
+      line-height: $dcHeight;
+      font-size: 20px;
+      //color: $gray;
+    }
+    &:hover i[class*="icon-"] {
+      color: $linkColorHover;
+    }
+  }
 }
 
 /***************************************************
@@ -1430,48 +1494,48 @@ $lcHeight: 40px;
 	デザイン統一用擬似selectメニュー
 --------------------------------------------------*/
 .auiSelect {
-	@include inline-block;
-	@include box-sizing(border-box);
-	position: relative;
-	height: $inputHeight + 2;
-	line-height: $inputHeight + 2;
-	background: $white;
-	@extend .bRadius4;
-	border: solid 1px $grayBorder;
-	cursor: default;
-	vertical-align: middle;
-	@include user-select(none);
-	&:hover {
-		border: solid 1px $gray;
-	}
-	.current {
-		line-height: $inputHeight;
-		padding: 0 30px 0 10px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		vertical-align: middle;
-		.image {
-			float: left;
-			margin-left: -10px;
-			padding: 3px;
-		}
-	}
-	i[class*="icon-"] {
-		position: absolute;
-		top: 0;
-		right: 10px;
-		height: $inputHeight;
-		line-height: $inputHeight;
-		color: $gray;
-	}
-	&:hover, &.active {
-		i[class*="icon-"] {
-			color: $textColor;
-		}
-	}
+  @include inline-block;
+  @include box-sizing(border-box);
+  position: relative;
+  height: $inputHeight + 2;
+  line-height: $inputHeight + 2;
+  background: $white;
+  @extend .bRadius4;
+  border: solid 1px $grayBorder;
+  cursor: default;
+  vertical-align: middle;
+  @include user-select(none);
+  &:hover {
+    border: solid 1px $gray;
+  }
+  .current {
+    line-height: $inputHeight;
+    padding: 0 30px 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    .image {
+      float: left;
+      margin-left: -10px;
+      padding: 3px;
+    }
+  }
+  i[class*="icon-"] {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: $inputHeight;
+    line-height: $inputHeight;
+    color: $gray;
+  }
+  &:hover, &.active {
+    i[class*="icon-"] {
+      color: $textColor;
+    }
+  }
 }
 
 td.more {
-	text-align: center;
+  text-align: center;
 }

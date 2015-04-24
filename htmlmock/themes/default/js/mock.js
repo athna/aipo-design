@@ -122,8 +122,8 @@ function launcherToggle($this, $target) {
 
 function fitMessage() {
 	if(document.getElementById("dd_message") != null) {
-		// minusH 内訳 = auiHeader(55) + .title(40) + tab(35px) + dropdown余白(10)
-		var minusH = 55 + 40 + 35 + 10;
+		// minusH 内訳 = auiHeader(55) + .title(50) + tab(35px) + dropdown余白(10)
+		var minusH = 55 + 50 + 35 + 10;
 		var w = document.documentElement.clientWidth - 20;
 		var h = document.documentElement.clientHeight - minusH;
 		var tabh = document.documentElement.clientHeight - (minusH + 106);// minusH + messageSummaryHead(106)
@@ -146,8 +146,8 @@ function fitMessage() {
 		}
 	}
 	if(document.getElementById("messageTimeline1") != null) {
-		// minusH 内訳 = auiHeader(55) + .title(40) + .roomHeader(45) + .inputField(90) + 上余白(10) + dropdown余白(10)
-		var minusH = 55 + 40 + 45 + 90 + 10 + 10;
+		// minusH 内訳 = auiHeader(55) + .title(50) + .roomHeader(45) + .inputField(110) + 上余白(10) + dropdown余白(9)
+		var minusH = 55 + 50 + 45 + 110 + 10 + 9;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("messageTimeline1").style.height = h + "px";
 		document.getElementById("messageTimeline2").style.height = h + "px";

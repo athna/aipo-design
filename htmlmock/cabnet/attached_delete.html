@@ -1572,7 +1572,7 @@
 <!-- /menubar_auiFilter_2 -->
 
 <!-- popupMask -->
-<div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;">
+<div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:block; opacity: 1;">
 	<div class="modalDialogUnderlay" dojoattachpoint="node"></div>
 </div>
 <!-- /popupMask -->
@@ -1707,9 +1707,9 @@
 					<table class="listTable wide">
 						<tbody>
 						<tr>
-							<td class="caption">参加ユーザー</td>
+							<td class="caption">参加者</td>
 							<td>
-								<div id="memberFieldButton"><table class="w100"><tbody><tr><td style="width:80%; border:none;"><span>木村 一郎</span></td><td style="border:none;"><input type="button" class="alignright" value="参加ユーザー選択" onclick=""></td></tr></tbody></table></div>
+								<div id="memberFieldButton"><table class="w100"><tbody><tr><td style="width:80%; border:none;"><span>木村 一郎</span></td><td style="border:none;"><input type="button" class="alignright" value="参加者選択" onclick=""></td></tr></tbody></table></div>
 							</td>
 						</tr>
 
@@ -1731,7 +1731,7 @@
 	</div>
 </div>
 
-<div id="modalDialog_roomSetting" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: none; top: 50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
+<div id="modalDialog_roomSetting" class="modalDialog dijitContentPane mb_dialog" dojoattachpoint="wrapper" widgetid="modalDialog" title="" style="display: block; top: 50px;"><span dojoattachpoint="tabStartOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabStart" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span>
 	<div dojoattachpoint="containerNode" style="position: relative; z-index: 2;">
 		<div class="auiPopup clearfix">
 			<div class="auiPopupHead clearfix">
@@ -1739,7 +1739,7 @@
 					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_roomSetting');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
 					</div>
 				</div>
-				<div class="auiPopupTitle">ルーム設定</div>
+				<div class="auiPopupTitle">ルーム設定（ルームの管理者の場合）</div>
 			</div>
 			<div class="roundBlockContent">
 				<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
@@ -1748,19 +1748,38 @@
 					<table class="listTable wide">
 						<tbody>
 						<tr>
-							<td class="caption">参加ユーザー</td>
+							<td class="caption"><span class="">ルーム名</span></td>
+							<td><input class="text w100" type="text" name="name" id="name" value="ルーム名">
+							</td>
+						</tr>
+
+						<tr>
+							<td class="caption"><span class="">ルームアイコン</span></td>
+							<td>
+								<div id="uploadContainer">
+<span id="inputField">
+<div style="position: relative; display:block; cursor:default;" id="fileuploadButtonP-14ab9705421-10011" class="auiButtonBold">
+	<span class="uploadText">ファイルを追加する</span>
+	<input type="file" onchange="submitMini(this.form, 'P-14ab9705421-10011');" style="position: absolute; right: 0px; top: 0px; z-index: 1; font-size: 50px; cursor: pointer; opacity: 0; filter:alpha(opacity=0); height:32px;" name="attachment" id="attachment">
+</div>
+</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="caption">管理者</td>
 							<td>
 								<div id="memberFieldButton">
-									<p><span>木村 一郎</span>,<span>田村 涼子</span>,<span>鈴木 一郎</span></p>
+									<p><span>木村 一郎</span>,<span>田村 涼子</span></p>
 
 									<div id="memberField" style="display: block;">
-										<div class="spaceTop small">左側に参加ユーザーを追加してください。</div>
+										<div class="spaceTop small">左側に管理者にするユーザーを追加してください。</div>
 										<div id="membernormalselect" widgetid="membernormalselect">
 											<div id="memberPopupDiv">
 												<div class="outer">
 													<div class="popup">
 														<div class="clearfix">
-															<div class="memberlistToTop">参加ユーザー一覧</div>
+															<div class="memberlistToTop">管理者一覧</div>
 															<div class="memberlistFromTop">
 																<select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
 																	<option value="LoginUser">すべてのグループ</option>
@@ -1776,7 +1795,6 @@
 																<select size="5" multiple="multiple" style="width:100%" name="member_to" id="member_to">
 																	<option value="">木村 一郎</option>
 																	<option value="">田村 涼子</option>
-																	<option value="">鈴木 一郎</option>
 																</select>
 															</div>
 															<div class="memberlistFromBody">
@@ -1784,7 +1802,7 @@
 																	<option value="">木村 一郎</option>
 																	<option value="">田村 涼子</option>
 																	<option value="">鈴木 一郎</option>
-																	<option value="">山田 花小</option>
+																	<option value="">山田 花子</option>
 																</select>
 															</div>
 														</div>
@@ -1812,6 +1830,92 @@
 						</tr>
 
 						<tr>
+							<td class="caption">参加者</td>
+							<td>
+								<div id="memberFieldButton">
+									<p><span>鈴木 一郎</span>,<span>山田 花子</span></p>
+
+									<div id="memberField" style="display: block;">
+										<div class="spaceTop small">左側に参加者を追加してください。</div>
+										<div id="membernormalselect" widgetid="membernormalselect">
+											<div id="memberPopupDiv">
+												<div class="outer">
+													<div class="popup">
+														<div class="clearfix">
+															<div class="memberlistToTop">参加者一覧</div>
+															<div class="memberlistFromTop">
+																<select size="1" style="width:100%" name="tmp_group" id="tmp_group" dojoattachevent="onchange:changeGroup">
+																	<option value="LoginUser">すべてのグループ</option>
+																	<option value="">営業部</option>
+																	<option value="">企画部</option>
+																	<option value="">管理部</option>
+																	<option value="">開発部</option>
+																</select>
+															</div>
+														</div>
+														<div class="clearfix mb5">
+															<div class="memberlistToBody">
+																<select size="5" multiple="multiple" style="width:100%" name="member_to" id="member_to">
+																	<option value="">鈴木 一郎</option>
+																	<option value="">山田 花子</option>
+																</select>
+															</div>
+															<div class="memberlistFromBody">
+																<select size="5" multiple="multiple" style="width:100%" name="tmp_member_from" id="tmp_member_from">
+																	<option value="">木村 一郎</option>
+																	<option value="">田村 涼子</option>
+																	<option value="">鈴木 一郎</option>
+																	<option value="">山田 花子</option>
+																</select>
+															</div>
+														</div>
+														<div class="clearfix">
+															<div class="memberlistToBottom">
+																<div class="alignright">
+																	<input id="button_member_remove" name="button_member_remove" type="button" class="button" value="削除" dojoattachevent="onclick:onMemberRemoveClick">
+																</div>
+															</div>
+															<div class="memberlistFromBottom">
+																<div style="display: none;" id="membernormalselect-memberlist-indicator" class="indicator alignleft">読み込み中</div>
+																<div class="alignright">
+																	<input id="button_member_add" name="button_member_add" type="button" class="button" value="＜ 追加" dojoattachevent="onclick:onMemberAddClick">
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="center auiPopupButtons">
+						<input name="" class="auiButtonAction" type="submit" id="" value="作成する" onclick="">
+						<input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="popupToggle(this,'modalDialog_roomSetting');popupToggle(this,'popupMask');">
+					</div>
+				</form>
+			</div>
+		</div>
+		<br/>
+		<div class="auiPopup clearfix" style="margin-bottom: 60px;">
+			<div class="auiPopupHead clearfix">
+				<div class="auiPopupTool">
+					<div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる" onclick="popupToggle(this,'modalDialog_roomSetting');popupToggle(this,'popupMask');"><span><i class="icon-remove"></i></span></a>
+					</div>
+				</div>
+				<div class="auiPopupTitle">ルーム設定（参加者の場合）</div>
+			</div>
+			<div class="roundBlockContent">
+				<div class="indicator" id="indicator-dlg-P" style="display: none;">データを送信しています...</div>
+				<div id="messageDiv"></div>
+				<form name="" id="" action="" method="post">
+					<table class="listTable wide">
+						<tbody>
+						<tr>
 							<td class="caption"><span class="">ルーム名</span></td>
 							<td><input class="text w100" type="text" name="name" id="name" value="ルーム名">
 							</td>
@@ -1819,9 +1923,35 @@
 
 						<tr>
 							<td class="caption"><span class="">ルームアイコン</span></td>
-							<td class="center">
-								<p><img src="../themes/default/images/common/group_default.png" width="50" height="50" class="avatar_l"></p>
-								<input type="file">
+							<td>
+								<div id="uploadContainer">
+<span id="inputField">
+<div style="position: relative; display:block; cursor:default;" id="fileuploadButtonP-14ab9705421-10011" class="auiButtonBold">
+	<span class="uploadText">ファイルを追加する</span>
+	<input type="file" onchange="submitMini(this.form, 'P-14ab9705421-10011');" style="position: absolute; right: 0px; top: 0px; z-index: 1; font-size: 50px; cursor: pointer; opacity: 0; filter:alpha(opacity=0); height:32px;" name="attachment" id="attachment">
+</div>
+</span>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="caption">管理者</td>
+							<td>
+								<div id="memberFieldButton">
+									<p><span>木村 一郎</span>,<span>田村 涼子</span></p>
+
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="caption">参加者</td>
+							<td>
+								<div id="memberFieldButton">
+									<p><span>鈴木 一郎</span>,<span>山田 花子</span></p>
+
+								</div>
 							</td>
 						</tr>
 
@@ -1833,7 +1963,7 @@
 					</div>
 				</form>
 			</div>
-		</div>
+		</div style=>
 	</div>
 </div>
 

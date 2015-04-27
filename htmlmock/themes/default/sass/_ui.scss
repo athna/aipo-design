@@ -898,10 +898,43 @@ $dropdownSideWidth: 240px;
       padding: 10px 20px 0 20px;
     }
   }
+  .rightBlock{
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+    width: 359px;
+    background: $white;
+    border-left: 1px solid #e5e5e5;
+    overflow-y: scroll;
+
+    ul{
+
+      li{
+        @extend .clearfix;
+
+        &.index{
+         background: #f6f6f6;
+          color: $grayDark;
+
+          span{
+            color: $gray;
+            float: right;
+            font-size: 11px;
+          }
+        }
+        > a{
+          padding: 6px 16px 6px 40px;
+
+        }
+      }
+    }
+  }
   .timelineOuter {
     .message {
       border-top: none;
-      padding: 0 0 20px;
+      padding: 0;
+      margin-bottom: 30px;
 
       &:first-child {
         padding-top: 0 !important;
@@ -1062,15 +1095,16 @@ $dropdownSideWidth: 240px;
   ul {
     li {
       a {
-        line-height: 45px;
-        padding-left: 45px;
+        line-height: 25px;
+        padding: 6px 16px 6px 40px;
       }
     }
   }
   .index {
     line-height: 20px;
     padding: 0 8px;
-    //background: $grayDarker;
+    border-bottom: 1px solid #DCDCDC;
+    //background: #DCDCDC;
   }
   .name {
     @extend .ellipsis;
@@ -1141,6 +1175,27 @@ $dropdownSideWidth: 240px;
     &.invite {
       background-color: $grayBackLight;
     }
+  }
+}
+.date_line{
+  position: relative;
+  text-align: center;
+  margin: -15px 0 30px;
+  height: 30px;
+  border-bottom: 1px solid #eee;
+
+  span{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 180px;
+    margin-left: -90px;
+    display: inline-block;
+    padding: 5px 10px;
+    line-height: 30px;
+    background: $white;
+    font-size: 16px;
+    text-align: center;
   }
 }
 

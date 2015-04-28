@@ -895,7 +895,7 @@ $dropdownSideWidth: 240px;
     margin-left: $dropdownSideWidth;
     //border-left: solid 1px $grayBorder;
     > .contents {
-      padding: 10px 20px 0 20px;
+      padding: 10px 15px 0 15px;
     }
   }
   .rightBlock{
@@ -903,29 +903,110 @@ $dropdownSideWidth: 240px;
     top: 50px;
     bottom: 0;
     right: 0;
-    width: 359px;
-    background: $white;
-    border-left: 1px solid #e5e5e5;
+    width: 360px;
+    //background: #f6f6f6;
+    background: $grayLighter;
+    //border-left: 1px solid #e5e5e5;
     overflow-y: scroll;
 
     ul{
 
       li{
         @extend .clearfix;
+        position: relative;
+        margin: 0 10px 7px 15px;
+        border: 1px solid #E7E7E7;
+        border-radius: 4px;
+        background: $white;
 
+        &:hover{
+          border: 1px solid $gray;
+          cursor: pointer;
+        }
         &.index{
-         background: #f6f6f6;
+         background: none;
           color: $grayDark;
+          border: none;
+          padding: 0 15px 0 10px;
+          margin:10px 0 7px;
+          cursor: auto;
 
+          &:hover{
+            //background: $grayLighter;
+          }
           span{
             color: $gray;
-            float: right;
+            display: inline-block;
+            margin-left: 10px;
             font-size: 11px;
           }
         }
-        > a{
-          padding: 6px 16px 6px 40px;
+        span{
+          display: block;
+        }
+        .avatar{
+          left: 0;
+          padding: 7px;
+          position: absolute;
+          top: 0;
+        }
+        &.user{
+          height: 38px;
 
+          a{
+            @include box-sizing(border-box);
+            height: 38px;
+            padding: 7px 16px 7px 38px;
+            display: block;
+            text-decoration: none;
+          }
+          &:hover span{
+            text-decoration: none;
+          }
+          .name,
+          .date{
+            line-height: 25px;
+            height: 25px;
+          }
+          .date{
+            float: right;
+            color: $gray;
+            font-size: $fontSizeSmall;
+          }
+          .nrCount {
+            background-color: #ff3333;
+            border-radius: 3px;
+            color: #ffffff;
+            display: inline-block;
+            float: left;
+            font-size: 10px;
+            line-height: 1.4;
+            margin: 5px 3px 0 0;
+            min-width: 8px;
+            padding: 0 3px;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+        &.room{
+          @extend .user;
+        }
+        &.message{
+          padding: 7px 16px 7px 38px;
+
+          .tlClipBoard{
+            border: 1px solid $grayLighter;
+            font-size: $fontSizeSmall;
+            padding: 7px;
+            margin: 10px 0 5px;
+          }
+          .time{
+            color: $gray;
+
+            a{
+              color: $gray;
+            }
+          }
         }
       }
     }
@@ -933,14 +1014,25 @@ $dropdownSideWidth: 240px;
   .timelineOuter {
     .message {
       border-top: none;
-      padding: 0;
-      margin-bottom: 30px;
+      padding: 0 7px 7px;
+      margin-bottom: 0px;
 
       &:first-child {
         padding-top: 0 !important;
       }
+      &:last-child{
+        margin-bottom: 30px;
+      }
+      &.active{
+        background: #fef6f1;
+        border-radius: 4px;
+      }
+      .avatar{
+        margin-top: 7px;
+      }
       .time{
         color: $gray;
+        margin-bottom: 0;
 
         a{
           color: $gray;
@@ -949,6 +1041,10 @@ $dropdownSideWidth: 240px;
             color: $linkColorHover;
           }
         }
+      }
+      .name {
+        margin-top: 20px;
+        padding-top: 7px;
       }
     }
     .timeline {
@@ -1180,7 +1276,7 @@ $dropdownSideWidth: 240px;
 .date_line{
   position: relative;
   text-align: center;
-  margin: -15px 0 30px;
+  margin: 10px 0 30px;
   height: 30px;
   border-bottom: 1px solid #eee;
 

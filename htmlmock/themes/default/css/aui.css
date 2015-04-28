@@ -970,46 +970,137 @@ ul.hdTools .dropdown:before {
   margin-left: 240px;
 }
 #dd_message .mainBlock > .contents {
-  padding: 10px 20px 0 20px;
+  padding: 10px 15px 0 15px;
 }
 #dd_message .rightBlock {
   position: absolute;
   top: 50px;
   bottom: 0;
   right: 0;
-  width: 359px;
-  background: #ffffff;
-  border-left: 1px solid #e5e5e5;
+  width: 360px;
+  background: #f0f0f0;
   overflow-y: scroll;
 }
+#dd_message .rightBlock ul li {
+  position: relative;
+  margin: 0 10px 7px 15px;
+  border: 1px solid #E7E7E7;
+  border-radius: 4px;
+  background: #ffffff;
+}
+#dd_message .rightBlock ul li:hover {
+  border: 1px solid #999;
+  cursor: pointer;
+}
 #dd_message .rightBlock ul li.index {
-  background: #f6f6f6;
+  background: none;
   color: #333;
+  border: none;
+  padding: 0 15px 0 10px;
+  margin: 10px 0 7px;
+  cursor: auto;
 }
 #dd_message .rightBlock ul li.index span {
   color: #999;
-  float: right;
+  display: inline-block;
+  margin-left: 10px;
   font-size: 11px;
 }
-#dd_message .rightBlock ul li > a {
-  padding: 6px 16px 6px 40px;
+#dd_message .rightBlock ul li span {
+  display: block;
+}
+#dd_message .rightBlock ul li .avatar {
+  left: 0;
+  padding: 7px;
+  position: absolute;
+  top: 0;
+}
+#dd_message .rightBlock ul li.user, #dd_message .rightBlock ul li.room {
+  height: 38px;
+}
+#dd_message .rightBlock ul li.user a, #dd_message .rightBlock ul li.room a {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 38px;
+  padding: 7px 16px 7px 38px;
+  display: block;
+  text-decoration: none;
+}
+#dd_message .rightBlock ul li.user:hover span, #dd_message .rightBlock ul li.room:hover span {
+  text-decoration: none;
+}
+#dd_message .rightBlock ul li.user .name, #dd_message .rightBlock ul li.room .name,
+#dd_message .rightBlock ul li.user .date,
+#dd_message .rightBlock ul li.room .date {
+  line-height: 25px;
+  height: 25px;
+}
+#dd_message .rightBlock ul li.user .date, #dd_message .rightBlock ul li.room .date {
+  float: right;
+  color: #999;
+  font-size: 11px;
+}
+#dd_message .rightBlock ul li.user .nrCount, #dd_message .rightBlock ul li.room .nrCount {
+  background-color: #ff3333;
+  border-radius: 3px;
+  color: #ffffff;
+  display: inline-block;
+  float: left;
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 5px 3px 0 0;
+  min-width: 8px;
+  padding: 0 3px;
+  text-align: center;
+  text-decoration: none;
+}
+#dd_message .rightBlock ul li.message {
+  padding: 7px 16px 7px 38px;
+}
+#dd_message .rightBlock ul li.message .tlClipBoard {
+  border: 1px solid #f0f0f0;
+  font-size: 11px;
+  padding: 7px;
+  margin: 10px 0 5px;
+}
+#dd_message .rightBlock ul li.message .time {
+  color: #999;
+}
+#dd_message .rightBlock ul li.message .time a {
+  color: #999;
 }
 #dd_message .timelineOuter .message {
   border-top: none;
-  padding: 0;
-  margin-bottom: 30px;
+  padding: 0 7px 7px;
+  margin-bottom: 0px;
 }
 #dd_message .timelineOuter .message:first-child {
   padding-top: 0 !important;
 }
+#dd_message .timelineOuter .message:last-child {
+  margin-bottom: 30px;
+}
+#dd_message .timelineOuter .message.active {
+  background: #fef6f1;
+  border-radius: 4px;
+}
+#dd_message .timelineOuter .message .avatar {
+  margin-top: 7px;
+}
 #dd_message .timelineOuter .message .time {
   color: #999;
+  margin-bottom: 0;
 }
 #dd_message .timelineOuter .message .time a {
   color: #999;
 }
 #dd_message .timelineOuter .message .time a:hover {
   color: #ff9900;
+}
+#dd_message .timelineOuter .message .name {
+  margin-top: 20px;
+  padding-top: 7px;
 }
 #dd_message .timelineOuter .timeline .messageContents {
   margin-right: 60px;
@@ -1202,7 +1293,7 @@ ul.hdTools .dropdown:before {
 .date_line {
   position: relative;
   text-align: center;
-  margin: -15px 0 30px;
+  margin: 10px 0 30px;
   height: 30px;
   border-bottom: 1px solid #eee;
 }

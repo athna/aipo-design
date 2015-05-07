@@ -2338,7 +2338,44 @@ body.messageRoomList {
 }
 .messageOuter {
   .inputField {
-	margin-bottom: 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	margin:0;
+	padding: 0;
+	border-radius: 0;
+	border: none;
+
+	form {
+	  display: block;
+	  background: $grayBackLight;
+	  padding: 5px;
+	  border: {
+		top: 1px solid $grayLight;
+		left: none;
+		right: none;
+		bottom: none;
+		radius: 0;
+	  }
+
+	  .tlInputMention {
+		margin: 0;
+		padding: 0;
+
+		textarea {
+		  margin: 0;
+		  padding: 5px;
+		  min-height: 26px;
+		  width: 100%;
+		  border: 1px solid $grayLighter;
+
+		  &:focus {
+			border: 1px solid $grayLight;
+		  }
+		}
+	  }
+	}
   }
   .auiSearch{
 

@@ -2033,29 +2033,38 @@ ul.attachments{
 /***************************************************
 	selectList
 --------------------------------------------------*/
-.selectList {
-  height: 10em;
-  overflow: auto !important;
-  border-left: 1px solid $grayBorderLight;
-  border-right: 1px solid $grayBorderLight;
-  border-bottom: 1px solid $grayBorderLight;
-
-  table {
-	.auiSelectButton {
-	  background-color: transparent;
-	}
-	tr {
-	  &:hover {
-		background: $grayLighter;
-		cursor: pointer;
-	  }
-	}
-	td {
-	  .avatar {
-		width: auto;
-	  }
-	}
+.selectListWrap {
+  border: 1px solid $grayBorder;
+  .selectListHead {
+	border-bottom: 1px solid $grayBorder;
   }
+  .selectList {
+	height: 170px;
+	overflow: auto !important;
+
+	table {
+	  .auiSelectButton {
+		background-color: transparent;
+	  }
+	  tr {
+		&:hover {
+		  background: $grayLighter;
+		  cursor: pointer;
+		}
+		&:first-child {
+		  td {
+			border-top: none;
+		  }
+		}
+	  }
+	  td {
+		border-top: 1px solid $grayBorderLight;
+
+		.avatar {
+		  width: auto;
+		}
+	  }
+	}
 	label {
 	  padding: 5px;
 	  display: block;
@@ -2063,6 +2072,7 @@ ul.attachments{
 		background: $grayLighter;
 	  }
 	}
+  }
 }
 /***************************************************
 	auiSubmenu

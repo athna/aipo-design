@@ -909,7 +909,68 @@ $dropdownSideWidth: 240px;
     border-left: 1px solid #e5e5e5;
     overflow-y: scroll;
 
+    div.index{
+      background: $grayBackLight;
+      padding: 11px 20px 9px 5px;
+      color: $grayDark;
+    }
     ul{
+
+      &.close{
+
+        li{
+          display: none;
+
+          &.index{
+            display: block;
+          }
+        }
+      }
+
+      &.user{
+
+        li {
+          height: 38px;
+
+          a {
+            @include box-sizing(border-box);
+            height: 38px;
+            padding: 7px 16px 7px 38px;
+            display: block;
+            text-decoration: none;
+          }
+          &:hover span {
+            text-decoration: none;
+          }
+          .name,
+          .date {
+            line-height: 25px;
+            height: 25px;
+          }
+          .date {
+            float: right;
+            color: $gray;
+            font-size: $fontSizeSmall;
+          }
+          .nrCount {
+            background-color: #ff3333;
+            border-radius: 3px;
+            color: #ffffff;
+            display: inline-block;
+            float: left;
+            font-size: 10px;
+            line-height: 1.4;
+            margin: 5px 3px 0 0;
+            min-width: 8px;
+            padding: 0 3px;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+      }
+      &.room{
+        @extend .user;
+      }
 
       li{
         @extend .clearfix;
@@ -924,13 +985,19 @@ $dropdownSideWidth: 240px;
           cursor: pointer;
         }
         &.index{
-         background: none;
+          background: none;
           color: $grayDark;
           border: none;
           padding: 0 15px 0 10px;
           margin:15px 0 7px;
           cursor: auto;
+          height: auto;
 
+          a{
+            height: auto;
+            padding: 0;
+            margin-right: 4px;
+          }
           &:hover{
             //background: $grayLighter;
           }
@@ -952,47 +1019,6 @@ $dropdownSideWidth: 240px;
           padding: 7px;
           position: absolute;
           top: 0;
-        }
-        &.user{
-          height: 38px;
-
-          a{
-            @include box-sizing(border-box);
-            height: 38px;
-            padding: 7px 16px 7px 38px;
-            display: block;
-            text-decoration: none;
-          }
-          &:hover span{
-            text-decoration: none;
-          }
-          .name,
-          .date{
-            line-height: 25px;
-            height: 25px;
-          }
-          .date{
-            float: right;
-            color: $gray;
-            font-size: $fontSizeSmall;
-          }
-          .nrCount {
-            background-color: #ff3333;
-            border-radius: 3px;
-            color: #ffffff;
-            display: inline-block;
-            float: left;
-            font-size: 10px;
-            line-height: 1.4;
-            margin: 5px 3px 0 0;
-            min-width: 8px;
-            padding: 0 3px;
-            text-align: center;
-            text-decoration: none;
-          }
-        }
-        &.room{
-          @extend .user;
         }
         &.message{
           padding: 7px 16px 7px 38px;

@@ -2034,31 +2034,45 @@ ul.attachments{
 	selectList
 --------------------------------------------------*/
 .selectListWrap {
-  border: 1px solid $grayBorder;
+
   .selectListHead {
-	border-bottom: 1px solid $grayBorder;
+	border: 1px solid $grayBorder;
+	padding: 5px;
+  }
+  .selectListLeft {
+
+	width: 100%;
+  }
+  .selectListRight {
+
+	width: 100%;
   }
   .selectList {
 	height: 170px;
 	overflow: auto !important;
+	border-left: 1px solid $grayBorder;
+	border-right:  1px solid $grayBorder;
+	border-bottom:  1px solid $grayBorder;
+	width: 100%;
+	margin: 0 ;
 
 	table {
 	  .auiSelectButton {
 		background-color: transparent;
 	  }
 	  tr {
-		&:hover {
+		&:hover,
+		&.select:hover{
 		  background: $grayLighter;
 		  cursor: pointer;
 		}
-		&:first-child {
-		  td {
-			border-top: none;
-		  }
+		&.select {
+		  background: $grayHightLight;
 		}
 	  }
 	  td {
-		border-top: 1px solid $grayBorderLight;
+		border-bottom: 1px solid $grayBorderLight;
+		border-top: none;
 
 		.avatar {
 		  width: auto;

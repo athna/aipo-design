@@ -6962,8 +6962,8 @@
     <!-- /roundMainWrapper  -->
 </div>
 <!-- menubar_auiFilter_1 -->
-<div class="menubar" id="menubar_auiFilter_1" style="display: none; left: 370px; top: 3888px;">
-
+<div class="menubar multi" id="menubar_auiFilter_1" style="display: none; left: 370px; top: 3934px;">
+<div>
     <p class="caption">グループ</p>
     <ul>
         <li><a href="#" class="selected">すべてのグループ</a></li>
@@ -6977,38 +6977,16 @@
         <li><a href="#">総務部</a></li>
         <li><a href="#">鎌倉開発センター</a></li>
     </ul>
-
+</div>
+    <div>
+        <p class="caption">表示</p>
+        <ul>
+            <li><a href="#" class="selected">すべて</a></li>
+            <li><a href="#">選択済み</a></li>
+            <li><a href="#">未選択</a></li>
+        </ul>
+    </div>
 </div>
 <!-- /menubar_auiFilter_1 -->
-
-<script language="javascript">
-    function Select($el) {
-        this.$el = $($el);
-        this.$select = this.$el.find('.select-select');
-        this.select = this.$select[0];
-        this.$value = this.$el.find('.select-value');
-
-        this.$select.on('change keydown', $.proxy(this, '_onChange')).change();
-    }
-
-    Select.prototype._onChange = function (e) {
-        setTimeout($.proxy(this, 'update'), 0);
-    };
-
-    Select.prototype.update = function () {
-        var option = this.select.options[this.select.selectedIndex];
-        var value = option.textContent || options.innerText;
-        this.$value.text(value);
-    };
-
-
-    $(function () {
-        $('.select').each(function () {
-            new Select(this);
-        });
-    });
-
-
-</script>
 </body>
 </html>

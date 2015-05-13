@@ -2262,7 +2262,6 @@ ul.blockList li {
     resize:vertical;
 }
 .tipInfo {
-	//margin-bottom:5px !important;
 	background:$grayLighter !important;
 }
 .tipInfo li {
@@ -2328,8 +2327,63 @@ ul.blockList li {
 .menubar.multi ul li a {
 	@extend .bRadius3;
 }
+/***************************************************
+	listAccordion
+--------------------------------------------------*/
+.listAccordion {
 
+  label {
+	background: $grayHightLight;
+	padding: 6px 10px;
+	display: block;
+	cursor: pointer;
+	position: relative;
 
+	&:hover {
+	  background: $grayLighter;
+	}
+	i {
+	  position: absolute;
+	  right: 10px;
+	  top: 15px;
+	  font-size: 16px;
+	}
+  }
+  input[type="checkbox"].on-off {
+	display: none;
+  }
+  .infoTitle {
+	display: block;
+  }
+  .date {
+	color: $gray;
+	font-size: $fontSizeSmall;
+  }
+  .listTips {
+	background: $grayHightLight;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid $grayBorderLight;
+
+	.listTipsInner {
+	  padding: 10px;
+	}
+  }
+
+  input[type="checkbox"].on-off + .listTips {
+	height: 0;
+	overflow: hidden;
+  }
+
+  input[type="checkbox"].on-off:checked + .listTips {
+	height: auto;
+  }
+}
 /***************************************************
 	controllerTable
 --------------------------------------------------*/

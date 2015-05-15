@@ -90,263 +90,221 @@
             </div-->
             <ul class="hdCommunications">
                 <li>
-                    <a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_message');"
-                       title="メッセージ"><i class="sprite-comment"></i><span class="num">99+</span></a>
-
+                    <a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_message');" title="メッセージ"><i class="sprite-comment"></i><span class="num">99+</span></a>
                     <div class="dropdown" id="dd_message">
-                        <div class="title">メッセージ</div>
+                        <div class="title clearfix">
+                            <form action="" class="auiSearch gray floatRight">
+                                <input type="text" value="" placeholder="メッセージ検索"><button type="submit"><i class="icon-search"></i></button>
+                            </form>
+                            メッセージ
+                        </div>
                         <div class="body">
                             <div class="sideBlock">
                                 <div class="auiTabs" id="messageSideBlockTab">
                                     <ul class="tab">
-                                        <li class="w50 active" auiTabs="0"><a href="javascript:void(0)"
-                                                                              onclick="auiTabs(this,'messageSideBlockTab')">ルーム</a>
-                                        </li>
-                                        <li class="w50" auiTabs="1"><a href="javascript:void(0)"
-                                                                       onclick="auiTabs(this,'messageSideBlockTab')">ユーザー</a>
-                                        </li>
+                                        <li class="w50 active" auiTabs="0"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ルーム</a></li>
+                                        <li class="w50" auiTabs="1"><a href="javascript:void(0)" onclick="auiTabs(this,'messageSideBlockTab')">ユーザー</a></li>
                                     </ul>
                                     <ul class="tabContents">
                                         <li class="active">
                                             <div class="scroll" id="messageSideBlock1">
                                                 <div class="messageSummaryHead">
                                                     <div class="inner">
-                                                        <a href="javascript:void(0)" class="auiButton w100"
-                                                           onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">ルームを追加する</a>
+                                                        <a href="javascript:void(0)" class="auiButton w100" onclick="popupToggle(this,'modalDialog_sendmessage');popupToggle(this,'popupMask');">ルームを追加する</a>
                                                     </div>
-                                                    <div class="inner">
+                                                    <!--<div class="inner">
                                                         <form class="search">
-                                                            <input type="text" id="roomSearch" class=""
-                                                                   onfocus="phFocus(this)" onblur="phBlur(this)"><label
-                                                                class="placeholder" for="roomSearch">ルーム検索</label>
-                                                            <button class="submit" title="検索"><i
-                                                                    class="icon-search"></i></button>
+                                                            <input type="text" id="roomSearch" onfocus="phFocus(this)" onblur="phBlur(this)" value="検索された状態"><label class="placeholder" for="roomSearch" style="display:none;">ルーム検索</label>
+                                                            <button class="submit" title="検索"><i class="icon-search"></i></button>
                                                         </form>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                                 <ul class="messageSummary">
+                                                    <!--<li><a href="javascript:void(0)" class="searchClear"><i class="icon-remove"></i>検索結果をクリア</a></li>-->
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar1.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
 														</span>
-
                                                             <div class="nrCount">5</div>
                                                             <span class="date">15:05</span>
                                                             <span class="name">木村 一郎</span>
-                                                            <span class="latest">メッセージ0件のルーム</span>
+                                                            <!--<span class="latest">メッセージ0件のルーム</span>-->
                                                         </a>
                                                     </li>
                                                     <li class="active">
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar2.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
 														</span>
-
                                                             <div class="nrCount">99+</div>
                                                             <span class="date">9:50</span>
                                                             <span class="name">田村 涼子</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/group_default.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
 														</span>
                                                             <span class="date">6/30</span>
                                                             <span class="name">打ち合わせルーム</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar3.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">6/29</span>
                                                             <span class="name">山田 花子</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/avatar_default3.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 														</span>
                                                             <span class="date">5/2</span>
                                                             <span class="name">鈴木 一郎</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar1.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">4/8</span>
                                                             <span class="name">木村 一郎</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar2.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">3/15</span>
                                                             <span class="name">田村 涼子</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar3.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">2/12</span>
                                                             <span class="name">山田 花子</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/avatar_default3.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 														</span>
                                                             <span class="date">2013/12/20</span>
                                                             <span class="name">鈴木 一郎</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/group_default.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
 														</span>
                                                             <span class="date">2013/12/5</span>
                                                             <span class="name">会議室01</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/group_default.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
 														</span>
                                                             <span class="date">6/30</span>
                                                             <span class="name">ミーティングルーム</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar3.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">6/29</span>
                                                             <span class="name">山田 花子</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/avatar_default3.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 														</span>
                                                             <span class="date">5/2</span>
                                                             <span class="name">鈴木 一郎</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar1.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">4/8</span>
                                                             <span class="name">木村 一郎</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar2.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar2.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">3/15</span>
                                                             <span class="name">田村 涼子</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/_mock/avatar3.jpg"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/_mock/avatar3.jpg" class="avatar_s">
 														</span>
                                                             <span class="date">2/12</span>
                                                             <span class="name">山田 花子</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/avatar_default3.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 														</span>
                                                             <span class="date">2013/12/20</span>
                                                             <span class="name">鈴木 一郎</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)"
-                                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+                                                        <a href="javascript:void(0)" onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
 														<span class="avatar">
-															<img src="../themes/default/images/common/group_default.png"
-                                                                 class="avatar_s">
+															<img src="../themes/default/images/common/group_default.png" class="avatar_s">
 														</span>
                                                             <span class="date">2013/12/5</span>
                                                             <span class="name">長いルーム名長いルーム名長いルーム名長いルーム名</span>
-                                                            <span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>
+                                                            <!--<span class="latest">先日送りました資料の内容いかがでしょうか？15時までご確認頂けますと助かります。</span>-->
                                                         </a>
                                                     </li>
                                                 </ul>
-                                                <div class="loader"><i class="indicatorBlack"></i></div>
+                                                <div class="loader"><i class="indicator"></i></div>
                                             </div>
                                         </li>
                                         <li class="">
@@ -361,24 +319,23 @@
                                                             </select>
                                                         </form>
                                                     </div>
-                                                    <div class="inner">
+                                                    <!--<div class="inner">
                                                         <form class="search">
-                                                            <input type="text" id="userSearch" class=""
-                                                                   onfocus="phFocus(this)" onblur="phBlur(this)"><label
-                                                                class="placeholder" for="userSearch">ユーザー検索</label>
-                                                            <button class="submit" title="検索"><i
-                                                                    class="icon-search"></i></button>
+                                                            <input type="text" id="userSearch" class="" onfocus="phFocus(this)" onblur="phBlur(this)"><label class="placeholder" for="userSearch">ユーザー検索</label>
+                                                            <button class="submit" title="検索"><i class="icon-search"></i></button>
                                                         </form>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                                 <div class="messageUserlist">
+                                                    <ul>
+                                                        <!--<li><a href="javascript:void(0)" class="searchClear"><i class="icon-remove"></i>検索結果をクリア</a></li>-->
+                                                    </ul>
                                                     <div class="index">あ</div>
                                                     <ul>
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">アーノルド シュワルツェネッガー</span>
                                                             </a>
@@ -386,8 +343,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">浅井 長政</span>
                                                             </a>
@@ -395,8 +351,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">明智 光秀</span>
                                                             </a>
@@ -404,8 +359,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">石田 三成</span>
                                                             </a>
@@ -413,8 +367,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">上杉 謙信</span>
                                                             </a>
@@ -422,8 +375,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">織田 信長</span>
                                                             </a>
@@ -434,8 +386,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">加藤 清正</span>
                                                             </a>
@@ -443,8 +394,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">木下 藤吉郎</span>
                                                             </a>
@@ -452,8 +402,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">黒田 官兵衛</span>
                                                             </a>
@@ -464,8 +413,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">真田 信繁</span>
                                                             </a>
@@ -473,8 +421,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">柴田 勝家</span>
                                                             </a>
@@ -482,8 +429,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">島 左近</span>
                                                             </a>
@@ -491,8 +437,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">島津 豊久</span>
                                                             </a>
@@ -503,8 +448,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">武田 信玄</span>
                                                             </a>
@@ -512,8 +456,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">伊達 政宗</span>
                                                             </a>
@@ -521,8 +464,7 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">長宗我部 元親</span>
                                                             </a>
@@ -530,49 +472,197 @@
                                                         <li>
                                                             <a href="javascript:void(0)">
 															<span class="avatar">
-																<img src="../themes/default/images/common/avatar_default3.png"
-                                                                     class="avatar_s">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
 															</span>
                                                                 <span class="name">徳川 家康</span>
                                                             </a>
                                                         </li>
                                                     </ul>
-                                                    <div class="loader"><i class="indicatorBlack"></i></div>
+                                                    <div class="loader"><i class="indicator"></i></div>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="mainBlock" id="messageContents1">
+                            <!-- 検索結果用サイドブロック ::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+                            <div class="rightBlock">
+                                <div class="index">「あさ」の検索結果<a class="floatRight" href="#"><i class="icon-remove"></i></a></div>
+                                <!--<div class="emptyMessage">ユーザー、ルーム、メッセージはありません。</div>-->
+                                <ul class="user">
+                                    <li class="index">ユーザー<span>1件</span><a class="floatRight" href="#"><i class="icon-chevron-down"></i></a></li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+															<span class="avatar">
+																<img src="../themes/default/images/common/avatar_default3.png" class="avatar_s">
+															</span>
+                                            <span class="name">浅井 長政</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="room">
+                                    <li class="index">ルーム<span>3件</span><a class="floatRight" href="#"><i class="icon-chevron-down"></i></a></li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+
+                                            <div class="nrCount">5</div>
+                                            <span class="date">15:05</span>
+                                            <span class="name">木村 一郎</span>
+                                            <!--<span class="latest">メッセージ0件のルーム</span>-->
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+
+                                            <!--<div class="nrCount">5</div>-->
+                                            <span class="date">15:05</span>
+                                            <span class="name">木村 一郎</span>
+                                            <!--<span class="latest">メッセージ0件のルーム</span>-->
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                           onclick="popupToggle(this,'messageContents1');popupToggle(this,'messageContents2');">
+														<span class="avatar">
+															<img src="../themes/default/images/_mock/avatar1.jpg" class="avatar_s">
+														</span>
+
+                                            <!--<div class="nrCount">5</div>-->
+                                            <span class="date">15:05</span>
+                                            <span class="name">木村 一郎</span>
+                                            <!--<span class="latest">メッセージ0件のルーム</span>-->
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="messages">
+                                    <li class="index">メッセージ<span>14件</span><a class="floatRight" href="#"><i class="icon-chevron-down"></i></a></li>
+                                    <li id="message***" class="message">
+                                        <div class="avatar">
+                                            <img src="../themes/default/images/common/avatar_default3.png" alt="a a" class="avatar_s">
+                                        </div>
+                                        <div class="messageContents">
+                                            <div class="name">名前 名前</div>
+                                            <div class="body">
+                                                現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+                                                URLを貼りつけた場合の拡張ブロックは「class="tlClipBoard clearfix"」とする。
+                                                <div class="tlClipBoard clearfix">
+                                                    <div class="tlClipImage">
+                                                        <a href="http://www.google.com" target="_blank"><img
+                                                                src="http://www.aipo.com/img/plus/future01_05.png" width="90"/></a></div>
+                                                    <div class="tlClipContents">
+                                                        <div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+                                                        <div class="tlClipUrl"><a href="http://www.google.com"
+                                                                                  target="_blank">http://www.google.com</a></div>
+                                                        <div class="tlClipBody">
+                                                            descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="time">
+                                                20:52&nbsp;
+                                                <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">メッセージを見る</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="message***" class="message">
+                                        <div class="avatar">
+                                            <img src="../themes/default/images/common/avatar_default3.png" alt="a a" class="avatar_s">
+                                        </div>
+                                        <div class="messageContents">
+                                            <div class="name">名前 名前</div>
+                                            <div class="body">
+                                                メッセージ内容です。メッセージ内容です。<br />
+                                                自分の投稿には「＊人が既読」が付きます。
+                                            </div>
+                                            <div class="time">
+                                                20:52&nbsp;
+                                                <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>&nbsp;
+                                                <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">メッセージを見る</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="message***" class="message">
+                                        <div class="avatar">
+                                            <img src="../themes/default/images/common/avatar_default3.png" alt="a a" class="avatar_s">
+                                        </div>
+                                        <div class="messageContents">
+                                            <div class="name">名前 名前</div>
+                                            <div class="body">
+                                                メッセージ内容です。メッセージ内容です。<br />
+                                                自分の投稿には「＊人が既読」が付きます。
+                                            </div>
+                                            <div class="time">
+                                                20:52&nbsp;
+                                                <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="message***" class="message">
+                                        <div class="avatar">
+                                            <img src="../themes/default/images/common/avatar_default3.png" alt="a a" class="avatar_s">
+                                        </div>
+                                        <div class="messageContents">
+                                            <div class="name">名前 名前</div>
+                                            <div class="body">
+                                                メッセージ内容です。メッセージ内容です。<br />
+                                                自分の投稿には「＊人が既読」が付きます。
+                                            </div>
+                                            <div class="time">
+                                                20:52&nbsp;
+                                                <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="message***" class="message">
+                                        <div class="avatar">
+                                            <img src="../themes/default/images/common/avatar_default3.png" alt="a a" class="avatar_s">
+                                        </div>
+                                        <div class="messageContents">
+                                            <div class="name">名前 名前</div>
+                                            <div class="body">
+                                                メッセージ内容です。メッセージ内容です。<br />
+                                                自分の投稿には「＊人が既読」が付きます。
+                                            </div>
+                                            <div class="time">
+                                                20:52&nbsp;
+                                                <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!-- ここまで ::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+                            <div class="mainBlock" id="messageContents1" style="margin-right: 360px;">
                                 <div class="contents clearfix">
                                     <div class="timelineOuter">
                                         <input type="hidden" id="TimelineUserId" name="TimelineUserId" value="4">
 
                                         <div class="roomHeader clearfix">
-                                            <div class="floatLeft">
-                                                <span class="avatar mr5"><img
-                                                        src="../themes/default/images/common/group_default.png"
-                                                        class="avatar_s"></span>ルーム名
-                                            </div>
-                                            <div class="floatRight">
-                                                <a href="javascript:void(0)" title="ルーム設定"
-                                                   onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_roomSetting');"><i
-                                                        class="icon-gear"></i></a>
-                                            </div>
+                                            <ul class="userListIcon clearfix">
+                                                <li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24"></span></li>
+                                                <li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar2.jpg" title="木村 一郎" width="24" height="24"></span></li>
+                                                <li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar3.jpg" title="木村 一郎" width="24" height="24"></span></li>
+                                                <!--<li><a href="javascript:void(0)" title="メンバーを追加する" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-plus"></i></a></li>-->
+                                                <li class="floatRight"><a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-gear"></i></a></li>
+                                            </ul>
                                         </div>
 
                                         <div class="inputField">
                                             <form name="" id="" action="" method="post" onsubmit="">
                                                 <input type="hidden" name="_name" value="timelineForm">
                                                 <input type="hidden" name="secid" value="">
-
                                                 <div class="tlInputMention relative">
-                                                    <textarea id="messageTextarea1" class="elastic" id="" cols="10"
-                                                              name="note" rows="1" style="height: 39px; color: black; "
-                                                              onfocus="phFocus(this)"
-                                                              onblur="phBlur(this)"></textarea><label
-                                                        class="placeholder" for="messageTextarea1">近況を共有しましょう</label>
+                                                    <textarea id="messageTextarea1" class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; "  onfocus="phFocus(this)" onblur="phBlur(this)"></textarea><label class="placeholder" for="messageTextarea1">近況を共有しましょう</label>
                                                 </div>
                                                 <!--div class="tlInputAttachment">
                                                     <div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
@@ -586,11 +676,10 @@
                                                     </div>
                                                 </div-->
                                                 <div class="tlInputControls clearfix">
-                                                    <div class="floatLeft"><a href="javascript:void(0)"
-                                                                              class="auiButton">ファイルを追加する</a></div>
+                                                    <div class="floatLeft"><a href="javascript:void(0)" class="auiButton">ファイルを追加する</a></div>
                                                     <div class="floatRight">
                                                         <i class="indicator"></i>
-                                                        <input type="submit" class="auiButtonAction" value="投稿する"/>
+                                                        <input type="submit" class="auiButtonAction" value="投稿する" />
                                                     </div>
                                                 </div>
                                             </form>
@@ -598,45 +687,41 @@
 
                                         <div id="messageTimeline1" class="timeline scroll">
 
-                                            <div id="message***" class="message invite">
-                                                <div class="avatar"><img
-                                                        src="../themes/default/images/_mock/avatar3.jpg" alt="a a"
-                                                        width="50" height="50" class="avatar_l"></div>
+                                            <!--<div class="loader"><i class="indicator"></i></div>-->
+
+                                            <!--<div id="message***" class="message invite">
+                                                <div class="avatar"><img src="../themes/default/images/_mock/avatar3.jpg" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                 <div class="messageContents">
                                                     <div class="body">
                                                         田村 涼子さんが参加しました。
                                                     </div>
                                                     <div class="time">
                                                         10月10日 20:52&nbsp;
-                                                        <a href="javascript:void(0)"
-                                                           onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
-                                                        ・
+                                                        <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
+
+                                            <div class="date_line"><span>2014年10月09日 (木)</span></div>
 
                                             <div id="message***" class="message">
-                                                <div class="avatar"><img
-                                                        src="../themes/default/images/common/avatar_default3.png"
-                                                        alt="a a" width="50" height="50" class="avatar_l"></div>
+                                                <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                 <div class="messageContents">
                                                     <div class="name">名前 名前</div>
                                                     <div class="body">
-                                                        メッセージ内容です。メッセージ内容です。<br/>
+                                                        メッセージ内容です。メッセージ内容です。<br />
                                                         自分の投稿には「＊人が既読」が付きます。
                                                     </div>
                                                     <div class="time">
-                                                        10月10日 20:52&nbsp;
-                                                        <a href="javascript:void(0)"
-                                                           onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+                                                        20:52&nbsp;
+                                                        <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div id="message***" class="message">
                                                 <div class="avatar">
-                                                    <img src="../themes/default/images/common/avatar_default3.png"
-                                                         alt="a a" width="50" height="50" class="avatar_l">
+                                                    <img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">
                                                 </div>
                                                 <div class="messageContents">
                                                     <div class="name">名前 名前</div>
@@ -645,96 +730,98 @@
                                                         URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
                                                         <div class="tlClipBoard clearfix">
                                                             <div class="tlClipImage">
-                                                                <a href="http://www.google.com" target="_blank"><img
-                                                                        src="http://www.aipo.com/img/plus/future01_05.png"
-                                                                        width="90"/></a></div>
+                                                                <a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png" width="90" /></a>		</div>
                                                             <div class="tlClipContents">
-                                                                <div class="tlClipTitle"><a href="http://www.google.com"
-                                                                                            target="_blank">タイトルタイトル</a>
-                                                                </div>
-                                                                <div class="tlClipUrl"><a href="http://www.google.com"
-                                                                                          target="_blank">http://www.google.com</a>
-                                                                </div>
-                                                                <div class="tlClipBody">
-                                                                    descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。
-                                                                </div>
+                                                                <div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+                                                                <div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+                                                                <div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="time">
-                                                        10月10日 20:52&nbsp;
+                                                        20:52&nbsp;
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div id="message***" class="message">
-                                                <div class="avatar"><img
-                                                        src="../themes/default/images/common/avatar_default3.png"
-                                                        alt="a a" width="50" height="50" class="avatar_l"></div>
+                                            <div id="message***" class="message active">
+                                                <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                 <div class="messageContents">
                                                     <div class="name">名前 名前</div>
                                                     <div class="body">
                                                         Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
                                                         <div class="tlClipBoard clearfix">
                                                             <div class="tlClipImage">
-                                                                <a href="http://www.google.com" target="_blank"><img
-                                                                        src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg"/></a>
+                                                                <a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
                                                             </div>
                                                             <div class="tlClipContents">
-                                                                <div class="tlClipTitle"><a href="http://www.google.com"
-                                                                                            target="_blank">タイトルタイトル</a>
-                                                                </div>
-                                                                <div class="tlClipUrl"><a href="http://www.google.com"
-                                                                                          target="_blank">http://www.google.com</a>
-                                                                </div>
-                                                                <div class="tlClipBody">
-                                                                    descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。
-                                                                </div>
+                                                                <div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+                                                                <div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+                                                                <div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="time">
-                                                        10月10日 20:52&nbsp;
-                                                        <a href="javascript:void(0)"
-                                                           onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a>
+                                                        20:52&nbsp;
+                                                        <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a>
                                                     </div>
                                                 </div>
                                             </div>
 
+                                            <div class="date_line"><span>2014年10月10日 (金)</span></div>
+
                                             <div id="message***" class="message">
-                                                <div class="avatar"><img
-                                                        src="../themes/default/images/common/avatar_default3.png"
-                                                        alt="a a" width="50" height="50" class="avatar_l"></div>
+                                                <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#" >名前 名前</a></div>
                                                     <div class="body">
                                                         メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
                                                     </div>
                                                     <div class="time">
-                                                        10月10日 20:52&nbsp;
+                                                        20:52&nbsp;
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="message***" class="message">
+                                                <div class="messageContents">
+                                                    <div class="body">
+                                                        自分の投稿には「＊人が既読」が付きます。
+                                                    </div>
+                                                    <div class="time">
+                                                        20:52&nbsp;
+                                                        <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div id="message***" class="message">
-                                                <div class="avatar"><img
-                                                        src="../themes/default/images/common/avatar_default3.png"
-                                                        alt="a a" width="50" height="50" class="avatar_l"></div>
+                                                <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                 <div class="messageContents">
                                                     <div class="name">名前 名前</div>
                                                     <div class="body">
-                                                        メッセージ内容です。メッセージ内容です。<br/>
-                                                        自分の投稿には「＊人が既読」が付きます。
+                                                        Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
+                                                        <div class="tlClipBoard clearfix">
+                                                            <div class="tlClipImage">
+                                                                <a href="http://www.google.com" target="_blank"><img src="http://i.ytimg.com/vi/pTjHCCU2E4c/0.jpg" /></a>
+                                                            </div>
+                                                            <div class="tlClipContents">
+                                                                <div class="tlClipTitle"><a href="http://www.google.com" target="_blank">タイトルタイトル</a></div>
+                                                                <div class="tlClipUrl"><a href="http://www.google.com" target="_blank">http://www.google.com</a></div>
+                                                                <div class="tlClipBody">descriptionの内容など。descriptionの内容など。descriptionの内容など。descriptionの内容など。</div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="time">
-                                                        10月10日 20:52&nbsp;
-                                                        <a href="javascript:void(0)"
-                                                           onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+                                                        20:52&nbsp;
+                                                        <a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">全員が既読</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="loader"><i class="indicator"></i></div>
+
+
                                         </div>
+
+
 
                                         <!--div class="auiTabs" id="messageTabs">
                                         <ul class="tab" id="subContentsTab">
@@ -962,21 +1049,11 @@
                                         <!-- memberList -->
                                         <div id="memberListWrapper" class="clearfix">
                                             <ul class="userListIcon clearfix">
-                                                <li><span class="avatar avatar_s"><img
-                                                        src="../themes/default/images/_mock/avatar1.jpg" title="木村 一郎"
-                                                        width="24" height="24"></span></li>
-                                                <li><span class="avatar avatar_s"><img
-                                                        src="../themes/default/images/_mock/avatar2.jpg" title="木村 一郎"
-                                                        width="24" height="24"></span></li>
-                                                <li><span class="avatar avatar_s"><img
-                                                        src="../themes/default/images/_mock/avatar3.jpg" title="木村 一郎"
-                                                        width="24" height="24"></span></li>
-                                                <li><a href="javascript:void(0)" title="メンバーを追加する"
-                                                       onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i
-                                                        class="icon-plus"></i></a></li>
-                                                <li class="floatRight"><a href="javascript:void(0)" title="ルーム設定"
-                                                                          onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i
-                                                        class="icon-gear"></i></a></li>
+                                                <li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar1.jpg" title="木村 一郎" width="24" height="24"></span></li>
+                                                <li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar2.jpg" title="木村 一郎" width="24" height="24"></span></li>
+                                                <li><span class="avatar avatar_s"><img src="../themes/default/images/_mock/avatar3.jpg" title="木村 一郎" width="24" height="24"></span></li>
+                                                <li><a href="javascript:void(0)" title="メンバーを追加する" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-plus"></i></a></li>
+                                                <li class="floatRight"><a href="javascript:void(0)" title="ルーム設定" onclick="popupToggle(this,'popupMask');popupToggle(this,'modalDialog_sendmessage');"><i class="icon-gear"></i></a></li>
                                             </ul>
                                         </div>
                                         <!-- /memberList -->
@@ -985,11 +1062,8 @@
                                             <form name="" id="" action="" method="post" onsubmit="">
                                                 <input type="hidden" name="_name" value="timelineForm">
                                                 <input type="hidden" name="secid" value="">
-
                                                 <div class="tlInputMention">
-                                                    <textarea class="elastic" id="" cols="10" name="note" rows="1"
-                                                              style="height: 39px; color: black; "
-                                                              onkeydown=""></textarea>
+                                                    <textarea class="elastic" id="" cols="10" name="note" rows="1" style="height: 39px; color: black; " onkeydown=""></textarea>
                                                 </div>
                                                 <!--div class="tlInputAttachment">
                                                     <div class="floatRight"><a href="#" class="auiIcon auiIconDelete"><span>x</span></a></div>
@@ -1003,13 +1077,10 @@
                                                     </div>
                                                 </div-->
                                                 <div class="tlInputControls clearfix">
-                                                    <div class="floatLeft"><a href="javascript:void(0)"
-                                                                              class="auiButton" title="ファイルを追加する"><span><i
-                                                            class="icon-plus mr5"></i><i
-                                                            class="icon-paper-clip"></i></span></a></div>
+                                                    <div class="floatLeft"><a href="javascript:void(0)" class="auiButton" title="ファイルを追加する"><span><i class="icon-plus mr5"></i><i class="icon-paper-clip"></i></span></a></div>
                                                     <div class="floatRight">
                                                         <i class="indicator"></i>
-                                                        <input type="submit" class="auiButtonAction" value="投稿する"/>
+                                                        <input type="submit" class="auiButtonAction" value="投稿する" />
                                                     </div>
                                                 </div>
                                             </form>
@@ -1019,7 +1090,6 @@
 
                                             <div class="emptyMessage">
                                                 <i class="icon-comment-alt"></i>
-
                                                 <p>メッセージはまだありません。</p>
                                             </div>
 
@@ -1028,13 +1098,12 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_notification')"
-                       title="あなた宛てのお知らせ"><i class="sprite-notification"></i><span class="num">9</span></a>
-
+                    <a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_notification')" title="あなた宛てのお知らせ"><i class="sprite-notification"></i><span class="num">9</span></a>
                     <div class="dropdown" id="dd_notification">
                         <div class="title">
                             <input type="button" class="auiButtonSmall floatRight" value="すべて既読"/>
@@ -1043,8 +1112,7 @@
                         <div class="dropdown_list">
                             <ul>
                                 <li class="new"><a href="javascript:void(0)">
-                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png"
-                                                             class="avatar_s"></div>
+                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
                                     <div class="body">
                                         <div class="date">10:05</div>
                                         <div class="name">木村 一郎とその他3人</div>
@@ -1052,8 +1120,7 @@
                                     </div>
                                 </a></li>
                                 <li class="new"><a href="javascript:void(0)">
-                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png"
-                                                             class="avatar_s"></div>
+                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
                                     <div class="body">
                                         <div class="date">10:00</div>
                                         <div class="name">山田 太朗</div>
@@ -1061,8 +1128,7 @@
                                     </div>
                                 </a></li>
                                 <li><a href="javascript:void(0)">
-                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png"
-                                                             class="avatar_s"></div>
+                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
                                     <div class="body">
                                         <div class="date">9:30</div>
                                         <div class="name">田村 涼子</div>
@@ -1070,8 +1136,7 @@
                                     </div>
                                 </a></li>
                                 <li><a href="javascript:void(0)">
-                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png"
-                                                             class="avatar_s"></div>
+                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
                                     <div class="body">
                                         <div class="date">5/20</div>
                                         <div class="name">木村 一郎とその他3人</div>
@@ -1079,8 +1144,7 @@
                                     </div>
                                 </a></li>
                                 <li><a href="javascript:void(0)">
-                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png"
-                                                             class="avatar_s"></div>
+                                    <div class="avatar"><img src="../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
                                     <div class="body">
                                         <div class="date">4/5</div>
                                         <div class="name">山田 太朗</div>
@@ -1097,10 +1161,8 @@
                                 <div class="count">1 ～ 5 / 7</div>
                                 <div class="auiSelectButtonSmall floatLeft">
                                     <ul class="floatLeft">
-                                        <li title="前へ"><a href="javascript:void(0);" class="first arrow"><i
-                                                class="icon-caret-left"></i></a></li>
-                                        <li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ"
-                                                          class="last arrow"><i class="icon-caret-right"></i></a></li>
+                                        <li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
+                                        <li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1108,10 +1170,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="javascript:void(0)" onclick="dropdownToggle(this,'dd_support')"><i class="sprite-support"
-                                                                                                title="サポート"></i><span
-                            class="num">0</span></a>
-
+                    <a href="javascript:void(0)" onclick="dropdownToggle(this,'dd_support')"><i class="sprite-support" title="サポート"></i><span class="num">0</span></a>
                     <div class="dropdown" id="dd_support">
                         <ul class="dropdown_menu divider">
                             <li><a href="javascript:void(0)">管理ガイド</a></li>
@@ -1126,24 +1185,22 @@
                                 Aipoからのお知らせ
                             </h2>
                             <ul class="tipInfo scroll" style="max-height: 9em;">
-                                <li>
-                                    <div><strong>プランリニューアルのお知らせ</strong><br>
-                                        7月24日（木）にプランのリニューアルを行いました。<br>
-                                        Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
-                                        詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
-                                        <br>
-                                        なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+                                <li><div><strong>プランリニューアルのお知らせ</strong><br>
+                                    7月24日（木）にプランのリニューアルを行いました。<br>
+                                    Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+                                    詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+                                    <br>
+                                    なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
                                     <div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
                                         「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
                                     </div>
                                 </li>
-                                <li>
-                                    <div><strong>プランリニューアルのお知らせ</strong><br>
-                                        7月24日（木）にプランのリニューアルを行いました。<br>
-                                        Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
-                                        詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
-                                        <br>
-                                        なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+                                <li><div><strong>プランリニューアルのお知らせ</strong><br>
+                                    7月24日（木）にプランのリニューアルを行いました。<br>
+                                    Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+                                    詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+                                    <br>
+                                    なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
                                     <div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
                                         「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
                                     </div>
@@ -1152,18 +1209,13 @@
                         </div>
                         <div class="contents tweet divider">
                             <h2>ご意見・ご要望</h2>
-
                             <p class="fcGray fs11">頂いたご意見やご要望をもとに改善に励みます。</p>
-
                             <div class="clearfix">
                                 <div class="fs11 floatRight"><a href="javascript:void(0)">Twitter連携を解除</a></div>
                                 <div class="floatLeft fs11 fcGray">獲得容量：<span id="get-capacity-size">3</span> MB</div>
                                 <textarea></textarea>
-
                                 <div class="clearfix right mt5">
-                                    <span class="fcGray mr5"><span id="count">0</span>/117</span><input type="submit"
-                                                                                                        class="auiButtonAction"
-                                                                                                        value="ツイート">
+                                    <span class="fcGray mr5"><span id="count">0</span>/117</span><input type="submit" class="auiButtonAction" value="ツイート">
                                 </div>
                             </div>
                         </div>
@@ -1271,11 +1323,10 @@
                                     <!--<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>-->
                                     <div class="auiSummaryMeta auiFilter clearfix"><input type="hidden" value="" id=""><div id="" class="filters floatLeft"><a href="javascript:void(0);" onclick="if(document.getElementById('menubar_auiFilter_1').style.display!='none'){document.getElementById('menubar_auiFilter_1').style.display='none'}else{document.getElementById('menubar_auiFilter_1').style.display='block'}"> <span class="filterTip"><span>すべてのグループ</span></span></a></div>
                                         <div class="auiSummarySearch">
-                                                <form class="search">
-                                                    <input type="text" class="" id="roomSearch"><label for="roomSearch" class="placeholder" style="display: block;">タイムラインを検索</label>
-                                                    <button title="検索" class="submit"><i class="icon-search"></i></button>
-                                                </form>
-                                            </div>
+                                        <form class="auiSearch gray" action="">
+                                            <input type="text" placeholder="タイムライン検索" value=""><button type="submit"><i class="icon-search"></i></button>
+                                        </form>
+                                        </div>
                                     </div>
 
 

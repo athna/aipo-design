@@ -786,9 +786,7 @@ input[type=password] {
   box-sizing: border-box;
   background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.2, transparent), to(rgba(0, 0, 0, 0.05)));
   border-bottom: solid 1px #d0d0d0;
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
 }
 #mobileHeader_v3 > .inner {
   position: relative;
@@ -2407,47 +2405,53 @@ body.messageRoomList .messageUserlist .index {
 
 .messageOuter .inputField {
   margin-bottom: 5px;
-  	/*position: fixed;
-  	bottom: 0;
-  	left: 0;
-  	width: 100%;
-  	margin:0;
-  	padding: 0;
-  	border-radius: 0;
-  	border: none;
-  	//background: $white;
-  
-  	form {
-  	  display: block;
-  	  background: $grayBackLight;
-  	  padding: 5px;
-  	  border: {
-  		top: 1px solid $grayLight;
-  		left: none;
-  		right: none;
-  		bottom: none;
-  		radius: 0;
-  	  }
-  
-  	  .tlInputMention {
-  		margin: 0;
-  		padding: 0;
-  
-  		textarea {
-  		  margin: 0;
-  		  padding: 5px;
-  		  min-height: 26px;
-  		  width: 100%;
-  		  border: 1px solid $grayLighter;
-  		  border-radius: 3px;
-  
-  		  &:focus {
-  			border: 1px solid $grayLight;
-  			min-height: 39px;
-  		  }
-  		}
-  	  }
-  	}*/
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+.messageOuter .inputField form {
+  display: block;
+  background: #f6f6f6;
+  padding: 5px;
+  border-top: 1px solid #d2d2d2;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 0;
+}
+.messageOuter .inputField form .tlInputMention {
+  margin: 0;
+  padding: 0 0 0 28px;
+}
+.messageOuter .inputField form .tlInputMention textarea {
+  margin: 0;
+  padding: 5px;
+  min-height: 32px;
+  line-height: 20px;
+  width: 100%;
+  border: 1px solid #d2d2d2;
+  border-radius: 3px;
+}
+.messageOuter .inputField form .tlInputMention textarea:focus, .messageOuter .inputField form .tlInputMention textarea.focus {
+  min-height: 45px;
+  line-height: normal;
+}
+.messageOuter .inputField form .tlInputControls {
+  border: none;
+  padding: 0;
+}
+.messageOuter .inputField form .tlInputControls .floatLeft {
+  position: absolute;
+  top: 6px;
+  left: 4px;
+}
+.messageOuter .inputField form .tlInputControls .floatRight {
+  padding-top: 5px;
 }
 .messageOuter .message {
   border-top: none;

@@ -1101,32 +1101,66 @@
 				</div>
 				</form>
 				</div>
-				
-				<div class="newMessage">
-				<a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a>
-				</div>
+
+
+
+					<div class="auiSummaryMeta clearfix">
+						<form class="auiSearch gray" action="">
+							<div class="filterInputField">
+								<div class="filters">
+
+								</div>
+								<a href="javascript:void(0);" class="filterDropDrawer menubarOpenButton" title="フィルタ" onclick="parentToggle(this,'menubar_auiFilter_1')"><i class="icon-caret-down"></i></a>
+								<input class="text floatLeft" type="text" name="keyword" placeholder="タイムライン検索" value="">
+							</div>
+							<button type="submit"><i class="icon-search"></i></button>
+						</form>
+					</div>
+
+
+					<div class="auiSummaryMeta clearfix">
+						<form class="auiSearch gray focus" action="">
+							<div class="filterInputField">
+								<div class="filters">
+									<span class="filterTip"><span>企画本部</span><a href="javascript:void(0);" class="btn"><i class="icon-remove"></i></a></span>
+								</div>
+								<a href="javascript:void(0);" class="filterDropDrawer menubarOpenButton" title="フィルタ" onclick="parentToggle(this,'menubar_auiFilter_2')"><i class="icon-caret-down"></i></a>
+								<input class="text floatLeft" type="text" name="keyword" value="山田" style="padding-left: 85px;">
+							</div>
+							<button type="submit"><i class="icon-search"></i></button>
+						</form>
+					</div>
+
+
+
+
+					<div class="searchClearOuter"><a class="searchClear" onclick="aipo.message.clearSearchRoomList();" href="javascript:void(0)"><i class="icon-remove"></i>検索結果をクリア</a></div>
+
+				<!--<div class="newMessage">-->
+				<!--<a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a>-->
+				<!--</div>-->
 				
 				<div id="timeline" class="timeline">
 				<img src="images/common/dot.gif" width="1" height="1" onload="aipo.timeline.setScrollTop(0);">
 				
-				<div class="tlDisplayChanger">
-					<div class="btn"><a href="javascript:void(0)" onClick="popupToggle(this,'menubar_tlgroup');">すべてのグループ</a></div>
-					<!-- ##################################################
-					●開発担当者へ
-				
-					「menubar」内の選択項目の<a>タグには「class="selected"」を付与させてください。	
-				
-					################################################## -->
-					<div class="menubar" id="menubar_tlgroup" style="display:none;">
-						<ul>
-						<li><a href="#" class="selected">すべてのグループ</a></li>
-						<li><a href="#">管理本部</a></li>
-						<li><a href="#">開発本部</a></li>
-						<li><a href="#">企画本部</a></li>
-						<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
-						</ul>
-					</div>
-				</div>
+				<!--<div class="tlDisplayChanger">-->
+					<!--<div class="btn"><a href="javascript:void(0)" onClick="popupToggle(this,'menubar_tlgroup');">すべてのグループ</a></div>-->
+					<!--&lt;!&ndash; ##################################################-->
+					<!--●開発担当者へ-->
+				<!---->
+					<!--「menubar」内の選択項目の<a>タグには「class="selected"」を付与させてください。	-->
+				<!---->
+					<!--################################################## &ndash;&gt;-->
+					<!--<div class="menubar" id="menubar_tlgroup" style="display:none;">-->
+						<!--<ul>-->
+						<!--<li><a href="#" class="selected">すべてのグループ</a></li>-->
+						<!--<li><a href="#">管理本部</a></li>-->
+						<!--<li><a href="#">開発本部</a></li>-->
+						<!--<li><a href="#">企画本部</a></li>-->
+						<!--<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
 				
 				<div id="content">
 				
@@ -1808,6 +1842,9 @@ function setWrapperHeight() {
 	</div>
 </div>
 
+<!-- menubar_auiFilter_1 -->
+<div class="menubar multi" id="menubar_auiFilter_1" style="width:130px;left: 10px; top: 257px;display:none;"><div><p class="caption">グループ</p><ul><li><a href="#" class="selected">すべてのグループ</a></li><li><a href="#">営業本部</a></li><li><a href="#">開発本部本部</a></li><li><a href="#">企画本部</a></li></ul></div></div>
+<!-- /menubar_auiFilter_1 -->
 
 <!-- popupMask -->
 <div class="modalDialogUnderlayWrapper" id="popupMask" widgetid="aimluck_widget_DialogUnderlay_1" style="display:none; opacity: 1;"><div class="modalDialogUnderlay" dojoattachpoint="node"></div></div>
@@ -1926,6 +1963,9 @@ function setWrapperHeight() {
 	
 </div><span dojoattachpoint="tabEnd" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span><span dojoattachpoint="tabEndOuter" dojoonfocus="trapTabs" dojoonblur="clearTrap" tabindex="0"></span></div>
 <!-- /appPosition -->
+
+
+
 
 </body>
 </html>

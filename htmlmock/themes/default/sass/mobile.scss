@@ -719,7 +719,8 @@ $auiMbCaptionHeight:	18px !default;
     left:0;
     z-index: $zindex-mobileHeader;
 	@include mobile-header-style();
-    @include box-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+    //@include box-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+  background: $white;
 
     > .inner {
         position:relative;
@@ -2347,7 +2348,7 @@ body.messageRoomList {
 
   .inputField {
 	margin-bottom: 5px;
-	/*position: fixed;
+	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -2371,23 +2372,39 @@ body.messageRoomList {
 
 	  .tlInputMention {
 		margin: 0;
-		padding: 0;
+		padding: 0 0 0 28px;
 
 		textarea {
 		  margin: 0;
 		  padding: 5px;
-		  min-height: 26px;
+		  min-height: 32px;
+		  line-height: 20px;
 		  width: 100%;
-		  border: 1px solid $grayLighter;
+		  border: 1px solid $grayLight;
 		  border-radius: 3px;
 
-		  &:focus {
-			border: 1px solid $grayLight;
-			min-height: 39px;
+		  &:focus,
+		  &.focus{
+			//border: 1px solid $grayLight;
+			min-height: 45px;
+			line-height: normal;
 		  }
 		}
 	  }
-	}*/
+	  .tlInputControls{
+		border: none;
+		padding: 0;
+
+		.floatLeft{
+		  position: absolute;
+		  top: 6px;
+		  left: 4px;
+		}
+		.floatRight{
+		  padding-top: 5px;
+		}
+	  }
+	}
   }
   .message {
 	border-top: none;
@@ -2400,6 +2417,9 @@ body.messageRoomList {
 	  }
 	}
   }
+}
+#messageMainBlock {
+  padding-bottom: 35px;
 }
 .roomHeader {
   margin: 0 0 5px 0;

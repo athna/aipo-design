@@ -146,8 +146,8 @@ function fitMessage() {
 		}
 	}
 	if(document.getElementById("messageTimeline1") != null) {
-		// minusH 内訳 = auiHeader(55) + .title(50) + .roomHeader(45) + .inputField(90) + 上余白(10) + dropdown余白(9)
-		var minusH = 55 + 50 + 45 + 90 + 10 + 9;
+		// minusH 内訳 = auiHeader(55) + .title(50) + .roomHeader(45) + .inputField(105) + 上余白(10) + dropdown余白(9)
+		var minusH = 55 + 50 + 45 + 105 + 10 + 9;
 		var h = document.documentElement.clientHeight - minusH;
 		document.getElementById("messageTimeline1").style.height = h + "px";
 		document.getElementById("messageTimeline2").style.height = h + "px";

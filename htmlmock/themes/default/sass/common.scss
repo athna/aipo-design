@@ -2275,6 +2275,32 @@ ul.blockList li {
 .tipInfo li:first-child {
 	border-top:none;
 }
+
+/* tipInfo_ver2 */
+.tipInfo_ver2 {
+  margin-bottom: -10px;
+  li {
+	margin: 0 -10px !important;
+	padding: 5px 10px !important;
+	font-size: $fontSizeSmall;
+	background-image: none;
+	@include border-radius(0 !important);
+
+	&:first-child {
+	  border-top: none;
+	}
+	.infoTitle {
+	  display: block;
+	}
+	.date {
+	  color: $gray;
+	  font-size: $fontSizeSmall;
+	}
+  }
+}
+
+
+
 .tipFoot {
 	margin-top:0;
 	margin-bottom:0;
@@ -2326,69 +2352,6 @@ ul.blockList li {
 }
 .menubar.multi ul li a {
 	@extend .bRadius3;
-}
-/***************************************************
-	listAccordion
---------------------------------------------------*/
-.listAccordion {
-
-  label {
-	background: $grayHightLight;
-	padding: 6px 10px;
-	display: block;
-	cursor: pointer;
-	position: relative;
-	font-size: 12px;
-	border-top: 1px solid $grayBorderLight;
-
-	&:first-child {
-	  border-top: none;
-	}
-	&:hover {
-	  background: $grayLighter;
-	}
-	i {
-	  position: absolute;
-	  right: 10px;
-	  top: 15px;
-	  font-size: 16px;
-	}
-  }
-  input[type="checkbox"].on-off {
-	display: none;
-  }
-  .infoTitle {
-	display: block;
-  }
-  .date {
-	color: $gray;
-	font-size: $fontSizeSmall;
-  }
-  .listTips {
-	background: $grayLighter;
-	margin: 0;
-	padding: 0;
-
-	.listTipsInner {
-	  padding: 6px 10px;
-	  font-size: $fontSizeSmall;
-	  border-top: 1px solid $grayBorderLight;
-	}
-  }
-
-  input[type="checkbox"].on-off + .listTips {
-	height: 0;
-	overflow: hidden;
-  }
-
-  input[type="checkbox"].on-off:checked + .listTips {
-	height: auto;
-//	-webkit-transition: all 0.5s;
-//	-moz-transition: all 0.5s;
-//	-ms-transition: all 0.5s;
-//	-o-transition: all 0.5s;
-//	transition: all 0.5s;
-  }
 }
 /***************************************************
 	controllerTable

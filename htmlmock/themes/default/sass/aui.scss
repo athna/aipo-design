@@ -1120,6 +1120,49 @@ $tabBackgroundImage:	"../images/tab.png";
 	}
 }
 /***************************************************
+	sortableBlock
+--------------------------------------------------*/
+.sortableBlock {
+  //height: 300px;
+  //overflow: auto;
+
+
+  #grid {
+	margin:10px 0;
+	border: 1px solid $grayBorder;
+	max-height: 300px;
+	overflow: auto;
+	padding: 5px;
+
+	div {
+	  padding-left: 4px;
+	}
+  }
+
+  .draggable,
+  .draggable-proxy {
+//	border: 1px solid $grayBorder;
+	background: $grayLighter;
+	cursor: move;
+	display: block;
+	margin-bottom: 5px;
+	padding: 2px 3px;
+	vertical-align: middle;
+	position: relative;
+	@include border-radius(4px);
+//hack不要かも
+//	zoom: 1;
+//	*display: inline;
+	&:hover {
+	  background: $grayLight;
+	}
+	i {
+	  color: $gray;
+	}
+  }
+
+}
+/***************************************************
 	auiWidgetsArea
 --------------------------------------------------*/
 #auiWidgetsArea {

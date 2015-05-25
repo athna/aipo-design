@@ -43,11 +43,11 @@
 <div class="dojoDndItem auiPortlet">
 
 <!-- mobileHeader -->
-<div id="mobileHeader_v3">
+<div id="mobileHeader_v4">
 	<div class="inner">
 		<h1><span>メッセージ</span></h1>
 
-		<div class="mhLeft">
+		<div class="mhRight">
 			<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
 		</div>
 	<div class="hdNavigation">
@@ -172,7 +172,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="contents tweet divider">
+					<div class="contents tweet">
 						998 MB(97%) / 1027 MB を使用中
 					</div>
 				</div>
@@ -584,6 +584,67 @@
 		</div>
 	</div>
 
+	<!-- Start Widgets Area -->
+	<!-- ******************************
+
+  ■開発担当者向けコメント（当コメント部分はソースには反映しないでください）
+
+  既存の「auiWidgetsArea」内に若干のHTML修正が必要となります。
+
+  1. 各アプリで「auiButtonAction」の収まっている「auiWidget」に「widgetButton」を追記
+  2. 「snDrawer」をスマホ表示時に表示する
+  3. 各アプリでカテゴリなどのメニューが収まっている「auiWidget」に「id="subNavigation"」を追記
+
+  直下に「widgetMenuSwitch」のJS関数を定義しています。
+  これは全体化時の左側メニューの開閉に利用する関数です。
+  可能ならばソースに直接書かずJSファイルへ記述をお願いします。
+
+  ****************************** -->
+	<script language="javascript">
+		function widgetMenuSwitch() {
+			var subNavi = document.getElementById('subNavigation');
+			if(document.defaultView.getComputedStyle(subNavi,null).display=='none'){
+				subNavi.style.display = 'block';
+			}else{
+				subNavi.style.display = 'none';
+			}
+		}
+	</script>
+
+	<div id="auiWidgetsArea">
+
+		<!--<div class="snDrawer">
+			<a href="#" class=""><i class="icon-plus"></i></a>
+		</div>-->
+
+		<div class="snDrawer">
+			<!--a id="snDrawer" href="javascript:void(0)" class="auiButtonBold" onclick="widgetMenuSwitch()"><img src="../themes/default/images/mobile/sn_list.png"></a-->
+			<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-ellipsis-horizontal"></i></a>
+		</div>
+
+		<div id="subNavigation">
+			<!--<div class="auiWidget">
+        <select class="w100">
+          <option>すべての部署</option>
+          <option>管理本部</option>
+          <option>営業本部</option>
+          <option>開発本部</option>
+          <option>企画本部</option>
+        </select>
+      </div>-->
+
+			<div class="auiWidget clearfix">
+				<ul>
+					<li><a href="#">自分宛てのメッセージ</a></li>
+					<li class="active"><a href="#">お気に入り</a></li>
+					<!--<li><a href="#">ルーム設定</a></li>-->
+				</ul>
+				<!--<div style="margin:0.5em 0;"><a href="#">ルーム設定</a></div>-->
+			</div>
+		</div>
+
+	</div>
+	<!-- END Widgets Area -->
 </div>
 </div>
 <!-- /auiPortletBody -->

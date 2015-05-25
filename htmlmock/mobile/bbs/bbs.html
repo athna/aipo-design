@@ -42,139 +42,167 @@
 <!-- WRAPPER -->
 <div id="wrapper">
 
-<!-- HEADER -->
-<div id="header" class="clearfix"><div class="inner">
+	<!-- roundWrapper -->
+	<div id="roundWrapper">
+		<!-- MAIN OUTER -->
+		<div class="roundMainWrapper">
 
-	<div class="hdSign">
-		<div class="hdLogo"><img src="../themes/default/images/logo_com_20130613.png" alt="Aipo.com" /></div>
-	</div>
+			<noscript>
+				<div class="alert">Aipoは機能にJavaScriptを利用しております。JavaScriptを有効にしてご利用ください。</div>
+			</noscript>
 
-	<script>
-	function popupToggle($this,$target) {
-		if(document.getElementById($target).style.display=='none'){
-			document.getElementById($target).style.display='block'
-		}else{
-			document.getElementById($target).style.display='none'
-		}
-		if($this.className.indexOf('active')>0){
-			$this.className = $this.className.replace(' active','');
-		}else{
-			$this.className += ' active'
-		};
-	}
-	</script>
+			<!-- auiPortlet -->
+			<div class="dojoDndItem auiPortlet">
 
-	<div class="hdNavi">
+				<!-- mobileHeader -->
+				<div id="mobileHeader_v4">
+					<div class="inner">
+						<h1><span>掲示板掲示板掲示板掲示板掲示板掲示板</span></h1>
 
-		<div class="hdMessege"><a href="#"><div id="messegechecker" class="zero counter">0</div>メッセージ</a></div>
-
-
-		<div class="hdActivity" title="お知らせ">
-			<div class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="activitycheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_ActivityList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-activitycheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="activitycheckerContainer_label"
-					id="activitycheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="activitycheckerContainer_label">
-						<div id="activitychecker" class="activitycheckerstyle counter">5</div>
-						<span class="mb_hide">お知らせ</span>
-						<span class="pc_hide"><i class="icon-comment"></i></span>
+						<div class="mhRight">
+							<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
+						</div>
+						<div class="hdNavigation">
+							<ul class="hdCommunications">
+								<li>
+									<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_message');" title="メッセージ"><i class="sprite-comment"></i><span class="num">99+</span></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)" class="valid" onclick="dropdownToggle(this,'dd_notification_smp')" title="あなた宛てのお知らせ"><i class="sprite-notification"></i><span class="num">99</span></a>
+									<div class="dropdown" id="dd_notification_smp">
+										<div class="title">
+											<input type="button" class="auiButtonSmall floatRight" value="すべて既読"/>
+											あなた宛てのお知らせ
+										</div>
+										<div class="dropdown_list">
+											<ul>
+												<li class="new"><a href="javascript:void(0)">
+													<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+													<div class="body">
+														<div class="date">10:05</div>
+														<div class="name">木村 一郎とその他3人</div>
+														<div>あなたの投稿に「いいね！」が押されました。あなたの投稿に「いいね！」が押されました。あなたの投稿に「いいね！」が押されました。</div>
+													</div>
+												</a></li>
+												<li class="new"><a href="javascript:void(0)">
+													<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+													<div class="body">
+														<div class="date">10:00</div>
+														<div class="name">山田 太朗</div>
+														<div>予定「定例会議」を編集しました。予定「定例会議」を編集しました。予定「定例会議」を編集しました。</div>
+													</div>
+												</a></li>
+												<li><a href="javascript:void(0)">
+													<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+													<div class="body">
+														<div class="date">9:30</div>
+														<div class="name">田村 涼子</div>
+														<div>申請「【稟議書】 タイムカード報告」を承認しました。</div>
+													</div>
+												</a></li>
+												<li><a href="javascript:void(0)">
+													<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+													<div class="body">
+														<div class="date">5/20</div>
+														<div class="name">木村 一郎とその他3人</div>
+														<div>あなたの投稿に「いいね！」が押されました。</div>
+													</div>
+												</a></li>
+												<li><a href="javascript:void(0)">
+													<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" class="avatar_s"></div>
+													<div class="body">
+														<div class="date">4/5</div>
+														<div class="name">山田 太朗</div>
+														<div>予定「定例会議」を編集しました。</div>
+													</div>
+												</a></li>
+											</ul>
+										</div>
+										<div class="foot">
+											<div class="floatLeft">
+												<input type="button" class="auiButtonSmall" value="デスクトップ通知を無効に"/>
+											</div>
+											<div class="floatRight">
+												<div class="count">1 ～ 5 / 7</div>
+												<div class="auiSelectButtonSmall floatLeft">
+													<ul class="floatLeft">
+														<li title="前へ"><a href="javascript:void(0);" class="first arrow"><i class="icon-caret-left"></i></a></li>
+														<li title="次へ"><a href="javascript:void(0);" onclick="" title="次へ" class="last arrow"><i class="icon-caret-right"></i></a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:void(0)" onclick="dropdownToggle(this,'dd_support_smp')"><i class="sprite-support" title="サポート"></i><span class="num">0</span></a>
+									<div class="dropdown" id="dd_support_smp">
+										<ul class="dropdown_menu divider">
+											<li><a href="javascript:void(0)">管理ガイド</a></li>
+											<li><a href="javascript:void(0)">ヘルプ</a></li>
+											<li><a href="javascript:void(0)">Facebook</a></li>
+											<li><a href="javascript:void(0)">Twitter</a></li>
+											<li><a href="javascript:void(0)">お問い合わせ</a></li>
+										</ul>
+										<div class="contents divider">
+											<h2 class="clearfix">
+												<a href="javascript:void(0)" class="auiButtonSmall floatRight">すべて既読</a>
+												Aipoからのお知らせ
+											</h2>
+											<ul class="tipInfo scroll" style="max-height: 9em;">
+												<li><div><strong>プランリニューアルのお知らせ</strong><br>
+													7月24日（木）にプランのリニューアルを行いました。<br>
+													Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+													詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+													<br>
+													なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+													<div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
+														「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
+													</div>
+												</li>
+												<li><div><strong>プランリニューアルのお知らせ</strong><br>
+													7月24日（木）にプランのリニューアルを行いました。<br>
+													Mプランで利用できる機能が拡充された他、M/Lプランの容量が大幅に増加いたしました。<br>
+													詳しくは<a href="http://www.aipo.com/price/" target="_blank">料金ページ</a>をご確認ください。<br>
+													<br>
+													なお、旧プランでご利用のお客様は引き続き従来と同じ機能、価格でご利用頂けます。<br><br></div>
+													<div>最新ニュースは<a href="https://www.facebook.com/aipocom.jp" target="_blank">公式Facebookページ</a>で随時更新中です！<br>
+														「いいね！」を押していただくことで情報をタイムリーに受け取ることができます。
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="contents tweet divider">
+											<h2>ご意見・ご要望</h2>
+											<p class="fcGray fs11">頂いたご意見やご要望をもとに改善に励みます。</p>
+											<div class="clearfix">
+												<div class="fs11 floatRight"><a href="javascript:void(0)">Twitter連携を解除</a></div>
+												<div class="floatLeft fs11 fcGray">獲得容量：<span id="get-capacity-size">3</span> MB</div>
+												<textarea></textarea>
+												<div class="clearfix right mt5">
+													<span class="fcGray mr5"><span id="count">0</span>/117</span><input type="submit" class="auiButtonAction" value="ツイート">
+												</div>
+											</div>
+										</div>
+										<div class="contents tweet divider">
+											998 MB(97%) / 1027 MB を使用中
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 
-		<div class="hdInformation" title="サポート">
-			<div
-				class="dijit dijitLeft dijitInline dijitDropDownButton"
-				dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey"
-				widgetid="supportcheckerContainer"
-				onClick="popupToggle(this,'aipo_widget_SupportList_0');">
-				<div type="button"
-					dojoattachpoint="focusNode,titleNode"
-					wairole="button"
-					waistate="haspopup-true,labelledby-supportcheckerContainer_label"
-					role="button"
-					aria-haspopup="true"
-					aria-labelledby="supportcheckerContainer_label"
-					id="supportcheckerContainer"
-					tabindex="0"
-					aria-valuenow=""
-					aria-disabled="false">
-					<div class="" dojoattachpoint="containerNode,popupStateNode" id="supportcheckerContainer_label">
-						<div id="supportchecker" class="counter zero">0</div>
-						<span class="mb_hide">サポート</span>
-						<span class="pc_hide"><i class="icon-bell-alt"></i></span>
+				<div class="auiPortletHead">
+					<div class="inner">
+						<div class="auiPortletTitle">掲示板</div>
+						<div class="auiPortletTool">
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<div class="hdUserName">
-			<a href="javascript:void(0);" onClick="popupToggle(this,'menubar_hdSetting')">
-				<img class="avatar" src="../themes/default/images/common/avatar_default3.png" alt="" />株式会社エイムラック  木村 一郎 さま <span class="auiWFicon"><i id="menubar_button_hdSetting" class="icon-cog"></i></span></a>
-		</div>
-	</div>
-
-	<div class="menubar" id="menubar_hdSetting" style="display: none; width:120px;  top:31px; right:17px">
-		<ul>
-		<li><a href="#">個人設定</a></li>
-		<li><a href="javascript:void(0);" onclick="">ログアウト</a></li>
-		</ul>
-	</div>
-
-</div></div>
-<!-- /HEADER -->
-
-
-<!-- MAIN TAB -->
-<div id="auiTabs" class="clearfix">
-	<ul>
-    	<li class="first">
-        	<div class="tab active">
-                <div class="title"><a href="#">マイページ</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
-    	<li class="last">
-        	<div class="tab activeNext">
-                <div class="title"><a href="#">長いタブ名長いタブ名長いタブ名</a></div>
-                <div class="setting"><a href="javascript:void(0);" title="ページ設定"><span class="auiWFicon"><i class="icon-cog"></i></span></a></div>
-            </div>
-        </li>
-		<li class="addTab">
-			<a href="javascript:void(0)" title="メニュータブを追加"><span>+</span></a>		</li>
-    </ul>
-</div>
-<!-- /MAIN TAB -->
-
-
-<!-- roundWrapper -->
-<div id="roundWrapper">
-<!-- MAIN OUTER -->
-	<div class="roundMainWrapper">
-		<!-- LAYOUT -->
-
-
-<!-- ###### ▼開発向け：ここより改修コンテンツ（当コメントは反映しないで下さい） #####-->
-
-
-		<!-- auiPortlet -->
+				<!-- auiPortletBody -->
 		<div class="dojoDndItem auiPortlet">
-			<div class="auiPortletHead"><div class="inner">
-				<div class="auiPortletTitle">掲示板</div>
-				<div class="auiPortletTool">				</div>
-			</div></div>
 
 			<div class="auiPortletBody"><div class="inner">
 				<div dojotype="aimluck:Contentpane" widgetid="widget_P-13652023f79-10161" id="portlet_P-13652023f79-10161">
@@ -351,13 +379,14 @@ function widgetMenuSwitch() {
 
 <div id="auiWidgetsArea">
 
-<div class="auiWidget widgetButton clearfix">
-	<p><a href="#" class="auiButtonAction">トピックを追加する</a></p>
+<div class="snDrawer">
+	<!--<p><a href="#" class="auiButtonAction">トピックを追加する</a></p>-->
+	<a href="#" class=""><i class="icon-plus"></i></a>
 </div>
 
 <div class="snDrawer">
 	<!--a id="snDrawer" href="javascript:void(0)" class="auiButtonBold" onclick="widgetMenuSwitch()"><img src="../themes/default/images/mobile/sn_list.png"></a-->
-	<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-caret-up"></i></a>
+	<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-ellipsis-horizontal"></i></a>
 </div>
 
 <div id="subNavigation">
@@ -510,7 +539,7 @@ UA判別などでPC版では表示させないでください。
 
 ****************************** -->
 <!-- mobileHeader -->
-<div id="mobileHeader_v2" class="clearfix"><div class="inner">
+<!--<div id="mobileHeader_v2" class="clearfix"><div class="inner">
 	<h1><span>掲示板</span></h1>
 	<div class="mhLeft">
 		<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>	</div>
@@ -531,13 +560,13 @@ UA判別などでPC版では表示させないでください。
 		}
 		</script>
 
-		<!--div class="hdMessege">
+		&lt;!&ndash;div class="hdMessege">
 			<a href="https://message.aipo.com" target="_blank">
 				<div id="messagechecker" class="counter">3</div>
 				<span class="mb_hide">メッセージ</span>
 				<span class="pc_hide"><i class="icon-comment"></i></span>
 			</a>
-		</div-->
+		</div&ndash;&gt;
 
 
 		<div class="hdActivity" title="お知らせ">
@@ -592,7 +621,7 @@ UA判別などでPC版では表示させないでください。
 		</div>
 	</div>
 </div>
-</div>
+</div>-->
 <!-- /mobileHeader -->
 
 

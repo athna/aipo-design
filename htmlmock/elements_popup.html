@@ -6786,19 +6786,6 @@
             通知設定//有効にするとき
 
             ################################################################################ -->
-            <style>
-                .test div.alertRecommend {
-                    display: none;
-                }
-
-                .test :target div.alertRecommend {
-                    display: block;
-                }
-
-                .test :target div#link1 {
-                    display: none;
-                }
-            </style>
             <a id="notifications2"></a>
 
             <div class="auiPopup clearfix">
@@ -6812,30 +6799,61 @@
                 </div>
                 <div class="roundBlockContent">
                     <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
-                    <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.system.onReceiveMessage);return false;"
+                    <form onsubmit="return false;"
                           method="post"
-                          action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007849/page/default.psml/js_peid/131?template=SystemWebMailSettingsFormJSONScreen"
+                          action=""
                           id="form131" name="form131">
                         <input type="hidden" value="webmailForm" name="_name">
-                        <input type="hidden" value="c8d81a7e73f0f754d2f755fdd25d0970" name="secid">
+                        <input type="hidden" value="" name="secid">
 
                         <h3>デスクトップ通知</h3>
 
-                        <div style="padding:0px 0px 5px 0px">
-                            現在ご利用中のブラウザのデスクトップ通知の可否を設定します。
+                        <div class="alertSuccess">
+                            現在ご利用中のブラウザのデスクトップ通知の可否を設定します。<br/>
+                            <a href="#notificationsSwitch">デスクトップ通知を有効にする</a>
                         </div>
 
-                        <div class="test p spaceBottom">
-                            <div id="notifications3" class="section">
-                                <div id="" class="alertRecommend">ポップアップされたウインドウの「表示する / 許可 / はい /
-                                    有効にする」などのボタンをクリックして、設定を完了させてください。
-                                </div>
-                                <div id="link1">
-                                    <a href="#notifications3">デスクトップ通知を有効にする</a>
-                                </div>
-                            </div>
-                        </div>
 
+
+                        <div class="center auiPopupButtons">
+                            <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button"
+                                   name="ajaxbuttonClose">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
+            <!-- ################################################################################
+
+            通知設定//有効にするとき
+
+            ################################################################################ -->
+            <a id="notificationsSwitch"></a>
+
+            <div class="auiPopup clearfix">
+                <div class="auiPopupHead clearfix">
+                    <div class="auiPopupTool">
+                        <div><a onclick="aipo.common.hideDialog()" title="閉じる" class="auiButtonIcon"
+                                href="javascript:void(0)"><span><i class="icon-remove"></i></span></a>
+                        </div>
+                    </div>
+                    <div class="auiPopupTitle">通知設定</div>
+                </div>
+                <div class="roundBlockContent">
+                    <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
+                    <form onsubmit="return false;"
+                          method="post"
+                          action=""
+                          id="form131" name="form131">
+                        <input type="hidden" value="webmailForm" name="_name">
+                        <input type="hidden" value="" name="secid">
+
+                        <h3>デスクトップ通知</h3>
+
+                        <div class="alertSuccess">
+                            ポップアップされたウインドウの「<strong>表示する / 許可 / はい /
+                            有効にする</strong>」などのボタンをクリックして、設定を完了させてください。
+                        </div>
 
                         <div class="center auiPopupButtons">
                             <input type="button" onclick="aipo.common.hideDialog();" value="閉じる" class="button"
@@ -6864,7 +6882,7 @@
                 </div>
                 <div class="roundBlockContent">
                     <div style="display:none;" id="indicator-dlg-131" class="indicator">データを送信しています...</div>
-                    <form onsubmit="aimluck.io.submit(this,'indicator-dlg-','131',aipo.system.onReceiveMessage);return false;"
+                    <form onsubmit=""
                           method="post"
                           action="https://app.testtotest.com/aipo/portal/media-type/html/user/0000007849/page/default.psml/js_peid/131?template=SystemWebMailSettingsFormJSONScreen"
                           id="form131" name="form131">
@@ -6893,7 +6911,6 @@
                 </div>
             </div>
             <div class="mh50 right"><a href="#wrapper">▲一覧へ</a></div>
-
             <!-- ################################################################################
 
             通知設定 // 有効に設定されているとき。
@@ -6921,20 +6938,24 @@
 
                         <h3>デスクトップ通知</h3>
 
-                        <div style="padding:0px 0px 5px 0px">
-                            現在ご利用中のブラウザでのデスクトップ通知設定を変更します。
-                        </div>
+                        <!--<div style="padding:0px 0px 5px 0px">-->
+                            <!--現在ご利用中のブラウザでのデスクトップ通知設定を変更します。-->
+                        <!--</div>-->
                         <table class="listTable wide">
                             <tbody>
                             <tr>
-                                <td class="caption">デスクトップ通知</td>
+                                <td class="caption">通知設定</td>
                                 <td>
                                     <p><input type="radio" checked="checked" id="pc_flg_blog_id" value="1"
                                               name="pc_flg_blog">
-                                        <label for="pc_flg_blog_id">お知らせの内容を表示する</label></p>
+                                        <label for="pc_flg_blog_id">メッセージ、お知らせを通知する</label></p>
 
-                                    <p><input type="radio" id="pc_flg_blog_id" value="1" name="pc_flg_blog">
-                                        <label for="pc_flg_blog_id">お知らせの内容は表示しない</label></p>
+                                    <!--<p><input type="radio" checked="checked" id="pc_flg_blog_id" value="1"-->
+                                              <!--name="pc_flg_blog">-->
+                                        <!--<label for="pc_flg_blog_id">お知らせの内容を表示する</label></p>-->
+
+                                    <!--<p><input type="radio" id="pc_flg_blog_id" value="1" name="pc_flg_blog">-->
+                                        <!--<label for="pc_flg_blog_id">お知らせの内容は表示しない</label></p>-->
 
                                     <p><input type="radio" id="pc_flg_blog_id" value="1" name="pc_flg_blog">
                                         <label for="pc_flg_blog_id">通知しない</label></p>

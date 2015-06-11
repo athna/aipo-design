@@ -1,1 +1,0 @@
-dojo._hasResource["dojox.dtl.filter.integers"]||(dojo._hasResource["dojox.dtl.filter.integers"]=!0,dojo.provide("dojox.dtl.filter.integers"),dojo.mixin(dojox.dtl.filter.integers,{add:function(e,t){return e=parseInt(e),t=parseInt(t),isNaN(t)?e:e+t},get_digit:function(e,t){return e=parseInt(e),t=parseInt(t)-1,t>=0&&(e+="",e=t<e.length?parseInt(e.charAt(t)):0),isNaN(e)?0:e}}));

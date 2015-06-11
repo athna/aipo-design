@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.form.nls.zh-cn.validate"]],defineResource:function(e){e.provide("dijit.form.nls.zh-cn.validate"),e._xdLoadFlattenedBundle("dijit.form","validate","zh-cn",{rangeMessage:"* 输入数据超出值域。",invalidMessage:"* 非法的输入值。",missingMessage:"* 此值是必须的。"})}});

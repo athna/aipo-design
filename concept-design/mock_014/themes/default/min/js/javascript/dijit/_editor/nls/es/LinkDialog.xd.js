@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit._editor.nls.es.LinkDialog"]],defineResource:function(e){e.provide("dijit._editor.nls.es.LinkDialog"),e._xdLoadFlattenedBundle("dijit._editor","LinkDialog","es",{set:"Establecer",text:"Texto:",title:"Enlazar URL",url:"URL:",urlInvalidMessage:"URL no válido. Especifique un URL completo como 'http://www.dojotoolkit.org'"})}});

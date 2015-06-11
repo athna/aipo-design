@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dojox.gfx3d"],["require","dojox.gfx3d.matrix"],["require","dojox.gfx3d._base"],["require","dojox.gfx3d.object"]],defineResource:function(o){o._hasResource["dojox.gfx3d"]||(o._hasResource["dojox.gfx3d"]=!0,o.provide("dojox.gfx3d"),o.require("dojox.gfx3d.matrix"),o.require("dojox.gfx3d._base"),o.require("dojox.gfx3d.object"))}});

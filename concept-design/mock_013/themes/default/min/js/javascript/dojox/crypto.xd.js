@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dojox.crypto"],["require","dojox.crypto._base"]],defineResource:function(o){o._hasResource["dojox.crypto"]||(o._hasResource["dojox.crypto"]=!0,o.provide("dojox.crypto"),o.require("dojox.crypto._base"))}});

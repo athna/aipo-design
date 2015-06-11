@@ -1,1 +1,0 @@
-dojo._hasResource["dojox.storage"]||(dojo._hasResource["dojox.storage"]=!0,dojo.provide("dojox.storage"),dojo.require("dojox.storage._common"));

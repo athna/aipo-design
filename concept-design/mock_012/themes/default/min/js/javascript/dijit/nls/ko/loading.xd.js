@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.nls.ko.loading"]],defineResource:function(d){d.provide("dijit.nls.ko.loading"),d._xdLoadFlattenedBundle("dijit","loading","ko",{loadingState:"로드 중...",errorState:"죄송합니다. 오류가 발생했습니다."})}});

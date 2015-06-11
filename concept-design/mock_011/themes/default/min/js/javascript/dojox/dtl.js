@@ -1,1 +1,0 @@
-dojo._hasResource["dojox.dtl"]||(dojo._hasResource["dojox.dtl"]=!0,dojo.provide("dojox.dtl"),dojo.require("dojox.dtl._base"));

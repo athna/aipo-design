@@ -1,1 +1,0 @@
-dojo.require("dojox.gfx.silverlight"),dojo.experimental("dojox.gfx.silverlight_attach"),function(){dojox.gfx.attachNode=function(o){return null},dojox.gfx.attachSurface=function(){return null}}();

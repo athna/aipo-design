@@ -1,1 +1,0 @@
-dojo._xdResourceLoaded({depends:[["provide","dijit.nls.ja.common"]],defineResource:function(o){o.provide("dijit.nls.ja.common"),o._xdLoadFlattenedBundle("dijit","common","ja",{buttonCancel:"キャンセル",buttonSave:"保存",buttonOk:"OK"})}});

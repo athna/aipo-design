@@ -474,7 +474,7 @@
 						</div>
 						<!-- 検索結果用サイドブロック ::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 						<div class="rightBlock">
-							<div class="index">「あさ」の検索結果<a class="floatRight" href="#"><i class="icon-remove"></i></a></div>
+							<div class="index">「メッセージ」の検索結果<a class="floatRight" href="#"><i class="icon-remove"></i></a></div>
 							<!--<div class="emptyMessage">ユーザー、ルーム、メッセージはありません。</div>-->
 							<ul class="user">
 								<li class="index">ユーザー<span>1件</span><a class="floatRight" href="#"><i class="icon-chevron-down"></i></a></li>
@@ -538,7 +538,7 @@
 										<div class="messageContents">
 											<div class="name">名前 名前</div>
 											<div class="body">
-												現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
+												現在の<span class="searchKeyword">メッセージ</span>にはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
 												URLを貼りつけた場合の拡張ブロックは「class="tlClipBoard clearfix"」とする。
 												<div class="tlClipBoard clearfix">
 													<div class="tlClipImage">
@@ -1663,17 +1663,31 @@
 					<!-- /tlInputControls --> </form>
 			</div>
 			<!-- /inputField -->
-			<div class="newMessage"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>
-			<div class="tlDisplayChanger">
-				<div class="btn"><i class="indicator"></i> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a></div>
-				<div class="menubar" id="menubar_tlDisplayChanger" style="display:none">
-					<ul>
-						<li><a href="#" class="selected">すべてのグループ</a></li>
-						<li><a href="#">管理本部</a></li>
-						<li><a href="#">開発本部</a></li>
-						<li><a href="#">企画本部</a></li>
-						<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>
-					</ul>
+			<div class="newMessage" style="display: none;"><a href="javascript:void(0)" onclick="aipo.portletReload('timeline')">新しい投稿があります</a></div>
+			<!--<div class="tlDisplayChanger">-->
+				<!--<div class="btn"><i class="indicator"></i> <a href="javascript:void(0)" onClick="if(document.getElementById('menubar_tlDisplayChanger').style.display == 'none'){document.getElementById('menubar_tlDisplayChanger').style.display = 'block'}else{document.getElementById('menubar_tlDisplayChanger').style.display = 'none'}"><span class="tlDisplayGroup">すべてのグループ</span></a></div>-->
+				<!--<div class="menubar" id="menubar_tlDisplayChanger" style="display:none">-->
+					<!--<ul>-->
+						<!--<li><a href="#" class="selected">すべてのグループ</a></li>-->
+						<!--<li><a href="#">管理本部</a></li>-->
+						<!--<li><a href="#">開発本部</a></li>-->
+						<!--<li><a href="#">企画本部</a></li>-->
+						<!--<li><a href="#">長いグループ名長いグループ名長いグループ名長いグループ名</a></li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			<!--</div>-->
+			<div class="auiSummaryMeta auiFilter clearfix">
+				<div id="filters_P-135e7e25b01-10c18" class="filters floatLeft">
+					<a class="customizeMenuIcon filterTip menubarOpenButton" onclick="aipo.timeline.changeDisplay('P-135e7e25b01-10c18');" href="javascript:void(0)">
+					<span id="tlDisplayGroup_P-135e7e25b01-10c18">すべてのグループ</span></a>
+				</div>
+				<div class="floatRight">
+					<div class="auiSummarySearch">
+						<form method="post" onsubmit="aimluck.io.postViewPage(this, 'P-135e7e25b01-10c18', 'indicator-dlg3-'); return false;" action="https://app.aipo.com/portal/media-type/html/user/0000000027/page/default.psml/js_peid/P-135e7e25b01-10c18?template=SaaSTimelineScreen" class="auiSearch gray focus" name="timelineSearchForm" id="timelineSearchForm_P-135e7e25b01-10c18">
+							<input type="text" onblur="aipo.timeline.onBlurSearch('P-135e7e25b01-10c18');" onfocus="aipo.timeline.onFocusSearch('P-135e7e25b01-10c18');" value="拡張" name="keyword" placeholder="タイムライン検索">
+							<button type="submit"><i class="icon-search"></i></button>
+						</form>
+					</div>
 				</div>
 			</div>
 			<div id="timeline" class="timeline" style="min-height:750px;">
@@ -1685,7 +1699,7 @@
 						<div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 						<div class="messageContents">
 							<div class="name">名前 名前</div>
-							<div class="body"> 画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。
+							<div class="body"> 画像を投稿した場合の<span class="searchKeyword">拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張拡張</span>ブロックは「class="tlImageBlock clearfix"」とする。
 								<p class="more">...<br/>
 									<a href="#">続きを読む</a></p>
 								<div class="tlImageBlock clearfix">

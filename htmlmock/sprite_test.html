@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>spriteテスト</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+	<!--<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
+	<link rel="stylesheet" type="text/css" href="themes/default/css/extend.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="themes/default/css/common.css"/>-->
+	<!--<link rel="stylesheet" type="text/css" href="themes/default/css/aui.css"/>-->
+	<link rel="stylesheet" type="text/css" href="themes/default/css/print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="themes/default/css/font-awesome.min.css"/>
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="themes/default/css/font-awesome-ie7.min.css">
+	<![endif]-->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<style>
+		body{
+			padding: 50px;
+		}
+		.auiIcon {
+			display: block;
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			overflow: hidden;
+			vertical-align: middle;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			background-image: url(themes/default/images/icon/auiIconSprites20150318.png);
+			background-repeat: no-repeat;
+		}
+
+		.auiIcon span {
+			display: none;
+		}
+
+		a.auiIcon:hover {
+			background-color: #999;
+		}
+
+		.auiIconClear {
+			background-position: 16px 0;
+		}
+
+		.auiIconSetting {
+			background-position: 0px 0px;
+			height: 17px;
+		}
+
+		.auiIconSetting_w {
+			background-position: 0px -16px;
+			height: 17px;
+		}
+
+		a.auiIconSetting:hover {
+			background-position: 0px -16px;
+		}
+
+		.auiIconFile {
+			background-position: 0px -32px;
+		}
+
+		.auiIconFile_w {
+			background-position: 0px -48px;
+		}
+
+		a.auiIconFile:hover {
+			background-position: 0px -48px;
+		}
+
+		.auiIconUser {
+			background-position: 0px -64px;
+		}
+
+		.auiIconUser_w {
+			background-position: 0px -80px;
+		}
+
+		a.auiIconUser:hover {
+			background-position: 0px -80px;
+		}
+
+		.auiIconCreate {
+			background-position: 0px -96px;
+		}
+
+		.auiIconCreate_w {
+			background-position: 0px -112px;
+		}
+
+		a.auiIconCreate:hover {
+			background-position: 0px -112px;
+		}
+
+		.auiIconClock {
+			background-position: 0px -128px;
+		}
+
+		.auiIconClock_w {
+			background-position: 0px -144px;
+		}
+
+		a.auiIconClock:hover {
+			background-position: 0px -144px;
+		}
+
+		.auiIconCalendar {
+			background-position: 0px -160px;
+		}
+
+		.auiIconCalendar_w {
+			background-position: 0px -176px;
+		}
+
+		a.auiIconCalendar:hover {
+			background-position: 0px -176px;
+		}
+
+		.auiIconLock {
+			background-position: 0px -192px;
+		}
+
+		.auiIconLock_w {
+			background-position: 0px -208px;
+		}
+
+		a.auiIconLock:hover {
+			background-position: 0px -208px;
+		}
+
+		.auiIconReload {
+			background-position: 0px -224px;
+		}
+
+		.auiIconReload_w {
+			background-position: 0px -240px;
+		}
+
+		a.auiIconReload:hover {
+			background-position: 0px -240px;
+		}
+
+		.auiIconPrint {
+			background-position: 0px -256px;
+		}
+
+		a.auiIconPrint:hover {
+			background-position: 0px -256px;
+		}
+
+		.auiIconDelete {
+			background-position: 0px -272px;
+		}
+
+		.auiIconDelete_w {
+			background-position: 0px -288px;
+		}
+
+		a.auiIconDelete:hover {
+			background-position: 0px -288px;
+		}
+
+		.auiIconPlus {
+			background-position: 0px -304px;
+		}
+
+		.auiIconPlus_w {
+			background-position: 0px -320px;
+		}
+
+		a.auiIconPlus:hover {
+			background-position: 0px -320px;
+		}
+
+		.auiIconMinus {
+			background-position: 0px -336px;
+		}
+
+		.auiIconMinus_w {
+			background-position: 0px -352px;
+		}
+
+		a.auiIconMinus:hover {
+			background-position: 0px -352px;
+		}
+
+		.auiIconArwLeft {
+			background-position: 0px -368px !important;
+		}
+
+		.auiIconArwLeft_w {
+			background-position: 0px -384px !important;
+		}
+
+		a.auiIconArwLeft:hover {
+			background-position: 0px -384px !important;
+		}
+
+		.auiIconArwRight {
+			background-position: 0px -400px !important;
+		}
+
+		.auiIconArwRight_w {
+			background-position: 0px -416px !important;
+		}
+
+		a.auiIconArwRight:hover {
+			background-position: 0px -416px !important;
+		}
+
+		.auiIconArwBottom {
+			background-position: 0px -432px !important;
+		}
+
+		.auiIconArwBottom_w {
+			background-position: 0px -448px !important;
+		}
+
+		a.auiIconArwBottom:hover {
+			background-position: 0px -448px !important;
+		}
+
+		.auiIconArwTop {
+			background-position: 0px -464px !important;
+		}
+
+		.auiIconArwTop_w {
+			background-position: 0px -480px !important;
+		}
+
+		a.auiIconArwTop:hover {
+			background-position: 0px -480px !important;
+		}
+
+		.auiIconImage {
+			background-position: 0px -496px;
+		}
+
+		.auiIconImage_w {
+			background-position: 0px -512px;
+		}
+
+		a.auiIconImage:hover {
+			background-position: 0px -512px;
+		}
+
+		.auiIconUsers {
+			background-position: 0px -528px;
+		}
+
+		.auiIconUsers_w {
+			background-position: 0px -544px;
+		}
+
+		a.auiIconUsers:hover {
+			background-position: 0px -544px;
+		}
+
+		.auiIconSearch {
+			background-position: 0px -560px;
+		}
+
+		.auiIconSearch_w {
+			background-position: 0px -576px;
+		}
+
+		a.auiIconSearch:hover {
+			background-position: 0px -576px;
+		}
+
+		.auiIconTmpreserve {
+			background-position: 0px -688px;
+		}
+
+		a.auiIconTmpreserve:hover {
+			background-position: 0px -688px;
+		}
+
+		.auiIconOverlap {
+			background-position: 0px -704px;
+		}
+
+		a.auiIconOverlap:hover {
+			background-position: 0px -704px;
+		}
+
+		.auiIconRepeat {
+			background-position: 0px -720px;
+		}
+
+		a.auiIconRepeat:hover {
+			background-position: 0px -720px;
+		}
+
+		.auiIconSecret {
+			background-position: 0px -736px;
+		}
+
+		a.auiIconSecret:hover {
+			background-position: 0px -736px;
+		}
+
+		.auiIconTrash {
+			background-position: 0px -752px;
+		}
+
+		.auiIconTrash_w {
+			background-position: 0px -768px;
+		}
+
+		a.auiIconTrash:hover {
+			background-position: 0px -768px;
+		}
+
+		.auiIconMail {
+			background-position: 0px -784px;
+		}
+
+		a.auiIconMail:hover {
+			background-position: 0px -784px;
+		}
+
+		.auiIconMailOpen {
+			background-position: 0px -800px;
+		}
+
+		a.auiIconMailOpen:hover {
+			background-position: 0px -800px;
+		}
+	</style>
+</head>
+<body>
+
+<p><i title="重複スケジュール" class="auiIcon auiIconOverlap"></i> <i title="繰り返し" class="auiIcon auiIconRepeat"></i> <i title="仮スケジュール" class="auiIcon auiIconTmpreserve"></i></p>
+<p><i title="繰り返し" class="auiIcon auiIconRepeat"></i></p>
+<p><i title="仮スケジュール" class="auiIcon auiIconTmpreserve"></i></p>
+
+</body>
+</html>

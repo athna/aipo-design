@@ -16,12 +16,12 @@
     $(function(){
       $('#collapseOne, #collapseTwo, #collapseThree')
       .on('show.bs.collapse', function(){ //< 折り畳み開く処理
-        $('a[href="#' + $(this).attr('id') + '"]').find('span.glyphicon-collapse-down')
-        .removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up');
+        $('a[href="#' + $(this).attr('id') + '"]').find('i.fa-chevron-down')
+        .removeClass('fa-chevron-down').addClass('fa-chevron-up');
       })
       .on('hide.bs.collapse', function(){ //< 折り畳み閉じる処理
-        $('a[href="#' + $(this).attr('id') + '"]').find('span.glyphicon-collapse-up')
-        .removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
+        $('a[href="#' + $(this).attr('id') + '"]').find('i.fa-chevron-up')
+        .removeClass('fa-chevron-up').addClass('fa-chevron-down');
       });
     });
   </script>
@@ -35,8 +35,16 @@
       font-size: 18px;
       color: #666666;
     }
+    pre{
+      background: #f8f8f8;
+      border: 1px solid #EEEEEE;
+      margin: 0;
+    }
     .panel-title {
       font-size: 15px;
+    }
+    .panel-body{
+      padding: 10px;
     }
     .panel-default > .panel-heading{
       position: relative;
@@ -70,39 +78,15 @@
         </h2>
       </div>
       <div id="collapseOne" class="panel-collapse collapse">
-        <div class="panel-body">１個目の内容
-        <ul class="list">
-          <li>リスト</li>
-          <li>リスト</li>
-          <li>リスト</li>
-        </ul>
-          <ol>
-            <li>リスト</li>
-            <li>リスト</li>
-            <li>リスト</li>
-          </ol>
-          <table class="table table-bordered">
-            <tbody>
-            <tr>
-              <th>th</th>
-              <td>td</td>
-            </tr>
-            <tr>
-              <th>th</th>
-              <td>td</td>
-            </tr>
-            <tr>
-              <th>th</th>
-              <td>td</td>
-            </tr>
-            </tbody>
-          </table>
-          <h3>タイトルH3</h3>
-          テキストテキストテキストテキストテキストテキスト<br>
-          テキストテキストテキストテキストテキストテキスト
-          <h4>タイトルH4</h4>
-          テキストテキストテキストテキストテキストテキスト<br>
-          テキストテキストテキストテキストテキストテキスト
+        <div class="panel-body">
+<pre>１個目の内容
+
+
+aaaaaaaaaaaa
+aaaaa
+
+aaaaa
+</pre>
         </div>
       </div>
     </div>

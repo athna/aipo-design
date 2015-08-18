@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="ja"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Aipo.com</title>
+  <meta name="description" content=""/>
+  <meta name="keywords" content=""/>
+  <meta http-equiv="Content-Style-Type" content="text/css"/>
+  <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+  <meta name="copyright" content="Copyright(C) Aimluck,Inc. All Rights Reserved."/>
+  <meta name="robots" content="noindex,follow"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <link type="image/x-icon" rel="shortcut icon" href="../themes/default/images/favicon.ico?20130719"/>
+  <link type="image/x-icon" rel="icon" href="../themes/default/images/favicon.ico?20130719"/>
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/extend.css"/>
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/common.css"/>
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/aui.css"/>
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/mobile.css"/>
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/print.css" media="print"/>
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+  <!--link rel="stylesheet" type="text/css" href="../themes/default/css/android.css" /-->
+  <script language="JavaScript" type="text/javascript" src="../javascript/dojo/dojo.js"
+          djConfig="parseOnLoad: true"></script>
+  <script type="text/javascript">
+
+    function popup_member(){
+      location.href = "elements_popup_member.html";
+    }
+    function popup_schedule(){
+      location.href = "elements_popup_schedule.html";
+    }
+  </script>
+
+  <style>
+    /* aui.css に記述 */
+    .pcRight {
+      float: right;
+    }
+
+    @media (max-width: 767px) {
+
+      /* mobile.css に記述 */
+      .pcRight {
+        clear: both;
+        display: inline-block;
+        float: none;
+        text-align: left;
+      }
+
+    }
+  </style>
+
+</head>
+<body>
+<script type="text/javascript">
+  var ua = navigator.userAgent;
+  if (ua.indexOf('Android') > 0) {
+    document.write('<link rel="stylesheet" type="text/css" href="../themes/default/css/android.css" />');
+    if (ua.indexOf('Android 2') > 0) {
+      document.write('<link rel="stylesheet" type="text/css" href="../themes/default/css/android-2.x.css" />');
+    }
+  }
+  djConifg = {
+    xDomainBasePath: 'https://app.aipo.com/javascript'
+  };
+</script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/dojo/dojo.xd.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://app.aipo.com/javascript/aipo.xd.js"></script>
+<!-- WRAPPER -->
+<div id="wrapper">
+
+  <!-- roundMainWrapper -->
+  <div class="roundMainWrapper" style="height: auto; padding-top: 10px;">
+
+
+    <!-- ################################################################################
+
+    スケジュール追加
+
+    ################################################################################ -->
+    <a id="newUserAdd"></a>
+
+    <div class="auiPopup clearfix">
+      <div class="auiPopupHead clearfix">
+        <div class="auiPopupTool">
+          <div><a href="#" class="auiButtonIcon" title="閉じる"><span><i class="icon-remove"></i></span></a></div>
+        </div>
+        <div class="auiPopupTitle">スケジュール追加（新UI）</div>
+      </div>
+
+      <div class="roundBlockContent">
+        <div class="indicator" id="indicator-dlg-P-1390432c4be-10009" style="display:none;">データを送信しています...</div>
+        <div id="messageDiv"></div>
+        <form id="_scheduleForm" name="scheduleForm" action="" method="post" onsubmit="">
+          <table class="listTable wide">
+            <tbody>
+            <tr>
+              <td class="caption">日時</td>
+              <td><div id="normalField" style="display: none;">
+                <div class="p">
+                  <div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="startDateSpan">
+                    <div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
+                      <div class="dijitRight">
+															<span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-startDateSpan_label" role="button" aria-haspopup="true" aria-labelledby="startDateSpan_label" id="startDateSpan" tabindex="0" aria-valuenow="" aria-disabled="false">
+															<span class="" dojoattachpoint="containerNode,popupStateNode" id="startDateSpan_label"> <img src="https://app.aipo.com/images/icon/icon_date.gif" alt="開始日" style="cursor:pointer;cursor:hand;padding-right:2px" align="top"> </span>
+															</span>
+                      </div>
+                    </div>
+                    <div class="alignleft">
+                      <span name="start_date_view" id="start_date_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly">2013年7月2日(火)</span>
+														<span style="display:none">
+														<input name="start_date_check" type="checkbox" value="TRUE" id="start_date_flag" dojoattachevent="onclick:onCheckBlank">
+														<label for="start_date_flag"> 指定しない</label>
+														</span>
+                      <input type="hidden" id="start_date" name="start_date" value="2013/7/2" dojoattachpoint="valueNode">
+                      <input type="hidden" id="start_date_year" name="start_date_year" value="2013" dojoattachpoint="valueYearNode">
+                      <input type="hidden" id="start_date_month" name="start_date_month" value="7" dojoattachpoint="valueMonthNode">
+                      <input type="hidden" id="start_date_day" name="start_date_day" value="2" dojoattachpoint="valueDayNode">
+                    </div>
+                  </div>
+												<span id="spanField" style="display: none;"> &nbsp;-&nbsp;
+												<div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="endDateSpan">
+                          <div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
+                            <div class="dijitRight">
+															<span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-endDateSpan_label" role="button" aria-haspopup="true" aria-labelledby="endDateSpan_label" id="endDateSpan" tabindex="0" aria-valuenow="" aria-disabled="false">
+															<span class="" dojoattachpoint="containerNode,popupStateNode" id="endDateSpan_label"> <img src="https://app.aipo.com/images/icon/icon_date.gif" alt="終了日" style="cursor:pointer;cursor:hand;padding-right:2px" align="top"> </span>
+															</span>
+                            </div>
+                          </div>
+                          <div class="alignleft">
+                            <span name="end_date_view" id="end_date_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly"> 2013年7月2日(火) </span>
+														<span style="display:none">
+														<input name="end_date_check" type="checkbox" value="TRUE" id="end_date_flag" dojoattachevent="onclick:onCheckBlank">
+														<label for="end_date_flag"> 指定しない</label>
+														</span>
+                            <input type="hidden" id="end_date" name="end_date" value="2013/7/2" dojoattachpoint="valueNode">
+                            <input type="hidden" id="end_date_year" name="end_date_year" value="2013" dojoattachpoint="valueYearNode">
+                            <input type="hidden" id="end_date_month" name="end_date_month" value="7" dojoattachpoint="valueMonthNode">
+                            <input type="hidden" id="end_date_day" name="end_date_day" value="2" dojoattachpoint="valueDayNode">
+                          </div>
+                        </div>
+												</span>
+												<span id="allDayField" style="">
+												<input id="all_day_flag_checkbox" type="checkbox" value="ON" name="all_day_flag_checkbox" onclick="aipo.schedule.formSwitchAllDay(this)">
+												<label for="all_day_flag_checkbox">終日</label>
+												</span>
+                </div>
+              </div>
+                <div id="repeatField" style="">
+                  <div class="p">
+                    <h3>繰り返しパターン</h3>
+                    <input id="repeat_typeD" type="radio" value="D" checked="checked" name="repeat_type">
+                    <label for="repeat_typeD">毎日</label>
+                    <br>
+                    <input id="repeat_typeW" type="radio" value="W" name="repeat_type">
+                    <label for="repeat_typeW">毎週</label>
+                    <input id="week_0_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE" name="week_0">
+                    <label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_0_id">日</label>
+                    <input id="week_1_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE" name="week_1">
+                    <label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_1_id">月</label>
+                    <input id="week_2_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE" name="week_2">
+                    <label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_2_id">火</label>
+                    <input id="week_3_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE" name="week_3">
+                    <label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_3_id">水</label>
+                    <input id="week_4_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE" name="week_4">
+                    <label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_4_id">木</label>
+                    <input id="week_5_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE" name="week_5">
+                    <label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_5_id">金</label>
+                    <input id="week_6_id" type="checkbox" onclick="aipo.schedule.enablePerWeek(this.form)" value="TRUE" name="week_6">
+                    <label onclick="aipo.schedule.enablePerWeek(this.form)" for="week_6_id">土</label>
+                    <br>
+                    <input id="repeat_typeM" type="radio" value="M" name="repeat_type">
+                    <label for="repeat_typeM">毎月</label>
+                    <select onchange="aipo.schedule.enableMonth(this.form)" name="month_day">
+                      <option value="1">1日</option>
+                      <option value="2">2日</option>
+                      <option value="3">3日</option>
+                      <option value="4">4日</option>
+                      <option value="5">5日</option>
+                      <option value="6">6日</option>
+                      <option value="7">7日</option>
+                      <option value="8">8日</option>
+                      <option value="9">9日</option>
+                      <option value="10">10日</option>
+                      <option value="11">11日</option>
+                      <option value="12">12日</option>
+                      <option value="13">13日</option>
+                      <option value="14">14日</option>
+                      <option value="15">15日</option>
+                      <option value="16">16日</option>
+                      <option value="17">17日</option>
+                      <option value="18">18日</option>
+                      <option value="19">19日</option>
+                      <option value="20">20日</option>
+                      <option value="21">21日</option>
+                      <option value="22">22日</option>
+                      <option value="23">23日</option>
+                      <option value="24">24日</option>
+                      <option value="25">25日</option>
+                      <option value="26">26日</option>
+                      <option value="27">27日</option>
+                      <option value="28">28日</option>
+                      <option value="29">29日</option>
+                      <option value="30">30日</option>
+                      <option value="31">31日</option>
+                    </select>
+                  </div>
+                  <div class="p">
+                    <h3>繰り返し期間</h3>
+                    <input id="limit_flagOFF" type="radio" checked="checked" value="OFF" name="limit_flag">
+                    <label for="limit_flagOFF">繰り返し期間を指定しない</label>
+                    <br>
+                    <input id="limit_flagON" type="radio" value="ON" name="limit_flag">
+                    <label for="limit_flagON">繰り返し期間を指定する</label>
+                    <br>
+                    <div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitStartDateSpan">
+                      <div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
+                        <div class="dijitRight">
+															<span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-limitStartDateSpan_label" role="button" aria-haspopup="true" aria-labelledby="limitStartDateSpan_label" id="limitStartDateSpan" tabindex="0" aria-valuenow="" aria-disabled="false">
+															<span class="" dojoattachpoint="containerNode,popupStateNode" id="limitStartDateSpan_label"><a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a></span>
+															</span>
+                        </div>
+                      </div>
+                      <div class="alignleft">
+                        <span name="limit_start_date_view" id="limit_start_date_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly">2013年7月2日(火)</span>
+														<span style="display:none">
+														<input name="limit_start_date_check" type="checkbox" value="TRUE" id="limit_start_date_flag" dojoattachevent="onclick:onCheckBlank">
+														<label for="limit_start_date_flag"> 指定しない</label>
+														</span>
+                        <input type="hidden" id="limit_start_date" name="limit_start_date" value="2013/7/2" dojoattachpoint="valueNode">
+                        <input type="hidden" id="limit_start_date_year" name="limit_start_date_year" value="2013" dojoattachpoint="valueYearNode">
+                        <input type="hidden" id="limit_start_date_month" name="limit_start_date_month" value="7" dojoattachpoint="valueMonthNode">
+                        <input type="hidden" id="limit_start_date_day" name="limit_start_date_day" value="2" dojoattachpoint="valueDayNode">
+                      </div>
+                    </div>
+                    &nbsp;-&nbsp;
+                    <div class="dijit dijitLeft dijitInline dijitDropDownButton" widgetid="limitEndDateSpan">
+                      <div dojoattachevent="onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse,onclick:_onDropDownClick,onkeydown:_onDropDownKeydown,onblur:_onDropDownBlur,onkeypress:_onKey" style="float:left;">
+                        <div class="dijitRight">
+															<span class="" type="button" dojoattachpoint="focusNode,titleNode" wairole="button" waistate="haspopup-true,labelledby-limitEndDateSpan_label" role="button" aria-haspopup="true" aria-labelledby="limitEndDateSpan_label" id="limitEndDateSpan" tabindex="0" aria-valuenow="" aria-disabled="false">
+															<span class="" dojoattachpoint="containerNode,popupStateNode" id="limitEndDateSpan_label"><a href="javascript:void(0)" class="auiButtonIcon"><span><i class="icon-calendar"></i></span></a></span>
+															</span>
+                        </div>
+                      </div>
+                      <div class="alignleft">
+                        <span name="limit_end_date_view" id="limit_end_date_view" dojoattachpoint="inputNode" style="vertical-align:middle;background:#ffffff ;border:0px;" autocomplete="off" readonly="readonly">2013年7月2日(火)</span>
+														<span style="display:none">
+														<input name="limit_end_date_check" type="checkbox" value="TRUE" id="limit_end_date_flag" dojoattachevent="onclick:onCheckBlank">
+														<label for="limit_end_date_flag"> 指定しない</label>
+														</span>
+                        <input type="hidden" id="limit_end_date" name="limit_end_date" value="2013/7/2" dojoattachpoint="valueNode">
+                        <input type="hidden" id="limit_end_date_year" name="limit_end_date_year" value="2013" dojoattachpoint="valueYearNode">
+                        <input type="hidden" id="limit_end_date_month" name="limit_end_date_month" value="7" dojoattachpoint="valueMonthNode">
+                        <input type="hidden" id="limit_end_date_day" name="limit_end_date_day" value="2" dojoattachpoint="valueDayNode">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p">
+                  <h3 id="timeLabelField" style="">時間</h3>
+                  <div id="timeField" style="">
+												<span id="startTimeSpan">
+												<select name="start_date_hour" size="1">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15" selected="selected">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                        </select>
+												:
+												<select name="start_date_minute" size="1">
+                          <option value="0">00</option>
+                          <option value="5">05</option>
+                          <option value="10">10</option>
+                          <option value="15">15</option>
+                          <option value="20">20</option>
+                          <option value="25">25</option>
+                          <option value="30">30</option>
+                          <option value="35">35</option>
+                          <option value="40">40</option>
+                          <option value="45">45</option>
+                          <option value="50">50</option>
+                          <option value="55">55</option>
+                        </select>
+												</span>
+                    &nbsp;-&nbsp;
+												<span id="endTimeSpan">
+												<select name="end_date_hour" size="1" onchange="aipo.schedule.changeEnd(this.form)">
+                          <option value="" selected="selected">--</option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                        </select>
+												:
+												<select name="end_date_minute" size="1" onchange="aipo.schedule.changeEnd(this.form)">
+                          <option value="0" selected="selected">00</option>
+                          <option value="5">05</option>
+                          <option value="10">10</option>
+                          <option value="15">15</option>
+                          <option value="20">20</option>
+                          <option value="25">25</option>
+                          <option value="30">30</option>
+                          <option value="35">35</option>
+                          <option value="40">40</option>
+                          <option value="45">45</option>
+                          <option value="50">50</option>
+                          <option value="55">55</option>
+                        </select>
+												</span>
+                  </div>
+                </div>
+										<span id="repeatButtonField" style="">
+										<input name="repeat_button" type="button" class="button" value="繰り返さない" onclick="aipo.schedule.formSwitchRepeat(this)">
+										</span>
+										<span id="spanButtonField" style="display: none;">
+										<input name="span_button" type="button" class="button" value="期間で指定する" onclick="aipo.schedule.formSwitchSpan(this)">
+										</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="caption"><span class="required">タイトル</span>
+              </td>
+              <td><input class="text" type="text" name="name" id="name" value="" maxlength="50" style="width:100%;ime-mode:active">
+              </td>
+            </tr>
+            <tr>
+              <td class="caption">場所</td>
+              <td><input class="text" type="text" name="place" id="place" value="" maxlength="50" style="width:100%;ime-mode:active">
+              </td>
+            </tr>
+            <tr>
+              <td class="caption">内容</td>
+              <td><textarea class="text wide" name="note" rows="5" cols="50"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td class="caption">公開区分</td>
+              <td><p>
+                <input name="public_flag" type="radio" value="O" id="public_flagO_P-1390432c4be-10009" checked="checked" onclick="aipo.schedule.formPublicOn(this.form)">
+                <label for="public_flagO_P-1390432c4be-10009" onclick="aipo.schedule.formPublicOn(this.form)">公開 （スケジュールを全員に公開します）</label>
+              </p>
+                <p>
+                  <input name="public_flag" type="radio" value="C" id="public_flagC_P-1390432c4be-10009" onclick="aipo.schedule.formPublicOff(this.form)">
+                  <label for="public_flagC_P-1390432c4be-10009" onclick="aipo.schedule.formPublicOff(this.form)">非公開 （スケジュールの日時のみを全員に公開します）</label>
+                </p>
+                <p>
+                  <input name="public_flag" type="radio" value="P" id="public_flagP_P-1390432c4be-10009" onclick="aipo.schedule.formPublicOff(this.form)">
+                  <label for="public_flagP_P-1390432c4be-10009" onclick="aipo.schedule.formPublicOff(this.form)">完全に隠す （スケジュールをすべて非公開とします）</label>
+                </p></td>
+            </tr>
+            <tr>
+              <td class="caption">参加ユーザー</td>
+              <td>
+                <div id="memberField" style="display: block;">
+
+                  <div id="memberFieldButton">
+                    <table class="w100">
+                      <tbody>
+                      <tr>
+                        <td style="width:80%; border:none"><span>伊藤 博文</span><!--,-->
+                          <!--<wbr></wbr>-->
+                          <!--<span>板垣 退助</span>,-->
+                          <!--<wbr></wbr>-->
+                          <!--<span>沖田 総司</span>--></td>
+                        <td style="border:none;"><input type="button" onclick="popup_member()" value="参加ユーザー選択" class="alignright" /></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="caption">設備</td>
+              <td>
+                <div style="display:" id="facilityFieldButton"><table class="w100"><tbody><tr><td style="width:80%; border:none;"></td><td style="border:none;"><input type="button" onclick="aipo.schedule.expandFacility();" value="設備選択" class="alignright"></td></tr></tbody></table></div>
+                <div style="display:none;" id="facilityField">
+                  <div class="spaceTop spaceLeft small">左側に設備を追加してください。</div>
+                  <div widgetid="facilityselect" id="facilityselect"><table style="table-layout: fixed;" class="none"><tbody><tr><td><div id="memberPopupDiv"><div class="outer"><div class="popup"><div class="clearfix"><div class="memberlistToTop">設備一覧</div><div class="memberlistFromTop"><select dojoattachevent="onchange:changeGroup" id="tmp_facility_group" name="tmp_facility_group" style="width:100%" size="1"><option value="all">すべてのグループ</option><option value="1">備品</option><option value="2">施設</option></select></div></div><div class="clearfix mb5"><div class="memberlistToBody"><select id="facility_to" name="facility_to" style="width:100%" multiple="multiple" size="5"></select></div><div class="memberlistFromBody"><select id="tmp_facility_from" name="tmp_facility_from" style="width:100%" multiple="multiple" size="5"><option value="1">会議室（1F）</option><option value="2">外付けHDD</option><option value="3">持ち出し用ノートPC</option></select></div></div><div class="clearfix"><div class="memberlistToBottom"><div class="alignright"><input type="button" dojoattachevent="onclick:onMemberRemoveClick" value="削除" class="button" name="button_facility_remove" id="button_facility_remove"></div></div><div class="memberlistFromBottom"><div class="indicator alignleft" id="facilityselect-memberlist-indicator" style="display: none;">読み込み中</div><div class="alignright"><input type="button" dojoattachevent="onclick:onMemberAddClick" value="＜ 追加" class="button" name="button_facility_add" id="button_facility_add"></div></div></div></div></div></div></td></tr></tbody></table></div>
+                  <select id="init_facilitylist" name="init_facilitylist" style="display:none;" multiple="multiple" size="5"></select>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div align="center">
+            <span class="auiButtonDisabled">追加する</span>
+            <input name="eventSubmit_doSchedule_insert" class="auiButtonAction" type="submit" value="追加する" onclick="aimluck.io.setHiddenValue(this);">
+            <span class="auiButtonDisabled">閉じる</span>
+            <input name="ajaxbuttonClose" class="button" type="button" value="閉じる" onclick="aipo.common.hideDialog();">
+          </div>
+          <input type="hidden" id="commonUrlP-1390432c4be-10009" name="commonUrlP-1390432c4be-10009" value="http://192.168.3.28:8080/aipo/portal/media-type/html/user/user1/page/default.psml/js_peid/P-1390432c4be-10009/template/CommonCategoryLiteJSONScreen">
+          <input type="hidden" id="commonCategoryidP-1390432c4be-10009" name="commonCategoryidP-1390432c4be-10009" value="1">
+        </form>
+      </div>
+    </div>
+
+  <!-- /modalDialog -->
+
+</div>
+<!-- /roundMainWrapper  -->
+
+</div>
+
+
+<!-- menubar_auiFilter_3 -->
+<div class="menubar multi" id="menubar_auiFilter_2"
+     style="width:130px;top:3073px; left:20px;display:none; z-index: 9999;">
+  <div>
+    <p class="caption">グループ</p>
+    <ul>
+      <li><a href="#" class="selected">すべてのグループ</a></li>
+      <li><a href="#">営業本部</a></li>
+      <li><a href="#">開発本部本部</a></li>
+      <li><a href="#">企画本部</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="caption">表示順</p>
+    <ul>
+      <li><a href="#">標準</a></li>
+      <li><a href="#">辞書順</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="caption">表示ユーザー</p>
+    <ul>
+      <li><a href="#">すべて</a></li>
+      <li><a href="#">選択済み</a></li>
+      <li><a href="#">未選択のみ</a></li>
+    </ul>
+  </div>
+
+</div>
+<!-- /menubar_auiFilter_3 -->
+
+
+</body>
+</html>

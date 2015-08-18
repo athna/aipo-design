@@ -1540,6 +1540,89 @@ div.off {//}, td.off {
 //}
 
 /***************************************************
+	memberPopupDiv_ver3　　20150715
+--------------------------------------------------*/
+#memberPopupDiv_ver3{
+  margin: 0 0 10px;
+
+  .head{
+	border: 1px solid $grayLight;
+	border-bottom: none;
+	padding: 3px 7px;
+	border-radius: 3px 3px 0 0;
+  }
+  .memberPopupList{
+	border: 1px solid $grayLight;
+	height: 250px;
+	overflow-y: scroll;
+	border-radius: 0 0 3px 3px;
+
+	li{
+	  display: block;
+	  padding: 0;
+	  margin: 0;
+	  background: none;
+	  border-top: 1px solid $grayBorderLight;
+	  @include clearfix();
+
+	  &:first-child{
+		border-top: none;
+	  }
+	  a{
+		display: block;
+		height: 32px;
+		line-height: 32px;
+		padding: 5px 20px 5px 7px;
+		text-decoration: none;
+
+		&:hover{
+		  background: $grayBackLight;
+		}
+		input[type="checkbox"]{
+		  float: left;
+		  margin-top: 9px;
+		}
+		.avatar{
+		  margin:4px 7px 0 10px;
+		  float: left;
+		}
+		.name{
+		  @include text-overflow;
+		  display: inline-block;
+		  width: 300px;
+		  margin-right: 7px;
+		  float: left;
+		}
+	  }
+	  select{
+		display: none;
+	  }
+	  &.checked{
+
+		a {
+		  background: $grayBackLight;
+		}
+		select{
+		  display: block;
+		}
+	  }
+	}
+  }
+}
+
+.auiPopup {
+  .auiSearch.gray {
+
+	input[type="text"] {
+	  min-width: inherit;
+	}
+  }
+  .filterTip{
+	margin-bottom: 0 !important;
+  }
+}
+
+/***************************************************
 	calendar
 --------------------------------------------------*/
 .calendar {

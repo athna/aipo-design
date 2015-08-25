@@ -1640,12 +1640,13 @@ div.off {//}, td.off {
 	calendar
 --------------------------------------------------*/
 .calendar {
-	margin-top:5px;
-	margin-bottom:5px;
-	border-collapse:collapse;
-	border-spacing:0;
-	border:1px solid $grayBorder;
-	//font-size: $fontSizeSmall;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid $grayBorder;
+  font-size: 12px;
+  //font-size: $fontSizeSmall;
 
 	th {
 		//height: 60px;
@@ -1686,6 +1687,9 @@ div.off {//}, td.off {
 		//height: 100%;
 	  }
 	}
+  td.fill {
+	background-color: #edf1f2;
+  }
 	//週表示用
 	th.groupWeekly {
 		width:12.5%;
@@ -1811,7 +1815,7 @@ div.off {//}, td.off {
 		text-decoration:none;
 	}
 
-	// todo
+	//todo
 	td.calendarTodo {
 		padding: 0;
 		border-top: none;
@@ -1967,6 +1971,104 @@ div.off {//}, td.off {
 	  }
 	}
   }
+}
+
+
+.calendar .calendarScheduleDiv {
+  margin: 1px;
+}
+.calendar .calendarScheduleDiv .time {
+  display: block;
+}
+.calendar .calendarScheduleDiv a:link, .calendar .calendarScheduleDiv a:visited {
+  display: block;
+  padding: 1px;
+  text-decoration: none;
+}
+.calendar .calendarScheduleDiv a:hover {
+  background-color: #ffffe5;
+  border: 1px solid #f90;
+  padding: 0;
+  text-decoration: none;
+}
+.calendar .calendarScheduleDiv .calendarTime {
+  padding-bottom: 5px;
+  vertical-align: text-bottom;
+}
+.calendar .calendarScheduleDiv .addSchedule {
+  display: inline-block !important;
+  margin: 0 0 5px;
+  padding: 1px 0 !important;
+  text-decoration: underline !important;
+}
+.calendar .calendarScheduleDiv .addSchedule:hover {
+  background: #f5f5f5 none repeat scroll 0 0;
+  border: 0 none;
+  cursor: pointer;
+  padding: 1px 0;
+}
+.calendar .calendarScheduleDiv .addSchedule:hover a.addSchedule {
+  color: #f90;
+  text-decoration: none !important;
+}
+.calendar .calendarScheduleDiv.overlap {
+  color: #f33;
+}
+.calendar .addScheduleCell {
+  border-top: 0 none;
+}
+.calendar .addScheduleCell:hover {
+  background: #f6f6f6 none repeat scroll 0 0;
+  cursor: pointer;
+}
+.calendar .addScheduleCell.today {
+  background: #edfeed none repeat scroll 0 0;
+}
+.calendar i[class*="icon-"] {
+  display: inline-block;
+  text-align: center;
+  width: 1em;
+}
+.calendarDisplayMonth .calendar th {
+  min-width: 7.5em;
+}
+.calendarDisplayMonth .calendar .calendarScheduleDiv {
+  min-width: 6em;
+}
+.calendarDisplayMonth .calendar .calendarScheduleDiv .time {
+  display: inline;
+  margin-right: 5px;
+}
+.calendarDisplayMonth .calendar .calendarScheduleDiv a {
+  height: 1.5em;
+  line-height: 1.6em;
+  overflow: hidden;
+}
+.calendarDisplayDay .calendar tr:first-child th {
+  background: #f6f6f6 none repeat scroll 0 0;
+  min-width: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.calendarDisplayDay .calendar .calerndarTermScheduleDiv, .calendarDisplayDay .calendar .calerndarTodoDiv {
+  margin: 1px;
+}
+.calendarDisplayWeek .calendar .calendarScheduleDiv a, .calendarDisplayDay .calendar .calendarScheduleDiv a {
+  height: auto;
+}
+.calendarDisplayWeek .calendar, .calendarDisplayMonth .calendar {
+  height: 100%;
+}
+.calendarDisplayWeek .calendar td.term, .calendarDisplayMonth .calendar td.term {
+  height: 100%;
+}
+.calendarDisplayWeek .calendar .calerndarTermScheduleDiv, .calendarDisplayMonth .calendar .calerndarTermScheduleDiv {
+  box-sizing: border-box;
+  height: 100%;
+}
+.calendarDisplayWeek .calendar .calerndarTermScheduleDiv a, .calendarDisplayMonth .calendar .calerndarTermScheduleDiv a {
+  box-sizing: border-box;
+  height: 100%;
 }
 
 

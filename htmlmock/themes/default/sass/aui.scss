@@ -3446,119 +3446,474 @@ $wuiWLCaptionHeight: 24px;
 //IE6は透過PNGが利用できないため透過GIFへ置き換えている。
 //そのためバリを表示させないためhoverアクションを封じる。
 //
+//.auiIcon {
+//	@include auiIconStyle();
+//	@include border-radius(2px);
+//	@include auiIconBackPNG();
+//}
+
+/***************************************************
+	auiIcon
+--------------------------------------------------*/
 .auiIcon {
-	@include auiIconStyle();
-	@include border-radius(2px);
-	@include auiIconBackPNG();
+  display: block;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background-image: url(../images/icon/auiIconSprites20150318.png);
+  background-repeat: no-repeat;
+}
+.off .auiIcon {
+  background-image: url(../images/icon/auiIconSpritesGray20150709.png);
+}
+.off a:hover .auiIcon {
+  background-image: url(../images/icon/auiIconSprites20150318.png);
 }
 
-.auiIcon span {display:none;}
-a.auiIcon:hover {background-color:$gray;}
+.auiIcon span {
+  display: none;
+}
 
-.auiIconClear {background-position:16px 0}
+a.auiIcon:hover {
+  background-color: #999999;
+}
 
-.auiIconSetting {background-position:0px 0px; height:17px;}
-.auiIconSetting_w {background-position:0px -16px; height:17px;}
-a.auiIconSetting:hover {background-position:0px -16px;}
+.auiIconClear {
+  background-position: 16px 0;
+}
 
-.auiIconFile {background-position:0px -32px;}
-.auiIconFile_w {background-position:0px -48px;}
-a.auiIconFile:hover {background-position:0px -48px;}
+.auiIconSetting {
+  background-position: 0px 0px;
+  height: 17px;
+}
 
-.auiIconUser {background-position:0px -64px;}
-.auiIconUser_w {background-position:0px -80px;}
-a.auiIconUser:hover {background-position:0px -80px;}
+.auiIconSetting_w {
+  background-position: 0px -16px;
+  height: 17px;
+}
 
-.auiIconCreate {background-position:0px -96px;}
-.auiIconCreate_w {background-position:0px -112px;}
-a.auiIconCreate:hover {background-position:0px -112px;}
+a.auiIconSetting:hover {
+  background-position: 0px -16px;
+}
 
-.auiIconClock {background-position:0px -128px;}
-.auiIconClock_w {background-position:0px -144px;}
-a.auiIconClock:hover {background-position:0px -144px;}
+.auiIconFile {
+  background-position: 0px -32px;
+}
 
-.auiIconCalendar {background-position:0px -160px;}
-.auiIconCalendar_w {background-position:0px -176px;}
-a.auiIconCalendar:hover {background-position:0px -176px;}
+.auiIconFile_w {
+  background-position: 0px -48px;
+}
 
-.auiIconLock {background-position:0px -192px;}
-.auiIconLock_w {background-position:0px -208px;}
-a.auiIconLock:hover {background-position:0px -208px;}
+a.auiIconFile:hover {
+  background-position: 0px -48px;
+}
 
-.auiIconReload {background-position:0px -224px;}
-.auiIconReload_w {background-position:0px -240px;}
-a.auiIconReload:hover {background-position:0px -240px;}
+.auiIconUser {
+  background-position: 0px -64px;
+}
 
-.auiIconPrint {background-position:0px -256px;}
-a.auiIconPrint:hover {background-position:0px -256px;}
+.auiIconUser_w {
+  background-position: 0px -80px;
+}
 
-.auiIconDelete {background-position:0px -272px;}
-.auiIconDelete_w {background-position:0px -288px;}
-a.auiIconDelete:hover {background-position:0px -288px;}
+a.auiIconUser:hover {
+  background-position: 0px -80px;
+}
 
-.auiIconPlus {background-position:0px -304px;}
-.auiIconPlus_w {background-position:0px -320px;}
-a.auiIconPlus:hover {background-position:0px -320px;}
+.auiIconCreate {
+  background-position: 0px -96px;
+}
 
-.auiIconMinus {background-position:0px -336px;}
-.auiIconMinus_w {background-position:0px -352px;}
-a.auiIconMinus:hover {background-position:0px -352px;}
+.auiIconCreate_w {
+  background-position: 0px -112px;
+}
 
-.auiIconArwLeft {background-position:0px -368px !important;}
-.auiIconArwLeft_w {background-position:0px -384px !important;}
-a.auiIconArwLeft:hover {background-position:0px -384px !important;}
+a.auiIconCreate:hover {
+  background-position: 0px -112px;
+}
 
-.auiIconArwRight {background-position:0px -400px !important;}
-.auiIconArwRight_w {background-position:0px -416px !important;}
-a.auiIconArwRight:hover {background-position:0px -416px !important;}
+.auiIconClock {
+  background-position: 0px -128px;
+}
 
-.auiIconArwBottom {background-position:0px -432px !important;}
-.auiIconArwBottom_w {background-position:0px -448px !important;}
-a.auiIconArwBottom:hover {background-position:0px -448px !important;}
+.auiIconClock_w {
+  background-position: 0px -144px;
+}
 
-.auiIconArwTop {background-position:0px -464px !important;}
-.auiIconArwTop_w {background-position:0px -480px !important;}
-a.auiIconArwTop:hover {background-position:0px -480px !important;}
+a.auiIconClock:hover {
+  background-position: 0px -144px;
+}
 
-.auiIconImage {background-position:0px -496px;}
-.auiIconImage_w {background-position:0px -512px;}
-a.auiIconImage:hover {background-position:0px -512px;}
+.auiIconCalendar {
+  background-position: 0px -160px;
+}
 
-.auiIconUsers {background-position:0px -528px;}
-.auiIconUsers_w {background-position:0px -544px;}
-a.auiIconUsers:hover {background-position:0px -544px;}
+.auiIconCalendar_w {
+  background-position: 0px -176px;
+}
 
-.auiIconSearch {background-position:0px -560px;}
-.auiIconSearch_w {background-position:0px -576px;}
-a.auiIconSearch:hover {background-position:0px -576px;}
+a.auiIconCalendar:hover {
+  background-position: 0px -176px;
+}
 
-.auiIconTmpreserve {background-position:0px -688px;}
-a.auiIconTmpreserve:hover {background-position:0px -688px;}
+.auiIconLock {
+  background-position: 0px -192px;
+}
 
-.auiIconOverlap {background-position:0px -704px;}
-a.auiIconOverlap:hover {background-position:0px -704px;}
+.auiIconLock_w {
+  background-position: 0px -208px;
+}
 
-.auiIconRepeat {background-position:0px -720px;}
-a.auiIconRepeat:hover {background-position:0px -720px;}
+a.auiIconLock:hover {
+  background-position: 0px -208px;
+}
 
-.auiIconSecret {background-position:0px -736px;}
-a.auiIconSecret:hover {background-position:0px -736px;}
+.auiIconReload {
+  background-position: 0px -224px;
+}
 
-.auiIconTrash {background-position:0px -752px;}
-.auiIconTrash_w {background-position:0px -768px;}
-a.auiIconTrash:hover {background-position:0px -768px;}
+.auiIconReload_w {
+  background-position: 0px -240px;
+}
 
-.auiIconMail {background-position:0px -784px;}
-a.auiIconMail:hover {background-position:0px -784px;}
+a.auiIconReload:hover {
+  background-position: 0px -240px;
+}
 
-.auiIconMailOpen {background-position:0px -800px;}
-a.auiIconMailOpen:hover {background-position:0px -800px;}
+.auiIconPrint {
+  background-position: 0px -256px;
+}
+
+a.auiIconPrint:hover {
+  background-position: 0px -256px;
+}
+
+.auiIconDelete {
+  background-position: 0px -272px;
+}
+
+.auiIconDelete_w {
+  background-position: 0px -288px;
+}
+
+a.auiIconDelete:hover {
+  background-position: 0px -288px;
+}
+
+.auiIconPlus {
+  background-position: 0px -304px;
+}
+
+.auiIconPlus_w {
+  background-position: 0px -320px;
+}
+
+a.auiIconPlus:hover {
+  background-position: 0px -320px;
+}
+
+.auiIconMinus {
+  background-position: 0px -336px;
+}
+
+.auiIconMinus_w {
+  background-position: 0px -352px;
+}
+
+a.auiIconMinus:hover {
+  background-position: 0px -352px;
+}
+
+.auiIconArwLeft {
+  background-position: 0px -368px !important;
+}
+
+.auiIconArwLeft_w {
+  background-position: 0px -384px !important;
+}
+
+a.auiIconArwLeft:hover {
+  background-position: 0px -384px !important;
+}
+
+.auiIconArwRight {
+  background-position: 0px -400px !important;
+}
+
+.auiIconArwRight_w {
+  background-position: 0px -416px !important;
+}
+
+a.auiIconArwRight:hover {
+  background-position: 0px -416px !important;
+}
+
+.auiIconArwBottom {
+  background-position: 0px -432px !important;
+}
+
+.auiIconArwBottom_w {
+  background-position: 0px -448px !important;
+}
+
+a.auiIconArwBottom:hover {
+  background-position: 0px -448px !important;
+}
+
+.auiIconArwTop {
+  background-position: 0px -464px !important;
+}
+
+.auiIconArwTop_w {
+  background-position: 0px -480px !important;
+}
+
+a.auiIconArwTop:hover {
+  background-position: 0px -480px !important;
+}
+
+.auiIconImage {
+  background-position: 0px -496px;
+}
+
+.auiIconImage_w {
+  background-position: 0px -512px;
+}
+
+a.auiIconImage:hover {
+  background-position: 0px -512px;
+}
+
+.auiIconUsers {
+  background-position: 0px -528px;
+}
+
+.auiIconUsers_w {
+  background-position: 0px -544px;
+}
+
+a.auiIconUsers:hover {
+  background-position: 0px -544px;
+}
+
+.auiIconSearch {
+  background-position: 0px -560px;
+}
+
+.auiIconSearch_w {
+  background-position: 0px -576px;
+}
+
+a.auiIconSearch:hover {
+  background-position: 0px -576px;
+}
+
+.auiIconTmpreserve {
+  background-position: 0px -688px;
+  width: 13px;
+}
+
+a.auiIconTmpreserve:hover {
+  background-position: 0px -688px;
+}
+.termScheduleDivNameDiv .auiIconTmpreserve {background-position: 0px -816px; margin-top: 1px !important;}
+.termScheduleDivNameDiv .auiIconTmpreserve:hover {background-position: 0px -816px;}
+
+.auiIconOverlap {
+  background-position: 0px -704px;
+  width: 12px;
+}
+/* IE11用記述 */
+@media all and (-ms-high-contrast:none){
+  /* 仮 */
+  *::-ms-backdrop, .auiIconTmpreserve,
+  *::-ms-backdrop, .off .auiIconTmpreserve,
+  *::-ms-backdrop, .off a:hover .auiIconTmpreserve{
+	height: 13px;
+	background-repeat: no-repeat;
+	background-size: 100% !important;
+	background-position-x: 0 !important;
+	background-position-y: 0 !important;
+	/*background-position-x: -0.05px !important;*/
+	/*background-position-y: -0.05px !important;*/
+  }
+  *::-ms-backdrop, .off .auiIconTmpreserve{
+	background-image: url("../images/icon/auiIconTmpreserve_off.png") !important;
+  }
+  *::-ms-backdrop, .auiIconTmpreserve,
+  *::-ms-backdrop, .off a:hover .auiIconTmpreserve{
+	background-image: url("../images/icon/auiIconTmpreserve.png") !important;
+  }
+  /* 重複*/
+  *::-ms-backdrop, .auiIconOverlap,
+  *::-ms-backdrop, .off .auiIconOverlap,
+  *::-ms-backdrop, .off a:hover .auiIconOverlap{
+	height: 13px;
+	background-repeat: no-repeat;
+	background-size: 100% !important;
+	background-position-x: 0 !important;
+	background-position-y: 0 !important;
+	/*background-position-x: -0.05px !important;*/
+	/*background-position-y: -0.05px !important;*/
+  }
+  *::-ms-backdrop, .off .auiIconOverlap {
+	background-image: url("../images/icon/auiIconOverlap_off.png") !important;
+  }
+  *::-ms-backdrop, .auiIconOverlap,
+  *::-ms-backdrop, .off a:hover .auiIconOverlap {
+	background-image: url("../images/icon/auiIconOverlap.png") !important;
+  }
+  /* 繰り返し */
+  *::-ms-backdrop, .auiIconRepeat,
+  *::-ms-backdrop, .off .auiIconRepeat,
+  *::-ms-backdrop, .off a:hover .auiIconRepeat{
+	height: 13px;
+	background-repeat: no-repeat;
+	background-size: 100% !important;
+	background-position-x: 0 !important;
+	background-position-y: 0 !important;
+	/*background-position-x: -0.05px !important;*/
+	/*background-position-y: -0.05px !important;*/
+  }
+  *::-ms-backdrop, .off .auiIconRepeat{
+	background-image: url("../images/icon/auiIconRepeat_off.png") !important;
+  }
+  *::-ms-backdrop, .auiIconRepeat,
+  *::-ms-backdrop, .off a:hover .auiIconRepeat{
+	background-image: url("../images/icon/auiIconRepeat.png") !important;
+  }
+  /* 鍵 */
+  *::-ms-backdrop, .auiIconSecret,
+  *::-ms-backdrop, .off .auiIconSecret,
+  *::-ms-backdrop, .off a:hover .auiIconSecret{
+	height: 13px;
+	background-repeat: no-repeat;
+	background-size: 100% !important;
+	background-position-x: 0 !important;
+	background-position-y: 0 !important;
+	/*background-position-x: -0.05px !important;*/
+	/*background-position-y: -0.05px !important;*/
+  }
+  *::-ms-backdrop, .off .auiIconSecret{
+	background-image: url("../images/icon/auiIconSecret_off.png") !important;
+  }
+  *::-ms-backdrop, .auiIconSecret,
+  *::-ms-backdrop, .off a:hover .auiIconSecret{
+	background-image: url("../images/icon/auiIconSecret.png") !important;
+  }
+}
+
+a.auiIconOverlap:hover {
+  background-position: 0px -704px;
+}
+.termScheduleDivNameDiv .auiIconOverlap {background-position: 0px -832px; margin-top: 1px !important;}
+.termScheduleDivNameDiv .auiIconOverlap:hover {background-position: 0px -832px;}
+
+.auiIconRepeat {
+  background-position: 0px -720px;
+  width: 13px;
+}
+
+a.auiIconRepeat:hover {
+  background-position: 0px -720px;
+}
+.termScheduleDivNameDiv .auiIconRepeat {background-position: 0px -848px; margin-top: 1px !important;}
+.termScheduleDivNameDiv .auiIconRepeat:hover {background-position: 0px -848px;}
+
+.auiIconSecret {
+  background-position: 0px -736px;
+  width: 12px;
+}
+
+a.auiIconSecret:hover {
+  background-position: 0px -736px;
+}
+.termScheduleDivNameDiv .auiIconSecret {background-position: 0px -864px; margin-top: 1px !important;}
+.termScheduleDivNameDiv .auiIconSecret:hover {background-position: 0px -864px;}
+
+.auiIconTrash {
+  background-position: 0px -752px;
+}
+
+.auiIconTrash_w {
+  background-position: 0px -768px;
+}
+
+a.auiIconTrash:hover {
+  background-position: 0px -768px;
+}
+
+.auiIconMail {
+  background-position: 0px -784px;
+}
+
+a.auiIconMail:hover {
+  background-position: 0px -784px;
+}
+
+.auiIconMailOpen {
+  background-position: 0px -800px;
+}
+
+a.auiIconMailOpen:hover {
+  background-position: 0px -800px;
+}
 
 .auiIconIndicator {
-	background-image:url(../images/common/indicator.gif);
-	background-repeat:no-repeat;
+  background-image: url(../images/common/indicator.gif);
+  background-repeat: no-repeat;
 }
 
+/***************************************************
+	auiIconArrow
+--------------------------------------------------*/
+.auiIconArrow {
+  display: inline-block;
+  width: 15px;
+  height: 18px;
+  vertical-align: baseline;
+  background-image: url(../images/icon/auiIconSprites20150318.png);
+  background-repeat: no-repeat;
+}
+
+.auiIconArrowLeft {
+  background-position: 0 -367px;
+}
+
+.auiIconArrowLeft_w {
+  background-position: 0 -383px;
+}
+
+.auiIconArrowLeftW {
+  background-position: 0 -623px;
+}
+
+.auiIconArrowRight {
+  background-position: 0 -399px;
+}
+
+.auiIconArrowRight_w {
+  background-position: 0 -417px;
+}
+
+.auiIconArrowRightW {
+  background-position: 0 -655px;
+}
+
+.auiIconArrowBottom {
+  background-position: 0 -431px;
+}
+
+.auiIconArrowTop {
+  background-position: 0 -463px;
+}
 
 /***************************************************
 	auiIconArrow

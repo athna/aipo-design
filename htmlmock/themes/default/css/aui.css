@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "utf-8";
 .clearfix, #auiHeader, .hdPages > ul, .hdNavigation > ul, .dropdown .title,
 .activityPopup .title, .supportPopup .title, .dropdown .body,
 .activityPopup .body, .supportPopup .body, .dropdown .contents,
@@ -63,10 +63,11 @@
 }
 
 .inline-block {
+  display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
-  *zoom: 1;
+  zoom: 1;
   *display: inline;
 }
 
@@ -201,7 +202,7 @@ input[type=submit], input[type=button], input[type=reset] {
   width: 100%;
   min-width: 960px;
   padding: 0 0 0 10px;
-  background-color: #ffffff;
+  background-color: white;
   border-bottom: solid 1px #d2d2d2;
   z-index: 110;
 }
@@ -239,11 +240,11 @@ input[type=submit], input[type=button], input[type=reset] {
   color: #d2d2d2;
 }
 .hdPages > ul > li > a:hover {
-  color: #333;
+  color: #333333;
   text-decoration: none;
 }
 .hdPages > ul > li > a:hover [class*=icon-] {
-  color: #333;
+  color: #333333;
 }
 .hdPages > ul > li [class^="icon-"], .hdPages > ul > li [class*=" icon-"] {
   line-height: 60px;
@@ -261,7 +262,7 @@ input[type=submit], input[type=button], input[type=reset] {
   padding: 0;
 }
 .hdPages a.setting.active [class*=icon-] {
-  color: #333;
+  color: #333333;
 }
 .hdPages a.plus {
   padding: 0 15px;
@@ -279,16 +280,16 @@ input[type=submit], input[type=button], input[type=reset] {
   bottom: -1px;
   width: 100%;
   height: 1px;
-  background-color: #333;
+  background-color: #333333;
 }
 .hdPages .current a {
-  color: #333;
+  color: #333333;
 }
 
 .hdNavigation {
   position: absolute;
   right: 10px;
-  background: #ffffff;
+  background: white;
 }
 .hdNavigation > ul {
   float: left;
@@ -307,12 +308,14 @@ input[type=submit], input[type=button], input[type=reset] {
   min-width: 50px;
   text-align: center;
   text-decoration: none;
-  color: #999;
+  color: #999999;
   border-top: solid 1px transparent;
   border-right: solid 1px transparent;
   border-left: solid 1px transparent;
+  -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
-  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px 3px 0 0;
+  -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
 .hdNavigation > ul > li > a [class^="icon-"], .hdNavigation > ul > li > a [class*=" icon-"] {
@@ -333,17 +336,17 @@ input[type=submit], input[type=button], input[type=reset] {
   text-decoration: none;
 }
 .hdNavigation > ul > li > a:hover [class^="icon-"], .hdNavigation > ul > li > a:hover [class*=" icon-"] {
-  color: #333;
+  color: #333333;
 }
 .hdNavigation > ul > li > a.active {
   position: relative;
-  border-top: solid 1px #c0c0c0;
-  border-right: solid 1px #c0c0c0;
-  border-left: solid 1px #c0c0c0;
-  background-color: #ffffff;
+  border-top: solid 1px silver;
+  border-right: solid 1px silver;
+  border-left: solid 1px silver;
+  background-color: white;
 }
 .hdNavigation > ul > li > a.active [class^="icon-"], .hdNavigation > ul > li > a.active [class*=" icon-"] {
-  color: #333;
+  color: #333333;
 }
 .hdNavigation > ul > li > a.active:before {
   position: absolute;
@@ -353,17 +356,17 @@ input[type=submit], input[type=button], input[type=reset] {
   content: "";
   width: 100%;
   height: 1px;
-  background-color: #ffffff;
+  background-color: white;
   z-index: 121;
 }
 
 .search {
   position: relative;
   border: solid 1px #d2d2d2;
-  background-color: #ffffff;
+  background-color: white;
 }
 .search:hover {
-  border: solid 1px #999;
+  border: solid 1px #999999;
 }
 .search input[type=text], .search .submit {
   height: 30px;
@@ -377,8 +380,8 @@ input[type=submit], input[type=button], input[type=reset] {
 }
 .search input[type=text]:hover, .search input[type=text]:focus {
   border: none;
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
 }
 .search input[type=text]::-ms-clear {
@@ -405,12 +408,12 @@ input[type=submit], input[type=button], input[type=reset] {
   width: 30px;
 }
 .search .submit:hover [class^="icon-"], .search .submit:hover [class*=" icon-"] {
-  color: #ffffff;
+  color: white;
 }
 .search .submit:active {
   background: none !important;
   box-shadow: none !important;
-  color: #333;
+  color: #333333;
 }
 .search button::-moz-focus-inner {
   padding: 0;
@@ -428,9 +431,11 @@ input[type=submit], input[type=button], input[type=reset] {
   height: 30px;
   padding: 0;
   background-position: center center;
-  background-color: #ffffff;
-  -moz-border-radius: 4px;
+  background-color: white;
   -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
 }
 
@@ -451,10 +456,10 @@ input[type=submit], input[type=button], input[type=reset] {
 }
 .hdSearch form {
   border: solid 1px #d2d2d2;
-  background-color: #ffffff;
+  background-color: white;
 }
 .hdSearch form:hover {
-  border: solid 1px #999;
+  border: solid 1px #999999;
 }
 .hdSearch input[type=text], .hdSearch .submit {
   height: 30px;
@@ -468,8 +473,8 @@ input[type=submit], input[type=button], input[type=reset] {
 }
 .hdSearch input[type=text]:hover, .hdSearch input[type=text]:focus {
   border: none;
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
 }
 .hdSearch .submit {
@@ -490,13 +495,13 @@ input[type=submit], input[type=button], input[type=reset] {
 .hdSearch .submit [class^="icon-"], .hdSearch .submit [class*=" icon-"] {
   display: block;
   width: 30px;
-  color: #999;
+  color: #999999;
 }
 .hdSearch .submit:hover {
   background-color: #f6f6f6;
 }
 .hdSearch .submit:hover [class^="icon-"], .hdSearch .submit:hover [class*=" icon-"] {
-  color: #333;
+  color: #333333;
 }
 .hdSearch .dropdown_menu a, .hdSearch .dropdown_list ul a, .dropdown_list .hdSearch ul a {
   line-height: 1.5;
@@ -505,7 +510,7 @@ input[type=submit], input[type=button], input[type=reset] {
   width: 100%;
 }
 .hdSearch .dropdown_menu .date, .hdSearch .dropdown_list ul .date, .dropdown_list .hdSearch ul .date {
-  color: #999;
+  color: #999999;
 }
 .hdSearch #preSearch {
   width: 100%;
@@ -523,11 +528,13 @@ input[type=submit], input[type=button], input[type=reset] {
   float: left;
   width: 60px;
   border-right: solid 1px #ededed;
-  color: #999;
+  color: #999999;
   cursor: pointer;
   overflow: hidden;
+  -webkit-border-radius: 3px 0 0 3px;
   -moz-border-radius: 3px 0 0 3px;
-  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
 .searchCategory .name {
@@ -538,11 +545,11 @@ input[type=submit], input[type=button], input[type=reset] {
   margin-left: 5px;
 }
 .searchCategory:hover, .searchCategory .active {
-  color: #333;
+  color: #333333;
   background-color: #f6f6f6;
 }
 .searchCategory:hover [class^="icon-"], .searchCategory:hover [class*=" icon-"], .searchCategory .active [class^="icon-"], .searchCategory .active [class*=" icon-"] {
-  color: #333;
+  color: #333333;
 }
 
 ul.hdCommunications {
@@ -573,11 +580,11 @@ ul.hdCommunications .num {
   font-size: 10px;
   text-align: center;
   background-color: #ff3333;
-  color: #ffffff;
+  color: white;
   white-space: nowrap;
   text-decoration: none;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 ul.hdCommunications .label {
@@ -630,7 +637,7 @@ ul.hdTools > li > a {
   text-align: left;
 }
 ul.hdTools > li > a:hover, ul.hdTools > li > a:hover .name {
-  color: #333;
+  color: #333333;
   text-decoration: none;
 }
 ul.hdTools > li > a [class^="icon-"], ul.hdTools > li > a [class*=" icon-"] {
@@ -644,8 +651,10 @@ ul.hdTools .name {
 }
 ul.hdTools .dropdown {
   min-width: 100%;
+  -webkit-border-radius: 0 0 3px 3px;
   -moz-border-radius: 0 0 3px 3px;
-  -webkit-border-radius: 0;
+  -ms-border-radius: 0 0 3px 3px;
+  -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
 ul.hdTools .dropdown:before {
@@ -660,7 +669,7 @@ ul.hdTools .dropdown:before {
   margin-right: -10px;
 }
 .hdLauncher a.launcherActive [class^="icon-"], .hdLauncher a.launcherActive [class*=" icon-"] {
-  color: #333;
+  color: #333333;
 }
 
 /***************************************************
@@ -671,8 +680,8 @@ ul.hdTools .dropdown:before {
   display: none;
   position: absolute;
   z-index: 120;
-  border: solid 1px #c0c0c0;
-  background-color: #ffffff;
+  border: solid 1px silver;
+  background-color: white;
   line-height: 2;
 }
 .dropdown.open,
@@ -738,7 +747,7 @@ ul.hdTools .dropdown:before {
 .dropdown_menu a, .dropdown_list ul a {
   display: block;
   padding: 6px 10px;
-  color: #333;
+  color: #333333;
   text-decoration: none;
 }
 #auiHeader .dropdown_menu a, #auiHeader .dropdown_list ul a, .dropdown_list #auiHeader ul a {
@@ -780,13 +789,13 @@ ul.hdTools .dropdown:before {
 }
 .dropdown_list .date {
   float: right;
-  color: #999;
+  color: #999999;
 }
 .dropdown_list .new {
   background-color: #f6f6f6;
 }
 .dropdown_list .new .date, .dropdown_list .new .name {
-  color: #333;
+  color: #333333;
   font-weight: bold;
 }
 .dropdown_list .new:hover a {
@@ -803,7 +812,7 @@ ul.hdTools .dropdown:before {
 }
 .contentList .date {
   margin-bottom: 3px;
-  color: #999;
+  color: #999999;
 }
 
 .divider {
@@ -824,8 +833,8 @@ ul.hdTools .dropdown:before {
 .profilePopup {
   display: none;
   position: absolute;
-  border: solid 1px #c0c0c0;
-  background-color: #ffffff;
+  border: solid 1px silver;
+  background-color: white;
   line-height: 2;
   overflow: hidden;
   min-width: 220px;
@@ -930,8 +939,10 @@ ul.hdTools .dropdown:before {
 }
 .profilePopup .messageField textarea {
   border: none;
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
   font-size: 13px;
 }
@@ -981,7 +992,7 @@ ul.hdTools .dropdown:before {
   line-height: 34px;
   text-decoration: none;
   padding-left: 35px;
-  color: #999;
+  color: #999999;
 }
 #dd_message .hdMenu li a span {
   position: absolute;
@@ -999,7 +1010,7 @@ ul.hdTools .dropdown:before {
 #dd_message .hdMenu li a span i {
   line-height: 30px;
   font-size: 16px;
-  color: #999;
+  color: #999999;
 }
 #dd_message .hdMenu li a:hover {
   text-decoration: none;
@@ -1023,14 +1034,14 @@ ul.hdTools .dropdown:before {
   bottom: 0;
   right: 0;
   width: 359px;
-  background: #ffffff;
+  background: white;
   border-left: 1px solid #e5e5e5;
   overflow-y: scroll;
 }
 #dd_message .rightBlock div.index {
   background: #f6f6f6;
   padding: 11px 20px 9px 10px;
-  color: #333;
+  color: #333333;
 }
 #dd_message .rightBlock div.index a {
   text-decoration: none !important;
@@ -1046,11 +1057,11 @@ ul.hdTools .dropdown:before {
   border: 1px solid #E7E7E7;
 }
 #dd_message .rightBlock ul.user li:hover, #dd_message .rightBlock ul.room li:hover {
-  border: 1px solid #999;
+  border: 1px solid #999999;
 }
 #dd_message .rightBlock ul.user li a, #dd_message .rightBlock ul.room li a {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 38px;
   padding: 7px 16px 7px 38px;
@@ -1068,7 +1079,7 @@ ul.hdTools .dropdown:before {
 }
 #dd_message .rightBlock ul.user li .date, #dd_message .rightBlock ul.room li .date {
   float: right;
-  color: #999;
+  color: #999999;
   font-size: 11px;
 }
 #dd_message .rightBlock ul.user li .nrCount, #dd_message .rightBlock ul.room li .nrCount {
@@ -1089,11 +1100,11 @@ ul.hdTools .dropdown:before {
   position: relative;
   margin: 0 15px 7px 15px;
   border-radius: 4px;
-  background: #ffffff;
+  background: white;
 }
 #dd_message .rightBlock ul li.index {
   background: none;
-  color: #333;
+  color: #333333;
   border: none;
   padding: 0 15px 0;
   margin: 15px 0 7px;
@@ -1111,7 +1122,7 @@ ul.hdTools .dropdown:before {
   border: none;
 }
 #dd_message .rightBlock ul li.index span {
-  color: #999;
+  color: #999999;
   display: inline-block;
   margin-left: 10px;
   font-size: 11px;
@@ -1120,7 +1131,7 @@ ul.hdTools .dropdown:before {
   color: #d2d2d2;
 }
 #dd_message .rightBlock ul li.index a:hover i {
-  color: #333;
+  color: #333333;
 }
 #dd_message .rightBlock ul li span {
   display: block;
@@ -1141,10 +1152,10 @@ ul.hdTools .dropdown:before {
   margin: 10px 0 5px;
 }
 #dd_message .rightBlock ul li.message .time {
-  color: #999;
+  color: #999999;
 }
 #dd_message .rightBlock ul li.message .time a {
-  color: #999;
+  color: #999999;
 }
 #dd_message .rightBlock ul li.message .time a:hover {
   color: #ff9900;
@@ -1168,11 +1179,11 @@ ul.hdTools .dropdown:before {
   margin-top: 7px;
 }
 #dd_message .timelineOuter .message .time {
-  color: #999;
+  color: #999999;
   margin-bottom: 0;
 }
 #dd_message .timelineOuter .message .time a {
-  color: #999;
+  color: #999999;
 }
 #dd_message .timelineOuter .message .time a:hover {
   color: #ff9900;
@@ -1185,7 +1196,7 @@ ul.hdTools .dropdown:before {
   margin-right: 60px;
 }
 #dd_message .contents {
-  background: #ffffff;
+  background: white;
 }
 #dd_message .subContents {
   float: right;
@@ -1226,8 +1237,8 @@ ul.hdTools .dropdown:before {
   display: block;
   height: 38px;
   text-decoration: none;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .messageSummary li a:hover, .messageUserlist ul li a:hover {
@@ -1280,21 +1291,23 @@ ul.hdTools .dropdown:before {
   text-align: center;
   text-decoration: none;
   background-color: #ff3333;
-  color: #ffffff;
-  -moz-border-radius: 3px;
+  color: white;
   -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
 }
 .messageSummary .active a, .messageSummary .active a:hover {
-  color: #999 !important;
-  background-color: #ffffff;
+  color: #999999 !important;
+  background-color: white;
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
   border-left: 1px solid #e7e7e7;
   border-radius: 3px 0 0 3px;
 }
 .messageSummary .active a .name, .messageSummary .active a:hover .name {
-  color: #000;
+  color: black;
 }
 
 .messageUserlist ul li a {
@@ -1311,10 +1324,10 @@ ul.hdTools .dropdown:before {
   padding: 0 !important;
   line-height: 40px;
   text-align: center;
-  color: #ffffff !important;
+  color: white !important;
 }
 .searchClear [class^="icon-"], .searchClear [class*=" icon-"] {
-  color: #ffffff;
+  color: white;
   margin-right: 5px;
 }
 .searchClear:hover {
@@ -1356,7 +1369,7 @@ ul.hdTools .dropdown:before {
   color: #d2d2d2;
 }
 .roomHeader .floatRight a:hover [class*=icon-] {
-  color: #333;
+  color: #333333;
 }
 
 #messageTimeline {
@@ -1386,7 +1399,7 @@ ul.hdTools .dropdown:before {
   display: inline-block;
   padding: 5px 10px;
   line-height: 30px;
-  background: #ffffff;
+  background: white;
   font-size: 16px;
   text-align: center;
 }
@@ -1401,8 +1414,8 @@ ul.hdTools .dropdown:before {
   padding: 10px 15px;
 }
 .sideBlock .search input[type=text] {
-  background-color: #666;
-  color: #ffffff;
+  background-color: #666666;
+  color: white;
 }
 .sideBlock .search button {
   text-shadow: none;
@@ -1444,7 +1457,7 @@ ul.hdTools .dropdown:before {
 .emptyMessage {
   margin: auto;
   text-align: center;
-  color: #999;
+  color: #999999;
   margin: 120px 0 170px;
 }
 .emptyMessage [class*=icon-] {
@@ -1501,23 +1514,23 @@ ul.hdTools .dropdown:before {
 #auiLauncher ul.setting li a {
   display: block;
   line-height: 40px;
-  color: #999;
+  color: #999999;
   text-decoration: none;
 }
 #auiLauncher ul.launcher li a [class^="icon-"], #auiLauncher ul.launcher li a [class*=" icon-"],
 #auiLauncher ul.setting li a [class^="icon-"],
 #auiLauncher ul.setting li a [class*=" icon-"] {
-  color: #999;
+  color: #999999;
 }
 #auiLauncher ul.launcher li a:hover,
 #auiLauncher ul.setting li a:hover {
-  color: #333;
+  color: #333333;
   text-decoration: none;
 }
 #auiLauncher ul.launcher li a:hover [class^="icon-"], #auiLauncher ul.launcher li a:hover [class*=" icon-"],
 #auiLauncher ul.setting li a:hover [class^="icon-"],
 #auiLauncher ul.setting li a:hover [class*=" icon-"] {
-  color: #333;
+  color: #333333;
 }
 #auiLauncher ul.launcher li a:hover .name,
 #auiLauncher ul.setting li a:hover .name {
@@ -1543,8 +1556,8 @@ ul.hdTools .dropdown:before {
   line-height: 30px;
   text-align: center;
   white-space: nowrap;
-  color: #ffffff;
-  background-color: #999;
+  color: white;
+  background-color: #999999;
 }
 #auiLauncher ul.launcher li .name:after,
 #auiLauncher ul.setting li .name:after {
@@ -1557,10 +1570,11 @@ ul.hdTools .dropdown:before {
   width: 6px;
   height: 6px;
   margin-top: -3px;
-  background-color: #999;
+  background-color: #999999;
+  -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 #auiLauncher ul.setting {
@@ -1576,8 +1590,10 @@ ul.hdTools .dropdown:before {
   text-align: center;
   border: solid 1px #d2d2d2;
   border-bottom: none;
+  -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
-  -webkit-border-radius: 4px;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
   overflow: hidden;
   font-size: 0;
@@ -1613,7 +1629,7 @@ ul.hdTools .dropdown:before {
   width: 100%;
   line-height: 1;
   font-size: 11px;
-  color: #999;
+  color: #999999;
 }
 .dateChanger .mainDate {
   display: block;
@@ -1641,28 +1657,30 @@ ul.hdTools .dropdown:before {
 	デザイン統一用擬似selectメニュー
 --------------------------------------------------*/
 .auiSelect {
+  display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
-  *zoom: 1;
+  zoom: 1;
   *display: inline;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
   height: 32px;
   line-height: 32px;
-  background: #ffffff;
+  background: white;
   border: solid 1px #d2d2d2;
   cursor: default;
   vertical-align: middle;
-  -moz-user-select: -moz-none;
-  -ms-user-select: none;
   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
   user-select: none;
 }
 .auiSelect:hover {
-  border: solid 1px #999;
+  border: solid 1px #999999;
 }
 .auiSelect .current {
   line-height: 30px;
@@ -1683,10 +1701,10 @@ ul.hdTools .dropdown:before {
   right: 10px;
   height: 30px;
   line-height: 30px;
-  color: #999;
+  color: #999999;
 }
 .auiSelect:hover i[class*="icon-"], .auiSelect.active i[class*="icon-"] {
-  color: #333;
+  color: #333333;
 }
 
 td.more {
@@ -2225,17 +2243,16 @@ button,
   line-height: 32px;
   margin: 0;
   padding: 0 8px;
-  color: #333;
+  color: #333333;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
   background-color: #f6f6f6;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2YwZjBmMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f0f0f0));
-  background-image: -moz-linear-gradient(top, #ffffff, #f0f0f0);
   background-image: -webkit-linear-gradient(top, #ffffff, #f0f0f0);
-  background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  background-image: -moz-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: -o-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image: linear-gradient(top, #ffffff, #f0f0f0);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFF0F0F0');
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -2243,11 +2260,13 @@ button,
   border-bottom-color: #b3b3b3;
   white-space: nowrap;
   vertical-align: middle;
-  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
-  -moz-box-sizing: border-box !important;
   -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
   box-sizing: border-box !important;
 }
 input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active, input[type=submit].active,
@@ -2315,8 +2334,8 @@ button.active,
 .auiWidget .auiSelectButtonSmall a:focus,
 .auiWidget .auiSelectButtonSmall a:active,
 .auiWidget .auiSelectButtonSmall a.active {
-  border: solid 1px #999;
-  color: #333;
+  border: solid 1px #999999;
+  color: #333333;
   text-decoration: none;
 }
 input[type=submit]:active,
@@ -2338,9 +2357,10 @@ button:active,
 .auiWidget .auiSelectButtonSmall a:active {
   background-image: none !important;
   -webkit-filter: none !important;
+  -moz-filter: none !important;
   filter: none !important;
-  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
   background-color: #d2d2d2 !important;
 }
@@ -2377,8 +2397,8 @@ button:focus,
 .auiWidget .auiSelectButton a:focus,
 .auiWidget .auiSelectButtonSmall a:hover,
 .auiWidget .auiSelectButtonSmall a:focus {
-  border: solid 1px #999;
-  color: #333;
+  border: solid 1px #999999;
+  color: #333333;
   text-decoration: none;
 }
 input[type=submit]:focus,
@@ -2452,6 +2472,7 @@ button span,
     line-height: -moz-block-height;
   }
 }
+
 *:first-child + html input[type=submit],
 *:first-child + html input[type=button],
 *:first-child + html input[type=reset],
@@ -2482,22 +2503,21 @@ button.auiButtonSmall {
 .auiButtonAction,
 input.auiButtonAction {
   background-color: #ff9900;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYTMxYSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmODQwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffa31a), color-stop(100%, #ff8400));
-  background-image: -moz-linear-gradient(top, #ffa31a, #ff8400);
   background-image: -webkit-linear-gradient(top, #ffa31a, #ff8400);
-  background-image: linear-gradient(to bottom, #ffa31a, #ff8400);
+  background-image: -moz-linear-gradient(top, #ffa31a, #ff8400);
+  background-image: -o-linear-gradient(top, #ffa31a, #ff8400);
+  background-image: linear-gradient(top, #ffa31a, #ff8400);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFA31A', endColorstr='#FFFF8400');
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  color: white;
   border: solid 1px #e68a00 !important;
 }
 .auiButtonAction:hover, .auiButtonAction:focus,
 input.auiButtonAction:hover,
 input.auiButtonAction:focus {
-  color: #ffffff;
+  color: white;
   border: solid 1px #804d00 !important;
 }
 .auiButtonAction:active,
@@ -2509,7 +2529,7 @@ input.auiButtonAction:active {
 input.auiButtonAction .fa,
 input.auiButtonAction [class*="icon-"],
 input.auiButtonAction [class^="icon-"] {
-  color: #ffffff;
+  color: white;
 }
 
 .auiButtonDisabled,
@@ -2521,16 +2541,16 @@ input[disabled]:active,
 button[disabled],
 button[disabled]:hover,
 button[disabled]:active {
-  color: #999 !important;
+  color: #999999 !important;
   background-image: none !important;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
   background-color: #f0f0f0 !important;
   border: solid 1px #d2d2d2 !important;
   cursor: default;
-  -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
   box-shadow: none !important;
-  text-shadow: 0 1px 0 #ffffff;
+  text-shadow: 0 1px 0 white;
 }
 
 .auiButton span {
@@ -2607,7 +2627,7 @@ button[disabled]:active {
 .auiButtonIcon.file span i {
   line-height: 32px;
   font-size: 18px;
-  color: #999;
+  color: #999999;
 }
 
 .auiButtonDummy,
@@ -2647,10 +2667,12 @@ button[disabled]:active {
   padding: 0 !important;
   line-height: 30px;
   min-width: 27px;
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
-  border-color: #d2d2d2 #d2d2d2 #c0c0c0;
+  border-color: #d2d2d2 #d2d2d2 silver;
 }
 .auiSelectButton a [class*=icon-],
 .auiSelectButtonSmall a [class*=icon-] {
@@ -2715,7 +2737,7 @@ button[disabled]:active {
 .auiSelectButton .active a,
 .auiSelectButtonSmall .active a {
   background: #d2d2d2;
-  border-color: #d2d2d2 #d2d2d2 #c0c0c0;
+  border-color: #d2d2d2 #d2d2d2 silver;
   cursor: default;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
 }
@@ -2723,8 +2745,8 @@ button[disabled]:active {
 .auiSelectButton .active a:active,
 .auiSelectButtonSmall .active a:focus,
 .auiSelectButtonSmall .active a:active {
-  -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
 .auiSelectButton .active a:hover span,
@@ -3072,11 +3094,11 @@ button.auiButtonIconDummy {
 
 .auiPopup,
 .activityPopup {
-  background: #ffffff;
+  background: white;
   padding: 9px;
-  border: 1px solid #c0c0c0;
-  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid silver;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 9998 !important;
 }
@@ -3126,7 +3148,7 @@ button.auiButtonIconDummy {
 }
 
 .auiPopupTool .auiButtonSmall:hover i {
-  color: #333;
+  color: #333333;
 }
 
 .auiPopupTool .auiButtonSmall span {
@@ -3159,7 +3181,7 @@ button.auiButtonIconDummy {
 .auiPopup h2,
 #activityListPane h2 {
   padding: 0 0 5px;
-  border-bottom: solid 1px #c0c0c0;
+  border-bottom: solid 1px silver;
 }
 
 .auiPopup .roundBlockWrapperTop,
@@ -3427,7 +3449,7 @@ button.auiButtonIconDummy {
 	auiPortlet
 --------------------------------------------------*/
 .auiPortlet {
-  background: #ffffff url("../images/common/portlet_20140718.png") repeat-x left bottom;
+  background: white url("../images/common/portlet_20140718.png") repeat-x left bottom;
   margin: 10px 5px;
 }
 .auiPortlet .auiPortletHead {
@@ -3440,8 +3462,8 @@ button.auiButtonIconDummy {
   padding: 10px;
   position: relative;
   overflow: hidden;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .auiPortlet .auiPortletBody .auiPortletHead > .inner {
@@ -3464,9 +3486,9 @@ button.auiButtonIconDummy {
   float: left;
   padding: 0 5px;
   background: #ffffff;
-  -moz-box-shadow: -5px 0 3px #ffffff;
-  -webkit-box-shadow: -5px 0 3px #ffffff;
-  box-shadow: -5px 0 3px #ffffff;
+  -webkit-box-shadow: -5px 0 3px white;
+  -moz-box-shadow: -5px 0 3px white;
+  box-shadow: -5px 0 3px white;
   white-space: nowrap;
 }
 .auiPortlet .auiPortletSetting {
@@ -3481,7 +3503,7 @@ button.auiButtonIconDummy {
   font-size: 15px;
 }
 .auiPortlet .auiPortletDelete a:hover {
-  color: #ffffff;
+  color: white;
 }
 .auiPortlet .auiPortletDelete a, .auiPortlet .auiPortletDelete i {
   line-height: 16px;
@@ -3587,7 +3609,7 @@ button.auiButtonIconDummy {
   color: #d2d2d2;
 }
 .userListIcon a:hover [class*=icon-] {
-  color: #333;
+  color: #333333;
 }
 
 /***************************************************
@@ -3649,11 +3671,13 @@ button.auiButtonIconDummy {
   padding: 0 20px;
   text-align: center;
   text-decoration: none;
-  background-color: #ffffff;
-  color: #999;
+  background-color: white;
+  color: #999999;
   border: solid 1px #d2d2d2;
+  -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
-  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px 3px 0 0;
+  -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
 .auiTabs .tab > li a:hover {
@@ -3663,11 +3687,11 @@ button.auiButtonIconDummy {
   margin: 0 5px;
 }
 .auiTabs .tab > li.active a {
-  color: #333;
+  color: #333333;
   border-bottom-color: transparent;
 }
 .auiTabs .tab > li.active a:hover {
-  color: #333;
+  color: #333333;
   cursor: default;
 }
 .auiTabs .tabContents > li {
@@ -3879,7 +3903,7 @@ $tabBackgroundImage:	"../images/tab.png";
   margin: 0.5em 0;
   top: 0;
   left: 5px;
-  color: #999;
+  color: #999999;
 }
 
 #auiLoginBox input.text {
@@ -3930,7 +3954,7 @@ $tabBackgroundImage:	"../images/tab.png";
 #auiLoginBox input.button:focus,
 #auiLoginBox input.button[disabled] {
   background: url(../images/login_btn_back.png) 0px -100px no-repeat !important;
-  color: #ffffff !important;
+  color: white !important;
 }
 
 /***************************************************
@@ -3950,10 +3974,11 @@ $tabBackgroundImage:	"../images/tab.png";
 }
 .loginAlert .alertTool a i,
 .alert .alertTool a i {
+  display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
-  *zoom: 1;
+  zoom: 1;
   *display: inline;
   text-decoration: none;
   text-align: center;
@@ -4071,7 +4096,7 @@ $tabBackgroundImage:	"../images/tab.png";
 }
 
 .inlistCount {
-  color: #000;
+  color: black;
   display: inline-block;
   font-size: 10px;
   width: 20px;
@@ -4098,7 +4123,7 @@ $tabBackgroundImage:	"../images/tab.png";
 }
 .submenu_v2 li {
   padding: 0 5px;
-  background: #ffffff;
+  background: white;
   border-right: solid 1px #d2d2d2;
   border-left: solid 1px #d2d2d2;
 }
@@ -4214,7 +4239,7 @@ $tabBackgroundImage:	"../images/tab.png";
   left: 0px;
   width: 360px;
   padding: 10px;
-  border: solid 1px #c0c0c0;
+  border: solid 1px silver;
   background: #fff;
   overflow: hidden;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -4259,7 +4284,7 @@ $tabBackgroundImage:	"../images/tab.png";
   background: #eee;
 }
 .auiSearch.gray input[type="text"]:focus {
-  background: #ffffff;
+  background: white;
   border-color: #e5e5e5;
   box-shadow: none;
 }
@@ -4271,7 +4296,7 @@ $tabBackgroundImage:	"../images/tab.png";
   border-radius: 0 4px 4px 0;
   margin-left: -1px;
   border-color: #eee;
-  border-left-color: #ffffff;
+  border-left-color: white;
   background: #eee !important;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
@@ -4279,7 +4304,7 @@ $tabBackgroundImage:	"../images/tab.png";
   background: #ff9900;
 }
 .auiSearch.gray.focus input[type="text"] {
-  background: #ffffff;
+  background: white;
   border-color: #e5e5e5;
   box-shadow: none;
 }
@@ -4289,7 +4314,7 @@ $tabBackgroundImage:	"../images/tab.png";
   text-shadow: none;
 }
 .auiSearch.gray.focus button i {
-  color: #ffffff !important;
+  color: white !important;
 }
 
 .searchKeyword {
@@ -4352,13 +4377,13 @@ $tabBackgroundImage:	"../images/tab.png";
 .auiGridTable th {
   padding: 8px 5px;
   white-space: nowrap;
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   background: #f0f0f0;
 }
 
 .auiGridTable td {
   padding: 8px 5px;
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
 }
 
 .auiGridTable .even {
@@ -4441,7 +4466,7 @@ $tabBackgroundImage:	"../images/tab.png";
 }
 .auiRowTable tr.unread td {
   font-weight: bold;
-  color: #000;
+  color: black;
 }
 .auiRowTable .auiMTCheck {
   width: 20px;
@@ -4693,7 +4718,7 @@ $tabBackgroundImage:	"../images/tab.png";
 .auiCalendar td a {
   padding: 3px 1px;
   display: block;
-  color: #000;
+  color: black;
   text-decoration: none;
 }
 .auiCalendar td a:hover {
@@ -4714,7 +4739,7 @@ $tabBackgroundImage:	"../images/tab.png";
   background: none;
 }
 .auiCalendar .out a {
-  color: #999;
+  color: #999999;
 }
 .auiCalendar .today a {
   /*background:#e0ffe0;*/
@@ -4722,7 +4747,7 @@ $tabBackgroundImage:	"../images/tab.png";
 }
 .auiCalendar .selected a {
   padding: 2px 1px;
-  border: solid 1px #999;
+  border: solid 1px #999999;
 }
 
 /***************************************************
@@ -4813,7 +4838,7 @@ $tabBackgroundImage:	"../images/tab.png";
 	auiMail
 --------------------------------------------------*/
 .auiMailSummaryExcerpt {
-  color: #999;
+  color: #999999;
 }
 
 /***************************************************
@@ -4841,7 +4866,7 @@ input[type=checkbox] {
 
 textarea,
 select {
-  border: solid 1px #c0c0c0;
+  border: solid 1px silver;
 }
 
 input[type=text],
@@ -4850,8 +4875,8 @@ input[type=password] {
   padding: 4px 2px;
   vertical-align: middle;
   border: 1px solid #d2d2d2;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #ffffff;
   -webkit-appearance: none;
@@ -4878,8 +4903,8 @@ select[multiple="multiple"] option {
 }
 
 form textarea {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #fff;
 }
@@ -4892,7 +4917,7 @@ select:hover,
 select:focus,
 textarea:hover,
 textarea:focus {
-  border: solid 1px #999;
+  border: solid 1px #999999;
 }
 
 input[type=checkbox],
@@ -4920,7 +4945,7 @@ ul.attachments {
   margin-left: 10px;
   cursor: pointer;
   text-decoration: underline;
-  color: #1B1B1B;
+  color: #1b1b1b;
 }
 
 .attachments .deletebutton:hover {
@@ -5101,8 +5126,10 @@ ul.attachments {
 #timelineOuter textarea,
 .timelineOuter textarea {
   border: none;
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
   font-size: 13px;
 }
@@ -5292,6 +5319,40 @@ ul.attachments {
 .messageContents .time [class="icon-star"] {
   color: #ffc40d;
 }
+.messageContents .reminder {
+  margin: 10px 0;
+}
+.messageContents .reminder a {
+  border-radius: 4px;
+  border: 1px solid #ededed;
+  display: block;
+  padding: 10px;
+  text-decoration: none !important;
+}
+.messageContents .reminder a span {
+  display: inline-block;
+  margin-right: 10px;
+}
+.messageContents .reminder a span i {
+  color: #999999;
+}
+.messageContents .reminder a span i.icon-fixed-width {
+  text-align: center;
+}
+.messageContents .reminder a span.place, .messageContents .reminder a span.users {
+  display: block;
+  margin: 5px 0 0;
+}
+.messageContents .reminder a:hover {
+  border: 1px solid #d2d2d2;
+  text-decoration: none !important;
+}
+.messageContents .reminder a:hover span {
+  text-decoration: none !important;
+}
+.messageContents .reminder a:hover span i {
+  color: #ff9900;
+}
 
 .tlActivity,
 .tlActivity a {
@@ -5480,16 +5541,16 @@ html > body .tlImageBlock a:hover div {
   float: right;
 }
 .auiSummaryMeta .search .submit:hover [class^="icon-"], .auiSummaryMeta .search .submit:hover [class*=" icon-"] {
-  color: #333;
+  color: #333333;
 }
 
 .searchClear {
-  color: #333 !important;
+  color: #333333 !important;
   line-height: inherit;
 }
 
 .searchClear [class^="icon-"], .searchClear [class*=" icon-"] {
-  color: #333 !important;
+  color: #333333 !important;
 }
 
 *:first-child + html .auiSummaryMeta .auiSummarySearch .search input[type=text] {
@@ -5506,7 +5567,7 @@ html > body .tlImageBlock a:hover div {
 .dijitCalendarTimeContainer {
   text-align: center;
   padding: 5px 0;
-  border-bottom: solid 1px #c0c0c0;
+  border-bottom: solid 1px silver;
   -webkit-box-shadow: 0 1px 0 #f9f9f9;
   -moz-box-shadow: 0 1px 0 #f9f9f9;
   box-shadow: 0 1px 0 #f9f9f9;
@@ -5520,8 +5581,8 @@ html > body .tlImageBlock a:hover div {
 }
 .auiFilter form {
   width: 100%;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .auiFilter .auiButton {
@@ -5533,7 +5594,7 @@ html > body .tlImageBlock a:hover div {
 }
 
 .filters {
-  color: #999;
+  color: #999999;
   line-height: 30px;
   cursor: text;
 }
@@ -5629,10 +5690,10 @@ html > body .tlImageBlock a:hover div {
   right: 6px;
   height: 30px;
   line-height: 30px;
-  color: #999;
+  color: #999999;
 }
 .filterDropDrawer i[class*="icon-"]:hover, .active .filterDropDrawer i[class*="icon-"] {
-  color: #333;
+  color: #333333;
 }
 .filterDropDrawer i {
   cursor: pointer;
@@ -5645,11 +5706,11 @@ html > body .tlImageBlock a:hover div {
 }
 
 .filters.colors .filterTip {
-  color: #ffffff !important;
+  color: white !important;
   cursor: default;
 }
 .filters.colors .filterTip > a {
-  color: #ffffff !important;
+  color: white !important;
   position: static;
   margin: 0 0 0 6px;
 }
@@ -5691,7 +5752,7 @@ html > body .tlImageBlock a:hover div {
 }
 
 .auiScheduleList .today .day {
-  background: #999;
+  background: #999999;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
 }
@@ -5723,7 +5784,7 @@ html > body .tlImageBlock a:hover div {
 }
 
 .auiSlBody {
-  color: #999;
+  color: #999999;
 }
 
 /***************************************************
@@ -5758,7 +5819,7 @@ html > body .tlImageBlock a:hover div {
   height: 24px;
   line-height: 24px;
   font-size: 14px;
-  color: #000;
+  color: black;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -5766,12 +5827,12 @@ html > body .tlImageBlock a:hover div {
 
 .auiWLCols,
 .auiWLRows {
-  color: #333;
+  color: #333333;
 }
 
 .read .auiWLCols,
 .read .auiWLRows {
-  color: #999;
+  color: #999999;
 }
 
 .auiWLRows div {
@@ -5814,7 +5875,7 @@ html > body .tlImageBlock a:hover div {
   /*IE8*/
   -ms-filter: "alpha(opacity=0)";
   /*IE8*/
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .auiWideList.useCheck .row {
@@ -5838,7 +5899,7 @@ html > body .tlImageBlock a:hover div {
   width: 30px;
   height: 100%;
   text-align: center;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .auiWLCheck input[type=checkbox] {
@@ -5851,7 +5912,7 @@ html > body .tlImageBlock a:hover div {
 }
 
 .auiWLCheck input {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .auiMailList .auiWLDate {
@@ -5867,8 +5928,10 @@ html > body .tlImageBlock a:hover div {
 --------------------------------------------------*/
 .auiInfo {
   background: #f0f0f0;
-  -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
   border-radius: 8px;
   min-width: 480px;
   margin: 0 5px 5px;
@@ -5897,7 +5960,7 @@ html > body .tlImageBlock a:hover div {
 }
 
 .auiInfoTitle i {
-  color: #999;
+  color: #999999;
 }
 
 .auiInfoBody {
@@ -5962,7 +6025,7 @@ html > body .tlImageBlock a:hover div {
   background: #333333;
 }
 .auiDispChanger a {
-  color: #ffffff;
+  color: white;
   display: block;
   height: 40px;
   line-height: 40px;
@@ -6091,8 +6154,8 @@ html > body .tlImageBlock a:hover div {
   border: solid 1px #d2d2d2;
   background: #f6f6f6;
   padding: 10px;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -6108,16 +6171,16 @@ html > body .tlImageBlock a:hover div {
   height: 40px;
   border-top: solid 1px #d2d2d2;
   border-bottom: solid 1px #d2d2d2;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #gantt_task > table td {
   height: 30px;
   padding: 0 5px;
   border-top: solid 1px #ededed;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #gantt_task > table td > div {
@@ -6143,8 +6206,8 @@ tr:first-child #gantt_task > table td {
 }
 #gantt_area td {
   table-layout: fixed;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #gantt_area .gantt_area_month td,
@@ -6173,9 +6236,9 @@ tr:first-child #gantt_task > table td {
 #gantt_area .gantt_tip {
   position: absolute;
   height: 10px;
-  border: 1px solid #999;
-  -moz-box-sizing: border-box;
+  border: 1px solid #999999;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   background: #f0f0f0;
   z-index: 1;
@@ -6183,7 +6246,7 @@ tr:first-child #gantt_task > table td {
 #gantt_area .gantt_tip > div {
   width: 0%;
   height: 100%;
-  background: #999;
+  background: #999999;
 }
 #gantt_area .gantt_link {
   cursor: pointer;
@@ -6208,15 +6271,17 @@ tr:first-child #gantt_task > table td {
 	txtIcon
 --------------------------------------------------*/
 .txtIcon {
-  -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
   border-radius: 2px;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: text-bottom;
-  background-color: #999;
-  color: #ffffff;
+  background-color: #999999;
+  color: white;
   display: inline-block;
   font-size: 12px;
   height: 16px;
@@ -6789,13 +6854,13 @@ a.auiIconMailOpen:hover {
   line-height: 16px;
   font-size: 14px;
   vertical-align: middle;
-  color: #999;
+  color: #999999;
   text-decoration: none;
   text-shadow: none;
 }
 
 a:hover .auiWFicon [class^="icon-"] {
-  color: #333;
+  color: #333333;
 }
 
 [class^="icon-"] {
@@ -6847,12 +6912,12 @@ html > body .auiLoadWrapper .loader {
 .auiAbsLayer {
   position: absolute;
   background: #fff;
-  border: solid 1px #c0c0c0;
+  border: solid 1px silver;
   z-index: 999;
 }
 
 .auiAbsLayer:hover {
-  border: solid 1px #999;
+  border: solid 1px #999999;
 }
 
 .relative {
@@ -6873,24 +6938,28 @@ html > body .auiLoadWrapper .loader {
     -moz-opacity: 0;
     opacity: 0;
   }
+
   100% {
     filter: alpha(opacity=100);
     -moz-opacity: 1;
     opacity: 1;
   }
 }
+
 @-webkit-keyframes fadeIn {
   0% {
     filter: alpha(opacity=0);
     -moz-opacity: 0;
     opacity: 0;
   }
+
   100% {
     filter: alpha(opacity=100);
     -moz-opacity: 1;
     opacity: 1;
   }
 }
+
 /***************************************************
 	errorbox
 --------------------------------------------------*/
@@ -6931,9 +7000,9 @@ html > body .auiLoadWrapper .loader {
 #auiLauncher_1 {
   padding: 0 5px;
   overflow: hidden;
+  -webkit-transition: height 0.3s;
   -moz-transition: height 0.3s;
   -o-transition: height 0.3s;
-  -webkit-transition: height 0.3s;
   transition: height 0.3s;
 }
 #auiLauncher_1 ul {
@@ -6946,8 +7015,8 @@ html > body .auiLoadWrapper .loader {
   width: 90px;
   height: 60px;
   padding: 10px 5px 0;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #auiLauncher_1 li a {
@@ -6957,10 +7026,10 @@ html > body .auiLoadWrapper .loader {
   text-decoration: none;
   width: 80px;
   height: 50px;
-  background: #ffffff;
+  background: white;
   border: solid 1px #ededed;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #auiLauncher_1 li a .icon {
@@ -6980,8 +7049,8 @@ html > body .auiLoadWrapper .loader {
   padding: 0 5px;
   overflow: hidden;
   white-space: nowrap;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #auiLauncher_1 li a:hover {
@@ -6990,7 +7059,7 @@ html > body .auiLoadWrapper .loader {
   z-index: 1;
 }
 #auiLauncher_1 li a:hover .icon [class*=icon-] {
-  color: #999;
+  color: #999999;
 }
 #auiLauncher_1 li a:hover .name {
   height: auto;
@@ -7006,16 +7075,16 @@ html > body .auiLoadWrapper .loader {
   opacity: 0.7;
   overflow: visible;
   border-top: solid 1px #d2d2d2;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 #auiLauncher_2:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 #auiLauncher_2 .toggle {
@@ -7033,11 +7102,13 @@ html > body .auiLoadWrapper .loader {
   text-decoration: none;
   border: solid 1px #d2d2d2;
   border-bottom: none;
+  -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
-  -webkit-border-radius: 4px;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #auiLauncher_2 .toggle a [class*=icon-] {
@@ -7054,8 +7125,8 @@ html > body .auiLoadWrapper .loader {
   width: 90px;
   height: 60px;
   padding: 5px;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #auiLauncher_2 li a {
@@ -7065,10 +7136,10 @@ html > body .auiLoadWrapper .loader {
   text-decoration: none;
   width: 80px;
   height: 50px;
-  background: #ffffff;
+  background: white;
   border: solid 1px #ededed;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #auiLauncher_2 li a .icon {
@@ -7088,8 +7159,8 @@ html > body .auiLoadWrapper .loader {
   padding: 0 5px;
   overflow: hidden;
   white-space: nowrap;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #auiLauncher_2 li a:hover {
@@ -7098,7 +7169,7 @@ html > body .auiLoadWrapper .loader {
   z-index: 1;
 }
 #auiLauncher_2 li a:hover .icon [class*=icon-] {
-  color: #999;
+  color: #999999;
 }
 #auiLauncher_2 li a:hover .name {
   height: auto;
@@ -7113,7 +7184,7 @@ html > body .auiLoadWrapper .loader {
   font-size: larger;
   font-family: 'FontAwesome';
   content: "\f08e";
-  color: #333;
+  color: #333333;
   margin-left: 3px;
 }
 
@@ -7127,13 +7198,15 @@ iframe.iframe_messagelist {
   height: 400px;
   width: 400px;
   z-index: 9000;
-  background: #ffffff;
+  background: white;
   border-top: 1px solid #d2d2d2;
   border-left: 1px solid #d2d2d2;
   border-right: 1px solid #d2d2d2;
   border-bottom: none;
+  -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
-  -webkit-border-radius: 4px;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
   overflow: hidden;
 }
@@ -7216,7 +7289,7 @@ iframe.iframe_messagelist {
   padding: 10px;
   text-align: right;
   font-size: 11px;
-  color: #999;
+  color: #999999;
 }
 
 /***************************************************

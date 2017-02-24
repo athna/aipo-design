@@ -5995,8 +5995,9 @@ ul.hdTools .dropdown:before {
   height: 21px;
   -webkit-appearance: caret
 }
-//20170222
+/* 20170222 */
 #dd_message {
+  min-width: 940px;
   width: 100%;
   overflow: hidden;
   border-radius: 3px;
@@ -6010,8 +6011,12 @@ ul.hdTools .dropdown:before {
   }
   .mainBlock {
     margin-left: 280px;
+    //20170222
+    margin-right: 305px;
     > .contents {
-      padding: 10px 15px 0 15px;
+      //20170222
+//      padding: 10px 15px 0 15px;
+      padding: 0 15px 0 15px;
     }
   }
   .rightBlock {
@@ -6019,10 +6024,11 @@ ul.hdTools .dropdown:before {
     top: 50px;
     bottom: 0;
     right: 0;
-    width: 359px;
+    width: 304px;
     background: #fff;
     border-left: 1px solid #e5e5e5;
     overflow-y: scroll;
+
     div.index {
       background: #f6f6f6;
       padding: 11px 20px 9px 10px;
@@ -6031,74 +6037,157 @@ ul.hdTools .dropdown:before {
         text-decoration: none !important;
       }
     }
+    .roomDetail{
+      position: relative;
+      padding: 15px 40px 15px 75px;
+
+      .avatar{
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        float: left;
+      }
+      .name{
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      #messageRoomSetting{
+        position: absolute;
+        top: 34px;
+        right: 20px;
+
+        a{
+          i{
+            color: #d2d2d2;
+          }
+          &:hover{
+            i{
+              color: #000;
+            }
+          }
+        }
+      }
+    }
     ul {
+
       &.close li {
         display: none;
         &.index {
           display: block;
         }
       }
-      &.user li, &.room li {
-        height: 38px;
-        border: 1px solid #e7e7e7;
+      &.user, &.room, &.messages, &.files {
+        border-top: 1px solid #e5e5e5;
+        margin-bottom: 10px;
       }
-      &.user li:hover, &.room li:hover {
-        border: 1px solid #999;
+      &.user, &.room {
+
+        li {
+          display: block;
+          height: 40px;
+          //border: 1px solid #e7e7e7;
+
+          &:hover {
+            //border: 1px solid #999;
+            background: #f6f6f6;
+
+            span {
+              text-decoration: none;
+            }
+          }
+          a {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 40px;
+            padding: 7px 16px 7px 50px;
+            display: block;
+            text-decoration: none;
+          }
+          .name, .date {
+            line-height: 25px;
+            height: 25px;
+            white-space: nowrap;
+            overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+          }
+          .date {
+            float: right;
+            color: #999;
+            font-size: 11px;
+          }
+          .nrCount {
+            background-color: #f33;
+            border-radius: 3px;
+            color: #fff;
+            display: inline-block;
+            float: left;
+            font-size: 10px;
+            line-height: 1.4;
+            margin: 5px 3px 0 0;
+            min-width: 8px;
+            padding: 0 3px;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
       }
-      &.user li a, &.room li a {
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        height: 38px;
-        padding: 7px 16px 7px 38px;
-        display: block;
-        text-decoration: none;
+
+      &.files{
+
+        li{
+          display: inline-block;
+          margin: 0 5px 5px 0;
+
+          &:nth-child(3n + 2){
+            margin-left: 15px;
+          }
+
+          a{
+
+            img{
+              border: 1px solid silver;
+              height: auto;
+              max-height: 200px;
+              max-width: 200px;
+              padding: 4px;
+            }
+            &:hover{
+              img{
+                border: 1px solid #ff9900;
+              }
+            }
+          }
+
+          &.index{
+            display: block;
+          }
+        }
       }
-      &.user li:hover span, &.room li:hover span {
-        text-decoration: none;
-      }
-      &.user li .name, &.room li .name, &.user li .date, &.room li .date {
-        line-height: 25px;
-        height: 25px;
-        white-space: nowrap;
-        overflow: hidden;
-        -ms-text-overflow: ellipsis;
-        -o-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-      }
-      &.user li .date, &.room li .date {
-        float: right;
-        color: #999;
-        font-size: 11px;
-      }
-      &.user li .nrCount, &.room li .nrCount {
-        background-color: #f33;
-        border-radius: 3px;
-        color: #fff;
-        display: inline-block;
-        float: left;
-        font-size: 10px;
-        line-height: 1.4;
-        margin: 5px 3px 0 0;
-        min-width: 8px;
-        padding: 0 3px;
-        text-align: center;
-        text-decoration: none;
-      }
+
       li {
         position: relative;
-        margin: 0 15px 7px 15px;
-        border-radius: 4px;
+        //margin: 0 15px 7px 15px;
+        margin: 0;
+        border-radius: 0;
         background: #fff;
+
         &.index {
           background: 0;
           color: #333;
           border: 0;
-          padding: 0 15px 0;
-          margin: 15px 0 7px;
+          padding: 15px 15px 14px;
+          margin: 0;
           cursor: auto;
           height: auto;
           border: 0;
+
           a {
             height: auto;
             padding: 0;
@@ -6110,6 +6199,7 @@ ul.hdTools .dropdown:before {
           }
           &:hover {
             border: 0;
+            background: #fff;
           }
           span {
             color: #999;
@@ -6131,13 +6221,13 @@ ul.hdTools .dropdown:before {
           display: block;
         }
         .avatar {
-          left: 0;
-          padding: 7px;
+          left: 15px;
+          padding: 0px;
           position: absolute;
-          top: 0;
+          top: 8px;
         }
         &.message {
-          padding: 7px 16px 7px 38px;
+          padding: 7px 16px 7px 50px;
           .tlClipBoard {
             border: 1px solid #f0f0f0;
             font-size: 11px;
@@ -6167,7 +6257,7 @@ ul.hdTools .dropdown:before {
         padding-top: 0 !important;
       }
       &:last-child {
-        //20170222
+        /* 20170222 */
         //margin-bottom: 30px;
         margin-bottom: 10px;
       }
@@ -6176,7 +6266,7 @@ ul.hdTools .dropdown:before {
         border-radius: 4px;
       }
       .avatar {
-        //20170222
+        /* 20170222 */
         //margin-top: 7px;
         margin-top: 32px;
       }
@@ -6195,10 +6285,10 @@ ul.hdTools .dropdown:before {
       }
     }
     .timeline .messageContents {
-      margin-left: 60px;
+      margin-left: 45px;
       margin-right: 120px;
 
-      //20170222
+      /* 20170222 */
       .body {
         position: relative;
         background: #F6F6F6;
@@ -6208,7 +6298,7 @@ ul.hdTools .dropdown:before {
 
         &:after {
           right: 100%;
-          top: 24px;
+          top: 15px;
           border: solid transparent;
           content: " ";
           height: 0;
@@ -6231,7 +6321,7 @@ ul.hdTools .dropdown:before {
       }
     }
   }
-  //20170222
+  /* 20170222 */
   .timelineOuter {
 
     .message.me {
@@ -6241,7 +6331,7 @@ ul.hdTools .dropdown:before {
         margin-top: 7px;
       }
       .messageContents {
-        margin-right: 70px;
+        margin-right: 55px;
         margin-left: 110px;
 
         .body {
@@ -6249,8 +6339,6 @@ ul.hdTools .dropdown:before {
 
           &:after {
             left: 100%;
-            top: 24px;
-            border: solid transparent;
             border-color: rgba(255, 247, 234, 0);
             border-left-color: #fff7ea;
           }
@@ -6273,12 +6361,12 @@ ul.hdTools .dropdown:before {
     margin-bottom: 20px;
     margin-top: 0px;
   }
-  //20170222
+  /* 20170222 */
   .loader{
     padding-bottom: 10px;
   }
 }
-//20170222
+/* 20170222 end */
 
 .counter {
   float: left !important;

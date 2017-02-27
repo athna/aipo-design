@@ -6368,7 +6368,45 @@ ul.hdTools .dropdown:before {
     border-left: solid 1px #d2d2d2;
   }
   .inputField {
-    margin: 0 15px 20px;
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid #E5E5E5;
+
+    .tlInputMention{
+      padding: 10px;
+
+      textarea.elastic{
+        padding: 0 !important;
+
+        /* 各ベンダープレフィックスが取れた標準版！！(http://caniuse.com/#search=placeholder-shown) */
+        &:placeholder-shown {
+          color: #dcdcdc;
+        }
+
+        /* Google Chrome, Safari, Opera 15+, Android, iOS */
+        &::-webkit-input-placeholder {
+          color: #dcdcdc;
+        }
+
+        /* Firefox 18- */
+        &:-moz-placeholder {
+          color: #dcdcdc; opacity: 1;
+        }
+
+        /* Firefox 19+ */
+        &::-moz-placeholder {
+          color: #dcdcdc; opacity: 1;
+        }
+
+        /* IE 10+ */
+        &:-ms-input-placeholder {
+          color: #dcdcdc;
+        }
+      }
+    }
   }
   /* 20170222 */
   .loader{

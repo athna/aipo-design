@@ -476,13 +476,27 @@
                             </div>
                             <!--rightBlock ////////////////////////////////////////////////////////////////////////////// -->
                             <div id="messageRightPane" class="rightBlock dijitContentPane" style="" widgetid="messageRightPane" title="">
-                                <div class="roomDetail clearfix">
-                                    <span class="avatar"><img src="themes/default/images/common/group_default.png" class="avatar_l"></span>
-                                    <span class="name">プロジェクトAチームプロジェクトAチームプロジェクトAチーム</span>
-                                    <div id="messageRoomSetting"><a href="javascript:void(0)" title="ルーム設定" onclick="aimluck.io.openDialog(this, '' + aipo.message.currentRoomId, '', aipo.message.onLoadMessageRoomDialog);"><i class="icon-gear"></i></a>
-                                    </div></div>
+                                <div class="roomDetail">
+                                    <div class="clearfix">
+                                        <span class="avatar"><img src="themes/default/images/common/group_default.png" class="avatar_l"></span>
+                                        <span class="name">プロジェクトAチームプロジェクトAチームプロジェクトAチーム</span>
+                                    </div>
+                                    <div id="messageRoomSetting">
+                                        <a href="javascript:void(0)" class="setting toggle" title="ルーム設定" onclick="popupToggle(this,'roomSetting');"><i class="icon-cog"></i></a>
+                                        <div class="menubar" id="roomSetting" style="display: none; right: 0px; top: 20px;">
+                                            <ul>
+                                                <li><a href="javascript:void(0);" onclick="">ルーム設定</a></li>
+                                                <li class="last"><a href="javascript:void(0);" onclick="">通知設定</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="roomDisc">ルームの概要ですルームの概要ですルームの概要ですルームの概要ですルームの概要ですルームの概要ですルームの概要ですルームの概要ですルームの概要ですルームの概要ですルームの概要です</div>
                                 <ul class="user">
-                                    <li class="index">参加ユーザー<span>5人</span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightUser();return false;"><i class="icon-chevron-down" id="messageRightUserSwapIcon"></i></a></li>
+                                    <li class="index">参加ユーザー<span>5人</span>
+                                        <a class="floatRight setting toggle" href="javascript:void(0)" title="ユーザー設定" onclick=""><i class="icon-cog"></i></a>
+                                        <a class="floatRight plus" href="javascript:void(0)"  title="ユーザーを追加"><i class="icon-plus"></i></a>
+                                    </li>
                                     <li id="messageRightUser***" class="messageRightUser">
                                         <a href="javascript:void(0)" onclick="aipo.message.openDirect()">
                                             <span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" alt="田村 涼子" class="avatar_s"></span>
@@ -516,116 +530,81 @@
                                         </a>
                                     </li>
                                 </ul>
+
+
                                 <ul class="files clearfix">
                                     <li class="index">ファイル<span>1件</span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightRoom();return false;"><i class="icon-chevron-down" id="messageRightRoomSwapIcon"></i></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a>	</li><li><a href="javascript:aipo.fileupload.showImageDialog()"><img alt="スクリーンショット 2017-02-22 15.25.36.png" title="スクリーンショット 2017-02-22 15.25.36.png" src="themes/default/images/app.aipo.com.jpg" border="0"></a></li>
                                 </ul>
 
-                                <div class="index">「テスト」の検索結果<a class="floatRight" href="javascript: void(0)" onclick="aipo.message.clearSearchMessageList();return false;"><i class="icon-remove"></i></a></div>
-                                <ul class="room">
-                                <li class="index">ルーム<span>1件</span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightRoom();return false;"><i class="icon-chevron-down" id="messageRightRoomSwapIcon"></i></a></li>
-                                <li id="messageRightRoom719" class="messageRightRoom">
-                                <a href="javascript:void(0)" onclick="aipo.message.selectTab('room');aipo.message.selectRoom(719, true);">
-                                <span class="avatar">
-                                <img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">
-                                </span>
-                                <span class="date">2016年4月7日</span>
-                                <span class="name">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと</span>
-                                <span id="messageRightRoomType719" style="display:none">G</span>
-                                </a>
-                                </li>
-                                    <li id="messageRightRoom719" class="messageRightRoom">
-                                        <a href="javascript:void(0)" onclick="aipo.message.selectTab('room');aipo.message.selectRoom(719, true);">
-                                <span class="avatar">
-                                <img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">
-                                </span>
-                                            <span class="date">2016年4月7日</span>
-                                            <span class="name">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと</span>
-                                            <span id="messageRightRoomType719" style="display:none">G</span>
-                                        </a>
-                                    </li>
-                                    <li id="messageRightRoom719" class="messageRightRoom">
-                                        <a href="javascript:void(0)" onclick="aipo.message.selectTab('room');aipo.message.selectRoom(719, true);">
-                                <span class="avatar">
-                                <img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">
-                                </span>
-                                            <span class="date">2016年4月7日</span>
-                                            <span class="name">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと</span>
-                                            <span id="messageRightRoomType719" style="display:none">G</span>
-                                        </a>
-                                    </li>
-                                    
-                                </ul>
-                                <ul class="messages">
-                                <li class="index">メッセージ<span></span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightMessage();return false;"><i class="icon-chevron-down" id="messageRightMessageSwapIcon"></i></a></li>
-                                <li id="messageRight264307" class="message messageRightMessage">
-                                <div class="avatar">
-                                <a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">
-                                <img src="themes/default/images/_mock/avatar1.jpg" alt="木村 一郎" class="avatar_s">
-                                </a>
-                                </div>
-                                <div class="messageContents">
-                                <div class="name"><a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">木村 一郎</a></div>
-                                <div class="body"><span class="searchKeyword">テスト</span>してる
-                                </div>
-                                <div class="time">
-                                2月8日 17:59&nbsp;
-                                <a href="javascript:void(0)" onclick="aipo.common.showDialog('',aipo.message.onLoadMessageReadUserList);" id="messageReadCount264307">全員が既読</a>			&nbsp;<a href="javascript:void(0)" onclick="aipo.message.jumpMessage(17,264307)">メッセージを見る</a>
-                                </div>
-                                </div>
-                                </li>
-                                    <li id="messageRight264307" class="message messageRightMessage">
-                                        <div class="avatar">
-                                            <a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">
-                                                <img src="themes/default/images/_mock/avatar1.jpg" alt="木村 一郎" class="avatar_s">
-                                            </a>
-                                        </div>
-                                        <div class="messageContents">
-                                            <div class="name"><a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">木村 一郎</a></div>
-                                            <div class="body"><span class="searchKeyword">テスト</span>してる
-                                            </div>
-                                            <div class="time">
-                                                2月8日 17:59&nbsp;
-                                                <a href="javascript:void(0)" onclick="aipo.common.showDialog('',aipo.message.onLoadMessageReadUserList);" id="messageReadCount264307">全員が既読</a>			&nbsp;<a href="javascript:void(0)" onclick="aipo.message.jumpMessage(17,264307)">メッセージを見る</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li id="messageRight264307" class="message messageRightMessage">
-                                        <div class="avatar">
-                                            <a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">
-                                                <img src="themes/default/images/_mock/avatar1.jpg" alt="木村 一郎" class="avatar_s">
-                                            </a>
-                                        </div>
-                                        <div class="messageContents">
-                                            <div class="name"><a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">木村 一郎</a></div>
-                                            <div class="body"><span class="searchKeyword">テスト</span>してる
-                                            </div>
-                                            <div class="time">
-                                                2月8日 17:59&nbsp;
-                                                <a href="javascript:void(0)" onclick="aipo.common.showDialog('',aipo.message.onLoadMessageReadUserList);" id="messageReadCount264307">全員が既読</a>			&nbsp;<a href="javascript:void(0)" onclick="aipo.message.jumpMessage(17,264307)">メッセージを見る</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-
                                 <!--<div class="index">「テスト」の検索結果<a class="floatRight" href="javascript: void(0)" onclick="aipo.message.clearSearchMessageList();return false;"><i class="icon-remove"></i></a></div>-->
-                                <!--<ul class="user">-->
-                                    <!--<li class="index">ユーザー<span>0件</span></li>-->
-                                <!--</ul>-->
                                 <!--<ul class="room">-->
-                                    <!--<li class="index">ルーム<span>1件</span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightRoom();return false;"><i class="icon-chevron-down" id="messageRightRoomSwapIcon"></i></a></li>-->
+                                <!--<li class="index">ルーム<span>1件</span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightRoom();return false;"><i class="icon-chevron-down" id="messageRightRoomSwapIcon"></i></a></li>-->
+                                <!--<li id="messageRightRoom719" class="messageRightRoom">-->
+                                <!--<a href="javascript:void(0)" onclick="aipo.message.selectTab('room');aipo.message.selectRoom(719, true);">-->
+                                <!--<span class="avatar">-->
+                                <!--<img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">-->
+                                <!--</span>-->
+                                <!--<span class="date">2016年4月7日</span>-->
+                                <!--<span class="name">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと</span>-->
+                                <!--<span id="messageRightRoomType719" style="display:none">G</span>-->
+                                <!--</a>-->
+                                <!--</li>-->
                                     <!--<li id="messageRightRoom719" class="messageRightRoom">-->
                                         <!--<a href="javascript:void(0)" onclick="aipo.message.selectTab('room');aipo.message.selectRoom(719, true);">-->
-			<!--<span class="avatar">-->
-										<!--<img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">-->
-									<!--</span>-->
+                                <!--<span class="avatar">-->
+                                <!--<img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">-->
+                                <!--</span>-->
                                             <!--<span class="date">2016年4月7日</span>-->
-                                            <!--<span class="name">てすと</span>-->
+                                            <!--<span class="name">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと</span>-->
                                             <!--<span id="messageRightRoomType719" style="display:none">G</span>-->
                                         <!--</a>-->
                                     <!--</li>-->
+                                    <!--<li id="messageRightRoom719" class="messageRightRoom">-->
+                                        <!--<a href="javascript:void(0)" onclick="aipo.message.selectTab('room');aipo.message.selectRoom(719, true);">-->
+                                <!--<span class="avatar">-->
+                                <!--<img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">-->
+                                <!--</span>-->
+                                            <!--<span class="date">2016年4月7日</span>-->
+                                            <!--<span class="name">てすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすとてすと</span>-->
+                                            <!--<span id="messageRightRoomType719" style="display:none">G</span>-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+
                                 <!--</ul>-->
                                 <!--<ul class="messages">-->
-                                    <!--<li class="index">メッセージ<span></span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightMessage();return false;"><i class="icon-chevron-down" id="messageRightMessageSwapIcon"></i></a></li>-->
+                                <!--<li class="index">メッセージ<span></span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightMessage();return false;"><i class="icon-chevron-down" id="messageRightMessageSwapIcon"></i></a></li>-->
+                                <!--<li id="messageRight264307" class="message messageRightMessage">-->
+                                <!--<div class="avatar">-->
+                                <!--<a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">-->
+                                <!--<img src="themes/default/images/_mock/avatar1.jpg" alt="木村 一郎" class="avatar_s">-->
+                                <!--</a>-->
+                                <!--</div>-->
+                                <!--<div class="messageContents">-->
+                                <!--<div class="name"><a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">木村 一郎</a></div>-->
+                                <!--<div class="body"><span class="searchKeyword">テスト</span>してる-->
+                                <!--</div>-->
+                                <!--<div class="time">-->
+                                <!--2月8日 17:59&nbsp;-->
+                                <!--<a href="javascript:void(0)" onclick="aipo.common.showDialog('',aipo.message.onLoadMessageReadUserList);" id="messageReadCount264307">全員が既読</a>			&nbsp;<a href="javascript:void(0)" onclick="aipo.message.jumpMessage(17,264307)">メッセージを見る</a>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</li>-->
+                                    <!--<li id="messageRight264307" class="message messageRightMessage">-->
+                                        <!--<div class="avatar">-->
+                                            <!--<a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">-->
+                                                <!--<img src="themes/default/images/_mock/avatar1.jpg" alt="木村 一郎" class="avatar_s">-->
+                                            <!--</a>-->
+                                        <!--</div>-->
+                                        <!--<div class="messageContents">-->
+                                            <!--<div class="name"><a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">木村 一郎</a></div>-->
+                                            <!--<div class="body"><span class="searchKeyword">テスト</span>してる-->
+                                            <!--</div>-->
+                                            <!--<div class="time">-->
+                                                <!--2月8日 17:59&nbsp;-->
+                                                <!--<a href="javascript:void(0)" onclick="aipo.common.showDialog('',aipo.message.onLoadMessageReadUserList);" id="messageReadCount264307">全員が既読</a>			&nbsp;<a href="javascript:void(0)" onclick="aipo.message.jumpMessage(17,264307)">メッセージを見る</a>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</li>-->
                                     <!--<li id="messageRight264307" class="message messageRightMessage">-->
                                         <!--<div class="avatar">-->
                                             <!--<a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">-->
@@ -643,6 +622,55 @@
                                         <!--</div>-->
                                     <!--</li>-->
                                 <!--</ul>-->
+
+                                <div class="index">「テスト」の検索結果<a class="floatRight" href="javascript: void(0)" onclick="aipo.message.clearSearchMessageList();return false;"><i class="icon-remove"></i></a></div>
+                                <ul class="user">
+                                    <li class="index">ユーザー<span>2件</span></li>
+                                    <li id="messageRightUser***" class="messageRightUser">
+                                        <a href="javascript:void(0)" onclick="aipo.message.openDirect()">
+                                            <span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" alt="田村 涼子" class="avatar_s"></span>
+                                            <span class="name">田村 涼子</span>
+                                        </a>
+                                    </li>
+                                    <li id="messageRightUser***" class="messageRightUser">
+                                        <a href="javascript:void(0)" onclick="aipo.message.openDirect()">
+                                            <span class="avatar"><img src="themes/default/images/_mock/avatar2.jpg" alt="田村 涼子" class="avatar_s"></span>
+                                            <span class="name">田村 涼子</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="room">
+                                    <li class="index">ルーム<span>1件</span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightRoom();return false;"><i class="icon-chevron-down" id="messageRightRoomSwapIcon"></i></a></li>
+                                    <li id="messageRightRoom719" class="messageRightRoom">
+                                        <a href="javascript:void(0)" onclick="aipo.message.selectTab('room');aipo.message.selectRoom(719, true);">
+			<span class="avatar">
+										<img src="themes/default/images/_mock/avatar1.jpg" alt="てすと" class="avatar_s">
+									</span>
+                                            <span class="date">2016年4月7日</span>
+                                            <span class="name">てすと</span>
+                                            <span id="messageRightRoomType719" style="display:none">G</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="messages">
+                                    <li class="index">メッセージ<span></span><a class="floatRight" href="javascript: void(0)" onclick="aipo.message.swapRightMessage();return false;"><i class="icon-chevron-down" id="messageRightMessageSwapIcon"></i></a></li>
+                                    <li id="messageRight264307" class="message messageRightMessage">
+                                        <div class="avatar">
+                                            <a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">
+                                                <img src="themes/default/images/_mock/avatar1.jpg" alt="木村 一郎" class="avatar_s">
+                                            </a>
+                                        </div>
+                                        <div class="messageContents">
+                                            <div class="name"><a href="javascript: void(0)" onclick="aipo.message.popupProfile(24,arguments[0])">木村 一郎</a></div>
+                                            <div class="body"><span class="searchKeyword">テスト</span>してる
+                                            </div>
+                                            <div class="time">
+                                                2月8日 17:59&nbsp;
+                                                <a href="javascript:void(0)" onclick="aipo.common.showDialog('',aipo.message.onLoadMessageReadUserList);" id="messageReadCount264307">全員が既読</a>			&nbsp;<a href="javascript:void(0)" onclick="aipo.message.jumpMessage(17,264307)">メッセージを見る</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                             <!--rightBlock ////////////////////////////////////////////////////////////////////////////// -->
                             <div class="mainBlock" id="messageContents1">
@@ -707,7 +735,7 @@
                                             <div id="message***" class="message">
                                                 <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_m"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body">
                                                         メッセージ内容です。メッセージ内容です。<br />
                                                         自分の投稿には「＊人が既読」が付きます。
@@ -724,7 +752,7 @@
                                                     <img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_m">
                                                 </div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body">
                                                         現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
                                                         URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
@@ -747,7 +775,7 @@
                                             <div id="message***" class="message">
                                                 <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_m"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body">
                                                         Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
                                                         <div class="tlClipBoard clearfix">
@@ -771,7 +799,7 @@
                                             <div id="message***" class="message">
                                                 <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_m"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body">
                                                         メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
                                                     </div>
@@ -784,7 +812,7 @@
                                             <div id="message***" class="message">
                                                 <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_m"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body">
                                                         メッセージ内容です。メッセージ内容です。
                                                         <div class="tlImageBlock clearfix">
@@ -801,7 +829,7 @@
                                             <div id="message***" class="message me">
                                                 <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_m"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body">
                                                         メッセージ内容です。メッセージ内容です。<br />
                                                         自分の投稿には「＊人が既読」が付きます。
@@ -861,7 +889,7 @@
                                                 <div id="message***" class="message">
                                                     <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                     <div class="messageContents">
-                                                        <div class="name">名前 名前</div>
+                                                        <div class="name"><a href="#">名前 名前</a></div>
                                                         <div class="body">
                                                             メッセージ内容です。メッセージ内容です。<br />
                                                             自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
@@ -879,7 +907,7 @@
                                                     <div class="avatar">
                                                         <img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
                                                     <div class="messageContents">
-                                                        <div class="name">名前 名前</div>
+                                                        <div class="name"><a href="#">名前 名前</a></div>
                                                         <div class="body">
                                                             現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
                                                             URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
@@ -903,7 +931,7 @@
                                                 <div id="message***" class="message">
                                                     <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                     <div class="messageContents">
-                                                        <div class="name">名前 名前</div>
+                                                        <div class="name"><a href="#">名前 名前</a></div>
                                                         <div class="body">
                                                             Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
                                                             <div class="tlClipBoard clearfix">
@@ -928,7 +956,7 @@
                                                 <div id="message***" class="message">
                                                     <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                     <div class="messageContents">
-                                                        <div class="name">名前 名前</div>
+                                                        <div class="name"><a href="#">名前 名前</a></div>
                                                         <div class="body">
                                                             メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
                                                         </div>
@@ -942,7 +970,7 @@
                                                 <div id="message***" class="message">
                                                     <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                     <div class="messageContents">
-                                                        <div class="name">名前 名前</div>
+                                                        <div class="name"><a href="#">名前 名前</a></div>
                                                         <div class="body">
                                                             メッセージ内容です。メッセージ内容です。<br />
                                                             自分の投稿には「＊人が既読」「削除する」が付きます。
@@ -964,7 +992,7 @@
                                                         <div id="message***" class="message">
                                                             <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                             <div class="messageContents">
-                                                                <div class="name">名前 名前</div>
+                                                                <div class="name"><a href="#">名前 名前</a></div>
                                                                 <div class="body">
                                                                     メッセージ内容です。メッセージ内容です。<br />
                                                                     自分の投稿には「＊人が既読」「削除する」が付きます。<br /><br />
@@ -982,7 +1010,7 @@
                                                             <div class="avatar">
                                                                 <img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l">		</div>
                                                             <div class="messageContents">
-                                                                <div class="name">名前 名前</div>
+                                                                <div class="name"><a href="#">名前 名前</a></div>
                                                                 <div class="body">
                                                                     現在のメッセージにはURLを貼り付けてもそのまま出ますが、タイムライン同様の表示にするかは別途検討。<br/><br/>
                                                                     URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
@@ -1006,7 +1034,7 @@
                                                         <div id="message***" class="message">
                                                             <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                             <div class="messageContents">
-                                                                <div class="name">名前 名前</div>
+                                                                <div class="name"><a href="#">名前 名前</a></div>
                                                                 <div class="body">
                                                                     Youtube等動画URLを貼り付けたパターン（サムネイルを抽出する以外は通常URLと同様）
                                                                     <div class="tlClipBoard clearfix">
@@ -1031,7 +1059,7 @@
                                                         <div id="message***" class="message">
                                                             <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                             <div class="messageContents">
-                                                                <div class="name">名前 名前</div>
+                                                                <div class="name"><a href="#">名前 名前</a></div>
                                                                 <div class="body">
                                                                     メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。メッセージ内容です。
                                                                 </div>
@@ -1045,7 +1073,7 @@
                                                         <div id="message***" class="message">
                                                             <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                             <div class="messageContents">
-                                                                <div class="name">名前 名前</div>
+                                                                <div class="name"><a href="#">名前 名前</a></div>
                                                                 <div class="body">
                                                                     メッセージ内容です。メッセージ内容です。<br />
                                                                     自分の投稿には「＊人が既読」「削除する」が付きます。
@@ -1860,7 +1888,7 @@
                                             <div id="message21" class="message first">
                                                 <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body"> 画像を投稿した場合の拡張ブロックは「class="tlImageBlock clearfix"」とする。<br><br>
                                                         長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。<br><br>
                                                         長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。長い文章のテスト。
@@ -1909,7 +1937,7 @@
                                             <div id="message21" class="message">
                                                 <div class="avatar"><img src="themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
                                                 <div class="messageContents">
-                                                    <div class="name">名前 名前</div>
+                                                    <div class="name"><a href="#">名前 名前</a></div>
                                                     <div class="body"> URLを貼りつけた場合の拡張ブロックは「class="tlClipBloard clearfix"」とする。
                                                         <div class="tlClipBoard clearfix">
                                                             <div class="tlClipImage"><a href="http://www.google.com" target="_blank"><img src="http://www.aipo.com/img/plus/future01_05.png"/></a></div>

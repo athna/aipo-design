@@ -15,9 +15,10 @@
 	<meta name="format-detection" content="telephone=no">
 	<link type="image/x-icon" rel="shortcut icon" href="../../themes/default/images/favicon.ico?20130719"/>
 	<link type="image/x-icon" rel="icon" href="../../themes/default/images/favicon.ico?20130719"/>
-	<link rel="stylesheet" type="text/css" href="../../themes/default/css/extend.css"/>
-	<link rel="stylesheet" type="text/css" href="../../themes/default/css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="../../themes/default/css/aui.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="../../themes/default/css/extend.css"/>-->
+	<!--<link rel="stylesheet" type="text/css" href="../../themes/default/css/common.css"/>-->
+	<!--<link rel="stylesheet" type="text/css" href="../../themes/default/css/aui.css"/>-->
+	<link rel="stylesheet" type="text/css" href="../../themes/default/css/aui-all.css"/>
 	<link rel="stylesheet" type="text/css" href="../../themes/default/css/mobile.css"/>
 	<link rel="stylesheet" type="text/css" href="../../themes/default/css/print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../../themes/default/css/font-awesome.min.css"/>
@@ -648,7 +649,7 @@
 <!-- mobileHeader -->
 <div id="mobileHeader_v4">
 	<div class="inner">
-		<h1><span>企画本部</span></h1>
+		<h1><span>ルーム名</span></h1>
 
 		<div class="mhLeft">
 			<a href="#" class="auiMbBtnNavi" onClick="appsNaviSwitch()"><i class="icon-reorder"></i></a>
@@ -850,21 +851,6 @@
 
 					<div class="timeline">
 
-						<div class="loader"><i class="indicator"></i></div>
-
-
-						<!--<div id="message***" class="message invite">
-							<div class="avatar"><img src="../../themes/default/images/_mock/avatar3.jpg" alt="a a" width="50" height="50" class="avatar_l"></div>
-							<div class="messageContents">
-								<div class="body">
-									田村 涼子さんが参加しました。
-								</div>
-								<div class="time">
-									10月10日 20:52&nbsp;
-									<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a> ・
-								</div>
-							</div>
-						</div>-->
 						<div id="message***" class="message">
 							<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 							<div class="messageContents">
@@ -878,11 +864,9 @@
 								</div>
 								<div class="time">
 									10月10日 20:52&nbsp;
-									<!--<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>-->
 								</div>
 							</div>
 						</div>
-
 
 						<div id="message***" class="message">
 							<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
@@ -899,7 +883,6 @@
 								</div>
 								<div class="time">
 									10月10日 20:52&nbsp;
-									<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
 								</div>
 							</div>
 						</div>
@@ -929,7 +912,7 @@
 							</div>
 						</div>
 
-						<div id="message***" class="message">
+						<div id="message***" class="message me"><!--自分のメッセージにはmeを付ける-->
 							<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 							<div class="messageContents">
 								<div class="name">名前 名前</div>
@@ -966,7 +949,21 @@
 							</div>
 						</div>
 
-						<div id="message***" class="message">
+						<div id="message***" class="message me"><!--自分のメッセージにはmeを付ける-->
+							<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
+							<div class="messageContents">
+								<div class="name">名前 名前</div>
+								<div class="body">
+									メッセージ内容です。メッセージ内容です。<br />
+									自分の投稿には「＊人が既読」が付きます。
+								</div>
+								<div class="time">
+									10月10日 20:52&nbsp;
+									<a href="javascript:void(0)" onClick="popupToggle(this,'modalDialog_readList');popupToggle(this,'popupMask');">3人が既読</a>
+								</div>
+							</div>
+						</div>
+						<div id="message***" class="message me"><!--自分のメッセージにはmeを付ける-->
 							<div class="avatar"><img src="../../themes/default/images/common/avatar_default3.png" alt="a a" width="50" height="50" class="avatar_l"></div>
 							<div class="messageContents">
 								<div class="name">名前 名前</div>
@@ -985,24 +982,48 @@
 
 					</div>
 
+					<!--inputField ここから　-->
+					<!-- ******************************
+
+					20170222
+
+					PC版と同じく自分のメッセージには「me」を追加します。
+					PC版と同じく入力欄をメッセージの下に移動します。
+					<div class="tlInputMentionBlock">を新たに追加します。（テキストエリア用）
+					uploadbutton.html内も変更点あり。
+
+
+					****************************** -->
 					<div class="inputField">
 						<form name="" id="" action="" method="post" onsubmit="">
 							<input type="hidden" name="_name" value="timelineForm">
 							<input type="hidden" name="secid" value="">
+
 							<div class="tlInputMention relative">
-								<textarea id="messageTextarea1" class="elastic" id="" cols="10" name="note" rows="1" style="color: black; "  onfocus="phFocus(this)" onblur="phBlur(this)" placeholder="メッセージを入力"></textarea>
+								<textarea class="elastic" cols="10" name="message" rows="1" style="height: 43px; color: black; overflow: hidden;" onkeyup="aipo.message.resizeInput(this);" onpaste="aipo.message.onPaste(this);" onfocus="aipo.message.onFocus(this);" placeholder="メッセージを入力"></textarea>
+								<!--<textarea id="messageTextarea1" class="elastic" id="" cols="10" name="note" rows="1" style="color: black;" onfocus="phFocus(this)" onblur="phBlur(this)" placeholder="メッセージを入力"></textarea>-->
 							</div>
+							<!--<div class="tlInputAttachment displayChangedFromNone" id="messageInputAttachment" style="">-->
+								<!--<p class="tlInputAttachmentTitle">添付ファイル</p>-->
+								<!--<ul id="attachments_global-P-14982624423-10249" class="attachments">-->
+									<!--<li data-fileid="379023000" data-filename="bg.png"><span>bg.png</span><span class="deletebutton" onclick="aimluck.io.removeFileFromList(this.parentNode.parentNode,this.parentNode);">削除</span></li>-->
+									<!--<li data-fileid="379023000" data-filename="bg.png"><span>bg.png</span><span class="deletebutton" onclick="aimluck.io.removeFileFromList(this.parentNode.parentNode,this.parentNode);">削除</span></li>-->
+									<!--<li data-fileid="379023000" data-filename="bg.png"><span>bgbgbgbgbgbgbgbgbgbgbgbgbgbgbgbgbgbg.png</span><span class="deletebutton" onclick="aimluck.io.removeFileFromList(this.parentNode.parentNode,this.parentNode);">削除</span></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+
 							<div class="tlInputControls clearfix">
 								<div class="floatLeft">
 									<iframe name="" id="" allowtransparency="true" class="auiInputFileFrame" src="uploadbutton.html" frameborder="0" scrolling="no"></iframe>
 								</div>
 								<div class="floatRight">
 									<i class="indicator"></i>
-									<input type="submit" class="auiButtonAction" value="投稿" />
+									<input type="submit" class="auiButtonAction" value="投稿する" />
 								</div>
 							</div>
 						</form>
 					</div>
+					<!--inputField ここまで　-->
 
 				</div>
 			</div>
@@ -1043,7 +1064,7 @@
 
 			<div class="snDrawer">
 				<!--a id="snDrawer" href="javascript:void(0)" class="auiButtonBold" onclick="widgetMenuSwitch()"><img src="../themes/default/images/mobile/sn_list.png"></a-->
-				<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-ellipsis-horizontal"></i></a>
+				<a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i class="icon-cog"></i></a>
 			</div>
 
 			<div class="snDrawer floatLeft">
@@ -1063,16 +1084,16 @@
 
 				<div class="auiWidget clearfix">
 					<ul>
-						<li><a href="#">自分宛てのメッセージ</a></li>
-						<li class="active"><a href="#">お気に入り</a></li>
-						<li><a href="#">ルームユーザー</a></li>
 						<li><a href="#">ルーム設定</a></li>
+						<li><a href="#">通知設定</a></li>
+						<li><a href="#">参加ユーザー</a></li>
+						<li><a href="#">ユーザー設定</a></li>
 					</ul>
 					<!--<div style="margin:0.5em 0;"><a href="#">ルーム設定</a></div>-->
 				</div>
 			</div>
 
-			<h1><span>企画本部</span></h1>
+			<h1><span>ルーム名</span></h1>
 		</div>
 		<!-- END Widgets Area -->
 </div>

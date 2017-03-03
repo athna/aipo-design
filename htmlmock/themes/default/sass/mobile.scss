@@ -1589,6 +1589,10 @@ ul.hdCommunications {
 	//padding:4px;
     //padding-right: 5px;
 
+  &.floatLeft{
+	float: left;
+  }
+
 	a {
     	display:inline-block;
         height:44px;
@@ -2704,79 +2708,137 @@ body.messageRoomList {
 	padding-bottom: 20px;
   }
 }
+// 20170222
+// .messageOuter
 .messageOuter {
 
   .inputField {
-	margin-bottom: 5px;
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	margin:0;
+	margin: 0;
 	padding: 0;
 	border-radius: 0;
-	border: none;
+//	border: none;
 	z-index: 1000;
-	//background: $white;
+	background: #fff;
 
-	form {
-	  display: block;
-	  background: $grayBackLight;
-	  padding: 5px;
-	  border: {
-		top: 1px solid $grayLight;
-		left: none;
-		right: none;
-		bottom: none;
-		radius: 0;
+	.tlInputAttachment {
+	  padding: 5px 5px 0 0;
+
+	  .tlInputAttachmentTitle {
+		display: none;
 	  }
-
-	  .tlInputMention {
+	  .attachments {
 		margin: 0;
-		padding: 0 50px 0 28px;
+		font-size: 0;
 
-		textarea {
-		  margin: 0;
-		  padding: 5px;
-		  min-height: 34px;
-		  line-height: 22px;
-		  width: 100%;
-		  border: 1px solid $grayLight;
+		li {
+		  font-size: 13px;
+		  display: inline-block;
+		  background: #eee;
+		  background-image: none;
 		  border-radius: 3px;
-		  -webkit-appearance: none;
-
-		  &:focus,
-		  &.focus{
-			//border: 1px solid $grayLight;
-			min-height: 45px;
-			line-height: normal;
-		  }
-		}
-	  }
-	  .tlInputControls{
-		border: none;
-		padding: 0;
-
-		.floatLeft{
-		  position: absolute;
-		  top: 6px;
-		  left: 4px;
-		}
-		.floatRight{
-		  //padding-top: 5px;
-		  position: absolute;
-		  top: 6px;
-		  right: 5px;
-
-		  input{
-			height: 34px;
-			width: 46px;
-			margin-left: 8px;
-		  }
+		  padding: 3px 5px;
+		  margin: 0 0 5px 5px;
 		}
 	  }
 	}
   }
+
+//  .inputField {
+//	margin-bottom: 5px;
+//	position: fixed;
+//	bottom: 0;
+//	left: 0;
+//	width: 100%;
+//	margin:0;
+//	padding: 0;
+//	border-radius: 0;
+//	border: none;
+//	z-index: 1000;
+//	//background: $white;
+//
+//	form {
+//	  display: block;
+//	  background: $grayBackLight;
+//	  padding: 5px;
+//	  border: {
+//		top: 1px solid $grayLight;
+//		left: none;
+//		right: none;
+//		bottom: none;
+//		radius: 0;
+//	  }
+//
+//	  .tlInputMention {
+//		margin: 0;
+//		padding: 5px;
+//
+//		textarea {
+//		  -webkit-appearance: none;
+//		}
+//	  }
+//	  .tlInputControls{
+//		border: none;
+//		padding: 0;
+//
+//		.floatLeft{
+//		  position: absolute;
+//		  top: 6px;
+//		  left: 4px;
+//		}
+//		.floatRight{
+//		  //padding-top: 5px;
+//		  position: absolute;
+//		  top: 6px;
+//		  right: 5px;
+//
+//		  input{
+//			height: 34px;
+//			width: 46px;
+//			margin-left: 8px;
+//		  }
+//		}
+//	  }
+//	  .auiInputFileFrame {
+//		width: 32px;
+//	  }
+//	  .tlInputMentionBlock {
+//		background: #fff;
+//		margin: 0 50px 0 32px;
+//		padding: 0px;
+//		min-height: 32px;
+//		border: 1px solid $grayLight;
+//		border-radius: 3px;
+//
+//		.tlInputAttachment {
+//		  padding: 5px 5px 0 0;
+//
+//		  .tlInputAttachmentTitle {
+//			display: none;
+//		  }
+//		  .attachments {
+//			margin: 0;
+//			font-size: 0;
+////			letter-spacing: -.4em; /* 文字間を詰めて隙間をなくす */
+//
+//			li{
+//			  font-size: 13px;
+////			  letter-spacing: normal; /* 文字間を通常に戻す */
+//			  display: inline-block;
+//			  background: #eee;
+//			  background-image: none;
+//			  border-radius: 3px;
+//			  padding: 3px 5px;
+//			  margin:0 0 5px 5px;
+//			}
+//		  }
+//		}
+//	  }
+//	}
+//  }
   .message {
 	border-top: none;
 
@@ -2789,16 +2851,117 @@ body.messageRoomList {
 	}
   }
 }
+// #messageMainBlock
 #messageMainBlock {
-  padding-bottom: 35px;
+  padding-bottom: 75px;
+
+  /* 20170222 */
+  .message {
+	border-top: 0;
+	padding: 0 20px 5px;
+	margin-bottom: 0;
+	&:first-child {
+	  padding-top: 0 !important;
+	}
+	&:last-child {
+	  margin-bottom: 10px;
+	}
+	&.active {
+	  background: #fef6f1;
+	  border-radius: 4px;
+	}
+	.avatar {
+	  margin-top: 29px;
+	  left: 0;
+	}
+	.time {
+	  color: #999;
+	  margin-bottom: 0;
+	  a {
+		color: #999;
+		&:hover {
+		  color: #f90;
+		}
+	  }
+	}
+	.name {
+	  padding-top: 7px;
+	}
+	.messageContents {
+	  margin-left: 22px;
+	  margin-right: 22px;
+
+	  .body {
+		position: relative;
+		background: #F6F6F6;
+		border-radius: 5px;
+		padding: 10px 10px;
+		margin: 3px 0 4px 0;
+
+		&:after {
+		  right: 100%;
+		  top: 15px;
+		  border: solid transparent;
+		  content: " ";
+		  height: 0;
+		  width: 0;
+		  position: absolute;
+		  pointer-events: none;
+		  border-color: rgba(246, 246, 246, 0);
+		  border-right-color: #f6f6f6;
+		  border-width: 5px;
+		  margin-top: -5px;
+		}
+
+		.tlImageBlock{
+		  margin-bottom: 0;
+
+		  a{
+			background: #fff;
+		  }
+		}
+	  }
+	}
+	&.me {
+	  padding-right: 5px;
+	  margin-top: 5px;
+
+	  .avatar {
+		display: none;
+//		left: inherit;
+//		right: 0;
+//		margin-top: 7px;
+	  }
+	  .messageContents {
+		margin-right: 0;
+		margin-left: 59px;
+//		margin-right: 22px;
+//		margin-left: 35px;
+
+		.body {
+		  background: #fff7ea;
+
+		  &:after {
+			left: 100%;
+			border-color: rgba(255, 247, 234, 0);
+			border-left-color: #fff7ea;
+		  }
+		}
+		.name{
+		  display: none;
+		}
+	  }
+	}
+  }
+  //20170222
 }
+
 .roomHeader {
   margin: 0 0 5px 0;
   position: relative;
 }
 
 .auiSearch{
-
   &.gray{
 	margin-bottom: 10px;
 

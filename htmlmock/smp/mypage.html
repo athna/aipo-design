@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charset="UTF-8">
+  <!--<base href="https://app.aipo.com/">-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="ja">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Aipo.com</title>
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta name="copyright" content="Copyright(C) TOWN, Inc. All Rights Reserved.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <link type="image/x-icon" rel="shortcut icon" href="/images/favicon.ico?1490240382000">
+  <link rel="mask-icon" sizes="any" href="/images/favicon.svg?1490240382000" color="#ff9900">
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/mobile-all.css?1490240382000">
+  -->
+  <link rel="stylesheet" type="text/css" href="../themes/default/css/font-awesome.min.css"/>
+  <script src="../themes/default/js/mock.js"></script>
+</head>
+<body onload="aipo.container.renderGadgets()">
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+<div id="slideDialog" class="modalDialog imageDialog" style="display:none"></div>
+<!--<script type="text/javascript" src="/javascript/dojo/dojo.js"></script>-->
+<!--<script type="text/javascript" src="/javascript/aipo.js?1490240382000"></script>-->
+<!-- WRAPPER -->
+<div id="wrapper">
+  <!-- appsNavigation_v2 -->
+  <script type="text/javascript">
+    // ウィジェットメニュー用
+    aipo.onloadSmartPhone = function () {
+      var widgets_area = dojo.byId('auiWidgetsArea');
+      if (dojo.byId("snDrawer")) return;
+      if (widgets_area != null) {
+        // classの追加
+        var is_menu = ["Msgboard", "ToDo", "Workflow", "Note", "Report", "AddressBook", "UserList", "MyGroup", "AccountPerson", "SaaSSysInfo", "SaaSFileIO", "SaaSAccount", "Post", "Position", "Facilities", "SaaSGadgetsAdmin", "WorkflowCategory", "ExtTimecardSystem", "AccessControl", "Gpdb", "Wiki", "Project"].indexOf("Schedule") != -1;
+        for (var i = 0; i < widgets_area.childNodes.length; i++) {
+          if (widgets_area.childNodes[i].className != null
+          && widgets_area.childNodes[i].className.indexOf('auiWidget', 0) >= 0) {
+            if (widgets_area.childNodes[i].innerHTML.indexOf('auiButtonAction', 0) >= 0) {
+              widgets_area.childNodes[i].className += ' widgetButton';
+            } else if (widgets_area.childNodes[i].id == 'subNavigation') {
+              is_menu = true;
+            } else if (widgets_area.childNodes[i].innerHTML.indexOf('<ul>', 0) >= 0) {
+              widgets_area.childNodes[i].id = 'subNavigation';
+              is_menu = true;
+            } else {
+              widgets_area.childNodes[i].className += ' mb_hide';
+            }
+          }
+        }
+        // snDrawerの追加
+        if (is_menu) {
+          var elem = document.createElement('div');
+          elem.className = 'snDrawer';
+          elem.innerHTML = '<a id="snDrawer" href="javascript:void(0)" onClick="widgetMenuSwitch()"><i class="icon-caret-up"></i></a>';
+          widgets_area.appendChild(elem);
+        }
+      }
+      dojo.query("input, textarea").forEach(function (item) {
+        dojo.connect(item, "onfocus", aimluck.io.onTextFieldFocus)
+        dojo.connect(item, "onblur", aimluck.io.onTextFieldBlur)
+      })
+      dojo.query("form").forEach(function (item) {
+        dojo.connect(item, "onsubmit", aimluck.io.onTextFieldBlur)
+      })
+    }
+    dojo.addOnLoad(function () {
+      aipo.onloadSmartPhone();
+      aipo.menu.register("activity");
+      aipo.menu.register("support");
+      aipo.message.setup("P-15af9f59a08-10168", "https://app.aipo.com/portal/js_peid/P-15af9f59a08-10168", true);
+      aipo.message.updateUnreadCount();
+      aipo.message.v2 = true;
+    });
+    function dispMenubar(obj, target) {
+      if (!document.getElementById(target)) {
+        return;
+      }
+      if (document.getElementById(target).style.display != 'block') {
+        document.getElementById(target).style.display = 'block';
+      } else {
+        document.getElementById(target).style.display = 'none';
+      }
+    }
+    function widgetMenuSwitch() {
+      var subNavi = document.getElementById('subNavigation');
+      var widgets = document.getElementById('auiWidgetsArea');
+      var contents = document.getElementById('auiContentsArea');
+      var footer = document.getElementById('auiWidgetsArea');
+      var wrapper = document.getElementById('wrapper');
+      var header = document.getElementById('mobileHeader_v3');
+      var body = dojo.body();
+
+      var subNaviStyle = subNavi.currentStyle || document.defaultView.getComputedStyle(subNavi, null);
+      if (subNaviStyle.display == 'none') {
+        subNavi.style.display = 'block';
+        subNavi.style.position = "absolute";
+
+        var headerHeight = header ? header.clientHeight : 0;
+        var footerHeight = footer ? footer.clientHeight : 0;
+        var footerRec = footer.getBoundingClientRect();
+        var displayHeight = footerRec.top;
+        var naviHeight = subNavi.clientHeight + headerHeight + footerHeight;
+        var pageHeight = footerHeight + document.getElementById('auiContentsArea').clientHeight + headerHeight;
+
+        if (displayHeight < naviHeight) {
+          //ナビが動的でその高さがディスプレイ以上の時
+          widgets.style.position = "absolute";
+          if (naviHeight < pageHeight) {
+            //ナビが動的でその高さがディスプレイ以上の時でページ全体がそれ以上の時
+            footer.style.top = pageHeight + 'px';
+          } else {
+            wrapper.style.minHeight = naviHeight + 'px';
+            footer.style.top = (subNavi.clientHeight + headerHeight + 50) + 'px';
+          }
+          window.scrollTo(0, wrapper.clientHeight);
+        } else {
+          //ナビが静的な時
+          wrapper.style.minHeight = displayHeight + 'px';
+        }
+        body.style.overflowX = "hidden";//効かない
+        if (aipo.userAgent.isAndroid2()) {
+          widgets.style.zIndex = 1024;
+        }
+      } else {
+        footer.style.top = '';
+        widgets.style.position = "fixed";
+        subNavi.style.display = 'none';
+        body.style.overflowX = "auto";
+        if (aipo.userAgent.isAndroid2()) {
+          widgets.style.zIndex = 994;
+        }
+      }
+    }
+
+    // ナビゲーションメニュー用
+    var navEventList = [];
+    function appsNaviSwitch() {
+      var navi = document.getElementById('appsNavigation_v2');
+      var wrapper = document.getElementById('wrapper');
+      var bk = document.getElementById('appsNavigationBack_v2');
+      var mh = document.getElementById('mobileHeader_v3');
+
+      if (navi.className != 'anOpen') {
+        navi.style.display = 'block';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.height = document.getElementById('anInner').clientHeight + 'px';
+        bk.style.display = 'block';
+        bk.style.height = document.getElementById('anInner').clientHeight + 'px';
+        mh.style.top = '0';
+        if (aipo.userAgent.isAndroid()) {
+          navi.className = 'anOpen';
+          bk.className = 'anOpen';
+
+          var content = dojo.query(".roundBlockContent")[0];
+          if (content) {
+            content.style.display = "none";
+          }
+
+          //クリック無効化
+          var f = function (e) {
+            e.preventDefault();
+            //e.stopImmediatePropagation();
+            return false;
+          };
+
+          var naviNodes = dojo.query("input,select,button,a", dojo.byId("appsNavigation_v2"));
+
+          //ナビゲーション外のクリックイベントを無効化
+          dojo.query("input,select,button,a").forEach(function (node) {
+            if (!aipo.arrayContains(naviNodes, node))
+              if (node.addEventListener)navEventList.push(node.addEventListener('click', f, true));
+              else navEventList.push(dojo.connect(node, 'click', f));
+          });
+
+          //ナビゲーション外のフォームオブジェクトの無効化
+          dojo.query("input,select,button").forEach(function (node, index) {
+            if (!aipo.arrayContains(naviNodes, node) && !node.disabled) {
+              dojo.addClass(node, "disabled-by-navi");
+              node.disabled = true;
+            }
+          });
+
+        } else {
+          mh.style.position = 'absolute';
+          setTimeout('setClassName("appsNavigation_v2","anOpen")', 100);
+          setTimeout('setClassName("appsNavigationBack_v2","anOpen")', 1);
+        }
+      } else {
+        wrapper.style.overflow = 'visible';
+        mh.style.top = '';
+        navi.className = '';
+        if (aipo.userAgent.isAndroid()) {
+          bk.className = '';
+          bk.style.display = 'none';
+          wrapper.style.height = 'auto';
+          navi.style.display = 'none';
+
+          var content = dojo.query(".roundBlockContent")[0];
+          if (content) {
+            content.style.display = "";
+          }
+
+          //無効化していたクリックイベントの有効化
+          for (var i = 0; i < navEventList.length; i++) {
+            dojo.disconnect(navEventList[i]);
+          }
+          navEventList = [];
+
+          //無効化していたフォームオブジェクトの有効化
+          dojo.query("input.disabled-by-navi,select.disabled-by-navi,button.disabled-by-navi").forEach(function (node, index) {
+            dojo.removeClass(node, "disabled-by-navi");
+            node.disabled = false;
+          });
+
+        } else {
+          mh.style.position = 'fixed';
+          setTimeout('setClassName("appsNavigationBack_v2","")', 100);
+          setTimeout('setNaviDisp("appsNavigationBack_v2","none")', 300);
+          setTimeout('setNaviDisp("appsNavigation_v2","none")', 300);
+          setTimeout('setWrapperHeight()', 300);
+        }
+      }
+    }
+    function setClassName(obj, string) {
+      document.getElementById(obj).className = string;
+    }
+    function setNaviDisp(obj, str) {
+      document.getElementById(obj).style.display = str;
+    }
+    function setWrapperHeight() {
+      document.getElementById("wrapper").style.height = "auto";
+    }
+  </script>
+  <div id="appsNavigationBack_v2"><a class="backLayer" href="javascript:void(0)" onclick="appsNaviSwitch()">
+    <!--test--></a></div>
+  <div id="appsNavigation_v2">
+    <div id="anInner">
+      <div class="anUser">
+        <div class="close"><a href="javascript:void(0)" onclick="appsNaviSwitch()"><i class="icon-remove"></i></a></div>
+        <div class="avatar"><img
+        src="https://app.aipo.com/portal/template/FileuploadFacePhotoScreen?uid=4&amp;t=1452824929000" alt="顔写真"
+        width="20" height="20"></div>
+        <div class="name">木村 一郎</div>
+      </div>
+      <div class="anApps">
+        <h2>アプリ</h2>
+        <ul>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-10045?action=controls.Maximize"><span
+          class="icon"><i class="icon-comments"></i></span>タイムライン</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/?action=controls.Maximize"><span
+          class="icon"><i class="icon-calendar"></i></span>スケジュール</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-1003d?action=controls.Maximize"><span
+          class="icon"><i class="icon-time"></i></span>タイムカード</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-1003e?action=controls.Maximize"><span
+          class="icon"><i class="icon-picture"></i></span>掲示板</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-10047?action=controls.Maximize"><span
+          class="icon"><i class="icon-list-ul"></i></span>ToDo</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-1003f?action=controls.Maximize"><span
+          class="icon"><i class="icon-folder-open"></i></span>フォルダ</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-10041?action=controls.Maximize"><span
+          class="icon"><i class="icon-inbox"></i></span>ワークフロー</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-10040?action=controls.Maximize"><span
+          class="icon"><i class="icon-phone"></i></span>伝言メモ</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-10048?action=controls.Maximize"><span
+          class="icon"><i class="icon-file-text"></i></span>報告書</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-10043?action=controls.Maximize"><span
+          class="icon"><i class="icon-compass"></i></span>アドレス帳</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-1003c/js_peid/P-15af9f596a9-10042?action=controls.Maximize"><span
+          class="icon"><i class="icon-group"></i></span>ユーザー名簿</a></li>
+        </ul>
+      </div>
+      <div class="anSetting">
+        <h2>設定</h2>
+        <ul>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/P-15af9f596a9-10049%2CP-15af9f596a9-1004a?action=controls.Restore&amp;action=controls.Maximize"><span
+          class="icon"><i class="icon-cog"></i></span>個人設定</a></li>
+          <li><a
+          href="https://app.aipo.com/portal/js_pane/101%2C131?action=controls.Restore&amp;action=controls.Maximize"><span
+          class="icon"><i class="icon-cogs"></i></span>管理設定</a></li>
+          <li><a href="javascript:void(0)"
+                 onclick="location.href='https://app.aipo.com/portal/action/ALChangeToPC?mypageid=P-15af9f596a9-1003c'"><span
+          class="icon"><i class="icon-desktop"></i></span>PC版表示へ変更</a></li>
+          <li><a href="javascript:void(0)" onclick="location.href='https://app.aipo.com/portal?action=SaaSJLogoutUser'"><span
+          class="icon"><i class="icon-power-off"></i></span>ログアウト</a></li>
+        </ul>
+      </div>
+      <div class="anFooter">
+        <div class="copyright">© TOWN</div>
+      </div>
+    </div>
+  </div>
+  <!-- /mobileNavigation -->
+  <!-- MAIN OUTER -->
+  <div id="roundWrapper">
+    <div class="roundMainWrapper">
+      <!-- PORTLET OUTER -->
+      <div class="dojoDndItem auiPortlet" id="portletsBody">
+        <!-- Smartphone  Header -->
+        <div id="mobileHeader_v3">
+          <div class="inner">
+            <h1><span id="portletTitle">スケジュール </span></h1>
+
+            <div class="mhLeft">
+              <a href="javascript:void(0)" class="auiMbBtnNavi" onclick="appsNaviSwitch()">
+                <i class="icon-reorder"></i>
+              </a>
+
+              <div id="unreadchecker" class="zero counter" style="display:none;"></div>
+            </div>
+            <div class="hdNavigation">
+              <ul class="hdCommunications">
+                <li>
+                  <a href="https://app.aipo.com/portal/js_peid/P-15af9f59a08-10168?action=controls.Maximize"
+                     class="valid" title="メッセージ"><i class="sprite-comment"></i><span id="messageChecker"></span></a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" class="valid" id="mb_activity"
+                     onclick="aipo.menu.toggleDropdown(&quot;activity&quot;);"
+                     onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');"
+                     onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="あなた宛のお知らせ"><i
+                  class="sprite-notification"></i><span id="activityChecker"></span></a>
+
+                  <div class="dropdown" id="dd_activity">
+                    <div id="activityListPane">
+                      <div class="center loader" id="indicator-supportListPane"><i class="indicator"></i></div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" id="mb_support" onclick="aipo.menu.toggleDropdown(&quot;support&quot;);"
+                     onmouseover="dojo.addClass(this, 'customizeMenuIconMouseenter');"
+                     onmouseout="dojo.removeClass(this, 'customizeMenuIconMouseenter');" title="サポート"><i
+                  class="sprite-support" title="サポート"></i><span id="supportChecker"></span></a>
+
+                  <div class="dropdown" id="dd_support">
+                    <div id="supportListPane">
+                      <div class="center loader" id="indicator-supportListPane"><i class="indicator"></i></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /Smartphone Header -->
+        <div class="auiPortletHead">
+          <div class="inner">
+            <div class="auiPortletTitle" style="visibility:hidden;">スケジュール</div>
+            <div class="auiPortletTool"></div>
+          </div>
+        </div>
+        <!-- auiPortletBody -->
+        <div class="auiPortletBody">
+          <div class="inner">
+            <div dojotype="aimluck:Contentpane" widgetid="widget_" id="portlet_">
+
+
+              <div id="auiContentsArea">
+                <div id="auiContentsAreaInner">
+                  <div class="spaceBoth">
+
+
+                    <div class="auiSummaryMeta clearfix">
+                      <form class="auiSearch" id="searchForm_" name="searchForm_"
+                            action="tab=search"
+                            onsubmit="aimluck.io.postViewPage(this, '', 'search-indicator-list-'); return false;"
+                            method="post">
+                        <input class="text floatLeft long" type="text" id="q" name="keyword" value=""
+                               style="margin-right:5px;">
+                        <input type="submit" class="auiButtonSearch floatLeft" value="検索">
+
+                        <div class="indicatorWrap floatLeft ml10" style="padding-top: 0.4em;">
+                          <div class="indicator" id="search-indicator-list" style="display:none;">
+                            &nbsp;</div>
+                        </div>
+                      </form>
+                    </div>
+
+
+                    <div class="auiSummaryMeta auiMultiSelector clearfix">
+                      <div class="floatRight mb_hide">
+                        <div class="auiSelectButton">
+
+                        </div>
+                      </div>
+
+                      <div class="floatLeft">
+                        <div class="auiSelectButton">
+                          <ul>
+                            <li style="width:4em;" class="mr5" title="今日へ">
+                              <a href="javascript:void(0);" class="btn"
+                                 onclick="aipo.viewPage();"><span>今日</span></a>
+                            </li>
+                            <li class="mr5" title="前の週へ">
+                              <a href="javascript:void(0);" class="btn arrow"
+                                 onclick="aipo.viewPage();"><i
+                              class="icon-backward"></i></a>
+                            </li>
+                            <li title="前の日へ">
+                              <a href="javascript:void(0);" class="first arrow"
+                                 onclick="aipo.viewPage();"><i
+                              class="icon-caret-left"></i></a>
+                            </li>
+                            <li class="mr5" title="次の日へ">
+                              <a href="javascript:void(0);" class="last arrow"
+                                 onclick="aipo.viewPage();"><i
+                              class="icon-caret-right"></i></a>
+                            </li>
+                            <li title="次の週へ">
+                              <a href="javascript:void(0);" class="btn arrow"
+                                 onclick="aipo.viewPage();"><i
+                              class="icon-forward"></i></a>
+                            </li>
+                          </ul>
+                          <div class="count"><strong>2017年3月24日(金)</strong></div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="center loader" id="indicator" style="display:none"><i
+                    class="indicator"></i></div>
+
+                    <div class="auiSummaryMeta clearfix">
+                      <div class="row">
+                        <div class="col-2">
+                          <select
+                          onchange="aipo.viewPage(this.options[this.selectedIndex].value, '')"
+                          style="margin:0 0; vertical-align:middle;">
+                            <option value="">すべてのグループ</option>
+                            <option value="">----------</option>
+                            <option value="">全員</option>
+                            <option value="">外部スタッフ</option>
+                            <option value="">山田</option>
+                            <option value="">----------</option>
+                            <option value="">02_営業部</option>
+                            <option value="">03_企画部</option>
+                            <option value="">01_総務部</option>
+                            <option value="">----------</option>
+                            <option value="">設備一覧</option>
+                            <option value="">会議室</option>
+                            <option value="">外部スタッフ</option>
+                            <option value="">座席表</option>
+                            <option value="">共有スケジュール</option>
+                            <option value="">社内行事</option>
+                            <option value="">東京</option>
+                          </select>
+                        </div>
+                        <div class="col-2">
+                          <select name="target_user_id"
+                                  onchange="aipo.viewPage(this.options[this.selectedIndex].value, '')"
+                                  style="margin:0 0; vertical-align:middle;">
+                            <option value="">メンバーを選択してください</option>
+                            <option value="" selected="selected">木村 一郎</option>
+                            <option value="">山田 太郎</option>
+                            <option value="">田村 涼子</option>
+                            <option value="">田中 花子</option>
+                            <option value="">加藤 美奈</option>
+                            <option value="">佐々木 隆</option>
+                            <option value="">大地 惇</option>
+                            <option value="">岡田 朝香</option>
+                            <option value="">高木 亮介</option>
+                            <option value="">釜田 優一</option>
+                            <option value="">木村 一郎</option>
+                            <option value="">中村 大輔</option>
+                            <option value="">----------</option>
+                            <option value="">会議室A</option>
+                            <option value="">会議室B</option>
+                            <option value="">会議室C</option>
+                            <option value="">ライターA</option>
+                            <option value="">編集B</option>
+                            <option value="">デザイナーC</option>
+                            <option value="">1番</option>
+                            <option value="">2番</option>
+                            <option value="">3番</option>
+                            <option value="">4番</option>
+                            <option value="">5番</option>
+                            <option value="">6番</option>
+                            <option value="">全員</option>
+                            <option value="">社内行事</option>
+                            <option value="">全ユーザー</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="listmessageDiv"></div>
+                    <div id="content" style="visibility:visible">
+                      <table class="auiRowTable wide scheduleList">
+                        <tbody>
+                        <tr class="dayStart today">
+
+                          <td colspan="3" class="day"><a href="javascript:void(0);"
+                                                         onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-24&amp;filter=null&amp;filtertype=group', '');">3月24日(金)</a>
+                          </td>
+                        </tr>
+                        <tr class="today">
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=67&amp;userid=4&amp;view_date=2017-03-24', '', aipo.schedule.onLoadScheduleDetail)">朝会議</a>
+                              <span class="inline-block"><i class="auiIcon auiIconTmpreserve "
+                                                            titile="仮スケジュール"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(11,arguments[0])">山田
+                                太郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="today">
+
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=2&amp;userid=4&amp;view_date=2017-03-24', '', aipo.schedule.onLoadScheduleDetail)">市場調査
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="today">
+
+                          <td class="time">8:30 - 8:45</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=4&amp;userid=4&amp;view_date=2017-03-24', '', aipo.schedule.onLoadScheduleDetail)">全体朝礼
+
+                              </a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="today">
+
+                          <td class="time">9:00 - 9:50</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=191&amp;userid=4&amp;view_date=2017-03-24', '', aipo.schedule.onLoadScheduleDetail)">定例会議
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="today">
+
+                          <td class="time">10:25 - 15:55</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=194&amp;userid=4&amp;view_date=2017-03-24', '', aipo.schedule.onLoadScheduleDetail)">リクルート活動</a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="today">
+
+                          <td class="time">16:00 - 17:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=19&amp;userid=4&amp;view_date=2017-03-24', '', aipo.schedule.onLoadScheduleDetail)">営業報告
+
+                              </a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="dayStart saturday">
+
+                          <td colspan="3" class="day"><a href="javascript:void(0);"
+                                                         onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-25&amp;filter=null&amp;filtertype=group', '');">3月25日(土)</a>
+                          </td>
+                        </tr>
+                        <tr class="saturday">
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=67&amp;userid=4&amp;view_date=2017-03-25', '', aipo.schedule.onLoadScheduleDetail)">朝会議</a>
+                              <span class="inline-block"><i class="auiIcon auiIconTmpreserve "
+                                                            titile="仮スケジュール"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(11,arguments[0])">山田
+                                太郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="saturday">
+
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=2&amp;userid=4&amp;view_date=2017-03-25', '', aipo.schedule.onLoadScheduleDetail)">市場調査
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="dayStart sunday">
+
+                          <td colspan="3" class="day"><a href="javascript:void(0);"
+                                                         onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-26&amp;filter=null&amp;filtertype=group', '');">3月26日(日)</a>
+                          </td>
+                        </tr>
+                        <tr class="sunday">
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=67&amp;userid=4&amp;view_date=2017-03-26', '', aipo.schedule.onLoadScheduleDetail)">朝会議</a>
+                              <span class="inline-block"><i class="auiIcon auiIconTmpreserve "
+                                                            titile="仮スケジュール"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(11,arguments[0])">山田
+                                太郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="sunday">
+
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=2&amp;userid=4&amp;view_date=2017-03-26', '', aipo.schedule.onLoadScheduleDetail)">市場調査
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="dayStart">
+
+                          <td colspan="3" class="day"><a href="javascript:void(0);"
+                                                         onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-27&amp;filter=null&amp;filtertype=group', '');">3月27日(月)</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=67&amp;userid=4&amp;view_date=2017-03-27', '', aipo.schedule.onLoadScheduleDetail)">朝会議</a>
+                              <span class="inline-block"><i class="auiIcon auiIconTmpreserve "
+                                                            titile="仮スケジュール"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(11,arguments[0])">山田
+                                太郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=2&amp;userid=4&amp;view_date=2017-03-27', '', aipo.schedule.onLoadScheduleDetail)">市場調査
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">8:30 - 8:45</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=4&amp;userid=4&amp;view_date=2017-03-27', '', aipo.schedule.onLoadScheduleDetail)">全体朝礼
+
+                              </a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">9:00 - 10:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=3&amp;userid=4&amp;view_date=2017-03-27', '', aipo.schedule.onLoadScheduleDetail)">定例会議
+
+                              </a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="dayStart">
+
+                          <td colspan="3" class="day"><a href="javascript:void(0);"
+                                                         onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-28&amp;filter=null&amp;filtertype=group', '');">3月28日(火)</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=67&amp;userid=4&amp;view_date=2017-03-28', '', aipo.schedule.onLoadScheduleDetail)">朝会議</a>
+                              <span class="inline-block"><i class="auiIcon auiIconTmpreserve "
+                                                            titile="仮スケジュール"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(11,arguments[0])">山田
+                                太郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=2&amp;userid=4&amp;view_date=2017-03-28', '', aipo.schedule.onLoadScheduleDetail)">市場調査
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">9:00 - 10:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=3&amp;userid=4&amp;view_date=2017-03-28', '', aipo.schedule.onLoadScheduleDetail)">定例会議
+
+                              </a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">10:30 - 16:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=5&amp;userid=4&amp;view_date=2017-03-28', '', aipo.schedule.onLoadScheduleDetail)">リクルート活動</a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="dayStart">
+
+                          <td colspan="3" class="day"><a href="javascript:void(0);"
+                                                         onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-29&amp;filter=null&amp;filtertype=group', '');">3月29日(水)</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=67&amp;userid=4&amp;view_date=2017-03-29', '', aipo.schedule.onLoadScheduleDetail)">朝会議</a>
+                              <span class="inline-block"><i class="auiIcon auiIconTmpreserve "
+                                                            titile="仮スケジュール"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(11,arguments[0])">山田
+                                太郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=2&amp;userid=4&amp;view_date=2017-03-29', '', aipo.schedule.onLoadScheduleDetail)">市場調査
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">9:00 - 10:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=3&amp;userid=4&amp;view_date=2017-03-29', '', aipo.schedule.onLoadScheduleDetail)">定例会議
+
+                              </a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">14:00 - 15:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=182&amp;userid=4&amp;view_date=2017-03-29', '', aipo.schedule.onLoadScheduleDetail)">繰り返しスケジュール</a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">17:00 - 18:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=7&amp;userid=4&amp;view_date=2017-03-29', '', aipo.schedule.onLoadScheduleDetail)">打ち合わせ</a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="dayStart">
+
+                          <td colspan="3" class="day"><a href="javascript:void(0);"
+                                                         onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-30&amp;filter=null&amp;filtertype=group', '');">3月30日(木)</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=67&amp;userid=4&amp;view_date=2017-03-30', '', aipo.schedule.onLoadScheduleDetail)">朝会議</a>
+                              <span class="inline-block"><i class="auiIcon auiIconTmpreserve "
+                                                            titile="仮スケジュール"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(11,arguments[0])">山田
+                                太郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">期間</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=2&amp;userid=4&amp;view_date=2017-03-30', '', aipo.schedule.onLoadScheduleDetail)">市場調査
+
+                              </a>
+                              <span class="inline-block"></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">9:00 - 10:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=3&amp;userid=4&amp;view_date=2017-03-30', '', aipo.schedule.onLoadScheduleDetail)">定例会議
+
+                              </a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td class="time">10:30 - 16:00</td>
+                          <td>
+                            <div>
+                              <a href="javascript:void(0);"
+                                 onclick="aipo.common.showDialog('entityid=5&amp;userid=4&amp;view_date=2017-03-30', '', aipo.schedule.onLoadScheduleDetail)">リクルート活動</a>
+                              <span class="inline-block"><i class="auiIcon auiIconRepeat " title="繰り返し"></i></span>
+                            </div>
+                          </td>
+                          <td class="wName mb_hide">
+                            <div>
+                              <a href="javascript: void(0)" onclick="aipo.message.popupProfile(4,arguments[0])">木村
+                                一郎</a>
+                            </div>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <script type="text/javascript">
+                      //<![CDATA[
+                      dojo.addOnLoad(function () {
+                        ptConfig[''].reloadFunction = aipo.reloadPage;
+                      });
+                      //]]>
+                    </script>
+                  </div>
+
+                </div>
+              </div>
+
+              <script type="text/javascript" src="/javascript/aipo/calendar/monthly.js?1490240382000"></script>
+              <span id="schedule_val_tooltip1" style="display:none;">読み込み中...</span>
+              <span id="schedule_val_tooltip2" style="display:none;">場所</span>
+              <span id="schedule_val_tooltip3" style="display:none;">参加者</span>
+              <span id="schedule_val_tooltip4" style="display:none;">設備</span>
+
+              <div id="auiWidgetsArea" style="position:fixed">
+                <div class="auiWidget clearfix widgetButton">
+                  <a title="予定を追加する"
+                     href="javascript:aipo.common.showDialog('entityid=new','',aipo.schedule.onLoadScheduleDialog);"
+                     class="auiButtonAction">予定を追加する</a>
+                </div>
+                <div class="auiWidget clearfix mb_hide">
+                  <table class="auiCalendar">
+                    <tbody id="mc_table">
+                    <tr>
+                      <th colspan="7" style="line-height:1.7em;">
+                        <div class="floatLeft"><span id="mc_year">2017</span>年<span id="mc_month">3</span>月</div>
+                        <div class="floatRight">
+                          <div class="auiSelectButton">
+                            <div><a href="javascript:void(0);" class="first arrow"
+                                    onclick="aipo.calendar.showPreviousMonthlyCalendar()" title="前月へ"><i
+                            class="icon-caret-left"></i></a></div>
+                            <div><a href="javascript:void(0);" class="last arrow"
+                                    onclick="aipo.calendar.showNextMonthlyCalendar()" title="翌月へ"><i
+                            class="icon-caret-right"></i></a></div>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr class="week">
+                      <td class="sunday">日</td>
+                      <td>月</td>
+                      <td>火</td>
+                      <td>水</td>
+                      <td>木</td>
+                      <td>金</td>
+                      <td class="saturday">土</td>
+                    </tr>
+                    <tr class="monthlyCalendarAutoTr">
+
+
+                      <td class=" sunday out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-02-26&amp;filter=null&amp;filtertype=group', '');">26</a>
+                      </td>
+
+
+                      <td class=" out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-02-27&amp;filter=null&amp;filtertype=group', '');">27</a>
+                      </td>
+
+
+                      <td class=" out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-02-28&amp;filter=null&amp;filtertype=group', '');">28</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-01&amp;filter=null&amp;filtertype=group', '');">1</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-02&amp;filter=null&amp;filtertype=group', '');">2</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-03&amp;filter=null&amp;filtertype=group', '');">3</a>
+                      </td>
+
+
+                      <td class=" saturday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-04&amp;filter=null&amp;filtertype=group', '');">4</a>
+                      </td>
+                    </tr>
+                    <tr class="monthlyCalendarAutoTr">
+
+
+                      <td class=" sunday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-05&amp;filter=null&amp;filtertype=group', '');">5</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-06&amp;filter=null&amp;filtertype=group', '');">6</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-07&amp;filter=null&amp;filtertype=group', '');">7</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-08&amp;filter=null&amp;filtertype=group', '');">8</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-09&amp;filter=null&amp;filtertype=group', '');">9</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-10&amp;filter=null&amp;filtertype=group', '');">10</a>
+                      </td>
+
+
+                      <td class=" saturday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-11&amp;filter=null&amp;filtertype=group', '');">11</a>
+                      </td>
+                    </tr>
+                    <tr class="monthlyCalendarAutoTr">
+
+
+                      <td class=" sunday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-12&amp;filter=null&amp;filtertype=group', '');">12</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-13&amp;filter=null&amp;filtertype=group', '');">13</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-14&amp;filter=null&amp;filtertype=group', '');">14</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-15&amp;filter=null&amp;filtertype=group', '');">15</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-16&amp;filter=null&amp;filtertype=group', '');">16</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-17&amp;filter=null&amp;filtertype=group', '');">17</a>
+                      </td>
+
+
+                      <td class=" saturday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-18&amp;filter=null&amp;filtertype=group', '');">18</a>
+                      </td>
+                    </tr>
+                    <tr class="monthlyCalendarAutoTr">
+
+
+                      <td class=" sunday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-19&amp;filter=null&amp;filtertype=group', '');">19</a>
+                      </td>
+
+
+                      <td class=" holiday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-20&amp;filter=null&amp;filtertype=group', '');">20</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-21&amp;filter=null&amp;filtertype=group', '');">21</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-22&amp;filter=null&amp;filtertype=group', '');">22</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-23&amp;filter=null&amp;filtertype=group', '');">23</a>
+                      </td>
+
+
+                      <td class=" today selected">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-24&amp;filter=null&amp;filtertype=group', '');">24</a>
+                      </td>
+
+
+                      <td class=" saturday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-25&amp;filter=null&amp;filtertype=group', '');">25</a>
+                      </td>
+                    </tr>
+                    <tr class="monthlyCalendarAutoTr">
+
+
+                      <td class=" sunday">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-26&amp;filter=null&amp;filtertype=group', '');">26</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-27&amp;filter=null&amp;filtertype=group', '');">27</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-28&amp;filter=null&amp;filtertype=group', '');">28</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-29&amp;filter=null&amp;filtertype=group', '');">29</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-30&amp;filter=null&amp;filtertype=group', '');">30</a>
+                      </td>
+
+
+                      <td class="">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-03-31&amp;filter=null&amp;filtertype=group', '');">31</a>
+                      </td>
+
+
+                      <td class=" saturday out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-01&amp;filter=null&amp;filtertype=group', '');">1</a>
+                      </td>
+                    </tr>
+                    <tr class="monthlyCalendarAutoTr">
+
+
+                      <td class=" sunday out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-02&amp;filter=null&amp;filtertype=group', '');">2</a>
+                      </td>
+
+
+                      <td class=" out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-03&amp;filter=null&amp;filtertype=group', '');">3</a>
+                      </td>
+
+
+                      <td class=" out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-04&amp;filter=null&amp;filtertype=group', '');">4</a>
+                      </td>
+
+
+                      <td class=" out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-05&amp;filter=null&amp;filtertype=group', '');">5</a>
+                      </td>
+
+
+                      <td class=" out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-06&amp;filter=null&amp;filtertype=group', '');">6</a>
+                      </td>
+
+
+                      <td class=" out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-07&amp;filter=null&amp;filtertype=group', '');">7</a>
+                      </td>
+
+
+                      <td class=" saturday out">
+                        <a href="javascript:void(0);"
+                           onclick="aipo.schedule.setIndicator('');aipo.viewPage('tab=oneday-group&amp;view_start=2017-04-08&amp;filter=null&amp;filtertype=group', '');">8</a>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <img src="images/common/dot.gif" width="1" height="1" alt="" onload="aipo.calendar.initMonthlyCalendar(''
+    	,'ScheduleMonthlyJSONScreen'
+    	,'tab=oneday-group&amp;filter=null&amp;filtertype=group'
+    	,'3','24');">
+                </div>
+                <div class="auiWidget clearfix" style="display:none;" id="subNavigation">
+                  <ul>
+                    <li><a href="javascript:void(0)"
+                           onclick="aipo.viewPage('tab=calendar','')">ブロック</a>
+                    </li>
+                    <li class="active"><a href="javascript:void(0)"
+                                          onclick="aipo.viewPage('tab=list','')">一覧</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="snDrawer"><a id="snDrawer" href="javascript:void(0)" onclick="widgetMenuSwitch()"><i
+                class="icon-caret-up"></i></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /auiPortletBody -->
+        <div class="auiPortletFoot">
+          <div class="inner"></div>
+        </div>
+      </div>
+      <!-- /PORTLET OUTER -->
+
+      <script type="text/javascript">
+        //<![CDATA[
+
+        dojo.require("aimluck.widget.Menu");
+
+        dojo.addOnLoad(function () {
+
+          var subMenu =
+          [];
+
+          var menubar = new aimluck.widget.Menubar({id: "mbar", items: subMenu}, "portletMenu");
+
+        });
+
+        //]]>
+      </script>
+
+
+    </div>
+  </div>
+  <!-- /MAIN OUTER  -->
+
+
+  <script type="text/javascript" src="/javascript/aipo/saas_dialog/dialog.js?1490240382000"></script>
+  <!-- FOOTER -->
+  <div class="modalDialogUnderlayWrapper" id="guide1" widgetid="aimluck_widget_DialogUnderlay_1"
+       style="display: none; opacity: 1;">
+    <div class="modalDialogUnderlay"></div>
+  </div>
+  <div id="guide2" class="modalDialog mb_dialog" widgetid="modalDialog" title=""
+       style="display: none; opacity: 1; top: 50px;">
+    <div style="position: relative; z-index: 2;">
+
+      <div class="auiPopup clearfix">
+        <div class="auiPopupHead clearfix">
+          <div class="auiPopupTool">
+            <div><a href="javascript:void(0)" class="auiButtonIcon" title="閉じる"
+                    onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2');"><span><i
+            class="icon-remove"></i></span></a></div>
+          </div>
+          <div class="auiPopupTitle">管理ガイド</div>
+        </div>
+        <div class="roundBlockContent">
+
+          <h3>メンバーを招待しましょう</h3>
+
+          <div class="clearfix">
+            <i class="icon-group pull-left fcGrayLight mr20 ml10" style="font-size:60px;"></i>
+
+            <p>同僚やパートナーをAipo.comに招待しましょう！</p>
+
+            <p>Aipo.comにはメンバーと情報を共有してコミュニケーションを最適化する機能が備わっています。</p>
+          </div>
+          <p class="center mb15"><a class="auiButtonAction"
+                                    href="javascript:aipo.common.showDialog('');"
+                                    onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">ユーザーを追加する</a></p>
+
+          <div class="mb_hide">
+            <h3>ページを設定しましょう</h3>
+
+            <div class="clearfix">
+              <i class="icon-cloud-download pull-left fcGrayLight mr20 ml10"
+                 style="font-size:60px; vertical-align:middle"></i>
+
+              <p>アプリの追加やレイアウトを変更して、ページを設定しましょう。</p>
+
+              <p>デフォルトアプリの他にも <a href="http://store.aipo.com/" target="_blank">Aipoストア</a> から、新しいアプリを追加して利用することもできます。
+              </p>
+            </div>
+            <p class="center mb15"><a class="auiButtonAction"
+                                      href="javascript:aipo.saas_dialog.startGuideCustomizeDialog();"
+                                      onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">ページを設定する</a></p>
+          </div>
+
+          <h3>みんなの画面を同じにしましょう</h3>
+
+          <div class="clearfix">
+            <i class="icon-desktop pull-left fcGrayLight mr20 ml10" style="font-size:60px; vertical-align:middle"></i>
+
+            <p>すべてのユーザーの画面を、管理者と同じ状態に統一できます。</p>
+
+            <p>限られた機能だけで充分なときや、追加した機能を使ってほしいときなど、組織や用途に応じて自由に設定することができます。</p>
+          </div>
+          <p class="center mb15"><a class="auiButtonAction"
+                                    href="javascript:aipo.common.showDialog('SaaSGadgetsPsmlFormScreen');"
+                                    onclick="dispMenubar(this,'guide1');dispMenubar(this,'guide2')">画面を統一する</a></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /FOOTER -->
+
+
+</div>
+<!-- /WRAPPER -->
+
+<div style="display: none;"></div>
+<!--<div class="modalDialogUnderlayWrapper" id="aimluck_widget_DialogUnderlay_0" widgetid="aimluck_widget_DialogUnderlay_0"-->
+<!--style="display: block;">-->
+<!--<div dojoattachpoint="node"></div>-->
+<!--</div>-->
+</body>
+</html>
